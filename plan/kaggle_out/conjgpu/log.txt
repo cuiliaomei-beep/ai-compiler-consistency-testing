@@ -1,0 +1,27 @@
+torch 2.14.0+cu130 cuda True
+[cpu] torch.complex64  pinv: |mode - eager| 1.15  |compile - eager| 1.15  |mode - op-by-op formula| 0  mode == vh.mT@S@u.mH: True  A@pinv@A==A under compile: False
+[cpu] torch.complex64  polar P: |mode - eager| 0.21  |compile - eager| 0.21  U@P==A under compile: False
+[cpu] torch.complex128 pinv: |mode - eager| 1.04  |compile - eager| 1.04  |mode - op-by-op formula| 0  mode == vh.mT@S@u.mH: True  A@pinv@A==A under compile: False
+[cpu] torch.complex128 polar P: |mode - eager| 0.579  |compile - eager| 0.579  U@P==A under compile: False
+[cpu] torch.float32    pinv: |mode - eager| 0  |compile - eager| 0  |mode - op-by-op formula| 0  mode == vh.mT@S@u.mH: True  A@pinv@A==A under compile: True
+[cpu] torch.float32    polar P: |mode - eager| 0  |compile - eager| 0  U@P==A under compile: True
+[cuda] torch.complex64  pinv: |mode - eager| 0  |compile - eager| 0  |mode - op-by-op formula| 0  mode == vh.mT@S@u.mH: False  A@pinv@A==A under compile: True
+[cuda] torch.complex64  polar P: |mode - eager| 2.07  |compile - eager| 2.07  U@P==A under compile: False
+[cuda] torch.complex128 pinv: |mode - eager| 0  |compile - eager| 0  |mode - op-by-op formula| 0  mode == vh.mT@S@u.mH: False  A@pinv@A==A under compile: True
+[cuda] torch.complex128 polar P: |mode - eager| 1.78  |compile - eager| 1.78  U@P==A under compile: False
+[cuda] torch.float32    pinv: |mode - eager| 0  |compile - eager| 0  |mode - op-by-op formula| 5.96e-08  mode == vh.mT@S@u.mH: True  A@pinv@A==A under compile: True
+[cuda] torch.float32    polar P: |mode - eager| 0  |compile - eager| 0  U@P==A under compile: True
+torch 2.15.0.dev20260921+cu130 cuda True
+[cpu] torch.complex64  pinv: |mode - eager| 1.15  |compile - eager| 1.15  |mode - op-by-op formula| 0  mode == vh.mT@S@u.mH: True  A@pinv@A==A under compile: False
+[cpu] torch.complex64  polar P: |mode - eager| 0.21  |compile - eager| 0.21  U@P==A under compile: False
+[cpu] torch.complex128 pinv: |mode - eager| 1.04  |compile - eager| 1.04  |mode - op-by-op formula| 0  mode == vh.mT@S@u.mH: True  A@pinv@A==A under compile: False
+[cpu] torch.complex128 polar P: |mode - eager| 0.579  |compile - eager| 0.579  U@P==A under compile: False
+[cpu] torch.float32    pinv: |mode - eager| 0  |compile - eager| 0  |mode - op-by-op formula| 0  mode == vh.mT@S@u.mH: True  A@pinv@A==A under compile: True
+[cpu] torch.float32    polar P: |mode - eager| 0  |compile - eager| 0  U@P==A under compile: True
+[cuda] torch.complex64  pinv: |mode - eager| 0  |compile - eager| 0  |mode - op-by-op formula| 0  mode == vh.mT@S@u.mH: False  A@pinv@A==A under compile: True
+[cuda] torch.complex64  polar P: |mode - eager| 2.07  |compile - eager| 2.07  U@P==A under compile: False
+[cuda] torch.complex128 pinv: |mode - eager| 0  |compile - eager| 0  |mode - op-by-op formula| 0  mode == vh.mT@S@u.mH: False  A@pinv@A==A under compile: True
+[cuda] torch.complex128 polar P: |mode - eager| 1.78  |compile - eager| 1.78  U@P==A under compile: False
+[cuda] torch.float32    pinv: |mode - eager| 0  |compile - eager| 0  |mode - op-by-op formula| 5.96e-08  mode == vh.mT@S@u.mH: True  A@pinv@A==A under compile: True
+[cuda] torch.float32    polar P: |mode - eager| 0  |compile - eager| 0  U@P==A under compile: True
+JOB DONE

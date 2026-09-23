@@ -1,0 +1,59 @@
+{
+  "factor_changed": "substitute",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "use_relu=False",
+    "factors": {
+      "substitute": {
+        "arg": 1,
+        "value": false
+      }
+    },
+    "warm": true,
+    "origin": "use_relu"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "python_flag_semantic",
+    "factor": "use_relu",
+    "kind": "flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "T/F both paths",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "exception"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "parameter steers control flow",
+    "param": "use_relu",
+    "dim": null
+  },
+  "triage": {
+    "stage": "specialization_cache",
+    "stage_label": "cache specialization (guard / stale artifact reuse)",
+    "priority": "high",
+    "rationale": "changing 'substitute' did not trigger a recompile, yet the warm result differs from a cold compile of the same context: a cached artifact was reused under assumptions that no longer hold",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": false,
+    "guard_suspicious": false,
+    "warm_only": true,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": true
+  }
+}

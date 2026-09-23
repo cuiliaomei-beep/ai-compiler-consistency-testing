@@ -1,0 +1,43 @@
+{
+  "stats": {
+    "ops": 21,
+    "samples": 41,
+    "variants": 477,
+    "decomp_covered": 278,
+    "decomp_mismatch": 1,
+    "meta_mismatch": 0,
+    "data_dependent": 0,
+    "errors": 0,
+    "wall_s": 5.1
+  },
+  "mismatches": [
+    {
+      "op": "bmm",
+      "variant": "size1_dim0",
+      "kind": "decomp",
+      "detail": "[exception] ref raised RuntimeError, test returned normally",
+      "decomps_hit": [
+        "aten.bmm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          1,
+          32,
+          1
+        ],
+        [
+          16,
+          1,
+          64
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    }
+  ]
+}

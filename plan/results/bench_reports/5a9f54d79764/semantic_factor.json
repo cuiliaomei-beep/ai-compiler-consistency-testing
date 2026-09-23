@@ -1,0 +1,50 @@
+{
+  "factor_changed": "layout",
+  "context": {
+    "name": "layout=noncontig",
+    "factors": {
+      "layout": "noncontig"
+    },
+    "warm": true,
+    "origin": "x.stride"
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": {
+    "site": "stride_read",
+    "factor": "x.stride",
+    "kind": "stride",
+    "values": [
+      "noncontig",
+      "transposed"
+    ],
+    "constraint": "stride variants",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "stride read in the source",
+    "param": "x",
+    "dim": null
+  },
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  }
+}

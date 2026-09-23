@@ -1,0 +1,239 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.4 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.bfloat16 instead
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.bfloat16 instead
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead
+torch 2.14.0+cpu
+[abs(complex64, out=float64)] eager=float64(3, 4) | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call
+[abs(complex64, out=bfloat16)] eager=bfloat16(3, 4) | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call
+[abs(complex64, out=float32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)
+[abs(float32, out=float64)] eager=raise RuntimeError | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call
+[angle(complex64, out=float64)] eager=float64(3, 4) | aot_eager=float64(3, 4) | inductor=float64(3, 4)
+[nan_to_num(complex64)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: RuntimeError: Complex dtype is not supported for isneginf, got dtype torch.complex64
+[nan_to_num(complex64, nan=0.5)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: RuntimeError: Complex dtype is not supported for isneginf, got dtype torch.complex64
+[nan_to_num(complex64 no nan)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: RuntimeError: Complex dtype is not supported for isneginf, got dtype torch.complex64
+[nan_to_num(float32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 8.8 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.bfloat16 instead
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.bfloat16 instead
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 359, in _fn
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 220, in _safe_copy_out
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead
+torch 2.15.0.dev20260912+cpu
+[abs(complex64, out=float64)] eager=float64(3, 4) | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call
+[abs(complex64, out=bfloat16)] eager=bfloat16(3, 4) | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call
+[abs(complex64, out=float32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)
+[abs(float32, out=float64)] eager=raise RuntimeError | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call
+[angle(complex64, out=float64)] eager=float64(3, 4) | aot_eager=float64(3, 4) | inductor=float64(3, 4)
+[nan_to_num(complex64)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: TypeError: Complex dtype is not supported for isneginf, got dtype torch.complex64
+[nan_to_num(complex64, nan=0.5)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: TypeError: Complex dtype is not supported for isneginf, got dtype torch.complex64
+[nan_to_num(complex64 no nan)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: TypeError: Complex dtype is not supported for isneginf, got dtype torch.complex64
+[nan_to_num(float32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 277983 bytes to __results__.html

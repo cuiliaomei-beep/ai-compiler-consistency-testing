@@ -1,0 +1,725 @@
+[{"stream_name":"stdout","time":2.075714109,"data":"$ pip -q install nnsmith certifi expecttest hypothesis\n"}
+,{"stream_name":"stdout","time":6.370076142,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 90.5/90.5 kB 3.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.448807569,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 1.2/1.2 MB 28.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.516056356,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 163.1/163.1 kB 14.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.844953036,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 33.1/33.1 MB 63.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":10.397033123,"data":"$ /usr/bin/python3 run.py selfcheck\n"}
+,{"stream_name":"stderr","time":14.985954545,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":14.985994453,"data":"    Found GPU0 Tesla P100-PCIE-16GB which is of cuda capability 6.0.\n"}
+,{"stream_name":"stderr","time":14.986000962,"data":"    Minimum and Maximum cuda capability supported by this version of PyTorch is\n"}
+,{"stream_name":"stderr","time":14.986005687,"data":"    (7.0) - (12.0)\n"}
+,{"stream_name":"stderr","time":14.986010318,"data":"    \n"}
+,{"stream_name":"stderr","time":14.986015001,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":14.986019177,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":14.986023585,"data":"    Please install PyTorch with a following CUDA\n"}
+,{"stream_name":"stderr","time":14.9860276,"data":"    configurations:  12.6 following instructions at\n"}
+,{"stream_name":"stderr","time":14.986031862,"data":"    https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":14.986036294,"data":"    \n"}
+,{"stream_name":"stderr","time":14.986040347,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":14.986054913,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":14.986059742,"data":"Tesla P100-PCIE-16GB with CUDA capability sm_60 is not compatible with the current PyTorch installation.\n"}
+,{"stream_name":"stderr","time":14.986064243,"data":"The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stderr","time":14.986068674,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":14.986072886,"data":"\n"}
+,{"stream_name":"stderr","time":14.986077201,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":21.466917256,"data":"\n"}
+,{"stream_name":"stdout","time":21.466963093,"data":"tcc self-check\n"}
+,{"stream_name":"stdout","time":21.466967686,"data":"========================================================================\n"}
+,{"stream_name":"stdout","time":21.466971018,"data":"  [PASS] 6.3: x.shape[0] \u003e= 32 -\u003e 31/32/33                           [[32, 31, 33]]\n"}
+,{"stream_name":"stdout","time":21.466974938,"data":"  [PASS] 6.3: n % 16 == 0 -\u003e 15/16/17/31/32/33                       [[16, 17, 15, 32, 33, 31]]\n"}
+,{"stream_name":"stdout","time":21.46697824,"data":"  [PASS] 6.2: use_fast -\u003e flag {True, False}                         [{'param': 'use_fast', 'role': 'flag', 'values': [True, False], 'line': 2, 'reason': 'used directly as a branch condition'}]\n"}
+,{"stream_name":"stdout","time":21.466997824,"data":"  [PASS] 7: x.shape[0] -\u003e n -\u003e i -\u003e x[i]                             [['x.shape[0]', 'i', 'x[i]']]\n"}
+,{"stream_name":"stdout","time":21.467000717,"data":"  [PASS] 8: view + in-place -\u003e mutation_visible/partial_write facts  facts=['mutation_visible', 'partial_write'] groups=[['x', 'y']]\n"}
+,{"stream_name":"stdout","time":21.467003213,"data":"  [PASS] 9/10: SCS -\u003e obligations -\u003e single-factor contexts          4 obligations, 10 contexts\n"}
+,{"stream_name":"stdout","time":21.467005714,"data":"  [PASS] 5.2: IR kinds Assign/Branch/Mutation/Return + deps          ['Assign', 'Branch', 'Mutation', 'Return'] ['alias', 'control', 'data']\n"}
+,{"stream_name":"stdout","time":21.467008165,"data":"  [PASS] 5.1: compilation sites (decorator, call, triton.jit)        [('decorator', 'g', 'torch.compile'), ('decorator', 'k', 'triton.jit'), ('call', 'h', 'torch.compile')]\n"}
+,{"stream_name":"stdout","time":21.467010596,"data":"  [PASS] 18.5: signature stable under whitespace, separates factors  33bb397b8df1 befd442c6fd7\n"}
+,{"stream_name":"stdout","time":21.467012938,"data":"  [PASS] 18.5: dedup suppresses repeats                              {'unique': 1, 'total': 2}\n"}
+,{"stream_name":"stdout","time":21.46701548,"data":"  [PASS] torch importable                                            torch 2.10.0+cu128 cuda 12.8 device Tesla P100-PCIE-16GB\n"}
+,{"stream_name":"stdout","time":21.46701787,"data":"  [PASS] backend 'eager' resolvable                                  \n"}
+,{"stream_name":"stdout","time":21.467020143,"data":"  [PASS] backend 'aot_eager' resolvable                              \n"}
+,{"stream_name":"stdout","time":21.467022398,"data":"  [PASS] backend 'inductor' resolvable                               \n"}
+,{"stream_name":"stdout","time":21.467024854,"data":"  [FAIL] compile counter                                             AcceleratorError: CUDA error: no kernel image is available for execution on the device\n"}
+,{"stream_name":"stdout","time":21.46702734,"data":"Search for `cudaErrorNoKernelImageForDevice' in htt\n"}
+,{"stream_name":"stdout","time":21.467029623,"data":"  [FAIL] O1 value oracle                                             AcceleratorError: CUDA error: no kernel image is available for execution on the device\n"}
+,{"stream_name":"stdout","time":21.467032061,"data":"Search for `cudaErrorNoKernelImageForDevice' in htt\n"}
+,{"stream_name":"stdout","time":21.467035545,"data":"  [FAIL] O4/O5                                                       AcceleratorError: CUDA error: no kernel image is available for execution on the device\n"}
+,{"stream_name":"stdout","time":21.467038103,"data":"Search for `cudaErrorNoKernelImageForDevice' in htt\n"}
+,{"stream_name":"stdout","time":21.467040365,"data":"  [FAIL] O3                                                          AcceleratorError: CUDA error: no kernel image is available for execution on the device\n"}
+,{"stream_name":"stdout","time":21.467042781,"data":"Search for `cudaErrorNoKernelImageForDevice' in htt\n"}
+,{"stream_name":"stdout","time":21.467045098,"data":"  [FAIL] O6                                                          AcceleratorError: CUDA error: no kernel image is available for execution on the device\n"}
+,{"stream_name":"stdout","time":21.467047525,"data":"Search for `cudaErrorNoKernelImageForDevice' in htt\n"}
+,{"stream_name":"stdout","time":21.467049765,"data":"  [FAIL] O7                                                          AcceleratorError: CUDA error: no kernel image is available for execution on the device\n"}
+,{"stream_name":"stdout","time":21.467054954,"data":"Search for `cudaErrorNoKernelImageForDevice' in htt\n"}
+,{"stream_name":"stdout","time":21.467057349,"data":"  [FAIL] 16: staged localization                                     AcceleratorError: CUDA error: no kernel image is available for execution on the device\n"}
+,{"stream_name":"stdout","time":21.467059922,"data":"Search for `cudaErrorNoKernelImageForDevice' in htt\n"}
+,{"stream_name":"stdout","time":21.467062173,"data":"\n"}
+,{"stream_name":"stdout","time":21.467064322,"data":"  14/21 checks passed\n"}
+,{"stream_name":"stdout","time":21.467066557,"data":"  Pipeline output is NOT trustworthy until these pass.\n"}
+,{"stream_name":"stdout","time":23.497613494,"data":"$ /usr/bin/python3 run.py decomp --isolate --samples 2 --out gpu_results_decomp\n"}
+,{"stream_name":"stderr","time":29.49541108,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":29.495468183,"data":"    Found GPU0 Tesla P100-PCIE-16GB which is of cuda capability 6.0.\n"}
+,{"stream_name":"stderr","time":29.495476854,"data":"    Minimum and Maximum cuda capability supported by this version of PyTorch is\n"}
+,{"stream_name":"stderr","time":29.495483136,"data":"    (7.0) - (12.0)\n"}
+,{"stream_name":"stderr","time":29.49548906,"data":"    \n"}
+,{"stream_name":"stderr","time":29.495494265,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":29.495499571,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":29.495504865,"data":"    Please install PyTorch with a following CUDA\n"}
+,{"stream_name":"stderr","time":29.495509945,"data":"    configurations:  12.6 following instructions at\n"}
+,{"stream_name":"stderr","time":29.495515187,"data":"    https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":29.495520842,"data":"    \n"}
+,{"stream_name":"stderr","time":29.495525954,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":29.495804975,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":29.495818024,"data":"Tesla P100-PCIE-16GB with CUDA capability sm_60 is not compatible with the current PyTorch installation.\n"}
+,{"stream_name":"stderr","time":29.495823935,"data":"The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stderr","time":29.495829575,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":29.495835112,"data":"\n"}
+,{"stream_name":"stderr","time":29.495840045,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":277.847220896,"data":"isolated decomp sweep: 589 operators, 0 already done, 589 to go\n"}
+,{"stream_name":"stdout","time":277.847282556,"data":"[25/589] abs .. atan\n"}
+,{"stream_name":"stdout","time":277.847292506,"data":"  DECOMP mv                                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847300428,"data":"  DECOMP addcdiv                              dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=False\n"}
+,{"stream_name":"stdout","time":277.847307867,"data":"[50/589] atan2 .. resolve_neg\n"}
+,{"stream_name":"stdout","time":277.847314287,"data":"[75/589] view_as_complex .. diag_embed\n"}
+,{"stream_name":"stdout","time":277.847320783,"data":"  DECOMP cross                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.8473553,"data":"[100/589] diagonal .. kthvalue\n"}
+,{"stream_name":"stdout","time":277.847359473,"data":"  DECOMP frac                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847363188,"data":"  DECOMP stft                                 dtype_bool     [exception] exception type differs: NotImplementedError vs RuntimeError :: stft(  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847367062,"data":"  DECOMP stft                                 dtype_bool     [exception] exception type differs: NotImplementedError vs RuntimeError :: stft(  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847370962,"data":"  DECOMP isin                                 dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=False\n"}
+,{"stream_name":"stdout","time":277.847375013,"data":"[125/589] le .. nanmedian\n"}
+,{"stream_name":"stdout","time":277.847378491,"data":"  DECOMP logaddexp                            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847382102,"data":"  DECOMP logaddexp2                           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847385792,"data":"  child exit -11: The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stdout","time":277.847390437,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stdout","time":277.847394316,"data":"\n"}
+,{"stream_name":"stdout","time":277.847398084,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":277.847401617,"data":"  child exit -11: The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stdout","time":277.847405555,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stdout","time":277.847412299,"data":"\n"}
+,{"stream_name":"stdout","time":277.847416803,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":277.847420465,"data":"  CRASH  lu_unpack                            process exit -11 (timeout if -999)\n"}
+,{"stream_name":"stdout","time":277.847424231,"data":"[150/589] var_mean .. nn.functional.normalize\n"}
+,{"stream_name":"stdout","time":277.847428124,"data":"  DECOMP std_mean                             huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847432263,"data":"  DECOMP std_mean                             huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847436348,"data":"  DECOMP heaviside                            dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.8474403,"data":"  DECOMP softmax                              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847444446,"data":"  DECOMP nn.functional.softmin                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847448481,"data":"  DECOMP nn.functional.cross_entropy          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847457223,"data":"  DECOMP nn.functional.cross_entropy          empty_last     [exception] exception type differs: RuntimeError vs AssertionError :: weight ten  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847461144,"data":"  DECOMP nn.functional.cross_entropy          size1_last     [exception] exception type differs: RuntimeError vs AssertionError :: weight ten  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847465065,"data":"  DECOMP nn.functional.cross_entropy          dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847469261,"data":"  DECOMP nn.functional.cross_entropy          dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847473185,"data":"[175/589] aminmax .. nn.functional.group_norm\n"}
+,{"stream_name":"stdout","time":277.847476967,"data":"  DECOMP native_batch_norm                    zero_dim       [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847480866,"data":"  DECOMP native_batch_norm                    dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847485239,"data":"  DECOMP native_batch_norm                    empty_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847489384,"data":"  META   native_batch_norm                    size1_dim0     fake-tensor path raised ZeroDivisionError: float division by zero\n"}
+,{"stream_name":"stdout","time":277.847493499,"data":"  DECOMP nn.functional.adaptive_max_pool1d    dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847497835,"data":"  DECOMP nn.functional.binary_cross_entropy_with_logits dtype_float16  [metadata] output[0].dtype: torch.float16 vs torch.float32  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847501594,"data":"  META   nn.functional.binary_cross_entropy_with_logits dtype_float16  output[0] dtype torch.float32 vs real torch.float16\n"}
+,{"stream_name":"stdout","time":277.847505167,"data":"  DECOMP nn.functional.binary_cross_entropy_with_logits dtype_bfloat16 [metadata] output[0].dtype: torch.bfloat16 vs torch.float32  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847508929,"data":"  META   nn.functional.binary_cross_entropy_with_logits dtype_bfloat16 output[0] dtype torch.float32 vs real torch.bfloat16\n"}
+,{"stream_name":"stdout","time":277.847512783,"data":"[200/589] nn.functional.instance_norm .. nn.functional.multilabel_margin_loss\n"}
+,{"stream_name":"stdout","time":277.847516592,"data":"  META   nn.functional.pad                    channels_last  output[0] stride (126, 42, 7, 1) vs real (126, 1, 21, 3)\n"}
+,{"stream_name":"stdout","time":277.847520217,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.84752386,"data":"  DECOMP nn.functional.pad                    size1_last     [exception] ref raised RuntimeError, test returned normally  confirmed=False\n"}
+,{"stream_name":"stdout","time":277.847534096,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847536974,"data":"  META   nn.functional.pad                    channels_last  output[0] stride (60, 20, 5, 1) vs real (60, 1, 15, 3)\n"}
+,{"stream_name":"stdout","time":277.847542874,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847545402,"data":"  META   nn.functional.pad                    channels_last  output[0] stride (72, 12, 12, 1) vs real (72, 1, 72, 6)\n"}
+,{"stream_name":"stdout","time":277.847547797,"data":"  DECOMP nn.functional.hardswish              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.84755127,"data":"  DECOMP nn.functional.hardswish              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847553701,"data":"  DECOMP nn.functional.unfold                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847556254,"data":"  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":277.84757523,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847579478,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847583577,"data":"  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":277.847587808,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847592079,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.84759638,"data":"  DECOMP nn.functional.interpolate            empty_last     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847600077,"data":"  DECOMP nn.functional.interpolate            size1_last     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847603696,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847607427,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847611155,"data":"  DECOMP nn.functional.soft_margin_loss       size1_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847614826,"data":"  DECOMP nn.functional.soft_margin_loss       size1_last     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":277.847618467,"data":"  DECOMP nn.functional.soft_margin_loss       zero_dim       [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.586951038,"data":"  DECOMP nn.functional.soft_margin_loss       dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587009064,"data":"  DECOMP nn.functional.soft_margin_loss       dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587080086,"data":"  META   nn.functional.upsample_nearest       empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":344.587086511,"data":"  DECOMP nn.functional.upsample_nearest       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587090853,"data":"  DECOMP nn.functional.upsample_nearest       dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587095122,"data":"  DECOMP nn.functional.multi_margin_loss      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.58709889,"data":"  DECOMP nn.functional.multi_margin_loss      dtype_float16  [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587102507,"data":"  DECOMP nn.functional.multi_margin_loss      dtype_bfloat16 [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.58710653,"data":"  DECOMP nn.functional.multi_margin_loss      nan_inf        [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587110483,"data":"  DECOMP nn.functional.multilabel_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587114055,"data":"  DECOMP nn.functional.multilabel_margin_loss dtype_float16  [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587117756,"data":"  DECOMP nn.functional.multilabel_margin_loss dtype_bfloat16 [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587121448,"data":"  DECOMP nn.functional.multilabel_margin_loss nan_inf        [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587125551,"data":"[225/589] nn.functional.leaky_relu .. nn.functional.logsigmoid\n"}
+,{"stream_name":"stdout","time":344.587129469,"data":"  DECOMP nn.functional.multilabel_soft_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587135547,"data":"  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587139488,"data":"  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587143393,"data":"  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587147239,"data":"  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587151434,"data":"  META   nn.functional.max_unpool2d           base           output[0] stride (72, 36, 6, 1) vs real (72, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587155615,"data":"  META   nn.functional.max_unpool2d           size1_dim0     output[0] stride (72, 36, 6, 1) vs real (72, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.58716472,"data":"  META   nn.functional.max_unpool2d           noncontig      output[0] stride (72, 36, 6, 1) vs real (72, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587168541,"data":"  META   nn.functional.max_unpool2d           channels_last  output[0] stride (72, 36, 6, 1) vs real (72, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587172708,"data":"  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587176628,"data":"  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.58718098,"data":"  META   nn.functional.max_unpool2d           huge           output[0] stride (72, 36, 6, 1) vs real (72, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587184793,"data":"  META   nn.functional.max_unpool2d           tiny           output[0] stride (72, 36, 6, 1) vs real (72, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587188595,"data":"  META   nn.functional.max_unpool2d           dtype_float16  output[0] stride (72, 36, 6, 1) vs real (72, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587192371,"data":"  META   nn.functional.max_unpool2d           dtype_bfloat16 output[0] stride (72, 36, 6, 1) vs real (72, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587196006,"data":"  META   nn.functional.max_unpool2d           base           output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587199972,"data":"  META   nn.functional.max_unpool2d           size1_dim0     output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587204137,"data":"  META   nn.functional.max_unpool2d           noncontig      output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.5872083,"data":"  META   nn.functional.max_unpool2d           channels_last  output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587212006,"data":"  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587216125,"data":"  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587220086,"data":"  META   nn.functional.max_unpool2d           huge           output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587224,"data":"  META   nn.functional.max_unpool2d           tiny           output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587227811,"data":"  META   nn.functional.max_unpool2d           dtype_float16  output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587231886,"data":"  META   nn.functional.max_unpool2d           dtype_bfloat16 output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587235773,"data":"  META   nn.functional.max_unpool2d           channels_last  output[0] stride (72, 36, 6, 1) vs real (72, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":344.587239623,"data":"  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.58724355,"data":"  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.58724751,"data":"  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587254442,"data":"  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587258798,"data":"  DECOMP nn.functional.prelu                  dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587263015,"data":"  DECOMP nn.functional.celu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587267221,"data":"  DECOMP nn.functional.celu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587271957,"data":"  DECOMP nn.functional.silu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587276183,"data":"  DECOMP nn.functional.silu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587280308,"data":"  DECOMP nn.functional.hardsigmoid            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587284528,"data":"  DECOMP nn.functional.hardsigmoid            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587288899,"data":"  DECOMP nn.functional.logsigmoid             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587292863,"data":"[250/589] nn.functional.mish .. narrow\n"}
+,{"stream_name":"stdout","time":344.587296855,"data":"  DECOMP nn.functional.threshold              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.58730093,"data":"  DECOMP nn.functional.batch_norm             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587304957,"data":"  DECOMP nn.functional.binary_cross_entropy   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587309111,"data":"  DECOMP nn.functional.binary_cross_entropy   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587313038,"data":"  DECOMP nn.functional.binary_cross_entropy   nan_inf        [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587317298,"data":"  DECOMP nn.functional.binary_cross_entropy   huge           [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587321547,"data":"  DECOMP nn.functional.binary_cross_entropy   dtype_float16  [metadata] output[0].dtype: torch.float16 vs torch.float32  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587325661,"data":"  META   nn.functional.binary_cross_entropy   dtype_float16  output[0] dtype torch.float32 vs real torch.float16\n"}
+,{"stream_name":"stdout","time":344.587329609,"data":"  DECOMP nn.functional.binary_cross_entropy   dtype_bfloat16 [metadata] output[0].dtype: torch.bfloat16 vs torch.float32  confirmed=True\n"}
+,{"stream_name":"stdout","time":344.587333488,"data":"  META   nn.functional.binary_cross_entropy   dtype_bfloat16 output[0] dtype torch.float32 vs real torch.bfloat16\n"}
+,{"stream_name":"stdout","time":537.680727647,"data":"  DECOMP nn.functional.hardshrink             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680779198,"data":"  DECOMP nn.functional.gelu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680784331,"data":"  DECOMP nn.functional.gelu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.6807883,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.68079158,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680794966,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680798244,"data":"[275/589] narrow_copy .. split\n"}
+,{"stream_name":"stdout","time":537.680801121,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680804246,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680807274,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680810305,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680813396,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680816439,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680819489,"data":"  META   split                                empty_dim0     fake-tensor path raised IndexError: list assignment index out of range\n"}
+,{"stream_name":"stdout","time":537.680822504,"data":"[300/589] split .. square\n"}
+,{"stream_name":"stdout","time":537.680825356,"data":"  META   split                                empty_dim0     fake-tensor path raised IndexError: list assignment index out of range\n"}
+,{"stream_name":"stdout","time":537.680828394,"data":"  META   unsafe_split                         empty_dim0     fake-tensor path raised IndexError: list assignment index out of range\n"}
+,{"stream_name":"stdout","time":537.680831439,"data":"[325/589] lerp .. atleast_2d\n"}
+,{"stream_name":"stdout","time":537.680835699,"data":"  DECOMP lerp                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680838838,"data":"  DECOMP lerp                                 dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=False\n"}
+,{"stream_name":"stdout","time":537.680857647,"data":"[350/589] atleast_3d .. char\n"}
+,{"stream_name":"stdout","time":537.680875834,"data":"  DECOMP index_add                            zero_dim       [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680900279,"data":"  DECOMP index_reduce                         empty_last     [exception] ref raised IndexError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.68090493,"data":"[375/589] double .. histogram\n"}
+,{"stream_name":"stdout","time":537.680908866,"data":"[400/589] histogramdd .. trapezoid\n"}
+,{"stream_name":"stdout","time":537.680912274,"data":"[425/589] cumulative_trapezoid .. erfinv\n"}
+,{"stream_name":"stdout","time":537.680915719,"data":"  DECOMP trace                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.68091943,"data":"  DECOMP trace                                dtype_float16  [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680923072,"data":"  DECOMP trace                                dtype_bfloat16 [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680926897,"data":"[450/589] nn.functional.smooth_l1_loss .. nn.functional.embedding\n"}
+,{"stream_name":"stdout","time":537.680930437,"data":"  DECOMP nn.functional.smooth_l1_loss         dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680934255,"data":"  DECOMP log_softmax                          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680944274,"data":"  DECOMP norm                                 size1_last     [metadata] output[0].shape: (5, 5) vs (5, 5, 1)  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680946883,"data":"  META   norm                                 size1_last     output[0] shape (5, 5, 1) vs real (5, 5)\n"}
+,{"stream_name":"stdout","time":537.680949315,"data":"[475/589] nn.functional.embedding_bag .. hash_tensor\n"}
+,{"stream_name":"stdout","time":537.680951685,"data":"  DECOMP nn.functional.softplus               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680954105,"data":"  DECOMP nn.functional.mse_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680957222,"data":"  DECOMP nn.functional.grid_sample            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680959721,"data":"  DECOMP nn.functional.grid_sample            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680962084,"data":"  DECOMP grid_sampler_2d                      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680964446,"data":"  DECOMP grid_sampler_2d                      dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680966908,"data":"  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680969314,"data":"  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680990035,"data":"[500/589] nn.functional.ctc_loss .. fft.hfft\n"}
+,{"stream_name":"stdout","time":537.680994424,"data":"  DECOMP nn.functional.nll_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.680998688,"data":"  DECOMP nn.functional.nll_loss               dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.681002685,"data":"  DECOMP nn.functional.nll_loss               dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.681006967,"data":"  DECOMP nn.functional.nll_loss               dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.681011017,"data":"  DECOMP nn.functional.huber_loss             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.681014675,"data":"  DECOMP nn.functional.huber_loss             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":537.681018422,"data":"  META   nn.functional.channel_shuffle        channels_last  output[0] stride (384, 64, 8, 1) vs real (384, 1, 48, 6)\n"}
+,{"stream_name":"stdout","time":537.681022102,"data":"  META   nn.functional.channel_shuffle        channels_last  output[0] stride (200, 25, 5, 1) vs real (200, 1, 40, 8)\n"}
+,{"stream_name":"stdout","time":537.681026625,"data":"  META   fft.fft                              base           output[0] stride (42, 7, 1) vs real (1, 35, 5)\n"}
+,{"stream_name":"stdout","time":537.6810302,"data":"  META   fft.fft                              size1_last     output[0] stride (6, 1, 1) vs real (1, 5, 30)\n"}
+,{"stream_name":"stdout","time":537.681033767,"data":"  META   fft.fft                              prime_dim0     output[0] stride (42, 7, 1) vs real (1, 49, 7)\n"}
+,{"stream_name":"stdout","time":537.681037328,"data":"  META   fft.fft                              noncontig      output[0] stride (42, 7, 1) vs real (1, 35, 5)\n"}
+,{"stream_name":"stdout","time":537.681040914,"data":"  META   fft.fft                              prime_all      output[0] stride (143, 13, 1) vs real (1, 91, 7)\n"}
+,{"stream_name":"stdout","time":537.681046627,"data":"  META   fft.fft                              dtype_int64    output[0] stride (42, 7, 1) vs real (1, 35, 5)\n"}
+,{"stream_name":"stdout","time":537.68105037,"data":"  META   fft.fft                              dtype_bool     output[0] stride (42, 7, 1) vs real (1, 35, 5)\n"}
+,{"stream_name":"stdout","time":537.681055941,"data":"  META   fft.fft                              nan_inf        output[0] stride (42, 7, 1) vs real (1, 35, 5)\n"}
+,{"stream_name":"stdout","time":537.681062825,"data":"  META   fft.fft                              huge           output[0] stride (42, 7, 1) vs real (1, 35, 5)\n"}
+,{"stream_name":"stdout","time":537.681065297,"data":"  META   fft.fft                              tiny           output[0] stride (42, 7, 1) vs real (1, 35, 5)\n"}
+,{"stream_name":"stdout","time":537.681067718,"data":"[525/589] fft.hfft2 .. linalg.eigvals\n"}
+,{"stream_name":"stdout","time":537.681070019,"data":"  META   fft.rfft2                            base           output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":537.68107242,"data":"  META   fft.rfft2                            size1_last     output[0] stride (6, 1, 1) vs real (1, 3, 18)\n"}
+,{"stream_name":"stdout","time":537.68108705,"data":"  META   fft.rfft2                            prime_dim0     output[0] stride (42, 7, 1) vs real (1, 28, 4)\n"}
+,{"stream_name":"stdout","time":537.681096698,"data":"  META   fft.rfft2                            noncontig      output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":537.681101492,"data":"  META   fft.rfft2                            prime_all      output[0] stride (143, 13, 1) vs real (1, 52, 4)\n"}
+,{"stream_name":"stdout","time":537.681105781,"data":"  META   fft.rfft2                            dtype_int64    output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":537.681109436,"data":"  META   fft.rfft2                            dtype_bool     output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":537.681112992,"data":"  META   fft.rfft2                            nan_inf        output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":537.681116504,"data":"  META   fft.rfft2                            huge           output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":581.544144945,"data":"  META   fft.rfft2                            tiny           output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":581.54419038,"data":"  META   fft.rfftn                            base           output[0] stride (24, 4, 1) vs real (4, 20, 1)\n"}
+,{"stream_name":"stdout","time":581.544197074,"data":"  META   fft.rfftn                            size1_last     output[0] stride (6, 1, 1) vs real (1, 5, 1)\n"}
+,{"stream_name":"stdout","time":581.544228032,"data":"  META   fft.rfftn                            prime_dim0     output[0] stride (24, 4, 1) vs real (4, 28, 1)\n"}
+,{"stream_name":"stdout","time":581.544232428,"data":"  META   fft.rfftn                            noncontig      output[0] stride (24, 4, 1) vs real (4, 20, 1)\n"}
+,{"stream_name":"stdout","time":581.544235976,"data":"  META   fft.rfftn                            prime_all      output[0] stride (77, 7, 1) vs real (7, 49, 1)\n"}
+,{"stream_name":"stdout","time":581.544239148,"data":"  META   fft.rfftn                            dtype_int64    output[0] stride (24, 4, 1) vs real (4, 20, 1)\n"}
+,{"stream_name":"stdout","time":581.544242385,"data":"  META   fft.rfftn                            dtype_bool     output[0] stride (24, 4, 1) vs real (4, 20, 1)\n"}
+,{"stream_name":"stdout","time":581.544245902,"data":"  META   fft.rfftn                            nan_inf        output[0] stride (24, 4, 1) vs real (4, 20, 1)\n"}
+,{"stream_name":"stdout","time":581.544263929,"data":"  META   fft.rfftn                            huge           output[0] stride (24, 4, 1) vs real (4, 20, 1)\n"}
+,{"stream_name":"stdout","time":581.544270031,"data":"  META   fft.rfftn                            tiny           output[0] stride (24, 4, 1) vs real (4, 20, 1)\n"}
+,{"stream_name":"stdout","time":581.544275455,"data":"  META   fft.ifft                             base           output[0] stride (42, 7, 1) vs real (42, 1, 6)\n"}
+,{"stream_name":"stdout","time":581.54428119,"data":"  META   fft.ifft                             size1_dim0     output[0] stride (42, 7, 1) vs real (42, 1, 6)\n"}
+,{"stream_name":"stdout","time":581.544286447,"data":"  META   fft.ifft                             prime_dim0     output[0] stride (42, 7, 1) vs real (42, 1, 6)\n"}
+,{"stream_name":"stdout","time":581.544291217,"data":"  META   fft.ifft                             noncontig      output[0] stride (42, 7, 1) vs real (42, 1, 6)\n"}
+,{"stream_name":"stdout","time":581.544296005,"data":"  META   fft.ifft                             prime_all      output[0] stride (143, 13, 1) vs real (143, 1, 11)\n"}
+,{"stream_name":"stdout","time":581.544300617,"data":"  META   fft.ifft                             dtype_int64    output[0] stride (42, 7, 1) vs real (42, 1, 6)\n"}
+,{"stream_name":"stdout","time":581.544315412,"data":"  META   fft.ifft                             dtype_bool     output[0] stride (42, 7, 1) vs real (42, 1, 6)\n"}
+,{"stream_name":"stdout","time":581.544319232,"data":"  META   fft.ifft                             nan_inf        output[0] stride (42, 7, 1) vs real (42, 1, 6)\n"}
+,{"stream_name":"stdout","time":581.544324784,"data":"  META   fft.ifft                             huge           output[0] stride (42, 7, 1) vs real (42, 1, 6)\n"}
+,{"stream_name":"stdout","time":581.544334337,"data":"  META   fft.ifft                             tiny           output[0] stride (42, 7, 1) vs real (42, 1, 6)\n"}
+,{"stream_name":"stdout","time":581.544337241,"data":"  META   fft.ihfft                            base           output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":581.544339618,"data":"  META   fft.ihfft                            size1_last     output[0] stride (6, 1, 1) vs real (1, 3, 18)\n"}
+,{"stream_name":"stdout","time":581.544341915,"data":"  META   fft.ihfft                            prime_dim0     output[0] stride (42, 7, 1) vs real (1, 28, 4)\n"}
+,{"stream_name":"stdout","time":581.54434421,"data":"  META   fft.ihfft                            noncontig      output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":581.544347115,"data":"  META   fft.ihfft                            prime_all      output[0] stride (143, 13, 1) vs real (1, 52, 4)\n"}
+,{"stream_name":"stdout","time":581.54435807,"data":"  META   fft.ihfft                            dtype_int64    output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":581.544373104,"data":"  META   fft.ihfft                            dtype_bool     output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":581.544377535,"data":"  META   fft.ihfft                            nan_inf        output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":581.544381471,"data":"  META   fft.ihfft                            huge           output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":581.544385651,"data":"  META   fft.ihfft                            tiny           output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":581.544389708,"data":"  DECOMP linalg.cross                         dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":581.544393942,"data":"[550/589] linalg.eigh .. linalg.solve_ex\n"}
+,{"stream_name":"stdout","time":581.544397415,"data":"  DECOMP linalg.vector_norm                   size1_last     [metadata] output[0].shape: (3,) vs (3, 1)  confirmed=True\n"}
+,{"stream_name":"stdout","time":581.544401119,"data":"  META   linalg.vector_norm                   size1_last     output[0] shape (3, 1) vs real (3,)\n"}
+,{"stream_name":"stdout","time":581.544404613,"data":"[575/589] linalg.solve_triangular .. masked.amax\n"}
+,{"stream_name":"stdout","time":581.544408012,"data":"[600/589] masked.amin .. masked.logsumexp\n"}
+,{"stream_name":"stdout","time":581.544411692,"data":"  DECOMP masked.softmax                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":581.544415414,"data":"  DECOMP masked.log_softmax                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":581.544419651,"data":"  DECOMP masked.softmin                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":581.54442828,"data":"  DECOMP masked.logaddexp                     dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":581.544432611,"data":"{\"ops\": 553, \"samples\": 1065, \"variants\": 15145, \"decomp_covered\": 5585, \"decomp_mismatch\": 124, \"meta_mismatch\": 85, \"data_dependent\": 234, \"errors\": 0, \"wall_s\": 549.9, \"crashes\": 1}\n"}
+,{"stream_name":"stdout","time":581.544439507,"data":"written gpu_results_decomp/DECOMP_DIFF.md\n"}
+,{"stream_name":"stdout","time":582.578548931,"data":"$ /usr/bin/python3 run.py decomp --isolate --grad --samples 1 --out gpu_results_decomp_grad\n"}
+,{"stream_name":"stderr","time":586.238507141,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":586.238543122,"data":"    Found GPU0 Tesla P100-PCIE-16GB which is of cuda capability 6.0.\n"}
+,{"stream_name":"stderr","time":586.238548885,"data":"    Minimum and Maximum cuda capability supported by this version of PyTorch is\n"}
+,{"stream_name":"stderr","time":586.238552584,"data":"    (7.0) - (12.0)\n"}
+,{"stream_name":"stderr","time":586.238555796,"data":"    \n"}
+,{"stream_name":"stderr","time":586.238559056,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":586.2385622,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":586.238565951,"data":"    Please install PyTorch with a following CUDA\n"}
+,{"stream_name":"stderr","time":586.238569189,"data":"    configurations:  12.6 following instructions at\n"}
+,{"stream_name":"stderr","time":586.238572878,"data":"    https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":586.238576653,"data":"    \n"}
+,{"stream_name":"stderr","time":586.238579968,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":586.238725371,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":586.238736715,"data":"Tesla P100-PCIE-16GB with CUDA capability sm_60 is not compatible with the current PyTorch installation.\n"}
+,{"stream_name":"stderr","time":586.238740016,"data":"The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stderr","time":586.238743151,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":586.238746664,"data":"\n"}
+,{"stream_name":"stderr","time":586.238749762,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":754.316521666,"data":"isolated decomp sweep: 589 operators, 0 already done, 589 to go\n"}
+,{"stream_name":"stdout","time":754.31657376,"data":"[25/589] abs .. atan\n"}
+,{"stream_name":"stdout","time":754.316580704,"data":"  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: Dimension spec  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316586555,"data":"  DECOMP mv                                   zero_dim       [exception] exception type differs: IndexError vs RuntimeError :: matrix @ vecto  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.31659249,"data":"  DECOMP mv                                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316598057,"data":"  DECOMP addcdiv                              dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316637493,"data":"[50/589] atan2 .. resolve_neg\n"}
+,{"stream_name":"stdout","time":754.316643064,"data":"[75/589] view_as_complex .. diag_embed\n"}
+,{"stream_name":"stdout","time":754.316647868,"data":"  DECOMP cross                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316653467,"data":"[100/589] diagonal .. kthvalue\n"}
+,{"stream_name":"stdout","time":754.316658204,"data":"  DECOMP frac                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316663219,"data":"  DECOMP stft                                 empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316667697,"data":"  DECOMP stft                                 size1_last     [exception] exception type differs: RuntimeError vs IndexError :: index -8 is ou  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316672114,"data":"  DECOMP stft                                 zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: index -8 is ou  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316676532,"data":"  DECOMP stft                                 dtype_bool     [exception] exception type differs: NotImplementedError vs RuntimeError :: stft(  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316680927,"data":"  DECOMP isin                                 dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316685273,"data":"[125/589] le .. nanmedian\n"}
+,{"stream_name":"stdout","time":754.316689172,"data":"  DECOMP logaddexp                            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.31669528,"data":"  DECOMP logaddexp2                           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316699619,"data":"[150/589] var_mean .. nn.functional.normalize\n"}
+,{"stream_name":"stdout","time":754.316703726,"data":"  DECOMP std_mean                             huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316708249,"data":"  DECOMP std_mean                             tiny           [value] output[2]: compiled err vs fp64 = 1.092e-02 exceeds 4.0x eager err 1.855  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316712658,"data":"  DECOMP std_mean                             huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.31671712,"data":"  DECOMP std_mean                             tiny           [value] output[2]: compiled err vs fp64 = 1.890e-01 exceeds 4.0x eager err 1.728  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.31672606,"data":"  DECOMP softmax                              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316740583,"data":"  DECOMP nn.functional.cross_entropy          empty_last     [exception] exception type differs: IndexError vs RuntimeError :: index 0 is out  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316745752,"data":"  DECOMP nn.functional.cross_entropy          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.31675678,"data":"[175/589] aminmax .. nn.functional.group_norm\n"}
+,{"stream_name":"stdout","time":754.316761643,"data":"  DECOMP native_batch_norm                    dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316766068,"data":"  DECOMP nn.functional.adaptive_max_pool2d    dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316770435,"data":"  DECOMP nn.functional.binary_cross_entropy_with_logits dtype_float16  [metadata] output[0].dtype: torch.float16 vs torch.float32  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316774824,"data":"  META   nn.functional.binary_cross_entropy_with_logits dtype_float16  output[0] dtype torch.float32 vs real torch.float16\n"}
+,{"stream_name":"stdout","time":754.316779169,"data":"  DECOMP nn.functional.binary_cross_entropy_with_logits dtype_bfloat16 [metadata] output[0].dtype: torch.bfloat16 vs torch.float32  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316784005,"data":"  META   nn.functional.binary_cross_entropy_with_logits dtype_bfloat16 output[0] dtype torch.float32 vs real torch.bfloat16\n"}
+,{"stream_name":"stdout","time":754.316788435,"data":"  DECOMP nn.functional.group_norm             huge           [value] output[0]: NaN/Inf present on one side only  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316792835,"data":"[200/589] nn.functional.instance_norm .. nn.functional.multilabel_margin_loss\n"}
+,{"stream_name":"stdout","time":754.31679691,"data":"  DECOMP nn.functional.pad                    empty_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.3168012,"data":"  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316805567,"data":"  DECOMP nn.functional.pad                    size1_last     [exception] exception type differs: RuntimeError vs IndexError :: index -2 is ou  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316810001,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316818714,"data":"  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316822889,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316836919,"data":"  META   nn.functional.pad                    channels_last  output[0] stride (60, 30, 2, 1) vs real (60, 1, 4, 2)\n"}
+,{"stream_name":"stdout","time":754.31684188,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316846781,"data":"  DECOMP nn.functional.hardswish              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.3168518,"data":"  DECOMP nn.functional.hardswish              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316856189,"data":"  DECOMP nn.functional.hardswish              nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316864841,"data":"  DECOMP nn.functional.unfold                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.31686998,"data":"  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":754.316893149,"data":"  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: divisio  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.3169026,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316907745,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316912179,"data":"  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":754.316916663,"data":"  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316921106,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316925429,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316929856,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.3169342,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316938522,"data":"  DECOMP nn.functional.soft_margin_loss       dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":754.316942811,"data":"  META   nn.functional.upsample_nearest       empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":754.3169472,"data":"  DECOMP nn.functional.upsample_nearest       empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":754.316951577,"data":"  DECOMP nn.functional.upsample_nearest       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128431364,"data":"  DECOMP nn.functional.upsample_nearest       dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128478944,"data":"  DECOMP nn.functional.multi_margin_loss      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128483795,"data":"  DECOMP nn.functional.multi_margin_loss      nan_inf        [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.12848733,"data":"  DECOMP nn.functional.multilabel_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128501119,"data":"  DECOMP nn.functional.multilabel_margin_loss nan_inf        [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128504129,"data":"[225/589] nn.functional.leaky_relu .. nn.functional.logsigmoid\n"}
+,{"stream_name":"stdout","time":1031.128506461,"data":"  DECOMP nn.functional.multilabel_soft_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.12850905,"data":"  DECOMP nn.functional.max_pool1d             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128511506,"data":"  DECOMP max_pool2d_with_indices_backward     size1_last     [value] output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 0.000  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128513894,"data":"  child exit -6: If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stdout","time":1031.128516284,"data":"\n"}
+,{"stream_name":"stdout","time":1031.128518468,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":1031.128520724,"data":"double free or corruption (out)\n"}
+,{"stream_name":"stdout","time":1031.128523036,"data":"  DECOMP max_pool2d_with_indices_backward     base           [exception] test raised AttributeError, ref returned normally :: module 'torch._  confirmed=False\n"}
+,{"stream_name":"stdout","time":1031.128537599,"data":"  DECOMP nn.functional.max_pool3d             base           [exception] test raised AttributeError, ref returned normally :: module 'torch._  confirmed=False\n"}
+,{"stream_name":"stdout","time":1031.128542106,"data":"  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.12854642,"data":"  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128550563,"data":"  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128556465,"data":"  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128560828,"data":"  META   nn.functional.max_unpool2d           base           output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":1031.128564651,"data":"  META   nn.functional.max_unpool2d           noncontig      output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":1031.128568549,"data":"  META   nn.functional.max_unpool2d           channels_last  output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":1031.128572272,"data":"  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128575923,"data":"  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.1285796,"data":"  META   nn.functional.max_unpool2d           huge           output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":1031.128583235,"data":"  META   nn.functional.max_unpool2d           tiny           output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":1031.12859387,"data":"  META   nn.functional.max_unpool2d           dtype_float16  output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":1031.128596556,"data":"  META   nn.functional.max_unpool2d           dtype_bfloat16 output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":1031.128598894,"data":"  META   nn.functional.max_unpool2d           channels_last  output[0] stride (36, 18, 6, 1) vs real (36, 1, 12, 2)\n"}
+,{"stream_name":"stdout","time":1031.128601327,"data":"  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128603719,"data":"  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128606114,"data":"  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128608502,"data":"  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128611288,"data":"  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128613719,"data":"  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128616116,"data":"  META   nn.functional.glu                    channels_last  output[1] stride (192, 1, 24, 3) vs real (192, 64, 8, 1)\n"}
+,{"stream_name":"stdout","time":1031.128618469,"data":"  DECOMP nn.functional.prelu                  dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128620855,"data":"  DECOMP nn.functional.celu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.12862384,"data":"  DECOMP nn.functional.celu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128636916,"data":"  DECOMP nn.functional.silu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128641054,"data":"  DECOMP nn.functional.silu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128645282,"data":"  DECOMP nn.functional.hardsigmoid            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128649196,"data":"  DECOMP nn.functional.hardsigmoid            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128653523,"data":"  DECOMP nn.functional.logsigmoid             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128657861,"data":"[250/589] nn.functional.mish .. narrow\n"}
+,{"stream_name":"stdout","time":1031.128661316,"data":"  DECOMP nn.functional.threshold              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128668338,"data":"  DECOMP nn.functional.binary_cross_entropy   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128672142,"data":"  DECOMP nn.functional.binary_cross_entropy   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128675825,"data":"  DECOMP nn.functional.binary_cross_entropy   nan_inf        [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128680078,"data":"  DECOMP nn.functional.binary_cross_entropy   huge           [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128683877,"data":"  DECOMP nn.functional.hardshrink             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128687591,"data":"  DECOMP nn.functional.hardtanh               nan_inf        [value] output[1]: compiled err vs fp64 = 7.500e-01 exceeds 4.0x eager err 0.000  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128691343,"data":"  DECOMP nn.functional.gelu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128695046,"data":"  DECOMP nn.functional.gelu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128698759,"data":"  DECOMP nn.functional.relu6                  nan_inf        [value] output[1]: compiled err vs fp64 = 7.500e-01 exceeds 4.0x eager err 0.000  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128706193,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.12871098,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128713498,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128715933,"data":"[275/589] narrow_copy .. split\n"}
+,{"stream_name":"stdout","time":1031.128718208,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128721474,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.12873353,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.128737768,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1031.12874229,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502420365,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502486916,"data":"[300/589] split .. square\n"}
+,{"stream_name":"stdout","time":1407.502503372,"data":"  META   unsafe_split                         empty_dim0     fake-tensor path raised IndexError: list assignment index out of range\n"}
+,{"stream_name":"stdout","time":1407.502520921,"data":"[325/589] lerp .. atleast_2d\n"}
+,{"stream_name":"stdout","time":1407.5025253,"data":"  DECOMP lerp                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.50252947,"data":"[350/589] atleast_3d .. char\n"}
+,{"stream_name":"stdout","time":1407.502533395,"data":"  DECOMP index_copy                           empty_dim0     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":1407.502537448,"data":"  DECOMP index_add                            empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":1407.502541975,"data":"[375/589] double .. histogram\n"}
+,{"stream_name":"stdout","time":1407.502545698,"data":"[400/589] histogramdd .. trapezoid\n"}
+,{"stream_name":"stdout","time":1407.50254913,"data":"[425/589] cumulative_trapezoid .. erfinv\n"}
+,{"stream_name":"stdout","time":1407.502552823,"data":"  DECOMP trace                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.50255721,"data":"  DECOMP trace                                dtype_float16  [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502561321,"data":"  DECOMP trace                                dtype_bfloat16 [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502565075,"data":"[450/589] nn.functional.smooth_l1_loss .. nn.functional.embedding\n"}
+,{"stream_name":"stdout","time":1407.502568577,"data":"  DECOMP nn.functional.smooth_l1_loss         dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502572351,"data":"  DECOMP nn.functional.smooth_l1_loss         nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502575997,"data":"  DECOMP log_softmax                          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502579767,"data":"  DECOMP logit                                nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502583417,"data":"[475/589] nn.functional.embedding_bag .. hash_tensor\n"}
+,{"stream_name":"stdout","time":1407.502588682,"data":"  DECOMP nn.functional.softplus               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.50259235,"data":"  DECOMP nn.functional.mse_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502596161,"data":"  DECOMP nn.functional.mse_loss               dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502599771,"data":"  DECOMP nn.functional.grid_sample            empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502605304,"data":"  DECOMP nn.functional.grid_sample            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.50262955,"data":"  DECOMP grid_sampler_2d                      empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502634478,"data":"  DECOMP grid_sampler_2d                      zero_dim       [exception] exception type differs: IndexError vs ValueError :: not enough value  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502638617,"data":"  DECOMP grid_sampler_2d                      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502643017,"data":"  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502647306,"data":"  DECOMP std                                  tiny           [value] output[1]: compiled err vs fp64 = 1.083e-02 exceeds 4.0x eager err 1.376  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502651353,"data":"  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502655068,"data":"  DECOMP std                                  tiny           [value] output[1]: compiled err vs fp64 = 1.890e-01 exceeds 4.0x eager err 1.132  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502658765,"data":"[500/589] nn.functional.ctc_loss .. fft.hfft\n"}
+,{"stream_name":"stdout","time":1407.502662164,"data":"  child exit -6: If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stdout","time":1407.502665922,"data":"\n"}
+,{"stream_name":"stdout","time":1407.502669202,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":1407.502672653,"data":"corrupted double-linked list\n"}
+,{"stream_name":"stdout","time":1407.502676114,"data":"  child exit -6: If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stdout","time":1407.502680244,"data":"\n"}
+,{"stream_name":"stdout","time":1407.502683504,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":1407.502686788,"data":"double free or corruption (out)\n"}
+,{"stream_name":"stdout","time":1407.502690292,"data":"  CRASH  nn.functional.ctc_loss               process exit -6 (timeout if -999)\n"}
+,{"stream_name":"stdout","time":1407.502693735,"data":"  DECOMP nn.functional.nll_loss               channels_last  [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502697385,"data":"  DECOMP nn.functional.nll_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502701183,"data":"  DECOMP nn.functional.nll_loss               dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502710359,"data":"  DECOMP nn.functional.nll_loss               dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502725387,"data":"  DECOMP nn.functional.nll_loss               dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.50272963,"data":"  DECOMP nn.functional.huber_loss             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502737897,"data":"  DECOMP nn.functional.huber_loss             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502742236,"data":"  child exit -11: The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stdout","time":1407.502746034,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stdout","time":1407.502749664,"data":"\n"}
+,{"stream_name":"stdout","time":1407.502752985,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":1407.502756267,"data":"  CRASH  nn.functional.pdist                  process exit -11 (timeout if -999)\n"}
+,{"stream_name":"stdout","time":1407.50275974,"data":"  META   nn.functional.channel_shuffle        channels_last  output[0] stride (384, 64, 8, 1) vs real (384, 1, 48, 6)\n"}
+,{"stream_name":"stdout","time":1407.502763374,"data":"  META   fft.fft                              dtype_int64    output[0] stride (42, 7, 1) vs real (1, 35, 5)\n"}
+,{"stream_name":"stdout","time":1407.502766987,"data":"  META   fft.fft                              dtype_bool     output[0] stride (42, 7, 1) vs real (1, 35, 5)\n"}
+,{"stream_name":"stdout","time":1407.502770613,"data":"  META   fft.hfft                             base           output[1] stride (84, 14, 2) vs real (2, 70, 10)\n"}
+,{"stream_name":"stdout","time":1407.502774154,"data":"  META   fft.hfft                             size1_last     output[1] stride (12, 2, 2) vs real (2, 10, 60)\n"}
+,{"stream_name":"stdout","time":1407.502778243,"data":"  META   fft.hfft                             prime_dim0     output[1] stride (84, 14, 2) vs real (2, 98, 14)\n"}
+,{"stream_name":"stdout","time":1407.502781851,"data":"  META   fft.hfft                             noncontig      output[1] stride (84, 14, 2) vs real (2, 70, 10)\n"}
+,{"stream_name":"stdout","time":1407.502785388,"data":"  META   fft.hfft                             prime_all      output[1] stride (286, 26, 2) vs real (2, 182, 14)\n"}
+,{"stream_name":"stdout","time":1407.502788969,"data":"  META   fft.hfft                             nan_inf        output[1] stride (84, 14, 2) vs real (2, 70, 10)\n"}
+,{"stream_name":"stdout","time":1407.502792508,"data":"  META   fft.hfft                             huge           output[1] stride (84, 14, 2) vs real (2, 70, 10)\n"}
+,{"stream_name":"stdout","time":1407.50279616,"data":"  META   fft.hfft                             tiny           output[1] stride (84, 14, 2) vs real (2, 70, 10)\n"}
+,{"stream_name":"stdout","time":1407.502805747,"data":"[525/589] fft.hfft2 .. linalg.eigvals\n"}
+,{"stream_name":"stdout","time":1407.502820532,"data":"  META   fft.hfftn                            base           output[1] stride (84, 14, 2) vs real (2, 70, 10)\n"}
+,{"stream_name":"stdout","time":1407.50282517,"data":"  META   fft.hfftn                            size1_last     output[1] stride (12, 2, 2) vs real (2, 10, 60)\n"}
+,{"stream_name":"stdout","time":1407.502829152,"data":"  META   fft.hfftn                            prime_dim0     output[1] stride (84, 14, 2) vs real (2, 98, 14)\n"}
+,{"stream_name":"stdout","time":1407.502833136,"data":"  META   fft.hfftn                            noncontig      output[1] stride (84, 14, 2) vs real (2, 70, 10)\n"}
+,{"stream_name":"stdout","time":1407.502837212,"data":"  META   fft.hfftn                            prime_all      output[1] stride (286, 26, 2) vs real (2, 182, 14)\n"}
+,{"stream_name":"stdout","time":1407.502840782,"data":"  META   fft.hfftn                            nan_inf        output[1] stride (84, 14, 2) vs real (2, 70, 10)\n"}
+,{"stream_name":"stdout","time":1407.502848252,"data":"  META   fft.hfftn                            huge           output[1] stride (84, 14, 2) vs real (2, 70, 10)\n"}
+,{"stream_name":"stdout","time":1407.502851857,"data":"  META   fft.hfftn                            tiny           output[1] stride (84, 14, 2) vs real (2, 70, 10)\n"}
+,{"stream_name":"stdout","time":1407.50285543,"data":"  META   fft.rfft                             dtype_int64    output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":1407.502859008,"data":"  META   fft.rfft                             dtype_bool     output[0] stride (42, 7, 1) vs real (1, 21, 3)\n"}
+,{"stream_name":"stdout","time":1407.50286269,"data":"  DECOMP linalg.cross                         dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.502866366,"data":"[550/589] linalg.eigh .. linalg.solve_ex\n"}
+,{"stream_name":"stdout","time":1407.502869776,"data":"[575/589] linalg.solve_triangular .. masked.amax\n"}
+,{"stream_name":"stdout","time":1407.502873755,"data":"[600/589] masked.amin .. masked.logsumexp\n"}
+,{"stream_name":"stdout","time":1407.513986726,"data":"  DECOMP masked.softmax                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.514024965,"data":"  DECOMP masked.softmin                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.514030785,"data":"  DECOMP masked.logaddexp                     dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1407.514035298,"data":"{\"ops\": 558, \"samples\": 558, \"variants\": 7923, \"decomp_covered\": 7319, \"decomp_mismatch\": 126, \"meta_mismatch\": 37, \"data_dependent\": 196, \"errors\": 0, \"wall_s\": 820.0, \"crashes\": 2}\n"}
+,{"stream_name":"stdout","time":1407.514042255,"data":"written gpu_results_decomp_grad/DECOMP_DIFF.md\n"}
+,{"stream_name":"stdout","time":1408.627538696,"data":"$ /usr/bin/python3 run.py metamorphic --isolate --samples 2 --seed 2 --device cuda --relations config --configs dynamic,max_autotune,cudagraphs,no_persistent_reductions,no_multi_kernel --chunk-size 20 --out gpu_results_meta_cfg\n"}
+,{"stream_name":"stderr","time":1412.579959846,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":1412.580014819,"data":"    Found GPU0 Tesla P100-PCIE-16GB which is of cuda capability 6.0.\n"}
+,{"stream_name":"stderr","time":1412.580019292,"data":"    Minimum and Maximum cuda capability supported by this version of PyTorch is\n"}
+,{"stream_name":"stderr","time":1412.580021991,"data":"    (7.0) - (12.0)\n"}
+,{"stream_name":"stderr","time":1412.580024319,"data":"    \n"}
+,{"stream_name":"stderr","time":1412.580044623,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":1412.580049041,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":1412.580053264,"data":"    Please install PyTorch with a following CUDA\n"}
+,{"stream_name":"stderr","time":1412.580057242,"data":"    configurations:  12.6 following instructions at\n"}
+,{"stream_name":"stderr","time":1412.580061193,"data":"    https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":1412.580065266,"data":"    \n"}
+,{"stream_name":"stderr","time":1412.580068984,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":1412.580245041,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":1412.580267509,"data":"Tesla P100-PCIE-16GB with CUDA capability sm_60 is not compatible with the current PyTorch installation.\n"}
+,{"stream_name":"stderr","time":1412.580271396,"data":"The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stderr","time":1412.580274984,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":1412.580282652,"data":"\n"}
+,{"stream_name":"stderr","time":1412.580286298,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":1615.611000446,"data":"isolated metamorphic sweep: 589 operators, 0 already done, 589 to go\n"}
+,{"stream_name":"stdout","time":1615.611047519,"data":"[20/589] abs .. addr\n"}
+,{"stream_name":"stdout","time":1615.611054633,"data":"[40/589] addcmul .. chunk\n"}
+,{"stream_name":"stdout","time":1615.611059916,"data":"[60/589] unsafe_chunk .. cumprod\n"}
+,{"stream_name":"stdout","time":1615.611069417,"data":"[80/589] cummax .. eq\n"}
+,{"stream_name":"stdout","time":1615.611100702,"data":"[100/589] fmax .. kthvalue\n"}
+,{"stream_name":"stdout","time":1615.611105739,"data":"[120/589] le .. matrix_exp\n"}
+,{"stream_name":"stdout","time":1615.611110966,"data":"[140/589] matmul .. logical_and\n"}
+,{"stream_name":"stdout","time":1615.611124738,"data":"[160/589] logical_or .. nn.functional.adaptive_avg_pool2d\n"}
+,{"stream_name":"stdout","time":1615.611131559,"data":"[180/589] nn.functional.adaptive_avg_pool3d .. constant_pad_nd\n"}
+,{"stream_name":"stdout","time":1615.611145399,"data":"[200/589] nn.functional.pad .. nn.functional.multilabel_margin_loss\n"}
+,{"stream_name":"stdout","time":1615.61118193,"data":"[220/589] nn.functional.leaky_relu .. nn.functional.selu\n"}
+,{"stream_name":"stdout","time":1615.611187687,"data":"[240/589] torch.ops.aten._safe_softmax.default .. nn.functional.hardshrink\n"}
+,{"stream_name":"stdout","time":1615.611192694,"data":"[260/589] nn.functional.hardtanh .. float_power\n"}
+,{"stream_name":"stdout","time":1615.611197738,"data":"[280/589] qr .. rsub\n"}
+,{"stream_name":"stdout","time":1615.611202608,"data":"[300/589] select .. square\n"}
+,{"stream_name":"stdout","time":1615.611207574,"data":"[320/589] lerp .. reshape\n"}
+,{"stream_name":"stdout","time":1615.611212374,"data":"[340/589] reshape_as .. index_put\n"}
+,{"stream_name":"stdout","time":1615.611216844,"data":"[360/589] sort .. zeros_like\n"}
+,{"stream_name":"stdout","time":1615.611221987,"data":"[380/589] ones_like .. cat\n"}
+,{"stream_name":"stdout","time":1615.611226352,"data":"[400/589] unbind .. trapezoid\n"}
+,{"stream_name":"stdout","time":1615.61123068,"data":"[420/589] cumulative_trapezoid .. logcumsumexp\n"}
+,{"stream_name":"stdout","time":1615.611235064,"data":"[440/589] sigmoid .. jiterator_2inputs_2outputs\n"}
+,{"stream_name":"stdout","time":1615.611239521,"data":"[460/589] norm .. any\n"}
+,{"stream_name":"stdout","time":1615.611249364,"data":"[480/589] amax .. nn.functional.hinge_embedding_loss\n"}
+,{"stream_name":"stdout","time":1615.611252593,"data":"[500/589] nn.functional.huber_loss .. fft.hfft\n"}
+,{"stream_name":"stdout","time":1615.611255476,"data":"[520/589] fft.hfft2 .. linalg.cholesky\n"}
+,{"stream_name":"stdout","time":1615.611258383,"data":"[540/589] linalg.cholesky_ex .. linalg.slogdet\n"}
+,{"stream_name":"stdout","time":1615.611261291,"data":"[560/589] linalg.vander .. linalg.tensorsolve\n"}
+,{"stream_name":"stdout","time":1615.611264126,"data":"[580/589] signal.windows.hamming .. masked.median\n"}
+,{"stream_name":"stdout","time":1615.611267004,"data":"[600/589] masked.norm .. masked.logsumexp\n"}
+,{"stream_name":"stdout","time":1615.611298767,"data":"{\"ops\": 4, \"samples\": 8, \"compiles\": 18, \"relation_checks\": 10, \"not_applicable\": 0, \"violations\": 0, \"standard_differs\": 0, \"infra\": 0, \"wall_s\": 201.7, \"crashes\": 0}\n"}
+,{"stream_name":"stdout","time":1616.754337154,"data":"$ /usr/bin/python3 run.py aoti --isolate --samples 1 --device cuda --chunk-size 20 --out gpu_results_aoti\n"}
+,{"stream_name":"stderr","time":1620.589261763,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":1620.589298562,"data":"    Found GPU0 Tesla P100-PCIE-16GB which is of cuda capability 6.0.\n"}
+,{"stream_name":"stderr","time":1620.589307549,"data":"    Minimum and Maximum cuda capability supported by this version of PyTorch is\n"}
+,{"stream_name":"stderr","time":1620.5893103,"data":"    (7.0) - (12.0)\n"}
+,{"stream_name":"stderr","time":1620.589312715,"data":"    \n"}
+,{"stream_name":"stderr","time":1620.589314939,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":1620.58931731,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":1620.58931977,"data":"    Please install PyTorch with a following CUDA\n"}
+,{"stream_name":"stderr","time":1620.589321985,"data":"    configurations:  12.6 following instructions at\n"}
+,{"stream_name":"stderr","time":1620.589324209,"data":"    https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":1620.589326659,"data":"    \n"}
+,{"stream_name":"stderr","time":1620.589328819,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":1620.589546224,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":1620.589553844,"data":"Tesla P100-PCIE-16GB with CUDA capability sm_60 is not compatible with the current PyTorch installation.\n"}
+,{"stream_name":"stderr","time":1620.589557997,"data":"The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stderr","time":1620.589561954,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":1620.589565842,"data":"\n"}
+,{"stream_name":"stderr","time":1620.589569203,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":1817.335179186,"data":"isolated aoti sweep: 589 operators, 0 already done, 589 to go\n"}
+,{"stream_name":"stdout","time":1817.335220465,"data":"[20/589] abs .. addr\n"}
+,{"stream_name":"stdout","time":1817.335224587,"data":"[40/589] addcmul .. chunk\n"}
+,{"stream_name":"stdout","time":1817.335227795,"data":"[60/589] unsafe_chunk .. cumprod\n"}
+,{"stream_name":"stdout","time":1817.335230799,"data":"[80/589] cummax .. eq\n"}
+,{"stream_name":"stdout","time":1817.335233789,"data":"[100/589] fmax .. kthvalue\n"}
+,{"stream_name":"stdout","time":1817.335236743,"data":"[120/589] le .. matrix_exp\n"}
+,{"stream_name":"stdout","time":1817.33523976,"data":"[140/589] matmul .. logical_and\n"}
+,{"stream_name":"stdout","time":1817.335242854,"data":"[160/589] logical_or .. nn.functional.adaptive_avg_pool2d\n"}
+,{"stream_name":"stdout","time":1817.335246142,"data":"[180/589] nn.functional.adaptive_avg_pool3d .. constant_pad_nd\n"}
+,{"stream_name":"stdout","time":1817.335249322,"data":"[200/589] nn.functional.pad .. nn.functional.multilabel_margin_loss\n"}
+,{"stream_name":"stdout","time":1817.335252407,"data":"[220/589] nn.functional.leaky_relu .. nn.functional.selu\n"}
+,{"stream_name":"stdout","time":1817.335255414,"data":"[240/589] torch.ops.aten._safe_softmax.default .. nn.functional.hardshrink\n"}
+,{"stream_name":"stdout","time":1817.335267912,"data":"[260/589] nn.functional.hardtanh .. float_power\n"}
+,{"stream_name":"stdout","time":1817.335270392,"data":"[280/589] qr .. rsub\n"}
+,{"stream_name":"stdout","time":1817.335272577,"data":"[300/589] select .. square\n"}
+,{"stream_name":"stdout","time":1817.335274809,"data":"[320/589] lerp .. reshape\n"}
+,{"stream_name":"stdout","time":1817.335277019,"data":"[340/589] reshape_as .. index_put\n"}
+,{"stream_name":"stdout","time":1817.335279207,"data":"[360/589] sort .. zeros_like\n"}
+,{"stream_name":"stdout","time":1817.335281471,"data":"[380/589] ones_like .. cat\n"}
+,{"stream_name":"stdout","time":1817.335283625,"data":"[400/589] unbind .. trapezoid\n"}
+,{"stream_name":"stdout","time":1817.335285824,"data":"[420/589] cumulative_trapezoid .. logcumsumexp\n"}
+,{"stream_name":"stdout","time":1817.335288056,"data":"[440/589] sigmoid .. jiterator_2inputs_2outputs\n"}
+,{"stream_name":"stdout","time":1817.335290324,"data":"[460/589] norm .. any\n"}
+,{"stream_name":"stdout","time":1817.335292545,"data":"[480/589] amax .. nn.functional.hinge_embedding_loss\n"}
+,{"stream_name":"stdout","time":1817.335294794,"data":"[500/589] nn.functional.huber_loss .. fft.hfft\n"}
+,{"stream_name":"stdout","time":1817.335297009,"data":"[520/589] fft.hfft2 .. linalg.cholesky\n"}
+,{"stream_name":"stdout","time":1817.335299204,"data":"[540/589] linalg.cholesky_ex .. linalg.slogdet\n"}
+,{"stream_name":"stdout","time":1817.335301403,"data":"[560/589] linalg.vander .. linalg.tensorsolve\n"}
+,{"stream_name":"stdout","time":1817.3353036,"data":"[580/589] signal.windows.hamming .. masked.median\n"}
+,{"stream_name":"stdout","time":1817.335305834,"data":"[600/589] masked.norm .. masked.logsumexp\n"}
+,{"stream_name":"stdout","time":1817.335308131,"data":"{\"ops\": 4, \"samples\": 4, \"export_ok\": 1, \"export_fail\": 0, \"aoti_ok\": 0, \"aoti_fail\": 1, \"findings\": 0, \"export_only\": 0, \"aoti_only\": 0, \"shared_with_inductor\": 0, \"wall_s\": 195.4, \"crashes\": 0}\n"}
+,{"stream_name":"stdout","time":1818.506233587,"data":"$ /usr/bin/python3 run.py binding --isolate --samples 1 --device cuda --chunk-size 15 --out gpu_results_binding\n"}
+,{"stream_name":"stderr","time":1822.371205569,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":1822.371245841,"data":"    Found GPU0 Tesla P100-PCIE-16GB which is of cuda capability 6.0.\n"}
+,{"stream_name":"stderr","time":1822.371251797,"data":"    Minimum and Maximum cuda capability supported by this version of PyTorch is\n"}
+,{"stream_name":"stderr","time":1822.371255918,"data":"    (7.0) - (12.0)\n"}
+,{"stream_name":"stderr","time":1822.371259996,"data":"    \n"}
+,{"stream_name":"stderr","time":1822.371263415,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":1822.37126731,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":1822.371270999,"data":"    Please install PyTorch with a following CUDA\n"}
+,{"stream_name":"stderr","time":1822.371275122,"data":"    configurations:  12.6 following instructions at\n"}
+,{"stream_name":"stderr","time":1822.371278681,"data":"    https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":1822.371282403,"data":"    \n"}
+,{"stream_name":"stderr","time":1822.371285926,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":1822.371513797,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":1822.37152432,"data":"Tesla P100-PCIE-16GB with CUDA capability sm_60 is not compatible with the current PyTorch installation.\n"}
+,{"stream_name":"stderr","time":1822.371542565,"data":"The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stderr","time":1822.371546648,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":1822.371550412,"data":"\n"}
+,{"stream_name":"stderr","time":1822.371553674,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":2089.734143838,"data":"isolated binding sweep: 589 operators, 0 already done, 589 to go\n"}
+,{"stream_name":"stdout","time":2089.734202287,"data":"[15/589] abs .. baddbmm\n"}
+,{"stream_name":"stdout","time":2089.734208718,"data":"[30/589] dot .. broadcast_shapes\n"}
+,{"stream_name":"stdout","time":2089.734213098,"data":"[45/589] broadcast_tensors .. clamp\n"}
+,{"stream_name":"stdout","time":2089.734217384,"data":"[60/589] positive .. cumprod\n"}
+,{"stream_name":"stdout","time":2089.734221977,"data":"[75/589] cummax .. diag_embed\n"}
+,{"stream_name":"stdout","time":2089.734226382,"data":"[90/589] diagonal .. flipud\n"}
+,{"stream_name":"stdout","time":2089.734230481,"data":"[105/589] i0 .. logspace\n"}
+,{"stream_name":"stdout","time":2089.734234957,"data":"[120/589] log .. matrix_exp\n"}
+,{"stream_name":"stdout","time":2089.734239358,"data":"[135/589] matmul .. nanquantile\n"}
+,{"stream_name":"stdout","time":2089.734243767,"data":"[150/589] max .. nn.functional.normalize\n"}
+,{"stream_name":"stdout","time":2089.734248071,"data":"[165/589] aminmax .. nn.functional.avg_pool1d\n"}
+,{"stream_name":"stdout","time":2089.734252448,"data":"[180/589] nn.functional.avg_pool3d .. constant_pad_nd\n"}
+,{"stream_name":"stdout","time":2089.734256948,"data":"[195/589] nn.functional.pad .. nn.functional.upsample_bilinear\n"}
+,{"stream_name":"stdout","time":2089.734261277,"data":"[210/589] nn.functional.soft_margin_loss .. nn.functional.max_unpool2d\n"}
+,{"stream_name":"stdout","time":2089.734265867,"data":"[225/589] nn.functional.max_unpool2d .. nn.functional.logsigmoid\n"}
+,{"stream_name":"stdout","time":2089.734270015,"data":"[240/589] nn.functional.mish .. nn.functional.hardshrink\n"}
+,{"stream_name":"stdout","time":2089.734274252,"data":"[255/589] nn.functional.hardtanh .. outer\n"}
+,{"stream_name":"stdout","time":2089.734278488,"data":"[270/589] ormqr .. sin\n"}
+,{"stream_name":"stdout","time":2089.734283138,"data":"[285/589] sinc .. signbit\n"}
+,{"stream_name":"stdout","time":2089.734287199,"data":"[300/589] tan .. square\n"}
+,{"stream_name":"stdout","time":2089.734291195,"data":"[315/589] lerp .. polygamma\n"}
+,{"stream_name":"stdout","time":2089.734295331,"data":"[330/589] polygamma .. pinverse\n"}
+,{"stream_name":"stdout","time":2089.734299323,"data":"[345/589] gather .. take\n"}
+,{"stream_name":"stdout","time":2089.734303511,"data":"[360/589] scatter .. zeros_like\n"}
+,{"stream_name":"stdout","time":2089.734307953,"data":"[375/589] ones_like .. histogram\n"}
+,{"stream_name":"stdout","time":2089.734312102,"data":"[390/589] histogramdd .. repeat\n"}
+,{"stream_name":"stdout","time":2089.734316257,"data":"[405/589] squeeze .. zero_\n"}
+,{"stream_name":"stdout","time":2089.734321043,"data":"[420/589] logsumexp .. logcumsumexp\n"}
+,{"stream_name":"stdout","time":2089.734325621,"data":"[435/589] sigmoid .. nonzero_static\n"}
+,{"stream_name":"stdout","time":2089.734330193,"data":"[450/589] jiterator_unary .. nn.functional.embedding\n"}
+,{"stream_name":"stdout","time":2089.734334392,"data":"[465/589] nn.functional.embedding_bag .. count_nonzero\n"}
+,{"stream_name":"stdout","time":2089.734358868,"data":"[480/589] mean .. nn.functional.hinge_embedding_loss\n"}
+,{"stream_name":"stdout","time":2089.734363152,"data":"[495/589] nn.functional.huber_loss .. scatter_reduce\n"}
+,{"stream_name":"stdout","time":2089.734367163,"data":"[510/589] scatter_reduce .. fft.ihfft2\n"}
+,{"stream_name":"stdout","time":2089.734371147,"data":"[525/589] fft.ihfftn .. linalg.eigvals\n"}
+,{"stream_name":"stdout","time":2089.73437511,"data":"[540/589] linalg.eigh .. linalg.slogdet\n"}
+,{"stream_name":"stdout","time":2089.734378441,"data":"[555/589] linalg.vander .. linalg.pinv\n"}
+,{"stream_name":"stdout","time":2089.73438223,"data":"[570/589] linalg.pinv .. signal.windows.nuttall\n"}
+,{"stream_name":"stdout","time":2089.734386032,"data":"[585/589] masked.sum .. masked.log_softmax\n"}
+,{"stream_name":"stdout","time":2089.734389533,"data":"[600/589] masked.softmin .. masked.logsumexp\n"}
+,{"stream_name":"stdout","time":2089.734393093,"data":"{\"ops\": 3, \"samples\": 3, \"slots\": 3, \"variants\": 33, \"compiles\": 84, \"checks\": 84, \"findings\": 64, \"form_specific\": 0, \"infra\": 0, \"wall_s\": 266.1, \"crashes\": 0}\n"}
+,{"stream_name":"stdout","time":2090.757616399,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":2092.800865833,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2092.800911033,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2093.028636738,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2093.028665166,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2093.643229575,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2094.830209648,"data":"[NbConvertApp] Writing 283105 bytes to __results__.html\n"}
+]

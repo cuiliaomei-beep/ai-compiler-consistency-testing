@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{RQ1: detection of the 19 injected consistency faults (budget: 16 tests per program).}
+\label{tab:rq1}
+\footnotesize
+\begin{tabular}{@{}llccc@{}}
+\toprule
+Mechanism & Fault category & Faults & Detected & Alarms on fixed version \\
+\midrule
+\multirow{5}{*}{Code-generation deviation}
+  & generated value / boundary / tail & 4 & 4 & 0 \\
+  & shape and index relation & 4 & 4 & 0 \\
+  & dtype & 1 & 1 & 0 \\
+  & Python control flow & 2 & 2 & 0 \\
+  & alias and mutation & 2 & 2 & 0 \\
+JIT specialization inconsistency & under-specialized guard & 4 & 4 & 0 \\
+Cache consistency failure & stale / memoized artifact & 2 & 2 & 0 \\
+\midrule
+Total & & 19 & 19 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

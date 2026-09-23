@@ -1,0 +1,110 @@
+{
+  "signature": "4794588951bc",
+  "case": "shape_boundary",
+  "probe": "layered",
+  "triage": {
+    "stage": "layer:E_poison",
+    "priority": "high",
+    "rationale": "first divergence appears at layer 'E_poison'",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "layers_unavailable": [],
+    "submittable": true
+  },
+  "context": {
+    "name": "rows32",
+    "factors": {
+      "rows": 32
+    }
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "E_poison": {
+      "ref": "E0_eager",
+      "test": "E_poison",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 1.639e-06",
+          "magnitude": 1.0000016391277313,
+          "index": 0
+        }
+      ]
+    }
+  },
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "E_poison": {
+      "mode": "E_poison",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0221,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "Branch on a shape predicate; 31/32/33 straddle the boundary the static analysis would derive from `x.shape[0] >= 32`."
+}

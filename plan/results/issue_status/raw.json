@@ -1,0 +1,1732 @@
+[
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197084,
+  "title": "[aot_autograd] wrong gradients for `torch.linalg.pinv` and `torch.linalg.matrix_sqrth` with complex input under torch.compile (aot_eager and inductor); eager, functorch and Dynamo-only are correct",
+  "draft": "0913/01",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: complex",
+   "module: linear algebra",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: aotdispatch",
+   "module: pt2-dispatcher",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197085,
+  "title": "[dynamo] random.shuffle / random.sample inside a compiled function return the same permutation on every call (eager advances the RNG)",
+  "draft": "0913/02",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: dynamo",
+   "bot-triaged",
+   "release triage",
+   "dynamo-triaged"
+  ],
+  "human_labels": [
+   "dynamo-triaged (williamwen42)",
+   "module: correctness (silent) (williamwen42)",
+   "triaged (williamwen42)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 197768,
+    "title": "[dynamo] Fix random.shuffle/random.sample freezing across repeated compiled calls",
+    "state": "open",
+    "author": "aperson30",
+    "merged_at": null,
+    "fixes": true
+   },
+   {
+    "number": 198062,
+    "title": "[dynamo] Preserve persistent random state with graph breaks",
+    "state": "open",
+    "author": "williamwen42",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "VimalN2005",
+    "assoc": "NONE",
+    "at": "2026-09-19",
+    "body": "Hi team,\n\nI'd like to work on this issue. I have reproduced the behavior where `random.shuffle` and `random.sample` retain the traced permutation rather than advancing the Python RNG state across compiled executions.\n\nCould you please assign this issue to me? I will investigate `RandomVariable` handling in Dynamo and prepare a fix with regression tests. Thanks!"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197086,
+  "title": "[aot_autograd] process crash (access violation) when `torch.func.jvp` over `torch.ldexp` is compiled with `backend=\"aot_eager\"`",
+  "draft": "0913/03",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "module: crash",
+   "triaged",
+   "module: forward ad",
+   "oncall: pt2",
+   "module: aotdispatch",
+   "module: pt2-dispatcher",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197087,
+  "title": "[inductor][cpu] argmin/argmax under `dynamic=True` emits the index expression with Python `**` into C++ → CppCompileError",
+  "draft": "0913/04",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "oncall: pt2",
+   "oncall: cpu inductor",
+   "bot-triaged"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "chinmayirm",
+    "assoc": "NONE",
+    "at": "2026-09-21",
+    "body": "\nUnder `dynamic=True`, two equal sizes are unified to one symbol, so an arg-reduction index can contain a power (`ks1**2 * x0 + x1`). Sympy is allowed to write that. The CPU C++ backend then drops it into the kernel with Python `str()`:\n\n- `reduction_combine`: `f\"{reduction_type}_combine(..., {index})\"`\n- vectorized path: `arg_extra = f\", {self._adjust_argreduce_index(index)}\"`\n\n`str(expr)` uses `**`, which is not C++ (MSVC `C2100`, GCC unary `*`). The reduction itself is fine — the kernel never builds. Triton uses a different printer, so CUDA is unaffected. Static shapes, `amin`/`amax` (no index), and distinct inner sizes never produce that power, which is why the failure looks shape-depend"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197088,
+  "title": "[inductor][cudagraphs] `x.new_zeros(shape, device=\"cpu\")` inside a compiled function returns a **CUDA** tensor when `triton.cudagraphs` is on (eager and default config return a CPU tensor)",
+  "draft": "0913/05",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "module: cuda graphs",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [
+   "oonyshch"
+  ],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "oonyshch",
+    "assoc": "CONTRIBUTOR",
+    "at": "2026-09-17",
+    "body": "Taking a look"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197089,
+  "title": "[inductor][cpu] `torch.std`/`var` accumulate in float32: inf/NaN for 1e30-scale inputs, and **zero output with an all-zero gradient** for 1e-30-scale inputs (eager and float64 are correct)",
+  "draft": "0913/06",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "module: numerical-stability",
+   "module: cpu",
+   "triaged",
+   "module: NaNs and Infs",
+   "module: correctness (silent)",
+   "module: reductions",
+   "oncall: pt2",
+   "module: inductor",
+   "oncall: cpu inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197090,
+  "title": "[dynamo] `torch.func.jvp` inside a compiled function hits `INTERNAL ASSERT FAILED: InferenceMode::is_enabled() && primal.is_inference() && tangent.is_inference()` (`_make_dual`) for `torch.quantile` / `nanquantile` / `addr` under every backend",
+  "draft": "0913/07",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: forward ad",
+   "oncall: pt2",
+   "module: functorch",
+   "dynamo-functorch",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197091,
+  "title": "[inductor] `torch.ldexp` output dtype differs from eager in both directions (int/bool × half → float32; half × float32 → half)",
+  "draft": "0913/08",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 197162,
+    "title": "[inductor] Fix ldexp output dtype to match eager type promotion",
+    "state": "open",
+    "author": "SepehrRezaee",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197092,
+  "title": "[compiled autograd] backward of `F.interpolate(mode=\"bilinear\"/\"bicubic\"/\"linear\"/\"trilinear\")` fails with `isIntList() INTERNAL ASSERT FAILED` while running meta for `aten.upsample_bilinear2d_backward`",
+  "draft": "0913/09",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: interpolation",
+   "oncall: pt2",
+   "module: compiled autograd",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197093,
+  "title": "[dynamo] `dynamic=True`: f-string with a format spec on a SymInt/SymFloat (`f\"{x.shape[0]:d}\"`) raises InternalTorchDynamoError \"Unknown format code 'd' for object of type 'str'\"",
+  "draft": "0913/10",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "oncall: pt2",
+   "module: dynamic shapes",
+   "bot-triaged"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "tsho",
+    "assoc": "NONE",
+    "at": "2026-09-19",
+    "body": "Hi! \nI reproduced this on macOS with Python 3.14, both on PyTorch 2.14.0 and Version: 2.15.0a0+gitd3fbb10.., a source build at commit d3fbb10b81efb4542f5debef5cf01dbed77ec0b6.\n\nThe failure occurs in `LazySymNodeFormatString.__repr__`: the evaluated symbolic value is converted to `str` before the numeric format specifier is applied.\n\n```\nstr(self.sym_node_var.evaluate_expr()),\n```\nhttps://github.com/pytorch/pytorch/blob/5c73300d009f6985ac8a30171c1c7233de0af47b/torch/_dynamo/variables/lazy.py#L696\n\nI have a local fix that preserves the numeric value when formatting, along with regression tests for SymInt (`:d`) and SymFloat (`:.3f`). The tests use `dynamic=True` and `fullgraph=True` and check "
+   },
+   {
+    "by": "tsho",
+    "assoc": "NONE",
+    "at": "2026-09-20",
+    "body": "Thanks!\n\nAccording to the [PR lifecycle guide](https://github.com/pytorch/pytorch/wiki/Overview-of-the-Pull-Request-Lifecycle#making-your-code-change), the issue needs the `actionable` label before I submit a PR; otherwise, the PR will be closed without review. I'll wait for the maintainers to confirm that it's actionable before opening the PR."
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197094,
+  "title": "[inductor] `torch.compile(optimizer.step)` fails for SGD with `foreach=True` on complex parameters: \"AssertionError: <built-in function getitem> is not an OpOverload\" (eager and aot_eager work)",
+  "draft": "0913/11",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: complex",
+   "has workaround",
+   "oncall: pt2",
+   "module: inductor",
+   "module: pt2 optimizer",
+   "bot-triaged",
+   "dynamo-triaged"
+  ],
+  "human_labels": [
+   "dynamo-triaged (williamwen42)"
+  ],
+  "assignees": [
+   "hameerabbasi"
+  ],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "williamwen42",
+    "assoc": "MEMBER",
+    "at": "2026-09-18",
+    "body": "cc @hameerabbasi "
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197095,
+  "title": "[inductor] `F.interpolate` on a zero-size spatial dim returns uninitialised data (NaN) from an out-of-bounds read instead of raising; output size 0 is accepted silently",
+  "draft": "0913/12",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: decompositions",
+   "module: inductor",
+   "module: empty tensor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "malfet",
+    "assoc": "COLLABORATOR",
+    "at": "2026-09-18",
+    "body": "Tracked under #197554 ([PT2] Validation lost), an umbrella for cases where eager validates an input and the compiled path does not. Leaving this open as the record of the reproducer.\n\nNote this is deliberately *not* #195547: there the check was never written anywhere, whereas here eager raises correctly and the compiled path bypasses it — a different root and a different fix."
+   },
+   {
+    "by": "yashb98",
+    "assoc": "CONTRIBUTOR",
+    "at": "2026-09-21",
+    "body": "Hi, I'd like to take this one. I'll start by reproducing the eager-vs-compiled difference on current main, then work on a fix so the compiled path raises instead of reading out of bounds. I'll link the PR to the umbrella in #197554."
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197096,
+  "title": "[export][aoti] mutated lifted constant (instance_norm running stats captured from closure): export succeeds, run_decompositions raises, aoti_compile_and_package hits INTERNAL ASSERT",
+  "draft": "0913/13",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "module: functionalization",
+   "oncall: pt2",
+   "oncall: export",
+   "module: pt2-dispatcher",
+   "module: aotinductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "yushangdi",
+    "assoc": "CONTRIBUTOR",
+    "at": "2026-09-15",
+    "body": "I think this is kinda expected behavior. export() produces Training IR, which permits mutations. run_decompositions() and AOTI both perform functionalization, where mutation of lifted tensor constants is unsupported. \n"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197097,
+  "title": "[pt2] `linalg.vector_norm(ord=inf / -inf / negative, dim=-1)` on an empty *batch* fails at trace time — the empty-dimension check in `_refs/linalg` does not canonicalize a negative `dim` (eager returns an empty result)",
+  "draft": "0913/14",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: norms and normalization",
+   "oncall: pt2",
+   "module: decompositions",
+   "module: empty tensor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 197231,
+    "title": "[pt2] Fix linalg.vector_norm tracing on empty batch with negative dim",
+    "state": "open",
+    "author": "rahulrathnavel",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "rahulrathnavel",
+    "assoc": "NONE",
+    "at": "2026-09-16",
+    "body": "Hi everyone! I am a new contributor and found this bug really interesting to dive into. I have just submitted a complete fix and regression test for this in PR #197231 . \n\nI would greatly appreciate any feedback or guidance from the maintainers during the review process, Thanks in advance!"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197098,
+  "title": "[inductor] `binary_cross_entropy` with a weight of another dtype and `huber_loss` with mixed low-precision inputs return float32 under Inductor; eager and aot_eager return the input dtype",
+  "draft": "0913/15",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "oncall: pt2",
+   "oncall: cpu inductor",
+   "bot-triaged"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197099,
+  "title": "Backward of `F.pdist` on an input with zero rows crashes the process (SIGSEGV on Linux, integer division by zero on Windows), no Python exception",
+  "draft": "0913/16",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triage review",
+   "module: crash",
+   "module: autograd",
+   "module: distance functions",
+   "module: empty tensor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 197152,
+    "title": "[pdist] Fix process crash in pdist backward for zero-row inputs",
+    "state": "open",
+    "author": "SepehrRezaee",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "chinmayirm",
+    "assoc": "NONE",
+    "at": "2026-09-21",
+    "body": "Root cause\n- Forward of pdist on (0, d) is handled: Distance.cpp fills an empty result.\n- Backward is not. apply_backward_pdist is documented as assuming a nonempty self.\n- run_backward_parallel_pdist uses GRAIN_SIZE / (8 * n * n). For n == 0 that is integer division by zero (Windows STATUS_INTEGER_DIVIDE_BY_ZERO / Linux SIGSEGV). No Python exception.\n\nApproach\n- In apply_backward_pdist (or _pdist_backward), if self.size(0) == 0, leave the zero-filled result and return. Do not enter parallel_for.\n- Do not change the nonempty path.\n\nTests\n- n=0, d>0: backward returns zeros, process stays alive.\n- n=1 and n=2 still match current behavior.\n- Run the n=0 case in a subprocess so a crash is a test"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197101,
+  "title": "[dynamo] `random.seed()` inside a compiled function is ignored on the first (compiling) call — first call returns values from a different RNG state",
+  "draft": "0913/17",
+  "created": "2026-09-15",
+  "state": "closed",
+  "reason": "completed",
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: dynamo",
+   "bot-triaged",
+   "dynamo-triaged"
+  ],
+  "human_labels": [
+   "triaged (williamwen42)",
+   "dynamo-triaged (williamwen42)"
+  ],
+  "assignees": [],
+  "closed": {
+   "by": "pytorchmergebot",
+   "commit": "c8e4ab54e0",
+   "at": "2026-09-17"
+  },
+  "prs": [
+   {
+    "number": 197221,
+    "title": "[dynamo] Fix random.seed() not taking effect for scalar draws on the first compile",
+    "state": "closed",
+    "author": "aperson30",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197102,
+  "title": "[dynamo] Python 3.14 + `dynamic=True`: `==` between namedtuples that hold tensors overflows the stack (RecursionError) instead of comparing / raising like eager",
+  "draft": "0913/18",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "module: crash",
+   "triaged",
+   "oncall: pt2",
+   "module: dynamic shapes",
+   "module: python version",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197103,
+  "title": "[inductor][cpu][windows] `max_autotune`: bmm C++ template kernel is not exported (`extern \"C\"` without `__declspec(dllexport)`) → `AttributeError: function 'cpp_CppMicroGemmFP32Vec' not found`",
+  "draft": "0913/19",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "module: windows",
+   "module: cpu",
+   "triaged",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197104,
+  "title": "[aoti] `aoti_compile_and_package` fails for any model returning a `torch.return_types.*` named tuple (`torch.max(x, dim)`, `topk`, `cummax`, …): \"No registered serialization name for <class 'torch.return_types.max'>\"",
+  "draft": "0913/20",
+  "created": "2026-09-15",
+  "state": "closed",
+  "reason": "completed",
+  "labels": [
+   "triaged",
+   "module: pytree",
+   "oncall: pt2",
+   "oncall: export",
+   "module: aotinductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [
+   "yushangdi"
+  ],
+  "closed": {
+   "by": "pytorchmergebot",
+   "commit": "bc77d149b7",
+   "at": "2026-09-16"
+  },
+  "prs": [
+   {
+    "number": 197128,
+    "title": "[AOTI] Fix packaging of torch.return_types outputs",
+    "state": "closed",
+    "author": "yushangdi",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197105,
+  "title": "[inductor] `torch.lerp(bool_tensor, bool_tensor, scalar_tensor_weight)` works in eager but fails to compile: \"Subtraction, the `-` operator, with two bool tensors is not supported\"",
+  "draft": "0913/21",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: type promotion",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 197193,
+    "title": "[inductor] Fix torch.lerp with bool tensors: promote args before sub/addcmul in decompositions",
+    "state": "open",
+    "author": "N0AHZACH",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "N0AHZACH",
+    "assoc": "CONTRIBUTOR",
+    "at": "2026-09-16",
+    "body": "I'm a work on this - I have a rough idea on what to do on here"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197106,
+  "title": "[inductor] `torch.sum(x_half, dtype=torch.bool)` fails with a C++ compile error and `torch.prod(x, dtype=torch.bool)` with \"expected reduction_type in (min, max, any, sum)\"; both work in eager",
+  "draft": "0913/22",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "module: cpu",
+   "triaged",
+   "module: reductions",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "TANGBUDU",
+    "assoc": "CONTRIBUTOR",
+    "at": "2026-09-22",
+    "body": "I'd like to contribute a fix for this issue. The analysis below was prepared with Codex.\n\n> Reproduced on `f28a8c4796` with CPU vectorization enabled. I have a small lowering fix that uses `any` for boolean sums and `not(any(not(x)))` for boolean products, with regression coverage for low-precision and empty inputs.\n>\n> Would you consider this actionable?\n"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197107,
+  "title": "[inductor] `max_autotune`: `torch.addmm` with a 0-d (scalar) bias fails in `tuned_addmm` with `IndexError: list index out of range` (`inp.get_stride()[0]` evaluated before the rank check)",
+  "draft": "0913/23",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "actionable",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "actionable (jananisriram)"
+  ],
+  "assignees": [
+   "jananisriram"
+  ],
+  "closed": null,
+  "prs": [
+   {
+    "number": 197214,
+    "title": "Fix IndexError in tuned_addmm for 0-d scalar bias",
+    "state": "open",
+    "author": "rahulrathnavel",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "Rudra-G-23",
+    "assoc": "CONTRIBUTOR",
+    "at": "2026-09-16",
+    "body": "Hi, I'd like to work on this. My understanding is that the fix should guard/check the bias rank before accessing `inp.get_stride()[0]`, with a regression test covering a 0-d bias under `max_autotune`.\n\nIs that the preferred direction? If so, could this issue be marked `actionable`?\n"
+   },
+   {
+    "by": "rahulrathnavel",
+    "assoc": "NONE",
+    "at": "2026-09-16",
+    "body": "Hi, as a first time contributor I was really excited about this bug and have submitted a complete fix in PR #197214. \n\nI would greatly appreciate any feedback or guidance from the maintainers/fellow contributor to help get my first PyTorch contribution reviewed and merged!\nThanks in advance!"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197108,
+  "title": "[inductor] `torch.var_mean` / `torch.std_mean` on an empty tensor return mean `0.` instead of `nan` under `torch.compile`",
+  "draft": "0913/24",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "oncall: pt2",
+   "module: inductor",
+   "module: empty tensor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 197165,
+    "title": "[inductor] Fix var_mean/std_mean mean output on empty reductions",
+    "state": "open",
+    "author": "SepehrRezaee",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "he-yufeng",
+    "assoc": "CONTRIBUTOR",
+    "at": "2026-09-17",
+    "body": "Root-caused this to the Welford lowering path in `torch/_inductor/lowering.py`, and the scope table in the report falls out of the path selection logic exactly.\n\nWhy only the scalar full reduction is affected: `use_two_step_variance()` returns False exactly when the output is a scalar (`sympy_product(ranges) == 1` early-returns False), so `var_mean` on a `(0,)` input goes through `var_mean_welford_()`, while reducing an empty dim on a `(0, 3)` input takes the two-step `var_mean_sum_()` path.\n\nIn `var_mean_welford_()` the mean output is the raw Welford accumulator from `ir.WelfordReduction.create()`. On an empty reduction the accumulator never leaves its identity state (mean=0, m2=0, count=0)"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197109,
+  "title": "[Fake Tensor/Decomps] `F.channel_shuffle` / `native_channel_shuffle` drop the channels_last memory format of the input ",
+  "draft": "?",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: memory format",
+   "oncall: pt2",
+   "module: fakeTensor",
+   "module: decompositions",
+   "module: pt2-dispatcher",
+   "bot-triaged"
+  ],
+  "human_labels": [
+   "module: fakeTensor (eellison)",
+   "module: decompositions (eellison)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "eellison",
+    "assoc": "CONTRIBUTOR",
+    "at": "2026-09-21",
+    "body": "This is due to the decomp not preserving channels last."
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197110,
+  "title": "[dynamo] `str(KeyError(...))` inside a traced region omits the quotes CPython adds (`\"'k'\"` in eager, `'k'` compiled)",
+  "draft": "0913/26",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: dynamo",
+   "bot-triaged",
+   "dynamo-triaged"
+  ],
+  "human_labels": [
+   "triaged (williamwen42)",
+   "dynamo-triaged (williamwen42)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 197443,
+    "title": "[dynamo] Match CPython single-argument KeyError string formatting",
+    "state": "open",
+    "author": "JC230903",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "JC230903",
+    "assoc": "NONE",
+    "at": "2026-09-16",
+    "body": "Hi @cuiliaomei-beep, I'd be interested in working on this issue if it's available.\n\nI was able to understand the eager vs. Dynamo behavior described here and would like to investigate the exception string handling and add regression tests for the `KeyError` case.\n\nWould it be okay if I take this up and submit a PR?\n"
+   },
+   {
+    "by": "williamwen42",
+    "assoc": "MEMBER",
+    "at": "2026-09-17",
+    "body": "@JC230903 feel free to open a PR!"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197112,
+  "title": "[fake tensor] `torch.abs(complex, out=real_tensor_of_other_dtype)` is accepted by eager but rejected under torch.compile (meta requires out dtype == real dtype)",
+  "draft": "0913/27",
+  "created": "2026-09-15",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: complex",
+   "oncall: pt2",
+   "module: pt2-dispatcher",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "DannyChee1",
+    "assoc": "NONE",
+    "at": "2026-09-16",
+    "body": "Reproduced on nightly `2.15.0.dev20260915`.\n\nThe cause is `exact_dtype=True` on the `abs` ref (#140288). It's correct for real inputs, but eager also accepts any float `out` dtype (or the same complex dtype) for complex inputs. Removing it outright would let through cases eager rejects, like `float32` -> `float64`.\n\nMismatches (real/int inputs already match):\n\n| input | `out` dtype | eager | `aot_eager` |\n|---|---|---|---|\n| `complex64` | `float16`, `bfloat16`, `float64`, `complex64` | ok | raise |\n| `complex128` | `float16`, `bfloat16`, `float32`, `complex128` | ok | raise |\n\nFix: [commit](https://github.com/DannyChee1/pytorch/commit/be037e131c78814b02dad86ac587b239aee0f832). It adds an `ab"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197887,
+  "title": "[inductor] Autograd's \"modified by an inplace operation\" check is lost when a view of a graph input is saved for backward: `x @ w`, `bmm`, `einsum`, 3-D `F.linear` silently return wrong gradients after `x` is modified in place",
+  "draft": "0920/01",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 198035,
+    "title": "[aot_autograd] Restore version checks for saved input views",
+    "state": "open",
+    "author": "AnkitNakhawa",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "chinmayirm",
+    "assoc": "NONE",
+    "at": "2026-09-21",
+    "body": "I looked into this.\n\nFor `x @ w`, AOT saves `permute(x)` for backward, not `x` itself. Eager `aten.permute` is a real view, so it shares `x`’s `version_counter_`. `x.add_(1)` between forward and backward bumps that counter and autograd raises, which is the point of the check.\n\nInductor does not emit `aten.permute`. It rebuilds the saved view with `_reinterpret_tensor`: new `TensorImpl`, same `Storage`, **new** version counter. After `x.add_(1)` you get `x._version == 1` and `saved._version == 0`, so the check never fires and backward uses the mutated values — the gradient of a forward that did not run. Same pattern for `bmm`, `einsum`, 3-D `F.linear`. Ops that save `x` itself (2-D `linear`, "
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197888,
+  "title": "`adaptive_max_pool3d_backward` and `fractional_max_pool{2,3}d_backward` read a non-contiguous `indices` tensor as if it were contiguous: silently wrong gradients, reached from `torch.compile` with `channels_last_3d` inputs",
+  "draft": "0920/02",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "high priority",
+   "triaged",
+   "module: memory format",
+   "module: correctness (silent)",
+   "module: pooling",
+   "oncall: pt2",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "high priority (eellison)",
+   "triaged (frgossen)"
+  ],
+  "assignees": [
+   "mlazos"
+  ],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "chinmayirm",
+    "assoc": "NONE",
+    "at": "2026-09-21",
+    "body": "I’d like to work on this.\n\nThese backward kernels scatter `grad_output` to the argmax locations stored in `indices`. They already do `gradOutput.contiguous()`, then take `indices.const_data_ptr<int64_t>()` and walk it as packed NCHW (`ind_p_d[ot * osizeH * osizeW + oh * osizeW + ow]`). That arithmetic is only valid if `indices` has unit inner stride. If it is `channels_last` / `channels_last_3d`, the same values sit at different offsets, `maxp` is the wrong voxel, and the gradient is silently wrong. Forward still matches because the forward kernel wrote the indices; only backward misreads them.\n\nEager autograd always saves contiguous indices, so this never shows up there. Inductor can keep t"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197889,
+  "title": "[pt2] Python float argument that changes between calls goes stale in the cached graph (residual of #194976): norm `eps`, `huber_loss` delta, SDPA `scale`, `interpolate(scale_factor=...)` keep an earlier value (`interpolate`: old output shape)",
+  "draft": "0920/02b",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: dynamic shapes",
+   "module: aotdispatch",
+   "module: pt2-dispatcher",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197893,
+  "title": "[inductor] `x + 0` / `x * 1` / `x / 1.0` as a graph output returns the input tensor itself (`out is x`), so an in-place update of the result silently corrupts the input",
+  "draft": "0920/07",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 198096,
+    "title": "[inductor] Do not reinplace into a graph input that a later, unrelated mutation overwrites",
+    "state": "open",
+    "author": "wwoosshh",
+    "merged_at": null,
+    "fixes": false
+   }
+  ],
+  "comments": [
+   {
+    "by": "chinmayirm",
+    "assoc": "NONE",
+    "at": "2026-09-21",
+    "body": "I’d like to take this.\n\n`remove_no_ops` in `joint_graph.py` is meant to drop algebraic identities (`x + 0`, `x * 1`, `x / 1`). That is correct while the result is still an interior node: users of the add just start reading `x`, and nothing about the graph’s calling convention changes.\n\nThe failure is when that node **is** the graph output. `replace_no_op` does `node.replace_all_uses_with(replacement)` and erases the add/mul/div. If `replacement` is the placeholder for the input, the compiled wrapper returns that same Python object, so `out is x`. Eager always allocates a new tensor for `x + 0`, so `out.add_(...)` is safe there. Under inductor it writes through to the caller’s buffer — and on"
+   },
+   {
+    "by": "wwoosshh",
+    "assoc": "NONE",
+    "at": "2026-09-22",
+    "body": "Scatter variant of the same class of problem, reproduced on 2.14.0+cu130 and 2.15.0.dev20260921+cu130 (Inductor, CUDA; `aot_eager` is correct):\n\n    def fn(x):\n        y = torch.diagonal_scatter(x, x.diagonal())   # value-wise a no-op, a fresh tensor in eager\n        x.fill_(2)\n        return y                                       # inductor returns all 2s\n\nSame for torch.select_scatter(x, x.select(0, 1), 0, 1) and torch.slice_scatter(x, x[1:3], 0, 1, 3).\nHere the alias does not come from remove_noop_ops but from the reinplacing pass writing the scatter\nresult into the input buffer (reinplace_inplaceable_ops_core.can_inplace); the later fill_ then\noverwrites it. Also `y = x.neg(); ...; y.co"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197894,
+  "title": "[fx] Generated code for `operator.pow(-2, x)` is `-2 ** x`, which Python evaluates as `-(2 ** x)`: `GraphModule.forward` returns the wrong sign (`Interpreter` is correct); reachable from `torch.compile(dynamic=True)` via `(-1) ** x.shape[0]`",
+  "draft": "0920/08",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triage review",
+   "module: correctness (silent)",
+   "module: fx",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 1,
+    "title": "Fix FX codegen sign for operator.pow with a negative literal base",
+    "state": "open",
+    "author": "buyan-kh",
+    "merged_at": null,
+    "fixes": true
+   },
+   {
+    "number": 198053,
+    "title": "Fix FX codegen precedence for negative pow bases",
+    "state": "open",
+    "author": "buyan-kh",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "JC230903",
+    "assoc": "NONE",
+    "at": "2026-09-21",
+    "body": "Hey, I would love to work on this if anyone would assign me this issue. I would gladly create a PR."
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197895,
+  "title": "[inductor] Floating-point floor division is off by one: `torch.compile` makes `1.0 // 0.1` return `10.0` (eager and Python: `9.0`)",
+  "draft": "0920/09",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "chinmayirm",
+    "assoc": "NONE",
+    "at": "2026-09-21",
+    "body": "I’d like to take this.\n\nFloor division is not `floor` of a rounded quotient. `0.1` is stored slightly above 1/10, so the exact `1.0 / 0.1` is just below 10. IEEE `div_rn` rounds that to `10.0`, and `floor(10.0)` is 10. Python and eager both return 9, because they use remainder: `mod = fmod(a, b)`, then `floor((a - mod) / b)`, which cannot overshoot the integer.\n\n`_floor_div_floating` in `torch/_inductor/lowering.py` does `floor(ops.div_rn(a, b))`. That is why inductor is off by one on every quotient that sits just below an integer but rounds up (`0.5 // 0.1`, `6.0 // 0.2` as well). `aot_eager` matches eager, so this is the inductor lowering, not Dynamo.\n\n`cpp_prefix.h` already implements the"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 197896,
+  "title": "[dynamo] Mutations of a closure-captured list/dict are silently dropped when they happen in a method of a locally defined class instantiated inside the compiled function (`fullgraph=True`, no graph break)",
+  "draft": "0920/10",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "actionable",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: dynamo",
+   "bot-triaged",
+   "release triage",
+   "dynamo-triaged"
+  ],
+  "human_labels": [
+   "actionable (ezyang)",
+   "dynamo-triaged (williamwen42)",
+   "triaged (williamwen42)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 198055,
+    "title": "[dynamo]: [dynamo] Fix silent drop of closure mutations in methods of locally instantiated classes (#197896)",
+    "state": "open",
+    "author": "syerva-g",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "syerva-g",
+    "assoc": "NONE",
+    "at": "2026-09-21",
+    "body": "Hi! I'd like to pick up this issue — I have a fix ready and will put up a PR shortly.\n\n### Root Cause & Approach\nWhen a class (`Helper()`) or context manager (`with CM():`) is instantiated inside a `@torch.compile` region, the resulting `UserDefinedObjectVariable` is sourceless (`self.source is None`), while its class provenance is tracked on `self.cls_source`.\n\nCurrently, when resolving and calling methods on such instances, the unbound method's `source_fn` (`DictGetItemSource(TypeDictSource(cls_source), method_name)`) is lost in three places:\n1. `UserDefinedObjectVariable.resolve_type_attr` checks `can_use_mro_source = self.cls_source is not None and self.source is not None` (and `call_met"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198052,
+  "title": "[dynamo][numpy] NumPy code under `torch.compile` returns wrong values: `np.fix` rounds instead of truncating, `np.cbrt` is NaN for negatives, `np.clip` with out-of-range Python bounds wraps, `np.sign` / `np.heaviside` drop NaN",
+  "draft": "0920/12",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: numpy",
+   "oncall: pt2",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198056,
+  "title": "[dynamo][numpy] dtype and shape divergences of NumPy code under `torch.compile`: `np.cumsum(int8)` overflows in int8, `np.square(int8)` returns float64, `np.median` returns shape `(1,)`, `np.any` returns uint8, uint16/32/64 arithmetic raises",
+  "draft": "0920/19",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: numpy",
+   "module: type promotion",
+   "oncall: pt2",
+   "module: unsigned int",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198057,
+  "title": "[inductor][cpu] Vectorized `torch.remainder` / `%` returns NaN for an infinite divisor and 0 for large quotients; elements handled by the scalar tail are correct, so the result depends on the tensor length and on the CPU",
+  "draft": "0920/13",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "module: cpu",
+   "triaged",
+   "module: vectorization",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198064,
+  "title": "[dynamic shapes] `round(x.shape[0], -1)` is a no-op on SymInt (`SymInt.__round__` ignores a negative `ndigits`): bucketed sizes computed with `round(n, -k)` silently differ from eager",
+  "draft": "0920/15",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: dynamic shapes",
+   "bot-triaged"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198070,
+  "title": "[dynamic shapes] With `capture_scalar_outputs=True`, the NaN check `v != v` on `v = loss.item()` is folded to `False` at trace time: a \"skip this step if the loss is NaN\" branch is never taken (all backends); `v - v` and `v * 0` fold to `0.0`",
+  "draft": "0920/16",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: NaNs and Infs",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: dynamic shapes",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198071,
+  "title": "[inductor] `torch.clamp` with a Python bound outside the dtype's range wraps the bound: `clamp(int8_tensor, -1000, 1000)` returns `-24` for every element",
+  "draft": "0920/21",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198072,
+  "title": "[fx] A `forward` parameter named `nan` or `inf` shadows the float constant that the generated code prints as the bare name `nan` / `inf`: `GraphModule.forward` silently uses the tensor instead of the constant (`Interpreter` is correct)",
+  "draft": "0920/23",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triage review",
+   "module: correctness (silent)",
+   "module: fx",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198077,
+  "title": "[fx] A pickle / `torch.save` round trip silently changes what a `GraphModule` computes: in-place operator nodes (`operator.iadd`, `imul`, …) come back out-of-place, so the input is no longer mutated and dtype errors disappear",
+  "draft": "0920/26",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triage review",
+   "module: pickle",
+   "module: serialization",
+   "module: correctness (silent)",
+   "module: fx",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198081,
+  "title": "[inductor] `torch.any` on a uint8 tensor returns bool under `torch.compile` (eager and `torch.all` keep uint8), so downstream uint8 arithmetic silently changes",
+  "draft": "0920/28",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "vikrambal",
+    "assoc": "NONE",
+    "at": "2026-09-22",
+    "body": "Hello, I would love to work on this. I confirmed the root cause by taking a look at the code:\n_refs.any already preserves uint8 (torch/_refs/__init__.py), but Inductor's reduce_any lowering (torch/_inductor/lowering.py) bypasses this decomposition and does not cast back. aten.all has no dedicated lowering; thus, it stays correct through the _refs.all decomposition's uint8 cast. \n\nHere is what I am planning for the fix: cast reduce_any's result back to uint8 when the input dtype was uint8 (mirroring what _refs.all already does). This is opposed to dropping the dedicated lowering, which I think could regress performance on the fast path. Will add a regression test alongside test_any in test/in"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198118,
+  "title": "Complex `linalg.pinv` / `linalg.polar` / `linalg.matrix_sqrth` return wrong values under any `TorchDispatchMode` (hence under `torch.compile`): a conjugate view taken inside the ATen kernel is not applied",
+  "draft": "0920/31",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triage review",
+   "module: complex",
+   "module: linear algebra",
+   "module: correctness (silent)",
+   "module: __torch_dispatch__",
+   "module: python dispatcher",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198119,
+  "title": "[inductor] `avg_pool1d/2d` backward with `ceil_mode=True` divides the overhanging last window by the full kernel size, so the compiled gradient is wrong where eager and `aot_eager` agree; forward is correct",
+  "draft": "0920/33",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "module: pooling",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198133,
+  "title": "[inductor][cpu] `torch.erfinv` loses accuracy near ±1 under `torch.compile`: relative error up to 7.5e-3 in float32 and 3.6e-3 in float64 where eager matches a 30-digit reference",
+  "draft": "0920/34",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "module: cpu",
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198134,
+  "title": "[inductor][cpu] Vectorized float64 `torch.acosh` returns `inf` for inputs above 1.34e154 under `torch.compile` (eager and the scalar tail are finite): `Vectorized<double>::acosh` squares its argument",
+  "draft": "0920/35",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "module: cpu",
+   "triaged",
+   "module: sleef",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198155,
+  "title": "[inductor] 134 operators run under `torch.compile` on dtypes their eager kernels reject with `NotImplementedError` (bool conv, int softmax/losses, float bitwise ops, half special functions, complex norms): full list",
+  "draft": "0920/36",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: inductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [
+   {
+    "number": 198316,
+    "title": "fix(inductor): reject unsupported dtypes in bitwise op meta functions",
+    "state": "open",
+    "author": "shyamsharmas124-commits",
+    "merged_at": null,
+    "fixes": false
+   }
+  ],
+  "comments": [
+   {
+    "by": "eellison",
+    "assoc": "CONTRIBUTOR",
+    "at": "2026-09-22",
+    "body": "IMO, there's no particular reason to restrict torch.compile here because of an eager limitation, if the operator is well formed for the input."
+   },
+   {
+    "by": "shyamsharmas124-commits",
+    "assoc": "NONE",
+    "at": "2026-09-23",
+    "body": "Opened a draft PR covering 6 of the operators here: bitwise_not, bitwise_and, bitwise_or, bitwise_xor, and their reflected dunders __ror__/__rxor__ (the latter two bind directly to bitwise_or/bitwise_xor at the dispatch level, so they're covered without a separate change).\n\nRoot cause for this family: the meta functions only build the TensorIterator, they don't check dtype, so Inductor's codegen (which reads off the meta function, not the eager kernel's AT_DISPATCH) lets unsupported dtypes through. bitwise_not is the more concerning case since it doesn't just skip raising -- it silently returns the input's bit pattern reinterpreted as an integer op.\n\nWent narrow rather than attempting the ge"
+   },
+   {
+    "by": "shyamsharmas124-commits",
+    "assoc": "NONE",
+    "at": "2026-09-23",
+    "body": "@eellison that's a fair challenge, and it applies directly to #198316 -- want to ask before doing anything else with it.\n\nFor the bitwise ops specifically: is treating float/complex as \"well-formed for the input\" the position here? bitwise_not on a float is a well-defined bit-flip, and bitwise_and/or/xor likewise have an unambiguous bitwise semantics on any fixed-width representation, so this isn't like an op that's nonsensical outside eager's supported set -- it's more that eager just never implemented it for those dtypes. If that's the read, then the PR has it backwards: the actual gap is eager under-supporting a well-formed op, and Inductor accepting it is arguably closer to correct behav"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198183,
+  "title": "[inductor][cpu] Vectorized float32 `torch.erf` loses all relative accuracy near 0 under `torch.compile` (returns 0 for |x| ≤ 1e-7, 1.7e-2 relative error at 1e-5); vector `atanh` returns 0 for |x| below eps",
+  "draft": "0920/39",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "oncall: pt2",
+   "oncall: cpu inductor",
+   "bot-triaged"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198189,
+  "title": "[dynamo] `OrderedDict.move_to_end()` on a dict passed into a compiled function is silently dropped: the reorder is not replayed as a side effect, so an LRU cache evicts the wrong entry (`fullgraph=True` does not complain)",
+  "draft": "0920/40",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "low priority",
+   "triaged",
+   "module: correctness (silent)",
+   "oncall: pt2",
+   "module: dynamo",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "low priority (frgossen)",
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "vikrambal",
+    "assoc": "NONE",
+    "at": "2026-09-22",
+    "body": "Hello, this seems interesting to claim. Can I take it on? Here is my assessment of the root cause - \n\n- OrderedDictVariable.move_to_end (torch/_dynamo/variables/dicts.py:880-898)\n  mutates self.items and calls side_effects.mutation(self), but never sets\n  self.should_reconstruct_all = True; its sibling method, popitem, does that (exactly) two lines below (line 918)\n  right before the same side_effects.mutation(self) call\n\n- Without this flag, the side-effect replay in side_effects.py does not know\n  that the dict needs full reconstruction after a reorder; thus, it emits no\n  bytecode for the move. The compiled function's return value is correct,\n  but the dict's traced order silently reverts"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198190,
+  "title": "[dynamo] A generator that leaves a compiled region (returned, or alive across a graph break) comes back as an exhausted `tuple_iterator`: `StopIteration.value` is silently `None`, `.send()` / `.throw()` raise AttributeError, `type()` changes",
+  "draft": "0920/41",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "oncall: pt2",
+   "module: dynamo",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": [
+   {
+    "by": "JEWEL169",
+    "assoc": "NONE",
+    "at": "2026-09-22",
+    "body": "I'd like to pick this up if nobody on the pt2 side is already on it.\n\nOne more data point in favour of treating this as a bug rather than a documented\nlimitation: `LocalGeneratorObjectVariable` sets `_cpython_type = types.GeneratorType`\nand returns `types.GeneratorType` from `python_type()`, so Dynamo models the object\nas a generator all the way through tracing, and only at reconstruction time does it\nbecome something else. That internal inconsistency seems worth resolving in one\ndirection or the other.\n\nBefore I write anything, which direction would you accept?\n\n1. Graph break when reconstructing a generator whose frame is still suspended.\n   Small and conservative, but it regresses code th"
+   }
+  ]
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198192,
+  "title": "[dynamo] `IndexError` raised by a tensor op inside a compiled function skips the user's own `except IndexError` and escapes the compiled call (`RuntimeError` is routed to the handler since #184990; `fullgraph=True` does not complain)",
+  "draft": "0920/42",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "triaged",
+   "oncall: pt2",
+   "module: dynamo",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "pytorch/pytorch",
+  "number": 198205,
+  "title": "[aoti][windows] Destroying an AOTI runner right after a run crashes the process (access violation) whenever the model has an OpenMP-parallel kernel (output ≥ 4096 elements): the model DLL is unloaded while its OpenMP worker threads are still spinning",
+  "draft": "0920/43",
+  "created": "2026-09-22",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "module: crash",
+   "module: windows",
+   "triaged",
+   "module: openmp",
+   "oncall: pt2",
+   "oncall: export",
+   "module: aotinductor",
+   "bot-triaged",
+   "release triage"
+  ],
+  "human_labels": [
+   "triaged (frgossen)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "numba/numba",
+  "number": 10845,
+  "title": "`np.remainder` / `np.mod` / `np.divmod` on signed integer arrays kill the process for `MIN_INT % -1` in nopython mode (NumPy returns 0); `np.floor_divide(MIN_INT, -1)` returns 0 instead of `MIN_INT`",
+  "draft": "0920/06",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "bug - segfault"
+  ],
+  "human_labels": [
+   "bug - segfault (DrTodd13)"
+  ],
+  "assignees": [],
+  "closed": null,
+  "prs": [],
+  "comments": []
+ },
+ {
+  "repo": "jax-ml/jax",
+  "number": 40840,
+  "title": "`jnp.gcd` / `jnp.lcm` never terminate when an argument is the minimum integer of its dtype (eager and jit)",
+  "draft": "0920/11",
+  "created": "2026-09-21",
+  "state": "open",
+  "reason": null,
+  "labels": [
+   "bug"
+  ],
+  "human_labels": [],
+  "assignees": [
+   "jakevdp"
+  ],
+  "closed": null,
+  "prs": [
+   {
+    "number": 40842,
+    "title": "Fix jnp.gcd/jnp.lcm hang on the minimum signed integer",
+    "state": "open",
+    "author": "prajak002",
+    "merged_at": null,
+    "fixes": true
+   }
+  ],
+  "comments": [
+   {
+    "by": "prajak002",
+    "assoc": "NONE",
+    "at": "2026-09-21",
+    "body": "Opened #40842 with a fix and a regression test.\n\nThe loop now runs on unsigned magnitudes (your first suggestion) and converts back on exit; the conversion wraps `gcd(INT_MIN, 0)` to `INT_MIN`, matching NumPy. Verified against NumPy over every ordered pair from `{min, min+1, -6, -1, 0, 1, 2, 6, 12, 18, 128, max-1, max}` for int8/16/32/64 and uint8/16/32/64, eager and jit, with x64 on — no mismatches."
+   },
+   {
+    "by": "jakevdp",
+    "assoc": "COLLABORATOR",
+    "at": "2026-09-21",
+    "body": "Thanks for the report! Just a note that the `gcd` issue was recently fixed in NumPy as well: https://github.com/numpy/numpy/pull/31379, so I suspect JAX's behavior matches NumPy's for numpy version before 2.4.0."
+   },
+   {
+    "by": "jakevdp",
+    "assoc": "COLLABORATOR",
+    "at": "2026-09-21",
+    "body": "Also note that the `lcm` bug is present in the most recent NumPy release:\n```python\nIn [1]: import numpy as np\n\nIn [2]: np.__version__\nOut[2]: '2.5.3'\n\nIn [3]: x_min = np.int32(np.iinfo(np.int32).min)\n\nIn [4]: np.lcm(x_min, 3)\nOut[4]: np.int32(-2147483648)\n```\n"
+   }
+  ]
+ }
+]

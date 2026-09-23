@@ -1,0 +1,68 @@
+{
+  "signature": "f254bb88c24f",
+  "program": "issue_189528_cond_inductor_nameerror_on_inner_dim_bra",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "189528",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/189528",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 189528,
+      "title": "[cond] Inductor NameError on inner-dim branch output mismatch",
+      "url": "https://github.com/pytorch/pytorch/issues/189528",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-07-10"
+    },
+    {
+      "number": 189529,
+      "title": "[Inductor] Fix undefined unbacked symbol in cond branch strides",
+      "url": "https://github.com/pytorch/pytorch/pull/189529",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-07-10"
+    },
+    {
+      "number": 191327,
+      "title": "[AI Codemod][PerfAICT-General] Add equal-batch 3D fast path to _matmul_impl to skip broadcast bookkeeping (#191327)",
+      "url": "https://github.com/pytorch/pytorch/pull/191327",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-07-28"
+    },
+    {
+      "number": 192388,
+      "title": "[assoc_scan] Base version of vmap",
+      "url": "https://github.com/pytorch/pytorch/pull/192388",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-08-06"
+    },
+    {
+      "number": 186373,
+      "title": "Disable duck sizing by default",
+      "url": "https://github.com/pytorch/pytorch/pull/186373",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-06-05"
+    }
+  ]
+}

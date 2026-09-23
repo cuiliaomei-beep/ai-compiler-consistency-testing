@@ -1,0 +1,28 @@
+{
+  "signature": "4b073e5a902f",
+  "program": "issue_185481_inductor_argmax_over_comparison_mask_is",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "185481",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/185481",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

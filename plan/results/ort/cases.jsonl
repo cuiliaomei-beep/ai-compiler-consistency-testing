@@ -1,0 +1,154 @@
+{"op": "f32:add", "diffs": {}, "verdict": "ok"}
+{"op": "f32:sub", "diffs": {}, "verdict": "ok"}
+{"op": "f32:mul", "diffs": {}, "verdict": "ok"}
+{"op": "f32:div", "diffs": {}, "verdict": "ok"}
+{"op": "f32:floor_divide", "diffs": {"disable_all": "VALUE nan pattern at [9]: eager nan ort inf", "enable_all": "VALUE nan pattern at [9]: eager nan ort inf"}, "verdict": "BOTH"}
+{"op": "f32:remainder", "diffs": {"disable_all": "VALUE nan pattern at [14]: eager 1.1754943508222875e-38 ort nan", "enable_all": "VALUE nan pattern at [14]: eager 1.1754943508222875e-38 ort nan"}, "verdict": "BOTH"}
+{"op": "f32:fmod", "diffs": {"disable_all": "VALUE nan pattern at [21]: eager nan ort 0.0", "enable_all": "VALUE nan pattern at [21]: eager nan ort 0.0"}, "verdict": "BOTH"}
+{"op": "f32:pow", "diffs": {}, "verdict": "ok"}
+{"op": "f32:atan2", "diffs": {"disable_all": "VALUE nan pattern at [11]: eager nan ort 0.0", "enable_all": "VALUE nan pattern at [11]: eager nan ort 0.0"}, "verdict": "BOTH"}
+{"op": "f32:maximum", "diffs": {}, "verdict": "ok"}
+{"op": "f32:minimum", "diffs": {}, "verdict": "ok"}
+{"op": "f32:fmax", "diffs": {}, "verdict": "EXPORT_FAIL", "detail": "ConversionError: Failed to convert the exported program to an ONNX model. \u001b[96mThis is step 3/3\u001b[0m of exporting the model to ONNX. Next steps:\n- If there is a missing ONNX function, implement it and register it to th"}
+{"op": "f32:hypot", "diffs": {}, "verdict": "EXPORT_FAIL", "detail": "ConversionError: Failed to convert the exported program to an ONNX model. \u001b[96mThis is step 3/3\u001b[0m of exporting the model to ONNX. Next steps:\n- If there is a missing ONNX function, implement it and register it to th"}
+{"op": "f32:copysign", "diffs": {}, "verdict": "EXPORT_FAIL", "detail": "ConversionError: Failed to convert the exported program to an ONNX model. \u001b[96mThis is step 3/3\u001b[0m of exporting the model to ONNX. Next steps:\n- If there is a missing ONNX function, implement it and register it to th"}
+{"op": "f32:lt", "diffs": {}, "verdict": "ok"}
+{"op": "f32:eq", "diffs": {}, "verdict": "ok"}
+{"op": "f32:where_lt", "diffs": {}, "verdict": "ok"}
+{"op": "f32:clamp_tensor", "diffs": {}, "verdict": "ok"}
+{"op": "f32:addcmul", "diffs": {}, "verdict": "ok"}
+{"op": "f32:lerp", "diffs": {}, "verdict": "ok"}
+{"op": "f32:isclose", "diffs": {}, "verdict": "ok"}
+{"op": "f32:sub_then_add_back", "diffs": {}, "verdict": "ok"}
+{"op": "f32:mul_div_back", "diffs": {}, "verdict": "ok"}
+{"op": "f32:x_plus_0", "diffs": {"disable_all": "SIGNZERO sign of zero", "enable_all": "SIGNZERO sign of zero"}, "verdict": "BOTH"}
+{"op": "f32:x_times_1", "diffs": {}, "verdict": "ok"}
+{"op": "f32:x_minus_x", "diffs": {}, "verdict": "ok"}
+{"op": "f32:x_div_x", "diffs": {}, "verdict": "ok"}
+{"op": "f32:neg_neg", "diffs": {}, "verdict": "ok"}
+{"op": "f32:x_mul_0", "diffs": {}, "verdict": "ok"}
+{"op": "f32:x_pow_1", "diffs": {}, "verdict": "ok"}
+{"op": "f32:x_pow_0", "diffs": {}, "verdict": "ok"}
+{"op": "f32:x_pow_2", "diffs": {}, "verdict": "ok"}
+{"op": "f32:x_pow_half", "diffs": {"disable_all": "VALUE nan pattern at [10]: eager nan ort inf", "enable_all": "VALUE nan pattern at [10]: eager nan ort inf"}, "verdict": "BOTH"}
+{"op": "f32:sqrt_square", "diffs": {}, "verdict": "ok"}
+{"op": "f32:exp_log", "diffs": {}, "verdict": "ok"}
+{"op": "f32:log_exp", "diffs": {}, "verdict": "ok"}
+{"op": "f32:abs_abs", "diffs": {}, "verdict": "ok"}
+{"op": "f32:relu_relu", "diffs": {}, "verdict": "ok"}
+{"op": "f32:cast_roundtrip_f16", "diffs": {}, "verdict": "ok"}
+{"op": "f32:cast_roundtrip_i32", "diffs": {}, "verdict": "ok"}
+{"op": "f32:cast_roundtrip_bf16", "diffs": {}, "verdict": "ok"}
+{"op": "f32:cast_i64_f32_i64", "diffs": {}, "verdict": "ok"}
+{"op": "f32:reshape_transpose_back", "diffs": {}, "verdict": "ok"}
+{"op": "f32:slice_cat", "diffs": {}, "verdict": "ok"}
+{"op": "f32:gather_self", "diffs": {}, "verdict": "ok"}
+{"op": "f32:sum", "diffs": {}, "verdict": "ok"}
+{"op": "f32:mean", "diffs": {}, "verdict": "ok"}
+{"op": "f32:prod", "diffs": {}, "verdict": "ok"}
+{"op": "f32:max", "diffs": {"disable_all": "VALUE nan pattern at []: eager nan ort inf", "enable_all": "VALUE nan pattern at []: eager nan ort inf"}, "verdict": "BOTH"}
+{"op": "f32:min", "diffs": {"disable_all": "VALUE nan pattern at []: eager nan ort -inf", "enable_all": "VALUE nan pattern at []: eager nan ort -inf"}, "verdict": "BOTH"}
+{"op": "f32:amax_neg0", "diffs": {"disable_all": "SIGNZERO sign of zero", "enable_all": "SIGNZERO sign of zero"}, "verdict": "BOTH"}
+{"op": "f32:argmax", "diffs": {"disable_all": "VALUE value at [0]: eager 11 ort 9", "enable_all": "VALUE value at [0]: eager 11 ort 9"}, "verdict": "BOTH"}
+{"op": "f32:argmin", "diffs": {"disable_all": "VALUE value at [0]: eager 11 ort 10", "enable_all": "VALUE value at [0]: eager 11 ort 10"}, "verdict": "BOTH"}
+{"op": "f32:cumsum", "diffs": {}, "verdict": "ok"}
+{"op": "f32:cumprod", "diffs": {}, "verdict": "EXPORT_FAIL", "detail": "ConversionError: Failed to convert the exported program to an ONNX model. \u001b[96mThis is step 3/3\u001b[0m of exporting the model to ONNX. Next steps:\n- If there is a missing ONNX function, implement it and register it to th"}
+{"op": "f32:softmax", "diffs": {}, "verdict": "ok"}
+{"op": "f32:log_softmax", "diffs": {}, "verdict": "ok"}
+{"op": "f32:logsumexp", "diffs": {}, "verdict": "ok"}
+{"op": "f32:sigmoid", "diffs": {}, "verdict": "ok"}
+{"op": "f32:tanh", "diffs": {}, "verdict": "ok"}
+{"op": "f32:gelu", "diffs": {"disable_all": "VALUE nan pattern at [9]: eager nan ort inf", "enable_all": "VALUE nan pattern at [9]: eager nan ort inf"}, "verdict": "BOTH"}
+{"op": "f32:gelu_tanh", "diffs": {}, "verdict": "ok"}
+{"op": "f32:silu", "diffs": {}, "verdict": "ok"}
+{"op": "f32:softplus", "diffs": {}, "verdict": "ok"}
+{"op": "f32:elu", "diffs": {}, "verdict": "ok"}
+{"op": "f32:hardtanh", "diffs": {}, "verdict": "ok"}
+{"op": "f32:layer_norm", "diffs": {"disable_all": "SIGNZERO sign of zero", "enable_all": "SIGNZERO sign of zero"}, "verdict": "BOTH"}
+{"op": "f32:batch_norm_like", "diffs": {}, "verdict": "ok"}
+{"op": "f32:matmul", "diffs": {}, "verdict": "ok"}
+{"op": "f32:matmul_then_add", "diffs": {}, "verdict": "ok"}
+{"op": "f32:bias_gelu", "diffs": {"disable_all": "VALUE nan pattern at [9]: eager nan ort inf", "enable_all": "VALUE nan pattern at [9]: eager nan ort inf"}, "verdict": "BOTH"}
+{"op": "f32:round", "diffs": {}, "verdict": "ok"}
+{"op": "f32:floor", "diffs": {}, "verdict": "ok"}
+{"op": "f32:ceil", "diffs": {}, "verdict": "ok"}
+{"op": "f32:trunc", "diffs": {"disable_all": "SIGNZERO sign of zero", "enable_all": "SIGNZERO sign of zero"}, "verdict": "BOTH"}
+{"op": "f32:sign", "diffs": {"disable_all": "VALUE nan pattern at [11]: eager 0.0 ort nan", "enable_all": "VALUE nan pattern at [11]: eager 0.0 ort nan"}, "verdict": "BOTH"}
+{"op": "f32:reciprocal", "diffs": {}, "verdict": "ok"}
+{"op": "f32:rsqrt", "diffs": {}, "verdict": "ok"}
+{"op": "f32:erf", "diffs": {}, "verdict": "ok"}
+{"op": "f32:expm1", "diffs": {"disable_all": "SIGNZERO sign of zero", "enable_all": "SIGNZERO sign of zero"}, "verdict": "BOTH"}
+{"op": "f32:log1p", "diffs": {"disable_all": "SIGNZERO sign of zero", "enable_all": "SIGNZERO sign of zero"}, "verdict": "BOTH"}
+{"op": "f32:isnan", "diffs": {}, "verdict": "ok"}
+{"op": "f32:isinf", "diffs": {}, "verdict": "ok"}
+{"op": "f32:nan_to_num", "diffs": {}, "verdict": "ok"}
+{"op": "f32:clamp_scalar", "diffs": {}, "verdict": "ok"}
+{"op": "f32:where_isnan", "diffs": {}, "verdict": "ok"}
+{"op": "f32:div_where_nonzero", "diffs": {}, "verdict": "ok"}
+{"op": "f32:chain_fusable", "diffs": {}, "verdict": "ok"}
+{"op": "f32:mul_add_fma", "diffs": {}, "verdict": "ok"}
+{"op": "i64:add", "diffs": {}, "verdict": "ok"}
+{"op": "i64:sub", "diffs": {}, "verdict": "ok"}
+{"op": "i64:mul", "diffs": {}, "verdict": "ok"}
+{"op": "i64:floor_divide", "diffs": {}, "verdict": "ok"}
+{"op": "i64:remainder", "diffs": {}, "verdict": "ok"}
+{"op": "i64:div_true", "diffs": {}, "verdict": "ok"}
+{"op": "i64:bitwise_and", "diffs": {}, "verdict": "ok"}
+{"op": "i64:bitwise_or", "diffs": {}, "verdict": "ok"}
+{"op": "i64:bitwise_xor", "diffs": {}, "verdict": "ok"}
+{"op": "i64:lshift", "diffs": {}, "verdict": "EXPORT_FAIL", "detail": "ConversionError: Failed to convert the exported program to an ONNX model. \u001b[96mThis is step 3/3\u001b[0m of exporting the model to ONNX. Next steps:\n- If there is a missing ONNX function, implement it and register it to th"}
+{"op": "i64:rshift", "diffs": {}, "verdict": "EXPORT_FAIL", "detail": "ConversionError: Failed to convert the exported program to an ONNX model. \u001b[96mThis is step 3/3\u001b[0m of exporting the model to ONNX. Next steps:\n- If there is a missing ONNX function, implement it and register it to th"}
+{"op": "i64:neg", "diffs": {}, "verdict": "ok"}
+{"op": "i64:abs", "diffs": {}, "verdict": "ok"}
+{"op": "i64:sign", "diffs": {"disable_all": "VALUE value at [10]: eager 1 ort -1", "enable_all": "VALUE value at [10]: eager 1 ort -1"}, "verdict": "BOTH"}
+{"op": "i64:square", "diffs": {}, "verdict": "ok"}
+{"op": "i64:pow2", "diffs": {}, "verdict": "ok"}
+{"op": "i64:maximum", "diffs": {"disable_all": "VALUE value at [10]: eager 2147483648 ort 7", "enable_all": "VALUE value at [10]: eager 2147483648 ort 7"}, "verdict": "BOTH"}
+{"op": "i64:minimum", "diffs": {"disable_all": "VALUE value at [10]: eager 7 ort 2147483648", "enable_all": "VALUE value at [10]: eager 7 ort 2147483648"}, "verdict": "BOTH"}
+{"op": "i64:sum", "diffs": {"disable_all": "VALUE value at []: eager 6442452480 ort 6442453503", "enable_all": "VALUE value at []: eager 6442452480 ort 6442453503"}, "verdict": "BOTH"}
+{"op": "i64:prod", "diffs": {}, "verdict": "ok"}
+{"op": "i64:cumsum", "diffs": {}, "verdict": "ok"}
+{"op": "i64:max", "diffs": {}, "verdict": "ok"}
+{"op": "i64:argmax", "diffs": {}, "verdict": "ok"}
+{"op": "i64:to_float", "diffs": {}, "verdict": "ok"}
+{"op": "i64:to_double", "diffs": {}, "verdict": "ok"}
+{"op": "i64:to_int32", "diffs": {}, "verdict": "ok"}
+{"op": "i64:to_int8", "diffs": {}, "verdict": "ok"}
+{"op": "i64:to_bool", "diffs": {}, "verdict": "ok"}
+{"op": "i64:to_uint8", "diffs": {}, "verdict": "ok"}
+{"op": "i64:float_roundtrip", "diffs": {}, "verdict": "ok"}
+{"op": "i64:x_plus_0", "diffs": {}, "verdict": "ok"}
+{"op": "i64:x_times_1", "diffs": {}, "verdict": "ok"}
+{"op": "i64:x_minus_x", "diffs": {}, "verdict": "ok"}
+{"op": "i64:mul_div_back", "diffs": {}, "verdict": "ok"}
+{"op": "i64:where_lt", "diffs": {}, "verdict": "ok"}
+{"op": "i64:clamp", "diffs": {"disable_all": "VALUE value at [10]: eager 100 ort 2147483648", "enable_all": "VALUE value at [10]: eager 100 ort 2147483648"}, "verdict": "BOTH"}
+{"op": "i64:eq_self", "diffs": {}, "verdict": "ok"}
+{"op": "i64:add_then_cast_i32", "diffs": {}, "verdict": "ok"}
+{"op": "i64:cast_i32_then_add", "diffs": {}, "verdict": "ok"}
+{"op": "i64:gather", "diffs": {}, "verdict": "ok"}
+{"op": "i32:add", "diffs": {}, "verdict": "ok"}
+{"op": "i32:mul", "diffs": {}, "verdict": "ok"}
+{"op": "i32:sub", "diffs": {}, "verdict": "ok"}
+{"op": "i32:neg", "diffs": {}, "verdict": "ok"}
+{"op": "i32:abs", "diffs": {}, "verdict": "ok"}
+{"op": "i32:square", "diffs": {}, "verdict": "ok"}
+{"op": "i32:sum", "diffs": {}, "verdict": "ok"}
+{"op": "i32:cumsum", "diffs": {}, "verdict": "ok"}
+{"op": "i32:to_int64_back", "diffs": {}, "verdict": "ok"}
+{"op": "i32:to_int16", "diffs": {}, "verdict": "ok"}
+{"op": "i32:div_true", "diffs": {}, "verdict": "ok"}
+{"op": "i32:floor_divide", "diffs": {}, "verdict": "ok"}
+{"op": "i32:remainder", "diffs": {}, "verdict": "ok"}
+{"op": "i32:lshift", "diffs": {}, "verdict": "EXPORT_FAIL", "detail": "ConversionError: Failed to convert the exported program to an ONNX model. \u001b[96mThis is step 3/3\u001b[0m of exporting the model to ONNX. Next steps:\n- If there is a missing ONNX function, implement it and register it to th"}
+{"op": "i32:maximum", "diffs": {}, "verdict": "ok"}
+{"op": "bool:and", "diffs": {}, "verdict": "ok"}
+{"op": "bool:or", "diffs": {}, "verdict": "ok"}
+{"op": "bool:xor", "diffs": {}, "verdict": "ok"}
+{"op": "bool:not", "diffs": {}, "verdict": "ok"}
+{"op": "bool:sum", "diffs": {}, "verdict": "ok"}
+{"op": "bool:to_float", "diffs": {}, "verdict": "ok"}
+{"op": "bool:any_all", "diffs": {}, "verdict": "ok"}
+{"op": "bool:where", "diffs": {}, "verdict": "ok"}
+{"op": "bool:add_bool", "diffs": {"disable_all": "RAISES InvalidGraph: [ONNXRuntimeError] : 10 : INVALID_GRAPH : This is an invalid model. Type Error: Type 'tensor(bool)' of input parameter (a) of operator (Add) in node (node_add) is invalid.", "enable_all": "RAISES InvalidGraph: [ONNXRuntimeError] : 10 : INVALID_GRAPH : This is an invalid model. Type Error: Type 'tensor(bool)' of input parameter (a) of operator (Add) in node (node_add) is invalid."}, "verdict": "BOTH"}
+{"op": "bool:mul_bool", "diffs": {}, "verdict": "ok"}

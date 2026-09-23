@@ -1,0 +1,353 @@
+{
+  "signature": "a80d240e8eeb",
+  "program": "issue_175903_inductor_incorrect_results_in_index_put",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value",
+      "mutation"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value",
+        "mutation"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 1.0,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              5
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 1.0,
+            "max_rel_error": 1000000000000.0,
+            "n_mismatch": 2,
+            "n_total": 5,
+            "first_mismatch_index": [
+              1
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "1",
+            "expected_preview": "[0, 0, 1, 0, 1]",
+            "actual_preview": "[0, 1, 1, 0, 0]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 1.0,
+            "budget": 4.76837158203125e-07,
+            "noise_floor": 4.76837158203125e-07
+          }
+        },
+        {
+          "kind": "mutation",
+          "detail": "input[0] holds a different value after the call (max diff 1.000e+00); in-place effects diverge",
+          "magnitude": 1.0,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              5
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 1.0,
+            "max_rel_error": 1000000000000.0,
+            "n_mismatch": 2,
+            "n_total": 5,
+            "first_mismatch_index": [
+              1
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "1",
+            "expected_preview": "[0, 0, 1, 0, 1]",
+            "actual_preview": "[0, 1, 1, 0, 0]"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.2534,
+      "alias_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1535,
+      "alias_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 2.7752,
+      "alias_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_175903_inductor_incorrect_results_in_index_put.py\n[Inductor] Incorrect results in `index_put_` when `randperm` views are not injective\nhttps://github.com/pytorch/pytorch/issues/175903\ncompile options in the issue: {'fullgraph': True}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 1,
+    "steps_kept": 0,
+    "original_lines": 7,
+    "final_lines": 7,
+    "original_numel": 5,
+    "final_numel": 0,
+    "input_recipe": "",
+    "log": [],
+    "source": "def forward(self, x):\n        p = torch.randperm(5)\n        # Create a non-injective (overlapping) view of randperm \n        idx = torch.as_strided(p, (5,), (0,))\n        y = x[idx] + 1.0\n        x.index_put_((idx,), y, accumulate=False)\n        return x"
+  },
+  "duplicates": {
+    "query": "Inductor Incorrect results index_put_ randperm views are injective",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "175903",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/175903",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 175903,
+        "title": "[Inductor] Incorrect results in `index_put_` when `randperm` views are not injective",
+        "url": "https://github.com/pytorch/pytorch/issues/175903",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-02-26"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

@@ -1,0 +1,7 @@
+exception InternalTorchDynamoError: TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given
+
+from user code:
+   File "reproducers_gh_cuda/issue_114415_aotautograd_should_detect_aliasing_of_in.py", line 55, in f
+    x1.mul_(2)
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"

@@ -1,0 +1,628 @@
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return _reduction(
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         a,
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ...<5 lines>...
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ^^^^^
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(msg)
+E0922 22:01:44.163000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 5)
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return _reduction(
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         a,
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ...<5 lines>...
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     )
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ^^^^^
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     raise IndexError(msg)
+E0922 22:01:44.181000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 5)
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.transpose.int
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 5021, in transpose
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _dim0, _dim1 = utils.canonicalize_dims(a.ndim, (dim0, dim1))  # type: ignore[misc]
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]                    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 869, in canonicalize_dims
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return tuple(canonicalize_dim(rank, x, wrap_scalar) for x in indices)
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ^^^^^
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 869, in <genexpr>
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return tuple(canonicalize_dim(rank, x, wrap_scalar) for x in indices)
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(msg)
+E0922 22:01:44.198000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 7)
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.transpose.int
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 5021, in transpose
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     _dim0, _dim1 = utils.canonicalize_dims(a.ndim, (dim0, dim1))  # type: ignore[misc]
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]                    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 869, in canonicalize_dims
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return tuple(canonicalize_dim(rank, x, wrap_scalar) for x in indices)
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ^^^^^
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 869, in <genexpr>
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return tuple(canonicalize_dim(rank, x, wrap_scalar) for x in indices)
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     raise IndexError(msg)
+E0922 22:01:44.211000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 7)
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return _reduction(
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         a,
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ...<5 lines>...
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ^^^^^
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(msg)
+E0922 22:01:44.266000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 5)
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return _reduction(
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         a,
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ...<5 lines>...
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     )
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ^^^^^
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     raise IndexError(msg)
+E0922 22:01:44.284000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 5)
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return _reduction(
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         a,
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ...<5 lines>...
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ^^^^^
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(msg)
+E0922 22:01:44.309000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 9)
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return _reduction(
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         a,
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ...<5 lines>...
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     )
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ^^^^^
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     raise IndexError(msg)
+E0922 22:01:44.330000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 9)
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mean.dim
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2659, in mean
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = _reduction(
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         a,
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ...<5 lines>...
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.KEEP_PROMOTED_TYPE,
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ^^^^^
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(msg)
+E0922 22:01:44.453000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 9)
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.mean.dim
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2659, in mean
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     result = _reduction(
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         a,
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ...<5 lines>...
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.KEEP_PROMOTED_TYPE,
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     )
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ^^^^^
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     raise IndexError(msg)
+E0922 22:01:44.475000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 9)
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0] failed while attempting to run meta for aten.squeeze.dims
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0] Traceback (most recent call last):
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]     r = func(*args, **kwargs)
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 4557, in squeeze
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]     dim = utils.canonicalize_dims(ndim, dim)
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 869, in canonicalize_dims
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]     return tuple(canonicalize_dim(rank, x, wrap_scalar) for x in indices)
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]            ^^^^^
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 869, in <genexpr>
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]     return tuple(canonicalize_dim(rank, x, wrap_scalar) for x in indices)
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0]     raise IndexError(msg)
+E0922 22:01:44.550000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/0] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 9)
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1] failed while attempting to run meta for aten.squeeze.dims
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1] Traceback (most recent call last):
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]     r = func(*args, **kwargs)
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 4557, in squeeze
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]     dim = utils.canonicalize_dims(ndim, dim)
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 869, in canonicalize_dims
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]     return tuple(canonicalize_dim(rank, x, wrap_scalar) for x in indices)
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]            ^^^^^
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 869, in <genexpr>
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]     return tuple(canonicalize_dim(rank, x, wrap_scalar) for x in indices)
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1]     raise IndexError(msg)
+E0922 22:01:44.565000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [1/1] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 9)
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.index_select.default
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 976, in meta_index_select
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result_size[dim] = index.numel()
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^
+E0922 22:01:44.620000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: list assignment index out of range
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.index_select.default
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 976, in meta_index_select
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     result_size[dim] = index.numel()
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ~~~~~~~~~~~^^^^^
+E0922 22:01:44.640000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] IndexError: list assignment index out of range
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.unsqueeze.default
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 5106, in unsqueeze
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dim = utils.canonicalize_dim(ndim, dim)
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(msg)
+E0922 22:01:44.708000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 7)
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.unsqueeze.default
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 5106, in unsqueeze
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dim = utils.canonicalize_dim(ndim, dim)
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     raise IndexError(msg)
+E0922 22:01:44.720000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 7)
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return _reduction(
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         a,
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ...<5 lines>...
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ^^^^^
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(msg)
+E0922 22:01:44.754000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 3)
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return _reduction(
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         a,
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ...<5 lines>...
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     )
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ^^^^^
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     raise IndexError(msg)
+E0922 22:01:44.767000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 3)
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] or:
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] to include these operations in the captured graph.
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] 
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] Graph break: from user code at:
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_batch5.py", line 221, in _
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]     return 1.0 / (x.sum() * 0).item()
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]                  ~~~~~~~~~~~~~~~~~~^^
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] 
+W0922 22:01:44.845000 8188 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] 
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.cat.default
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_compile.py", line 54, in inner
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return disable_fn(*args, **kwargs)
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return fn(*args, **kwargs)
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 151, in _fn
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(**bound.arguments)
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2922, in cat
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise ValueError(msg)
+E0922 22:01:44.861000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] ValueError: cat expects at least one tensor, but received zero!
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.cat.default
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_compile.py", line 54, in inner
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return disable_fn(*args, **kwargs)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return fn(*args, **kwargs)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 151, in _fn
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(**bound.arguments)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 3027, in cat
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return prims.cat(filtered, dim).clone(memory_format=memory_format)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~^^^^^^^^^^^^^^^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\fake_impl.py", line 123, in meta_kernel
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return fake_impl_holder.kernel(*args, **kwargs)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\utils.py", line 23, in __call__
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self.func(*args, **kwargs)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\library.py", line 1656, in inner
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return func(*args, **kwargs)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\custom_ops.py", line 785, in fake_impl
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._abstract_fn(*args, **kwargs)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims\__init__.py", line 1879, in _cat_meta
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         length == common_length,
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ...<2 lines>...
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"{tensor_idx} in the list",
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0922 22:01:44.891000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: Sizes of tensors must match except in dimension 0. Expected 4 in dimension 1 but got 3 for tensor number 1 in the list
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.cat.default
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     result = fn(*args, **kwargs)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_compile.py", line 54, in inner
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return disable_fn(*args, **kwargs)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return fn(*args, **kwargs)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 151, in _fn
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     result = fn(**bound.arguments)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 3027, in cat
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return prims.cat(filtered, dim).clone(memory_format=memory_format)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~~^^^^^^^^^^^^^^^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\fake_impl.py", line 123, in meta_kernel
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return fake_impl_holder.kernel(*args, **kwargs)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\utils.py", line 23, in __call__
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self.func(*args, **kwargs)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\library.py", line 1651, in inner
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return func(*args, **kwargs)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\custom_ops.py", line 785, in fake_impl
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._abstract_fn(*args, **kwargs)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims\__init__.py", line 1879, in _cat_meta
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     torch._check(
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ~~~~~~~~~~~~^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         length == common_length,
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         ^^^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ...<2 lines>...
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         f"{tensor_idx} in the list",
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     )
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     _check_with(RuntimeError, cond, message)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     raise error_type(message_evaluated)
+E0922 22:01:44.908000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] RuntimeError: Sizes of tensors must match except in dimension 0. Expected 4 in dimension 1 but got 3 for tensor number 1 in the list
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return _reduction(
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         a,
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ...<5 lines>...
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ^^^^^
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(msg)
+E0922 22:01:45.188000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 8)
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return _reduction(
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         a,
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ...<5 lines>...
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     )
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ^^^^^
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     raise IndexError(msg)
+E0922 22:01:45.210000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 8)
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return _reduction(
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         a,
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ...<5 lines>...
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ^^^^^
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(msg)
+E0922 22:01:45.229000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 5)
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.sum.dim_IntList
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2470, in sum
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     return _reduction(
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         a,
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     ...<5 lines>...
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]         output_dtype_kind=REDUCTION_OUTPUT_TYPE_KIND.SAME,
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     )
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 2350, in _reduction
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = utils.reduction_dims(a.shape, dims)
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in reduction_dims
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]            ^^^^^
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 1940, in <genexpr>
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     dims = tuple(canonicalize_dim(len(shape), idx) for idx in dims)
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\__init__.py", line 842, in canonicalize_dim
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1]     raise IndexError(msg)
+E0922 22:01:45.243000 8188 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/1] IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 5)
+  DYNSEM exc_index_caught_as_Exception    call0 raise  eager=('tuple', ['IndexError', ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657110214  compiled='raise:IndexError'
+  DYNSEM exc_index_caught_as_Exception    call1 raise  eager=('tuple', ['IndexError', ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657110214  compiled='raise:IndexError'
+  DYNSEM exc_index_caught_as_LookupError  call0 raise  eager=('tuple', ['IndexError', 'select(): index 10 o'])  compiled='raise:IndexError'
+  DYNSEM exc_index_caught_as_LookupError  call1 raise  eager=('tuple', ['IndexError', 'select(): index 10 o'])  compiled='raise:IndexError'
+  DYNSEM exc_index_caught_by_tuple        call0 raise  eager='IndexError'  compiled='raise:IndexError'
+  DYNSEM exc_index_caught_by_tuple        call1 raise  eager='IndexError'  compiled='raise:IndexError'
+  DYNSEM exc_index_in_nested_call         call0 raise  eager=('tuple', ['caught in caller', ('T', 'torch.float32', (3, 4), [3.0819921493530273, -0.5868  compiled='raise:IndexError'
+  DYNSEM exc_index_in_nested_call         call1 raise  eager=('tuple', ['caught in caller', ('T', 'torch.float32', (3, 4), [3.0819921493530273, -0.5868  compiled='raise:IndexError'
+  DYNSEM exc_index_in_loop_continue       call0 raise  eager=('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float3  compiled='raise:IndexError'
+  DYNSEM exc_index_in_loop_continue       call1 raise  eager=('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float3  compiled='raise:IndexError'
+  DYNSEM exc_index_in_comprehension       call0 raise  eager=('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float3  compiled='raise:IndexError'
+  DYNSEM exc_index_in_comprehension       call1 raise  eager=('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float3  compiled='raise:IndexError'
+  DYNSEM exc_index_in_generator_consumer  call0 raise  eager=('list', [('T', 'torch.float32', (), [-1.0472452640533447], False, ()), 'gen raised'])  compiled='raise:IndexError'
+  DYNSEM exc_index_in_generator_consumer  call1 raise  eager=('list', [('T', 'torch.float32', (), [-1.0472452640533447], False, ()), 'gen raised'])  compiled='raise:IndexError'
+  DYNSEM exc_index_then_finally_order     call0 raise  eager=('list', ['finally', 'except'])  compiled='raise:IndexError'
+  DYNSEM exc_index_then_finally_order     call1 raise  eager=('list', ['finally', 'except', 'finally', 'except'])  compiled='raise:IndexError'
+  DYNSEM exc_index_reraise_as_custom      call0 raise  eager=('tuple', ['custom', 'IndexError'])  compiled='raise:IndexError'
+  DYNSEM exc_index_reraise_as_custom      call1 raise  eager=('tuple', ['custom', 'IndexError'])  compiled='raise:IndexError'
+  DYNSEM exc_index_reraise_bare           call0 raise  eager=('tuple', ['outer', 1])  compiled='raise:IndexError'
+  DYNSEM exc_index_reraise_bare           call1 raise  eager=('tuple', ['outer', 2])  compiled='raise:IndexError'
+  DYNSEM exc_index_suppress               call0 raise  eager=('tuple', ['suppressed', ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657110214  compiled='raise:IndexError'
+  DYNSEM exc_index_suppress               call1 raise  eager=('tuple', ['suppressed', ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657110214  compiled='raise:IndexError'
+  DYNSEM exc_index_exit_swallows          call0 raise  eager=('tuple', ['swallowed', ('list', ['IndexError'])])  compiled='raise:IndexError'
+  DYNSEM exc_index_exit_swallows          call1 raise  eager=('tuple', ['swallowed', ('list', ['IndexError', 'IndexError'])])  compiled='raise:IndexError'
+  DYNSEM exc_index_else_branch            call0 raise  eager=('Size', (1, 3, 4))  compiled='raise:IndexError'
+  DYNSEM exc_index_else_branch            call1 raise  eager=('Size', (1, 3, 4))  compiled='raise:IndexError'
+  DYNSEM exc_index_sys_exc_info           call0 raise  eager=('tuple', ['IndexError', True])  compiled='raise:IndexError'
+  DYNSEM exc_index_sys_exc_info           call1 raise  eager=('tuple', ['IndexError', True])  compiled='raise:IndexError'
+  DYNSEM exc_index_message_kept           call0 raise  eager=('tuple', [True, 'Dimension out of range ('])  compiled='raise:IndexError'
+  DYNSEM exc_index_message_kept           call1 raise  eager=('tuple', [True, 'Dimension out of range ('])  compiled='raise:IndexError'
+  DYNSEM exc_not_implemented_bitwise_float call0 raise  eager='NotImplementedError'  compiled='raise:NotImplementedError'
+  DYNSEM exc_not_implemented_bitwise_float call1 raise  eager='NotImplementedError'  compiled='raise:NotImplementedError'
+  DYNSEM exc_runtime_shape_mismatch_handler_then_index call0 raise  eager='inner index caught'  compiled='raise:IndexError'
+  DYNSEM exc_runtime_shape_mismatch_handler_then_index call1 raise  eager='inner index caught'  compiled='raise:IndexError'
+  DYNSEM exc_index_from_python_list_vs_tensor call0 raise  eager=('list', ['list IndexError', 'Tensor IndexError'])  compiled='raise:IndexError'
+  DYNSEM exc_index_from_python_list_vs_tensor call1 raise  eager=('list', ['list IndexError', 'Tensor IndexError'])  compiled='raise:IndexError'
+  DYNSEM exc_key_error_dict_vs_index_tensor call0 raise  eager='both caught'  compiled='raise:IndexError'
+  DYNSEM exc_key_error_dict_vs_index_tensor call1 raise  eager='both caught'  compiled='raise:IndexError'
+  DYNSEM exc_index_lambda_in_map          call0 raise  eager=('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float3  compiled='raise:IndexError'
+  DYNSEM exc_index_lambda_in_map          call1 raise  eager=('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float3  compiled='raise:IndexError'
+  DYNSEM exc_index_after_graph_break_pattern call0 raise  eager=('tuple', ['caught after effect', ('list', ['mid'])])  compiled='raise:IndexError'
+  DYNSEM exc_index_after_graph_break_pattern call1 raise  eager=('tuple', ['caught after effect', ('list', ['mid', 'mid'])])  compiled='raise:IndexError'
+  DYNSEM exc_index_in_with_no_grad        call0 raise  eager=('tuple', ['caught in no_grad', False])  compiled='raise:IndexError'
+  DYNSEM exc_index_in_with_no_grad        call1 raise  eager=('tuple', ['caught in no_grad', False])  compiled='raise:IndexError'
+dynsem: 33 programs, 44 divergences, 2s (eager)
+written results/dynsem5\DYNSEM.md

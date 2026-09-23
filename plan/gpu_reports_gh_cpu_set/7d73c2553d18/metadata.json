@@ -1,0 +1,28 @@
+{
+  "signature": "7d73c2553d18",
+  "program": "issue_187027_flip_after_repeat_interleave_generates_n",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "187027",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/187027",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

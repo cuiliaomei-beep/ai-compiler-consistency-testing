@@ -1,0 +1,68 @@
+{
+  "signature": "23aea4ad6e5f",
+  "program": "issue_195665_inductor_torch_compile_skips_as_strided",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "195665",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/195665",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 195665,
+      "title": "[inductor] torch.compile skips as_strided's storage-bounds check and reads out of bounds, returning non-reproducible memory",
+      "url": "https://github.com/pytorch/pytorch/issues/195665",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-09-02"
+    },
+    {
+      "number": 185809,
+      "title": "Fix as_strided_copy storage bounds in Inductor",
+      "url": "https://github.com/pytorch/pytorch/pull/185809",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-06-01"
+    },
+    {
+      "number": 193295,
+      "title": "[inductor] Skip batch_linear_lhs for layout-sensitive users",
+      "url": "https://github.com/pytorch/pytorch/pull/193295",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-13"
+    },
+    {
+      "number": 192219,
+      "title": "BUG: Inductor `as_strided` silently reads out of bounds",
+      "url": "https://github.com/pytorch/pytorch/issues/192219",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-08-05"
+    },
+    {
+      "number": 192226,
+      "title": "BUG: Out of Bounds Reads with offset/strided views on compiled kernels",
+      "url": "https://github.com/pytorch/pytorch/issues/192226",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-08-05"
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "signature": "399ffb634e52",
+  "program": "issue_185543_inductor_gradient_mismatch_between_eager",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "gradient"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "x.grad=True",
+    "factors": {
+      "requires_grad": {
+        "arg": 0,
+        "value": true
+      }
+    },
+    "warm": true,
+    "origin": "x.requires_grad"
+  },
+  "context_b": null,
+  "factor_changed": "requires_grad",
+  "controlled": {},
+  "obligation": {
+    "site": "fn",
+    "factor": "x.requires_grad",
+    "kind": "requires_grad",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "grad on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "gradient"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "requires_grad changes the traced graph regardless of source",
+    "param": "x",
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "gradient"
+      ],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "gradient",
+          "detail": "grad[0]: compiled err vs fp64 = 1.000e+00 exceeds 8.0x eager err 0.000e+00",
+          "magnitude": 1.0,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "torch.float64",
+            "max_abs_error": 1.0,
+            "max_rel_error": 1000000000000.0,
+            "n_mismatch": 2,
+            "n_total": 6,
+            "first_mismatch_index": [
+              1,
+              0
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "1",
+            "expected_preview": "[0, 0, 0, 0, 0, 1]",
+            "actual_preview": "[0, 0, 0, 1, 0, 0]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 1.0,
+            "budget": 1e-08,
+            "noise_floor": 1e-08
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0004,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [],
+          "dtype": "torch.float64",
+          "device": "cuda",
+          "stride": [],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0497,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [],
+          "dtype": "torch.float64",
+          "device": "cuda",
+          "stride": [],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.173,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [],
+          "dtype": "torch.float64",
+          "device": "cuda",
+          "stride": [],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 1.0221,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [],
+          "dtype": "torch.float64",
+          "device": "cuda",
+          "stride": [],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_185543_inductor_gradient_mismatch_between_eager.py\n[inductor] Gradient mismatch between eager and inductor for torch.quantile on tied values\nhttps://github.com/pytorch/pytorch/issues/185543\ncompile options in the issue: {'backend': 'inductor', 'fullgraph': True}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 9,
+    "steps_kept": 2,
+    "original_lines": 3,
+    "final_lines": 3,
+    "original_numel": 6,
+    "final_numel": 6,
+    "input_recipe": "torch.randn(2, 3).to(torch.float64).requires_grad_(True),",
+    "log": [
+      "kept: shrink containers",
+      "kept: default flags"
+    ],
+    "source": "def fn(x):\n    y = torch.quantile(x, 0.0, dim=1, keepdim=True)\n    return torch.nan_to_num(y, nan=0.0).sum()"
+  },
+  "duplicates": {
+    "query": "inductor Gradient mismatch between eager inductor torch.quantile tied",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "185543",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/185543",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 185543,
+        "title": "[inductor] Gradient mismatch between eager and inductor for torch.quantile on tied values",
+        "url": "https://github.com/pytorch/pytorch/issues/185543",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-05-28"
+      },
+      {
+        "number": 77764,
+        "title": "General MPS op coverage tracking issue",
+        "url": "https://github.com/pytorch/pytorch/issues/77764",
+        "state": "open",
+        "is_pr": false,
+        "created": "2022-05-18"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

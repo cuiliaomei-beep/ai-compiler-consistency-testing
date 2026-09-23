@@ -1,0 +1,56 @@
+torch 2.14.0+cpu | device cpu
+  FLAG SGD {} {'foreach': True} complex64: compiled InductorError: AssertionError: <built-in function getitem> is not an OpOverload
+  FLAG SGD {'momentum': 0.9} {'foreach': True} complex64: compiled InductorError: AssertionError: <built-in function getitem> is not an OpOverload
+  FLAG SGD {'momentum': 0.9, 'nesterov': True} {'foreach': True} complex64: compiled InductorError: AssertionError: <built-in function getitem> is not an OpOverload
+  FLAG SGD {'weight_decay': 0.1} {'foreach': True} complex64: compiled InductorError: AssertionError: <built-in function getitem> is not an OpOverload
+  FLAG SGD {'maximize': True} {'foreach': True} complex64: compiled InductorError: AssertionError: <built-in function getitem> is not an OpOverload
+  FLAG SGD {'momentum': 0.5, 'dampening': 0.5} {'foreach': True} complex64: compiled InductorError: AssertionError: <built-in function getitem> is not an OpOverload
+[SGD] done (173s, 6 flagged so far)
+  FLAG Adam {'capturable': True} {} fp32: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {} bf16: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {} fp64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {} complex64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {} mixed_and_nograd: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {} scalar_param: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': True} fp32: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': True} bf16: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': True} fp64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': True} complex64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': True} mixed_and_nograd: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': True} scalar_param: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': False} fp32: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': False} bf16: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': False} fp64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': False} complex64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': False} mixed_and_nograd: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG Adam {'capturable': True} {'foreach': False} scalar_param: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+[Adam] done (243s, 24 flagged so far)
+  FLAG AdamW {'capturable': True} {} fp32: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {} bf16: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {} fp64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {} complex64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {} mixed_and_nograd: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {} scalar_param: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': True} fp32: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': True} bf16: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': True} fp64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': True} complex64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': True} mixed_and_nograd: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': True} scalar_param: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': False} fp32: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': False} bf16: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': False} fp64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': False} complex64: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': False} mixed_and_nograd: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+  FLAG AdamW {'capturable': True} {'foreach': False} scalar_param: eager AssertionError: If capturable=True, params and state_steps must be on supported devices: ['cuda', 'xpu', 'hpu', 'pri | compiled OK
+[AdamW] done (586s, 42 flagged so far)
+[RMSprop] done (1070s, 42 flagged so far)
+[Adagrad] done (2218s, 42 flagged so far)
+[Adamax] done (2335s, 42 flagged so far)
+[NAdam] done (2489s, 42 flagged so far)
+[RAdam] done (2611s, 42 flagged so far)
+[ASGD] done (2759s, 42 flagged so far)
+[Adadelta] done (2898s, 42 flagged so far)
+[Rprop] done (3034s, 42 flagged so far)
+{"configs": 1008, "flagged": 42, "wall_s": 3033.7}
+written results/optim\OPTIM.md

@@ -1,0 +1,44 @@
+{
+  "signature": "f1583263b909",
+  "program": "issue_183986_torch_compile_silently_produces_wrong_re",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "183986",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/183986",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 194521,
+      "title": "Fix vmap index_select with batched scalar indices",
+      "url": "https://github.com/pytorch/pytorch/pull/194521",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-23"
+    },
+    {
+      "number": 183986,
+      "title": "`torch.compile` silently produces wrong results for `index_add`/`index_copy`/`index_fill`/`index_put` on expanded (stride-0) tensors",
+      "url": "https://github.com/pytorch/pytorch/issues/183986",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-16"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "signature": "aafd62a347fe",
+  "program": "issue_181653_torch_compile_torch_func_grad_fn_hangs_i",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "181653",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/181653",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

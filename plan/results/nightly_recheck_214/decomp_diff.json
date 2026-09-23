@@ -1,0 +1,175 @@
+{
+  "stats": {
+    "ops": 2,
+    "samples": 2,
+    "variants": 32,
+    "decomp_covered": 31,
+    "decomp_mismatch": 6,
+    "meta_mismatch": 0,
+    "data_dependent": 0,
+    "errors": 0,
+    "wall_s": 39.4
+  },
+  "mismatches": [
+    {
+      "op": "nn.functional.nll_loss",
+      "variant": "empty_last",
+      "kind": "decomp",
+      "detail": "[exception] exception type differs: RuntimeError vs AssertionError :: weight tensor should be defined either for all 0 classes or no classes but got weight tensor of shap",
+      "decomps_hit": [
+        "aten.detach.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "exception type differs: RuntimeError vs TorchRuntimeError",
+      "shapes": [
+        [
+          2,
+          0
+        ],
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.nll_loss",
+      "variant": "size1_last",
+      "kind": "decomp",
+      "detail": "[exception] exception type differs: RuntimeError vs AssertionError :: weight tensor should be defined either for all 1 classes or no classes but got weight tensor of shap",
+      "decomps_hit": [
+        "aten.detach.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "exception type differs: RuntimeError vs TorchRuntimeError",
+      "shapes": [
+        [
+          2,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.nll_loss",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.nll_loss_forward.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          2,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.nll_loss",
+      "variant": "dtype_bool",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.nll_loss_forward.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          2,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.bool",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.nll_loss",
+      "variant": "dtype_float16",
+      "kind": "decomp",
+      "detail": "[exception] ref raised RuntimeError, test returned normally",
+      "decomps_hit": [
+        "aten.detach.default",
+        "aten.nll_loss_forward.default",
+        "aten.arange.default",
+        "aten.ones_like.default",
+        "aten.nll_loss_backward.default",
+        "aten._to_copy.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised RuntimeError, test returned normally",
+      "shapes": [
+        [
+          2,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float16",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.nll_loss",
+      "variant": "dtype_bfloat16",
+      "kind": "decomp",
+      "detail": "[exception] ref raised RuntimeError, test returned normally",
+      "decomps_hit": [
+        "aten.detach.default",
+        "aten.nll_loss_forward.default",
+        "aten.arange.default",
+        "aten.ones_like.default",
+        "aten.nll_loss_backward.default",
+        "aten._to_copy.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised RuntimeError, test returned normally",
+      "shapes": [
+        [
+          2,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.int64"
+      ],
+      "recipe": ""
+    }
+  ]
+}

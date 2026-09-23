@@ -1,0 +1,902 @@
+{
+  "004dadd9687b": {
+    "status": "Generated",
+    "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "0d0ea89831f3": {
+    "status": "Generated",
+    "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "e5212ae78b98": {
+    "status": "Generated",
+    "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "7238fca2848c": {
+    "status": "Generated",
+    "program": "issue_160840_torch_nn_functional_interpolate_generate",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "b082e0f17097": {
+    "status": "Generated",
+    "program": "issue_160840_torch_nn_functional_interpolate_generate",
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "bbfc461be8a7": {
+    "status": "Generated",
+    "program": "issue_160840_torch_nn_functional_interpolate_generate",
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "b07920987eb7": {
+    "status": "Generated",
+    "program": "issue_170666_inductor_fails_to_compile_models_contain",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "ca0146668526": {
+    "status": "Generated",
+    "program": "issue_170666_inductor_fails_to_compile_models_contain",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "d5cf564de406": {
+    "status": "Generated",
+    "program": "issue_170666_inductor_fails_to_compile_models_contain",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "8cca92a6365c": {
+    "status": "Generated",
+    "program": "issue_172711_torch_compile_produces_wrong_output_chan",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "b44de154b38a": {
+    "status": "Generated",
+    "program": "issue_172711_torch_compile_produces_wrong_output_chan",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "eefeef302cf9": {
+    "status": "Generated",
+    "program": "issue_172711_torch_compile_produces_wrong_output_chan",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "138a850da12b": {
+    "status": "Generated",
+    "program": "issue_174386_torch_compile_ignores_torch_use_determin",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "c8e3da048a2f": {
+    "status": "Generated",
+    "program": "issue_174386_torch_compile_ignores_torch_use_determin",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "46c241b62b30": {
+    "status": "Generated",
+    "program": "issue_176679_torch_compile_produces_incorrect_results",
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "7bdd3ea240a8": {
+    "status": "Generated",
+    "program": "issue_176679_torch_compile_produces_incorrect_results",
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "58f9c1ecaf93": {
+    "status": "Generated",
+    "program": "issue_177821_inductor_torch_compile_ignores_a_complex",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "b423bcd4a9f5": {
+    "status": "Generated",
+    "program": "issue_177821_inductor_torch_compile_ignores_a_complex",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "1b36156538f8": {
+    "status": "Generated",
+    "program": "issue_181568_torch_compile_mismatch_for_matmul_follow",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "2141064c29a5": {
+    "status": "Generated",
+    "program": "issue_181568_torch_compile_mismatch_for_matmul_follow",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "dfce1bcf7769": {
+    "status": "Generated",
+    "program": "issue_181568_torch_compile_mismatch_for_matmul_follow",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "02a53bfe419d": {
+    "status": "Generated",
+    "program": "issue_181693_nn_hardswish_produces_wrong_output_under",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "644c6e8989e2": {
+    "status": "Generated",
+    "program": "issue_181693_nn_hardswish_produces_wrong_output_under",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "2d6a9ef101c3": {
+    "status": "Generated",
+    "program": "issue_181694_torch_addcdiv_produces_wrong_output_unde",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "5eaac3595429": {
+    "status": "Generated",
+    "program": "issue_181694_torch_addcdiv_produces_wrong_output_unde",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "450b71f4c193": {
+    "status": "Generated",
+    "program": "issue_181695_torch_where_with_broadcast_shapes_produc",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "6d957df4ef4e": {
+    "status": "Generated",
+    "program": "issue_181695_torch_where_with_broadcast_shapes_produc",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "26cc08f9e08f": {
+    "status": "Generated",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "7d78158b9809": {
+    "status": "Generated",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "d2f60327ea7c": {
+    "status": "Generated",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "edb2ef25b17e": {
+    "status": "Generated",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "5ffb5476b45d": {
+    "status": "Generated",
+    "program": "issue_183120_torch_compile_inductor_produces_wrong_ou",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "c5c29791d04a": {
+    "status": "Generated",
+    "program": "issue_183120_torch_compile_inductor_produces_wrong_ou",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "33e02cf82893": {
+    "status": "Generated",
+    "program": "issue_183601_torch_compile_inductor_produces_wrong_ou",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "b7260f42d43d": {
+    "status": "Generated",
+    "program": "issue_183601_torch_compile_inductor_produces_wrong_ou",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "a1927317a81d": {
+    "status": "Generated",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "b610f2aee5d6": {
+    "status": "Generated",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "bb4d985139a3": {
+    "status": "Generated",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "eacb6b88db9c": {
+    "status": "Generated",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "ddc30b59b7f0": {
+    "status": "Generated",
+    "program": "issue_185246_torch_compile_silently_accepts_invalid_b",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "0b19429353f5": {
+    "status": "Generated",
+    "program": "issue_185248_torch_compile_silently_accepts_negative",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "4b073e5a902f": {
+    "status": "Generated",
+    "program": "issue_185481_inductor_argmax_over_comparison_mask_is",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "51c49eddc26e": {
+    "status": "Generated",
+    "program": "issue_185587_inductor_numerical_inconsistency_polygam",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "cc4d9affb449": {
+    "status": "Generated",
+    "program": "issue_185587_inductor_numerical_inconsistency_polygam",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "d134e53413bd": {
+    "status": "Generated",
+    "program": "issue_185587_inductor_numerical_inconsistency_polygam",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "f911d4049cd8": {
+    "status": "Generated",
+    "program": "issue_186799_torch_compile_silently_produces_wrong_gr",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "a6e334da4975": {
+    "status": "Generated",
+    "program": "issue_189787_inductor_constant_folds_sum_softmax_to_e",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "4eeec2e6a9df": {
+    "status": "Generated",
+    "program": "issue_190758_memory_budget_partitioner_recomputes_rng",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "adbd8d4c8f5b": {
+    "status": "Generated",
+    "program": "issue_190758_memory_budget_partitioner_recomputes_rng",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "db60de363b38": {
+    "status": "Generated",
+    "program": "issue_190758_memory_budget_partitioner_recomputes_rng",
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "2e373fdab2d9": {
+    "status": "Generated",
+    "program": "issue_192872_dynamo_mutation_to_a_load_build_class_cr",
+    "stage": "cache_invalidation",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "matrix",
+    "reproducibility": "2/2"
+  },
+  "78616413da67": {
+    "status": "Generated",
+    "program": "issue_192872_dynamo_mutation_to_a_load_build_class_cr",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "a5bd397c5bc4": {
+    "status": "Generated",
+    "program": "issue_192872_dynamo_mutation_to_a_load_build_class_cr",
+    "stage": "cache_invalidation",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "matrix",
+    "reproducibility": "2/2"
+  },
+  "b357bf1df78d": {
+    "status": "Generated",
+    "program": "issue_192872_dynamo_mutation_to_a_load_build_class_cr",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "e151771dc013": {
+    "status": "Generated",
+    "program": "issue_192872_dynamo_mutation_to_a_load_build_class_cr",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "fab055362652": {
+    "status": "Generated",
+    "program": "issue_192872_dynamo_mutation_to_a_load_build_class_cr",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "0e19fc7aa167": {
+    "status": "Generated",
+    "program": "issue_192905_nested_nested_compile_region_silently_re",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "8b621e6fc0a2": {
+    "status": "Generated",
+    "program": "issue_192905_nested_nested_compile_region_silently_re",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "f933a25f74a0": {
+    "status": "Generated",
+    "program": "issue_192905_nested_nested_compile_region_silently_re",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "fdff29a0bc66": {
+    "status": "Generated",
+    "program": "issue_192905_nested_nested_compile_region_silently_re",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "0a8dd4af2bbb": {
+    "status": "Generated",
+    "program": "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "58aaac709855": {
+    "status": "Generated",
+    "program": "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "bba3ecc78285": {
+    "status": "Generated",
+    "program": "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "e53dc24742ba": {
+    "status": "Generated",
+    "program": "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "0943fd907367": {
+    "status": "Generated",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "465daa651bc8": {
+    "status": "Generated",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "6218c276f95d": {
+    "status": "Generated",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "c5a6f7958c59": {
+    "status": "Generated",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "0599bd85b3d5": {
+    "status": "Generated",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "628b9c58479d": {
+    "status": "Generated",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "d11b3ef873d5": {
+    "status": "Generated",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "ffcb515d6dc2": {
+    "status": "Generated",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "093d6127d075": {
+    "status": "Generated",
+    "program": "issue_193661_inductor_wrong_argmax_after_fused_traili",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "0ef98537b363": {
+    "status": "Generated",
+    "program": "issue_193661_inductor_wrong_argmax_after_fused_traili",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "3b8951712f43": {
+    "status": "Generated",
+    "program": "issue_193661_inductor_wrong_argmax_after_fused_traili",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "5bb974e08155": {
+    "status": "Generated",
+    "program": "issue_193661_inductor_wrong_argmax_after_fused_traili",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "4a33347a73a5": {
+    "status": "Generated",
+    "program": "issue_193710_inductor_fallback_node_due_to_unsupporte",
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "f666fc143351": {
+    "status": "Generated",
+    "program": "issue_193757_inductor_cpu_torch_compile_silently_acce",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "af4f302cca46": {
+    "status": "Generated",
+    "program": "issue_193811_torch_compile_silently_accepts_int32_inp",
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "0ec09af1e3ee": {
+    "status": "Generated",
+    "program": "issue_194062_inductor_silent_incorrectness_torch_full",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "40170d036777": {
+    "status": "Generated",
+    "program": "issue_194062_inductor_silent_incorrectness_torch_full",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "74bbd27eab97": {
+    "status": "Generated",
+    "program": "issue_194103_torch_compile_dynamic_true_fails_for_sca",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "c2e79ca22ff0": {
+    "status": "Generated",
+    "program": "issue_194501_torch_compile_inductor_smooth_l1_loss_wi",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "47f58f0482b6": {
+    "status": "Generated",
+    "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "4874d877aa62": {
+    "status": "Generated",
+    "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "729a6c172208": {
+    "status": "Generated",
+    "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "c5e9922f6d7f": {
+    "status": "Generated",
+    "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "2ad86ba19172": {
+    "status": "Generated",
+    "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "3a6b57762a33": {
+    "status": "Generated",
+    "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "e9ca0c44112a": {
+    "status": "Generated",
+    "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "4af884a9ae89": {
+    "status": "Generated",
+    "program": "issue_195418_dynamo_canonicalize_output_graph_node_or",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "330c86369ab8": {
+    "status": "Generated",
+    "program": "issue_195488_dynamo_autocast_context_manager_is_lower",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "541db00ea2c3": {
+    "status": "Generated",
+    "program": "issue_195579_meta_decomps_torch_compile_skips_addmm_s",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "23aea4ad6e5f": {
+    "status": "Generated",
+    "program": "issue_195665_inductor_torch_compile_skips_as_strided",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "b3f89a009fcc": {
+    "status": "Generated",
+    "program": "issue_195673_torch_compile_accepts_rand_like_on_an_in",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "063be0ee1994": {
+    "status": "Generated",
+    "program": "issue_195674_torch_compile_evaluates_subtraction_on_a",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "d7540d909e40": {
+    "status": "Generated",
+    "program": "issue_195675_torch_clamp_with_a_bound_unrepresentable",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "de432b6c7662": {
+    "status": "Generated",
+    "program": "issue_196285_torch_compile_dynamic_true_fails_to_hand",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "71b953dfc7ab": {
+    "status": "Generated",
+    "program": "issue_95161_aotautograd_based_torch_compile_doesn_t",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "daba1be0d104": {
+    "status": "Generated",
+    "program": "issue_95161_aotautograd_based_torch_compile_doesn_t",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  }
+}

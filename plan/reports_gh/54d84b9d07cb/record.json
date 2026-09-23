@@ -1,0 +1,357 @@
+{
+  "signature": "54d84b9d07cb",
+  "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "x.grad=True",
+    "factors": {
+      "requires_grad": {
+        "arg": 0,
+        "value": true
+      }
+    },
+    "warm": true,
+    "origin": "x.requires_grad"
+  },
+  "context_b": null,
+  "factor_changed": "requires_grad",
+  "controlled": {},
+  "obligation": {
+    "site": "fn",
+    "factor": "x.requires_grad",
+    "kind": "requires_grad",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "grad on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "gradient"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "requires_grad changes the traced graph regardless of source",
+    "param": "x",
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: NaN/Inf pattern differs from the float64 truth",
+          "index": 0,
+          "evidence": {
+            "shape": [
+              1
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": Infinity,
+            "max_rel_error": NaN,
+            "n_mismatch": 1,
+            "n_total": 1,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "inf",
+            "first_mismatch_actual": "25000000",
+            "expected_preview": "[inf]",
+            "actual_preview": "[25000000]"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0484,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0525,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 2.2299,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "loaded from reproducers_gh\\issue_183607_torch_compile_changes_fp16_overflow_beha.py\ntorch.compile changes fp16 overflow behavior for cast-to-float16 multiplication\nhttps://github.com/pytorch/pytorch/issues/183607\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 3,
+    "steps_kept": 2,
+    "original_lines": 3,
+    "final_lines": 3,
+    "original_numel": 1,
+    "final_numel": 1,
+    "input_recipe": "torch.randn(1).requires_grad_(True),",
+    "log": [
+      "kept: shrink containers",
+      "kept: default flags"
+    ],
+    "source": "def fn(x):\n    y = x.to(torch.float16)\n    return (y * y).to(torch.float32)"
+  },
+  "duplicates": {
+    "query": "torch.compile _dynamo.reset",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": 194770,
+        "title": "[PrivateUse1][dynamo] torch._dynamo.reset() should support external reset callbacks for OOT backend caches",
+        "url": "https://github.com/pytorch/pytorch/issues/194770",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-25"
+      },
+      {
+        "number": 194234,
+        "title": "[dynamo] `torch.compile` raises `NameError: name 'stream1' is not defined` when a compiled function calls `torch.cuda.Stream.wait_stream` and returns a single-element list constant",
+        "url": "https://github.com/pytorch/pytorch/issues/194234",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-20"
+      },
+      {
+        "number": 193760,
+        "title": "[inductor][cuda] `view(torch.bool).copy_(y.view(torch.bool)).view(torch.float32)` silently corrupts data under `torch.compile`",
+        "url": "https://github.com/pytorch/pytorch/issues/193760",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-17"
+      },
+      {
+        "number": 194347,
+        "title": "[inductor][cpu] `torch.minimum` with signed zeros returns +0.0 under `torch.compile` on CPU while eager returns -0.0",
+        "url": "https://github.com/pytorch/pytorch/issues/194347",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-21"
+      },
+      {
+        "number": 194345,
+        "title": "[inductor][cuda] `torch.remainder` / `torch.fmod` wrong results under `torch.compile` on CUDA for large |a/b| ratios",
+        "url": "https://github.com/pytorch/pytorch/issues/194345",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-21"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

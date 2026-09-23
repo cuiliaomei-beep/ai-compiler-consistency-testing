@@ -1,0 +1,257 @@
+{
+  "signature": "4e0f76a0f6d6",
+  "program": "issue_171190_torch_compile_inductor_silently_ignores",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "ref raised RuntimeError, test returned normally",
+          "evidence": {
+            "exception": "RuntimeError",
+            "message": "expected scalar type Half but found Float"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "expected scalar type Half but found Float",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0005,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "expected scalar type Half but found Float",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.3109,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "expected scalar type Half but found Float",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 1.1266,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 4.9412,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            32,
+            64
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            2048,
+            64,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": false,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_171190_torch_compile_inductor_silently_ignores.py\ntorch.compile (Inductor) silently ignores explicit dtype casts in SDPA, diverging from eager semantics\nhttps://github.com/pytorch/pytorch/issues/171190\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 16,
+    "steps_kept": 8,
+    "original_lines": 26,
+    "final_lines": 26,
+    "original_numel": 12288,
+    "final_numel": 384,
+    "input_recipe": "torch.randn(2, 64), torch.randn(2, 64), torch.randn(2, 64)",
+    "log": [
+      "kept: drop rank",
+      "kept: halve dim 0",
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags",
+      "kept: halve dim 0",
+      "kept: halve dim 0",
+      "kept: halve dim 0"
+    ],
+    "source": "def forward(self, query, key, value):\n        batch_size = query.size(0)\n        \n        q = self.query_proj(query).view(batch_size, -1, self.num_heads, self.head_dim)\n        k = self.key_proj(key).view(batch_size, -1, self.num_heads, self.head_dim)\n        v = self.value_proj(value).view(batch_size, -1, self.num_heads, self.head_dim)\n        \n        q = q.permute(0, 2, 1, 3)\n        k = k.permute(0, 2, 1, 3)\n        v = v.permute(0, 2, 1, 3)\n        \n        # Compute attention scores\n        scores = torch.matmul(q, k.transpose(-2, -1)) * self.scale_factor\n        \n        # Explicit dtype conversion: scores -> float32 for numerical stability\n        scores = scores.float()\n        attn_weights = self.softmax(scores)\n        \n        # Explicit dtype conversion: attn_weights -> float16\n        attn_weights = attn_weights.half()\n        \n        # This matmul fails in eager mode: attn_weights is float16, v is float32\n        output = torch.matmul(attn_weights, v)\n        \n        output = output.permute(0, 2, 1, 3).contiguous()\n        return output.view(batch_size, -1, self.num_heads * self.head_dim)"
+  },
+  "duplicates": {
+    "query": "Inductor silently ignores explicit dtype casts SDPA diverging",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "171190",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/171190",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 171190,
+        "title": "torch.compile (Inductor) silently ignores explicit dtype casts in SDPA, diverging from eager semantics",
+        "url": "https://github.com/pytorch/pytorch/issues/171190",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2025-12-23"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: RuntimeError",
+    "E1_dynamo_eager: RuntimeError",
+    "E2_aot_eager: RuntimeError",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

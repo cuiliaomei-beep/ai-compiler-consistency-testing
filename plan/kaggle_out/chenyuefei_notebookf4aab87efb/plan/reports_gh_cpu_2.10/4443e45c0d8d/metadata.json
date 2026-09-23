@@ -1,0 +1,28 @@
+{
+  "signature": "4443e45c0d8d",
+  "program": "issue_175496_inductor_model_with_torch_compile_output",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "175496",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/175496",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

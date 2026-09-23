@@ -1,0 +1,1500 @@
+{
+  "stats": {
+    "ops": 561,
+    "samples": 561,
+    "variants": 1918,
+    "decomp_covered": 660,
+    "decomp_mismatch": 21,
+    "meta_mismatch": 0,
+    "data_dependent": 39,
+    "errors": 0,
+    "wall_s": 3798.5,
+    "crashes": 2
+  },
+  "mismatches": [
+    {
+      "op": "item",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "item",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "allclose",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.allclose.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "allclose",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.allclose.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "corrcoef",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "corrcoef",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "corrcoef",
+      "variant": "large_reduce",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          100003
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "corrcoef",
+      "variant": "large_reduce_bf16",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          100003
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "equal",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5
+        ],
+        []
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "equal",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5
+        ],
+        []
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "equal",
+      "variant": "large_reduce",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          100003
+        ],
+        []
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "equal",
+      "variant": "large_reduce_bf16",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          100003
+        ],
+        []
+      ],
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "isin",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised RuntimeError, test returned normally",
+      "decomps_hit": [
+        "aten.isin.Tensor_Tensor"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          20
+        ],
+        [
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked_select",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.masked_select.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          10,
+          10
+        ],
+        [
+          10
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked_select",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.masked_select.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          10,
+          10
+        ],
+        [
+          10
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.linear_cross_entropy",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] exception type differs: RuntimeError vs NotImplementedError :: \"max_values_cpu\" not implemented for 'ComplexFloat'",
+      "decomps_hit": [
+        "aten.t.default",
+        "aten.addmm.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "exception type differs: RuntimeError vs NotImplementedError",
+      "shapes": [
+        [
+          8
+        ],
+        [
+          8,
+          8
+        ],
+        []
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "native_group_norm",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.native_group_norm.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "native_batch_norm",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.native_batch_norm.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          2,
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64",
+        "torch.complex64",
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "native_batch_norm",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.native_batch_norm.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          2,
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64",
+        "torch.complex64",
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.group_norm",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.native_group_norm.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.instance_norm",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.native_batch_norm.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          3,
+          2,
+          3,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.upsample_nearest1d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten._upsample_nearest_exact1d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.upsample_nearest",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.upsample_nearest3d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.max_unpool1d",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.max_unpool2d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          2,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.max_unpool1d",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.max_unpool2d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.max_unpool2d",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.max_unpool2d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          1,
+          2,
+          2,
+          7
+        ],
+        [
+          1,
+          2,
+          2,
+          7
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.max_unpool2d",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.max_unpool2d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.max_unpool3d",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.max_unpool3d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          1,
+          2,
+          2,
+          4,
+          2
+        ],
+        [
+          1,
+          2,
+          2,
+          4,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.max_unpool3d",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.max_unpool3d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          1,
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.hardshrink",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.hardshrink.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "index_reduce",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.index_reduce.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.int64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "unique",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.unique_dim.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "unique",
+      "variant": "large_reduce",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.unique_dim.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          100003
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "unique",
+      "variant": "large_reduce_bf16",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.unique_dim.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          100003
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "unique_consecutive",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.unique_consecutive.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "unique_consecutive",
+      "variant": "large_reduce",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.unique_consecutive.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          100003
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "unique_consecutive",
+      "variant": "large_reduce_bf16",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.unique_consecutive.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          100003
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "xlogy",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.xlogy.Tensor"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          10,
+          1,
+          5
+        ],
+        [
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.smooth_l1_loss",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.smooth_l1_loss.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nonzero",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.nonzero.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nonzero",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.nonzero.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nonzero",
+      "variant": "large_reduce",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.nonzero.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          100003
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nonzero",
+      "variant": "large_reduce_bf16",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.nonzero.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          100003
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.mse_loss",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.mse_loss.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "argwhere",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.nonzero.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "argwhere",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.nonzero.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "argwhere",
+      "variant": "large_reduce",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.nonzero.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          100003
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "argwhere",
+      "variant": "large_reduce_bf16",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.nonzero.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          100003
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nanmean",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised RuntimeError, test returned normally",
+      "decomps_hit": [
+        "aten.detach.default",
+        "aten.nansum.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised RuntimeError, test returned normally",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nansum",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised RuntimeError, test returned normally",
+      "decomps_hit": [
+        "aten.nansum.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised RuntimeError, test returned normally",
+      "shapes": [
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.ctc_loss",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten._ctc_loss.Tensor",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          50,
+          16,
+          20
+        ],
+        [
+          16,
+          30
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.int64",
+        "torch.int64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.nll_loss",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.nll_loss_forward.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          3
+        ],
+        []
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.gaussian_nll_loss",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.huber_loss",
+      "variant": "dtype_complex64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.huber_loss.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ],
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "linalg.lstsq",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.linalg_lstsq.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          3,
+          4,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "linalg.lstsq",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.linalg_lstsq.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          3,
+          4,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "linalg.lstsq",
+      "variant": "large_reduce",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.linalg_lstsq.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          3,
+          4,
+          100003
+        ],
+        [
+          3,
+          3,
+          4,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "linalg.lstsq",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.linalg_lstsq.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "linalg.lstsq",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.linalg_lstsq.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.complex64",
+        "torch.complex64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "linalg.lstsq",
+      "variant": "large_reduce",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DynamicOutputShapeException: aten.linalg_lstsq.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          4,
+          100003
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.median",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    }
+  ],
+  "crashes": [
+    {
+      "crash": "native_batch_norm",
+      "rc": 3221225477
+    },
+    {
+      "crash": "unbind",
+      "rc": -999
+    }
+  ]
+}

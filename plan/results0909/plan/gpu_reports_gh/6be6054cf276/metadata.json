@@ -1,0 +1,44 @@
+{
+  "signature": "6be6054cf276",
+  "program": "issue_160840_torch_nn_functional_interpolate_generate",
+  "project": "pytorch/pytorch",
+  "stage": "aot_functionalization",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "160840",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/160840",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 160840,
+      "title": "`torch.nn.functional.interpolate` generates inconsistent computation results after `torch.compile`",
+      "url": "https://github.com/pytorch/pytorch/issues/160840",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2025-08-17"
+    },
+    {
+      "number": 93598,
+      "title": "[Inductor] incorrect result of vision_maskrcnn",
+      "url": "https://github.com/pytorch/pytorch/issues/93598",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2022-11-01"
+    }
+  ]
+}

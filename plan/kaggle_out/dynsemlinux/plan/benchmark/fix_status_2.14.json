@@ -1,0 +1,317 @@
+[
+  {
+    "issue": "113641",
+    "title": "compiling double inplace clamp on strides produces wrong result with s",
+    "closed_at": "2023-11-17",
+    "state_reason": "completed",
+    "fix_commit": "e736d27e386176fe24d16d77bd36d1c84a664e4a",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "166514",
+    "title": "Inductor Fails with Stride Mismatch for `torch.fft.ifft` Due to Incorr",
+    "closed_at": "2026-05-16",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "174969",
+    "title": "torch.compile outputs incorrect results when applying `add_` on transp",
+    "closed_at": "2026-03-31",
+    "state_reason": "completed",
+    "fix_commit": "ae81c1491fc78123db31191def2606cca5d342b7",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "175156",
+    "title": "[inductor] Multiple randint calls cause inconsistent RNG results betwe",
+    "closed_at": "2026-05-14",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "175496",
+    "title": "[inductor] model with torch.compile outputs inconsistent result when r",
+    "closed_at": "2026-05-15",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "175632",
+    "title": "[inductor] torch.compile produces inconsistent output for attention-li",
+    "closed_at": "2026-03-25",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "175919",
+    "title": "[Inductor] Out-of-Bounds Memory Read via `resize` on Overlapping Views",
+    "closed_at": "2026-03-26",
+    "state_reason": "completed",
+    "fix_commit": "fd55c516bdb44045228bac7669d2966db6815c79",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "176854",
+    "title": "torch.compile does not correctly propagate detach_() in-place autograd",
+    "closed_at": "2026-03-24",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "177252",
+    "title": "[Inductor] AssertionError: wrong number of dimensions1 in backward() w",
+    "closed_at": "2026-03-18",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "177629",
+    "title": "`torch.compile(backend=\"inductor\")` silently succeeds on `torch.bmm` w",
+    "closed_at": "2026-06-09",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "178125",
+    "title": "conv_transpose1d meta implementation allows invalid output_padding tha",
+    "closed_at": "2026-08-03",
+    "state_reason": "completed",
+    "fix_commit": "3d99896d477c69400c9206d00fa8bf7c4a139681",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "178128",
+    "title": "conv_transpose3d meta execution produces output for invalid bias shape",
+    "closed_at": "2026-08-03",
+    "state_reason": "completed",
+    "fix_commit": "3d99896d477c69400c9206d00fa8bf7c4a139681",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "178262",
+    "title": "[Inductor] Incorrect stride calculation in convolution meta kernel whe",
+    "closed_at": "2026-03-24",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "178964",
+    "title": "[inductor] `max` returns incorrect indices when compiling a function i",
+    "closed_at": "2026-04-16",
+    "state_reason": "completed",
+    "fix_commit": "93c689cc25b407c12dd8730e5ab5895924e53014",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "179383",
+    "title": "`torch.quantile` and `torch.nanquantile` fail under `torch.compile(dyn",
+    "closed_at": "2026-05-21",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "179534",
+    "title": "torch.compile fails on aten.sparse_csr_tensor with DataDependentOutput",
+    "closed_at": "2026-05-21",
+    "state_reason": "completed",
+    "fix_commit": "d565abc641e16c4369cb175aa2fabc9828f188dc",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "179807",
+    "title": "`torch.compile` inductor crash: `F.pad` followed by `stft`",
+    "closed_at": "2026-04-15",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "181175",
+    "title": "[aot_autograd] RuntimeError: Cannot call numel() on tensor with symbol",
+    "closed_at": "2026-05-28",
+    "state_reason": "completed",
+    "fix_commit": "849eb888e57d87255dd5bb4188119c55e311ee7f",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "181625",
+    "title": "`AssertionError: expected size/stride mismatch` in Inductor-generated ",
+    "closed_at": "2026-04-29",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "181870",
+    "title": "`torch.compile(dynamic=True)` fails on `F.cross_entropy` with probabil",
+    "closed_at": "2026-06-01",
+    "state_reason": "completed",
+    "fix_commit": "44932144f561267d08a5f55dd5c43c0202c9c496",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "182399",
+    "title": "torch.compile(dynamic=True) fails on F.cross_entropy with probability ",
+    "closed_at": "2026-05-05",
+    "state_reason": "duplicate",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "182965",
+    "title": "`torch.compile` silently returns a result for `torch.linalg.cholesky` ",
+    "closed_at": "2026-06-14",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "183082",
+    "title": "Inductor CPU returns wrong argmax after sin_() and transpose",
+    "closed_at": "2026-05-20",
+    "state_reason": "completed",
+    "fix_commit": "b298938ef64f91fcea15e09d325edeb99f702249",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "183121",
+    "title": "torch.compile returns wrong shape for torch.norm(dim=-1) when reduced ",
+    "closed_at": "2026-05-12",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "183763",
+    "title": "torch.compile overflows torch.sinh near float32 boundary while eager r",
+    "closed_at": "2026-06-15",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "183765",
+    "title": "torch.compile overflows torch.cosh near float32 boundary while eager r",
+    "closed_at": "2026-06-18",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "183767",
+    "title": "torch.compile returns inf for torch.asinh on large finite float32 inpu",
+    "closed_at": "2026-06-11",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "185330",
+    "title": "[inductor] torch.index_select on uint16 input silently succeeds while ",
+    "closed_at": "2026-06-01",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "187018",
+    "title": "abs on uint8 silently miscompiled via std::abs integer promotion",
+    "closed_at": "2026-06-14",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "187027",
+    "title": "flip after repeat_interleave generates negative (out-of-bounds) index ",
+    "closed_at": "2026-08-28",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "188084",
+    "title": "[BUG] Inductor reinplaces `index_put` on expanded view and silently co",
+    "closed_at": "2026-06-24",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "189518",
+    "title": "Inductor's pointless_cumsum_replacement drops cumsum's explicit dtype ",
+    "closed_at": "2026-07-12",
+    "state_reason": "completed",
+    "fix_commit": "62cdf554bccef899229e33992a77280d5695bcff",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "189528",
+    "title": "[cond] Inductor NameError on inner-dim branch output mismatch",
+    "closed_at": "2026-07-19",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  },
+  {
+    "issue": "190755",
+    "title": "Some Dynamo descriptors (`tp_descr_get_impl`) are missing a `descr_che",
+    "closed_at": "2026-07-28",
+    "state_reason": "completed",
+    "fix_commit": "809044678aa14020fee0b72b57688137489be180",
+    "status_vs_tag": "behind",
+    "in_release": true
+  },
+  {
+    "issue": "195422",
+    "title": "[inductor] torch.compile silently drops an in-place mutation of an inp",
+    "closed_at": "2026-09-01",
+    "state_reason": "completed",
+    "fix_commit": null,
+    "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)",
+    "in_release": null
+  }
+]

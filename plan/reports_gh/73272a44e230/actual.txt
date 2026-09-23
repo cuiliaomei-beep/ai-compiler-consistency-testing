@@ -1,0 +1,5 @@
+exception RuntimeError: expected dtype torch.float64 but got torch.float16
+Error in op: torch.ops.aten.normal.Tensor_Tensor
+This error most often comes from an incorrect fake (aka meta) kernel for a custom op.
+Use torch.library.opcheck to test your custom op.
+See https://pytorch.org/docs/stable/library.html#torch.library.opcheck

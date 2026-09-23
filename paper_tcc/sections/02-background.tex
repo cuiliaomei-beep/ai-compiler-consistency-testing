@@ -1,0 +1,71 @@
+\section{Background and Motivation}
+\label{sec:background}
+
+\subsection{The \tcompile Stack}
+\label{sec:stack}
+
+\tcompile wraps a Python callable and defers compilation to the first call~\cite{DBLP:conf/asplos/AnselYHGJVBBBBC24}. Four layers then
+transform the program. \emph{TorchDynamo} symbolically evaluates CPython bytecode, models Python objects with
+variable trackers, extracts an FX graph~\cite{DBLP:conf/mlsys/ReedDHUA22} of tensor operations, and installs \emph{guards}: predicates
+over input metadata, Python values, and global state under which the captured graph may be reused. Code that
+Dynamo cannot model causes a graph break and falls back to the interpreter. \emph{AOTAutograd} traces the graph
+with \emph{fake tensors} that carry only metadata, removes mutation and aliasing through functionalization,
+and records a joint forward/backward graph. A \emph{decomposition} table rewrites several hundred ATen operators
+into a smaller primitive set, and \emph{meta kernels} compute output shapes, dtypes, and strides without data.
+\emph{TorchInductor} lowers the primitives to a loop-level IR, fuses them, and generates C++/OpenMP code for CPUs
+or Triton kernels~\cite{DBLP:conf/pldi/TilletKC19} for GPUs. Compiled code is kept in an in-memory cache keyed by guards and in
+on-disk caches keyed by graph and configuration hashes; the same graph can also be exported ahead of time and
+packaged by AOTInductor.
+
+Each layer can be selected in isolation through the \code{backend} argument, which \tool exploits for
+localization: \code{backend="eager"} executes the graph captured by Dynamo with eager kernels (\EO),
+\code{"aot\_eager"} adds AOTAutograd and decompositions (\ET), and \code{"inductor"} adds lowering and code
+generation (\ER). Plain eager execution is \EZ.
+
+\subsection{Source--Artifact Consistency}
+\label{sec:definition}
+
+Let $f$ be a Python function, $x$ an input, and $c$ an execution context that fixes tensor metadata, Python-level
+values, global state, and compiler options. $E(f,x,c)$ denotes eager execution and $C(f,x,c)$ compiled execution.
+We compare executions through the observation
+\[
+\mathit{Obs}(r)=\langle \mathit{value},\ \mathit{metadata},\ \mathit{identity},\ \mathit{exception},\ \mathit{state},\ \mathit{gradient},\ \mathit{process}\rangle ,
+\]
+where metadata covers shape, dtype, stride, device, and layout; identity records whether an output is an input
+object or shares its storage; exception covers the type of a raised exception and whether a handler in the
+program received it; state is the post-state of inputs, module buffers, and Python objects the program can
+reach; and process records whether the interpreter survived. The compiler is \emph{consistent} on $(f,x,c)$ if
+$\mathit{Obs}(E(f,x,c)) \approx \mathit{Obs}(C(f,x,c))$, where $\approx$ is equality except for a dtype-aware
+floating-point tolerance on values and gradients. For caches we additionally compare a cold compilation in
+context $c_2$ with a warm execution that first compiles under $c_1$:
+$C_{\mathit{cold}}(f,x,c_2)$ versus $C_{\mathit{warm}}(f,x,c_1\!\rightarrow\!c_2)$. If eager and cold agree but warm
+differs, the failure is attributed to specialization or cache reuse rather than to code generation. The context
+$c$ has two parts: the program-side part (metadata, values, state) that the program can read, and the
+\emph{compilation path} (graph-break positions, backend layer, execution context, artifact route) that the
+program cannot observe and that must therefore never change $\mathit{Obs}$. This paper varies both.
+
+\subsection{Motivating Examples}
+\label{sec:motivation}
+
+\input{figures/fig-motivation}
+
+Figure~\ref{fig:motivation} shows two defects found by \tool in PyTorch~2.14 that illustrate why neither graph
+diversity nor an output-only oracle is sufficient.
+
+\paragraph{A Python-semantics failure.} In Figure~\ref{fig:motivation}a, eager execution advances the global
+random state, so consecutive calls return different permutations. Under \tcompile every call returns the
+permutation drawn during tracing. The outcome is identical for \EO, \ET, and \ER, which places the divergence
+in graph capture: Dynamo evaluates \code{random.shuffle} at trace time and embeds the result as a constant. No
+tensor operator is wrong, no exception is raised, and a single-call differential test passes; the defect is
+visible only when the same artifact is \emph{reused}, which is the sequence dimension of our test model.
+
+\paragraph{A code-generation failure on a boundary shape.} In Figure~\ref{fig:motivation}b,
+\code{torch.var\_mean} on an empty tensor returns \code{(nan, nan)} in eager mode and under \EO and \ET, but
+\code{(nan, 0.)} under Inductor. The mean component is a fabricated zero. The trigger is a boundary value of the
+factor \code{x.shape[0]}, and the layer pattern $E_0{=}E_1{=}E_2{\neq}E_3$ assigns the defect to Inductor's
+reduction code. The operator is covered by PyTorch's own test suite, but not with this shape under the compiled
+path.
+
+\paragraph{Observations.} Both failures arise where a \emph{legal but uncommon context} meets a compilation
+path, both are invisible to a generator that varies only graph topology, and they differ in layer, observable,
+and trigger, which calls for a systematic model of context factors instead of one specialized oracle.

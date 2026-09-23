@@ -1,0 +1,26 @@
+!! mlp_with_buffer_effect           compile_mod_fullgraph              ok vs exc  (eager ok, got Unsupported)
+!! module_with_graph_break_and_list compile_mod_fullgraph              ok vs exc  (eager ok, got Unsupported)
+!! dtype_promotion_chain            compile                            max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            compile_compile                    max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            compile_fullgraph_in_compile       max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            calls_other_compiled               max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            allow_in_graph_wrapped             max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            graph_break_around                 max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            dynamic_true                       max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            dynamic_false                      max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            inductor_after_aot_eager           max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            inductor_after_eager_backend       max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            reset_between                      max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            no_grad_first                      max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            inference_mode_first               max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            autocast_first                     max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            warm_twice_then_dynamic            max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            mode_reduce_overhead               max rel diff 0.000138  (eager ok, got ok)
+!! dtype_promotion_chain            mode_max_autotune_no_cudagraphs    max rel diff 0.000138  (eager ok, got ok)
+!! closure_state_counter            allow_in_graph_wrapped             max rel diff 1  (eager ok, got ok)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\compile_composition_diff.py:364: UserWarning: Casting complex values to real discards the imaginary part (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\Copy.cpp:308.)
+  if isinstance(x, torch.Tensor) and not torch.allclose(x.detach().double(), y.detach().double(), rtol=1e-4, atol=1e-6, equal_nan=True):
+!! nested_module_in_fn              allow_in_graph_wrapped             ok vs exc  (eager ok, got TorchRuntimeError)
+DONE: 21 differences

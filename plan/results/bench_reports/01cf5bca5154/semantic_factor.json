@@ -1,0 +1,57 @@
+{
+  "factor_changed": "layout",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "layout=noncontig",
+    "factors": {
+      "layout": "noncontig"
+    },
+    "warm": true,
+    "origin": "x.is_contiguous()"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "contiguous_read",
+    "factor": "x.is_contiguous()",
+    "kind": "contiguous",
+    "values": [
+      "noncontig",
+      "transposed"
+    ],
+    "constraint": "layout variants with identical values",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "alias",
+      "mutation"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "layout read, or alias structure is written through",
+    "param": "x",
+    "dim": null
+  },
+  "triage": {
+    "stage": "specialization_cache",
+    "stage_label": "cache specialization (guard / stale artifact reuse)",
+    "priority": "high",
+    "rationale": "changing 'layout' did not trigger a recompile, yet the warm result differs from a cold compile of the same context: a cached artifact was reused under assumptions that no longer hold",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": false,
+    "guard_suspicious": false,
+    "warm_only": true,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": true
+  }
+}

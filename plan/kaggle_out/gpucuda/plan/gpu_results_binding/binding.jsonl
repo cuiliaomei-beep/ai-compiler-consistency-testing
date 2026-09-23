@@ -1,0 +1,764 @@
+{"done": "abs"}
+{"done": "acos"}
+{"done": "acosh"}
+{"done": "add"}
+{"done": "item"}
+{"done": "arange"}
+{"done": "clamp_max"}
+{"done": "clamp_min"}
+{"done": "mul"}
+{"done": "sub"}
+{"done": "addmm"}
+{"done": "addmm"}
+{"done": "addmv"}
+{"done": "addbmm"}
+{"done": "baddbmm"}
+{"stats": {"ops": 7, "samples": 7, "slots": 7, "variants": 77, "compiles": 217, "checks": 217, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 58.9}}
+{"done": "dot"}
+{"done": "vdot"}
+{"done": "bmm"}
+{"done": "mv"}
+{"done": "addr"}
+{"done": "addcmul"}
+{"done": "addcdiv"}
+{"done": "asin"}
+{"done": "asinh"}
+{"done": "atan"}
+{"done": "atan2"}
+{"done": "atanh"}
+{"done": "allclose"}
+{"done": "broadcast_to"}
+{"done": "broadcast_shapes"}
+{"stats": {"ops": 5, "samples": 5, "slots": 5, "variants": 54, "compiles": 144, "checks": 144, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 25.7}}
+{"done": "broadcast_tensors"}
+{"done": "block_diag"}
+{"op": "combinations", "slot": "r", "value": 1, "form": "literal", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "def f(x0):\n    return torch.combinations(x0, r=1, with_replacement=False)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"op": "combinations", "slot": "r", "value": 1, "form": "pos_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "def f(x0, k):\n    return torch.combinations(x0, r=k, with_replacement=False)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"op": "combinations", "slot": "r", "value": 1, "form": "default_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "def f(x0, k=1):\n    return torch.combinations(x0, r=k, with_replacement=False)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"op": "combinations", "slot": "r", "value": 1, "form": "kwargs_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "def f(x0, **kw):\n    return torch.combinations(x0, r=kw['k'], with_replacement=False)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"op": "combinations", "slot": "r", "value": 1, "form": "closure", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "def make(k):\n    def f(x0):\n        return torch.combinations(x0, r=k, with_replacement=False)\n    return f\nf = make(1)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"op": "combinations", "slot": "r", "value": 1, "form": "global", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "K = 1\ndef f(x0):\n    return torch.combinations(x0, r=K, with_replacement=False)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"op": "combinations", "slot": "r", "value": 1, "form": "attribute", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 1\ndef f(x0):\n    return torch.combinations(x0, r=cfg.k, with_replacement=False)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"op": "combinations", "slot": "r", "value": 1, "form": "list_elem", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "ks = [1]\ndef f(x0):\n    return torch.combinations(x0, r=ks[0], with_replacement=False)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"op": "combinations", "slot": "r", "value": 1, "form": "dict_elem", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "d = {'k': 1}\ndef f(x0):\n    return torch.combinations(x0, r=d['k'], with_replacement=False)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"op": "combinations", "slot": "r", "value": 1, "form": "kwargs_expand", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "opts = {'r': 1}\ndef f(x0):\n    return torch.combinations(x0, **opts, with_replacement=False)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"op": "combinations", "slot": "r", "value": 1, "form": "tensor_item", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7a3fb5ce", "literal_same": false, "source": "def f(x0, kt):\n    return torch.combinations(x0, r=kt.item(), with_replacement=False)\n", "shapes": [[4]], "dtypes": ["torch.float32"]}
+{"done": "combinations"}
+{"done": "cartesian_prod"}
+{"done": "cdist"}
+{"done": "ceil"}
+{"done": "cholesky"}
+{"done": "cholesky_inverse"}
+{"done": "cholesky_solve"}
+{"done": "chunk"}
+{"done": "unsafe_chunk"}
+{"done": "clone"}
+{"done": "contiguous"}
+{"done": "sum_to_size"}
+{"done": "clamp"}
+{"stats": {"ops": 8, "samples": 8, "slots": 8, "variants": 84, "compiles": 228, "checks": 228, "findings": 11, "form_specific": 0, "infra": 0, "wall_s": 31.8}}
+{"done": "positive"}
+{"done": "conj"}
+{"done": "conj_physical"}
+{"done": "resolve_conj"}
+{"done": "resolve_neg"}
+{"done": "view_as_complex"}
+{"done": "complex"}
+{"done": "copysign"}
+{"done": "corrcoef"}
+{"done": "cos"}
+{"done": "cosh"}
+{"done": "cov"}
+{"done": "cross"}
+{"done": "cumsum"}
+{"done": "cumprod"}
+{"stats": {"ops": 5, "samples": 5, "slots": 5, "variants": 55, "compiles": 137, "checks": 137, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 27.5}}
+{"done": "cummax"}
+{"done": "cummin"}
+{"done": "deg2rad"}
+{"done": "diff"}
+{"done": "div"}
+{"done": "div"}
+{"done": "div"}
+{"done": "true_divide"}
+{"done": "equal"}
+{"done": "exp"}
+{"done": "expand"}
+{"done": "expand_as"}
+{"done": "expand_copy"}
+{"done": "diag"}
+{"done": "diag_embed"}
+{"stats": {"ops": 9, "samples": 9, "slots": 9, "variants": 95, "compiles": 243, "checks": 243, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 37.9}}
+{"done": "diagonal"}
+{"done": "diagonal_copy"}
+{"done": "diagonal_scatter"}
+{"done": "alias_copy"}
+{"done": "eq"}
+{"done": "fmax"}
+{"done": "fmin"}
+{"done": "fmod"}
+{"done": "remainder"}
+{"done": "frac"}
+{"done": "stft"}
+{"done": "floor"}
+{"done": "flip"}
+{"done": "fliplr"}
+{"done": "flipud"}
+{"stats": {"ops": 5, "samples": 5, "slots": 5, "variants": 54, "compiles": 143, "checks": 143, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 22.8}}
+{"done": "i0"}
+{"done": "floor_divide"}
+{"done": "frexp"}
+{"done": "log1p"}
+{"done": "ge"}
+{"done": "geqrf"}
+{"done": "gt"}
+{"done": "gradient"}
+{"done": "isin"}
+{"done": "kthvalue"}
+{"done": "le"}
+{"done": "linspace"}
+{"done": "linspace"}
+{"done": "logspace"}
+{"done": "logspace"}
+{"stats": {"ops": 4, "samples": 4, "slots": 4, "variants": 44, "compiles": 115, "checks": 115, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 16.1}}
+{"done": "log"}
+{"done": "log10"}
+{"done": "log2"}
+{"done": "ldexp"}
+{"done": "logaddexp"}
+{"done": "logaddexp2"}
+{"done": "logical_not"}
+{"done": "lt"}
+{"done": "lu_unpack"}
+{"done": "lu"}
+{"done": "lu_solve"}
+{"done": "masked_fill"}
+{"done": "masked_scatter"}
+{"done": "masked_select"}
+{"done": "matrix_exp"}
+{"stats": {"ops": 2, "samples": 2, "slots": 2, "variants": 21, "compiles": 59, "checks": 59, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 11.3}}
+{"done": "matmul"}
+{"done": "max"}
+{"done": "max"}
+{"done": "median"}
+{"done": "nanmedian"}
+{"done": "var_mean"}
+{"done": "var_mean"}
+{"done": "std_mean"}
+{"done": "std_mean"}
+{"done": "meshgrid"}
+{"done": "meshgrid"}
+{"done": "min"}
+{"done": "min"}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "literal", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "def f(x0, x1):\n    return torch.quantile(x0, x1, dim=0, keepdim=False, interpolation='midpoint')\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "pos_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "def f(x0, x1, k):\n    return torch.quantile(x0, x1, dim=k, keepdim=False, interpolation='midpoint')\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "default_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "def f(x0, x1, k=0):\n    return torch.quantile(x0, x1, dim=k, keepdim=False, interpolation='midpoint')\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "kwargs_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "def f(x0, x1, **kw):\n    return torch.quantile(x0, x1, dim=kw['k'], keepdim=False, interpolation='midpoint')\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "closure", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "def make(k):\n    def f(x0, x1):\n        return torch.quantile(x0, x1, dim=k, keepdim=False, interpolation='midpoint')\n    return f\nf = make(0)\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "global", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "K = 0\ndef f(x0, x1):\n    return torch.quantile(x0, x1, dim=K, keepdim=False, interpolation='midpoint')\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "attribute", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 0\ndef f(x0, x1):\n    return torch.quantile(x0, x1, dim=cfg.k, keepdim=False, interpolation='midpoint')\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "list_elem", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "ks = [0]\ndef f(x0, x1):\n    return torch.quantile(x0, x1, dim=ks[0], keepdim=False, interpolation='midpoint')\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "dict_elem", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "d = {'k': 0}\ndef f(x0, x1):\n    return torch.quantile(x0, x1, dim=d['k'], keepdim=False, interpolation='midpoint')\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "kwargs_expand", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "opts = {'dim': 0}\ndef f(x0, x1):\n    return torch.quantile(x0, x1, **opts, keepdim=False, interpolation='midpoint')\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "quantile", "slot": "dim", "value": 0, "form": "tensor_item", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x79d8b2ae4b40", "literal_same": false, "source": "def f(x0, x1, kt):\n    return torch.quantile(x0, x1, dim=kt.item(), keepdim=False, interpolation='midpoint')\n", "shapes": [[2], [2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"done": "quantile"}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "literal", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "def f(x0):\n    return torch.nanquantile(x0, 0.5, dim=-1, keepdim=False, interpolation='midpoint')\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "pos_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "def f(x0, k):\n    return torch.nanquantile(x0, 0.5, dim=k, keepdim=False, interpolation='midpoint')\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "default_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "def f(x0, k=-1):\n    return torch.nanquantile(x0, 0.5, dim=k, keepdim=False, interpolation='midpoint')\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "kwargs_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "def f(x0, **kw):\n    return torch.nanquantile(x0, 0.5, dim=kw['k'], keepdim=False, interpolation='midpoint')\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "closure", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "def make(k):\n    def f(x0):\n        return torch.nanquantile(x0, 0.5, dim=k, keepdim=False, interpolation='midpoint')\n    return f\nf = make(-1)\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "global", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "K = -1\ndef f(x0):\n    return torch.nanquantile(x0, 0.5, dim=K, keepdim=False, interpolation='midpoint')\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "attribute", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = -1\ndef f(x0):\n    return torch.nanquantile(x0, 0.5, dim=cfg.k, keepdim=False, interpolation='midpoint')\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "list_elem", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "ks = [-1]\ndef f(x0):\n    return torch.nanquantile(x0, 0.5, dim=ks[0], keepdim=False, interpolation='midpoint')\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "dict_elem", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "d = {'k': -1}\ndef f(x0):\n    return torch.nanquantile(x0, 0.5, dim=d['k'], keepdim=False, interpolation='midpoint')\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "kwargs_expand", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "opts = {'dim': -1}\ndef f(x0):\n    return torch.nanquantile(x0, 0.5, **opts, keepdim=False, interpolation='midpoint')\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"op": "nanquantile", "slot": "dim", "value": -1, "form": "tensor_item", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method nanquantile of type object at 0x79d8b2ae4", "literal_same": false, "source": "def f(x0, kt):\n    return torch.nanquantile(x0, 0.5, dim=kt.item(), keepdim=False, interpolation='midpoint')\n", "shapes": [[2]], "dtypes": ["torch.float32"]}
+{"done": "nanquantile"}
+{"done": "max"}
+{"done": "min"}
+{"stats": {"ops": 11, "samples": 11, "slots": 11, "variants": 117, "compiles": 321, "checks": 321, "findings": 22, "form_specific": 0, "infra": 0, "wall_s": 41.0}}
+{"done": "max"}
+{"done": "max"}
+{"done": "min"}
+{"done": "min"}
+{"done": "max"}
+{"done": "maximum"}
+{"done": "min"}
+{"done": "minimum"}
+{"done": "logical_and"}
+{"done": "logical_or"}
+{"done": "logical_xor"}
+{"done": "heaviside"}
+{"done": "isclose"}
+{"done": "softmax"}
+{"done": "softmax"}
+{"done": "nn.functional.softmin"}
+{"done": "nn.functional.softmin"}
+{"done": "nn.functional.cross_entropy"}
+{"done": "nn.functional.normalize"}
+{"stats": {"ops": 9, "samples": 9, "slots": 9, "variants": 99, "compiles": 279, "checks": 279, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 66.6}}
+{"done": "aminmax"}
+{"done": "as_strided"}
+{"done": "as_strided"}
+{"done": "as_strided_copy"}
+{"done": "as_strided_scatter"}
+{"done": "native_layer_norm"}
+{"done": "native_batch_norm"}
+{"done": "nn.functional.cosine_similarity"}
+{"done": "nn.functional.adaptive_avg_pool1d"}
+{"op": "nn.functional.adaptive_avg_pool2d", "slot": "arg1", "value": 5, "form": "pos_param", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: LoweringException: TypeError: cannot determine truth value of Relational: (((2*s10 + 1)//s10))*(((2*s10 + 2)//s10)) > 25", "literal_same": true, "source": "def f(x0, k):\n    return torch.nn.functional.adaptive_avg_pool2d(x0, k)\n", "shapes": [[1, 8, 4, 3]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.adaptive_avg_pool2d", "slot": "arg1", "value": 5, "form": "pos_param", "mode": "rebind", "detail": "[exception] test raised InductorError, ref returned normally :: LoweringException: TypeError: cannot determine truth value of Relational: (((2*s10 + 1)//s10))*(((2*s10 + 2)//s10)) > 25", "literal_same": null, "source": "def f(x0, k):\n    return torch.nn.functional.adaptive_avg_pool2d(x0, k)\n", "shapes": [[1, 8, 4, 3]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.adaptive_avg_pool2d", "slot": "arg1", "value": 5, "form": "kwargs_param", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: LoweringException: TypeError: cannot determine truth value of Relational: (((2*s68 + 1)//s68))*(((2*s68 + 2)//s68)) > 25", "literal_same": true, "source": "def f(x0, **kw):\n    return torch.nn.functional.adaptive_avg_pool2d(x0, kw['k'])\n", "shapes": [[1, 8, 4, 3]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.adaptive_avg_pool2d", "slot": "arg1", "value": 5, "form": "kwargs_param", "mode": "rebind", "detail": "[exception] test raised InductorError, ref returned normally :: LoweringException: TypeError: cannot determine truth value of Relational: (((2*s68 + 1)//s68))*(((2*s68 + 2)//s68)) > 25", "literal_same": null, "source": "def f(x0, **kw):\n    return torch.nn.functional.adaptive_avg_pool2d(x0, kw['k'])\n", "shapes": [[1, 8, 4, 3]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.adaptive_avg_pool2d", "slot": "arg1", "value": 5, "form": "closure", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: LoweringException: TypeError: cannot determine truth value of Relational: (((2*s55 + 1)//s55))*(((2*s55 + 2)//s55)) > 25", "literal_same": true, "source": "def make(k):\n    def f(x0):\n        return torch.nn.functional.adaptive_avg_pool2d(x0, k)\n    return f\nf = make(5)\n", "shapes": [[1, 8, 4, 3]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.adaptive_avg_pool2d", "slot": "arg1", "value": 5, "form": "closure", "mode": "rebind", "detail": "[exception] test raised InductorError, ref returned normally :: LoweringException: TypeError: cannot determine truth value of Relational: (((2*s55 + 1)//s55))*(((2*s55 + 2)//s55)) > 25", "literal_same": null, "source": "def make(k):\n    def f(x0):\n        return torch.nn.functional.adaptive_avg_pool2d(x0, k)\n    return f\nf = make(5)\n", "shapes": [[1, 8, 4, 3]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.adaptive_avg_pool2d", "slot": "arg1", "value": 5, "form": "tensor_item", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: LoweringException: TypeError: cannot determine truth value of Relational: (((2*s84 + 1)//s84))*(((2*s84 + 2)//s84)) > 25", "literal_same": true, "source": "def f(x0, kt):\n    return torch.nn.functional.adaptive_avg_pool2d(x0, kt.item())\n", "shapes": [[1, 8, 4, 3]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.adaptive_avg_pool2d", "slot": "arg1", "value": 5, "form": "tensor_item", "mode": "rebind", "detail": "[exception] test raised InductorError, ref returned normally :: LoweringException: TypeError: cannot determine truth value of Relational: (((2*s84 + 1)//s84))*(((2*s84 + 2)//s84)) > 25", "literal_same": null, "source": "def f(x0, kt):\n    return torch.nn.functional.adaptive_avg_pool2d(x0, kt.item())\n", "shapes": [[1, 8, 4, 3]], "dtypes": ["torch.float32"]}
+{"done": "nn.functional.adaptive_avg_pool2d"}
+{"done": "nn.functional.adaptive_avg_pool3d"}
+{"done": "nn.functional.adaptive_max_pool1d"}
+{"done": "nn.functional.adaptive_max_pool2d"}
+{"done": "nn.functional.adaptive_max_pool3d"}
+{"done": "nn.functional.avg_pool1d"}
+{"stats": {"ops": 15, "samples": 15, "slots": 15, "variants": 159, "compiles": 439, "checks": 439, "findings": 8, "form_specific": 4, "infra": 0, "wall_s": 65.4}}
+{"done": "nn.functional.avg_pool3d"}
+{"done": "nn.functional.binary_cross_entropy_with_logits"}
+{"done": "nn.functional.relu"}
+{"done": "nn.functional.conv_transpose1d"}
+{"done": "nn.functional.conv_transpose2d"}
+{"done": "nn.functional.conv_transpose3d"}
+{"done": "nn.functional.conv1d"}
+{"done": "nn.functional.conv2d"}
+{"done": "nn.functional.conv3d"}
+{"done": "nn.functional.group_norm"}
+{"done": "nn.functional.instance_norm"}
+{"done": "nn.functional.layer_norm"}
+{"done": "nn.functional.rms_norm"}
+{"done": "nn.functional.local_response_norm"}
+{"done": "constant_pad_nd"}
+{"stats": {"ops": 14, "samples": 14, "slots": 14, "variants": 149, "compiles": 351, "checks": 351, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 78.2}}
+{"done": "nn.functional.pad"}
+{"done": "nn.functional.pad"}
+{"done": "nn.functional.pad"}
+{"done": "nn.functional.pad"}
+{"done": "nn.functional.pad"}
+{"done": "nn.functional.hardswish"}
+{"done": "nn.functional.unfold"}
+{"done": "nn.functional.interpolate"}
+{"done": "nn.functional.interpolate"}
+{"done": "nn.functional.interpolate"}
+{"done": "nn.functional.interpolate"}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "literal", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=1.7, mode='bicubic', align_corners=True, recompute_scale_factor=True)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "pos_param", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def f(x0, k):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=k, mode='bicubic', align_corners=True, recompute_scale_factor=True)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "default_param", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def f(x0, k=1.7):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=k, mode='bicubic', align_corners=True, recompute_scale_factor=True)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "kwargs_param", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def f(x0, **kw):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=kw['k'], mode='bicubic', align_corners=True, recompute_scale_factor=True)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "closure", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def make(k):\n    def f(x0):\n        return torch.nn.functional.interpolate(x0, size=None, scale_factor=k, mode='bicubic', align_corners=True, recompute_scale_factor=True)\n    return f\nf = make(1.7)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "global", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "K = 1.7\ndef f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=K, mode='bicubic', align_corners=True, recompute_scale_factor=True)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "attribute", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 1.7\ndef f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=cfg.k, mode='bicubic', align_corners=True, recompute_scale_factor=True)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "list_elem", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "ks = [1.7]\ndef f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=ks[0], mode='bicubic', align_corners=True, recompute_scale_factor=True)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "dict_elem", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "d = {'k': 1.7}\ndef f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=d['k'], mode='bicubic', align_corners=True, recompute_scale_factor=True)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "kwargs_expand", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "opts = {'scale_factor': 1.7}\ndef f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, **opts, mode='bicubic', align_corners=True, recompute_scale_factor=True)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.interpolate", "slot": "scale_factor", "value": 1.7, "form": "tensor_item", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def f(x0, kt):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=kt.item(), mode='bicubic', align_corners=True, recompute_scale_factor=True)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"done": "nn.functional.interpolate"}
+{"done": "nn.functional.interpolate"}
+{"done": "nn.functional.interpolate"}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "literal", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def f(x0):\n    return torch.nn.functional.upsample_bilinear(x0, scale_factor=1.7)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "pos_param", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def f(x0, k):\n    return torch.nn.functional.upsample_bilinear(x0, scale_factor=k)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "default_param", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def f(x0, k=1.7):\n    return torch.nn.functional.upsample_bilinear(x0, scale_factor=k)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "kwargs_param", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def f(x0, **kw):\n    return torch.nn.functional.upsample_bilinear(x0, scale_factor=kw['k'])\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "closure", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def make(k):\n    def f(x0):\n        return torch.nn.functional.upsample_bilinear(x0, scale_factor=k)\n    return f\nf = make(1.7)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "global", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "K = 1.7\ndef f(x0):\n    return torch.nn.functional.upsample_bilinear(x0, scale_factor=K)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "attribute", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 1.7\ndef f(x0):\n    return torch.nn.functional.upsample_bilinear(x0, scale_factor=cfg.k)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "list_elem", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "ks = [1.7]\ndef f(x0):\n    return torch.nn.functional.upsample_bilinear(x0, scale_factor=ks[0])\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "dict_elem", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "d = {'k': 1.7}\ndef f(x0):\n    return torch.nn.functional.upsample_bilinear(x0, scale_factor=d['k'])\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "kwargs_expand", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "opts = {'scale_factor': 1.7}\ndef f(x0):\n    return torch.nn.functional.upsample_bilinear(x0, **opts)\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"op": "nn.functional.upsample_bilinear", "slot": "scale_factor", "value": 1.7, "form": "tensor_item", "mode": "dynamic", "detail": "[exception] test raised InductorError, ref returned normally :: OverflowError: cannot convert float infinity to integer\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please ", "literal_same": false, "source": "def f(x0, kt):\n    return torch.nn.functional.upsample_bilinear(x0, scale_factor=kt.item())\n", "shapes": [[2, 3, 4, 4]], "dtypes": ["torch.float32"]}
+{"done": "nn.functional.upsample_bilinear"}
+{"stats": {"ops": 14, "samples": 14, "slots": 14, "variants": 145, "compiles": 407, "checks": 407, "findings": 22, "form_specific": 0, "infra": 0, "wall_s": 428.8}}
+{"done": "nn.functional.soft_margin_loss"}
+{"done": "nn.functional.upsample_nearest"}
+{"done": "nn.functional.margin_ranking_loss"}
+{"done": "nn.functional.multi_margin_loss"}
+{"done": "nn.functional.multilabel_margin_loss"}
+{"done": "nn.functional.leaky_relu"}
+{"done": "nn.functional.multilabel_soft_margin_loss"}
+{"done": "nn.functional.avg_pool2d"}
+{"done": "nn.functional.max_pool1d"}
+{"done": "nn.functional.max_pool2d"}
+{"op": "max_pool2d_with_indices_backward", "slot": "padding", "value": 1, "form": "pos_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function aten.max_pool2d_with_indices_backward.default(*(FakeTensor", "literal_same": true, "source": "def f(x0, k):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=(3, 2), stride=None, ceil_mode=False, padding=k, dilation=1, return_indices=True)\n", "shapes": [[2, 2, 6, 6]], "dtypes": ["torch.float32"]}
+{"op": "max_pool2d_with_indices_backward", "slot": "padding", "value": 1, "form": "pos_param", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function aten.max_pool2d_with_indices_backward.default(*(FakeTensor", "literal_same": null, "source": "def f(x0, k):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=(3, 2), stride=None, ceil_mode=False, padding=k, dilation=1, return_indices=True)\n", "shapes": [[2, 2, 6, 6]], "dtypes": ["torch.float32"]}
+{"op": "max_pool2d_with_indices_backward", "slot": "padding", "value": 1, "form": "kwargs_param", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function aten.max_pool2d_with_indices_backward.default(*(FakeTensor", "literal_same": true, "source": "def f(x0, **kw):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=(3, 2), stride=None, ceil_mode=False, padding=kw['k'], dilation=1, return_indices=True)\n", "shapes": [[2, 2, 6, 6]], "dtypes": ["torch.float32"]}
+{"op": "max_pool2d_with_indices_backward", "slot": "padding", "value": 1, "form": "kwargs_param", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function aten.max_pool2d_with_indices_backward.default(*(FakeTensor", "literal_same": null, "source": "def f(x0, **kw):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=(3, 2), stride=None, ceil_mode=False, padding=kw['k'], dilation=1, return_indices=True)\n", "shapes": [[2, 2, 6, 6]], "dtypes": ["torch.float32"]}
+{"op": "max_pool2d_with_indices_backward", "slot": "padding", "value": 1, "form": "closure", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function aten.max_pool2d_with_indices_backward.default(*(FakeTensor", "literal_same": true, "source": "def make(k):\n    def f(x0):\n        return torch.max_pool2d_with_indices_backward(x0, kernel_size=(3, 2), stride=None, ceil_mode=False, padding=k, dilation=1, return_indices=True)\n    return f\nf = make(1)\n", "shapes": [[2, 2, 6, 6]], "dtypes": ["torch.float32"]}
+{"op": "max_pool2d_with_indices_backward", "slot": "padding", "value": 1, "form": "closure", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function aten.max_pool2d_with_indices_backward.default(*(FakeTensor", "literal_same": null, "source": "def make(k):\n    def f(x0):\n        return torch.max_pool2d_with_indices_backward(x0, kernel_size=(3, 2), stride=None, ceil_mode=False, padding=k, dilation=1, return_indices=True)\n    return f\nf = make(1)\n", "shapes": [[2, 2, 6, 6]], "dtypes": ["torch.float32"]}
+{"op": "max_pool2d_with_indices_backward", "slot": "padding", "value": 1, "form": "tensor_item", "mode": "dynamic", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function aten.max_pool2d_with_indices_backward.default(*(FakeTensor", "literal_same": true, "source": "def f(x0, kt):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=(3, 2), stride=None, ceil_mode=False, padding=kt.item(), dilation=1, return_indices=True)\n", "shapes": [[2, 2, 6, 6]], "dtypes": ["torch.float32"]}
+{"op": "max_pool2d_with_indices_backward", "slot": "padding", "value": 1, "form": "tensor_item", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function aten.max_pool2d_with_indices_backward.default(*(FakeTensor", "literal_same": null, "source": "def f(x0, kt):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=(3, 2), stride=None, ceil_mode=False, padding=kt.item(), dilation=1, return_indices=True)\n", "shapes": [[2, 2, 6, 6]], "dtypes": ["torch.float32"]}
+{"done": "max_pool2d_with_indices_backward"}
+{"done": "nn.functional.max_pool3d"}
+{"done": "nn.functional.max_unpool1d"}
+{"done": "nn.functional.max_unpool1d"}
+{"done": "nn.functional.max_unpool2d"}
+{"done": "nn.functional.max_unpool2d"}
+{"stats": {"ops": 14, "samples": 14, "slots": 14, "variants": 151, "compiles": 383, "checks": 383, "findings": 8, "form_specific": 4, "infra": 0, "wall_s": 125.2}}
+{"done": "nn.functional.max_unpool2d"}
+{"done": "nn.functional.max_unpool2d"}
+{"done": "nn.functional.max_unpool3d"}
+{"done": "nn.functional.max_unpool3d"}
+{"done": "nn.functional.linear"}
+{"done": "nn.functional.bilinear"}
+{"done": "nn.functional.glu"}
+{"done": "nn.functional.elu"}
+{"done": "nn.functional.prelu"}
+{"done": "nn.functional.celu"}
+{"done": "nn.functional.selu"}
+{"done": "torch.ops.aten._safe_softmax.default"}
+{"done": "nn.functional.scaled_dot_product_attention"}
+{"done": "nn.functional.silu"}
+{"done": "nn.functional.hardsigmoid"}
+{"done": "nn.functional.logsigmoid"}
+{"stats": {"ops": 7, "samples": 7, "slots": 7, "variants": 76, "compiles": 187, "checks": 187, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 43.6}}
+{"done": "nn.functional.mish"}
+{"done": "nn.functional.softsign"}
+{"done": "nn.functional.tanhshrink"}
+{"done": "nn.functional.threshold"}
+{"done": "nn.functional.triplet_margin_loss"}
+{"done": "nn.functional.triplet_margin_with_distance_loss"}
+{"done": "nextafter"}
+{"done": "to"}
+{"done": "topk"}
+{"done": "nn.functional.batch_norm"}
+{"done": "nn.functional.binary_cross_entropy"}
+{"done": "igamma"}
+{"done": "igammac"}
+{"done": "nn.functional.softshrink"}
+{"done": "nn.functional.hardshrink"}
+{"stats": {"ops": 9, "samples": 9, "slots": 9, "variants": 94, "compiles": 232, "checks": 232, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 32.2}}
+{"done": "nn.functional.hardtanh"}
+{"done": "nn.functional.gelu"}
+{"done": "nn.functional.relu6"}
+{"done": "mm"}
+{"done": "mode"}
+{"done": "mvlgamma"}
+{"done": "mvlgamma"}
+{"done": "mvlgamma"}
+{"done": "ne"}
+{"done": "narrow"}
+{"done": "narrow_copy"}
+{"done": "view_copy"}
+{"done": "neg"}
+{"done": "dist"}
+{"done": "outer"}
+{"stats": {"ops": 10, "samples": 10, "slots": 10, "variants": 108, "compiles": 279, "checks": 279, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 44.3}}
+{"done": "ormqr"}
+{"done": "permute"}
+{"done": "permute_copy"}
+{"done": "pow"}
+{"done": "float_power"}
+{"done": "qr"}
+{"done": "rad2deg"}
+{"done": "real"}
+{"done": "roll"}
+{"done": "rot90"}
+{"done": "round"}
+{"done": "round"}
+{"done": "round"}
+{"done": "round"}
+{"done": "sin"}
+{"stats": {"ops": 8, "samples": 8, "slots": 8, "variants": 85, "compiles": 223, "checks": 223, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 26.0}}
+{"done": "sinc"}
+{"done": "sinh"}
+{"done": "sign"}
+{"done": "sgn"}
+{"done": "split"}
+{"done": "split"}
+{"done": "unsafe_split"}
+{"done": "split_with_sizes"}
+{"done": "split_with_sizes_copy"}
+{"done": "rsub"}
+{"done": "select"}
+{"done": "select_scatter"}
+{"done": "slice"}
+{"done": "slice_scatter"}
+{"done": "signbit"}
+{"stats": {"ops": 10, "samples": 10, "slots": 10, "variants": 110, "compiles": 310, "checks": 310, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 46.6}}
+{"done": "tan"}
+{"done": "tanh"}
+{"done": "tensor_split"}
+{"done": "hsplit"}
+{"done": "vsplit"}
+{"done": "dsplit"}
+{"done": "triangular_solve"}
+{"done": "trunc"}
+{"done": "exp2"}
+{"done": "expm1"}
+{"done": "nan_to_num"}
+{"done": "reciprocal"}
+{"done": "rsqrt"}
+{"done": "sqrt"}
+{"done": "square"}
+{"stats": {"ops": 4, "samples": 4, "slots": 4, "variants": 43, "compiles": 121, "checks": 121, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 22.3}}
+{"done": "lerp"}
+{"done": "angle"}
+{"done": "isfinite"}
+{"done": "isinf"}
+{"done": "isposinf"}
+{"done": "isneginf"}
+{"done": "isreal"}
+{"done": "isnan"}
+{"done": "einsum"}
+{"done": "svd"}
+{"done": "svd_lowrank"}
+{"done": "pca_lowrank"}
+{"done": "polar"}
+{"done": "polygamma"}
+{"done": "polygamma"}
+{"done": "polygamma"}
+{"done": "polygamma"}
+{"done": "polygamma"}
+{"stats": {"ops": 9, "samples": 9, "slots": 9, "variants": 98, "compiles": 267, "checks": 267, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 36.2}}
+{"done": "polygamma"}
+{"done": "polygamma"}
+{"done": "polygamma"}
+{"done": "polygamma"}
+{"done": "polygamma"}
+{"done": "ravel"}
+{"done": "reshape"}
+{"done": "reshape_as"}
+{"done": "view"}
+{"done": "view_as"}
+{"done": "atleast_1d"}
+{"done": "atleast_2d"}
+{"done": "atleast_3d"}
+{"done": "flatten"}
+{"done": "unflatten"}
+{"done": "column_stack"}
+{"done": "pinverse"}
+{"stats": {"ops": 9, "samples": 9, "slots": 9, "variants": 97, "compiles": 248, "checks": 248, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 28.7}}
+{"done": "gather"}
+{"done": "index_fill"}
+{"done": "index_copy"}
+{"done": "index_select"}
+{"done": "index_add"}
+{"done": "index_reduce"}
+{"done": "index_reduce"}
+{"done": "index_reduce"}
+{"done": "index_reduce"}
+{"done": "index_put"}
+{"done": "sort"}
+{"done": "unique"}
+{"done": "unique_consecutive"}
+{"done": "put"}
+{"done": "take"}
+{"stats": {"ops": 14, "samples": 14, "slots": 14, "variants": 152, "compiles": 375, "checks": 375, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 48.6}}
+{"done": "scatter"}
+{"done": "bfloat16"}
+{"done": "bool"}
+{"done": "byte"}
+{"done": "char"}
+{"done": "double"}
+{"done": "float"}
+{"done": "half"}
+{"done": "int"}
+{"done": "long"}
+{"done": "short"}
+{"done": "cdouble"}
+{"done": "cfloat"}
+{"done": "chalf"}
+{"done": "zeros_like"}
+{"stats": {"ops": 1, "samples": 1, "slots": 1, "variants": 11, "compiles": 0, "checks": 31, "findings": 0, "form_specific": 0, "infra": 31, "wall_s": 1.4}}
+{"done": "ones_like"}
+{"done": "full_like"}
+{"done": "new_zeros"}
+{"done": "new_ones"}
+{"done": "ones"}
+{"done": "zeros"}
+{"done": "full"}
+{"done": "eye"}
+{"done": "scalar_tensor"}
+{"done": "new_full"}
+{"op": "scatter_add", "slot": "arg1", "value": 0, "form": "literal", "mode": "static", "detail": "[exception] test raised InternalTorchDynamoError, ref returned normally :: AcceleratorError: CUDA error: device-side assert triggered\nSearch for `cudaErrorAssert' in https://docs.nvidia.com/cuda/", "literal_same": false, "source": "def f(x0, x1, x2):\n    return torch.scatter_add(x0, 0, x1, x2)\n", "shapes": [[10, 5], [10, 2], [10, 2]], "dtypes": ["torch.float32", "torch.int64", "torch.float32"]}
+{"done": "scatter_add"}
+{"done": "stack"}
+{"done": "hstack"}
+{"done": "hypot"}
+{"done": "histogram"}
+{"stats": {"ops": 6, "samples": 6, "slots": 6, "variants": 62, "compiles": 136, "checks": 166, "findings": 1, "form_specific": 0, "infra": 30, "wall_s": 30.5}}
+{"done": "histogramdd"}
+{"done": "histc"}
+{"done": "bucketize"}
+{"done": "searchsorted"}
+{"done": "cat"}
+{"done": "unbind"}
+{"done": "unbind_copy"}
+{"done": "vstack"}
+{"done": "dstack"}
+{"done": "unfold"}
+{"done": "unfold_copy"}
+{"done": "msort"}
+{"done": "movedim"}
+{"done": "renorm"}
+{"done": "repeat"}
+{"stats": {"ops": 11, "samples": 11, "slots": 11, "variants": 116, "compiles": 318, "checks": 318, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 47.4}}
+{"done": "squeeze"}
+{"done": "squeeze"}
+{"done": "squeeze_copy"}
+{"done": "fill"}
+{"done": "resize_"}
+{"done": "resize_as_"}
+{"done": "take_along_dim"}
+{"done": "tile"}
+{"done": "trapz"}
+{"done": "trapezoid"}
+{"done": "cumulative_trapezoid"}
+{"done": "unsqueeze"}
+{"done": "unsqueeze_copy"}
+{"done": "xlogy"}
+{"done": "zero_"}
+{"stats": {"ops": 12, "samples": 12, "slots": 12, "variants": 128, "compiles": 360, "checks": 360, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 57.5}}
+{"done": "logsumexp"}
+{"done": "trace"}
+{"done": "transpose"}
+{"done": "transpose_copy"}
+{"done": "T"}
+{"done": "H"}
+{"done": "mT"}
+{"done": "mH"}
+{"done": "tril"}
+{"done": "triu"}
+{"done": "kron"}
+{"done": "inner"}
+{"done": "tensordot"}
+{"done": "to_sparse"}
+{"done": "logcumsumexp"}
+{"stats": {"ops": 8, "samples": 8, "slots": 8, "variants": 87, "compiles": 245, "checks": 245, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 36.9}}
+{"done": "sigmoid"}
+{"done": "digamma"}
+{"done": "erf"}
+{"done": "erfc"}
+{"done": "erfinv"}
+{"done": "nn.functional.smooth_l1_loss"}
+{"done": "nn.functional.l1_loss"}
+{"done": "lgamma"}
+{"done": "logdet"}
+{"done": "log_softmax"}
+{"done": "log_softmax"}
+{"done": "logit"}
+{"done": "where"}
+{"done": "nonzero"}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "literal", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def f(x0):\n    return torch.nonzero_static(x0, size=5)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "literal", "mode": "dynamic", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def f(x0):\n    return torch.nonzero_static(x0, size=5)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "pos_param", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def f(x0, k):\n    return torch.nonzero_static(x0, size=k)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "pos_param", "mode": "dynamic", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def f(x0, k):\n    return torch.nonzero_static(x0, size=k)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "pos_param", "mode": "rebind", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 6==6, stride 1==3 at dim=0; expected size 3==3, stride 6==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": null, "source": "def f(x0, k):\n    return torch.nonzero_static(x0, size=k)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "default_param", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def f(x0, k=5):\n    return torch.nonzero_static(x0, size=k)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "default_param", "mode": "dynamic", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def f(x0, k=5):\n    return torch.nonzero_static(x0, size=k)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "kwargs_param", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def f(x0, **kw):\n    return torch.nonzero_static(x0, size=kw['k'])\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "kwargs_param", "mode": "dynamic", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def f(x0, **kw):\n    return torch.nonzero_static(x0, size=kw['k'])\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "kwargs_param", "mode": "rebind", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 6==6, stride 1==3 at dim=0; expected size 3==3, stride 6==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": null, "source": "def f(x0, **kw):\n    return torch.nonzero_static(x0, size=kw['k'])\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "closure", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def make(k):\n    def f(x0):\n        return torch.nonzero_static(x0, size=k)\n    return f\nf = make(5)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "closure", "mode": "dynamic", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def make(k):\n    def f(x0):\n        return torch.nonzero_static(x0, size=k)\n    return f\nf = make(5)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "closure", "mode": "rebind", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 6==6, stride 1==3 at dim=0; expected size 3==3, stride 6==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": null, "source": "def make(k):\n    def f(x0):\n        return torch.nonzero_static(x0, size=k)\n    return f\nf = make(5)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "global", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "K = 5\ndef f(x0):\n    return torch.nonzero_static(x0, size=K)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "global", "mode": "dynamic", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "K = 5\ndef f(x0):\n    return torch.nonzero_static(x0, size=K)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "global", "mode": "rebind", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 6==6, stride 1==3 at dim=0; expected size 3==3, stride 6==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": null, "source": "K = 5\ndef f(x0):\n    return torch.nonzero_static(x0, size=K)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "attribute", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 5\ndef f(x0):\n    return torch.nonzero_static(x0, size=cfg.k)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "attribute", "mode": "dynamic", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 5\ndef f(x0):\n    return torch.nonzero_static(x0, size=cfg.k)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "attribute", "mode": "rebind", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 6==6, stride 1==3 at dim=0; expected size 3==3, stride 6==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": null, "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 5\ndef f(x0):\n    return torch.nonzero_static(x0, size=cfg.k)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "list_elem", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "ks = [5]\ndef f(x0):\n    return torch.nonzero_static(x0, size=ks[0])\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "list_elem", "mode": "dynamic", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "ks = [5]\ndef f(x0):\n    return torch.nonzero_static(x0, size=ks[0])\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "list_elem", "mode": "rebind", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 6==6, stride 1==3 at dim=0; expected size 3==3, stride 6==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": null, "source": "ks = [5]\ndef f(x0):\n    return torch.nonzero_static(x0, size=ks[0])\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "dict_elem", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "d = {'k': 5}\ndef f(x0):\n    return torch.nonzero_static(x0, size=d['k'])\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "dict_elem", "mode": "dynamic", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "d = {'k': 5}\ndef f(x0):\n    return torch.nonzero_static(x0, size=d['k'])\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "dict_elem", "mode": "rebind", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 6==6, stride 1==3 at dim=0; expected size 3==3, stride 6==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": null, "source": "d = {'k': 5}\ndef f(x0):\n    return torch.nonzero_static(x0, size=d['k'])\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "kwargs_expand", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "opts = {'size': 5}\ndef f(x0):\n    return torch.nonzero_static(x0, **opts)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "kwargs_expand", "mode": "dynamic", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "opts = {'size': 5}\ndef f(x0):\n    return torch.nonzero_static(x0, **opts)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "kwargs_expand", "mode": "rebind", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 6==6, stride 1==3 at dim=0; expected size 3==3, stride 6==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": null, "source": "opts = {'size': 5}\ndef f(x0):\n    return torch.nonzero_static(x0, **opts)\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "tensor_item", "mode": "static", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 5==5, stride 1==3 at dim=0; expected size 3==3, stride 5==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": false, "source": "def f(x0, kt):\n    return torch.nonzero_static(x0, size=kt.item())\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "tensor_item", "mode": "dynamic", "detail": "[exception] test raised InternalTorchDynamoError, ref returned normally :: RuntimeError: dictionary changed size during iteration\n\nfrom user code:\n   File \"/usr/local/lib/python3.12/dist-packages", "literal_same": false, "source": "def f(x0, kt):\n    return torch.nonzero_static(x0, size=kt.item())\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"op": "nonzero_static", "slot": "size", "value": 5, "form": "tensor_item", "mode": "rebind", "detail": "[exception] test raised AssertionError, ref returned normally :: expected size 6==6, stride 1==3 at dim=0; expected size 3==3, stride 6==1 at dim=1\nError in op: torch.ops.aten.nonzero_s", "literal_same": null, "source": "def f(x0, kt):\n    return torch.nonzero_static(x0, size=kt.item())\n", "shapes": [[5, 0, 5]], "dtypes": ["torch.float32"]}
+{"done": "nonzero_static"}
+{"stats": {"ops": 7, "samples": 7, "slots": 7, "variants": 75, "compiles": 203, "checks": 203, "findings": 31, "form_specific": 0, "infra": 0, "wall_s": 33.6}}
+{"done": "jiterator_unary"}
+{"done": "jiterator_binary"}
+{"done": "jiterator_4inputs_with_extra_args"}
+{"done": "jiterator_binary_return_by_ref"}
+{"done": "jiterator_2inputs_2outputs"}
+{"done": "norm"}
+{"done": "norm"}
+{"done": "norm"}
+{"done": "norm"}
+{"done": "t"}
+{"done": "t_copy"}
+{"done": "native_dropout_backward"}
+{"done": "nn.functional.dropout2d"}
+{"done": "nn.functional.dropout3d"}
+{"done": "nn.functional.embedding"}
+{"stats": {"ops": 8, "samples": 8, "slots": 8, "variants": 86, "compiles": 217, "checks": 217, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 35.3}}
+{"done": "nn.functional.embedding_bag"}
+{"done": "nn.functional.multi_head_attention_forward"}
+{"done": "nn.functional.softplus"}
+{"done": "nn.functional.mse_loss"}
+{"done": "nn.functional.grid_sample"}
+{"op": "grid_sampler_2d", "slot": "arg2", "value": 2, "form": "pos_param", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method grid_sampler_2d of type object at 0x7e905", "literal_same": null, "source": "def f(x0, x1, k):\n    return torch.grid_sampler_2d(x0, x1, k, 1, True)\n", "shapes": [[2, 3, 5, 20], [2, 13, 10, 2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "grid_sampler_2d", "slot": "arg2", "value": 2, "form": "kwargs_param", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method grid_sampler_2d of type object at 0x7e905", "literal_same": null, "source": "def f(x0, x1, **kw):\n    return torch.grid_sampler_2d(x0, x1, kw['k'], 1, True)\n", "shapes": [[2, 3, 5, 20], [2, 13, 10, 2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "grid_sampler_2d", "slot": "arg2", "value": 2, "form": "closure", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method grid_sampler_2d of type object at 0x7e905", "literal_same": null, "source": "def make(k):\n    def f(x0, x1):\n        return torch.grid_sampler_2d(x0, x1, k, 1, True)\n    return f\nf = make(2)\n", "shapes": [[2, 3, 5, 20], [2, 13, 10, 2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "grid_sampler_2d", "slot": "arg2", "value": 2, "form": "global", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method grid_sampler_2d of type object at 0x7e905", "literal_same": null, "source": "K = 2\ndef f(x0, x1):\n    return torch.grid_sampler_2d(x0, x1, K, 1, True)\n", "shapes": [[2, 3, 5, 20], [2, 13, 10, 2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "grid_sampler_2d", "slot": "arg2", "value": 2, "form": "attribute", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method grid_sampler_2d of type object at 0x7e905", "literal_same": null, "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 2\ndef f(x0, x1):\n    return torch.grid_sampler_2d(x0, x1, cfg.k, 1, True)\n", "shapes": [[2, 3, 5, 20], [2, 13, 10, 2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "grid_sampler_2d", "slot": "arg2", "value": 2, "form": "list_elem", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method grid_sampler_2d of type object at 0x7e905", "literal_same": null, "source": "ks = [2]\ndef f(x0, x1):\n    return torch.grid_sampler_2d(x0, x1, ks[0], 1, True)\n", "shapes": [[2, 3, 5, 20], [2, 13, 10, 2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "grid_sampler_2d", "slot": "arg2", "value": 2, "form": "dict_elem", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method grid_sampler_2d of type object at 0x7e905", "literal_same": null, "source": "d = {'k': 2}\ndef f(x0, x1):\n    return torch.grid_sampler_2d(x0, x1, d['k'], 1, True)\n", "shapes": [[2, 3, 5, 20], [2, 13, 10, 2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "grid_sampler_2d", "slot": "arg2", "value": 2, "form": "kwargs_expand", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method grid_sampler_2d of type object at 0x7e905", "literal_same": null, "source": "extra = [2]\ndef f(x0, x1):\n    return torch.grid_sampler_2d(x0, x1, *extra, 1, True)\n", "shapes": [[2, 3, 5, 20], [2, 13, 10, 2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"op": "grid_sampler_2d", "slot": "arg2", "value": 2, "form": "tensor_item", "mode": "rebind", "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: Dynamo failed to run FX node with fake tensors: call_function <built-in method grid_sampler_2d of type object at 0x7e905", "literal_same": null, "source": "def f(x0, x1, kt):\n    return torch.grid_sampler_2d(x0, x1, kt.item(), 1, True)\n", "shapes": [[2, 3, 5, 20], [2, 13, 10, 2]], "dtypes": ["torch.float32", "torch.float32"]}
+{"done": "grid_sampler_2d"}
+{"done": "grid_sampler_3d"}
+{"done": "argwhere"}
+{"done": "all"}
+{"done": "any"}
+{"done": "amax"}
+{"done": "amin"}
+{"done": "argmax"}
+{"done": "argmin"}
+{"done": "count_nonzero"}
+{"stats": {"ops": 14, "samples": 14, "slots": 14, "variants": 148, "compiles": 375, "checks": 375, "findings": 9, "form_specific": 0, "infra": 0, "wall_s": 232.4}}
+{"done": "mean"}
+{"done": "nanmean"}
+{"done": "std"}
+{"done": "std"}
+{"done": "var"}
+{"done": "var"}
+{"done": "prod"}
+{"done": "sum"}
+{"done": "nansum"}
+{"done": "hash_tensor"}
+{"done": "nn.functional.ctc_loss"}
+{"done": "nn.functional.cosine_embedding_loss"}
+{"done": "nn.functional.nll_loss"}
+{"done": "nn.functional.gaussian_nll_loss"}
+{"done": "nn.functional.hinge_embedding_loss"}
+{"stats": {"ops": 15, "samples": 15, "slots": 15, "variants": 156, "compiles": 397, "checks": 397, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 52.3}}
+{"done": "nn.functional.huber_loss"}
+{"done": "nn.functional.pdist"}
+{"done": "nn.functional.poisson_nll_loss"}
+{"done": "argsort"}
+{"done": "repeat_interleave"}
+{"done": "nn.functional.pairwise_distance"}
+{"done": "nn.functional.pixel_shuffle"}
+{"done": "nn.functional.pixel_unshuffle"}
+{"done": "nn.functional.channel_shuffle"}
+{"done": "nn.functional.kl_div"}
+{"done": "diagflat"}
+{"done": "scatter_reduce"}
+{"done": "scatter_reduce"}
+{"op": "scatter_reduce", "slot": "arg1", "value": 0, "form": "literal", "mode": "static", "detail": "[exception] test raised InternalTorchDynamoError, ref returned normally :: AcceleratorError: CUDA error: device-side assert triggered\nSearch for `cudaErrorAssert' in https://docs.nvidia.com/cuda/", "literal_same": false, "source": "def f(x0, x1, x2):\n    return torch.scatter_reduce(x0, 0, x1, x2, 'mean', include_self=False)\n", "shapes": [[10, 5], [10, 2], [10, 2]], "dtypes": ["torch.float32", "torch.int64", "torch.float32"]}
+{"done": "scatter_reduce"}
+{"done": "scatter_reduce"}
+{"done": "scatter_reduce"}
+{"stats": {"ops": 14, "samples": 14, "slots": 14, "variants": 151, "compiles": 352, "checks": 382, "findings": 1, "form_specific": 0, "infra": 30, "wall_s": 66.6}}
+{"done": "scatter_reduce"}
+{"done": "scatter_reduce"}
+{"op": "scatter_reduce", "slot": "arg1", "value": 0, "form": "literal", "mode": "static", "detail": "[exception] test raised InternalTorchDynamoError, ref returned normally :: AcceleratorError: CUDA error: device-side assert triggered\nSearch for `cudaErrorAssert' in https://docs.nvidia.com/cuda/", "literal_same": false, "source": "def f(x0, x1, x2):\n    return torch.scatter_reduce(x0, 0, x1, x2, 'mean', include_self=True)\n", "shapes": [[10, 5], [5, 5], [5, 5]], "dtypes": ["torch.float32", "torch.int64", "torch.float32"]}
+{"done": "scatter_reduce"}
+{"done": "scatter_reduce"}
+{"done": "scatter_reduce"}
+{"done": "fft.fft"}
+{"done": "fft.fft2"}
+{"done": "fft.fftn"}
+{"done": "fft.hfft"}
+{"done": "fft.hfft2"}
+{"done": "fft.hfftn"}
+{"done": "fft.rfft"}
+{"done": "fft.rfft2"}
+{"done": "fft.rfftn"}
+{"done": "fft.ifft"}
+{"done": "fft.ifft2"}
+{"done": "fft.ifftn"}
+{"done": "fft.ihfft"}
+{"done": "fft.ihfft2"}
+{"stats": {"ops": 3, "samples": 3, "slots": 3, "variants": 33, "compiles": 63, "checks": 93, "findings": 1, "form_specific": 0, "infra": 30, "wall_s": 12.1}}
+{"done": "fft.ihfftn"}
+{"done": "fft.irfft"}
+{"done": "fft.irfft2"}
+{"done": "fft.irfftn"}
+{"done": "fft.fftshift"}
+{"done": "fft.ifftshift"}
+{"done": "linalg.cross"}
+{"done": "linalg.det"}
+{"done": "linalg.diagonal"}
+{"done": "linalg.cholesky"}
+{"done": "linalg.cholesky_ex"}
+{"done": "linalg.vecdot"}
+{"done": "linalg.cond"}
+{"done": "linalg.eig"}
+{"done": "linalg.eigvals"}
+{"stats": {"ops": 11, "samples": 11, "slots": 11, "variants": 115, "compiles": 314, "checks": 314, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 43.4}}
+{"done": "linalg.eigh"}
+{"done": "linalg.eigvalsh"}
+{"done": "linalg.householder_product"}
+{"done": "linalg.ldl_factor"}
+{"done": "linalg.ldl_factor_ex"}
+{"done": "linalg.ldl_solve"}
+{"done": "linalg.lstsq"}
+{"done": "linalg.lstsq"}
+{"done": "linalg.matrix_power"}
+{"done": "linalg.multi_dot"}
+{"done": "linalg.norm"}
+{"done": "linalg.norm"}
+{"done": "linalg.matrix_norm"}
+{"done": "linalg.qr"}
+{"done": "linalg.slogdet"}
+{"stats": {"ops": 11, "samples": 11, "slots": 11, "variants": 113, "compiles": 268, "checks": 268, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 30.7}}
+{"done": "linalg.vander"}
+{"done": "linalg.vector_norm"}
+{"done": "linalg.lu_factor"}
+{"done": "linalg.lu_factor_ex"}
+{"done": "linalg.lu"}
+{"done": "linalg.lu_solve"}
+{"done": "linalg.inv"}
+{"done": "linalg.inv_ex"}
+{"done": "linalg.solve"}
+{"done": "linalg.solve_ex"}
+{"done": "linalg.solve_triangular"}
+{"done": "linalg.matrix_rank"}
+{"done": "linalg.matrix_rank"}
+{"done": "linalg.pinv"}
+{"done": "linalg.pinv"}
+{"done": "linalg.pinv"}
+{"stats": {"ops": 11, "samples": 11, "slots": 11, "variants": 114, "compiles": 320, "checks": 320, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 46.4}}
+{"done": "linalg.pinv"}
+{"done": "linalg.pinv"}
+{"done": "linalg.pinv"}
+{"done": "linalg.svd"}
+{"done": "linalg.svdvals"}
+{"done": "linalg.tensorinv"}
+{"done": "linalg.tensorsolve"}
+{"done": "signal.windows.hamming"}
+{"done": "signal.windows.hann"}
+{"done": "signal.windows.bartlett"}
+{"done": "signal.windows.blackman"}
+{"done": "signal.windows.cosine"}
+{"done": "signal.windows.gaussian"}
+{"done": "signal.windows.kaiser"}
+{"done": "signal.windows.general_cosine"}
+{"done": "signal.windows.general_hamming"}
+{"done": "signal.windows.nuttall"}
+{"stats": {"ops": 5, "samples": 5, "slots": 5, "variants": 52, "compiles": 137, "checks": 137, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 30.9}}
+{"done": "masked.sum"}
+{"done": "masked.prod"}
+{"done": "masked.cumsum"}
+{"done": "masked.cumprod"}
+{"done": "masked.amax"}
+{"done": "masked.amin"}
+{"done": "masked.argmax"}
+{"done": "masked.argmin"}
+{"done": "masked.mean"}
+{"done": "masked.median"}
+{"done": "masked.norm"}
+{"done": "masked.var"}
+{"done": "masked.std"}
+{"done": "masked.softmax"}
+{"done": "masked.log_softmax"}
+{"stats": {"ops": 15, "samples": 15, "slots": 15, "variants": 161, "compiles": 349, "checks": 349, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 36.1}}
+{"done": "masked.softmin"}
+{"done": "masked.normalize"}
+{"done": "masked.logaddexp"}
+{"done": "masked.logsumexp"}
+{"stats": {"ops": 3, "samples": 3, "slots": 3, "variants": 32, "compiles": 73, "checks": 73, "findings": 0, "form_specific": 0, "infra": 0, "wall_s": 13.5}}

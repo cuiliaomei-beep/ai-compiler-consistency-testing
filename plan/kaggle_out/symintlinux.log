@@ -1,0 +1,49 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 7.0 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torch 2.14.0+cpu
+===== draft21.py
+def forward(self, x):
+    pow_1 = -2 ** x;  x = None
+    return pow_1
+Interpreter: 4  GraphModule.forward: -4  Python (-2) ** 2: 4
+eager [(2, 1.0, -1.0), (3, -1.0, -1.0), (4, 1.0, -1.0)]   # (n, eager, compiled)
+aot_eager [(2, 1.0, -1.0), (3, -1.0, -1.0), (4, 1.0, -1.0)]   # (n, eager, compiled)
+===== draft22.py
+n=14  round(n, -1): python  10 compiled  14   x * round(5n, -1): eager    70 compiled    70
+n=15  round(n, -1): python  20 compiled  15   x * round(5n, -1): eager    80 compiled    75
+n=16  round(n, -1): python  20 compiled  16   x * round(5n, -1): eager    80 compiled    80
+n=25  round(n, -1): python  20 compiled  25   x * round(5n, -1): eager   120 compiled   125
+===== draft23.py
+v != v         eager [1.0, 1.0]   eager [nan, nan]   aot_eager [nan, nan]   inductor [nan, nan]
+math.isnan(v)  eager [1.0, 1.0]   eager [1.0, 1.0]   aot_eager [1.0, 1.0]   inductor [1.0, 1.0]
+v - v for v = inf:  eager nan   inductor 0.0
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.4/199.4 MB 9.4 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.
+torch 2.15.0.dev20260921+cpu
+===== draft21.py
+def forward(self, x):
+    pow_1 = -2 ** x;  x = None
+    return pow_1
+Interpreter: 4  GraphModule.forward: -4  Python (-2) ** 2: 4
+eager [(2, 1.0, -1.0), (3, -1.0, -1.0), (4, 1.0, -1.0)]   # (n, eager, compiled)
+aot_eager [(2, 1.0, -1.0), (3, -1.0, -1.0), (4, 1.0, -1.0)]   # (n, eager, compiled)
+===== draft22.py
+n=14  round(n, -1): python  10 compiled  14   x * round(5n, -1): eager    70 compiled    70
+n=15  round(n, -1): python  20 compiled  15   x * round(5n, -1): eager    80 compiled    75
+n=16  round(n, -1): python  20 compiled  16   x * round(5n, -1): eager    80 compiled    80
+n=25  round(n, -1): python  20 compiled  25   x * round(5n, -1): eager   120 compiled   125
+===== draft23.py
+v != v         eager [1.0, 1.0]   eager [nan, nan]   aot_eager [nan, nan]   inductor [nan, nan]
+math.isnan(v)  eager [1.0, 1.0]   eager [1.0, 1.0]   aot_eager [1.0, 1.0]   inductor [1.0, 1.0]
+v - v for v = inf:  eager nan   inductor 0.0
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 279068 bytes to __results__.html

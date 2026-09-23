@@ -1,0 +1,39 @@
+{
+  "stats": {
+    "ops": 16,
+    "samples": 31,
+    "compiles": 62,
+    "relation_checks": 31,
+    "not_applicable": 0,
+    "violations": 1,
+    "standard_differs": 0,
+    "infra": 0,
+    "wall_s": 87.1
+  },
+  "mismatches": [
+    {
+      "op": "bmm",
+      "relation": "config",
+      "variant": "max_autotune",
+      "detail": "[exception] test raised InductorError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          10,
+          5,
+          10
+        ],
+        [
+          10,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    }
+  ]
+}

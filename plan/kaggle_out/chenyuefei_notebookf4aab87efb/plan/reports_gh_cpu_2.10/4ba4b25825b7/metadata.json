@@ -1,0 +1,28 @@
+{
+  "signature": "4ba4b25825b7",
+  "program": "issue_187018_abs_on_uint8_silently_miscompiled_via_st",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "187018",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/187018",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

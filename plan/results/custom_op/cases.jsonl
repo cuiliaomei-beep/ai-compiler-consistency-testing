@@ -1,0 +1,23 @@
+{"op": "custom_op with fake", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "custom_op without fake (graph break)", "eager": "ok", "diffs": {"eager": "RAISES TorchRuntimeError: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function t", "aot_eager": "RAISES TorchRuntimeError: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function t", "inductor": "RAISES TorchRuntimeError: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function t"}, "verdict": "DIFF"}
+{"op": "custom_op fake dtype wrong", "eager": "ok", "diffs": {"inductor": "RAISES RuntimeError: expected dtype torch.float32 but got torch.float64\nError in op: torch.ops.tcc.promote.default\nThis error most often come"}, "verdict": "DIFF"}
+{"op": "custom_op mutating arg", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "custom_op mutating arg then use", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "custom_op complex pinv via mH inside op", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "custom_op wrapping torch.linalg.pinv (complex)", "eager": "ok", "diffs": {"aot_eager": "OUT value -0.1267828792333603 vs 0.1267828792333603", "inductor": "OUT value -0.1267828792333603 vs 0.1267828792333603"}, "verdict": "DIFF"}
+{"op": "custom_op wrapping torch.linalg.pinv (real)", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "custom_op with register_autograd: grad", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "custom_op scalar output + item()", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "custom_op two outputs (bool second)", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "custom_op on 0-size input", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "custom_op on non-contiguous input", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "custom_op on inference tensor", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "autograd.Function Sq: grad", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "autograd.Function wrong backward: grad", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "autograd.Function mark_dirty: value and input", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "autograd.Function mark_dirty: grad", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "autograd.Function saves view: grad", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "autograd.Function once_differentiable: grad", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "autograd.Function needs_input_grad (y no grad)", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "autograd.Function complex mH in forward", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "autograd.Function returns input (identity)", "eager": "ok", "diffs": {}, "verdict": "ok"}

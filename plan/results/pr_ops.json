@@ -1,0 +1,112 @@
+{
+ "since": "2026-09-02T13:27:09Z",
+ "commits_seen": 122,
+ "ops": {
+  "empty": [
+   "eb36a495e [PrismNet][ROCm] Mirror the empty-batch skip in the AOTriton flash-attention forward (#195",
+   "bff9a06c7 [PrismNet][ROCm] Return empty grads from the CK flash-attention backward on an empty batch",
+   "d8ae8d599 [PrismNet][ROCm] Return the empty result from CK flash attention on an empty batch (#19581",
+   "0ffb270ea Revert \"[PrismNet][ROCm] Mirror the empty-batch skip in the AOTriton flash-attention forwa",
+   "3cc7a9838 [PrismNet][ROCm] Mirror the empty-batch skip in the AOTriton flash-attention forward (#195"
+  ],
+  "add": [
+   "b4cf9f133 [MPS] Add `Tensor.record_stream` for MPS (#193464)",
+   "8374e0fbb [BE][MPS] Route add/sub through the common add_stub (#196661)",
+   "518de2a74 [ROCm] Add gfx950 pre-swizzled MX FP4/FP8 scale layout for scaled_mm (#190290)",
+   "8dafa769c Add scaled addmm functional and in-place APIs (#195409)",
+   "a7a0e1589 [MPS] Add naive triangular_solve for complex numbers (#195861)",
+   "51e1ce2b9 [MPS] Add nondeterministic alerts for ops that use `atomic_add` (#195754)",
+   "fa8d73d22 [AOTI] Add opt-in stream-to-runtime affinity (#194783) (#194783)",
+   "0e1f04d33 [aotinductor] Add check_upperbound to gate the upperbound input check (#196131)",
+   "5e5238094 [inductor] Add scalar accumulators for online softmax (#190692)",
+   "0a81a11b1 [Inductor][Host-side TMA] Add host-side TMA support for Triton B200 GEMM templates (#19385",
+   "518de2a74 [ROCm] Add gfx950 pre-swizzled MX FP4/FP8 scale layout for scaled_mm (#190290)",
+   "8dafa769c Add scaled addmm functional and in-place APIs (#195409)",
+   "f62c6a1ab [dynamo] Add cmath/math entries in `torch_c_binding_in_graph_functions` (#195999)",
+   "938afb136 add tp_descr_get_impl fallback (#194410)",
+   "1ee60d10e Add `from_number` to `_BUILTIN_CONSTANT_FOLDABLE_METHODS` (#195765)",
+   "046aa7885 [dynamo] Add composite mutation type for builtin-container subclasses (#193420)"
+  ],
+  "softmax": [
+   "0929b237d [MPS] Migrate softmax to metal kernels (#196071)",
+   "df2e8e5b3 [MPS] migrate log softmax to metal (#195441)",
+   "5e5238094 [inductor] Add scalar accumulators for online softmax (#190692)"
+  ],
+  "solve": [
+   "0ed91c1d9 [MPS] Solve triangular systems by blocks, drop MPSMatrixSolveTriangular (#196241)"
+  ],
+  "sub": [
+   "8374e0fbb [BE][MPS] Route add/sub through the common add_stub (#196661)",
+   "f70757f35 [inductor] Fix CSE for inlined values across sub-parent lane epilogues (#196332)",
+   "f70757f35 [inductor] Fix CSE for inlined values across sub-parent lane epilogues (#196332)"
+  ],
+  "exponential": [
+   "053d1c266 Fix T8 coefficient in matrix exponential (#196658)"
+  ],
+  "std": [
+   "9d5a71058 Revert \"[BE][Ez]: Use cuda::std::midpoint for clarity, safety and perf (#196356)\"",
+   "bd0fbe59f [BE][Ez]: Use cuda::std::midpoint for clarity, safety and perf (#196356)"
+  ],
+  "addmm": [
+   "8dafa769c Add scaled addmm functional and in-place APIs (#195409)",
+   "0e7f619f9 Integrate scaled addmm with torch.compile (#195410)",
+   "8dafa769c Add scaled addmm functional and in-place APIs (#195409)"
+  ],
+  "max": [
+   "efc507ec0 Use fastAtomicAdd for the max-pool backward scatters (#196156)"
+  ],
+  "linear": [
+   "b7354c3f6 Use `_unsafe_view` in the nD `linear` fast path (#194077)"
+  ],
+  "fill": [
+   "990e00ebd [AI Codemod][PerfAICT-General] Skip unused old_storage_nbytes query in _resize_ unless det"
+  ],
+  "triangular_solve": [
+   "a7a0e1589 [MPS] Add naive triangular_solve for complex numbers (#195861)"
+  ],
+  "complex": [
+   "a7a0e1589 [MPS] Add naive triangular_solve for complex numbers (#195861)",
+   "cb2e7e62b [MPS] Fix complex SVD on conjugated/column-major input (#196128)"
+  ],
+  "svd": [
+   "cb2e7e62b [MPS] Fix complex SVD on conjugated/column-major input (#196128)"
+  ],
+  "histc": [
+   "29bef9de4 [MPS] Remove GPU<->CPU sync in histc (#196016)"
+  ],
+  "histogram": [
+   "7854d1a29 [MPS] Fix histogram abort at large bin counts and drop the per-edge sync (#195714)"
+  ],
+  "int": [
+   "ef375a59c [BE][Ez]: Use STL midpoint for better int overflow safety and intent (#195749)"
+  ],
+  "conj_physical": [
+   "b2979f946 [BE][MPS] Migrate conj_physical to Metal (#195872)"
+  ],
+  "log": [
+   "df2e8e5b3 [MPS] migrate log softmax to metal (#195441)"
+  ],
+  "pad": [
+   "ea3ba8f91 [MPS] Migrate constant pad to metal (#195368)"
+  ],
+  "masked_fill": [
+   "b53088059 [OSS PyTorch] PyTorch Test fix for masked_fill in MTIA (#195611)"
+  ],
+  "all": [
+   "9d32e095b [inductor] Scalar accumulators for all reductions in large inner loops (#196371)"
+  ],
+  "inner": [
+   "9d32e095b [inductor] Scalar accumulators for all reductions in large inner loops (#196371)"
+  ],
+  "remainder": [
+   "b09b4ddce [Inductor] Keep padded tail divisors non-zero in vectorized integer remainder (#192025)"
+  ],
+  "mode": [
+   "8dd154ad6 [dynamo] Fix SourcelessBuilder crash for grad-mode-decorated methods on graph-internal obj"
+  ],
+  "split": [
+   "bdcd7676f [dynamo] Split DictKeySetVariable off SetVariable to match CPython (#193649)",
+   "58d360fc4 [dynamo] Split DequeReverseIteratorVariable off DequeIteratorVariable to match CPython (#1"
+  ]
+ }
+}

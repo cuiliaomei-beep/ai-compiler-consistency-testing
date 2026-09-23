@@ -1,0 +1,43 @@
+NNSmith: 6 model(s) generated, 0 rejected
+
+torch 2.14.0+cpu  device cpu  backend=inductor  reruns=2
+35 program(s) -> reports
+
+  nnsmith_0                0 candidate(s), 0 submittable, 24 tests, 642 compiles  [80.6s]
+  nnsmith_1                0 candidate(s), 0 submittable, 24 tests, 76 compiles  [25.1s]
+  nnsmith_2                0 candidate(s), 0 submittable, 24 tests, 462 compiles  [85.0s]
+  nnsmith_3                0 candidate(s), 0 submittable, 24 tests, 232 compiles  [45.3s]
+  nnsmith_4                0 candidate(s), 0 submittable, 24 tests, 522 compiles  [72.8s]
+  nnsmith_5                0 candidate(s), 0 submittable, 24 tests, 156 compiles  [43.1s]
+  shape_boundary           0 candidate(s), 0 submittable, 24 tests, 83 compiles  [11.8s]
+  mod_tiling               0 candidate(s), 0 submittable, 24 tests, 82 compiles  [24.8s]
+  index_chain              0 candidate(s), 0 submittable, 24 tests, 82 compiles  [31.4s]
+  dtype_read               0 candidate(s), 0 submittable, 24 tests, 86 compiles  [19.0s]
+  python_flag              0 candidate(s), 0 submittable, 24 tests, 82 compiles  [20.3s]
+  python_flag_semantic     0 candidate(s), 0 submittable, 24 tests, 82 compiles  [15.8s]
+  scalar_compare           0 candidate(s), 0 submittable, 24 tests, 84 compiles  [27.4s]
+  none_check               0 candidate(s), 0 submittable, 24 tests, 83 compiles  [15.4s]
+  view_inplace             0 candidate(s), 0 submittable, 24 tests, 86 compiles  [10.0s]
+  noncontig_copy           0 candidate(s), 0 submittable, 24 tests, 85 compiles  [23.7s]
+  overlapping_views        0 candidate(s), 0 submittable, 24 tests, 83 compiles  [11.4s]
+  alias_returned           0 candidate(s), 0 submittable, 24 tests, 84 compiles  [5.1s]
+  conditional_mutation     0 candidate(s), 0 submittable, 24 tests, 77 compiles  [21.5s]
+  chunk_inplace            0 candidate(s), 0 submittable, 24 tests, 85 compiles  [26.4s]
+  requires_grad_switch     0 candidate(s), 0 submittable, 24 tests, 86 compiles  [39.5s]
+  global_state             0 candidate(s), 0 submittable, 24 tests, 86 compiles  [8.2s]
+  closure_fn               0 candidate(s), 0 submittable, 24 tests, 86 compiles  [18.3s]
+  reshape_dim              0 candidate(s), 0 submittable, 24 tests, 82 compiles  [20.6s]
+  loop_bound               0 candidate(s), 0 submittable, 24 tests, 76 compiles  [20.7s]
+  exception_path           0 candidate(s), 0 submittable, 24 tests, 80 compiles  [15.2s]
+  container_len            0 candidate(s), 0 submittable, 24 tests, 72 compiles  [9.1s]
+  string_mode              0 candidate(s), 0 submittable, 24 tests, 83 compiles  [15.6s]
+  stride_read              0 candidate(s), 0 submittable, 24 tests, 84 compiles  [19.6s]
+  mask_index               0 candidate(s), 0 submittable, 24 tests, 172 compiles  [31.9s]
+  gather_shape             0 candidate(s), 0 submittable, 24 tests, 78 compiles  [21.2s]
+  dtype_reduce             0 candidate(s), 0 submittable, 24 tests, 86 compiles  [19.4s]
+  contiguous_read          0 candidate(s), 0 submittable, 24 tests, 84 compiles  [22.3s]
+  rank_read                0 candidate(s), 0 submittable, 24 tests, 84 compiles  [7.1s]
+  flag_and_shape           0 candidate(s), 0 submittable, 22 tests, 74 compiles  [12.4s]
+
+0 candidate(s); summary at reports\SUMMARY.md
+reports\CAMPAIGN.md

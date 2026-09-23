@@ -1,0 +1,66 @@
+torch 2.14.0+cpu | device cpu | n=100003 rows=4 | 31 ops x 9 value sets x 3 dtypes
+[sum] done (11s, 0 flagged)
+[mean] done (294s, 0 flagged)
+[nansum] done (334s, 0 flagged)
+[nanmean] done (345s, 0 flagged)
+  FLAG prod_small           offset1e3    bfloat16  eager_err=1.00e+00 compiled_err=inf  eager=1.0 compiled=inf truth=2.565618822911352e+43
+  FLAG prod_small           alternating  float16   eager_err=9.62e-07 compiled_err=2.93e-03  eager=1.0 compiled=0.9970703125 truth=1.0000009619176164
+[prod_small] done (354s, 2 flagged)
+  FLAG var                  offset1e5    float32   eager_err=5.58e-08 compiled_err=3.03e-03  eager=1.000474452972412 compiled=1.0029479265213013 truth=1.0004743971721881
+  FLAG var                  scale1e18    float32   eager_err=3.36e-08 compiled_err=inf  eager=9.978243563476745e+35 compiled=inf truth=9.978243226926946e+35
+  FLAG var                  scale1e18    bfloat16  eager_err=2.40e-03 compiled_err=inf  eager=9.969209968386869e+35 compiled=inf truth=9.978243226926946e+35
+  FLAG var                  tiny_spread  float32   eager_err=3.71e-08 compiled_err=3.30e-05  eager=9.960938740505298e-09 compiled=9.960802849207084e-09 truth=9.960938581392954e-09
+[var] done (368s, 6 flagged)
+  FLAG std                  offset1e5    float32   eager_err=4.40e-08 compiled_err=1.59e-03  eager=0.9979336857795715 compiled=0.9994791150093079 truth=0.9979336690316556
+  FLAG std                  scale1e18    float32   eager_err=1.58e-08 compiled_err=inf  eager=1.0019925055347098e+18 compiled=inf truth=1.0019924921814409e+18
+  FLAG std                  scale1e18    bfloat16  eager_err=2.19e-03 compiled_err=inf  eager=9.997991172762501e+17 compiled=inf truth=1.0019924921814409e+18
+  FLAG std                  scale1e-30   float32   eager_err=3.97e-08 compiled_err=1.00e+00  eager=1.0021205949799603e-30 compiled=0.0 truth=1.0021206075717869e-30
+  FLAG std                  scale1e-30   bfloat16  eager_err=2.89e-03 compiled_err=1.00e+00  eager=1.0045650589923822e-30 compiled=0.0 truth=1.0021206075717869e-30
+  FLAG std                  tiny_spread  float32   eager_err=3.17e-08 compiled_err=1.65e-05  eager=9.985207725549117e-05 compiled=9.98537361738272e-05 truth=9.98520740645977e-05
+[std] done (374s, 12 flagged)
+  FLAG var_mean             offset1e5    float32   eager_err=5.64e-08 compiled_err=3.00e-03  eager=0.9949904680252075 compiled=0.9977726340293884 truth=0.9949904666040594
+  FLAG var_mean             scale1e18    float32   eager_err=3.41e-08 compiled_err=inf  eager=9.944048688535589e+35 compiled=inf truth=9.944048911764614e+35
+  FLAG var_mean             scale1e18    bfloat16  eager_err=2.51e-03 compiled_err=inf  eager=9.969209968386869e+35 compiled=inf truth=9.944048911764614e+35
+  FLAG var_mean             tiny_spread  float32   eager_err=3.89e-08 compiled_err=8.80e-05  eager=1.0024934660179952e-08 compiled=1.002547200812387e-08 truth=1.0024935050628588e-08
+[var_mean] done (375s, 16 flagged)
+  FLAG std_unbiased0        offset1e5    float32   eager_err=4.24e-08 compiled_err=1.62e-03  eager=1.002427339553833 compiled=1.0040509700775146 truth=1.0024273821004803
+  FLAG std_unbiased0        scale1e18    float32   eager_err=2.37e-08 compiled_err=inf  eager=9.998136858053181e+17 compiled=inf truth=9.998137062499822e+17
+  FLAG std_unbiased0        scale1e18    bfloat16  eager_err=1.77e-03 compiled_err=inf  eager=9.997991172762501e+17 compiled=inf truth=9.998137062499822e+17
+  FLAG std_unbiased0        scale1e-30   float32   eager_err=4.43e-08 compiled_err=1.00e+00  eager=9.992389411085805e-31 compiled=0.0 truth=9.99238954688673e-31
+  FLAG std_unbiased0        scale1e-30   bfloat16  eager_err=2.04e-03 compiled_err=1.00e+00  eager=9.98402083170343e-31 compiled=0.0 truth=9.99238954688673e-31
+  FLAG std_unbiased0        tiny_spread  float32   eager_err=3.42e-08 compiled_err=2.93e-05  eager=9.979873721022159e-05 compiled=9.980059985537082e-05 truth=9.97987392773769e-05
+[std_unbiased0] done (388s, 22 flagged)
+[norm2] done (402s, 22 flagged)
+[norm1] done (415s, 22 flagged)
+[vector_norm_inf] done (427s, 22 flagged)
+[logsumexp] done (432s, 22 flagged)
+[softmax_sum] done (444s, 22 flagged)
+[log_softmax_max] done (454s, 22 flagged)
+[cumsum_last] done (455s, 22 flagged)
+[cumprod_last] done (465s, 22 flagged)
+[dist] done (475s, 22 flagged)
+[layer_norm] done (485s, 22 flagged)
+[rms_norm] done (496s, 22 flagged)
+  FLAG group_norm           offset1e3    float32   eager_err=1.28e-06 compiled_err=1.34e-05  eager=4.499267101287842 compiled=4.4991984367370605 truth=4.499269697441608
+  FLAG group_norm           offset1e5    float32   eager_err=2.70e-04 compiled_err=2.68e-03  eager=4.5645294189453125 compiled=4.553514003753662 truth=4.565821546466085
+  FLAG group_norm           tiny_spread  float32   eager_err=1.08e-05 compiled_err=1.36e-04  eager=0.14538218080997467 compiled=0.1454010009765625 truth=0.14538055919079426
+[group_norm] done (506s, 25 flagged)
+[batch_norm] done (508s, 25 flagged)
+[mse_loss] done (516s, 25 flagged)
+[l1_loss] done (526s, 25 flagged)
+[cross_entropy_wide] done (537s, 25 flagged)
+  FLAG cosine_similarity    alternating  float32   eager_err=7.38e-07 compiled_err=1.10e-05  eager=1.000000238418579 compiled=1.0000104904174805 truth=0.9999995000003513
+[cosine_similarity] done (547s, 26 flagged)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+[matmul_dot] done (548s, 26 flagged)
+[einsum_ij_ij] done (558s, 26 flagged)
+[amax_minus_amin] done (567s, 26 flagged)
+[kthvalue_mid] done (568s, 26 flagged)
+[median] done (569s, 26 flagged)
+{"cases": 837, "flagged": 26, "wall_s": 568.6}
+written results/large_reduce\LARGE_REDUCE.md

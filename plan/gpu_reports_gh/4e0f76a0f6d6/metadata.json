@@ -1,0 +1,36 @@
+{
+  "signature": "4e0f76a0f6d6",
+  "program": "issue_171190_torch_compile_inductor_silently_ignores",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "171190",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/171190",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 171190,
+      "title": "torch.compile (Inductor) silently ignores explicit dtype casts in SDPA, diverging from eager semantics",
+      "url": "https://github.com/pytorch/pytorch/issues/171190",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2025-12-23"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+loaded 73 reproducer(s) from reproducers_models, 0 rejected
+
+torch 2.14.0+cpu  device cpu  backend=inductor  reruns=2
+73 program(s) -> reports_models
+
+  model_convnext_tiny_bf16_autocast 0 candidate(s), 0 submittable, 3 tests, 10 compiles  [344.0s]
+  model_convnext_tiny_channels_last 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [293.3s]
+  model_convnext_tiny_dynamic 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [243.8s]
+  model_convnext_tiny_fp32 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [186.0s]
+  model_convnext_tiny_train 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [218.9s]
+  model_densenet121_bf16_autocast 0 candidate(s), 0 submittable, 1 tests, 3 compiles  [334.9s]

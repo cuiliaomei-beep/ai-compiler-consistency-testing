@@ -1,0 +1,25 @@
+\begin{table}[t]
+\caption{Analyzers: the factor that is varied, the reference the result is compared with, and the scale of one
+sweep on PyTorch~2.14 (CPU unless noted). Path-side analyzers vary how the program is compiled; program-side
+analyzers vary the input or the operator call.}
+\label{tab:analyzers}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lp{3.05cm}p{4.9cm}p{4.3cm}@{}}
+\toprule
+Side & Analyzer & Varied factor & Scale of one sweep \\
+\midrule
+path & graph-break position & a break after every statement (top level or nested), by \code{graph\_break}, \code{disable}, or \code{print}; three backends; \code{dynamic} & 274 programs, 660--816 insertion points, 6~min per backend \\
+path & backend layer, context & \code{eager} / \code{aot\_eager} / \code{inductor}; forwarding dispatch mode (forward and gradients); autocast; 17 compile compositions & 955 differentiable op--dtype pairs; 530 ops $\times$ 2 autocast dtypes; 14 programs $\times$ 25 compositions \\
+path & artifact route & \code{export} + serialize + load; AOTInductor package + load; runner destroyed after a run; CUDA-graph output reuse (19 patterns) & 520 ops (CPU), 19 patterns (T4) \\
+path & context sequences & one factor changed between two calls of one artifact; return trip; cross-process disk cache & 26 switches, 29 cache cases \\
+\midrule
+program & boundary values & inf, NaN, extremes, near-singular and near-overflow values in vector-length tensors; \code{dynamic}; multi-precision reference for 44 unary and 23 binary functions & 1{,}203--1{,}345 op--dtype pairs per platform (CPU, T4) \\
+program & unsupported dtypes & every dtype the eager kernel rejects & 1{,}345 pairs (CPU), 1{,}303 (T4) \\
+program & dtype pairs, scalars & $8{\times}8$ dtype pairs in 4 argument forms; 11 binding forms of a scalar & 17{,}664 cases; 386 ops \\
+program & source factors (\scs) & one semantic factor of a compilation site at a time; boundary values from predicates & 29 corpus programs, 114 obligations \\
+program & Python corpus & 274 programs of Dynamo-modeled Python features, two calls each & 3 backends $\times$ 2 shape modes \\
+program & decomposition, differentiation & Inductor decomposition executed eagerly; backward, complex, forward-mode, \code{vmap}; 11 optimizers & 576 ops, 11{,}911 variants; 327--678 ops per mode \\
+\bottomrule
+\end{tabular}
+\end{table}

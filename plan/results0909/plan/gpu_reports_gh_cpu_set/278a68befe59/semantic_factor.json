@@ -1,0 +1,52 @@
+{
+  "factor_changed": "compile",
+  "context": {
+    "name": "compile.dynamic=True",
+    "factors": {
+      "compile": {
+        "dynamic": true
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": {
+    "site": "f",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "triage": {
+    "stage": "aot_functionalization",
+    "stage_label": "AOTAutograd / functionalization",
+    "priority": "high",
+    "rationale": "eager and backend='eager' agree but aot_eager differs: AOTAutograd / functionalization (alias and in-place handling); alias/mutation oracle fired (highest-value class)",
+    "kinds": [
+      "mutation",
+      "alias"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E2_aot_eager",
+    "submittable": true
+  }
+}

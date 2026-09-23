@@ -1,0 +1,19 @@
+{
+  "signature": "c92f7fe335af",
+  "program": "python_flag_semantic",
+  "project": "pytorch/pytorch",
+  "stage": "cache_invalidation",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "dtype",
+  "probe": "matrix",
+  "status": "Generated",
+  "reproducibility": "1/1",
+  "fault": "cache_stale_on_return",
+  "backend": "eager",
+  "torch": "2.14.0+cpu",
+  "minimized": false,
+  "duplicates": []
+}

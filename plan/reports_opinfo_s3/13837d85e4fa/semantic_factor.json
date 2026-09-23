@@ -1,0 +1,59 @@
+{
+  "factor_changed": "requires_grad",
+  "context": {
+    "name": "args.grad=True",
+    "factors": {
+      "requires_grad": {
+        "arg": 0,
+        "value": true
+      }
+    },
+    "warm": true,
+    "origin": "args.requires_grad"
+  },
+  "context_b": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "opinfo_new_empty",
+    "factor": "args.requires_grad",
+    "kind": "requires_grad",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "grad on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "gradient"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "requires_grad changes the traced graph regardless of source",
+    "param": "args",
+    "dim": null
+  },
+  "triage": {
+    "stage": "compile_nondeterminism",
+    "stage_label": "compilation state leaking across compiles",
+    "priority": "medium",
+    "rationale": "changing 'requires_grad' did trigger a recompile, but the result still differs from a cold compile: state leaks across compilations",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": true,
+    "guard_suspicious": false,
+    "warm_only": true,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": true
+  }
+}

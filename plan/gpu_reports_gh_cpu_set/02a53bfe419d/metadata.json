@@ -1,0 +1,28 @@
+{
+  "signature": "02a53bfe419d",
+  "program": "issue_181693_nn_hardswish_produces_wrong_output_under",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "181693",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/181693",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

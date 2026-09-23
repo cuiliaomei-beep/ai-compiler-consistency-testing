@@ -1,0 +1,62 @@
+- site: python_flag
+  factor: fast
+  kind: flag
+  relation: change_only_one_factor
+  constraint: T/F both paths
+  values:
+    - true
+    - false
+  oracle:
+    - value
+    - metadata
+    - exception
+  execution:
+    - cold
+    - warm_sequence
+  origin: parameter steers control flow
+- site: python_flag
+  factor: x.dtype
+  kind: dtype
+  relation: change_only_one_factor
+  constraint: float dtype ladder
+  values:
+    - float16
+    - float64
+    - bfloat16
+  oracle:
+    - value
+    - metadata
+  execution:
+    - cold
+    - warm_sequence
+  origin: numerics depend on precision regardless of source
+- site: python_flag
+  factor: x.requires_grad
+  kind: requires_grad
+  relation: change_only_one_factor
+  constraint: grad on/off
+  values:
+    - true
+    - false
+  oracle:
+    - value
+    - metadata
+    - gradient
+  execution:
+    - cold
+    - warm_sequence
+  origin: requires_grad changes the traced graph regardless of source
+- site: python_flag
+  factor: compile.dynamic
+  kind: compile_flag
+  relation: change_only_one_factor
+  constraint: dynamic shapes on/off
+  values:
+    - true
+    - false
+  oracle:
+    - value
+    - metadata
+  execution:
+    - cold
+  origin: compile flag changes specialization

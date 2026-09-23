@@ -1,0 +1,44 @@
+{
+  "signature": "c2e79ca22ff0",
+  "program": "issue_194501_torch_compile_inductor_smooth_l1_loss_wi",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "194501",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/194501",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 194501,
+      "title": "[torch.compile][Inductor] smooth_l1_loss with negative beta bypasses eager validation",
+      "url": "https://github.com/pytorch/pytorch/issues/194501",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-23"
+    },
+    {
+      "number": 194730,
+      "title": "Fix smooth_l1_loss negative beta bypass in inductor decompositions",
+      "url": "https://github.com/pytorch/pytorch/pull/194730",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-25"
+    }
+  ]
+}

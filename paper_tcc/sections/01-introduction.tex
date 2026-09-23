@@ -1,0 +1,79 @@
+\section{Introduction}
+\label{sec:intro}
+
+Deep learning (DL) programs are written, reviewed, and debugged as Python code, but they are increasingly
+executed in another form. Since PyTorch~2, a call to \tcompile routes a model through bytecode-level graph
+capture, functionalization and automatic-differentiation tracing, operator decomposition, loop-level lowering,
+C++ or Triton code generation, guard-based specialization, and several caches~\cite{DBLP:conf/asplos/AnselYHGJVBBBBC24}.
+Comparable pipelines exist in TVM~\cite{DBLP:conf/osdi/ChenMJZYSCWHCGK18}, XLA-backed TensorFlow~\cite{DBLP:conf/osdi/AbadiBCCDDDGIIK16}, MLIR-based
+stacks~\cite{DBLP:conf/cgo/LattnerAB0DPRSV21}, and Triton~\cite{DBLP:conf/pldi/TilletKC19}; we call such a pipeline an \emph{AI compiler stack}. These systems are expected to produce an optimized artifact
+that is semantically equivalent to eager execution, so that the Python source remains the single description of
+what the program does.
+
+This expectation can be violated without any visible sign in the source. An empirical study of \emph{toxic
+compilation}\footnote{Reference withheld for double-anonymous review.} collected more than a thousand incidents
+in which the produced artifact diverged from the reviewed source. We call their common outcome a
+\emph{source--artifact consistency failure}: for the same program, input, and context, eager and compiled
+execution differ in an observable way. Four of the defects reported in this paper illustrate the range. An
+\code{OrderedDict.move\_to\_end} call inside a compiled function is dropped, so that an LRU cache maintained
+next to the compiled step evicts the entry it has just used. An \code{IndexError} raised by a tensor operator
+bypasses the \code{except} clause written for it. A generator that leaves the compiled region is returned as an
+exhausted tuple iterator whose return value is \code{None}. The expression \code{x * 1} at the end of a graph
+returns the input tensor itself, so that an in-place update of the result modifies the input.
+
+Compiler testing has so far varied the \emph{program}. NNSmith~\cite{DBLP:conf/asplos/LiuLRTLPZ23}, NeuRI~\cite{DBLP:conf/sigsoft/0004PW023},
+and HirGen~\cite{DBLP:conf/issta/MaS00C23} synthesize computation graphs; Tzer~\cite{DBLP:journals/pacmpl/LiuWYDZ22} and
+MLIRSmith~\cite{DBLP:conf/kbse/WangCXLWSZ23} mutate intermediate representations; TorchProbe~\cite{DBLP:conf/aplas/SuGPS23} applies
+semantics-preserving transformations to Python programs; FreeFuzz~\cite{DBLP:conf/icse/WeiDYZ22},
+DeepREL~\cite{DBLP:conf/sigsoft/DengYWZ22}, and LLM-based fuzzers~\cite{DBLP:conf/issta/DengXPY023,DBLP:conf/icse/DengXYZY024} generate API
+invocations. In all of these techniques a program is compiled along one path, the one the harness takes by
+default. For \tcompile this leaves much of the compiler untested. Where TorchDynamo breaks the graph depends on
+the call site; whether AOTAutograd participates depends on whether a gradient is needed; whether TorchInductor
+emits a scalar or a vectorized loop depends on the tensor length; whether an operator takes a dedicated lowering
+or a generic decomposition depends on its dtype; a \code{TorchDispatchMode}, autocast, or CUDA graphs change
+which components run; export and ahead-of-time packaging replace the runtime. A defect on a path the harness
+does not take remains undetected regardless of how many programs are generated.
+
+The compilation itself can, however, be varied: its path can be enumerated and controlled one factor at a time. The statements after
+which a graph break can be inserted, the backend layers that can be selected, the execution contexts that can
+be entered, and the artifact routes that can be taken are switches exposed by the pipeline; their number is
+small, their meaning is documented, and none of them is permitted to change the result of the program. The
+program-side factors that change compiler behavior can be enumerated as well: a static analysis of the source
+recovers the shapes, dtypes, scalars, and flags a compilation site reads, and operator metadata lists the dtypes
+and sample shapes each operator supports. Treating both groups as test dimensions, holding one fixed and
+changing the other by one factor at a time, yields tests in which every difference has a single candidate cause.
+A path factor is a semantics-preserving change to how the program is compiled, so the eager result is the
+expected outcome of a metamorphic relation~\cite{DBLP:journals/csur/ChenKLPTTZ18}; the relation is the same for
+every factor, and the design effort goes into the choice of observables that are compared.
+
+We implement this approach in \tool. Section~\ref{sec:approach} defines the factor model, the one-factor
+execution matrix, an oracle over seven observables (values against a float64 or multi-precision reference,
+dtype and shape and stride, object identity and aliasing, exception type and its routing to a handler, side
+effects on inputs and external state, gradients, and process survival), and layered localization, which names
+the stage at which a difference first appears. Section~\ref{sec:analyzers} describes how the path factors are
+realized on \tcompile and how program-side factors are drawn from the source and from operator metadata.
+
+\paragraph{Results.} Reports filed against PyTorch~2.14 and nightly builds during the study number 73: 55 new
+issues, 15 comments that add members or root causes to existing issues, and 3 reports to the vendor of the C++
+compiler that TorchInductor uses on Windows. At the time of writing, 14 are fixed or have a fix under review, 10
+are confirmed by maintainers or reproduced by other contributors, 48 await triage, and 1 was judged expected
+behavior. A corpus of 185 programs that program-only differential testing under three configurations had already
+covered yielded two new Dynamo defects when one path factor, the position of graph breaks, was added. One
+metadata-derived factor exposed 134 operators that compute under \tcompile on dtypes their eager kernels
+reject. Of the 58 findings attributable to the compile pipeline, 39 are detectable only through an observable
+other than the output value. Guards, caches, compile composition, autocast, higher-order operators, custom
+operators, and the numerical behavior of the export path were consistent in every configuration we tried.
+
+\paragraph{Contributions.}
+\begin{itemize}
+  \item Varying the compilation as a dimension of consistency testing, with a set of path factors that a
+        harness can enumerate and control (graph-break position, backend layer, execution context, artifact
+        route), and evidence that program-only testing does not reach the defects on rarely taken paths
+        (Sections~\ref{sec:approach}, \ref{sec:analyzers}, \ref{sec:rq1}).
+  \item A one-factor execution matrix over program-side and path-side factors and an oracle over seven
+        observables, which make every difference attributable and make side-effect, identity,
+        exception-routing, and process-level failures detectable (Sections~\ref{sec:approach}, \ref{sec:rq3}).
+  \item An evaluation on injected faults, historical issues, and current PyTorch builds, with 73 reports
+        classified by maintainer response and by root-cause location, and negative results that state where
+        consistency holds (Section~\ref{sec:eval}).
+\end{itemize}

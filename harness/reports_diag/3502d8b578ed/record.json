@@ -1,0 +1,120 @@
+{
+  "signature": "3502d8b578ed",
+  "case": "op_sparse_mm_0",
+  "probe": "warm",
+  "triage": {
+    "stage": "specialization_cache",
+    "priority": "high",
+    "rationale": "changing 'dtype' did not trigger a recompile, yet the warm result differs from a cold compile of the same context: the cached artifact was reused under assumptions that no longer hold",
+    "kinds": [
+      "mutation"
+    ],
+    "recompiled": false,
+    "guard_suspicious": false,
+    "layers_unavailable": [],
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {
+      "variant": "base"
+    }
+  },
+  "context_b": {
+    "name": "dtype_float64",
+    "factors": {
+      "variant": "base",
+      "dtype": "float64"
+    }
+  },
+  "factor_changed": "dtype",
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "cold_vs_warm": {
+      "ref": "cold_inductor",
+      "test": "warm_inductor",
+      "differs": true,
+      "kinds": [
+        "mutation"
+      ],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": [
+        {
+          "kind": "mutation",
+          "detail": "input[0] not comparable after call",
+          "index": 0
+        }
+      ]
+    }
+  },
+  "observations": {
+    "cold_B": {
+      "mode": "cold_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0287,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "warm_A_to_B": {
+      "mode": "warm_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            5,
+            3
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "torch OpInfo `sparse.mm` sample #0 (float32)"
+}

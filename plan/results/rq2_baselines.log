@@ -1,0 +1,14 @@
+
+RQ2: same budget, same harness, same oracle
+============================================================================
+  B1 Random       detected 11.33/19  tests 464.7  TTF 0.38s
+  B1 Random+O1-7  detected 14/19  tests 355
+  B5 Ours         detected 19/19  tests 235  TTF 0.34s  FP(fixed) 0
+  FreeFuzz   (ICSE 2022): not installed - clone https://github.com/ise-uiuc/FreeFuzz and export generated API calls as f/args files
+  NNSmith    (ASPLOS 2023): available - pip install nnsmith; run `nnsmith.model_gen backend.type=torchjit` and export models as f/args files
+  TorchProbe (APLAS 2023): not installed - clone the TorchProbe artifact (arXiv 2310.20078) and export transformed programs as f/args files
+  TitanFuzz  (ISSTA 2023): not installed - clone https://github.com/ise-uiuc/TitanFuzz and export generated programs as f/args files
+  DeepREL    (ESEC/FSE 2022): not installed - clone https://github.com/ise-uiuc/DeepREL (supplemental baseline)
+  B3 NNSmith: 8 model(s) generated, 0 rejected
+  B3 NNSmith(native input) detected 6.0/19  tests 152.0
+  B3 NNSmith+our contexts   detected 9.0/19  tests 496.0

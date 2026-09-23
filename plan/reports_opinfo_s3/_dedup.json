@@ -1,0 +1,149 @@
+{
+  "11ddea7fd13c": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "opinfo_nn_functional_multi_margin_loss",
+    "stage": "aot_functionalization"
+  },
+  "13837d85e4fa": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "matrix",
+    "program": "opinfo_new_empty",
+    "stage": "compile_nondeterminism"
+  },
+  "149531700f54": {
+    "count": 4,
+    "factor": "resize",
+    "probe": "layered",
+    "program": "opinfo_nn_functional_binary_cross_entropy_with_logits",
+    "stage": "dynamo_capture"
+  },
+  "32499290a129": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "opinfo_max_pool2d_with_indices_backward",
+    "stage": "dynamo_capture"
+  },
+  "335edb1af632": {
+    "count": 1,
+    "factor": "rank",
+    "probe": "layered",
+    "program": "opinfo_nn_functional_interpolate_area",
+    "stage": "dynamo_capture"
+  },
+  "34fa9b83500e": {
+    "count": 1,
+    "factor": "rank",
+    "probe": "layered",
+    "program": "opinfo_nn_functional_interpolate_trilinear",
+    "stage": "dynamo_capture"
+  },
+  "37e7d7870f21": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "opinfo_new_empty_strided",
+    "stage": "aot_functionalization"
+  },
+  "42f770c843c0": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "matrix",
+    "program": "opinfo_new_empty_strided",
+    "stage": "compile_nondeterminism"
+  },
+  "43d01b3bbeec": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "matrix",
+    "program": "opinfo_new_empty",
+    "stage": "cache_invalidation"
+  },
+  "645be2109059": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "opinfo_new_empty_strided",
+    "stage": "aot_functionalization"
+  },
+  "6c59eb427924": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "opinfo_new_empty",
+    "stage": "dynamo_capture"
+  },
+  "7733daf44630": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "opinfo_new_empty_strided",
+    "stage": "dynamo_capture"
+  },
+  "8b04478377ff": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "matrix",
+    "program": "opinfo_new_empty",
+    "stage": "compile_nondeterminism"
+  },
+  "956b02bb30e6": {
+    "count": 1,
+    "factor": "rank",
+    "probe": "layered",
+    "program": "opinfo_nn_functional_local_response_norm",
+    "stage": "dynamo_capture"
+  },
+  "9953fe7318e2": {
+    "count": 4,
+    "factor": "resize",
+    "probe": "layered",
+    "program": "opinfo_nn_functional_binary_cross_entropy",
+    "stage": "dynamo_capture"
+  },
+  "a8bd5795d4ba": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "opinfo_new_empty",
+    "stage": "dynamo_capture"
+  },
+  "bdd560632a42": {
+    "count": 1,
+    "factor": "rank",
+    "probe": "layered",
+    "program": "opinfo_nn_functional_interpolate_linear",
+    "stage": "dynamo_capture"
+  },
+  "c0176ec1bfeb": {
+    "count": 1,
+    "factor": "rank",
+    "probe": "layered",
+    "program": "opinfo_nn_functional_interpolate_bicubic",
+    "stage": "dynamo_capture"
+  },
+  "c4398b2ccfef": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "opinfo_new_empty_strided",
+    "stage": "dynamo_capture"
+  },
+  "d1765495c781": {
+    "count": 4,
+    "factor": "dtype",
+    "probe": "matrix",
+    "program": "opinfo_new_empty_strided",
+    "stage": "cache_invalidation"
+  },
+  "e2ff23c37250": {
+    "count": 2,
+    "factor": "requires_grad",
+    "probe": "matrix",
+    "program": "opinfo_new_empty_strided",
+    "stage": "cache_invalidation"
+  }
+}

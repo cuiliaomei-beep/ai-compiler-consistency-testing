@@ -1,0 +1,44 @@
+{
+  "signature": "51c49eddc26e",
+  "program": "issue_185587_inductor_numerical_inconsistency_polygam",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "185587",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/185587",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 185587,
+      "title": "[inductor] Numerical inconsistency: polygamma + cumulative_trapezoid under torch.compile(dynamic=True) produces wrong results after Conv2d + GroupNorm",
+      "url": "https://github.com/pytorch/pytorch/issues/185587",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-05-29"
+    },
+    {
+      "number": 185589,
+      "title": "[inductor] Severe numerical inconsistency: diag_embed + erf + normalize(p=-1) under torch.compile(dynamic=True) — max diff up to 565,248",
+      "url": "https://github.com/pytorch/pytorch/issues/185589",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-05-29"
+    }
+  ]
+}

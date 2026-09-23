@@ -1,0 +1,5 @@
+exception AssertionError: expected size 64==64, stride 1==1024 at dim=1; expected size 32==32, stride 2048==32 at dim=2; expected size 32==32, stride 64==1 at dim=3
+Error in op: torch.ops.aten.uniform.default
+This error most often comes from a incorrect fake (aka meta) kernel for a custom op.
+Use torch.library.opcheck to test your custom op.
+See https://pytorch.org/docs/stable/library.html#torch.library.opcheck

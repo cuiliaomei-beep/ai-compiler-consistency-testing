@@ -1,0 +1,19 @@
+  DECOMP softmax                              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.pad                    empty_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=False
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP nn.functional.pad                    size1_last     [exception] ref raised RuntimeError, test returned normally  confirmed=False
+  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   nn.functional.pad                    channels_last  output[0] stride (245, 49, 7, 1) vs real (245, 1, 35, 5)
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   nn.functional.pad                    channels_last  output[1] stride (75, 25, 5, 1) vs real (75, 1, 15, 3)
+  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  META   nn.functional.pad                    channels_last  output[1] stride (150, 25, 5, 1) vs real (150, 1, 30, 6)
+  DECOMP log_softmax                          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   log_softmax                          dtype_bool     fake-tensor path raised NotImplementedError: Subtraction, the `-` operator, with
+  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP std                                  tiny           [value] output[1]: compiled err vs fp64 = 1.090e-02 exceeds 4.0x eager err 7.987  confirmed=True
+  DECOMP std                                  tiny           [value] output[1]: compiled err vs fp64 = 4.330e-01 exceeds 4.0x eager err 5.909  confirmed=True
+{"ops": 21, "samples": 42, "variants": 699, "decomp_covered": 637, "decomp_mismatch": 13, "meta_mismatch": 4, "data_dependent": 0, "errors": 0, "wall_s": 154.2}
+written results/pr_decomp_nightly\DECOMP_DIFF.md

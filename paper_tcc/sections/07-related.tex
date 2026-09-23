@@ -1,0 +1,55 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Testing AI compiler stacks.} Empirical studies show that DL compiler defects concentrate in
+high-level optimization and lowering and that a large share produce wrong results rather than
+crashes~\cite{DBLP:conf/sigsoft/ShenM0TCC21,DBLP:journals/tpds/LiLLSYYLGYQ21}. Generators address this from the input side. NNSmith~\cite{DBLP:conf/asplos/LiuLRTLPZ23} and
+NeuRI~\cite{DBLP:conf/sigsoft/0004PW023} synthesize valid and diverse computation graphs from operator constraints, GenCoG~\cite{DBLP:conf/issta/WangNMCWB023}
+does so with a constraint DSL for TVM, HirGen~\cite{DBLP:conf/issta/MaS00C23} targets high-level IR, Tzer~\cite{DBLP:journals/pacmpl/LiuWYDZ22} mutates TVM's
+low-level IR together with pass sequences, and MLIRSmith~\cite{DBLP:conf/kbse/WangCXLWSZ23} generates MLIR programs.
+WhiteFox~\cite{DBLP:journals/pacmpl/YangDLY0J024} lets a language model read optimization source code to produce inputs that trigger it.
+Xiao \etal~\cite{DBLP:conf/sigmetrics/XiaoLYPW22} apply metamorphic relations to compiled models. TorchProbe~\cite{DBLP:conf/aplas/SuGPS23} is closest
+to our subject: it rewrites Python programs with semantics-preserving transformations that introduce dynamic
+language features and compares the variants under PyTorch~2. These techniques decide \emph{which program} to
+compile, and each of them compiles it along one path. \tool is orthogonal: for a given program it varies the
+compilation (graph-break position, backend layer, execution context, artifact route) and the program-side
+factors the program reads, one at a time, and compares identity, state, exception routing, gradients, metadata,
+and process survival besides values. TorchProbe's transformations and the cold/warm cache comparison of
+AlignGuard\footnote{arXiv preprint, 2026.} are single members of this factor space; the configuration
+relations of~\cite{DBLP:conf/sigmetrics/XiaoLYPW22} vary the model rather than the compiler. Equivalence modulo
+inputs~\cite{DBLP:conf/pldi/LeAS14} and metamorphic testing~\cite{DBLP:journals/csur/ChenKLPTTZ18,DBLP:journals/tse/SeguraFSC16} supply the
+form of our relation, observable equality under a semantics-preserving change; the change here is to the
+compilation rather than to the program.
+
+\paragraph{Testing deep learning libraries.} CRADLE~\cite{DBLP:conf/icse/PhamLQT19}, Audee~\cite{DBLP:conf/kbse/GuoXLZLLS20}, LEMON~\cite{DBLP:conf/sigsoft/WangYCLZ20}, and
+Muffin~\cite{DBLP:conf/icse/GuLZ022} compare models across frameworks or back ends. FreeFuzz~\cite{DBLP:conf/icse/WeiDYZ22} mines API
+invocations from documentation, tests, and models; DeepREL~\cite{DBLP:conf/sigsoft/DengYWZ22} infers relations between APIs;
+DocTer~\cite{DBLP:conf/issta/XieLKP0ZG22} and ACETest~\cite{DBLP:conf/issta/ShiXLLYYSCH23} extract input constraints from documentation and validation
+code; TitanFuzz~\cite{DBLP:conf/issta/DengXPY023} and FuzzGPT~\cite{DBLP:conf/icse/DengXYZY024} generate API programs with language models;
+Predoo~\cite{DBLP:conf/issta/ZhangSFLLCWC21} studies operator precision; and $\nabla$Fuzz~\cite{DBLP:conf/icse/YangDYTLZ23} differentially tests automatic
+differentiation. Studies of framework bugs~\cite{DBLP:conf/sigsoft/IslamNPR19,DBLP:journals/tosem/ChenLSJL23,DBLP:conf/kbse/GuoCXMHLLZL19} and of silent
+bugs~\cite{DBLP:journals/ese/TambonNAKA24} motivate oracles beyond crashes. \tool borrows the seeds these communities created
+(OpInfo is PyTorch's counterpart to a mined API corpus) but asks a different question: not whether an API is
+correct, but whether its compiled execution agrees with its eager execution in every observable, including under
+forward-mode, compiled, and complex-valued differentiation, where our sweeps found defects (B1, B3, B7, B9) that
+eager-only AD testing cannot reach.
+
+\paragraph{Compiler testing and validation.} Differential testing~\cite{DBLP:journals/dtj/McKeeman98}, random program generation
+with Csmith~\cite{DBLP:conf/pldi/YangCER11} and YARPGen~\cite{DBLP:journals/pacmpl/LivinskiiBR20}, and equivalence modulo inputs~\cite{DBLP:conf/pldi/LeAS14} are the foundations
+of compiler testing~\cite{DBLP:journals/csur/ChenPPXZHZ20}; metamorphic testing~\cite{DBLP:journals/tse/SeguraFSC16,DBLP:journals/csur/ChenKLPTTZ18} and
+the oracle problem~\cite{DBLP:journals/tse/BarrHMSY15} frame what can be compared. For JIT compilers, Artemis~\cite{DBLP:conf/sosp/Li00S23} explores
+the space of compilation decisions and JIT-Picking~\cite{DBLP:conf/ccs/BernhardSSBH22} compares interpreter and JIT executions of
+JavaScript engines; our layered execution likewise uses the non-optimizing tier as a reference, with three intermediate tiers. Test-case reduction by delta
+debugging~\cite{DBLP:journals/tse/ZellerH02} and C-Reduce~\cite{DBLP:conf/pldi/RegehrCCEEY12} inspires our minimizer, which additionally uses the static
+slice of the triggering factor. Verified compilation~\cite{DBLP:journals/cacm/Leroy09} and translation
+validation~\cite{DBLP:conf/tacas/PnueliSS98,DBLP:conf/pldi/LopesLHLR21} establish consistency by proof; they do not yet scale to an AI compiler stack
+with data-dependent guards, code generation through C++ and Triton, and caches, which is why a testing approach
+with strong oracles is the practical option today.
+
+\paragraph{Source--artifact consistency and the software supply chain.} Thompson's trusting-trust
+attack~\cite{DBLP:journals/cacm/Thompson84} is the classical example of an artifact that departs from its reviewed source.
+Reproducible builds~\cite{DBLP:journals/software/LambZ22}, in-toto~\cite{DBLP:conf/uss/Torres-AriasAKC19}, and Sigstore~\cite{DBLP:conf/ccs/NewmanMT22} secure the path from
+source to artifact against tampering, and taxonomies of supply-chain attacks~\cite{DBLP:conf/dimva/OhmPS020,DBLP:conf/sp/LadisaPMB23} catalog
+how that path is abused. These defenses establish \emph{who} built an artifact and \emph{from what}, not that a benign compiler
+preserved the semantics of benign source. \tool addresses that gap for AI compiler stacks~\cite{DBLP:conf/nips/PaszkeGMLBCKLGA19,DBLP:conf/asplos/AnselYHGJVBBBBC24,DBLP:conf/osdi/ChenMJZYSCWHCGK18}, where the artifact is generated, specialized, and
+cached at run time on the user's machine.

@@ -1,0 +1,180 @@
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\complex_grad_sweep.py:46: UserWarning: Using torch.cross without specifying the dim arg is deprecated.
+Please either pass the dim explicitly or simply use torch.linalg.cross.
+The default value of dim will change to agree with that of linalg.cross in a future release. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\Cross.cpp:67.)
+  out = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\functional.py:680: UserWarning: A window was not provided. A rectangular window will be applied,which is known to cause spectral leakage. Other windows such as torch.hann_window or torch.hamming_window are recommended to reduce spectral leakage.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\SpectralOps.cpp:860.)
+  return _VF.stft(  # type: ignore[attr-defined]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\functional.py:680: UserWarning: stft with return_complex=False is deprecated. In a future pytorch release, stft will return complex tensors for all inputs, and return_complex=False will raise an error.
+Note: you can still call torch.view_as_real on the complex output to recover the old return format. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\SpectralOps.cpp:898.)
+  return _VF.stft(  # type: ignore[attr-defined]
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\complex_grad_sweep.py:46: UserWarning: A window was not provided. A rectangular window will be applied.Please provide the same window used by stft to make the inversion lossless.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\SpectralOps.cpp:1059.)
+  out = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:1251: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:51.)
+  .to_sparse_csr()
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\functional.py:2208: UserWarning: torch.lu is deprecated in favor of torch.linalg.lu_factor / torch.linalg.lu_factor_ex and will be removed in a future PyTorch release.
+LU, pivots = torch.lu(A, compute_pivots)
+should be replaced with
+LU, pivots = torch.linalg.lu_factor(A, compute_pivots)
+and
+LU, pivots, info = torch.lu(A, compute_pivots, get_infos=True)
+should be replaced with
+LU, pivots, info = torch.linalg.lu_factor_ex(A, compute_pivots) (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\BatchLinearAlgebra.cpp:2066.)
+  return torch._lu_with_info(A, pivot=pivot, check_errors=(not get_infos))
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\complex_grad_sweep.py:46: UserWarning: torch.lu_solve is deprecated in favor of torch.linalg.lu_solveand will be removed in a future PyTorch release.
+Note that torch.linalg.lu_solve has its arguments reversed.
+X = torch.lu_solve(B, LU, pivots)
+should be replaced with
+X = torch.linalg.lu_solve(LU, pivots, B) (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\BatchLinearAlgebra.cpp:2220.)
+  out = fn(inp, *args, **kwargs)
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\complex_grad_sweep.py:46: UserWarning: Casting complex values to real discards the imaginary part (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\Copy.cpp:308.)
+  out = fn(inp, *args, **kwargs)
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] Backend compiler exception
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten._local_scalar_dense.default
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     While executing %narrow : [num_users=1] = call_function[target=torch.narrow](args = (%l_args_0_, 1, %l_args_2_, 2), kwargs = {})
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Original traceback:
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Use tlparse to see full graph. (https://github.com/pytorch/tlparse?tab=readme-ov-file#tlparse-parse-structured-pt2-logs). Adding a graph break.
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Developer debug context: Backend: aot_eager
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Exception:aten._local_scalar_dense.default
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     While executing %narrow : [num_users=1] = call_function[target=torch.narrow](args = (%l_args_0_, 1, %l_args_2_, 2), kwargs = {})
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Original traceback:
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Use tlparse to see full graph. (https://github.com/pytorch/tlparse?tab=readme-ov-file#tlparse-parse-structured-pt2-logs)
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Traceback:
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]       File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py", line 69, in inner
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]         return fn(*args, **kwargs)
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:17.540000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\complex_grad_sweep.py:46: UserWarning: torch.triangular_solve is deprecated in favor of torch.linalg.solve_triangularand will be removed in a future PyTorch release.
+torch.linalg.solve_triangular has its arguments reversed and does not return a copy of one of the inputs.
+X = torch.triangular_solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve_triangular(A, B). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\BatchLinearAlgebra.cpp:2262.)
+  out = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] Backend compiler exception
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten.allclose.default. Adding a graph break.
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Developer debug context: Backend: aot_eager
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Exception:aten.allclose.default
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Traceback:
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]       File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py", line 69, in inner
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]         return fn(*args, **kwargs)
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:27.645000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] Backend compiler exception
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten.allclose.default. Adding a graph break.
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Developer debug context: Backend: aot_eager
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Exception:aten.allclose.default
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Traceback:
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]       File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py", line 69, in inner
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]         return fn(*args, **kwargs)
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:27.837000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] Backend compiler exception
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten.allclose.default. Adding a graph break.
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Developer debug context: Backend: aot_eager
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Exception:aten.allclose.default
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Traceback:
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]       File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py", line 69, in inner
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]         return fn(*args, **kwargs)
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:27.929000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in IndexFillBackward1. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] Backend compiler exception
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten._unique.default. Adding a graph break.
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Developer debug context: Backend: aot_eager
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Exception:aten._unique.default
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Traceback:
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]       File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py", line 69, in inner
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]         return fn(*args, **kwargs)
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:30.381000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in IndexPutBackward0. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] Backend compiler exception
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten.nonzero.default. Adding a graph break.
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Developer debug context: Backend: aot_eager
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Exception:aten.nonzero.default
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Traceback:
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]       File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py", line 69, in inner
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]         return fn(*args, **kwargs)
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:51:31.809000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:19760: UserWarning: ComplexHalf support is experimental and many operators don't support it yet. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\EmptyTensor.cpp:55.)
+  op=lambda x, *args, **kwargs: x.chalf(*args, **kwargs),
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] Backend compiler exception
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten.allclose.default. Adding a graph break.
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Developer debug context: Backend: aot_eager
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Exception:aten.allclose.default
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Traceback:
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]       File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py", line 69, in inner
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]         return fn(*args, **kwargs)
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:52:06.751000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] Backend compiler exception
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten.allclose.default. Adding a graph break.
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Developer debug context: Backend: aot_eager
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Exception:aten.allclose.default
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Traceback:
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]       File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py", line 69, in inner
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]         return fn(*args, **kwargs)
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:52:06.975000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] Backend compiler exception
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten.allclose.default. Adding a graph break.
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]   Developer debug context: Backend: aot_eager
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Exception:aten.allclose.default
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]     Traceback:
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]       File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py", line 69, in inner
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]         return fn(*args, **kwargs)
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0] 
+W0912 21:52:07.065000 22748 site-packages\torch\_dynamo\exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html

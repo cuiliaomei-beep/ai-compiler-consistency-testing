@@ -1,0 +1,347 @@
+{
+  "signature": "1aaf6b87f97a",
+  "program": "issue_174969_torch_compile_outputs_incorrect_results",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "compile.dynamic=False",
+    "factors": {
+      "compile": {
+        "dynamic": false
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "factor_changed": "compile",
+  "controlled": {},
+  "obligation": {
+    "site": "fn",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.179e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 2.1787896156311035,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              1,
+              3
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 2.1787896156311035,
+            "max_rel_error": 0.7102370438423771,
+            "n_mismatch": 6,
+            "n_total": 6,
+            "first_mismatch_index": [
+              0,
+              0,
+              0
+            ],
+            "first_mismatch_expected": "4.081992149",
+            "first_mismatch_actual": "5.622988224",
+            "expected_preview": "[4.081992149, 4.081992149, 0.4131422043, 0.4131422043, -3.357578754, -3.357578754]",
+            "actual_preview": "[5.622988224, 5.622988224, 0.1197133064, 0.1197133064, -5.53636837, -5.53636837]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 2.1787896156311035,
+            "budget": 1.9464455363049638e-06,
+            "noise_floor": 1.9464455363049638e-06
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            1,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            3,
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0514,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            1,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            3,
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0778,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            1,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            3,
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.175,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            1,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            3,
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cpu",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh/issue_174969_torch_compile_outputs_incorrect_results.py\ntorch.compile outputs incorrect results when applying `add_` on transposed tensor\nhttps://github.com/pytorch/pytorch/issues/174969\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 9,
+    "steps_kept": 3,
+    "original_lines": 2,
+    "final_lines": 2,
+    "original_numel": 9,
+    "final_numel": 9,
+    "input_recipe": "_noncontig(torch.randn(3, 2)), torch.randn(3, 1)",
+    "log": [
+      "kept: drop rank",
+      "kept: shrink containers",
+      "kept: default flags"
+    ],
+    "source": "def fn(x, y):\n    return x.add_(y).reshape(-1, 1, 3)"
+  },
+  "duplicates": {
+    "query": "",
+    "searched": false,
+    "error": null,
+    "candidates": [
+      {
+        "number": "174969",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/174969",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      }
+    ]
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

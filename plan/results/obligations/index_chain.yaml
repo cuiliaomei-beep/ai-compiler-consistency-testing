@@ -1,0 +1,80 @@
+- site: index_chain
+  factor: "x.shape[0]"
+  kind: shape
+  relation: change_only_one_factor
+  constraint: "index relation x.shape[0] -> i -> x[i]"
+  values:
+    - 1
+    - 2
+    - 3
+  oracle:
+    - value
+    - metadata
+    - exception
+  execution:
+    - cold
+    - warm_sequence
+  origin: "branch/index predicate: index relation x.shape[0] -> i -> x[i]"
+- site: index_chain
+  factor: x.dtype
+  kind: dtype
+  relation: change_only_one_factor
+  constraint: float dtype ladder
+  values:
+    - float16
+    - float64
+    - bfloat16
+  oracle:
+    - value
+    - metadata
+  execution:
+    - cold
+    - warm_sequence
+  origin: numerics depend on precision regardless of source
+- site: index_chain
+  factor: x.is_contiguous()
+  kind: contiguous
+  relation: change_only_one_factor
+  constraint: layout variants with identical values
+  values:
+    - noncontig
+    - transposed
+  oracle:
+    - value
+    - metadata
+    - alias
+    - mutation
+  execution:
+    - cold
+    - warm_sequence
+  origin: "layout read, or alias structure is written through"
+- site: index_chain
+  factor: x.requires_grad
+  kind: requires_grad
+  relation: change_only_one_factor
+  constraint: grad on/off
+  values:
+    - true
+    - false
+  oracle:
+    - value
+    - metadata
+    - gradient
+  execution:
+    - cold
+    - warm_sequence
+  origin: requires_grad changes the traced graph regardless of source
+- site: index_chain
+  factor: compile.dynamic
+  kind: compile_flag
+  relation: change_only_one_factor
+  constraint: dynamic shapes on/off
+  values:
+    - true
+    - false
+  oracle:
+    - value
+    - metadata
+  execution:
+    - cold
+  origin: compile flag changes specialization

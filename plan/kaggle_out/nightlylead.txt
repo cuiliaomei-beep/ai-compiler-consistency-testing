@@ -1,0 +1,262 @@
+$ pip -q install --pre --upgrade torch --index-url https://download.pytorch.org/whl/nightly/cpu
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.1/198.1 MB 8.6 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260911+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260911+cpu which is incompatible.
+$ pip -q install expecttest hypothesis
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 14.3 MB/s eta 0:00:00
+$ /usr/bin/python3 -c import torch; print('TORCH', torch.__version__, torch.version.git_version)
+TORCH 2.15.0.dev20260911+cpu fb8ff0f16a05cb6ba9604a5e69ad36199277d9e0
+$ /usr/bin/python3 scripts/diag_nightly_grad_leads.py
+W0912 08:29:08.068000 25 torch/_dynamo/convert_frame.py:2055] [1/8] torch._dynamo hit config.recompile_limit (8)
+W0912 08:29:08.068000 25 torch/_dynamo/convert_frame.py:2055] [1/8]    function: 'inner' (/usr/local/lib/python3.12/dist-packages/torch/_dynamo/external_utils.py:67)
+W0912 08:29:08.068000 25 torch/_dynamo/convert_frame.py:2055] [1/8]    last reason: 1/7: not kwargs                                             
+W0912 08:29:08.068000 25 torch/_dynamo/convert_frame.py:2055] [1/8] User stack trace:
+W0912 08:29:08.068000 25 torch/_dynamo/convert_frame.py:2055] [1/8]   File "/usr/local/lib/python3.12/dist-packages/torch/_dynamo/external_utils.py", line 69, in inner
+W0912 08:29:08.068000 25 torch/_dynamo/convert_frame.py:2055] [1/8]     return fn(*args, **kwargs)
+W0912 08:29:08.068000 25 torch/_dynamo/convert_frame.py:2055] [1/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0912 08:29:08.068000 25 torch/_dynamo/convert_frame.py:2055] [1/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+torch 2.15.0.dev20260911+cpu
+[nll_loss contiguous] eager    : loss=0.1375 grad_stride=(12, 4, 2, 1) ok
+[nll_loss contiguous] inductor : loss=-0.3371 grad_stride=(12, 4, 2, 1) ok
+[nll_loss contiguous] aot_eager: loss=-0.1018 grad_stride=(12, 4, 2, 1) ok
+[nll_loss channels_last] eager    : RuntimeError: grad_input must be contiguous
+[nll_loss channels_last] inductor : loss=-0.2633 grad_stride=(12, 1, 6, 3) ok
+[nll_loss channels_last] aot_eager: RuntimeError: grad_input must be contiguous
+[quantile] shape=(7,) args=[0.5] kw={}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7,) args=[0.5] kw={'dim': 0, 'keepdim': False, 'interpolation': 'linear'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7,) args=[0.5] kw={'dim': 0, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7,) args=[0.5] kw={'dim': 0, 'keepdim': True, 'interpolation': 'linear'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7,) args=[0.5] kw={'dim': 0, 'keepdim': True, 'interpolation': 'midpoint'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7,) args=[0.5] kw={'dim': -1, 'keepdim': False, 'interpolation': 'linear'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7,) args=[0.5] kw={'dim': -1, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 5) args=[0.5] kw={}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 5) args=[0.5] kw={'dim': 0, 'keepdim': False, 'interpolation': 'linear'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 5) args=[0.5] kw={'dim': 0, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 5) args=[0.5] kw={'dim': 0, 'keepdim': True, 'interpolation': 'linear'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 5) args=[0.5] kw={'dim': 0, 'keepdim': True, 'interpolation': 'midpoint'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 5) args=[0.5] kw={'dim': -1, 'keepdim': False, 'interpolation': 'linear'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 5) args=[0.5] kw={'dim': -1, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[0.5] kw={}: eager_err=5.00e-01 compiled_err=5.00e-01
+[quantile] shape=(7, 2, 1, 2) args=[0.5] kw={'dim': 0, 'keepdim': False, 'interpolation': 'linear'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[0.5] kw={'dim': 0, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[0.5] kw={'dim': 0, 'keepdim': True, 'interpolation': 'linear'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[0.5] kw={'dim': 0, 'keepdim': True, 'interpolation': 'midpoint'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[0.5] kw={'dim': -1, 'keepdim': False, 'interpolation': 'linear'}: eager_err=0.00e+00 compiled_err=0.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[0.5] kw={'dim': -1, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=0.00e+00 compiled_err=0.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[0.5] kw={'dim': 2, 'keepdim': True, 'interpolation': 'linear'}: eager_err=0.00e+00 compiled_err=0.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[0.5] kw={'dim': 2, 'keepdim': True, 'interpolation': 'midpoint'}: eager_err=0.00e+00 compiled_err=0.00e+00
+[quantile] shape=(7,) args=[torch.Size([2])] kw={}: eager_err=4.11e-01 compiled_err=8.26e-01
+[quantile] shape=(7,) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': False, 'interpolation': 'linear'}: eager_err=8.26e-01 compiled_err=8.26e-01
+[quantile] shape=(7,) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=5.00e-01 compiled_err=5.00e-01
+[quantile] shape=(7,) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': True, 'interpolation': 'linear'}: eager_err=8.26e-01 compiled_err=8.26e-01
+[quantile] shape=(7,) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': True, 'interpolation': 'midpoint'}: eager_err=5.00e-01 compiled_err=5.00e-01
+[quantile] shape=(7,) args=[torch.Size([2])] kw={'dim': -1, 'keepdim': False, 'interpolation': 'linear'}: eager_err=8.26e-01 compiled_err=8.26e-01
+[quantile] shape=(7,) args=[torch.Size([2])] kw={'dim': -1, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=5.00e-01 compiled_err=5.00e-01
+[quantile] shape=(7, 5) args=[torch.Size([2])] kw={}: eager_err=9.85e-01 compiled_err=9.85e-01
+[quantile] shape=(7, 5) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': False, 'interpolation': 'linear'}: eager_err=8.26e-01 compiled_err=8.26e-01
+[quantile] shape=(7, 5) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=5.00e-01 compiled_err=5.00e-01
+[quantile] shape=(7, 5) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': True, 'interpolation': 'linear'}: eager_err=8.26e-01 compiled_err=8.26e-01
+[quantile] shape=(7, 5) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': True, 'interpolation': 'midpoint'}: eager_err=5.00e-01 compiled_err=5.00e-01
+[quantile] shape=(7, 5) args=[torch.Size([2])] kw={'dim': -1, 'keepdim': False, 'interpolation': 'linear'}: eager_err=8.84e-01 compiled_err=8.84e-01
+[quantile] shape=(7, 5) args=[torch.Size([2])] kw={'dim': -1, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=1.00e+00 compiled_err=1.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[torch.Size([2])] kw={}: eager_err=8.51e-01 compiled_err=8.51e-01
+[quantile] shape=(7, 2, 1, 2) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': False, 'interpolation': 'linear'}: eager_err=8.26e-01 compiled_err=8.26e-01
+[quantile] shape=(7, 2, 1, 2) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=5.00e-01 compiled_err=5.00e-01
+[quantile] shape=(7, 2, 1, 2) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': True, 'interpolation': 'linear'}: eager_err=8.26e-01 compiled_err=8.26e-01
+[quantile] shape=(7, 2, 1, 2) args=[torch.Size([2])] kw={'dim': 0, 'keepdim': True, 'interpolation': 'midpoint'}: eager_err=5.00e-01 compiled_err=5.00e-01
+[quantile] shape=(7, 2, 1, 2) args=[torch.Size([2])] kw={'dim': -1, 'keepdim': False, 'interpolation': 'linear'}: eager_err=1.14e+00 compiled_err=1.14e+00
+[quantile] shape=(7, 2, 1, 2) args=[torch.Size([2])] kw={'dim': -1, 'keepdim': False, 'interpolation': 'midpoint'}: eager_err=0.00e+00 compiled_err=0.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[torch.Size([2])] kw={'dim': 2, 'keepdim': True, 'interpolation': 'linear'}: eager_err=0.00e+00 compiled_err=0.00e+00
+[quantile] shape=(7, 2, 1, 2) args=[torch.Size([2])] kw={'dim': 2, 'keepdim': True, 'interpolation': 'midpoint'}: eager_err=0.00e+00 compiled_err=0.00e+00
+samples 46
+$ /usr/bin/python3 run.py decomp --grad --only quantile,nanquantile --samples 1 --seed 0 --out nightly_lead_quantile_s0_n1
+  DECOMP nanquantile                          prime_dim0     [value] output[1]: compiled err vs fp64 = 7.500e-01 exceeds 4.0x eager err 0.000  confirmed=True
+{"ops": 2, "samples": 2, "variants": 32, "decomp_covered": 29, "decomp_mismatch": 1, "meta_mismatch": 0, "data_dependent": 0, "errors": 0, "wall_s": 6.6}
+written nightly_lead_quantile_s0_n1/DECOMP_DIFF.md
+$ /usr/bin/python3 run.py decomp --grad --only quantile,nanquantile --samples 2 --seed 0 --out nightly_lead_quantile_s0_n2
+  DECOMP quantile                             prime_dim0     [value] output[1]: compiled err vs fp64 = 7.500e-01 exceeds 4.0x eager err 0.000  confirmed=True
+{"ops": 2, "samples": 4, "variants": 64, "decomp_covered": 59, "decomp_mismatch": 1, "meta_mismatch": 0, "data_dependent": 0, "errors": 0, "wall_s": 6.9}
+written nightly_lead_quantile_s0_n2/DECOMP_DIFF.md
+$ /usr/bin/python3 run.py decomp --grad --only quantile,nanquantile --samples 1 --seed 1 --out nightly_lead_quantile_s1_n1
+{"ops": 2, "samples": 2, "variants": 20, "decomp_covered": 17, "decomp_mismatch": 0, "meta_mismatch": 0, "data_dependent": 0, "errors": 0, "wall_s": 0.3}
+written nightly_lead_quantile_s1_n1/DECOMP_DIFF.md
+$ /usr/bin/python3 run.py decomp --grad --only quantile,nanquantile --samples 2 --seed 1 --out nightly_lead_quantile_s1_n2
+{"ops": 2, "samples": 4, "variants": 52, "decomp_covered": 47, "decomp_mismatch": 0, "meta_mismatch": 0, "data_dependent": 0, "errors": 0, "wall_s": 0.9}
+written nightly_lead_quantile_s1_n2/DECOMP_DIFF.md
+$ /usr/bin/python3 run.py decomp --grad --isolate --only quantile,nanquantile --samples 1 --seed 0 --out nightly_lead_quantile_isolated
+isolated decomp sweep: 595 operators, 0 already done, 595 to go
+[25/595] abs .. atan
+  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False
+  DECOMP mv                                   zero_dim       [exception] exception type differs: IndexError vs RuntimeError :: matrix @ vecto  confirmed=True
+  DECOMP mv                                   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False
+[50/595] atan2 .. view_as_complex
+[75/595] complex .. diagonal
+  DECOMP cross                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[100/595] diagonal_copy .. le
+  DECOMP frac                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP stft                                 empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP stft                                 size1_last     [exception] exception type differs: RuntimeError vs IndexError :: index -8 is ou  confirmed=False
+  DECOMP stft                                 zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: index -8 is ou  confirmed=False
+  DECOMP isin                                 dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[125/595] linspace .. var_mean
+  DECOMP logaddexp                            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP logaddexp2                           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[150/595] var_mean .. nn.functional.linear_cross_entropy
+  DECOMP quantile                             prime_dim0     [value] output[1]: compiled err vs fp64 = 7.500e-01 exceeds 4.0x eager err 0.000  confirmed=True
+  DECOMP softmax                              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.cross_entropy          empty_last     [exception] exception type differs: IndexError vs RuntimeError :: index 0 is out  confirmed=True
+  DECOMP nn.functional.cross_entropy          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.linear_cross_entropy   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.linear_cross_entropy   dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.linear_cross_entropy   dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.linear_cross_entropy   base           [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  DECOMP nn.functional.linear_cross_entropy   noncontig      [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  DECOMP nn.functional.linear_cross_entropy   nan_inf        [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  DECOMP nn.functional.linear_cross_entropy   huge           [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  DECOMP nn.functional.linear_cross_entropy   tiny           [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  DECOMP nn.functional.linear_cross_entropy   dtype_float16  [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  DECOMP nn.functional.linear_cross_entropy   dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+[175/595] nn.functional.linear_cross_entropy .. nn.functional.conv1d
+  DECOMP nn.functional.linear_cross_entropy   dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.linear_cross_entropy   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP native_group_norm                    dtype_bool     [exception] exception type differs: RuntimeError vs NotImplementedError :: var_m  confirmed=False
+[200/595] nn.functional.conv2d .. nn.functional.upsample_nearest
+  DECOMP nn.functional.layer_norm             dtype_bool     [exception] exception type differs: RuntimeError vs NotImplementedError :: var_m  confirmed=False
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP nn.functional.pad                    size1_last     [exception] exception type differs: RuntimeError vs IndexError :: index -2 is ou  confirmed=False
+  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  META   nn.functional.pad                    channels_last  output[1] stride (96, 16, 4, 1) vs real (96, 1, 24, 6)
+  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardswish              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardswish              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardswish              nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP nn.functional.unfold                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got <class 'int'>
+  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: divisio  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got <class 'int'>
+  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: float d  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.soft_margin_loss       dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  META   nn.functional.upsample_nearest       empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got <class 'int'>
+  DECOMP nn.functional.upsample_nearest       empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: float d  confirmed=True
+  DECOMP nn.functional.upsample_nearest       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.upsample_nearest       dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[225/595] nn.functional.margin_ranking_loss .. nn.functional.scaled_dot_product_attention
+  DECOMP nn.functional.multi_margin_loss      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.multilabel_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.multilabel_soft_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP max_pool2d_with_indices_backward     dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.prelu                  dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.celu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.celu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.celu                   nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+[250/595] torch.ops.aten._scaled_dot_product_flash_attention_for_cpu .. mvlgamma
+  child exit -6: free(): invalid next size (fast)
+  CRASH  torch.ops.aten._scaled_dot_product_flash_attention_for_cpu process exit -999 (timeout if -999)
+  DECOMP nn.functional.silu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardsigmoid            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardsigmoid            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.logsigmoid             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.threshold              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.batch_norm             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.binary_cross_entropy   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.binary_cross_entropy   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.binary_cross_entropy   nan_inf        [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.binary_cross_entropy   huge           [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardshrink             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.gelu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.gelu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+[275/595] mvlgamma .. sinh
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[300/595] sign .. reciprocal
+[325/595] rsqrt .. view
+  DECOMP lerp                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP lerp                                 dtype_bool     [exception] exception type differs: RuntimeError vs NotImplementedError :: Subtr  confirmed=False
+[350/595] view_as .. bfloat16
+  DECOMP index_copy                           empty_dim0     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP index_add                            zero_dim       [exception] ref raised RuntimeError, test returned normally  confirmed=True
+[375/595] bool .. stack
+[400/595] hstack .. take_along_dim
+[425/595] tile .. digamma
+  DECOMP trace                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[450/595] erf .. native_dropout_backward
+  DECOMP nn.functional.smooth_l1_loss         dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.smooth_l1_loss         nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP log_softmax                          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[475/595] nn.functional.dropout2d .. prod
+  DECOMP nn.functional.softplus               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.mse_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.grid_sample            empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True
+  DECOMP nn.functional.grid_sample            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP grid_sampler_2d                      empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True
+  DECOMP grid_sampler_2d                      zero_dim       [exception] exception type differs: IndexError vs ValueError :: not enough value  confirmed=True
+  DECOMP grid_sampler_2d                      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP std                                  tiny           [value] output[1]: compiled err vs fp64 = 1.890e-01 exceeds 4.0x eager err 1.132  confirmed=True
+[500/595] sum .. fft.fft
+  child exit -11: 
+  child exit -11: 
+  CRASH  nn.functional.ctc_loss               process exit -11 (timeout if -999)
+  DECOMP nn.functional.nll_loss               channels_last  [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.nll_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.nll_loss               dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.nll_loss               dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.nll_loss               dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.huber_loss             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.huber_loss             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  child exit -11: 
+  CRASH  nn.functional.pdist                  process exit -11 (timeout if -999)
+  META   nn.functional.channel_shuffle        channels_last  output[0] stride (384, 64, 8, 1) vs real (384, 1, 48, 6)
+[525/595] fft.fft2 .. linalg.cholesky_ex
+  DECOMP linalg.cross                         dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[550/595] linalg.vecdot .. linalg.lu
+[575/595] linalg.lu_solve .. signal.windows.nuttall
+  META   linalg.pinv                          dtype_bool     fake-tensor path raised RuntimeError: expected scalar type torch.bool but found 
+[600/595] masked.sum .. bmm
+  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False
+  DECOMP masked.softmax                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP masked.softmin                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP masked.logaddexp                     dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False
+{"ops": 574, "samples": 574, "variants": 8051, "decomp_covered": 7441, "decomp_mismatch": 128, "meta_mismatch": 6, "data_dependent": 141, "errors": 0, "wall_s": 2014.4, "crashes": 3}
+written nightly_lead_quantile_isolated/DECOMP_DIFF.md
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 281942 bytes to __results__.html

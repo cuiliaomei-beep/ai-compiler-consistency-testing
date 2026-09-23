@@ -1,0 +1,68 @@
+{
+  "signature": "5830d06a5f70",
+  "program": "issue_181625_assertionerror_expected_size_stride_mism",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "181625",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/181625",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 195325,
+      "title": "[switch] Support torch.vmap with an unbatched index",
+      "url": "https://github.com/pytorch/pytorch/pull/195325",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-30"
+    },
+    {
+      "number": 160018,
+      "title": "Triton kernel generated for Flex Attention throws InductorError: RuntimeError: No valid triton configs when seq length < 128",
+      "url": "https://github.com/pytorch/pytorch/issues/160018",
+      "state": "open",
+      "is_pr": false,
+      "created": "2025-08-06"
+    },
+    {
+      "number": 185163,
+      "title": "[aot_autograd] Handle None in saved tensors for LSTM/RNN backward; enable allow_rnn by default",
+      "url": "https://github.com/pytorch/pytorch/pull/185163",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-05-25"
+    },
+    {
+      "number": 185891,
+      "title": "[dynamo] Guard AOTAutograd input mutation overlap changes",
+      "url": "https://github.com/pytorch/pytorch/pull/185891",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-06-02"
+    },
+    {
+      "number": 194091,
+      "title": "support min, max in maybe mark dynamic",
+      "url": "https://github.com/pytorch/pytorch/pull/194091",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-08-19"
+    }
+  ]
+}

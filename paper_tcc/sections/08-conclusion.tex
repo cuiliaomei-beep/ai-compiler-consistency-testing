@@ -1,0 +1,16 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+A compiled deep learning program should behave like the Python source its developers reviewed on every path
+the compiler may take. \tool tests this property by varying the compilation rather than only
+the program: graph-break positions, backend layers, execution contexts, and artifact routes are enumerated
+and changed one at a time, alongside program-side factors derived from the source and from operator metadata,
+and every execution is compared on seven observables. Reports against PyTorch~2.14 and nightly builds number 73 items, of which 14 are fixed or have a fix under review and 10 are confirmed. The path
+dimension accounts for 20 of the 58 pipeline findings and for both defects found on a corpus that program-only
+testing had already covered; observables beyond the output value account for 39. Guards, caches, compile composition,
+autocast, and the values of the export route were consistent. Future work will add condition-aware numerical
+oracles, denser coverage of the Triton path, and ports of the factor model to other AI compiler stacks.
+
+\section*{Data Availability}
+The implementation of \tool, the benchmarks, the sweep records, the classification of the 73 reports, and the
+stand-alone reproducer of every report are available in an anonymized artifact.

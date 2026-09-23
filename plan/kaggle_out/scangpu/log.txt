@@ -1,0 +1,23 @@
+torch 2.14.0+cu130 cuda True
+[cpu] torch.any(x)           eager 1 torch.uint8   inductor True torch.bool
+[cpu] torch.all(x)           eager 0 torch.uint8   inductor 0 torch.uint8
+[cpu] x.any(0)               eager [0, 1] torch.uint8   inductor [False, True] torch.bool
+[cpu] any(x) * 200 + 100     eager 44 torch.uint8   inductor 300 torch.int64
+[cuda] torch.float32  cumprod  [1e20, 1e20, 0]    eager [1.0000000200408773e+20, inf, nan] compiled [1.0000000200408773e+20, inf, 0.0]
+[cuda] torch.any(x)           eager 1 torch.uint8   inductor True torch.bool
+[cuda] torch.all(x)           eager 0 torch.uint8   inductor 0 torch.uint8
+[cuda] x.any(0)               eager [0, 1] torch.uint8   inductor [False, True] torch.bool
+[cuda] any(x) * 200 + 100     eager 44 torch.uint8   inductor 300 torch.int64
+DONE
+torch 2.15.0.dev20260921+cu130 cuda True
+[cpu] torch.any(x)           eager 1 torch.uint8   inductor True torch.bool
+[cpu] torch.all(x)           eager 0 torch.uint8   inductor 0 torch.uint8
+[cpu] x.any(0)               eager [0, 1] torch.uint8   inductor [False, True] torch.bool
+[cpu] any(x) * 200 + 100     eager 44 torch.uint8   inductor 300 torch.int64
+[cuda] torch.float32  cumprod  [1e20, 1e20, 0]    eager [1.0000000200408773e+20, inf, nan] compiled [1.0000000200408773e+20, inf, 0.0]
+[cuda] torch.any(x)           eager 1 torch.uint8   inductor True torch.bool
+[cuda] torch.all(x)           eager 0 torch.uint8   inductor 0 torch.uint8
+[cuda] x.any(0)               eager [0, 1] torch.uint8   inductor [False, True] torch.bool
+[cuda] any(x) * 200 + 100     eager 44 torch.uint8   inductor 300 torch.int64
+DONE
+JOB DONE

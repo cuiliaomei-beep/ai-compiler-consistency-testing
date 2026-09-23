@@ -1,0 +1,179 @@
+{
+  "sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: InternalTorchDynamoError",
+    "E2_aot_eager: InternalTorchDynamoError",
+    "E3_inductor: InternalTorchDynamoError"
+  ],
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "AsPythonConstantNotImplementedError",
+      "exception_msg": "AsPythonConstantNotImplementedError: SymNodeVariable() is not a constant\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_196285_torch_compile_dynamic_true_fails_to_hand.py\", line 10, in fn\n    selected = values.pop(x.shape[0] - 2)\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0259,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "AsPythonConstantNotImplementedError",
+      "exception_msg": "AsPythonConstantNotImplementedError: SymNodeVariable() is not a constant\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_196285_torch_compile_dynamic_true_fails_to_hand.py\", line 10, in fn\n    selected = values.pop(x.shape[0] - 2)\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0146,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "AsPythonConstantNotImplementedError",
+      "exception_msg": "AsPythonConstantNotImplementedError: SymNodeVariable() is not a constant\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_196285_torch_compile_dynamic_true_fails_to_hand.py\", line 10, in fn\n    selected = values.pop(x.shape[0] - 2)\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0137,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "cache": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "AsPythonConstantNotImplementedError: SymNodeVariable() is not a constant\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_196285_torch_compile_dynamic_true_fails_to_hand.py\", line 10, in fn\n    sel"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "AsPythonConstantNotImplementedError: SymNodeVariable() is not a constant\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_196285_torch_compile_dynamic_true_fails_to_hand.py\", line 10, in fn\n    sel"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "AsPythonConstantNotImplementedError: SymNodeVariable() is not a constant\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_196285_torch_compile_dynamic_true_fails_to_hand.py\", line 10, in fn\n    sel"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  }
+}

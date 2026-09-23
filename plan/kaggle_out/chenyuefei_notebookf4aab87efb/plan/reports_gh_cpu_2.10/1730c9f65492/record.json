@@ -1,0 +1,286 @@
+{
+  "signature": "1730c9f65492",
+  "program": "issue_188084_bug_inductor_reinplaces_index_put_on_exp",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "dtype=float16",
+    "factors": {
+      "dtype": "float16"
+    },
+    "warm": true,
+    "origin": "x.dtype"
+  },
+  "context_b": null,
+  "factor_changed": "dtype",
+  "controlled": {},
+  "obligation": {
+    "site": "row",
+    "factor": "x.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "numerics depend on precision regardless of source",
+    "param": "x",
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "ModuleNotFoundError: No module named '_repro_issue_188084_bug_inductor_reinplaces_index_put_on_exp'"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "ModuleNotFoundError: No module named '_repro_issue_188084_bug_inductor_reinplaces_index_put_on_exp'"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "ModuleNotFoundError: No module named '_repro_issue_188084_bug_inductor_reinplaces_index_put_on_exp'"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "P[T,T]",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0011,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": true
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_188084_bug_inductor_reinplaces_index_put_on_exp'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0995,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_188084_bug_inductor_reinplaces_index_put_on_exp'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0995,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_188084_bug_inductor_reinplaces_index_put_on_exp'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.1006,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cpu",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh/issue_188084_bug_inductor_reinplaces_index_put_on_exp.py\n[BUG] Inductor reinplaces `index_put` on expanded view and silently corrupts gradients\nhttps://github.com/pytorch/pytorch/issues/188084\ncompile options in the issue: {'backend': 'inductor', 'fullgraph': True, 'dynamic': True}",
+  "minimized": null,
+  "duplicates": {
+    "query": "",
+    "searched": false,
+    "error": null,
+    "candidates": [
+      {
+        "number": "188084",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/188084",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      }
+    ]
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: InternalTorchDynamoError",
+    "E2_aot_eager: InternalTorchDynamoError",
+    "E3_inductor: InternalTorchDynamoError"
+  ],
+  "status": "Generated",
+  "fault": null
+}

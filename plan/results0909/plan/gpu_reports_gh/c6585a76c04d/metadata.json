@@ -1,0 +1,68 @@
+{
+  "signature": "c6585a76c04d",
+  "program": "issue_175632_inductor_torch_compile_produces_inconsis",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "175632",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/175632",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 194309,
+      "title": "[Inductor] Add gfx950 FlyDSL FlexAttention forward",
+      "url": "https://github.com/pytorch/pytorch/pull/194309",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-21"
+    },
+    {
+      "number": 185816,
+      "title": "Enable CPU FlexAttention on AArch64",
+      "url": "https://github.com/pytorch/pytorch/pull/185816",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-06-01"
+    },
+    {
+      "number": 183328,
+      "title": "[special] Add arbitrary-order modified Bessel functions",
+      "url": "https://github.com/pytorch/pytorch/pull/183328",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-05-11"
+    },
+    {
+      "number": 192085,
+      "title": "[Inductor] Fix invalid attn_mask + is_causal combo in qwen2 SDPA repro test",
+      "url": "https://github.com/pytorch/pytorch/pull/192085",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-08-04"
+    },
+    {
+      "number": 190903,
+      "title": "[Inductor] Add gfx950 FlyDSL GEMM and torch.mm autotuning",
+      "url": "https://github.com/pytorch/pytorch/pull/190903",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-07-23"
+    }
+  ]
+}

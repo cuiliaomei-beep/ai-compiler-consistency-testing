@@ -1,0 +1,66 @@
+- site: mod_tiling
+  factor: "x.shape[0]"
+  kind: shape
+  relation: change_only_one_factor
+  constraint: "n %16 16 (line 3)"
+  values:
+    - 15
+    - 16
+    - 17
+    - 31
+    - 32
+    - 33
+  oracle:
+    - value
+    - metadata
+    - exception
+  execution:
+    - cold
+    - warm_sequence
+  origin: "branch/index predicate: n %16 16 (line 3)"
+- site: mod_tiling
+  factor: x.dtype
+  kind: dtype
+  relation: change_only_one_factor
+  constraint: float dtype ladder
+  values:
+    - float16
+    - float64
+    - bfloat16
+  oracle:
+    - value
+    - metadata
+  execution:
+    - cold
+    - warm_sequence
+  origin: numerics depend on precision regardless of source
+- site: mod_tiling
+  factor: x.requires_grad
+  kind: requires_grad
+  relation: change_only_one_factor
+  constraint: grad on/off
+  values:
+    - true
+    - false
+  oracle:
+    - value
+    - metadata
+    - gradient
+  execution:
+    - cold
+    - warm_sequence
+  origin: requires_grad changes the traced graph regardless of source
+- site: mod_tiling
+  factor: compile.dynamic
+  kind: compile_flag
+  relation: change_only_one_factor
+  constraint: dynamic shapes on/off
+  values:
+    - true
+    - false
+  oracle:
+    - value
+    - metadata
+  execution:
+    - cold
+  origin: compile flag changes specialization

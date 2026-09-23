@@ -1,0 +1,28 @@
+{
+  "signature": "0eb496039e02",
+  "program": "issue_172711_torch_compile_produces_wrong_output_chan",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "172711",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/172711",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

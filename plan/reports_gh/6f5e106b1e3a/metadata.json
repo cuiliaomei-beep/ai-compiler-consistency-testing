@@ -1,0 +1,44 @@
+{
+  "signature": "6f5e106b1e3a",
+  "program": "issue_192905_nested_nested_compile_region_silently_re",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "value"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "192905",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/192905",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 192905,
+      "title": "Nested nested_compile_region silently reuses a body specialized on the inner region's guards",
+      "url": "https://github.com/pytorch/pytorch/issues/192905",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-11"
+    },
+    {
+      "number": 192631,
+      "title": "[dynamo] Parameterize invoke_subgraph reuse over a subscript index",
+      "url": "https://github.com/pytorch/pytorch/pull/192631",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-09"
+    }
+  ]
+}

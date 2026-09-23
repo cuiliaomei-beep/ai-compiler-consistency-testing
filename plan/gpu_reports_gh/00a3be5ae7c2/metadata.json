@@ -1,0 +1,36 @@
+{
+  "signature": "00a3be5ae7c2",
+  "program": "issue_173307_inconsistency_numerical_divergence_betwe",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "173307",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/173307",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 173307,
+      "title": "[Inconsistency] Numerical divergence between eager and inductor for infinitely_differentiable_gelu_backward in BF16",
+      "url": "https://github.com/pytorch/pytorch/issues/173307",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-01-25"
+    }
+  ]
+}

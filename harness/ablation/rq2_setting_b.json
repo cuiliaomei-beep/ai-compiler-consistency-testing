@@ -1,0 +1,68 @@
+{
+  "availability": [
+    {
+      "name": "NNSmith",
+      "available": true,
+      "detail": "installed from PyPI; SMT-constrained DNN graph generation",
+      "kind": "generator"
+    },
+    {
+      "name": "NeuRI",
+      "available": false,
+      "detail": "the PyPI package `neuri` is an unrelated API client, not the NeuRI fuzzer; no usable implementation found",
+      "kind": ""
+    },
+    {
+      "name": "WhiteFox",
+      "available": false,
+      "detail": "requires an LLM service and the published prompt set; no pip distribution",
+      "kind": ""
+    },
+    {
+      "name": "DeepConstr",
+      "available": false,
+      "detail": "GitHub-only distribution; not attempted here",
+      "kind": ""
+    },
+    {
+      "name": "AlignGuard",
+      "available": false,
+      "detail": "no artifact released with the preprint",
+      "kind": ""
+    },
+    {
+      "name": "TorchProbe",
+      "available": false,
+      "detail": "GitHub-only distribution; not attempted here",
+      "kind": ""
+    }
+  ],
+  "setting_b": [
+    {
+      "generator": "ours (derived)",
+      "cases": 20,
+      "valid_cases": 20,
+      "contexts": 122,
+      "candidates": 0,
+      "submittable": 0,
+      "distinct_specializations": 98,
+      "specializations_per_case": 4.9,
+      "gen_seconds": 0.01,
+      "probe_seconds": 219.7,
+      "time_to_first_candidate": null
+    },
+    {
+      "generator": "NNSmith",
+      "cases": 20,
+      "valid_cases": 20,
+      "contexts": 60,
+      "candidates": 0,
+      "submittable": 0,
+      "distinct_specializations": 105,
+      "specializations_per_case": 5.25,
+      "gen_seconds": 0.49,
+      "probe_seconds": 377.2,
+      "time_to_first_candidate": null
+    }
+  ]
+}

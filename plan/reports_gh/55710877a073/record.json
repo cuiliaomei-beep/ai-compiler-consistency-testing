@@ -1,0 +1,572 @@
+{
+  "signature": "55710877a073",
+  "program": "issue_184405_torch_compile_backend_inductor_returns_s",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "compile.dynamic=True",
+    "factors": {
+      "compile": {
+        "dynamic": true
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "factor_changed": "compile",
+  "controlled": {},
+  "obligation": {
+    "site": "test_factory_apis",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[1]: NaN/Inf pattern differs from the float64 truth",
+          "index": 1,
+          "evidence": {
+            "shape": [
+              2
+            ],
+            "dtype": "torch.float64",
+            "max_abs_error": 0.0,
+            "max_rel_error": NaN,
+            "n_mismatch": 0,
+            "n_total": 2,
+            "expected_preview": "[nan, nan]",
+            "actual_preview": "[0, 0]"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "D{'arange':T,'empty':T,'ones':T,'tensor':T,'zeros':T}",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "D{'arange':T,'empty':T,'ones':T,'tensor':T,'zeros':T}",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0419,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "D{'arange':T,'empty':T,'ones':T,'tensor':T,'zeros':T}",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0807,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "D{'arange':T,'empty':T,'ones':T,'tensor':T,'zeros':T}",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 3.1498,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "1/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "loaded from reproducers_gh\\issue_184405_torch_compile_backend_inductor_returns_s.py\n`torch.compile(..., backend=\"inductor\")` returns stale float32 for dtype=None factory op after torch.set_default_dtype(torch.float64)\nhttps://github.com/pytorch/pytorch/issues/184405\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": false,
+    "steps_tried": 0,
+    "steps_kept": 0,
+    "original_lines": 8,
+    "final_lines": 8,
+    "original_numel": 0,
+    "final_numel": 0,
+    "input_recipe": "",
+    "log": [
+      "the failure did not reproduce before minimizing; nothing changed"
+    ],
+    "source": "def test_factory_apis():\n    return {\n        \"ones\": torch.ones(2),\n        \"zeros\": torch.zeros(2),\n        \"tensor\": torch.tensor([1.0, 2.0]),\n        \"arange\": torch.arange(2.0),\n        \"empty\": torch.empty(2)\n    }"
+  },
+  "duplicates": {
+    "query": "torch.compile _dynamo.reset arange dynamic",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": 185891,
+        "title": "[dynamo] Guard AOTAutograd input mutation overlap changes",
+        "url": "https://github.com/pytorch/pytorch/pull/185891",
+        "state": "open",
+        "is_pr": true,
+        "created": "2026-06-02"
+      },
+      {
+        "number": 176178,
+        "title": "[CuTeDSL] grouped_mm illegal address from TMA descriptor init/update shape mismatch",
+        "url": "https://github.com/pytorch/pytorch/issues/176178",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-03-02"
+      },
+      {
+        "number": 192025,
+        "title": "[Inductor] Keep padded tail divisors non-zero in vectorized integer remainder",
+        "url": "https://github.com/pytorch/pytorch/pull/192025",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-08-04"
+      },
+      {
+        "number": 165280,
+        "title": "[inductor] avoid triton kernel when creating zero tensor",
+        "url": "https://github.com/pytorch/pytorch/issues/165280",
+        "state": "open",
+        "is_pr": false,
+        "created": "2025-10-13"
+      },
+      {
+        "number": 161609,
+        "title": "Bucketize lowering crash when using a sliced computed tensor as boundaries",
+        "url": "https://github.com/pytorch/pytorch/issues/161609",
+        "state": "open",
+        "is_pr": false,
+        "created": "2025-08-27"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

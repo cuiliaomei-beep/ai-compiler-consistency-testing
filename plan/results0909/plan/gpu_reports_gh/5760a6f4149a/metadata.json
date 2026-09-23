@@ -1,0 +1,36 @@
+{
+  "signature": "5760a6f4149a",
+  "program": "issue_190755_some_dynamo_descriptors_tp_descr_get_imp",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "190755",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/190755",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 190755,
+      "title": "Some Dynamo descriptors (`tp_descr_get_impl`) are missing a `descr_check` equivalent",
+      "url": "https://github.com/pytorch/pytorch/issues/190755",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-07-22"
+    }
+  ]
+}

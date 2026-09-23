@@ -1,0 +1,340 @@
+{
+  "signature": "29a72882c400",
+  "program": "issue_177821_inductor_torch_compile_ignores_a_complex",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: non-float values differ exactly",
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              2
+            ],
+            "dtype": "torch.int64",
+            "n_mismatch": 4,
+            "n_total": 4,
+            "first_mismatch_index": [
+              0,
+              0
+            ],
+            "first_mismatch_expected": "2",
+            "first_mismatch_actual": "4",
+            "expected_preview": "[2, 2, 10, 10]",
+            "actual_preview": "[4, 0, 12, 8]"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0004,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu",
+          "stride": [
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0729,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu",
+          "stride": [
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1307,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu",
+          "stride": [
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 4.241,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu",
+          "stride": [
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "loaded from reproducers_gh\\issue_177821_inductor_torch_compile_ignores_a_complex.py\n[inductor] torch.compile ignores a complex indexing assignment and produces incorrect result\nhttps://github.com/pytorch/pytorch/issues/177821\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 10,
+    "steps_kept": 4,
+    "original_lines": 5,
+    "final_lines": 5,
+    "original_numel": 8,
+    "final_numel": 4,
+    "input_recipe": "torch.randint(0, 4, (1, 2,)), torch.randint(0, 4, (1, 2,))",
+    "log": [
+      "kept: halve dim 0",
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags"
+    ],
+    "source": "def fn(x, y):\n    x = 2 * x  # x = [[0,2],[4,6]]\n    c = torch.cat([x, y], dim=1)  # c = [[0,2,0,1], [4,6,2,3]]\n    c[:, [1, 0]] = c[:, [0, 1]]  # c should be [[2,0,0,1], [6,4,2,3]]\n    return c[:, :2] + x"
+  },
+  "duplicates": {
+    "query": "torch.compile _dynamo.reset cat",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": 194234,
+        "title": "[dynamo] `torch.compile` raises `NameError: name 'stream1' is not defined` when a compiled function calls `torch.cuda.Stream.wait_stream` and returns a single-element list constant",
+        "url": "https://github.com/pytorch/pytorch/issues/194234",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-20"
+      },
+      {
+        "number": 195442,
+        "title": "[TorchInductor] `batch_aten_sub` miscompilation drops `alpha`",
+        "url": "https://github.com/pytorch/pytorch/issues/195442",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-31"
+      },
+      {
+        "number": 194898,
+        "title": "[TorchInductor] normalization_pass misses torch.concatenate",
+        "url": "https://github.com/pytorch/pytorch/issues/194898",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-26"
+      },
+      {
+        "number": 190855,
+        "title": "[inductor] Wrong Hessian: `torch.compile(torch.func.hessian(f))` miscompiles the derivative of `torch.trace` — a constant is added to every Hessian entry",
+        "url": "https://github.com/pytorch/pytorch/issues/190855",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-07-23"
+      },
+      {
+        "number": 181696,
+        "title": "Eval-mode `BatchNorm`/`GroupNorm` produces wrong output under `torch.compile(backend='inductor')`",
+        "url": "https://github.com/pytorch/pytorch/issues/181696",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-04-28"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

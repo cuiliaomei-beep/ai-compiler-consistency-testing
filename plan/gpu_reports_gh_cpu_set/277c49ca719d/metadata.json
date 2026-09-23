@@ -1,0 +1,28 @@
+{
+  "signature": "277c49ca719d",
+  "program": "issue_181625_assertionerror_expected_size_stride_mism",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "181625",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/181625",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

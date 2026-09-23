@@ -1,0 +1,28 @@
+
+## nan_to_num complex inductor isneginf | error: None
+   190275 open [inductor]  Compiling torch.nan_to_num on complex128 raises RuntimeError: Complex dtype is not supported for i
+   147109 closed torch.nan_to_num does not support complex64 data type under torch.compile
+
+## torch.compile nan_to_num complex | error: None
+   190275 open [inductor]  Compiling torch.nan_to_num on complex128 raises RuntimeError: Complex dtype is not supported for i
+   147109 closed torch.nan_to_num does not support complex64 data type under torch.compile
+
+## abs complex out dtype inductor fake tensor | error: None
+   184101 open `torch.compile` backward crashes for `abs()`/`angle()` on transposed complex tensors
+   143579 open `assert_size_stride` failing in `_inductor/utils.py`   `return model(new_inputs)`
+   125718 open `torch.compile` and complex numbers
+   112441 open [RFC] Tensordict integration
+   141287 open MPS operator coverage tracking issue (2.6+ version)
+   178988 open Cannot build documentation (`RecursionError`)
+   183904 closed Fix CPU addcmul tensor-value decomposition numerics
+   184515 closed Fix CUDA fake mul strides for promoted tensors
+
+## abs out= complex real dtype torch.compile | error: None
+   185645 open Add batched small-matrix CUDA kernel for linalg.eig
+   184101 open `torch.compile` backward crashes for `abs()`/`angle()` on transposed complex tensors
+   125718 open `torch.compile` and complex numbers
+   192786 open Inductor: fuse CUDA FNUZ FP8 conversions into Triton kernels
+   143579 open `assert_size_stride` failing in `_inductor/utils.py`   `return model(new_inputs)`
+   95408 open Parallel Associative Scan
+   9983 open [feature request] Add matrix functions
+   192315 closed Add an Inductor decomposition for aten.polar, pytorch/pytorch #192315 (#192315)

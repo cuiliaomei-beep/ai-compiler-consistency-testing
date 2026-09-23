@@ -1,0 +1,36 @@
+{
+  "signature": "138a850da12b",
+  "program": "issue_174386_torch_compile_ignores_torch_use_determin",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "174386",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/174386",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 174386,
+      "title": "`torch.compile` ignores `torch.use_deterministic_algorithms(True)` on `empty_like`",
+      "url": "https://github.com/pytorch/pytorch/issues/174386",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-02-05"
+    }
+  ]
+}

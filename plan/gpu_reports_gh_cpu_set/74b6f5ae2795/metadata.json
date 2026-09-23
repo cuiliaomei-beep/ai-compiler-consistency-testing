@@ -1,0 +1,28 @@
+{
+  "signature": "74b6f5ae2795",
+  "program": "issue_181428_torch_compile_torch_func_grad_superlinea",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "181428",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/181428",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

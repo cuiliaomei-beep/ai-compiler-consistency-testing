@@ -1,0 +1,36 @@
+{
+  "signature": "33e02cf82893",
+  "program": "issue_183601_torch_compile_inductor_produces_wrong_ou",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "183601",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/183601",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 183601,
+      "title": "torch.compile Inductor produces wrong output for InstanceNorm2d + normalize + hardswish chain",
+      "url": "https://github.com/pytorch/pytorch/issues/183601",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-13"
+    }
+  ]
+}

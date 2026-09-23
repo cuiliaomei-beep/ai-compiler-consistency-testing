@@ -1,0 +1,30 @@
+%% Figure: ablation -- faults detected (step line) and valid/invalid tests (stacked bars).
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[
+    group style={group size=2 by 1, horizontal sep=1.5cm},
+    tccaxis, width=0.49\linewidth, height=3.9cm,
+    symbolic x coords={A0,A1,A2,A3,A4,A5,A6,FULL},
+    xtick=data, x tick label style={font=\scriptsize},
+]
+  \nextgroupplot[ymin=0, ymax=23, ylabel={faults detected (of 19)}, ytick={0,5,10,15,19}]
+    \addplot[const plot mark mid, very thick, tolred, mark=*, mark size=1.8pt]
+      coordinates {(A0,7) (A1,8) (A2,8) (A3,10) (A4,13) (A5,13) (A6,19) (FULL,19)};
+    \node[font=\tiny, anchor=south east] at (axis cs:A3,10.3) {+shape/index};
+    \node[font=\tiny, anchor=south east] at (axis cs:A4,13.3) {+alias facts};
+    \node[font=\tiny, anchor=south east] at (axis cs:A6,19.3) {+sequences};
+  \nextgroupplot[ybar stacked, bar width=7pt, ymin=0, ymax=460, ylabel={tests executed},
+                 legend pos=north east, legend columns=2]
+    \addplot[fill=tolblue!45, draw=tolblue!80!black] coordinates
+      {(A0,229) (A1,279) (A2,287) (A3,274) (A4,193) (A5,228) (A6,219) (FULL,219)};
+    \addplot[fill=tolorange!70, draw=tolorange!80!black] coordinates
+      {(A0,109) (A1,71) (A2,71) (A3,69) (A4,69) (A5,16) (A6,16) (FULL,16)};
+    \legend{valid, invalid}
+\end{groupplot}
+\end{tikzpicture}
+\caption{RQ3: cumulative ablation of the analysis layers (A0: dynamic random contexts; A1: tensor metadata;
+A2: flow-sensitive dependencies; A3: shape--index relations; A4: alias and mutation facts; A5: \scs pruning;
+A6: context sequences). Detection rises while the number of tests, and in particular of invalid tests, falls.}
+\label{fig:rq3}
+\end{figure}

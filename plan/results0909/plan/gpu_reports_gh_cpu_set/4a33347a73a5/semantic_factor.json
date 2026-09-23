@@ -1,0 +1,54 @@
+{
+  "factor_changed": "requires_grad",
+  "context": {
+    "name": "A.grad=True",
+    "factors": {
+      "requires_grad": {
+        "arg": 0,
+        "value": true
+      }
+    },
+    "warm": true,
+    "origin": "A.requires_grad"
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": {
+    "site": "pattern",
+    "factor": "A.requires_grad",
+    "kind": "requires_grad",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "grad on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "gradient"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "requires_grad changes the traced graph regardless of source",
+    "param": "A",
+    "dim": null
+  },
+  "triage": {
+    "stage": "aot_functionalization",
+    "stage_label": "AOTAutograd / functionalization",
+    "priority": "high",
+    "rationale": "eager and backend='eager' agree but aot_eager differs: AOTAutograd / functionalization (alias and in-place handling)",
+    "kinds": [
+      "gradient"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E2_aot_eager",
+    "submittable": true
+  }
+}

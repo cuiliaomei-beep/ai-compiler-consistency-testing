@@ -1,0 +1,340 @@
+{
+  "signature": "a767d9a17774",
+  "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 5.183e-01 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 0.5182526078863532,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              1,
+              8,
+              64
+            ],
+            "dtype": "torch.float64",
+            "max_abs_error": 0.5182526078863532,
+            "max_rel_error": 958.3603879382159,
+            "n_mismatch": 512,
+            "n_total": 512,
+            "first_mismatch_index": [
+              0,
+              0,
+              0
+            ],
+            "first_mismatch_expected": "0.5949116333",
+            "first_mismatch_actual": "0.572627157",
+            "expected_preview": "[0.5949116333, 0.01955290421, -0.06999180922, 0.06079759461, -0.1006629229, -0.1498584505, -0.3350537157, -0.1208899146, ... (504 more)]",
+            "actual_preview": "[0.572627157, 0.0751014602, -0.07647795051, 0.005050997807, -0.04841005294, -0.1102052939, -0.3457800515, -0.1274867548, ... (504 more)]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 0.5182526078863532,
+            "budget": 1e-08,
+            "noise_floor": 1e-08
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            8,
+            64
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            512,
+            64,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0637,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            8,
+            64
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            512,
+            64,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1147,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            8,
+            64
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            512,
+            64,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.2156,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            8,
+            64
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            512,
+            64,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "loaded from reproducers_gh\\issue_195320_inductor_sdpa_fusion_matches_a_permuted.py\n[inductor] SDPA fusion matches a permuted K as if it were key.transpose(-2,-1), silently producing wrong attention outputs\nhttps://github.com/pytorch/pytorch/issues/195320\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 9,
+    "steps_kept": 3,
+    "original_lines": 7,
+    "final_lines": 7,
+    "original_numel": 512,
+    "final_numel": 512,
+    "input_recipe": "torch.randn(1, 8, 64).to(torch.float64),",
+    "log": [
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags"
+    ],
+    "source": "def forward(self, x):\n        b, t, _ = x.shape\n        q = self.q(x).view(b, t, H, D).permute(0, 2, 1, 3)   # (B, H, T, D)\n        k = self.k(x).view(b, t, H, D).permute(0, 2, 3, 1)   # (B, H, D, T) pre-transposed\n        v = self.v(x).view(b, t, H, D).permute(0, 2, 1, 3)   # (B, H, T, D)\n        w = (torch.matmul(q, k) * (D ** -0.5)).softmax(dim=-1)\n        return (w @ v).permute(0, 2, 1, 3).reshape(b, t, E)"
+  },
+  "duplicates": {
+    "query": "inductor SDPA fusion matches permuted were key.transpose silently",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "195320",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/195320",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 195320,
+        "title": "[inductor] SDPA fusion matches a permuted K as if it were key.transpose(-2,-1), silently producing wrong attention outputs",
+        "url": "https://github.com/pytorch/pytorch/issues/195320",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-30"
+      },
+      {
+        "number": 195383,
+        "title": "[inductor] Validate pattern-matcher matches by re-tracing with matched inputs",
+        "url": "https://github.com/pytorch/pytorch/pull/195383",
+        "state": "open",
+        "is_pr": true,
+        "created": "2026-08-31"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

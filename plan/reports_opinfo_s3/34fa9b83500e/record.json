@@ -1,0 +1,236 @@
+{
+  "signature": "34fa9b83500e",
+  "program": "opinfo_nn_functional_interpolate_trilinear",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "input.ndim+1",
+    "factors": {
+      "rank": {
+        "arg": 0,
+        "delta": 1
+      }
+    },
+    "warm": false,
+    "origin": "input.ndim"
+  },
+  "context_b": null,
+  "factor_changed": "rank",
+  "controlled": {},
+  "obligation": {
+    "site": "interpolate",
+    "factor": "input.ndim",
+    "kind": "rank",
+    "values": [
+      "+1",
+      "-1"
+    ],
+    "constraint": "rank read in a predicate",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "exception"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "rank steers control flow",
+    "param": "input",
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: ValueError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "Input and output must have the same number of spatial dimensions, but got input with spatial dimensions of [3, 4, 4, 4] and output size of (5, 5, 5). Please provide input tensor in (N, C, d1, d2, ...,",
+            "test_message": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, "
+          }
+        }
+      ]
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: ValueError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "Input and output must have the same number of spatial dimensions, but got input with spatial dimensions of [3, 4, 4, 4] and output size of (5, 5, 5). Please provide input tensor in (N, C, d1, d2, ...,",
+            "test_message": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, "
+          }
+        }
+      ]
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: ValueError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "Input and output must have the same number of spatial dimensions, but got input with spatial dimensions of [3, 4, 4, 4] and output size of (5, 5, 5). Please provide input tensor in (N, C, d1, d2, ...,",
+            "test_message": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, "
+          }
+        }
+      ]
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "ValueError",
+      "exception_msg": "Input and output must have the same number of spatial dimensions, but got input with spatial dimensions of [3, 4, 4, 4] and output size of (5, 5, 5). Please provide input tensor in (N, C, d1, d2, ...,",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_msg": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, ",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0177,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_msg": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, ",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0143,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_msg": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, ",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0121,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": false,
+  "reproducibility": "2/2",
+  "seed": 3,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "OpInfo nn.functional.interpolate sample; aliasing declared=None",
+  "minimized": null,
+  "duplicates": null,
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ValueError",
+    "E1_dynamo_eager: TorchRuntimeError",
+    "E2_aot_eager: TorchRuntimeError",
+    "E3_inductor: TorchRuntimeError"
+  ],
+  "status": "Generated",
+  "fault": null
+}

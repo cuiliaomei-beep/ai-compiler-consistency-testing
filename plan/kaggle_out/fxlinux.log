@@ -1,0 +1,51 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.7 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torch 2.14.0+cpu
+mask_invalid
+    eager               [1.0, nan, 3.0]
+    fx.Interpreter      [1.0, nan, 3.0]
+    GraphModule.forward [1.0, 1.0, 3.0]
+    def forward(self, x, nan):
+        nan_1 = nan
+        where = torch.where(nan_1, nan, x);  nan_1 = x = None
+        return where
+clip_scores
+    eager               [11.0, 70.0, 33.0]
+    fx.Interpreter      [11.0, 70.0, 33.0]
+    GraphModule.forward [11.0, 40.0, 33.0]
+    def forward(self, scores, inf):
+        inf_1 = inf
+        clamp = torch.clamp(scores, max = inf);  scores = None
+        add = clamp + inf_1;  clamp = inf_1 = None
+        return add
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.4/199.4 MB 8.9 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.
+torch 2.15.0.dev20260921+cpu
+mask_invalid
+    eager               [1.0, nan, 3.0]
+    fx.Interpreter      [1.0, nan, 3.0]
+    GraphModule.forward [1.0, 1.0, 3.0]
+    def forward(self, x, nan):
+        nan_1 = nan
+        where = torch.where(nan_1, nan, x);  nan_1 = x = None
+        return where
+clip_scores
+    eager               [11.0, 70.0, 33.0]
+    fx.Interpreter      [11.0, 70.0, 33.0]
+    GraphModule.forward [11.0, 40.0, 33.0]
+    def forward(self, scores, inf):
+        inf_1 = inf
+        clamp = torch.clamp(scores, max = inf);  scores = None
+        add = clamp + inf_1;  clamp = inf_1 = None
+        return add
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 276376 bytes to __results__.html

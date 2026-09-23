@@ -1,0 +1,2173 @@
+{
+  "stats": {
+    "ops": 21,
+    "samples": 21,
+    "variants": 297,
+    "decomp_covered": 271,
+    "decomp_mismatch": 5,
+    "meta_mismatch": 103,
+    "data_dependent": 2,
+    "errors": 0,
+    "wall_s": 10.8
+  },
+  "mismatches": [
+    {
+      "op": "bmm",
+      "variant": "zero_dim",
+      "kind": "decomp",
+      "detail": "[exception] exception type differs: RuntimeError vs IndexError :: tuple index out of range",
+      "decomps_hit": [
+        "aten.detach.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [],
+        [
+          10,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "empty_dim0",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          0,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "size1_dim0",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "prime_dim0",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          7,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "noncontig",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "channels_last",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "dtype_int64",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "dtype_bool",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.sum",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.prod",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.prod",
+      "variant": "dtype_int64",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.prod",
+      "variant": "dtype_bool",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.prod",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.prod",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.prod",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.prod",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.prod",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "empty_dim0",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          0,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "size1_dim0",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "prime_dim0",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          7,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "noncontig",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "dtype_int64",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumsum",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumprod",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumprod",
+      "variant": "dtype_int64",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumprod",
+      "variant": "dtype_bool",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumprod",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumprod",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumprod",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumprod",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.cumprod",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.amin",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.amin",
+      "variant": "noncontig",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.amin",
+      "variant": "channels_last",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.amin",
+      "variant": "dtype_int64",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.amin",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.amin",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.amin",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.amin",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.amin",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "empty_last",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "size1_last",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          1
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "noncontig",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "channels_last",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "dtype_int64",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmax",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "empty_dim0",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          0,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "size1_dim0",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "prime_dim0",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          7,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "noncontig",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "channels_last",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "dtype_int64",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.argmin",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.mean",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.mean",
+      "variant": "noncontig",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.mean",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.mean",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.mean",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.mean",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.mean",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.median",
+      "variant": "dtype_int64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.median",
+      "variant": "dtype_bool",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.norm",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.norm",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.norm",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.norm",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.norm",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.norm",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.var",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.var",
+      "variant": "noncontig",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.var",
+      "variant": "dtype_int64",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.var",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.var",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.var",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.var",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.var",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.softmax",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten._softmax.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "base",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "empty_last",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "size1_last",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "noncontig",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "dtype_int64",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "nan_inf",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "huge",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "tiny",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "dtype_float16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "dtype_bfloat16",
+      "kind": "meta",
+      "detail": "fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensors first or instantiate FakeTensorMode with 'allow_non_fake_inputs'. Found in ate",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.softmin",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten._softmax.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.logaddexp",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.logaddexp.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "bmm",
+      "variant": "zero_dim",
+      "kind": "decomp",
+      "detail": "[exception] exception type differs: RuntimeError vs IndexError :: tuple index out of range",
+      "decomps_hit": [
+        "aten.detach.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [],
+        [
+          8,
+          1,
+          256
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    }
+  ]
+}

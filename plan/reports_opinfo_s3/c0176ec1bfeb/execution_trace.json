@@ -1,0 +1,157 @@
+{
+  "sequence": [
+    "E0_eager: ValueError",
+    "E1_dynamo_eager: TorchRuntimeError",
+    "E2_aot_eager: TorchRuntimeError",
+    "E3_inductor: TorchRuntimeError"
+  ],
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "ValueError",
+      "exception_msg": "Input and output must have the same number of spatial dimensions, but got input with spatial dimensions of [3, 4, 5] and output size of (3, 4). Please provide input tensor in (N, C, d1, d2, ...,dK) fo",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_msg": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, ",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0282,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_msg": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, ",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0259,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_msg": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, ",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0154,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "cache": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: ValueError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "Input and output must have the same number of spatial dimensions, but got input with spatial dimensions of [3, 4, 5] and output size of (3, 4). Please provide input tensor in (N, C, d1, d2, ...,dK) fo",
+            "test_message": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, "
+          }
+        }
+      ]
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: ValueError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "Input and output must have the same number of spatial dimensions, but got input with spatial dimensions of [3, 4, 5] and output size of (3, 4). Please provide input tensor in (N, C, d1, d2, ...,dK) fo",
+            "test_message": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, "
+          }
+        }
+      ]
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: ValueError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "Input and output must have the same number of spatial dimensions, but got input with spatial dimensions of [3, 4, 5] and output size of (3, 4). Please provide input tensor in (N, C, d1, d2, ...,dK) fo",
+            "test_message": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, "
+          }
+        }
+      ]
+    }
+  }
+}

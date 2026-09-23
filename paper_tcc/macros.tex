@@ -1,0 +1,67 @@
+%% Packages -------------------------------------------------------------------
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{listings}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,shapes.misc,fit,calc,backgrounds,matrix,decorations.pathreplacing}
+
+%% Names -----------------------------------------------------------------------
+\newcommand{\tool}{\textsc{Tcc}\xspace}
+\newcommand{\tcompile}{\texttt{torch.compile}\xspace}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\etal}{et al.\xspace}
+\newcommand{\scs}{SCS\xspace}
+\newcommand{\EZ}{$E_0$\xspace}
+\newcommand{\EO}{$E_1$\xspace}
+\newcommand{\ET}{$E_2$\xspace}
+\newcommand{\ER}{$E_3$\xspace}
+
+%% Answer boxes for research questions -----------------------------------------
+\newcommand{\rqanswer}[2]{%
+  \par\smallskip\noindent\fcolorbox{black!35}{black!4}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+  \textbf{Answer to #1.} #2}}\par\smallskip}
+
+%% Colour palette (Tol qualitative, colour-blind safe) ---------------------------
+\definecolor{tolblue}{HTML}{0077BB}
+\definecolor{tolcyan}{HTML}{33BBEE}
+\definecolor{tolteal}{HTML}{009988}
+\definecolor{tolorange}{HTML}{EE7733}
+\definecolor{tolred}{HTML}{CC3311}
+\definecolor{tolmagenta}{HTML}{EE3377}
+\definecolor{tolgrey}{HTML}{BBBBBB}
+
+%% Listings ---------------------------------------------------------------------
+\lstdefinestyle{py}{
+  language=Python,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{tolblue}\bfseries,
+  commentstyle=\color{black!55}\itshape,
+  stringstyle=\color{tolred},
+  numbers=left, numberstyle=\tiny\color{black!50}, numbersep=6pt,
+  xleftmargin=1.6em, framexleftmargin=1.4em,
+  frame=single, rulecolor=\color{black!25},
+  showstringspaces=false, columns=fullflexible, keepspaces=true,
+  escapeinside={(*@}{@*)},
+  morekeywords={torch,compile,self,True,False,None}
+}
+\lstset{style=py}
+
+%% pgfplots defaults --------------------------------------------------------------
+\pgfplotsset{
+  tccaxis/.style={
+    width=\linewidth, height=4.4cm,
+    tick label style={font=\scriptsize},
+    label style={font=\footnotesize},
+    legend style={font=\scriptsize, draw=black!30, fill=white, fill opacity=0.9, text opacity=1},
+    axis line style={black!60}, tick style={black!60},
+    ymajorgrids, grid style={black!10},
+  }
+}

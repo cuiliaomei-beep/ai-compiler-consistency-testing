@@ -1,0 +1,44 @@
+{
+  "signature": "c6eeac238c56",
+  "program": "issue_182131_torch_compile_inductor_produces_differen",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Pending",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": 183761,
+      "title": "torch.compile produces different fp16 results for where + full_like + cast + add pattern",
+      "url": "https://github.com/pytorch/pytorch/issues/183761",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-14"
+    },
+    {
+      "number": 173939,
+      "title": "[inductor] Inductor doesn't preserve pin_memory=True for some constructors.",
+      "url": "https://github.com/pytorch/pytorch/issues/173939",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-01-30"
+    },
+    {
+      "number": 96064,
+      "title": "`torch.compile` silently produces wrong answer when compiling functions with (unrolled) loop",
+      "url": "https://github.com/pytorch/pytorch/issues/96064",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2023-03-05"
+    }
+  ]
+}

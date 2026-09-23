@@ -1,0 +1,572 @@
+{
+  "stats": {
+    "ops": 11,
+    "samples": 33,
+    "variants": 348,
+    "decomp_covered": 220,
+    "decomp_mismatch": 14,
+    "meta_mismatch": 0,
+    "data_dependent": 12,
+    "errors": 0,
+    "wall_s": 3.9
+  },
+  "mismatches": [
+    {
+      "op": "cov",
+      "variant": "base",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "empty_dim0",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.mm.default'; all __torch_dispatch__ handlers returned ",
+      "decomps_hit": [
+        "aten.new_ones.default",
+        "aten.t.default",
+        "aten.mm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          0,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "empty_dim0",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          0,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "size1_dim0",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "prime_dim0",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.mm.default'; all __torch_dispatch__ handlers returned ",
+      "decomps_hit": [
+        "aten.new_ones.default",
+        "aten.t.default",
+        "aten.mm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          7,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "prime_dim0",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          7,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "noncontig",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "nan_inf",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "huge",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "tiny",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "dtype_float16",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "dtype_bfloat16",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "base",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.mm.default'; all __torch_dispatch__ handlers returned ",
+      "decomps_hit": [
+        "aten.new_ones.default",
+        "aten.t.default",
+        "aten.mm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "empty_last",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.mm.default'; all __torch_dispatch__ handlers returned ",
+      "decomps_hit": [
+        "aten.new_ones.default",
+        "aten.zero_.default",
+        "aten.t.default",
+        "aten.mm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          2,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "empty_last",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          2,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "size1_last",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten.equal.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          2,
+          1
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "noncontig",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.mm.default'; all __torch_dispatch__ handlers returned ",
+      "decomps_hit": [
+        "aten.new_ones.default",
+        "aten.t.default",
+        "aten.mm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "nan_inf",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.mm.default'; all __torch_dispatch__ handlers returned ",
+      "decomps_hit": [
+        "aten.new_ones.default",
+        "aten.t.default",
+        "aten.mm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "huge",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.mm.default'; all __torch_dispatch__ handlers returned ",
+      "decomps_hit": [
+        "aten.new_ones.default",
+        "aten.t.default",
+        "aten.mm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "tiny",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.mm.default'; all __torch_dispatch__ handlers returned ",
+      "decomps_hit": [
+        "aten.new_ones.default",
+        "aten.t.default",
+        "aten.mm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "dtype_float16",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.mm.default'; all __torch_dispatch__ handlers returned ",
+      "decomps_hit": [
+        "aten.new_ones.default",
+        "aten.t.default",
+        "aten.mm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "cov",
+      "variant": "dtype_bfloat16",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.mm.default'; all __torch_dispatch__ handlers returned ",
+      "decomps_hit": [
+        "aten.new_ones.default",
+        "aten.t.default",
+        "aten.mm.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "std_mean",
+      "variant": "huge",
+      "kind": "decomp",
+      "detail": "[value] output[0]: NaN/Inf pattern differs from the float64 truth",
+      "decomps_hit": [
+        "aten.std_mean.correction"
+      ],
+      "confirmed": true,
+      "confirm_detail": "output[0]: NaN/Inf pattern differs from the float64 truth",
+      "shapes": [
+        [
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "std_mean",
+      "variant": "huge",
+      "kind": "decomp",
+      "detail": "[value] output[0]: NaN/Inf pattern differs from the float64 truth",
+      "decomps_hit": [
+        "aten.std_mean.correction"
+      ],
+      "confirmed": true,
+      "confirm_detail": "output[0]: NaN/Inf pattern differs from the float64 truth",
+      "shapes": [
+        [
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "index_add",
+      "variant": "dtype_bfloat16",
+      "kind": "decomp",
+      "detail": "[exception] test raised TypeError, ref returned normally :: Multiple dispatch failed for 'torch._ops.aten.index_add.default'; all __torch_dispatch__ handlers re",
+      "decomps_hit": [
+        "aten.index_add.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "dtypes": [
+        "torch.bfloat16",
+        "torch.int64",
+        "torch.bfloat16"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "index_add",
+      "variant": "empty_last",
+      "kind": "decomp",
+      "detail": "[exception] test raised IndexError, ref returned normally :: index is out of bounds for dimension with size 0",
+      "decomps_hit": [
+        "aten.index_add.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "test raised RuntimeError, ref returned normally",
+      "shapes": [
+        [
+          5,
+          0
+        ],
+        [
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.int64",
+        "torch.float32"
+      ],
+      "recipe": ""
+    }
+  ]
+}

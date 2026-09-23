@@ -1,0 +1,255 @@
+{
+  "signature": "5b07dfb7d786",
+  "program": "opinfo_cov_252",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "compile.dynamic=True",
+    "factors": {
+      "compile": {
+        "dynamic": true
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "factor_changed": "compile",
+  "controlled": {},
+  "obligation": {
+    "site": "opinfo_cov_252",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised TorchRuntimeError, ref returned normally",
+          "evidence": {
+            "exception": "TorchRuntimeError",
+            "message": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in method cov of type object at 0x00007FFD76169C40>(*(FakeTensor(..., size"
+          }
+        }
+      ]
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised TorchRuntimeError, ref returned normally",
+          "evidence": {
+            "exception": "TorchRuntimeError",
+            "message": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in method cov of type object at 0x00007FFD76169C40>(*(FakeTensor(..., size"
+          }
+        }
+      ]
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised TorchRuntimeError, ref returned normally",
+          "evidence": {
+            "exception": "TorchRuntimeError",
+            "message": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in method cov of type object at 0x00007FFD76169C40>(*(FakeTensor(..., size"
+          }
+        }
+      ]
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            3,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": true
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in method cov of type object at 0x00007FFD76169C40>(*(FakeTensor(..., size=(3, 2)),), **{'correction': 1, 'fweights': None, 'aweights': FakeTensor(..., size=(2,))}): got RuntimeError('Cannot call numel() on tensor with symbolic sizes/strides\\nException raised from throw_cannot_call_with_symbolic at C:\\\\actions-runner\\\\_work\\\\pytorch\\\\pytorch\\\\c10\\\\core\\\\TensorImpl.cpp:336 (most recent call first):\\n00007FFDFBDD68ED00007FFDFBDD6840 c10.dll!c10::Error::Error [<unknown fil",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0175,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in method cov of type object at 0x00007FFD76169C40>(*(FakeTensor(..., size=(3, 2)),), **{'correction': 1, 'fweights': None, 'aweights': FakeTensor(..., size=(2,))}): got RuntimeError('Cannot call numel() on tensor with symbolic sizes/strides\\nException raised from throw_cannot_call_with_symbolic at C:\\\\actions-runner\\\\_work\\\\pytorch\\\\pytorch\\\\c10\\\\core\\\\TensorImpl.cpp:336 (most recent call first):\\n00007FFDFBDD68ED00007FFDFBDD6840 c10.dll!c10::Error::Error [<unknown fil",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0164,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in method cov of type object at 0x00007FFD76169C40>(*(FakeTensor(..., size=(3, 2)),), **{'correction': 1, 'fweights': None, 'aweights': FakeTensor(..., size=(2,))}): got RuntimeError('Cannot call numel() on tensor with symbolic sizes/strides\\nException raised from throw_cannot_call_with_symbolic at C:\\\\actions-runner\\\\_work\\\\pytorch\\\\pytorch\\\\c10\\\\core\\\\TensorImpl.cpp:336 (most recent call first):\\n00007FFDFBDD68ED00007FFDFBDD6840 c10.dll!c10::Error::Error [<unknown fil",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0159,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 4,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "OpInfo cov sample; aliasing declared=False",
+  "minimized": null,
+  "duplicates": null,
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: TorchRuntimeError",
+    "E2_aot_eager: TorchRuntimeError",
+    "E3_inductor: TorchRuntimeError"
+  ],
+  "status": "Generated",
+  "fault": null
+}

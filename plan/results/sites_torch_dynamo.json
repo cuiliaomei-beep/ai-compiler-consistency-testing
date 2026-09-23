@@ -1,0 +1,118 @@
+[
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_dynamo\\testing.py",
+    "line": 86,
+    "compiler": "torch.compile",
+    "form": "wrapper",
+    "target": "*args",
+    "arguments": [],
+    "options": {
+      "**": "kwargs"
+    },
+    "reachable": [],
+    "external_state": [],
+    "wrapper": "extract_graph_and_tracker"
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_dynamo\\testing.py",
+    "line": 92,
+    "compiler": "torch.compile",
+    "form": "wrapper",
+    "target": "*args",
+    "arguments": [],
+    "options": {
+      "**": "kwargs"
+    },
+    "reachable": [],
+    "external_state": [],
+    "wrapper": "extract_graph"
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_dynamo\\testing.py",
+    "line": 86,
+    "compiler": "torch.compile",
+    "form": "wrapper",
+    "target": "fn",
+    "arguments": [],
+    "options": {},
+    "reachable": [],
+    "external_state": [],
+    "wrapper": "extract_graph_and_tracker"
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_dynamo\\testing.py",
+    "line": 92,
+    "compiler": "torch.compile",
+    "form": "wrapper",
+    "target": "fn",
+    "arguments": [],
+    "options": {},
+    "reachable": [],
+    "external_state": [],
+    "wrapper": "extract_graph"
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_dynamo\\backends\\debugging.py",
+    "line": 157,
+    "compiler": "torch.jit.script",
+    "form": "wrapper",
+    "target": "_unwrap_lazy_graph_module(gm)",
+    "arguments": [],
+    "options": {},
+    "reachable": [],
+    "external_state": [],
+    "wrapper": "torchscript"
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_dynamo\\repro\\after_dynamo.py",
+    "line": 483,
+    "compiler": "torch.compile",
+    "form": "wrapper",
+    "target": "mod",
+    "arguments": [],
+    "options": {},
+    "reachable": [],
+    "external_state": [],
+    "wrapper": "repro_minify"
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_dynamo\\repro\\after_dynamo.py",
+    "line": 499,
+    "compiler": "torch.compile",
+    "form": "wrapper",
+    "target": "mod",
+    "arguments": [],
+    "options": {},
+    "reachable": [],
+    "external_state": [],
+    "wrapper": "repro_run"
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_dynamo\\repro\\after_dynamo.py",
+    "line": 483,
+    "compiler": "torch.compile",
+    "form": "wrapper",
+    "target": "dynamo_minifier_backend",
+    "arguments": [],
+    "options": {},
+    "reachable": [
+      "dynamo_minifier_backend"
+    ],
+    "external_state": [
+      "log"
+    ],
+    "wrapper": "repro_minify"
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_dynamo\\repro\\after_dynamo.py",
+    "line": 499,
+    "compiler": "torch.compile",
+    "form": "wrapper",
+    "target": "options.backend",
+    "arguments": [],
+    "options": {},
+    "reachable": [],
+    "external_state": [],
+    "wrapper": "repro_run"
+  }
+]

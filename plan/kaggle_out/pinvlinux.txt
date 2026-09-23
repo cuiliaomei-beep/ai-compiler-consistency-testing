@@ -1,0 +1,147 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 9.0 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:1072: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:
+  File "/kaggle/working/diag_complex_linalg_grad.py", line 16, in <lambda>
+    "svd_U_abs": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_anomaly_mode.cpp:130.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0] Backend compiler exception
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten.allclose.default. Adding a graph break.
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0] 
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]   Developer debug context: Backend: aot_eager
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]     Exception:aten.allclose.default
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]     Traceback:
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]       File "/kaggle/working/diag_complex_linalg_grad.py", line 16, in <lambda>
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]         "svd_U_abs": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0] 
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0] 
+W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:1072: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:
+  File "/kaggle/working/diag_complex_linalg_grad.py", line 16, in <lambda>
+    "svd_U_abs": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_anomaly_mode.cpp:130.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0] Backend compiler exception
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]   Explanation: Backend compiler `inductor` failed with aten.allclose.default. Adding a graph break.
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0] 
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]   Developer debug context: Backend: inductor
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]     Exception:aten.allclose.default
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]     Traceback:
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]       File "/kaggle/working/diag_complex_linalg_grad.py", line 16, in <lambda>
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]         "svd_U_abs": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0] 
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0] 
+W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+torch 2.14.0+cpu
+[pinv float32] eager err 3.4e-05 | aot_eager: err 3.4e-05 | inductor: err 3.4e-05
+[pinv complex64] eager err 5.8e-07 | aot_eager: err 1.4e-01  <-- DIFF | inductor: err 1.4e-01  <-- DIFF
+[pinv_hermitian float32] eager err 9.9e-04 | aot_eager: err 9.9e-04 | inductor: err 9.9e-04
+[pinv_hermitian complex64] eager err 1.5e-06 | aot_eager: err 1.5e-06 | inductor: err 1.5e-06
+[inv float32] eager err 2.0e-07 | aot_eager: err 2.0e-07 | inductor: err 2.0e-07
+[inv complex64] eager err 3.7e-07 | aot_eager: err 3.7e-07 | inductor: err 3.7e-07
+[solve float32] eager err 6.5e-08 | aot_eager: err 6.5e-08 | inductor: err 6.5e-08
+[solve complex64] eager err 3.0e-08 | aot_eager: err 3.0e-08 | inductor: err 3.0e-08
+[svdvals float32] eager err 9.5e-07 | aot_eager: err 9.5e-07 | inductor: err 9.5e-07
+[svdvals complex64] eager err 1.5e-06 | aot_eager: err 1.5e-06 | inductor: err 1.5e-06
+[svd_U_abs float32] eager err 3.5e-07 | aot_eager: err 3.5e-07 | inductor: err 3.5e-07
+[svd_U_abs complex64] eager err 1.3e-07 | aot_eager: err 1.3e-07 | inductor: err 1.3e-07
+[qr_R float32] eager err 1.9e-06 | aot_eager: err 1.9e-06 | inductor: err 1.9e-06
+[qr_R complex64] eager err 1.3e-06 | aot_eager: err 1.3e-06 | inductor: err 1.3e-06
+[eigvalsh float32] eager err 3.8e-05 | aot_eager: err 3.8e-05 | inductor: err 3.8e-05
+[eigvalsh complex64] eager err 1.3e-04 | aot_eager: err 1.3e-04 | inductor: err 1.3e-04
+[matrix_norm_fro float32] eager err 0.0e+00 | aot_eager: err 0.0e+00 | inductor: err 1.2e-07
+[matrix_norm_fro complex64] eager err 1.3e-07 | aot_eager: err 1.3e-07 | inductor: err 1.3e-07
+[matrix_norm_nuc float32] eager err 1.6e-06 | aot_eager: err 1.6e-06 | inductor: err 1.6e-06
+[matrix_norm_nuc complex64] eager err 5.1e-06 | aot_eager: err 5.1e-06 | inductor: err 5.1e-06
+[det float32] eager err 1.3e-04 | aot_eager: err 1.3e-04 | inductor: err 1.3e-04
+[det complex64] eager err 2.4e-01 | aot_eager: err 2.4e-01 | inductor: err 2.4e-01
+[lstsq float32] eager err 8.3e-07 | aot_eager: err 8.3e-07 | inductor: err 8.3e-07
+[lstsq complex64] eager err 7.0e-07 | aot_eager: err 7.0e-07 | inductor: err 7.0e-07
+[matrix_exp float32] eager err 6.3e-08 | aot_eager: err 6.3e-08 | inductor: err 6.3e-08
+[matrix_exp complex64] eager err 2.3e-08 | aot_eager: err 2.3e-08 | inductor: err 2.3e-08
+[cholesky float32] eager err 4.8e-07 | aot_eager: err 4.8e-07 | inductor: err 4.8e-07
+[cholesky complex64] eager err 3.0e-07 | aot_eager: err 3.0e-07 | inductor: err 3.0e-07
+[mm_conj float32] eager err 3.5e-06 | aot_eager: err 3.5e-06 | inductor: err 3.5e-06
+[mm_conj complex64] eager err 1.9e-05 | aot_eager: err 1.9e-05 | inductor: err 1.9e-05
+[abs_sum float32] eager err 3.8e-07 | aot_eager: err 3.8e-07 | inductor: err 3.8e-07
+[abs_sum complex64] eager err 4.5e-06 | aot_eager: err 4.5e-06 | inductor: err 4.5e-06
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 8.9 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2826: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2539: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:1095: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:
+  File "/kaggle/working/diag_complex_linalg_grad.py", line 16, in <lambda>
+    "svd_U_abs": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_anomaly_mode.cpp:108.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:1095: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:
+  File "/kaggle/working/diag_complex_linalg_grad.py", line 16, in <lambda>
+    "svd_U_abs": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_anomaly_mode.cpp:108.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2539: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2539: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+torch 2.15.0.dev20260912+cpu
+[pinv float32] eager err 3.4e-05 | aot_eager: err 3.4e-05 | inductor: err 3.4e-05
+[pinv complex64] eager err 5.8e-07 | aot_eager: err 1.4e-01  <-- DIFF | inductor: err 1.4e-01  <-- DIFF
+[pinv_hermitian float32] eager err 9.9e-04 | aot_eager: err 9.9e-04 | inductor: err 9.9e-04
+[pinv_hermitian complex64] eager err 1.5e-06 | aot_eager: err 1.5e-06 | inductor: err 1.5e-06
+[inv float32] eager err 2.0e-07 | aot_eager: err 2.0e-07 | inductor: err 2.0e-07
+[inv complex64] eager err 3.7e-07 | aot_eager: err 3.7e-07 | inductor: err 3.7e-07
+[solve float32] eager err 6.5e-08 | aot_eager: err 6.5e-08 | inductor: err 6.5e-08
+[solve complex64] eager err 3.0e-08 | aot_eager: err 3.0e-08 | inductor: err 3.0e-08
+[svdvals float32] eager err 9.5e-07 | aot_eager: err 9.5e-07 | inductor: err 9.5e-07
+[svdvals complex64] eager err 1.5e-06 | aot_eager: err 1.5e-06 | inductor: err 1.5e-06
+[svd_U_abs float32] eager err 3.5e-07 | aot_eager: err 3.5e-07 | inductor: err 3.5e-07
+[svd_U_abs complex64] eager err 1.3e-07 | aot_eager: err 1.3e-07 | inductor: err 1.3e-07
+[qr_R float32] eager err 1.9e-06 | aot_eager: err 1.9e-06 | inductor: err 1.9e-06
+[qr_R complex64] eager err 1.3e-06 | aot_eager: err 1.3e-06 | inductor: err 1.3e-06
+[eigvalsh float32] eager err 3.8e-05 | aot_eager: err 3.8e-05 | inductor: err 3.8e-05
+[eigvalsh complex64] eager err 1.3e-04 | aot_eager: err 1.3e-04 | inductor: err 1.3e-04
+[matrix_norm_fro float32] eager err 0.0e+00 | aot_eager: err 0.0e+00 | inductor: err 1.2e-07
+[matrix_norm_fro complex64] eager err 1.3e-07 | aot_eager: err 1.3e-07 | inductor: err 1.3e-07
+[matrix_norm_nuc float32] eager err 1.6e-06 | aot_eager: err 1.6e-06 | inductor: err 1.6e-06
+[matrix_norm_nuc complex64] eager err 5.1e-06 | aot_eager: err 5.1e-06 | inductor: err 5.1e-06
+[det float32] eager err 1.3e-04 | aot_eager: err 1.3e-04 | inductor: err 1.3e-04
+[det complex64] eager err 2.4e-01 | aot_eager: err 2.4e-01 | inductor: err 2.4e-01
+[lstsq float32] eager err 8.3e-07 | aot_eager: err 8.3e-07 | inductor: err 8.3e-07
+[lstsq complex64] eager err 7.0e-07 | aot_eager: err 7.0e-07 | inductor: err 7.0e-07
+[matrix_exp float32] eager err 2.6e-08 | aot_eager: err 2.6e-08 | inductor: err 2.6e-08
+[matrix_exp complex64] eager err 1.3e-08 | aot_eager: err 1.3e-08 | inductor: err 1.3e-08
+[cholesky float32] eager err 4.8e-07 | aot_eager: err 4.8e-07 | inductor: err 4.8e-07
+[cholesky complex64] eager err 3.0e-07 | aot_eager: err 3.0e-07 | inductor: err 3.0e-07
+[mm_conj float32] eager err 3.5e-06 | aot_eager: err 3.5e-06 | inductor: err 3.5e-06
+[mm_conj complex64] eager err 1.9e-05 | aot_eager: err 1.9e-05 | inductor: err 1.9e-05
+[abs_sum float32] eager err 3.8e-07 | aot_eager: err 3.8e-07 | inductor: err 3.8e-07
+[abs_sum complex64] eager err 4.5e-06 | aot_eager: err 4.5e-06 | inductor: err 4.5e-06
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 278636 bytes to __results__.html

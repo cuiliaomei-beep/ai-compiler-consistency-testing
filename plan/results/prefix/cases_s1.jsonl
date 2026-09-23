@@ -1,0 +1,47 @@
+{"op": "u:logical_not", "verdict": "ok", "findings": []}
+{"op": "u:bitwise_not_i", "verdict": "ok", "findings": []}
+{"op": "u:relu", "verdict": "ok", "findings": []}
+{"op": "u:relu6", "verdict": "ok", "findings": []}
+{"op": "u:gelu", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:gelu float32 static n=3", "detail": "i=1: in full-length run -0.1471463441848755, in length-3 run -0.14714621007442474, eager -0.14714625477790833"}, {"category": "prefix", "where": "u:gelu float64 static n=3", "detail": "i=1: in full-length run -0.14714624485596242, in length-3 run -0.14714624485596253, eager -0.14714624485596242"}]}
+{"op": "u:gelu_tanh", "verdict": "ok", "findings": []}
+{"op": "u:silu", "verdict": "ok", "findings": []}
+{"op": "u:mish", "verdict": "ok", "findings": []}
+{"op": "u:elu", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:elu float32 dynamic n=2", "detail": "i=1: in full-length run -0.6736394762992859, in length-2 run -0.6736394166946411, eager -0.6736394762992859"}, {"category": "prefix", "where": "u:elu float32 static n=3", "detail": "i=1: in full-length run -0.6736394762992859, in length-3 run -0.6736394166946411, eager -0.6736394762992859"}, {"category": "prefix", "where": "u:elu float64 dynamic n=31", "detail": "i=20: in full-length run -0.05813587211520055, in length-31 run -0.058135872115200556, eager -0.05813587211520055"}]}
+{"op": "u:selu", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:selu float32 static n=3", "detail": "i=1: in full-length run -1.184325098991394, in length-3 run -1.1843249797821045, eager -1.184325098991394"}]}
+{"op": "u:celu", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:celu float32 dynamic n=2", "detail": "i=1: in full-length run -0.6736394762992859, in length-2 run -0.6736394166946411, eager -0.6736394762992859"}, {"category": "prefix", "where": "u:celu float32 static n=3", "detail": "i=1: in full-length run -0.6736394762992859, in length-3 run -0.6736394166946411, eager -0.6736394762992859"}, {"category": "prefix", "where": "u:celu float64 dynamic n=31", "detail": "i=20: in full-length run -0.05813587211520055, in length-31 run -0.058135872115200556, eager -0.05813587211520055"}]}
+{"op": "u:softplus", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:softplus float32 dynamic n=3", "detail": "i=2: in full-length run 0.0406465157866478, in length-3 run 0.040646519511938095, eager 0.0406465157866478"}, {"category": "prefix", "where": "u:softplus float32 static n=3", "detail": "i=2: in full-length run 0.0406465157866478, in length-3 run 0.040646519511938095, eager 0.0406465157866478"}, {"category": "prefix", "where": "u:softplus float64 dynamic n=3", "detail": "i=2: in full-length run 0.0406465168799339, in length-3 run 0.04064651687993389, eager 0.0406465168799339"}, {"category": "prefix", "where": "u:softplus float64 static n=3", "detail": "i=2: in full-length run 0.0406465168799339, in length-3 run 0.04064651687993389, eager 0.0406465168799339"}]}
+{"op": "u:hardtanh", "verdict": "ok", "findings": []}
+{"op": "u:hardswish", "verdict": "ok", "findings": []}
+{"op": "u:hardsigmoid", "verdict": "ok", "findings": []}
+{"op": "u:leaky_relu", "verdict": "ok", "findings": []}
+{"op": "u:logsigmoid", "verdict": "ok", "findings": []}
+{"op": "u:softsign", "verdict": "ok", "findings": []}
+{"op": "u:tanhshrink", "verdict": "ok", "findings": []}
+{"op": "u:softshrink", "verdict": "ok", "findings": []}
+{"op": "u:hardshrink", "verdict": "ok", "findings": []}
+{"op": "u:clamp", "verdict": "ok", "findings": []}
+{"op": "u:clamp_min", "verdict": "ok", "findings": []}
+{"op": "u:pow2", "verdict": "ok", "findings": []}
+{"op": "u:pow_half", "verdict": "ok", "findings": []}
+{"op": "u:pow3", "verdict": "ok", "findings": []}
+{"op": "u:pow_m1", "verdict": "ok", "findings": []}
+{"op": "u:rpow", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:rpow float64 dynamic n=1", "detail": "i=0: in full-length run 0.17677669529663687, in length-1 run 0.1767766952966369, eager 0.17677669529663687"}, {"category": "prefix", "where": "u:rpow float64 static n=3", "detail": "i=0: in full-length run 0.17677669529663687, in length-3 run 0.1767766952966369, eager 0.17677669529663687"}]}
+{"op": "u:mod3", "verdict": "ok", "findings": []}
+{"op": "u:mod_m3", "verdict": "ok", "findings": []}
+{"op": "u:fmod3", "verdict": "ok", "findings": []}
+{"op": "u:floordiv3", "verdict": "ok", "findings": []}
+{"op": "u:floordiv_m3", "verdict": "ok", "findings": []}
+{"op": "u:div3", "verdict": "ok", "findings": []}
+{"op": "u:div_trunc", "verdict": "ok", "findings": []}
+{"op": "u:mul_add", "verdict": "ok", "findings": []}
+{"op": "u:sub_self", "verdict": "ok", "findings": []}
+{"op": "u:cast_i32", "verdict": "ok", "findings": []}
+{"op": "u:cast_i8", "verdict": "ok", "findings": []}
+{"op": "u:cast_u8", "verdict": "ok", "findings": []}
+{"op": "u:cast_f16", "verdict": "ok", "findings": []}
+{"op": "u:cast_bf16", "verdict": "ok", "findings": []}
+{"op": "u:cast_f64", "verdict": "ok", "findings": []}
+{"op": "u:cast_bool", "verdict": "ok", "findings": []}
+{"op": "u:where_self", "verdict": "ok", "findings": []}
+{"op": "u:lshift1", "verdict": "ok", "findings": [{"category": "compile_error", "where": "u:lshift1 bool dynamic", "detail": "torch._dynamo.exc.TorchRuntimeError: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in function lshift>(*(FakeTensor(...,"}, {"category": "compile_error", "where": "u:lshift1 bool static", "detail": "torch._dynamo.exc.TorchRuntimeError: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in function lshift>(*(FakeTensor(...,"}]}
+{"op": "u:rshift1", "verdict": "ok", "findings": [{"category": "compile_error", "where": "u:rshift1 bool dynamic", "detail": "torch._dynamo.exc.TorchRuntimeError: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in function rshift>(*(FakeTensor(...,"}, {"category": "compile_error", "where": "u:rshift1 bool static", "detail": "torch._dynamo.exc.TorchRuntimeError: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in function rshift>(*(FakeTensor(...,"}]}

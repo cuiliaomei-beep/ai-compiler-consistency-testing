@@ -1,0 +1,254 @@
+{"op": "abs", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "acosh", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "item", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "clamp_max", "dtype": "float32", "samples": 3, "diffs": [{"i": 1, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([-8.4784, -1.7658, -4.3228, -2.4005, -7.9506], requires_grad=True), args=(tensor(3.6116, requires_grad=True),), kwargs={}, broadcasts_input=False, name='')"}, {"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-8.4784],\n        [-1.7658],\n        [-4.3228],\n        [-2.4005],\n        [-7.9506]], requires_grad=True), args=(tensor([ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337], requires_grad=True),), kwargs={}, broadcasts_input=True, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO"}
+{"op": "mul", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "addmm", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "addmv", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "baddbmm", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "vdot", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "mv", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "addcmul", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "asin", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "atan", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "atanh", "dtype": "float32", "samples": 1, "diffs": [{"i": 0, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-9.4203e-01, -1.9620e-01, -4.8031e-01, -2.6671e-01, -8.8339e-01,\n          4.0129e-01, -8.9640e-01, -6.3721e-02,  3.4761e-01, -3.3707e-01,\n          5.6741e-01,  1.2613e-01,  5.4970e-01,  6.4160e-01, -4.4144e-01,\n          3.6342e-01, -4.3265e-01,  3.1346e-01, -5.2248e-01,"}], "errors": [], "verdict": "DIFF:SIGNZERO"}
+{"op": "broadcast_to", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "broadcast_tensors", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "combinations", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "cdist", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "chunk", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "clone", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "sum_to_size", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "positive", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "conj_physical", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "complex", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "corrcoef", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "cosh", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "cross", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "cumprod", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "cummin", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "diff", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "div", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "true_divide", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "exp", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "expand_as", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "diag", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "diagonal", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "diagonal_scatter", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "eq", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "fmin", "dtype": "float32", "samples": 3, "diffs": [{"i": 1, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([-8.4784, -1.7658, -4.3228, -2.4005, -7.9506], requires_grad=True), args=(tensor(3.6116, requires_grad=True),), kwargs={}, broadcasts_input=False, name='')"}, {"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-8.4784],\n        [-1.7658],\n        [-4.3228],\n        [-2.4005],\n        [-7.9506]], requires_grad=True), args=(tensor([ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337], requires_grad=True),), kwargs={}, broadcasts_input=True, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO"}
+{"op": "remainder", "dtype": "float32", "samples": 3, "diffs": [{"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-8.4784],\n        [-1.7658],\n        [-4.3228],\n        [-2.4005],\n        [-7.9506]], requires_grad=True), args=(tensor([ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337], requires_grad=True),), kwargs={}, broadcasts_input=True, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO"}
+{"op": "floor", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "fliplr", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "sparse.sampled_addmm", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "i0", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "frexp", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "ge", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "gradient", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "le", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "linspace", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "logspace", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "log10", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "ldexp", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "logaddexp2", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "lt", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "masked_scatter", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "matmul", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "max", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "var_mean", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "std_mean", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "meshgrid", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "min", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nanquantile", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "maximum", "dtype": "float32", "samples": 3, "diffs": [{"i": 1, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([-8.4784, -1.7658, -4.3228, -2.4005, -7.9506], requires_grad=True), args=(tensor(3.6116, requires_grad=True),), kwargs={}, broadcasts_input=False, name='')"}, {"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-8.4784],\n        [-1.7658],\n        [-4.3228],\n        [-2.4005],\n        [-7.9506]], requires_grad=True), args=(tensor([ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337], requires_grad=True),), kwargs={}, broadcasts_input=True, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO"}
+{"op": "minimum", "dtype": "float32", "samples": 3, "diffs": [{"i": 1, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([-8.4784, -1.7658, -4.3228, -2.4005, -7.9506], requires_grad=True), args=(tensor(3.6116, requires_grad=True),), kwargs={}, broadcasts_input=False, name='')"}, {"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-8.4784],\n        [-1.7658],\n        [-4.3228],\n        [-2.4005],\n        [-7.9506]], requires_grad=True), args=(tensor([ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337], requires_grad=True),), kwargs={}, broadcasts_input=True, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO"}
+{"op": "logical_or", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "heaviside", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "softmax", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "_softmax_backward_data", "dtype": "float32", "samples": 3, "diffs": [{"i": 0, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337], requires_grad=True), args=(tensor([0.0008, 0.6208, 0.0481, 0.3291, 0.0013]), 0, torch.float32), kwargs={}, broadcasts_input=False, name='')"}, {"i": 1, "class": "VALUE", "detail": "nan pattern at [2, 1]: eager -inf compiled nan", "repr": "SampleInput(input=tensor([[ 4.3191, -0.8691, -0.4368,  5.1155, -6.2551],\n        [ 2.9920, -2.9822,  5.2072, -3.2105,  0.4450],\n        [ 3.0391,  6.1851, -1.3229,  8.2106, -7.6144],\n        [-1.6054, -8.9746,  0.7456,  2.5540, -3.6433],\n        [ 3.7379, -1.4590, -7.8209,  6.9096,  5.5491]], requir"}, {"i": 2, "class": "VALUE", "detail": "nan pattern at [0, 5, 2]: eager -inf compiled nan", "repr": "SampleInput(input=tensor([[[ 4.6294, -5.5161,  5.4848,  8.2469, -3.0014],\n         [ 1.0101,  4.9624, -0.7130, -7.5305,  4.0428],\n         [ 4.2817, -4.9307, -6.0598, -1.5706,  1.7646],\n         [-4.5515, -0.2163, -3.8892, -3.5062, -1.2317],\n         [-3.4303,  6.9133,  2.3649,  8.0544,  8.1262],\n  "}], "errors": [], "verdict": "DIFF:SIGNZERO+VALUE"}
+{"op": "nn.functional.softmin", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.linear_cross_entropy", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.linear_cross_entropy", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "as_strided", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "as_strided_copy", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "native_group_norm", "dtype": "float32", "samples": 3, "diffs": [{"i": 0, "class": "VALUE", "detail": "nan pattern at [0, 0]: eager nan compiled inf", "repr": "SampleInput(input=tensor([[[ 4.9473,  5.7744, -3.9730],\n         [ 3.2708, -3.8939,  2.8211],\n         [-4.7024,  4.1631,  1.8220],\n         [-3.5221, -4.4145,  2.3285],\n         [ 8.3972,  4.3191, -0.8691],\n         [-0.4368,  5.1155, -6.2551]]], requires_grad=True), args=(tensor([-8.4784, -1.7658,"}, {"i": 1, "class": "VALUE", "detail": "nan pattern at [0, 0]: eager nan compiled inf", "repr": "SampleInput(input=tensor([[[-8.4784, -1.7658, -4.3228],\n         [-2.4005, -7.9506,  3.6116],\n         [-8.0676, -0.5735,  3.1285],\n         [-3.0337,  5.1067,  1.1351],\n         [ 4.9473,  5.7744, -3.9730],\n         [ 3.2708, -3.8939,  2.8211]]], requires_grad=True), args=(tensor([-8.4784, -1.7658,"}, {"i": 2, "class": "VALUE", "detail": "nan pattern at [0, 0]: eager nan compiled inf", "repr": "SampleInput(input=tensor([[[-8.4784, -1.7658, -4.3228],\n         [-2.4005, -7.9506,  3.6116],\n         [-8.0676, -0.5735,  3.1285],\n         [-3.0337,  5.1067,  1.1351],\n         [ 4.9473,  5.7744, -3.9730],\n         [ 3.2708, -3.8939,  2.8211]]], requires_grad=True), args=(tensor([-8.4784, -1.7658,"}], "errors": [], "verdict": "DIFF:VALUE"}
+{"op": "native_batch_norm", "dtype": "float32", "samples": 3, "diffs": [{"i": 1, "class": "VALUE", "detail": "nan pattern at [1, 0, 3]: eager 0.0 compiled nan", "repr": "SampleInput(input=tensor([[[ 3.1285, -3.0337,  5.1067,  1.1351],\n         [ 4.9473,  5.7744, -3.9730,  3.2708]],\n\n        [[-3.8939,  2.8211, -4.7024,  4.1631],\n         [ 1.8220, -3.5221, -4.4145,  2.3285]],\n\n        [[ 8.3972,  4.3191, -0.8691, -0.4368],\n         [ 5.1155, -6.2551,  2.9920, -2.982"}, {"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-7.9506],\n        [ 3.6116],\n        [-8.0676]], requires_grad=True), args=(tensor([-8.4784], requires_grad=True), tensor([-1.7658], requires_grad=True), tensor([2.3386]), tensor([3.2998]), True, 0.0, 1e-05), kwargs={}, broadcasts_input=False, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO+VALUE"}
+{"op": "_batch_norm_with_update", "dtype": "float32", "samples": 3, "diffs": [{"i": 1, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[[ 3.1285, -3.0337,  5.1067,  1.1351],\n         [ 4.9473,  5.7744, -3.9730,  3.2708]],\n\n        [[-3.8939,  2.8211, -4.7024,  4.1631],\n         [ 1.8220, -3.5221, -4.4145,  2.3285]],\n\n        [[ 8.3972,  4.3191, -0.8691, -0.4368],\n         [ 5.1155, -6.2551,  2.9920, -2.982"}, {"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-7.9506],\n        [ 3.6116],\n        [-8.0676]], requires_grad=True), args=(tensor([-8.4784], requires_grad=True), tensor([-1.7658], requires_grad=True), tensor([2.3386]), tensor([3.2998]), 0.0, 1e-05), kwargs={}, broadcasts_input=False, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO"}
+{"op": "nn.functional.adaptive_avg_pool1d", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.adaptive_avg_pool3d", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.adaptive_max_pool2d", "dtype": "float32", "samples": 3, "diffs": [{"i": 0, "class": "VALUE", "detail": "value at [0, 0, 1, 1]: eager 10 compiled 9", "repr": "SampleInput(input=tensor([[[[-8.4784, -1.7658, -4.3228, -2.4005],\n          [-7.9506,  3.6116, -8.0676, -0.5735],\n          [ 3.1285, -3.0337,  5.1067,  1.1351],\n          [ 4.9473,  5.7744, -3.9730,  3.2708]],\n\n         [[-3.8939,  2.8211, -4.7024,  4.1631],\n          [ 1.8220, -3.5221, -4.4145,  2"}, {"i": 1, "class": "VALUE", "detail": "value at [0, 1, 1]: eager 10 compiled 9", "repr": "SampleInput(input=tensor([[[-8.4784, -1.7658, -4.3228, -2.4005],\n         [-7.9506,  3.6116, -8.0676, -0.5735],\n         [ 3.1285, -3.0337,  5.1067,  1.1351],\n         [ 4.9473,  5.7744, -3.9730,  3.2708]],\n\n        [[-3.8939,  2.8211, -4.7024,  4.1631],\n         [ 1.8220, -3.5221, -4.4145,  2.3285]"}, {"i": 2, "class": "VALUE", "detail": "value rel 1: eager 0.0 compiled 1.0", "repr": "SampleInput(input=tensor([[[[-8.4784, -1.7658, -4.3228, -2.4005],\n          [-7.9506,  3.6116, -8.0676, -0.5735],\n          [ 3.1285, -3.0337,  5.1067,  1.1351],\n          [ 4.9473,  5.7744, -3.9730,  3.2708]],\n\n         [[-3.8939,  2.8211, -4.7024,  4.1631],\n          [ 1.8220, -3.5221, -4.4145,  2"}], "errors": [], "verdict": "DIFF:VALUE"}
+{"op": "nn.functional.avg_pool1d", "dtype": "float32", "samples": 3, "diffs": [{"i": 2, "class": "VALUE", "detail": "value rel 0.0833: eager 0.4166666865348816 compiled 0.3333333432674408", "repr": "SampleInput(input=tensor([[[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506,  3.6116, -8.0676,\n          -0.5735,  3.1285],\n         [-3.0337,  5.1067,  1.1351,  4.9473,  5.7744, -3.9730,  3.2708,\n          -3.8939,  2.8211],\n         [-4.7024,  4.1631,  1.8220, -3.5221, -4.4145,  2.3285,  8.3972,\n     "}], "errors": [], "verdict": "DIFF:VALUE"}
+{"op": "nn.functional.binary_cross_entropy_with_logits", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.conv_transpose2d", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.conv1d", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.conv3d", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.instance_norm", "dtype": "float32", "samples": 3, "diffs": [{"i": 0, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[[ 1.8220, -3.5221, -4.4145,  2.3285,  8.3972],\n         [ 4.3191, -0.8691, -0.4368,  5.1155, -6.2551],\n         [ 2.9920, -2.9822,  5.2072, -3.2105,  0.4450],\n         [ 3.0391,  6.1851, -1.3229,  8.2106, -7.6144],\n         [-1.6054, -8.9746,  0.7456,  2.5540, -3.6433]],\n\n"}, {"i": 1, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[[ 1.8220, -3.5221, -4.4145,  2.3285,  8.3972],\n         [ 4.3191, -0.8691, -0.4368,  5.1155, -6.2551],\n         [ 2.9920, -2.9822,  5.2072, -3.2105,  0.4450],\n         [ 3.0391,  6.1851, -1.3229,  8.2106, -7.6144],\n         [-1.6054, -8.9746,  0.7456,  2.5540, -3.6433]],\n\n"}, {"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[[ 3.1285, -3.0337,  5.1067,  1.1351],\n         [ 4.9473,  5.7744, -3.9730,  3.2708]],\n\n        [[-3.8939,  2.8211, -4.7024,  4.1631],\n         [ 1.8220, -3.5221, -4.4145,  2.3285]],\n\n        [[ 8.3972,  4.3191, -0.8691, -0.4368],\n         [ 5.1155, -6.2551,  2.9920, -2.982"}], "errors": [], "verdict": "DIFF:SIGNZERO"}
+{"op": "nn.functional.rms_norm", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "constant_pad_nd", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.pad", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.pad", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.hardswish", "dtype": "float32", "samples": 3, "diffs": [{"i": 0, "class": "VALUE", "detail": "nan pattern at [1, 0]: eager nan compiled 1.0", "repr": "SampleInput(input=tensor([[-4.7102, -0.9810, -2.4016, -1.3336, -4.4170,  2.0064, -4.4820, -0.3186,\n          1.7381, -1.6854],\n        [ 2.8371,  0.6306,  2.7485,  3.2080, -2.2072,  1.8171, -2.1633,  1.5673,\n         -2.6124,  2.3128],\n        [ 1.0122, -1.9567, -2.4525,  1.2936,  4.6651,  2.3995, -"}, {"i": 1, "class": "VALUE", "detail": "nan pattern at [1, 0]: eager nan compiled 1.0", "repr": "SampleInput(input=tensor([[-4.7102, -0.9810, -2.4016, -1.3336, -4.4170,  2.0064, -4.4820, -0.3186,\n          1.7381, -1.6854],\n        [ 2.8371,  0.6306,  2.7485,  3.2080, -2.2072,  1.8171, -2.1633,  1.5673,\n         -2.6124,  2.3128],\n        [ 1.0122, -1.9567, -2.4525,  1.2936,  4.6651,  2.3995, -"}, {"i": 2, "class": "VALUE", "detail": "nan pattern at [1, 0]: eager nan compiled 1.0", "repr": "SampleInput(input=tensor([[-4.7102, -0.9810, -2.4016, -1.3336, -4.4170,  2.0064, -4.4820, -0.3186,\n          1.7381, -1.6854],\n        [ 2.8371,  0.6306,  2.7485,  3.2080, -2.2072,  1.8171, -2.1633,  1.5673,\n         -2.6124,  2.3128],\n        [ 1.0122, -1.9567, -2.4525,  1.2936,  4.6651,  2.3995, -"}], "errors": [], "verdict": "DIFF:VALUE"}
+{"op": "_upsample_bilinear2d_aa", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.margin_ranking_loss", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.multilabel_margin_loss", "dtype": "float32", "samples": 3, "diffs": [{"i": 2, "class": "VALUE", "detail": "nan pattern at []: eager inf compiled nan", "repr": "SampleInput(input=tensor([[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506],\n        [ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337],\n        [ 5.1067,  1.1351,  4.9473,  5.7744, -3.9730],\n        [ 3.2708, -3.8939,  2.8211, -4.7024,  4.1631],\n        [ 1.8220, -3.5221, -4.4145,  2.3285,  8.3972],\n       "}], "errors": [], "verdict": "DIFF:VALUE"}
+{"op": "nn.functional.avg_pool2d", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.max_pool2d", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.max_pool3d", "dtype": "float32", "samples": 3, "diffs": [{"i": 0, "class": "VALUE", "detail": "value at [0, 0, 0, 0, 0]: eager 66 compiled 10", "repr": "SampleInput(input=tensor([[[[[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506],\n           [ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337],\n           [ 5.1067,  1.1351,  4.9473,  5.7744, -3.9730],\n           [ 3.2708, -3.8939,  2.8211, -4.7024,  4.1631],\n           [ 1.8220, -3.5221, -4.4145,  2.3285,  8"}, {"i": 1, "class": "VALUE", "detail": "value rel 1: eager 1.0 compiled 0.0", "repr": "SampleInput(input=tensor([[[[[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506],\n           [ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337],\n           [ 5.1067,  1.1351,  4.9473,  5.7744, -3.9730],\n           [ 3.2708, -3.8939,  2.8211, -4.7024,  4.1631],\n           [ 1.8220, -3.5221, -4.4145,  2.3285,  8"}, {"i": 2, "class": "VALUE", "detail": "value at [0, 1, 0, 0, 0]: eager 60 compiled 32", "repr": "SampleInput(input=tensor([[[[[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506],\n           [ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337],\n           [ 5.1067,  1.1351,  4.9473,  5.7744, -3.9730],\n           [ 3.2708, -3.8939,  2.8211, -4.7024,  4.1631],\n           [ 1.8220, -3.5221, -4.4145,  2.3285,  8"}], "errors": [], "verdict": "DIFF:VALUE"}
+{"op": "nn.functional.bilinear", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.scaled_dot_product_attention", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.hardsigmoid", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.mish", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.tanhshrink", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.triplet_margin_loss", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nextafter", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.batch_norm", "dtype": "float32", "samples": 3, "diffs": [{"i": 1, "class": "VALUE", "detail": "nan pattern at [1, 0, 3]: eager 0.0 compiled nan", "repr": "SampleInput(input=tensor([[[ 3.1285, -3.0337,  5.1067,  1.1351],\n         [ 4.9473,  5.7744, -3.9730,  3.2708]],\n\n        [[-3.8939,  2.8211, -4.7024,  4.1631],\n         [ 1.8220, -3.5221, -4.4145,  2.3285]],\n\n        [[ 8.3972,  4.3191, -0.8691, -0.4368],\n         [ 5.1155, -6.2551,  2.9920, -2.982"}, {"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-7.9506],\n        [ 3.6116],\n        [-8.0676]], requires_grad=True), args=(tensor([2.3386]), tensor([3.2998]), tensor([-8.4784], requires_grad=True), tensor([-1.7658], requires_grad=True)), kwargs={'training': True, 'momentum': 0.0}, broadcasts_input=False, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO+VALUE"}
+{"op": "igamma", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.softshrink", "dtype": "float32", "samples": 3, "diffs": [{"i": 0, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506],\n        [ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337],\n        [ 5.1067,  1.1351,  4.9473,  5.7744, -3.9730],\n        [ 3.2708, -3.8939,  2.8211, -4.7024,  4.1631],\n        [ 1.8220, -3.5221, -4.4145,  2.3285,  8.3972]], requir"}, {"i": 1, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506],\n        [ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337],\n        [ 5.1067,  1.1351,  4.9473,  5.7744, -3.9730],\n        [ 3.2708, -3.8939,  2.8211, -4.7024,  4.1631],\n        [ 1.8220, -3.5221, -4.4145,  2.3285,  8.3972]], requir"}, {"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([-8.4784, -1.7658, -4.3228, -2.4005, -7.9506,  3.6116, -8.0676, -0.5735,\n         3.1285, -3.0337,  5.1067,  1.1351,  4.9473,  5.7744, -3.9730,  3.2708,\n        -3.8939,  2.8211, -4.7024,  4.1631], requires_grad=True), args=(), kwargs={}, broadcasts_input=False, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO"}
+{"op": "nn.functional.hardtanh", "dtype": "float32", "samples": 3, "diffs": [{"i": 0, "class": "VALUE", "detail": "value rel 1: eager 0.0 compiled 1.0", "repr": "SampleInput(input=tensor([[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506],\n        [ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337],\n        [ 5.1067,  1.1351,  4.9473,  5.7744, -3.9730],\n        [ 3.2708, -3.8939,  2.8211, -4.7024,  4.1631],\n        [ 1.8220, -3.5221, -4.4145,  2.3285,  8.3972]], requir"}, {"i": 1, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506],\n        [ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337],\n        [ 5.1067,  1.1351,  4.9473,  5.7744, -3.9730],\n        [ 3.2708, -3.8939,  2.8211, -4.7024,  4.1631],\n        [ 1.8220, -3.5221, -4.4145,  2.3285,  8.3972]], requir"}, {"i": 2, "class": "VALUE", "detail": "value rel 1: eager 0.0 compiled 1.0", "repr": "SampleInput(input=tensor([-8.4784, -1.7658, -4.3228, -2.4005, -7.9506,  3.6116, -8.0676, -0.5735,\n         3.1285, -3.0337,  5.1067,  1.1351,  4.9473,  5.7744, -3.9730,  3.2708,\n        -3.8939,  2.8211, -4.7024,  4.1631], requires_grad=True), args=(), kwargs={}, broadcasts_input=False, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO+VALUE"}
+{"op": "mvlgamma", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "mvlgamma", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "narrow", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "view_copy", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "dist", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "permute", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "pow", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "rad2deg", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "roll", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "round", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "round", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "sin", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "sinh", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "sgn", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "split", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "split_with_sizes", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "__radd__", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "__rmul__", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "__rmod__", "dtype": "float32", "samples": 3, "diffs": [{"i": 2, "class": "SIGNZERO", "detail": "sign of zero", "repr": "SampleInput(input=tensor([[-8.4784],\n        [-1.7658],\n        [-4.3228],\n        [-2.4005],\n        [-7.9506]], requires_grad=True), args=(tensor([ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337], requires_grad=True),), kwargs={}, broadcasts_input=True, name='')"}], "errors": [], "verdict": "DIFF:SIGNZERO"}
+{"op": "__rsub__", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "select", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "slice", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "signbit", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "tanh", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "hsplit", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "dsplit", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "exp2", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nan_to_num", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "square", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "angle", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "isinf", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "isneginf", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "isnan", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "pca_lowrank", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "polygamma", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "polygamma", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "polygamma", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "reshape", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "view", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "atleast_1d", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "atleast_3d", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "unflatten", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "index_fill", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "index_select", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "__getitem__", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "put", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "scatter", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "bool", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "char", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "float", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "int", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "short", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "cfloat", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "zeros_like", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "full_like", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "new_ones", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "zeros", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "eye", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "new_full", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "stack", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "hypot", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "cat", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "unbind_copy", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "dstack", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "unfold_copy", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "renorm", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "squeeze", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "squeeze_copy", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "take_along_dim", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "trapz", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "cumulative_trapezoid", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "unsqueeze_copy", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "zero_", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "trace", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "transpose_copy", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "H", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "mH", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "triu", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "inner", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "to_sparse", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "sigmoid", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "erf", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "erfinv", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.l1_loss", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "log_softmax", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "logit", "dtype": "float32", "samples": 3, "diffs": [{"i": 0, "class": "VALUE", "detail": "inf at [4, 2, 3]: eager inf compiled -inf", "repr": "SampleInput(input=tensor([[[0.0290, 0.4019, 0.2598, 0.3666, 0.0583],\n         [0.7006, 0.0518, 0.4681, 0.6738, 0.3315],\n         [0.7837, 0.5631, 0.7748, 0.8208, 0.2793],\n         [0.6817, 0.2837, 0.6567, 0.2388, 0.7313],\n         [0.6012, 0.3043, 0.2548, 0.6294, 0.9665]],\n\n        [[0.7399, 0.4517,"}, {"i": 1, "class": "VALUE", "detail": "nan pattern at [4, 4, 2]: eager nan compiled 0.0", "repr": "SampleInput(input=tensor([[[0.0290, 0.4019, 0.2598, 0.3666, 0.0583],\n         [0.7006, 0.0518, 0.4681, 0.6738, 0.3315],\n         [0.7837, 0.5631, 0.7748, 0.8208, 0.2793],\n         [0.6817, 0.2837, 0.6567, 0.2388, 0.7313],\n         [0.6012, 0.3043, 0.2548, 0.6294, 0.9665]],\n\n        [[0.7399, 0.4517,"}], "errors": [], "verdict": "DIFF:VALUE"}
+{"op": "jiterator_unary", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "jiterator_4inputs_with_extra_args", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "jiterator_2inputs_2outputs", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "norm", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "norm", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "t_copy", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.multi_head_attention_forward", "dtype": "float32", "samples": 1, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "grid_sampler_2d", "dtype": "float32", "samples": 0, "diffs": [{"i": -1, "class": "CRASH", "detail": "process died"}], "errors": [], "verdict": "DIFF:CRASH"}
+{"op": "all", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "amax", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "argmax", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "mean", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "std", "dtype": "float32", "samples": 3, "diffs": [{"i": 1, "class": "VALUE", "detail": "inf at [0, 1]: eager 1.5217888883258408e+38 compiled inf", "repr": "SampleInput(input=tensor([[[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506],\n         [ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337],\n         [ 5.1067,  1.1351,  4.9473,  5.7744, -3.9730],\n         [ 3.2708, -3.8939,  2.8211, -4.7024,  4.1631],\n         [ 1.8220, -3.5221, -4.4145,  2.3285,  8.3972]],\n\n"}, {"i": 2, "class": "VALUE", "detail": "inf at [0, 0, 1]: eager 1.5217888883258408e+38 compiled inf", "repr": "SampleInput(input=tensor([[[-8.4784, -1.7658, -4.3228, -2.4005, -7.9506],\n         [ 3.6116, -8.0676, -0.5735,  3.1285, -3.0337],\n         [ 5.1067,  1.1351,  4.9473,  5.7744, -3.9730],\n         [ 3.2708, -3.8939,  2.8211, -4.7024,  4.1631],\n         [ 1.8220, -3.5221, -4.4145,  2.3285,  8.3972]],\n\n"}], "errors": [], "verdict": "DIFF:VALUE"}
+{"op": "var", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "prod", "dtype": "float32", "samples": 3, "diffs": [{"i": 0, "class": "VALUE", "detail": "nan pattern at [0, 0, 0]: eager 0.0 compiled nan", "repr": "SampleInput(input=tensor([[[-0.9420, -0.1962, -0.4803, -0.2667, -0.8834],\n         [ 0.4013, -0.8964, -0.0637,  0.3476, -0.3371],\n         [ 0.5674,  0.1261,  0.5497,  0.6416, -0.4414],\n         [ 0.3634, -0.4327,  0.3135, -0.5225,  0.4626],\n         [ 0.2024, -0.3913, -0.4905,  0.2587,  0.9330]],\n\n"}, {"i": 2, "class": "VALUE", "detail": "nan pattern at [0, 0, 0]: eager 0.0 compiled nan", "repr": "SampleInput(input=tensor([[[-0.9420, -0.1962, -0.4803, -0.2667, -0.8834],\n         [ 0.4013, -0.8964, -0.0637,  0.3476, -0.3371],\n         [ 0.5674,  0.1261,  0.5497,  0.6416, -0.4414],\n         [ 0.3634, -0.4327,  0.3135, -0.5225,  0.4626],\n         [ 0.2024, -0.3913, -0.4905,  0.2587,  0.9330]],\n\n"}], "errors": [], "verdict": "DIFF:VALUE"}
+{"op": "nansum", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.cosine_embedding_loss", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.gaussian_nll_loss", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.huber_loss", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "repeat_interleave", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.pixel_shuffle", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "nn.functional.channel_shuffle", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "diagflat", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "scatter_reduce", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "scatter_reduce", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "_segment_reduce", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "linalg.cross", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "linalg.vecdot", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "linalg.householder_product", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "linalg.ldl_factor_ex", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "linalg.multi_dot", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "linalg.norm", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "linalg.polar", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "linalg.vector_norm", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "linalg.inv_ex", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.i0e", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.i1e", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.polygamma", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.entr", "dtype": "float32", "samples": 2, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.log_ndtr", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.airy_ai", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.bessel_j1", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.bessel_y1", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.chebyshev_polynomial_u", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.chebyshev_polynomial_w", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.hermite_polynomial_he", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.legendre_polynomial_p", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.modified_bessel_i1", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.modified_bessel_k1", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.scaled_modified_bessel_k1", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.shifted_chebyshev_polynomial_u", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "special.shifted_chebyshev_polynomial_w", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "masked.sum", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "masked.cumsum", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "masked.amax", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "masked.argmax", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "masked.mean", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "masked.var", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "masked.softmax", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "masked.softmin", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}
+{"op": "masked.logsumexp", "dtype": "float32", "samples": 3, "diffs": [], "errors": [], "verdict": "ok"}

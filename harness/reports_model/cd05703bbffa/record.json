@@ -1,0 +1,228 @@
+{
+  "signature": "cd05703bbffa",
+  "case": "mod_nn_Conv2d_0__IntroduceAliasWrite+CrossViewWrite_12",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation against an already-accepted IR",
+    "kinds": [
+      "mutation"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "layers_unavailable": [],
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {
+      "variant": "base"
+    }
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "fp64_available": false,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "mutation"
+      ],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": [
+        {
+          "kind": "mutation",
+          "detail": "input[0] holds a different value after the call (max diff 1.629e+01) - in-place effects diverge",
+          "magnitude": 16.290245056152344,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              4,
+              3,
+              4
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 16.290245056152344,
+            "max_rel_error": 18.755740634869536,
+            "n_mismatch": 48,
+            "n_total": 96,
+            "first_mismatch_index": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "first_mismatch_expected": "-3.991455078",
+            "first_mismatch_actual": "-0.06738090515",
+            "expected_preview": "[-3.991455078, -0.3247413635, 5.756046295, 8.947198868, 3.571939468, 1.215835571, 6.034377098, -5.299221039, ... (88 more)]",
+            "actual_preview": "[-0.06738090515, 4.827992439, -7.40740633, -6.623451233, -3.466389179, 2.413415909, -0.1783189774, 7.136005402, ... (88 more)]"
+          }
+        }
+      ]
+    }
+  },
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            5,
+            1,
+            2
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            10,
+            2,
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0563,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            5,
+            1,
+            2
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            10,
+            2,
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1404,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            5,
+            1,
+            2
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            10,
+            2,
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1975,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            5,
+            1,
+            2
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            10,
+            2,
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "PyTorch ModuleInfo `nn.Conv2d` (training mode: buffers mutate in place)\n[mutant: `a0[:-1]` is written from `a0[1:]` - overlapping read and write on one storage]\n[contexts dropped as inapplicable in eager: dtype_float64]"
+}

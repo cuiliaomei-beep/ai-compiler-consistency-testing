@@ -1,0 +1,380 @@
+{
+  "sequence": [
+    "E1 = eager(A)",
+    "C1 = compiled_cold(A)",
+    "E2 = eager(B)",
+    "C2cold = compiled_cold(B)",
+    "reset; compiled(A)",
+    "C2warm = compiled_warm(B)",
+    "C1' = compiled_warm(A)"
+  ],
+  "observations": {
+    "ctx_a": {
+      "name": "base",
+      "factors": {},
+      "warm": true,
+      "origin": ""
+    },
+    "ctx_b": {
+      "name": "xs.grad=True",
+      "factors": {
+        "requires_grad": {
+          "arg": 0,
+          "value": true
+        }
+      },
+      "warm": true,
+      "origin": "xs.requires_grad"
+    },
+    "E1": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C1": {
+      "mode": "C1_cold",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0916,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C2cold": {
+      "mode": "C2_cold",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0787,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C2warm": {
+      "mode": "C2_warm(A->B)",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C1_return": {
+      "mode": "C1_return(A->B->A)",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "recompiled_on_switch": false,
+    "recompiled_on_return": false,
+    "fp64_available": true,
+    "compile_count": 3,
+    "wall_s": 0.262
+  },
+  "cache": {
+    "factor": "requires_grad",
+    "recompiled_on_switch": false,
+    "recompiled_on_return": false,
+    "cold_vs_warm": {
+      "ref": "C2_cold",
+      "test": "C2_warm(A->B)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "eager_vs_cold": {
+      "ref": "E0_eager",
+      "test": "C2_cold",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "eager_vs_warm": {
+      "ref": "E0_eager",
+      "test": "C2_warm(A->B)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "return_trip": {
+      "ref": "C1_cold",
+      "test": "C1_return(A->B->A)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "warm_only_failure": false,
+    "stale_reuse": false,
+    "guard_suspicious": true,
+    "invalidation_failure": false,
+    "findings": [
+      {
+        "kind": "cache",
+        "detail": "'requires_grad' changed without a recompile; result matched (guard may be under-specified; informational)"
+      }
+    ]
+  },
+  "comparisons": {
+    "cold_vs_warm": {
+      "ref": "C2_cold",
+      "test": "C2_warm(A->B)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "eager_vs_cold": {
+      "ref": "E0_eager",
+      "test": "C2_cold",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "eager_vs_warm": {
+      "ref": "E0_eager",
+      "test": "C2_warm(A->B)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "A_vs_A_after_B": {
+      "ref": "C1_cold",
+      "test": "C1_return(A->B->A)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "signature": "13e291cfa32e",
+  "program": "issue_179807_torch_compile_inductor_crash_f_pad_follo",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "179807",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/179807",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

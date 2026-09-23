@@ -1,0 +1,253 @@
+{
+  "signature": "43245bcf5fe4",
+  "program": "issue_172184_torch_compile_silently_bypasses_device_m",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "ref raised RuntimeError, test returned normally",
+          "evidence": {
+            "exception": "RuntimeError",
+            "message": "Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA_index_add)"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA_index_add)",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0004,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA_index_add)",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.3192,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Expected all tensors to be on the same device, but got index is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA_index_add)",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.9141,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 3.5006,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8,
+            10
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            10,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": false,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_172184_torch_compile_silently_bypasses_device_m.py\n🐛 torch.compile silently bypasses device mismatch checks with torch.randperm() in index_add operations\nhttps://github.com/pytorch/pytorch/issues/172184",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 16,
+    "steps_kept": 6,
+    "original_lines": 14,
+    "final_lines": 14,
+    "original_numel": 24616,
+    "final_numel": 3082,
+    "input_recipe": "torch.randn(1, 3, 32, 32), torch.randn(1, 10)",
+    "log": [
+      "kept: halve dim 0",
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags",
+      "kept: halve dim 0",
+      "kept: halve dim 0"
+    ],
+    "source": "def forward(self, x, y):\n        x = self.conv(x)\n        x = self.bn(x)\n        x = F.relu(x)\n        x = self.pool(x)\n        x = x.view(x.size(0), -1)\n        x = self.fc(x)\n        \n        # BUG: randperm creates CPU tensor by default\n        idx = torch.randperm(x.size(0))[:y.size(0)]\n        \n        # index_add with CPU index and CUDA tensors - should fail!\n        result = torch.index_add(x, dim=0, source=y, index=idx)\n        return result"
+  },
+  "duplicates": {
+    "query": "silently bypasses device mismatch checks torch.randperm index_add operations",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "172184",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/172184",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 172184,
+        "title": "🐛 torch.compile silently bypasses device mismatch checks with torch.randperm() in index_add operations",
+        "url": "https://github.com/pytorch/pytorch/issues/172184",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-01-11"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: RuntimeError",
+    "E1_dynamo_eager: RuntimeError",
+    "E2_aot_eager: RuntimeError",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

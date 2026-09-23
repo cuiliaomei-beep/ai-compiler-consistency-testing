@@ -1,0 +1,346 @@
+{
+  "signature": "37e7d7870f21",
+  "program": "opinfo_new_empty_strided",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "aot_functionalization",
+    "stage_label": "AOTAutograd / functionalization",
+    "priority": "high",
+    "rationale": "eager and backend='eager' agree but aot_eager differs: AOTAutograd / functionalization (alias and in-place handling)",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E2_aot_eager",
+    "submittable": true
+  },
+  "context": {
+    "name": "compile.dynamic=True",
+    "factors": {
+      "compile": {
+        "dynamic": true
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "factor_changed": "compile",
+  "controlled": {},
+  "obligation": {
+    "site": "opinfo_new_empty_strided",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 9.110e+15 exceeds 4.0x eager err 8.408e-45",
+          "magnitude": 9109831793246208.0,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 9109831793246208.0,
+            "max_rel_error": 9.109831793246208e+27,
+            "n_mismatch": 1,
+            "n_total": 6,
+            "first_mismatch_index": [
+              0,
+              0
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "9.109831793e+15",
+            "expected_preview": "[0, 1.401298464e-45, 2.802596929e-45, 0, 0, 0]",
+            "actual_preview": "[9.109831793e+15, 0, 0, 0, 0, 0]",
+            "eager_err_vs_fp64": 8.407790785948902e-45,
+            "compiled_err_vs_fp64": 9109831793246208.0,
+            "budget": 4.76837158203125e-07,
+            "noise_floor": 4.76837158203125e-07
+          }
+        }
+      ]
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 9.754e+15 exceeds 4.0x eager err 8.408e-45",
+          "magnitude": 9753595851309056.0,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 9753595851309056.0,
+            "max_rel_error": 9.753595851309056e+27,
+            "n_mismatch": 1,
+            "n_total": 6,
+            "first_mismatch_index": [
+              0,
+              0
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "9.753595851e+15",
+            "expected_preview": "[0, 1.401298464e-45, 2.802596929e-45, 0, 0, 0]",
+            "actual_preview": "[9.753595851e+15, 1.401298464e-45, 2.802596929e-45, 0, 0, 0]",
+            "eager_err_vs_fp64": 8.407790785948902e-45,
+            "compiled_err_vs_fp64": 9753595851309056.0,
+            "budget": 4.76837158203125e-07,
+            "noise_floor": 4.76837158203125e-07
+          }
+        }
+      ]
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            7,
+            8
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0711,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            7,
+            8
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0945,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            7,
+            8
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1979,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            7,
+            8
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "0/2",
+  "seed": 3,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "OpInfo new_empty_strided sample; aliasing declared=False",
+  "minimized": {
+    "reproduces": false,
+    "steps_tried": 0,
+    "steps_kept": 0,
+    "original_lines": 2,
+    "final_lines": 2,
+    "original_numel": 5,
+    "final_numel": 5,
+    "input_recipe": "",
+    "log": [
+      "the failure did not reproduce before minimizing; nothing changed"
+    ],
+    "source": "def opinfo_new_empty_strided(*args):\n    return torch.new_empty_strided(*args, (2, 3), (7, 8), dtype=torch.float32, device='cpu')\n"
+  },
+  "duplicates": null,
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

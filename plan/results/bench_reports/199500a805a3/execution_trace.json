@@ -1,0 +1,166 @@
+{
+  "sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0219,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0187,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "cache": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.465e-01 exceeds 4.0x eager err 1.953e-03",
+          "magnitude": 0.146484375,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              16
+            ],
+            "dtype": "torch.float16",
+            "max_abs_error": 0.1484375,
+            "max_rel_error": 0.02030812324929972,
+            "n_mismatch": 15,
+            "n_total": 16,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "1.541015625",
+            "first_mismatch_actual": "1.572265625",
+            "expected_preview": "[1.541015625, 3.455078125, 3.8125, 4.85546875, 1.9140625, 3.669921875, 2.650390625, 7.4921875, ... (8 more)]",
+            "actual_preview": "[1.572265625, 3.5234375, 3.888671875, 4.953125, 1.952148438, 3.744140625, 2.703125, 7.640625, ... (8 more)]",
+            "eager_err_vs_fp64": 0.001953125,
+            "compiled_err_vs_fp64": 0.146484375,
+            "budget": 0.029266357421875,
+            "noise_floor": 0.029266357421875
+          }
+        }
+      ]
+    }
+  }
+}

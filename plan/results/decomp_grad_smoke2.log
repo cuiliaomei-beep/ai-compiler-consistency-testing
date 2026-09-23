@@ -1,0 +1,20 @@
+﻿  DECOMP nn.functional.max_pool2d             base           [exception] test raised AttributeError, ref returned normally :: module 'torch._  confirmed=False
+  DECOMP nn.functional.max_pool2d             size1_last     [value] output[1]: non-float values differ exactly  confirmed=True
+python : D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\decomp_diff.py:350: UserWarning: std(): degrees of freedom is 
+<= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered in
+ternally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1913.)
+At line:1 char:350
++ ... mpile\plan; python -u run.py decomp --grad --only cumsum,std,nn.funct ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (D:\wsl\personal...eOps.cpp:1913.):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  return _op(*a, **kw)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py:2637: UserWarning: var()
+: degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by outp
+ut numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1913.)
+  a_var = torch.var(a, dim, correction=correction, keepdim=keepdim)
+  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP std                                  tiny           [value] output[1]: compiled err vs fp64 = 1.162e-02 exceeds 4.0x eager err 1.118  confirmed=True
+{"ops": 4, "samples": 8, "variants": 112, "decomp_covered": 108, "decomp_mismatch": 4, "meta_mismatch": 0, "data_dependent": 0, "errors": 0, "wall_s": 31.8}
+written results\decomp_grad_smoke2\DECOMP_DIFF.md

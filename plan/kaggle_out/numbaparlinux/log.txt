@@ -1,0 +1,9 @@
+numba 0.67.0 numpy 2.0.2 python 3.12.13 Linux
+a[i] ** -1                                   njit -> raises ZeroDivisionError | njit(parallel=True) -> raises ZeroDivisionError
+a[i] ** -2                                   njit -> raises ZeroDivisionError | njit(parallel=True) -> raises ZeroDivisionError
+7 // int(a[i])                               njit -> raises ZeroDivisionError | njit(parallel=True) -> [0.0, 3.0, 1.0]
+7 % int(a[i])                                njit -> raises ZeroDivisionError | njit(parallel=True) -> [0.0, 1.0, 3.0]
+1.0 / a[i]                                   njit -> raises ZeroDivisionError | njit(parallel=True) -> [inf, 0.5, 0.25]
+float(7 // int(a[i])) if a[i] != 0 else -1.0 njit -> [-1.0, 3.0, 1.0] | njit(parallel=True) -> [-1.0, 3.0, 1.0]
+whole-array raises ZeroDivisionError
+JOB DONE

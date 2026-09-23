@@ -1,0 +1,52 @@
+{
+  "signature": "249983e43ca7",
+  "program": "issue_187935_inductor_cuda_torch_signbit_loses_negati",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "187935",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/187935",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 187935,
+      "title": "[Inductor][CUDA] torch.signbit loses negative zero sign for float64 inputs",
+      "url": "https://github.com/pytorch/pytorch/issues/187935",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-06-23"
+    },
+    {
+      "number": 187941,
+      "title": "[inductor] Fix CUDA signbit for float64 negative zero",
+      "url": "https://github.com/pytorch/pytorch/pull/187941",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-06-23"
+    },
+    {
+      "number": 191339,
+      "title": "Fix Inductor signbit loss in log_ndtr edge cases (#187336)",
+      "url": "https://github.com/pytorch/pytorch/pull/191339",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-07-28"
+    }
+  ]
+}

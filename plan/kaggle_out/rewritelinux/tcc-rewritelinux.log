@@ -1,0 +1,94 @@
+[{"stream_name":"stdout","time":6.814781937,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":43.266506919,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":43.266584416,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":43.266592304,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":45.581203097,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":45.581240662,"data":"\n"}
+,{"stream_name":"stdout","time":45.581247703,"data":"===== draft 14 block 0\n"}
+,{"stream_name":"stdout","time":70.040349807,"data":"contiguous        aot_eager == eager: True   inductor == eager: True   max diff 0\n"}
+,{"stream_name":"stdout","time":70.040420403,"data":"channels_last_3d  aot_eager == eager: True   inductor == eager: False   max diff 282\n"}
+,{"stream_name":"stdout","time":70.040430272,"data":"\n"}
+,{"stream_name":"stdout","time":70.040435299,"data":"===== draft 14 block 1\n"}
+,{"stream_name":"stdout","time":70.042153209,"data":"adaptive_max_pool3d_backward       indices strides (120, 1, 60, 20, 4)    same gradient as with contiguous indices: False\n"}
+,{"stream_name":"stdout","time":70.042169623,"data":"adaptive_max_pool2d_backward       indices strides (60, 1, 20, 4)         same gradient as with contiguous indices: True\n"}
+,{"stream_name":"stdout","time":70.042174812,"data":"max_pool3d_with_indices_backward   indices strides (96, 1, 32, 16, 4)     same gradient as with contiguous indices: True\n"}
+,{"stream_name":"stdout","time":70.042179673,"data":"fractional_max_pool2d_backward     indices strides (36, 1, 12, 4)         same gradient as with contiguous indices: False\n"}
+,{"stream_name":"stdout","time":70.042184487,"data":"fractional_max_pool3d_backward     indices strides (32, 1, 16, 8, 4)      same gradient as with contiguous indices: False\n"}
+,{"stream_name":"stdout","time":70.042189439,"data":"\n"}
+,{"stream_name":"stdout","time":70.042213529,"data":"===== draft 15 block 0\n"}
+,{"stream_name":"stdout","time":71.51959159,"data":"logits / 1.0  eager (no compile)  out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":71.519633322,"data":"logits / 1.0  aot_eager           out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":71.519640556,"data":"logits / 1.0  inductor            out is x: True   x afterwards: [6.0, 6.0, 6.0]\n"}
+,{"stream_name":"stdout","time":71.51965096,"data":"logits / 0.9  eager (no compile)  out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":71.519661036,"data":"logits / 0.9  aot_eager           out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":71.519664872,"data":"logits / 0.9  inductor            out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":71.519669071,"data":"buf * 1.0     eager (no compile)  out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":71.519672985,"data":"buf * 1.0     aot_eager           out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":71.519676655,"data":"buf * 1.0     inductor            out is x: True   x afterwards: [6.0, 6.0, 6.0]\n"}
+,{"stream_name":"stdout","time":71.519680278,"data":"x + 0         eager (no compile)  out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":71.519700555,"data":"x + 0         aot_eager           out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":71.519703766,"data":"x + 0         inductor            out is x: True   x afterwards: [6.0, 6.0, 6.0]\n"}
+,{"stream_name":"stdout","time":71.519706621,"data":"\n"}
+,{"stream_name":"stdout","time":71.519709362,"data":"===== int abs(abs(x)) (MSVC-only?)\n"}
+,{"stream_name":"stdout","time":72.458923342,"data":"cpu torch.int8 5 equal True\n"}
+,{"stream_name":"stdout","time":73.38364043,"data":"cpu torch.int8 40 equal True\n"}
+,{"stream_name":"stdout","time":75.365562313,"data":"cpu torch.int16 5 equal True\n"}
+,{"stream_name":"stdout","time":76.263413313,"data":"cpu torch.int16 40 equal True\n"}
+,{"stream_name":"stdout","time":77.173175409,"data":"cpu torch.int32 5 equal True\n"}
+,{"stream_name":"stdout","time":78.10641341,"data":"cpu torch.int32 40 equal True\n"}
+,{"stream_name":"stdout","time":79.056042001,"data":"cpu torch.int64 5 equal True\n"}
+,{"stream_name":"stdout","time":80.025364229,"data":"cpu torch.int64 40 equal True\n"}
+,{"stream_name":"stdout","time":80.025426743,"data":"\n"}
+,{"stream_name":"stdout","time":80.025436784,"data":"===== draft 15 on CUDA\n"}
+,{"stream_name":"stdout","time":80.025443271,"data":"no cuda\n"}
+,{"stream_name":"stdout","time":85.627181902,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.4/199.4 MB 9.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":108.489960674,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":108.490071527,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260920+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":108.490086752,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260920+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":110.462268543,"data":"torch 2.15.0.dev20260920+cpu\n"}
+,{"stream_name":"stdout","time":110.462303679,"data":"\n"}
+,{"stream_name":"stdout","time":110.462311344,"data":"===== draft 14 block 0\n"}
+,{"stream_name":"stdout","time":129.609157018,"data":"contiguous        aot_eager == eager: True   inductor == eager: True   max diff 0\n"}
+,{"stream_name":"stdout","time":129.609194336,"data":"channels_last_3d  aot_eager == eager: True   inductor == eager: False   max diff 282\n"}
+,{"stream_name":"stdout","time":129.609200207,"data":"\n"}
+,{"stream_name":"stdout","time":129.609204867,"data":"===== draft 14 block 1\n"}
+,{"stream_name":"stdout","time":129.611047733,"data":"adaptive_max_pool3d_backward       indices strides (120, 1, 60, 20, 4)    same gradient as with contiguous indices: False\n"}
+,{"stream_name":"stdout","time":129.611070567,"data":"adaptive_max_pool2d_backward       indices strides (60, 1, 20, 4)         same gradient as with contiguous indices: True\n"}
+,{"stream_name":"stdout","time":129.611075688,"data":"max_pool3d_with_indices_backward   indices strides (96, 1, 32, 16, 4)     same gradient as with contiguous indices: True\n"}
+,{"stream_name":"stdout","time":129.611080589,"data":"fractional_max_pool2d_backward     indices strides (36, 1, 12, 4)         same gradient as with contiguous indices: False\n"}
+,{"stream_name":"stdout","time":129.611097163,"data":"fractional_max_pool3d_backward     indices strides (32, 1, 16, 8, 4)      same gradient as with contiguous indices: False\n"}
+,{"stream_name":"stdout","time":129.611114595,"data":"\n"}
+,{"stream_name":"stdout","time":129.611118295,"data":"===== draft 15 block 0\n"}
+,{"stream_name":"stdout","time":131.048058303,"data":"logits / 1.0  eager (no compile)  out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":131.048090573,"data":"logits / 1.0  aot_eager           out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":131.048096747,"data":"logits / 1.0  inductor            out is x: True   x afterwards: [6.0, 6.0, 6.0]\n"}
+,{"stream_name":"stdout","time":131.048102042,"data":"logits / 0.9  eager (no compile)  out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":131.048107083,"data":"logits / 0.9  aot_eager           out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":131.048112098,"data":"logits / 0.9  inductor            out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":131.048116984,"data":"buf * 1.0     eager (no compile)  out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":131.048121797,"data":"buf * 1.0     aot_eager           out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":131.048127237,"data":"buf * 1.0     inductor            out is x: True   x afterwards: [6.0, 6.0, 6.0]\n"}
+,{"stream_name":"stdout","time":131.048132229,"data":"x + 0         eager (no compile)  out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":131.048137173,"data":"x + 0         aot_eager           out is x: False  x afterwards: [1.0, 1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":131.048142004,"data":"x + 0         inductor            out is x: True   x afterwards: [6.0, 6.0, 6.0]\n"}
+,{"stream_name":"stdout","time":131.048146984,"data":"\n"}
+,{"stream_name":"stdout","time":131.048152969,"data":"===== int abs(abs(x)) (MSVC-only?)\n"}
+,{"stream_name":"stdout","time":132.009911242,"data":"cpu torch.int8 5 equal True\n"}
+,{"stream_name":"stdout","time":132.985312934,"data":"cpu torch.int8 40 equal True\n"}
+,{"stream_name":"stdout","time":133.891475822,"data":"cpu torch.int16 5 equal True\n"}
+,{"stream_name":"stdout","time":134.811024199,"data":"cpu torch.int16 40 equal True\n"}
+,{"stream_name":"stdout","time":135.732409011,"data":"cpu torch.int32 5 equal True\n"}
+,{"stream_name":"stdout","time":136.66876617,"data":"cpu torch.int32 40 equal True\n"}
+,{"stream_name":"stdout","time":137.683552751,"data":"cpu torch.int64 5 equal True\n"}
+,{"stream_name":"stdout","time":138.711770835,"data":"cpu torch.int64 40 equal True\n"}
+,{"stream_name":"stdout","time":138.711817827,"data":"\n"}
+,{"stream_name":"stdout","time":138.711824972,"data":"===== draft 15 on CUDA\n"}
+,{"stream_name":"stdout","time":138.711844098,"data":"no cuda\n"}
+,{"stream_name":"stdout","time":140.242830371,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":142.802256981,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":142.802318832,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":143.09794096,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":143.097971672,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":143.84643947,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":145.320141689,"data":"[NbConvertApp] Writing 282868 bytes to __results__.html\n"}
+]

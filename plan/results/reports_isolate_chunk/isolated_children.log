@@ -1,0 +1,21 @@
+==== --slice 0:3 exit 0 [10s]
+
+torch 2.14.0+cpu  device cpu  backend=aot_eager  reruns=2
+3 program(s) -> results\reports_isolate_chunk
+
+  view_inplace             0 candidate(s), 0 submittable, 3 tests, 10 compiles  [5.2s]
+  noncontig_copy           0 candidate(s), 0 submittable, 3 tests, 10 compiles  [1.0s]
+  overlapping_views        0 candidate(s), 0 submittable, 3 tests, 10 compiles  [1.0s]
+
+0 candidate(s); summary at results\reports_isolate_chunk\SUMMARY.md
+==== --slice 3:6 exit 0 [8s]
+
+torch 2.14.0+cpu  device cpu  backend=aot_eager  reruns=2
+3 program(s) -> results\reports_isolate_chunk
+
+resuming: 3 done, 3 remaining
+  alias_returned           0 candidate(s), 0 submittable, 3 tests, 10 compiles  [3.4s]
+  conditional_mutation     0 candidate(s), 0 submittable, 3 tests, 6 compiles  [0.8s]
+  chunk_inplace            0 candidate(s), 0 submittable, 3 tests, 10 compiles  [0.9s]
+
+0 candidate(s); summary at results\reports_isolate_chunk\SUMMARY.md

@@ -1,0 +1,63 @@
+- site: loop_bound
+  factor: n
+  kind: scalar
+  relation: change_only_one_factor
+  constraint: boundary +-1
+  values:
+    - 0
+    - 1
+    - 2
+    - 3
+  oracle:
+    - value
+    - exception
+  execution:
+    - cold
+    - warm_sequence
+  origin: parameter compared against a constant / used as index or bound
+- site: loop_bound
+  factor: x.dtype
+  kind: dtype
+  relation: change_only_one_factor
+  constraint: float dtype ladder
+  values:
+    - float16
+    - float64
+    - bfloat16
+  oracle:
+    - value
+    - metadata
+  execution:
+    - cold
+    - warm_sequence
+  origin: numerics depend on precision regardless of source
+- site: loop_bound
+  factor: x.requires_grad
+  kind: requires_grad
+  relation: change_only_one_factor
+  constraint: grad on/off
+  values:
+    - true
+    - false
+  oracle:
+    - value
+    - metadata
+    - gradient
+  execution:
+    - cold
+    - warm_sequence
+  origin: requires_grad changes the traced graph regardless of source
+- site: loop_bound
+  factor: compile.dynamic
+  kind: compile_flag
+  relation: change_only_one_factor
+  constraint: dynamic shapes on/off
+  values:
+    - true
+    - false
+  oracle:
+    - value
+    - metadata
+  execution:
+    - cold
+  origin: compile flag changes specialization

@@ -1,0 +1,31 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 9.3 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py:3613: UserWarning: Your compiler for AOTAutograd is returning a function that doesn't take boxed arguments. Please wrap it with functorch.compile.make_boxed_func or handle the boxed arguments yourself. See https://github.com/pytorch/pytorch/pull/83137#issuecomment-1211320670 for rationale.
+  return call_func_at_runtime_with_args(
+torch 2.14.0+cpu
+[matrix_sqrth float32] eager 1.7e-06 | compile(eager) 1.7e-06 | compile(aot_eager) 1.7e-06 | compile(inductor) 1.7e-06
+[matrix_sqrth complex64] eager 2.7e-06 | compile(eager) 2.7e-06 | compile(aot_eager) 9.6e-01 | compile(inductor) 9.6e-01
+backward ops: ['<built-in function getitem>', 'aten._conj.default', 'aten._linalg_eigh.default', 'aten.add.Tensor', 'aten.clamp_min.default', 'aten.clone.default', 'aten.div.Tensor', 'aten.expand.default', 'aten.mm.default', 'aten.mul.Scalar', 'aten.mul.Tensor', 'aten.pow.Tensor_Scalar', 'aten.sgn.default', 'aten.sqrt.default', 'aten.t.default', 'aten.transpose.int', 'aten.unsqueeze.default']
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 9.4 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2826: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py:3631: UserWarning: Your compiler for AOTAutograd is returning a function that doesn't take boxed arguments. Please wrap it with functorch.compile.make_boxed_func or handle the boxed arguments yourself. See https://github.com/pytorch/pytorch/pull/83137#issuecomment-1211320670 for rationale.
+  return call_func_at_runtime_with_args(
+torch 2.15.0.dev20260912+cpu
+[matrix_sqrth float32] eager 1.7e-06 | compile(eager) 1.7e-06 | compile(aot_eager) 1.7e-06 | compile(inductor) 1.7e-06
+[matrix_sqrth complex64] eager 2.7e-06 | compile(eager) 2.7e-06 | compile(aot_eager) 9.6e-01 | compile(inductor) 9.6e-01
+backward ops: ['<built-in function getitem>', 'aten._conj.default', 'aten._linalg_eigh.default', 'aten.add.Tensor', 'aten.clamp_min.default', 'aten.clone.default', 'aten.div.Tensor', 'aten.expand.default', 'aten.mm.default', 'aten.mul.Scalar', 'aten.mul.Tensor', 'aten.pow.Tensor_Scalar', 'aten.sgn.default', 'aten.sqrt.default', 'aten.t.default', 'aten.transpose.int', 'aten.unsqueeze.default']
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 276936 bytes to __results__.html

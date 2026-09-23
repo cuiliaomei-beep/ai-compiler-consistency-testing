@@ -1,0 +1,93 @@
+
+RQ1 benchmark: 19 injected fault(s), backend=eager, budget=16 tests/program, level=FULL
+============================================================================
+  codegen_value                  dtype_reduce           DETECTED tests=1   ttd=1   stage=inductor_codegen       1.8s
+  codegen_value                  shape_boundary         DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  codegen_value                  python_flag_semantic   DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  codegen_boundary_32            shape_boundary         DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  codegen_boundary_31            shape_boundary         DETECTED tests=9   ttd=9   stage=inductor_codegen       0.8s
+  codegen_mod16_tail             mod_tiling             DETECTED tests=10  ttd=10  stage=inductor_codegen       1.1s
+  codegen_mod16_tail             shape_boundary         DETECTED tests=14  ttd=14  stage=inductor_codegen       0.9s
+  codegen_index_last             index_chain            DETECTED tests=2   ttd=2   stage=inductor_codegen       0.2s
+  codegen_noncontig              stride_read            DETECTED tests=5   ttd=5   stage=inductor_codegen       0.4s
+  codegen_noncontig              contiguous_read        DETECTED tests=5   ttd=5   stage=inductor_codegen       0.4s
+  codegen_noncontig              view_inplace           DETECTED tests=5   ttd=5   stage=inductor_codegen       0.4s
+  codegen_noncontig              noncontig_copy         DETECTED tests=5   ttd=5   stage=inductor_codegen       0.4s
+  codegen_fp16_rounding          dtype_reduce           DETECTED tests=2   ttd=2   stage=inductor_codegen       0.2s
+  codegen_fp16_rounding          shape_boundary         DETECTED tests=2   ttd=2   stage=inductor_codegen       0.2s
+  codegen_fp16_rounding          python_flag_semantic   DETECTED tests=2   ttd=2   stage=inductor_codegen       0.2s
+  codegen_dynamic_flag           dtype_reduce           DETECTED tests=8   ttd=8   stage=inductor_codegen       1.0s
+  codegen_dynamic_flag           shape_boundary         DETECTED tests=8   ttd=8   stage=inductor_codegen       0.7s
+  codegen_dynamic_flag           python_flag_semantic   DETECTED tests=8   ttd=8   stage=inductor_codegen       0.6s
+  codegen_scalar_edge            scalar_compare         DETECTED tests=2   ttd=2   stage=inductor_codegen       0.3s
+  codegen_scalar_edge            loop_bound             missed   tests=16  ttd=-   stage=-                      1.1s
+  functionalize_drop_mutation    view_inplace           DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  functionalize_drop_mutation    noncontig_copy         DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  functionalize_drop_mutation    overlapping_views      DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  functionalize_drop_mutation    conditional_mutation   DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  functionalize_drop_mutation    chunk_inplace          DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  functionalize_alias_to_copy    alias_returned         DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  functionalize_alias_to_copy    view_inplace           DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  functionalize_alias_to_copy    overlapping_views      DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  functionalize_alias_to_copy    chunk_inplace          missed   tests=16  ttd=-   stage=-                      1.5s
+  capture_swallow_exception      exception_path         DETECTED tests=10  ttd=10  stage=inductor_codegen       0.6s
+  autograd_wrong_gradient        requires_grad_switch   DETECTED tests=1   ttd=1   stage=inductor_codegen       0.1s
+  autograd_wrong_gradient        dtype_read             DETECTED tests=5   ttd=5   stage=inductor_codegen       0.4s
+  autograd_wrong_gradient        python_flag_semantic   DETECTED tests=5   ttd=5   stage=inductor_codegen       0.4s
+  underspec_dtype                dtype_reduce           DETECTED tests=4   ttd=4   stage=specialization_cache   0.5s
+  underspec_dtype                shape_boundary         DETECTED tests=4   ttd=4   stage=specialization_cache   0.4s
+  underspec_dtype                python_flag_semantic   DETECTED tests=4   ttd=4   stage=specialization_cache   0.3s
+  underspec_scalar               python_flag_semantic   DETECTED tests=10  ttd=10  stage=specialization_cache   0.8s
+  underspec_scalar               scalar_compare         DETECTED tests=3   ttd=3   stage=specialization_cache   0.4s
+  underspec_scalar               string_mode            missed   tests=16  ttd=-   stage=-                      1.1s
+  underspec_scalar               loop_bound             DETECTED tests=3   ttd=3   stage=specialization_cache   0.2s
+  underspec_layout               stride_read            DETECTED tests=6   ttd=6   stage=specialization_cache   0.4s
+  underspec_layout               contiguous_read        DETECTED tests=6   ttd=6   stage=specialization_cache   0.5s
+  underspec_layout               view_inplace           DETECTED tests=6   ttd=6   stage=specialization_cache   0.5s
+  underspec_layout               noncontig_copy         DETECTED tests=6   ttd=6   stage=specialization_cache   0.5s
+  underspec_requires_grad        requires_grad_switch   DETECTED tests=11  ttd=11  stage=specialization_cache   1.0s
+  cache_stale_on_return          dtype_reduce           DETECTED tests=3   ttd=3   stage=cache_invalidation     0.6s
+  cache_stale_on_return          shape_boundary         DETECTED tests=3   ttd=3   stage=cache_invalidation     0.4s
+  cache_stale_on_return          python_flag_semantic   DETECTED tests=3   ttd=3   stage=cache_invalidation     0.3s
+  cache_result_memo              dtype_reduce           DETECTED tests=3   ttd=3   stage=specialization_cache   0.5s
+  cache_result_memo              shape_boundary         DETECTED tests=3   ttd=3   stage=specialization_cache   0.4s
+  cache_result_memo              python_flag_semantic   DETECTED tests=3   ttd=3   stage=specialization_cache   0.3s
+
+  fixed versions (real compiler; every failure here is a false positive)
+  fixed dtype_reduce           clean tests=16  
+  fixed shape_boundary         clean tests=16  
+  fixed python_flag_semantic   clean tests=16  
+  fixed mod_tiling             clean tests=16  
+  fixed index_chain            clean tests=16  
+  fixed stride_read            clean tests=16  
+  fixed contiguous_read        clean tests=16  
+  fixed view_inplace           clean tests=16  
+  fixed noncontig_copy         clean tests=16  
+  fixed scalar_compare         clean tests=16  
+  fixed loop_bound             clean tests=16  
+  fixed overlapping_views      clean tests=16  
+  fixed conditional_mutation   clean tests=16  
+  fixed chunk_inplace          clean tests=16  
+  fixed alias_returned         clean tests=16  
+  fixed exception_path         clean tests=16  
+  fixed requires_grad_switch   clean tests=16  
+  fixed dtype_read             clean tests=16  
+  fixed string_mode            clean tests=16  
+
+RQ1 summary (level FULL, backend eager, budget 16)
+  detected 19/19 injected faults (recall 1.0)
+  false positives on fixed versions: 0/19 programs
+  mean tests-to-detect 4.19, mean TTF 0.35s, tests 249, invalid 16, compiles 679
+
+  per category:
+    codegen          4/4
+    shape            4/4
+    dtype            1/1
+    control_flow     2/2
+    alias_mutation   2/2
+    specialization   4/4
+    cache            2/2
+  per defect class:
+    code_generation_deviation            13/13
+    jit_specialization_inconsistency     4/4
+    cache_consistency_failure            2/2

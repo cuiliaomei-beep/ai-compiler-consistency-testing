@@ -1,0 +1,44 @@
+{
+  "signature": "aef2dbdf9580",
+  "program": "issue_190093_test_interpolate_propagate_real_tensors",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "190093",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/190093",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 190093,
+      "title": "test_interpolate_propagate_real_tensors_cuda fails CUDA mem-leak check: real CUDA tensor from data-dependent .tolist() retained past dynamo.reset()",
+      "url": "https://github.com/pytorch/pytorch/issues/190093",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-07-15"
+    },
+    {
+      "number": 187858,
+      "title": "[inductor] Add torch._inductor.compile_to_python",
+      "url": "https://github.com/pytorch/pytorch/pull/187858",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-06-22"
+    }
+  ]
+}

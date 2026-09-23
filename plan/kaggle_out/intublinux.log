@@ -1,0 +1,80 @@
+[{"stream_name":"stdout","time":8.487371902,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 5.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":50.317160481,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":50.317245009,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":50.317251251,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":52.846342561,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":52.846390338,"data":"\n"}
+,{"stream_name":"stdout","time":52.846396338,"data":"===== draft 07\n"}
+,{"stream_name":"stdout","time":83.478592185,"data":"torch.uint8  first=  5  argmin eager=   1  inductor=   0\n"}
+,{"stream_name":"stdout","time":83.478669953,"data":"torch.int8   first=  5  argmin eager=   1  inductor=   0\n"}
+,{"stream_name":"stdout","time":83.478677902,"data":"torch.int8   first= -5  max    eager=  -1  inductor=   1\n"}
+,{"stream_name":"stdout","time":83.47869005,"data":"torch.int8   first= -5  argmax eager=   1  inductor=   0\n"}
+,{"stream_name":"stdout","time":83.478694009,"data":"\n"}
+,{"stream_name":"stdout","time":83.478697781,"data":"===== draft 08\n"}
+,{"stream_name":"stdout","time":85.937230296,"data":"python   : 9.0 4.0 29.0\n"}
+,{"stream_name":"stdout","time":85.937262875,"data":"torch.float32  a // b      eager [9.0, 4.0, 29.0, 2.0]  inductor [10.0, 5.0, 30.0, 3.0]\n"}
+,{"stream_name":"stdout","time":85.937269812,"data":"torch.float32  div(floor)  eager [9.0, 4.0, 29.0, 2.0]  inductor [10.0, 5.0, 30.0, 3.0]\n"}
+,{"stream_name":"stdout","time":85.937275484,"data":"torch.float64  a // b      eager [9.0, 4.0, 29.0, 3.0]  inductor [10.0, 5.0, 30.0, 3.0]\n"}
+,{"stream_name":"stdout","time":85.937281398,"data":"torch.float64  div(floor)  eager [9.0, 4.0, 29.0, 3.0]  inductor [10.0, 5.0, 30.0, 3.0]\n"}
+,{"stream_name":"stdout","time":85.937286884,"data":"\n"}
+,{"stream_name":"stdout","time":85.937291689,"data":"===== draft 09\n"}
+,{"stream_name":"stdout","time":88.916635717,"data":"eager           [5.5, -5.5, 0.0, 2.0, 2.0, 1.1920928955078125e-07, 0.09999998658895493, -0.0]\n"}
+,{"stream_name":"stdout","time":88.916708029,"data":"inductor, n=8   [nan, nan, nan, 0.0, 0.0, 0.0, 0.09999996423721313, 0.0]\n"}
+,{"stream_name":"stdout","time":88.916716543,"data":"inductor, n=3   [nan, nan, nan]   \u003c- same first three elements, scalar path\n"}
+,{"stream_name":"stdout","time":88.916722936,"data":"\n"}
+,{"stream_name":"stdout","time":88.916728026,"data":"===== draft 10\n"}
+,{"stream_name":"stdout","time":91.093897302,"data":"x.half().float()       eager    [0.0999755859375, 0.0010004043579101562, 0.333251953125, inf]\n"}
+,{"stream_name":"stdout","time":91.093940005,"data":"                       inductor [0.10000000149011612, 0.0010000000474974513, 0.3333333432674408, 70000.0]\n"}
+,{"stream_name":"stdout","time":91.093947949,"data":"x.bfloat16().float()   eager    [0.10009765625, 0.00099945068359375, 0.333984375, 70144.0]\n"}
+,{"stream_name":"stdout","time":91.093954611,"data":"                       inductor [0.10000000149011612, 0.0010000000474974513, 0.3333333432674408, 70000.0]\n"}
+,{"stream_name":"stdout","time":91.093960717,"data":"\n"}
+,{"stream_name":"stdout","time":91.093966359,"data":"===== draft 11\n"}
+,{"stream_name":"stdout","time":93.227393584,"data":"clamp(x, -1000, 1000)  eager raises RuntimeError | aot_eager raises RuntimeError | inductor [-24, -24, -24, -24, -24]\n"}
+,{"stream_name":"stdout","time":93.227495293,"data":"clamp(x, max=300)      eager raises RuntimeError | aot_eager raises RuntimeError | inductor [-128, -3, 0, 5, 44]\n"}
+,{"stream_name":"stdout","time":93.227503094,"data":"\n"}
+,{"stream_name":"stdout","time":93.227507897,"data":"===== same checks on CUDA\n"}
+,{"stream_name":"stdout","time":93.227512994,"data":"no cuda\n"}
+,{"stream_name":"stdout","time":99.741555236,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.4/199.4 MB 4.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":125.568011038,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":125.568044761,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260920+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":125.568051547,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260920+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":127.66457204700001,"data":"torch 2.15.0.dev20260920+cpu\n"}
+,{"stream_name":"stdout","time":127.664612499,"data":"\n"}
+,{"stream_name":"stdout","time":127.664620061,"data":"===== draft 07\n"}
+,{"stream_name":"stdout","time":153.079561581,"data":"torch.uint8  first=  5  argmin eager=   1  inductor=   0\n"}
+,{"stream_name":"stdout","time":153.079609635,"data":"torch.int8   first=  5  argmin eager=   1  inductor=   0\n"}
+,{"stream_name":"stdout","time":153.079631298,"data":"torch.int8   first= -5  max    eager=  -1  inductor=   1\n"}
+,{"stream_name":"stdout","time":153.079637641,"data":"torch.int8   first= -5  argmax eager=   1  inductor=   0\n"}
+,{"stream_name":"stdout","time":153.079650747,"data":"\n"}
+,{"stream_name":"stdout","time":153.079656385,"data":"===== draft 08\n"}
+,{"stream_name":"stdout","time":155.47592077,"data":"python   : 9.0 4.0 29.0\n"}
+,{"stream_name":"stdout","time":155.475978413,"data":"torch.float32  a // b      eager [9.0, 4.0, 29.0, 2.0]  inductor [10.0, 5.0, 30.0, 3.0]\n"}
+,{"stream_name":"stdout","time":155.475987649,"data":"torch.float32  div(floor)  eager [9.0, 4.0, 29.0, 2.0]  inductor [10.0, 5.0, 30.0, 3.0]\n"}
+,{"stream_name":"stdout","time":155.475994575,"data":"torch.float64  a // b      eager [9.0, 4.0, 29.0, 3.0]  inductor [10.0, 5.0, 30.0, 3.0]\n"}
+,{"stream_name":"stdout","time":155.476000839,"data":"torch.float64  div(floor)  eager [9.0, 4.0, 29.0, 3.0]  inductor [10.0, 5.0, 30.0, 3.0]\n"}
+,{"stream_name":"stdout","time":155.476006162,"data":"\n"}
+,{"stream_name":"stdout","time":155.476011362,"data":"===== draft 09\n"}
+,{"stream_name":"stdout","time":157.997588567,"data":"eager           [5.5, -5.5, 0.0, 2.0, 2.0, 1.1920928955078125e-07, 0.09999998658895493, -0.0]\n"}
+,{"stream_name":"stdout","time":157.99765059,"data":"inductor, n=8   [nan, nan, nan, 0.0, 0.0, 0.0, 0.09999996423721313, 0.0]\n"}
+,{"stream_name":"stdout","time":157.99765655,"data":"inductor, n=3   [nan, nan, nan]   \u003c- same first three elements, scalar path\n"}
+,{"stream_name":"stdout","time":157.997660997,"data":"\n"}
+,{"stream_name":"stdout","time":157.997664705,"data":"===== draft 10\n"}
+,{"stream_name":"stdout","time":159.889535381,"data":"x.half().float()       eager    [0.0999755859375, 0.0010004043579101562, 0.333251953125, inf]\n"}
+,{"stream_name":"stdout","time":159.889616251,"data":"                       inductor [0.10000000149011612, 0.0010000000474974513, 0.3333333432674408, 70000.0]\n"}
+,{"stream_name":"stdout","time":159.889643839,"data":"x.bfloat16().float()   eager    [0.10009765625, 0.00099945068359375, 0.333984375, 70144.0]\n"}
+,{"stream_name":"stdout","time":159.889647656,"data":"                       inductor [0.10000000149011612, 0.0010000000474974513, 0.3333333432674408, 70000.0]\n"}
+,{"stream_name":"stdout","time":159.889650584,"data":"\n"}
+,{"stream_name":"stdout","time":159.889653317,"data":"===== draft 11\n"}
+,{"stream_name":"stdout","time":162.079063905,"data":"clamp(x, -1000, 1000)  eager [-128, -3, 0, 5, 127] | aot_eager [-128, -3, 0, 5, 127] | inductor [-24, -24, -24, -24, -24]\n"}
+,{"stream_name":"stdout","time":162.079127751,"data":"clamp(x, max=300)      eager [-128, -3, 0, 5, 127] | aot_eager [-128, -3, 0, 5, 127] | inductor [-128, -3, 0, 5, 44]\n"}
+,{"stream_name":"stdout","time":162.079134074,"data":"\n"}
+,{"stream_name":"stdout","time":162.079138265,"data":"===== same checks on CUDA\n"}
+,{"stream_name":"stdout","time":162.07914488,"data":"no cuda\n"}
+,{"stream_name":"stdout","time":163.58492793,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":166.185928629,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":166.185967963,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":166.525894511,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":166.525929485,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":167.844200973,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":169.385312567,"data":"[NbConvertApp] Writing 280466 bytes to __results__.html\n"}
+]

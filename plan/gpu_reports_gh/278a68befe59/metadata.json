@@ -1,0 +1,69 @@
+{
+  "signature": "278a68befe59",
+  "program": "issue_195422_inductor_torch_compile_silently_drops_an",
+  "project": "pytorch/pytorch",
+  "stage": "aot_functionalization",
+  "priority": "high",
+  "kinds": [
+    "mutation",
+    "alias"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "195422",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/195422",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 195326,
+      "title": "[switch] Support torch.vmap with a batched index",
+      "url": "https://github.com/pytorch/pytorch/pull/195326",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-30"
+    },
+    {
+      "number": 185738,
+      "title": "Make HOP alias and mutation support opt-in",
+      "url": "https://github.com/pytorch/pytorch/pull/185738",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-05-31"
+    },
+    {
+      "number": 195422,
+      "title": "[inductor] torch.compile silently drops an in-place mutation of an input made through F.dropout's identity return",
+      "url": "https://github.com/pytorch/pytorch/issues/195422",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-08-31"
+    },
+    {
+      "number": 193295,
+      "title": "[inductor] Skip batch_linear_lhs for layout-sensitive users",
+      "url": "https://github.com/pytorch/pytorch/pull/193295",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-13"
+    },
+    {
+      "number": 184590,
+      "title": "Fix uncached NestedTensor seqlens under compile",
+      "url": "https://github.com/pytorch/pytorch/pull/184590",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-05-20"
+    }
+  ]
+}

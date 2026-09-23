@@ -1,0 +1,36 @@
+{
+  "signature": "a6e334da4975",
+  "program": "issue_189787_inductor_constant_folds_sum_softmax_to_e",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "189787",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/189787",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 189787,
+      "title": "Inductor constant-folds `sum(softmax)` to exactly 1.0, causing `floor()` to produce wrong integer results",
+      "url": "https://github.com/pytorch/pytorch/issues/189787",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-07-13"
+    }
+  ]
+}

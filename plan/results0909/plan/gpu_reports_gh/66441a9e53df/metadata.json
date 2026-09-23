@@ -1,0 +1,36 @@
+{
+  "signature": "66441a9e53df",
+  "program": "issue_171191_torch_compile_inductor_ignores_float64_f",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "171191",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/171191",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 171191,
+      "title": "torch.compile (Inductor) ignores float64→float32 dtype promotion in SDPA, diverging from eager semantics",
+      "url": "https://github.com/pytorch/pytorch/issues/171191",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2025-12-23"
+    }
+  ]
+}

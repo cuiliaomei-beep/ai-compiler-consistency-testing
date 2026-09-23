@@ -1,0 +1,36 @@
+{
+  "signature": "6d957df4ef4e",
+  "program": "issue_181695_torch_where_with_broadcast_shapes_produc",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "181695",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/181695",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 181695,
+      "title": "`torch.where` with broadcast shapes produces wrong output under `torch.compile(backend='inductor')`",
+      "url": "https://github.com/pytorch/pytorch/issues/181695",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-04-28"
+    }
+  ]
+}

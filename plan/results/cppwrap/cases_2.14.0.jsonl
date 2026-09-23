@@ -1,0 +1,174 @@
+{"op": "cdist p=0.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "cdist p=0.5", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "cdist p=1.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "cdist p=2.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "cdist p=3.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "cdist p=inf", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm beta=0.5 alpha=-2.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "baddbmm beta=0.5 alpha=-2.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm beta=0.0 alpha=1.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "baddbmm beta=0.0 alpha=1.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm beta=-0.0 alpha=inf", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "baddbmm beta=-0.0 alpha=inf", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm beta=nan alpha=1.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "baddbmm beta=nan alpha=1.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm beta=1e-45 alpha=1e+38", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "baddbmm beta=1e-45 alpha=1e+38", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm beta=1 alpha=3", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "baddbmm beta=1 alpha=3", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm beta=0 alpha=-0.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "baddbmm beta=0 alpha=-0.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm int64 alpha=3", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmv int64 alpha=3", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm int64 alpha=-7", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmv int64 alpha=-7", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm int64 alpha=2147483649", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmv int64 alpha=2147483649", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm int64 alpha=-1099511627776", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmv int64 alpha=-1099511627776", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmm int64 alpha=4611686018427387904", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "addmv int64 alpha=4611686018427387904", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex mul scalar (1+2j)", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex addmm alpha (1+2j)", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex full (1+2j)", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex mul scalar 0j", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex addmm alpha 0j", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex full 0j", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex mul scalar (inf+0j)", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex addmm alpha (inf+0j)", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex full (inf+0j)", "diffs": {"py_wrapper": "VALUE nan pattern nan vs 0.40334683656692505", "cpp_wrapper": "VALUE nan pattern nan vs 0.40334683656692505"}, "eager": "ok", "verdict": "BOTH"}
+{"op": "complex mul scalar nanj", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex addmm alpha nanj", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex full nanj", "diffs": {"py_wrapper": "VALUE nan pattern nan vs 1.5409960746765137", "cpp_wrapper": "VALUE nan pattern nan vs 1.5409960746765137"}, "eager": "ok", "verdict": "BOTH"}
+{"op": "complex mul scalar 2.5", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex addmm alpha 2.5", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex full 2.5", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "renorm p=2.0 maxnorm=0.001", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "renorm p=inf maxnorm=0.5", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "renorm p=1.0 maxnorm=1e+30", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "renorm p=0.5 maxnorm=1.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "histc min=-1.5 max=1.5", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "histc min=0.0 max=0.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "histc min=-0.0 max=1e-30", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "histc min=-3e+38 max=3e+38", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "pinv rtol=1e-30", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "matrix_rank tol=1e-30", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "pinv rtol=0.5", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "matrix_rank tol=0.5", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "pinv rtol=0.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "matrix_rank tol=0.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "pinv rtol=inf", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "matrix_rank tol=inf", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "lstsq rcond=None", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "lstsq rcond=1e-3 gelsd", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "multi_margin_loss p=1 margin=0.3", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "multi_margin_loss p=2 margin=1.0", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "multi_margin_loss p=1 margin=-0.5", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "multilabel_margin_loss", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "ctc_loss blank=2 zero_infinity", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa scale=None causal=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa scale=None causal=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa scale=0.37 causal=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa scale=0.37 causal=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa scale=0.0 causal=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa scale=0.0 causal=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa scale=-1.0 causal=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa scale=-1.0 causal=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa scale=10000000000.0 causal=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa scale=10000000000.0 causal=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sdpa float mask with -inf", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "bucketize right=False int32=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "searchsorted side right=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "bucketize right=True int32=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "searchsorted side right=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "searchsorted sorter", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sort desc=False stable=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sort desc=True stable=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "sort desc=True stable=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "topk smallest unsorted-free", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "kthvalue keepdim", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "mode", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "median dim nan", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "nanmedian dim", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "cummax / cummin", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "logcumsumexp", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "cumprod reverse dims", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "scatter_reduce amax include_self=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "scatter_reduce prod include_self=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "scatter_reduce mean include_self=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "scatter_reduce sum include_self=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "index_put accumulate duplicates", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "index_add alpha=-2.5", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "index_add int alpha=2**33", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "bincount minlength weights", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "repeat_interleave output_size", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "nonzero as_tuple", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "unique sorted counts", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "unique_consecutive dim", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "masked_select", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "embedding_bag sum padding_idx", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "embedding_bag mean padding_idx", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "embedding_bag max padding_idx", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "embedding_bag per_sample_weights", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "interpolate bicubic antialias=True align=False scale=None", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "interpolate bicubic antialias=True align=True scale=None", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "interpolate bicubic antialias=True align=False scale=0.6", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "interpolate bicubic antialias=False align=True scale=1.7", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "interpolate bilinear antialias", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "max_pool2d dilation ceil", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "max_pool3d", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "avg_pool3d divisor_override", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "avg_pool2d large kernel divisor", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "adaptive_max_pool2d", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "adaptive_avg_pool3d", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "max_unpool2d", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "fractional_max_pool2d samples", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "conv2d same string padding", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "conv2d groups stride list", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "conv_transpose2d output_padding", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "conv1d int64 fallback-free", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "fft n=7 norm=None", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "rfft2 irfft2 norm=None", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "fft n=7 norm=ortho", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "rfft2 irfft2 norm=ortho", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "fft n=7 norm=forward", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "rfft2 irfft2 norm=forward", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "stft", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "eigh L", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "cholesky upper=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "eigh U", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "cholesky upper=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "solve_triangular upper=True left=True unit=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "solve_triangular upper=False left=False unit=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "solve_triangular upper=True left=False unit=True", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "qr mode=reduced", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "qr mode=complete", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "qr mode=r", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "svd full_matrices=False", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "matrix_norm nuc / vector_norm inf", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "lu_factor pivot / lu_solve", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "matrix_exp / det / slogdet", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "cross / tensordot / einsum", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "tril_indices offset / triu_indices", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "polar / angle / complex abs", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "complex mm / conj / resolve", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "D returns ints and floats", "diffs": {"cpp_wrapper": "RAISES RuntimeError: Unsupported scalar_to_tensor_handle"}, "eager": "ok", "verdict": "CPP_WRAPPER_ONLY"}
+{"op": "D full with size-derived value", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "D view with floordiv / mod sizes", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "D item-derived size", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "D item float into fallback arg", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "D item int into fallback arg", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "D python float input into fallback", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "alias: returns input and view of input", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "alias: same output twice and view of output", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "alias: as_strided storage offset", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "outputs: None, scalar, zero-size, 0-dim, bool, int8", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "mutation: input add_ and returns view", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "mutation: non-contiguous input view", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "mutation: copy_ dtype change and resize-free", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "mutation: set via index_put_ / scatter_", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "inputs: non-contiguous, offset, expanded, 0-dim, empty", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "inputs: int / bool / None / list mix", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "dtypes: float16 / bfloat16 / uint8 fallback mm-free", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "device / dtype / layout kwargs", "diffs": {}, "eager": "ok", "verdict": "ok"}
+{"op": "memory_format channels_last through fallback conv", "diffs": {}, "eager": "ok", "verdict": "ok"}

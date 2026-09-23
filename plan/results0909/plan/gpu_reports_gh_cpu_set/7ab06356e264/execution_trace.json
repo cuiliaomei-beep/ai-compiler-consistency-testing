@@ -1,0 +1,192 @@
+{
+  "sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: InternalTorchDynamoError",
+    "E2_aot_eager: InternalTorchDynamoError",
+    "E3_inductor: InternalTorchDynamoError"
+  ],
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0003,
+      "alias_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "TypeError",
+      "exception_msg": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", line 104, in f\n    x1.mul_(2)\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0124,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "TypeError",
+      "exception_msg": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", line 104, in f\n    x1.mul_(2)\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.009,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "TypeError",
+      "exception_msg": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", line 104, in f\n    x1.mul_(2)\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0088,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "cache": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", line "
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", line "
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", line "
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  }
+}

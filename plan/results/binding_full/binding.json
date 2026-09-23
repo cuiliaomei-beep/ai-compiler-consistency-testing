@@ -1,0 +1,2117 @@
+{
+  "stats": {
+    "ops": 386,
+    "samples": 386,
+    "slots": 386,
+    "variants": 4090,
+    "compiles": 10651,
+    "checks": 10651,
+    "findings": 106,
+    "form_specific": 23,
+    "infra": 0,
+    "wall_s": 2453.3,
+    "crashes": 0
+  },
+  "mismatches": [
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "literal",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0):\n    return torch.var_mean(x0, True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "literal",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0):\n    return torch.var_mean(x0, True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "pos_param",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, k):\n    return torch.var_mean(x0, k)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "pos_param",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, k):\n    return torch.var_mean(x0, k)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "pos_param",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, k):\n    return torch.var_mean(x0, k)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "default_param",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, k=True):\n    return torch.var_mean(x0, k)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "default_param",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, k=True):\n    return torch.var_mean(x0, k)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "kwargs_param",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, **kw):\n    return torch.var_mean(x0, kw['k'])\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "kwargs_param",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, **kw):\n    return torch.var_mean(x0, kw['k'])\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "kwargs_param",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, **kw):\n    return torch.var_mean(x0, kw['k'])\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "closure",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0):\n        return torch.var_mean(x0, k)\n    return f\nf = make(True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "closure",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0):\n        return torch.var_mean(x0, k)\n    return f\nf = make(True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "closure",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0):\n        return torch.var_mean(x0, k)\n    return f\nf = make(True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "global",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "K = True\ndef f(x0):\n    return torch.var_mean(x0, K)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "global",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "K = True\ndef f(x0):\n    return torch.var_mean(x0, K)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "global",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "K = True\ndef f(x0):\n    return torch.var_mean(x0, K)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "attribute",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = True\ndef f(x0):\n    return torch.var_mean(x0, cfg.k)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "attribute",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = True\ndef f(x0):\n    return torch.var_mean(x0, cfg.k)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "attribute",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = True\ndef f(x0):\n    return torch.var_mean(x0, cfg.k)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "list_elem",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "ks = [True]\ndef f(x0):\n    return torch.var_mean(x0, ks[0])\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "list_elem",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "ks = [True]\ndef f(x0):\n    return torch.var_mean(x0, ks[0])\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "list_elem",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "ks = [True]\ndef f(x0):\n    return torch.var_mean(x0, ks[0])\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "dict_elem",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "d = {'k': True}\ndef f(x0):\n    return torch.var_mean(x0, d['k'])\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "dict_elem",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "d = {'k': True}\ndef f(x0):\n    return torch.var_mean(x0, d['k'])\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "dict_elem",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "d = {'k': True}\ndef f(x0):\n    return torch.var_mean(x0, d['k'])\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "kwargs_expand",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "extra = [True]\ndef f(x0):\n    return torch.var_mean(x0, *extra)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "kwargs_expand",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "extra = [True]\ndef f(x0):\n    return torch.var_mean(x0, *extra)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "var_mean",
+      "slot": "arg1",
+      "value": true,
+      "form": "kwargs_expand",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "extra = [True]\ndef f(x0):\n    return torch.var_mean(x0, *extra)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "literal",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0):\n    return torch.std_mean(x0, False)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "literal",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0):\n    return torch.std_mean(x0, False)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "pos_param",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, k):\n    return torch.std_mean(x0, k)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "pos_param",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, k):\n    return torch.std_mean(x0, k)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "pos_param",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, k):\n    return torch.std_mean(x0, k)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "default_param",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, k=False):\n    return torch.std_mean(x0, k)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "default_param",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, k=False):\n    return torch.std_mean(x0, k)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "kwargs_param",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, **kw):\n    return torch.std_mean(x0, kw['k'])\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "kwargs_param",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, **kw):\n    return torch.std_mean(x0, kw['k'])\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "kwargs_param",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def f(x0, **kw):\n    return torch.std_mean(x0, kw['k'])\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "closure",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0):\n        return torch.std_mean(x0, k)\n    return f\nf = make(False)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "closure",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0):\n        return torch.std_mean(x0, k)\n    return f\nf = make(False)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "closure",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0):\n        return torch.std_mean(x0, k)\n    return f\nf = make(False)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "global",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "K = False\ndef f(x0):\n    return torch.std_mean(x0, K)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "global",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "K = False\ndef f(x0):\n    return torch.std_mean(x0, K)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "global",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "K = False\ndef f(x0):\n    return torch.std_mean(x0, K)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "attribute",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = False\ndef f(x0):\n    return torch.std_mean(x0, cfg.k)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "attribute",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = False\ndef f(x0):\n    return torch.std_mean(x0, cfg.k)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "attribute",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = False\ndef f(x0):\n    return torch.std_mean(x0, cfg.k)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "list_elem",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "ks = [False]\ndef f(x0):\n    return torch.std_mean(x0, ks[0])\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "list_elem",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "ks = [False]\ndef f(x0):\n    return torch.std_mean(x0, ks[0])\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "list_elem",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "ks = [False]\ndef f(x0):\n    return torch.std_mean(x0, ks[0])\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "dict_elem",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "d = {'k': False}\ndef f(x0):\n    return torch.std_mean(x0, d['k'])\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "dict_elem",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "d = {'k': False}\ndef f(x0):\n    return torch.std_mean(x0, d['k'])\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "dict_elem",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "d = {'k': False}\ndef f(x0):\n    return torch.std_mean(x0, d['k'])\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "kwargs_expand",
+      "mode": "static",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "extra = [False]\ndef f(x0):\n    return torch.std_mean(x0, *extra)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "kwargs_expand",
+      "mode": "dynamic",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "extra = [False]\ndef f(x0):\n    return torch.std_mean(x0, *extra)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "std_mean",
+      "slot": "arg1",
+      "value": false,
+      "form": "kwargs_expand",
+      "mode": "rebind",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "literal_same": false,
+      "source": "extra = [False]\ndef f(x0):\n    return torch.std_mean(x0, *extra)\n",
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "native_group_norm",
+      "slot": "arg3",
+      "value": 1,
+      "form": "pos_param",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <",
+      "literal_same": false,
+      "source": "def f(x0, x1, x2, k):\n    return torch.native_group_norm(x0, x1, x2, k, 3, 1, 1, 1e-05)\n",
+      "shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "native_group_norm",
+      "slot": "arg3",
+      "value": 1,
+      "form": "kwargs_param",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <",
+      "literal_same": false,
+      "source": "def f(x0, x1, x2, **kw):\n    return torch.native_group_norm(x0, x1, x2, kw['k'], 3, 1, 1, 1e-05)\n",
+      "shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "native_group_norm",
+      "slot": "arg3",
+      "value": 1,
+      "form": "closure",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0, x1, x2):\n        return torch.native_group_norm(x0, x1, x2, k, 3, 1, 1, 1e-05)\n    return f\nf = make(1)\n",
+      "shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "native_group_norm",
+      "slot": "arg3",
+      "value": 1,
+      "form": "global",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <",
+      "literal_same": false,
+      "source": "K = 1\ndef f(x0, x1, x2):\n    return torch.native_group_norm(x0, x1, x2, K, 3, 1, 1, 1e-05)\n",
+      "shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "native_group_norm",
+      "slot": "arg3",
+      "value": 1,
+      "form": "attribute",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 1\ndef f(x0, x1, x2):\n    return torch.native_group_norm(x0, x1, x2, cfg.k, 3, 1, 1, 1e-05)\n",
+      "shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "native_group_norm",
+      "slot": "arg3",
+      "value": 1,
+      "form": "list_elem",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <",
+      "literal_same": false,
+      "source": "ks = [1]\ndef f(x0, x1, x2):\n    return torch.native_group_norm(x0, x1, x2, ks[0], 3, 1, 1, 1e-05)\n",
+      "shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "native_group_norm",
+      "slot": "arg3",
+      "value": 1,
+      "form": "dict_elem",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <",
+      "literal_same": false,
+      "source": "d = {'k': 1}\ndef f(x0, x1, x2):\n    return torch.native_group_norm(x0, x1, x2, d['k'], 3, 1, 1, 1e-05)\n",
+      "shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "native_group_norm",
+      "slot": "arg3",
+      "value": 1,
+      "form": "kwargs_expand",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <",
+      "literal_same": false,
+      "source": "extra = [1]\ndef f(x0, x1, x2):\n    return torch.native_group_norm(x0, x1, x2, *extra, 3, 1, 1, 1e-05)\n",
+      "shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "native_group_norm",
+      "slot": "arg3",
+      "value": 1,
+      "form": "tensor_item",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <",
+      "literal_same": false,
+      "source": "def f(x0, x1, x2, kt):\n    return torch.native_group_norm(x0, x1, x2, kt.item(), 3, 1, 1, 1e-05)\n",
+      "shapes": [
+        [
+          1,
+          3
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "slot": "scale_factor",
+      "value": 0.6,
+      "form": "pos_param",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.516e+01 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "def f(x0, k):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=k, mode='nearest', align_corners=None, recompute_scale_factor=False)\n",
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "slot": "scale_factor",
+      "value": 0.6,
+      "form": "kwargs_param",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.516e+01 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "def f(x0, **kw):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=kw['k'], mode='nearest', align_corners=None, recompute_scale_factor=False)\n",
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "slot": "scale_factor",
+      "value": 0.6,
+      "form": "closure",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.516e+01 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0):\n        return torch.nn.functional.interpolate(x0, size=None, scale_factor=k, mode='nearest', align_corners=None, recompute_scale_factor=False)\n    return f\nf = make(0.6)\n",
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "slot": "scale_factor",
+      "value": 0.6,
+      "form": "global",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.516e+01 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "K = 0.6\ndef f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=K, mode='nearest', align_corners=None, recompute_scale_factor=False)\n",
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "slot": "scale_factor",
+      "value": 0.6,
+      "form": "attribute",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.516e+01 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 0.6\ndef f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=cfg.k, mode='nearest', align_corners=None, recompute_scale_factor=False)\n",
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "slot": "scale_factor",
+      "value": 0.6,
+      "form": "list_elem",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.516e+01 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "ks = [0.6]\ndef f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=ks[0], mode='nearest', align_corners=None, recompute_scale_factor=False)\n",
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "slot": "scale_factor",
+      "value": 0.6,
+      "form": "dict_elem",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.516e+01 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "d = {'k': 0.6}\ndef f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=d['k'], mode='nearest', align_corners=None, recompute_scale_factor=False)\n",
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "slot": "scale_factor",
+      "value": 0.6,
+      "form": "kwargs_expand",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.516e+01 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "opts = {'scale_factor': 0.6}\ndef f(x0):\n    return torch.nn.functional.interpolate(x0, size=None, **opts, mode='nearest', align_corners=None, recompute_scale_factor=False)\n",
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "slot": "scale_factor",
+      "value": 0.6,
+      "form": "tensor_item",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.516e+01 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "def f(x0, kt):\n    return torch.nn.functional.interpolate(x0, size=None, scale_factor=kt.item(), mode='nearest', align_corners=None, recompute_scale_factor=False)\n",
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "slot": "kernel_size",
+      "value": 3,
+      "form": "pos_param",
+      "mode": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function a",
+      "literal_same": true,
+      "source": "def f(x0, k):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=k, stride=(2, 1), ceil_mode=True, padding=0, dilation=(1, 2), return_indices=True)\n",
+      "shapes": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "slot": "kernel_size",
+      "value": 3,
+      "form": "pos_param",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function a",
+      "literal_same": false,
+      "source": "def f(x0, k):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=k, stride=(2, 1), ceil_mode=True, padding=0, dilation=(1, 2), return_indices=True)\n",
+      "shapes": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "slot": "kernel_size",
+      "value": 3,
+      "form": "default_param",
+      "mode": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function a",
+      "literal_same": true,
+      "source": "def f(x0, k=3):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=k, stride=(2, 1), ceil_mode=True, padding=0, dilation=(1, 2), return_indices=True)\n",
+      "shapes": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "slot": "kernel_size",
+      "value": 3,
+      "form": "kwargs_param",
+      "mode": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function a",
+      "literal_same": true,
+      "source": "def f(x0, **kw):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=kw['k'], stride=(2, 1), ceil_mode=True, padding=0, dilation=(1, 2), return_indices=True)\n",
+      "shapes": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "slot": "kernel_size",
+      "value": 3,
+      "form": "kwargs_param",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function a",
+      "literal_same": false,
+      "source": "def f(x0, **kw):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=kw['k'], stride=(2, 1), ceil_mode=True, padding=0, dilation=(1, 2), return_indices=True)\n",
+      "shapes": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "slot": "kernel_size",
+      "value": 3,
+      "form": "closure",
+      "mode": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function a",
+      "literal_same": true,
+      "source": "def make(k):\n    def f(x0):\n        return torch.max_pool2d_with_indices_backward(x0, kernel_size=k, stride=(2, 1), ceil_mode=True, padding=0, dilation=(1, 2), return_indices=True)\n    return f\nf = make(3)\n",
+      "shapes": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "slot": "kernel_size",
+      "value": 3,
+      "form": "closure",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function a",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0):\n        return torch.max_pool2d_with_indices_backward(x0, kernel_size=k, stride=(2, 1), ceil_mode=True, padding=0, dilation=(1, 2), return_indices=True)\n    return f\nf = make(3)\n",
+      "shapes": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "slot": "kernel_size",
+      "value": 3,
+      "form": "tensor_item",
+      "mode": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function a",
+      "literal_same": true,
+      "source": "def f(x0, kt):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=kt.item(), stride=(2, 1), ceil_mode=True, padding=0, dilation=(1, 2), return_indices=True)\n",
+      "shapes": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "slot": "kernel_size",
+      "value": 3,
+      "form": "tensor_item",
+      "mode": "rebind",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally :: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function a",
+      "literal_same": false,
+      "source": "def f(x0, kt):\n    return torch.max_pool2d_with_indices_backward(x0, kernel_size=kt.item(), stride=(2, 1), ceil_mode=True, padding=0, dilation=(1, 2), return_indices=True)\n",
+      "shapes": [
+        [
+          1,
+          2,
+          3,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "resize_",
+      "slot": "arg1",
+      "value": [
+        1,
+        1,
+        1
+      ],
+      "form": "pos_param",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 8.068e-04 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "def f(x0, k):\n    return torch.resize_(x0, k)\n",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "resize_",
+      "slot": "arg1",
+      "value": [
+        1,
+        1,
+        1
+      ],
+      "form": "kwargs_param",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 8.068e+00 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "def f(x0, **kw):\n    return torch.resize_(x0, kw['k'])\n",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "resize_",
+      "slot": "arg1",
+      "value": [
+        1,
+        1,
+        1
+      ],
+      "form": "closure",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 9.068e-04 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0):\n        return torch.resize_(x0, k)\n    return f\nf = make((1, 1, 1))\n",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "resize_",
+      "slot": "arg1",
+      "value": [
+        1,
+        1,
+        1
+      ],
+      "form": "global",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 8.068e-04 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "K = (1, 1, 1)\ndef f(x0):\n    return torch.resize_(x0, K)\n",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "resize_",
+      "slot": "arg1",
+      "value": [
+        1,
+        1,
+        1
+      ],
+      "form": "attribute",
+      "mode": "rebind",
+      "detail": "[value] output[0]: compiled err vs fp64 = 3.973e+00 exceeds 4.0x eager err 0.000e+00",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = (1, 1, 1)\ndef f(x0):\n    return torch.resize_(x0, cfg.k)\n",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "pos_param",
+      "mode": "static",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, k):\n    return torch.linalg.norm(x0, k, keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "pos_param",
+      "mode": "dynamic",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, k):\n    return torch.linalg.norm(x0, k, keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "kwargs_param",
+      "mode": "static",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, **kw):\n    return torch.linalg.norm(x0, kw['k'], keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "kwargs_param",
+      "mode": "dynamic",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, **kw):\n    return torch.linalg.norm(x0, kw['k'], keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "tensor_item",
+      "mode": "static",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, kt):\n    return torch.linalg.norm(x0, kt.item(), keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "tensor_item",
+      "mode": "dynamic",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, kt):\n    return torch.linalg.norm(x0, kt.item(), keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "pos_param",
+      "mode": "static",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, k):\n    return torch.linalg.norm(x0, k, keepdim=True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "pos_param",
+      "mode": "dynamic",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, k):\n    return torch.linalg.norm(x0, k, keepdim=True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "kwargs_param",
+      "mode": "static",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, **kw):\n    return torch.linalg.norm(x0, kw['k'], keepdim=True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "kwargs_param",
+      "mode": "dynamic",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, **kw):\n    return torch.linalg.norm(x0, kw['k'], keepdim=True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "tensor_item",
+      "mode": "static",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, kt):\n    return torch.linalg.norm(x0, kt.item(), keepdim=True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": Infinity,
+      "form": "tensor_item",
+      "mode": "dynamic",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, kt):\n    return torch.linalg.norm(x0, kt.item(), keepdim=True)\n",
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": -Infinity,
+      "form": "pos_param",
+      "mode": "static",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, k):\n    return torch.linalg.norm(x0, k, keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": -Infinity,
+      "form": "pos_param",
+      "mode": "dynamic",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, k):\n    return torch.linalg.norm(x0, k, keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": -Infinity,
+      "form": "kwargs_param",
+      "mode": "static",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, **kw):\n    return torch.linalg.norm(x0, kw['k'], keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": -Infinity,
+      "form": "kwargs_param",
+      "mode": "dynamic",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, **kw):\n    return torch.linalg.norm(x0, kw['k'], keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": -Infinity,
+      "form": "tensor_item",
+      "mode": "static",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, kt):\n    return torch.linalg.norm(x0, kt.item(), keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linalg.norm",
+      "slot": "arg1",
+      "value": -Infinity,
+      "form": "tensor_item",
+      "mode": "dynamic",
+      "detail": "[exception] ref raised NameError, test returned normally",
+      "literal_same": true,
+      "source": "def f(x0, kt):\n    return torch.linalg.norm(x0, kt.item(), keepdim=True)\n",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    }
+  ],
+  "crashes": []
+}

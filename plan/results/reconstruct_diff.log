@@ -1,0 +1,38 @@
+torch 2.14.0+cpu
+DIFF ret_range_iter                       {"repr": ["<range_iterator object at 0x0000029201FCDA50>", "<range_iterator object at 0x0000029201FCDA70>"]}
+DIFF ret_enumerate                        {"type": ["enumerate", "tuple_iterator"], "repr": ["<enumerate object at 0x000002927F52CEF0>", "<tuple_iterator object at 0x00000292510A8220>"]}
+DIFF ret_zip                              {"repr": ["<zip object at 0x0000029201505D80>", "<zip object at 0x00000292018693C0>"]}
+DIFF ret_map                              {"repr": ["<map object at 0x0000029201868F00>", "<map object at 0x000002920228D440>"]}
+DIFF ret_filter                           {"repr": ["<filter object at 0x000002920116D2D0>", "<filter object at 0x0000029202155C60>"]}
+DIFF ret_reversed                         {"type": ["list_reverseiterator", "tuple_iterator"], "repr": ["<list_reverseiterator object at 0x0000029201843610>", "<tuple_iterator object at 0x00000292510A8220>"]}
+DIFF ret_list_iter_partial                {"type": ["list_iterator", "tuple_iterator"], "repr": ["<list_iterator object at 0x000002920116DFF0>", "<tuple_iterator object at 0x000002927BB60D00>"]}
+DIFF ret_tuple_iter                       {"repr": ["<tuple_iterator object at 0x00000292510A8220>", "<tuple_iterator object at 0x0000029201CDE350>"]}
+DIFF ret_dict_iter                        {"repr": ["<dict_keyiterator object at 0x000002920246E570>", "<dict_keyiterator object at 0x00000292025F7600>"]}
+DIFF ret_str_iter                         {"repr": ["<str_ascii_iterator object at 0x000002927F4EAC20>", "<str_ascii_iterator object at 0x0000029201DDBA60>"]}
+DIFF ret_genexpr                          {"send": ["callable", null], "type": ["generator", "tuple_iterator"], "close": ["callable", null], "__name__": ["'<genexpr>'", null], "gi_frame": ["<frame at 0x0000029201EFB850, file 'D:\\\\", null], "throw": ["callable", null], "repr": ["<skip>", "<tuple_iter
+DIFF ret_generator_with_return            {"gi_frame": ["<frame at 0x000002920259ABC0, file 'D:\\\\", "<frame at 0x000002920259BDC0, file 'D:\\\\"]}
+DIFF ret_itertools_chain                  {"repr": ["<itertools.chain object at 0x00000292024A3400>", "<itertools.chain object at 0x000002920260C580>"]}
+DIFF ret_itertools_islice                 {"type": ["islice", "tuple_iterator"], "repr": ["<itertools.islice object at 0x00000292026046D0>", "<tuple_iterator object at 0x00000292510A8220>"]}
+DIFF ret_itertools_accumulate             {"repr": ["<itertools.accumulate object at 0x00000292026F8590>", "<itertools.accumulate object at 0x0000029202607830>"]}
+DIFF ret_itertools_product                {"repr": ["<itertools.product object at 0x00000292018F78C0>", "<itertools.product object at 0x000002920259FD80>"]}
+DIFF ret_itertools_cycle_islice           {"type": ["islice", "tuple_iterator"], "repr": ["<itertools.islice object at 0x00000292026049A0>", "<tuple_iterator object at 0x00000292510A8220>"]}
+DIFF ret_itertools_groupby                {"repr": ["<itertools.groupby object at 0x000002920185EE00>", "<itertools.groupby object at 0x000002927F658B20>"]}
+DIFF ret_itertools_tee                    {"type": ["_tee", "tuple_iterator"], "repr": ["<itertools._tee object at 0x00000292018F78C0>", "<tuple_iterator object at 0x00000292510A8220>"]}
+DIFF ret_itertools_zip_longest            {"repr": ["<itertools.zip_longest object at 0x0000029202660EF0>", "<itertools.zip_longest object at 0x00000292025F7600>"]}
+DIFF ret_nested_def                       {"repr": ["<function ret_nested_def.<locals>.inner at 0x0000029202283ED", "<function ret_nested_def.<locals>.inner at 0x000002920250748"]}
+DIFF ret_builtin_method_of_list           {"repr": ["<built-in method append of list object at 0x0000029202642F80", "<built-in method append of list object at 0x000002920267DBC0"]}
+DIFF ret_torch_size_iter                  {"repr": ["<tuple_iterator object at 0x00000292510A8220>", "<tuple_iterator object at 0x0000029201CDE350>"]}
+DIFF ret_tensor_iter                      {"repr": ["<tuple_iterator object at 0x0000029201CDE350>", "<tuple_iterator object at 0x00000292510A8220>"]}
+DIFF ret_module_children                  {"send": ["callable", null], "type": ["generator", "tuple_iterator"], "close": ["callable", null], "__name__": ["'children'", null], "gi_frame": ["<frame at 0x0000029202813760, file 'C:\\\\", null], "throw": ["callable", null], "repr": ["<skip>", "<tuple_itera
+DIFF ret_property_object                  {"repr": ["<property object at 0x00000292026351C0>", "<property object at 0x0000029202CD8F40>"]}
+DIFF ret_weakref                          {"repr": ["<weakref at 0x0000029202951CB0; to 'Holder' at 0x00000292029", "<weakref at 0x0000029202C0B380; to 'Holder' at 0x00000292029"]}
+DIFF ret_memoryview                       {"repr": ["<memory at 0x00000292028E8AC0>", "<memory at 0x00000292028E9240>"]}
+DIFF ret_random_instance                  {"repr": ["<random.Random object at 0x000002927A94F320>", "<random.Random object at 0x0000029200B5D810>"]}
+DIFF ret_contextmanager_obj               {"repr": ["<torch.autograd.grad_mode.no_grad object at 0x000002920294C9", "<torch.autograd.grad_mode.no_grad object at 0x0000029202288A"]}
+DIFF ret_sorted_iter                      {"repr": ["<list_iterator object at 0x000002927F8F27D0>", "<list_iterator object at 0x000002920285CFD0>"]}
+DIFF ret_list_reverseiter                 {"repr": ["<list_reverseiterator object at 0x0000029202A7A2C0>", "<list_reverseiterator object at 0x0000029201DDA0E0>"]}
+DIFF ret_dict_reverse                     {"repr": ["<dict_reversekeyiterator object at 0x0000029202C0B380>", "<dict_reversekeyiterator object at 0x00000292027FD7B0>"]}
+DIFF ret_enumerate_of_iter                {"repr": ["<enumerate object at 0x000002920287F6F0>", "<enumerate object at 0x0000029202C35C60>"]}
+DIFF ret_exhausted_iter                   {"repr": ["<list_iterator object at 0x000002920276D360>", "<list_iterator object at 0x000002920285CFD0>"]}
+DIFF ret_generator_partially_consumed     {"send": ["callable", null], "type": ["generator", "tuple_iterator"], "close": ["callable", null], "__name__": ["'g'", null], "gi_frame": ["<frame at 0x000002920259BE80, file 'D:\\\\", null], "throw": ["callable", null], "repr": ["<skip>", "<tuple_iterator obj
+DONE: 36/79 cases differ

@@ -1,0 +1,166 @@
+{
+  "sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0165,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0168,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "cache": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 1.788e-07",
+          "magnitude": 1.0000001788139343,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              8
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 1.0000000596046448,
+            "max_rel_error": 4.49524491360892,
+            "n_mismatch": 8,
+            "n_total": 8,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "-3.853170156",
+            "first_mismatch_actual": "-2.853170156",
+            "expected_preview": "[-3.853170156, 1.944055676, -1.13303566, 3.25309515, 0.8078030944, 0.2224572897, 0.958989799, 3.732162952]",
+            "actual_preview": "[-2.853170156, 2.944055557, -0.1330356598, 4.25309515, 1.807803154, 1.22245729, 1.958989859, 4.732162952]",
+            "eager_err_vs_fp64": 1.7881393432617188e-07,
+            "compiled_err_vs_fp64": 1.0000001788139343,
+            "budget": 1.8373347074884805e-06,
+            "noise_floor": 1.8373347074884805e-06
+          }
+        }
+      ]
+    }
+  }
+}

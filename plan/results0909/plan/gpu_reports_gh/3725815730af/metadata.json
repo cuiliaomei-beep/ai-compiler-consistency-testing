@@ -1,0 +1,36 @@
+{
+  "signature": "3725815730af",
+  "program": "issue_176310_inductor_cudagraph_trees_breaks_with_par",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "176310",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/176310",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 176310,
+      "title": "[inductor] cudagraph trees breaks with partitioned graphs with nested inputs",
+      "url": "https://github.com/pytorch/pytorch/issues/176310",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-03-03"
+    }
+  ]
+}

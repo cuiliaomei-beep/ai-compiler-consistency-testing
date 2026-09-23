@@ -1,0 +1,67 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 9.1 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+===== norm_eps_stale_min.py
+torch 2.14.0+cpu cpu | FX_GRAPH_CACHE = default | AUTOGRAD_CACHE = default
+   s=0.9   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.9
+   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5
+   s=0.25  max |eager - compiled| = 0.2175   compiled result matches eps computed from s=0.5
+   s=0.75  max |eager - compiled| = 0.1415   compiled result matches eps computed from s=0.5
+   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5
+   s=2.0   max |eager - compiled| = 0.3483   compiled result matches eps computed from s=0.5
+===== layer_norm_eps_stale2.py
+torch 2.14.0+cpu FX_GRAPH_CACHE default AUTOGRAD_CACHE default
+   layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  aot_eager 
+!! layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  inductor  s=0.25: max err 0.159; s=0.75: max err 0.091; s=2.0: max err 0.258
+   layer_norm(x, eps=abs(s) + 1e-3)                           aot_eager 
+   layer_norm(x, eps=abs(s) + 1e-3)                           inductor  
+   layer_norm(x, eps=s + 1e-3)                                aot_eager 
+   layer_norm(x, eps=s + 1e-3)                                inductor  
+   layer_norm(x * s, eps=s)                                   aot_eager 
+   layer_norm(x * s, eps=s)                                   inductor  
+   layer_norm(x * (1 + s), eps=1e-3)                          aot_eager 
+   layer_norm(x * (1 + s), eps=1e-3)                          inductor  
+   group_norm(x * s, 2, eps=s + 1e-3)                         aot_eager 
+!! group_norm(x * s, 2, eps=s + 1e-3)                         inductor  s=0.25: max err 0.107; s=0.75: max err 0.077; s=2.0: max err 0.225
+   rms_norm(x * s, eps=s + 1e-3)                              aot_eager 
+!! rms_norm(x * s, eps=s + 1e-3)                              inductor  s=0.25: max err 0.218; s=0.75: max err 0.141; s=2.0: max err 0.348
+   batch_norm(x * s, train, eps=s + 1e-3)                     aot_eager 
+!! batch_norm(x * s, train, eps=s + 1e-3)                     inductor  s=0.25: max err 0.177; s=0.75: max err 0.125; s=2.0: max err 0.341
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.4/199.4 MB 8.8 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.
+===== norm_eps_stale_min.py
+torch 2.15.0.dev20260921+cpu cpu | FX_GRAPH_CACHE = default | AUTOGRAD_CACHE = default
+   s=0.9   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.9
+   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5
+   s=0.25  max |eager - compiled| = 0.2175   compiled result matches eps computed from s=0.5
+   s=0.75  max |eager - compiled| = 0.1415   compiled result matches eps computed from s=0.5
+   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5
+   s=2.0   max |eager - compiled| = 0.3483   compiled result matches eps computed from s=0.5
+===== layer_norm_eps_stale2.py
+torch 2.15.0.dev20260921+cpu FX_GRAPH_CACHE default AUTOGRAD_CACHE default
+   layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  aot_eager 
+!! layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  inductor  s=0.25: max err 0.159; s=0.75: max err 0.091; s=2.0: max err 0.258
+   layer_norm(x, eps=abs(s) + 1e-3)                           aot_eager 
+   layer_norm(x, eps=abs(s) + 1e-3)                           inductor  
+   layer_norm(x, eps=s + 1e-3)                                aot_eager 
+   layer_norm(x, eps=s + 1e-3)                                inductor  
+   layer_norm(x * s, eps=s)                                   aot_eager 
+   layer_norm(x * s, eps=s)                                   inductor  
+   layer_norm(x * (1 + s), eps=1e-3)                          aot_eager 
+   layer_norm(x * (1 + s), eps=1e-3)                          inductor  
+   group_norm(x * s, 2, eps=s + 1e-3)                         aot_eager 
+!! group_norm(x * s, 2, eps=s + 1e-3)                         inductor  s=0.25: max err 0.107; s=0.75: max err 0.077; s=2.0: max err 0.225
+   rms_norm(x * s, eps=s + 1e-3)                              aot_eager 
+!! rms_norm(x * s, eps=s + 1e-3)                              inductor  s=0.25: max err 0.218; s=0.75: max err 0.141; s=2.0: max err 0.348
+   batch_norm(x * s, train, eps=s + 1e-3)                     aot_eager 
+!! batch_norm(x * s, train, eps=s + 1e-3)                     inductor  s=0.25: max err 0.177; s=0.75: max err 0.125; s=2.0: max err 0.341
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 280047 bytes to __results__.html

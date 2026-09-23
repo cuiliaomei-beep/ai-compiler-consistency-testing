@@ -1,0 +1,57 @@
+{
+  "factor_changed": "substitute",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "mode=sum",
+    "factors": {
+      "substitute": {
+        "arg": 1,
+        "value": "sum"
+      }
+    },
+    "warm": true,
+    "origin": "mode"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "string_mode",
+    "factor": "mode",
+    "kind": "flag",
+    "values": [
+      "sum",
+      "not:sum"
+    ],
+    "constraint": "T/F both paths",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "exception"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "parameter steers control flow",
+    "param": "mode",
+    "dim": null
+  },
+  "triage": {
+    "stage": "none",
+    "stage_label": "no divergence",
+    "priority": "info",
+    "rationale": "'substitute' changed without a recompile and the result matched; guards may be under-specified (informational)",
+    "kinds": [],
+    "recompiled": false,
+    "guard_suspicious": true,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": false
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "signature": "aa92cf17a769",
+  "program": "issue_192905_nested_nested_compile_region_silently_re",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.824e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 2.8239278250259474,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              8
+            ],
+            "dtype": "torch.float64",
+            "max_abs_error": 2.8239278250259474,
+            "max_rel_error": 0.8026204006585921,
+            "n_mismatch": 8,
+            "n_total": 8,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "4.159473004",
+            "first_mismatch_actual": "1.335545179",
+            "expected_preview": "[4.159473004, 6.823720143, 5.985643284, 3.458904396, 6.761127401, 5.949883685, 6.271789155, 5.72331494]",
+            "actual_preview": "[1.335545179, 6.660611115, 3.971388893, 0.6827171638, 7.374458859, 3.900992859, 4.586863626, 3.48050741]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 2.8239278250259474,
+            "budget": 1e-08,
+            "noise_floor": 1e-08
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.824e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 2.8239278250259474,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              8
+            ],
+            "dtype": "torch.float64",
+            "max_abs_error": 2.8239278250259474,
+            "max_rel_error": 0.8026204006585921,
+            "n_mismatch": 8,
+            "n_total": 8,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "4.159473004",
+            "first_mismatch_actual": "1.335545179",
+            "expected_preview": "[4.159473004, 6.823720143, 5.985643284, 3.458904396, 6.761127401, 5.949883685, 6.271789155, 5.72331494]",
+            "actual_preview": "[1.335545179, 6.660611115, 3.971388893, 0.6827171638, 7.374458859, 3.900992859, 4.586863626, 3.48050741]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 2.8239278250259474,
+            "budget": 1e-08,
+            "noise_floor": 1e-08
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.824e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 2.8239278250259474,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              8
+            ],
+            "dtype": "torch.float64",
+            "max_abs_error": 2.8239278250259474,
+            "max_rel_error": 0.8026204006585921,
+            "n_mismatch": 8,
+            "n_total": 8,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "4.159473004",
+            "first_mismatch_actual": "1.335545179",
+            "expected_preview": "[4.159473004, 6.823720143, 5.985643284, 3.458904396, 6.761127401, 5.949883685, 6.271789155, 5.72331494]",
+            "actual_preview": "[1.335545179, 6.660611115, 3.971388893, 0.6827171638, 7.374458859, 3.900992859, 4.586863626, 3.48050741]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 2.8239278250259474,
+            "budget": 1e-08,
+            "noise_floor": 1e-08
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.088,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0805,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 4.0602,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "loaded from reproducers_gh\\issue_192905_nested_nested_compile_region_silently_re.py\nNested nested_compile_region silently reuses a body specialized on the inner region's guards\nhttps://github.com/pytorch/pytorch/issues/192905\ncompile options in the issue: {'backend': 'aot_eager', 'fullgraph': True}",
+  "minimized": null,
+  "duplicates": {
+    "query": "Nested nested_compile_region silently reuses body specialized inner region",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "192905",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/192905",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 192905,
+        "title": "Nested nested_compile_region silently reuses a body specialized on the inner region's guards",
+        "url": "https://github.com/pytorch/pytorch/issues/192905",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-11"
+      },
+      {
+        "number": 192631,
+        "title": "[dynamo] Parameterize invoke_subgraph reuse over a subscript index",
+        "url": "https://github.com/pytorch/pytorch/pull/192631",
+        "state": "open",
+        "is_pr": true,
+        "created": "2026-08-09"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

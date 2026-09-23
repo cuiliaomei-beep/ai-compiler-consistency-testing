@@ -1,0 +1,316 @@
+{
+  "signature": "0eb496039e02",
+  "program": "issue_172711_torch_compile_produces_wrong_output_chan",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "compile.dynamic=True",
+    "factors": {
+      "compile": {
+        "dynamic": true
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "factor_changed": "compile",
+  "controlled": {},
+  "obligation": {
+    "site": "forward",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised AssertionError, ref returned normally",
+          "evidence": {
+            "exception": "AssertionError",
+            "message": "expected size 4==4, stride 8192==3072 at dim=0; expected size 8==3, stride 1==1 at dim=1; expected size 32==32, stride 256==96 at dim=2; expected size 32==32, stride 8==3 at dim=3\nError in op: torch._"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0009,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            8,
+            32,
+            32
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            8192,
+            1024,
+            32,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.145,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            8,
+            32,
+            32
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            8192,
+            1024,
+            32,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.3843,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            8,
+            32,
+            32
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            8192,
+            1024,
+            32,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "AssertionError",
+      "exception_inner": "AssertionError",
+      "exception_msg": "expected size 4==4, stride 8192==3072 at dim=0; expected size 8==3, stride 1==1 at dim=1; expected size 32==32, stride 256==96 at dim=2; expected size 32==32, stride 8==3 at dim=3\nError in op: torch._inductor.fx_passes.functools.partial(<function _register_unary_fusion_lowering.<locals>.fn at 0x79a8901584a0>, Match(..., [primals_3, primals_1, primals_2, [1, 1], [1, 1], [2, 2], [1, 1], 1, 'none', [], ''], {}))\nThis error most often comes from a incorrect fake (aka meta) kernel for a custom op.\nUse torch.library.opcheck to test your custom op.\nSee https://pytorch.org/docs/stable/library.html#tor",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.2302,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": false,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cpu",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh/issue_172711_torch_compile_produces_wrong_output_chan.py\ntorch.compile produces wrong output channels for mkldnn._convolution_transpose_pointwise (FakeTensor shape inference bug)\nhttps://github.com/pytorch/pytorch/issues/172711\ncompile options in the issue: {'fullgraph': True}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 16,
+    "steps_kept": 8,
+    "original_lines": 20,
+    "final_lines": 20,
+    "original_numel": 3072,
+    "final_numel": 96,
+    "input_recipe": "torch.randn(1, 3, 2, 16),",
+    "log": [
+      "kept: halve dim 0",
+      "kept: halve dim 2",
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags",
+      "kept: halve dim 0",
+      "kept: halve dim 2",
+      "kept: halve dim 2"
+    ],
+    "source": "def forward(self, x):\n        # Schema: mkldnn::_convolution_transpose_pointwise(X, W, B, padding, output_padding, stride, dilation, groups, attr, scalars, algorithm)\n        y = torch.ops.mkldnn._convolution_transpose_pointwise.default(\n            x,\n            self.weight,\n            self.bias,\n            [1, 1],      # padding\n            [1, 1],      # output_padding\n            [2, 2],      # stride\n            [1, 1],      # dilation\n            1,           # groups\n            \"none\",      # attr\n            [],          # scalars\n            \"\"           # algorithm\n        )\n        # Post-ops to prevent trivial elimination\n        y = torch.add(y, 3)\n        y = torch.clamp_min(y, 0)\n        y = torch.clamp_max(y, 6)\n        return torch.div(y, 6)"
+  },
+  "duplicates": {
+    "query": "",
+    "searched": false,
+    "error": null,
+    "candidates": [
+      {
+        "number": "172711",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/172711",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      }
+    ]
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: AssertionError"
+  ],
+  "status": "Generated",
+  "fault": null
+}

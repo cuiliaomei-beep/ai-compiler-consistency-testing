@@ -1,0 +1,68 @@
+[{"stream_name":"stdout","time":6.588087685,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 9.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":43.714191484,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":43.714256306,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":43.714262745,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":43.867692785,"data":"===== norm_eps_stale_min.py\n"}
+,{"stream_name":"stdout","time":68.136700265,"data":"torch 2.14.0+cpu cpu | FX_GRAPH_CACHE = default | AUTOGRAD_CACHE = default\n"}
+,{"stream_name":"stdout","time":68.136752537,"data":"   s=0.9   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.9\n"}
+,{"stream_name":"stdout","time":68.136760252,"data":"   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5\n"}
+,{"stream_name":"stdout","time":68.13676623,"data":"   s=0.25  max |eager - compiled| = 0.2175   compiled result matches eps computed from s=0.5\n"}
+,{"stream_name":"stdout","time":68.136772093,"data":"   s=0.75  max |eager - compiled| = 0.1415   compiled result matches eps computed from s=0.5\n"}
+,{"stream_name":"stdout","time":68.136777823,"data":"   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5\n"}
+,{"stream_name":"stdout","time":68.136783823,"data":"   s=2.0   max |eager - compiled| = 0.3483   compiled result matches eps computed from s=0.5\n"}
+,{"stream_name":"stdout","time":69.246120539,"data":"===== layer_norm_eps_stale2.py\n"}
+,{"stream_name":"stdout","time":107.82978417,"data":"torch 2.14.0+cpu FX_GRAPH_CACHE default AUTOGRAD_CACHE default\n"}
+,{"stream_name":"stdout","time":107.829833325,"data":"   layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  aot_eager \n"}
+,{"stream_name":"stdout","time":107.829841455,"data":"!! layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  inductor  s=0.25: max err 0.159; s=0.75: max err 0.091; s=2.0: max err 0.258\n"}
+,{"stream_name":"stdout","time":107.829847928,"data":"   layer_norm(x, eps=abs(s) + 1e-3)                           aot_eager \n"}
+,{"stream_name":"stdout","time":107.829853449,"data":"   layer_norm(x, eps=abs(s) + 1e-3)                           inductor  \n"}
+,{"stream_name":"stdout","time":107.829859687,"data":"   layer_norm(x, eps=s + 1e-3)                                aot_eager \n"}
+,{"stream_name":"stdout","time":107.829864899,"data":"   layer_norm(x, eps=s + 1e-3)                                inductor  \n"}
+,{"stream_name":"stdout","time":107.829870084,"data":"   layer_norm(x * s, eps=s)                                   aot_eager \n"}
+,{"stream_name":"stdout","time":107.829875333,"data":"   layer_norm(x * s, eps=s)                                   inductor  \n"}
+,{"stream_name":"stdout","time":107.829880703,"data":"   layer_norm(x * (1 + s), eps=1e-3)                          aot_eager \n"}
+,{"stream_name":"stdout","time":107.829886157,"data":"   layer_norm(x * (1 + s), eps=1e-3)                          inductor  \n"}
+,{"stream_name":"stdout","time":107.829891727,"data":"   group_norm(x * s, 2, eps=s + 1e-3)                         aot_eager \n"}
+,{"stream_name":"stdout","time":107.829897758,"data":"!! group_norm(x * s, 2, eps=s + 1e-3)                         inductor  s=0.25: max err 0.107; s=0.75: max err 0.077; s=2.0: max err 0.225\n"}
+,{"stream_name":"stdout","time":107.829920024,"data":"   rms_norm(x * s, eps=s + 1e-3)                              aot_eager \n"}
+,{"stream_name":"stdout","time":107.829924967,"data":"!! rms_norm(x * s, eps=s + 1e-3)                              inductor  s=0.25: max err 0.218; s=0.75: max err 0.141; s=2.0: max err 0.348\n"}
+,{"stream_name":"stdout","time":107.829929637,"data":"   batch_norm(x * s, train, eps=s + 1e-3)                     aot_eager \n"}
+,{"stream_name":"stdout","time":107.829934144,"data":"!! batch_norm(x * s, train, eps=s + 1e-3)                     inductor  s=0.25: max err 0.177; s=0.75: max err 0.125; s=2.0: max err 0.341\n"}
+,{"stream_name":"stdout","time":116.269856499,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.4/199.4 MB 8.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":142.229932037,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":142.229973597,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":142.22997913,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":142.409020516,"data":"===== norm_eps_stale_min.py\n"}
+,{"stream_name":"stdout","time":160.808653823,"data":"torch 2.15.0.dev20260921+cpu cpu | FX_GRAPH_CACHE = default | AUTOGRAD_CACHE = default\n"}
+,{"stream_name":"stdout","time":160.808693226,"data":"   s=0.9   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.9\n"}
+,{"stream_name":"stdout","time":160.808698517,"data":"   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5\n"}
+,{"stream_name":"stdout","time":160.808704168,"data":"   s=0.25  max |eager - compiled| = 0.2175   compiled result matches eps computed from s=0.5\n"}
+,{"stream_name":"stdout","time":160.808710135,"data":"   s=0.75  max |eager - compiled| = 0.1415   compiled result matches eps computed from s=0.5\n"}
+,{"stream_name":"stdout","time":160.80871583,"data":"   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5\n"}
+,{"stream_name":"stdout","time":160.80872161,"data":"   s=2.0   max |eager - compiled| = 0.3483   compiled result matches eps computed from s=0.5\n"}
+,{"stream_name":"stdout","time":161.87351302,"data":"===== layer_norm_eps_stale2.py\n"}
+,{"stream_name":"stdout","time":199.932784609,"data":"torch 2.15.0.dev20260921+cpu FX_GRAPH_CACHE default AUTOGRAD_CACHE default\n"}
+,{"stream_name":"stdout","time":199.932834645,"data":"   layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  aot_eager \n"}
+,{"stream_name":"stdout","time":199.932842722,"data":"!! layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  inductor  s=0.25: max err 0.159; s=0.75: max err 0.091; s=2.0: max err 0.258\n"}
+,{"stream_name":"stdout","time":199.932849322,"data":"   layer_norm(x, eps=abs(s) + 1e-3)                           aot_eager \n"}
+,{"stream_name":"stdout","time":199.932855844,"data":"   layer_norm(x, eps=abs(s) + 1e-3)                           inductor  \n"}
+,{"stream_name":"stdout","time":199.932861719,"data":"   layer_norm(x, eps=s + 1e-3)                                aot_eager \n"}
+,{"stream_name":"stdout","time":199.932867663,"data":"   layer_norm(x, eps=s + 1e-3)                                inductor  \n"}
+,{"stream_name":"stdout","time":199.932873411,"data":"   layer_norm(x * s, eps=s)                                   aot_eager \n"}
+,{"stream_name":"stdout","time":199.932905518,"data":"   layer_norm(x * s, eps=s)                                   inductor  \n"}
+,{"stream_name":"stdout","time":199.932911053,"data":"   layer_norm(x * (1 + s), eps=1e-3)                          aot_eager \n"}
+,{"stream_name":"stdout","time":199.932915673,"data":"   layer_norm(x * (1 + s), eps=1e-3)                          inductor  \n"}
+,{"stream_name":"stdout","time":199.932945149,"data":"   group_norm(x * s, 2, eps=s + 1e-3)                         aot_eager \n"}
+,{"stream_name":"stdout","time":199.932950866,"data":"!! group_norm(x * s, 2, eps=s + 1e-3)                         inductor  s=0.25: max err 0.107; s=0.75: max err 0.077; s=2.0: max err 0.225\n"}
+,{"stream_name":"stdout","time":199.932956178,"data":"   rms_norm(x * s, eps=s + 1e-3)                              aot_eager \n"}
+,{"stream_name":"stdout","time":199.932961033,"data":"!! rms_norm(x * s, eps=s + 1e-3)                              inductor  s=0.25: max err 0.218; s=0.75: max err 0.141; s=2.0: max err 0.348\n"}
+,{"stream_name":"stdout","time":199.932966215,"data":"   batch_norm(x * s, train, eps=s + 1e-3)                     aot_eager \n"}
+,{"stream_name":"stdout","time":199.932971212,"data":"!! batch_norm(x * s, train, eps=s + 1e-3)                     inductor  s=0.25: max err 0.177; s=0.75: max err 0.125; s=2.0: max err 0.341\n"}
+,{"stream_name":"stdout","time":201.305428984,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":204.10429388,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":204.104332703,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":204.415579209,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":204.415611332,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":205.175102636,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":206.815836386,"data":"[NbConvertApp] Writing 280047 bytes to __results__.html\n"}
+]

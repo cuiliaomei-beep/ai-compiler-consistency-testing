@@ -1,0 +1,349 @@
+cpu widths: 128,256
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+/bin/sh: 1: clang++: not found
+W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu jammy InRelease' does not seem to provide it (sources.list entry misspelt?)
+Ubuntu clang version 14.0.0-1ubuntu1.1
+===== gcc
+104332 functions in 87 translation units
+built algebra_O0 (-O0) in 190s
+built algebra_O1 (-O1) in 213s
+built algebra_O2 (-O2) in 268s
+built algebra_O3 (-O3) in 276s
+104332 functions; differing vs O0: {('O1', 'nan-bits'): 1316, ('O1', 'value'): 48, ('O2', 'nan-bits'): 1316, ('O2', 'value'): 48, ('O3', 'nan-bits'): 1316, ('O3', 'value'): 48}
+===== clang
+104332 functions in 87 translation units
+built algebra_O0 (-O0) in 166s
+built algebra_O1 (-O1) in 202s
+built algebra_O2 (-O2) in 207s
+built algebra_O3 (-O3) in 204s
+104332 functions; differing vs O0: {('O1', 'nan-bits'): 2468, ('O1', 'value'): 128, ('O2', 'nan-bits'): 2468, ('O2', 'value'): 128, ('O3', 'nan-bits'): 2468, ('O3', 'value'): 128}
+===== report
+== gcc: 4092 differing (function, config) pairs
+[nan-bits] O1: 128:_mm_mul_ps(x, _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_sqrt_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000c0ff0000807f0000c07f', 'opt': '0000803f0000c0ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_set1_ps(-0.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_sqrt_ps(x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': '0000008000000000000080bf0000c0ff', 'opt': '0000008000000000000080bf0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_andnot_ps(_mm_set1_ps(-0.0f), x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_sub_ps(_mm_setzero_ps(), x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_floor_ps(x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_ceil_ps(x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_round_ps(x, _MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x1b), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000807f000080ff0000803f', 'opt': '0000c0ff0000807f000080ff0000803f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x39), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff0000807f0000c07f0000803f', 'opt': '000080ff0000807f0000c0ff0000803f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x93), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000803f000080ff0000807f', 'opt': '0000c0ff0000803f000080ff0000807f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x4e), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000c07f0000803f000080ff', 'opt': '0000807f0000c0ff0000803f000080ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_movehdup_ps(x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff000080ff0000c07f0000c07f', 'opt': '000080ff000080ff0000c0ff0000c0ff'}
+[nan-bits] O1: 128:_mm_floor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_ceil_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_round_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x1b)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000807f000080ff0000803f', 'opt': '0000c0ff0000807f000080ff0000803f'}
+[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x39)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff0000807f0000c07f0000803f', 'opt': '000080ff0000807f0000c0ff0000803f'}
+[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x93)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000803f000080ff0000807f', 'opt': '0000c0ff0000803f000080ff0000807f'}
+[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x4e)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000c07f0000803f000080ff', 'opt': '0000807f0000c0ff0000803f000080ff'}
+[nan-bits] O1: 128:_mm_movehdup_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff000080ff0000c07f0000c07f', 'opt': '000080ff000080ff0000c0ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_set1_ps(-1.0f)), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_add_ps(x, _mm_sqrt_ps(y))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_add_ps(_mm_sqrt_ps(x), _mm_sqrt_ps(y))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000c0ff0000807f0000c0ff0000c0ff', 'opt': '0000c0ff0000807f0000c0ff0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(x, _mm_sqrt_ps(y))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000800000c0ff000080ff0000c07f', 'opt': '000000800000c0ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_sqrt_ps(x), _mm_sqrt_ps(y))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000c0ff0000c0ff0000c0ff0000c0ff', 'opt': '0000c0ff0000c0ff0000c0ff0000c07f'}
+[nan-bits] O1: 128:_mm_add_ps(x, _mm_xor_ps(y, _mm_set1_ps(-0.0f)))
+      {'input': 'in lane=0 r1=3 r2=3', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000000000000c0ff0000c0ff0000c07f', 'opt': '000000000000c0ff0000c0ff0000c0ff'}
+[nan-bits] O1: 128:_mm_add_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000000000c0ff0000c0ff0000c0ff', 'opt': '000000000000c0ff0000c0ff0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(x, _mm_xor_ps(y, _mm_set1_ps(-0.0f)))
+      {'input': 'in lane=0 r1=3 r2=3', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c0ff', 'opt': '000080bf000080ff000080ff0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_add_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_add_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_sub_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_sub_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_sub_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000040000080ff0000807f0000c07f', 'opt': '00000040000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c07f0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c0ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c0ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_div_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': '0000c0ff0000c0ff000080bf000080bf', 'opt': '0000c07f0000c07f000080bf000080bf'}
+[nan-bits] O1: 128:_mm_div_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000807f0000807f0000c07f', 'opt': '0000807f0000807f0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_div_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000807f0000807f0000c07f', 'opt': '0000807f0000807f0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_div_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000c0ff0000c0ff0000c07f', 'opt': '000080bf0000c0ff0000c0ff0000c0ff'}
+[nan-bits] O1: 128:_mm_div_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000c0ff0000c0ff0000c07f', 'opt': '000080bf0000c0ff0000c0ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_min_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000000000807f0000c07f', 'opt': '0000803f000000000000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_min_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000000000080ff0000803f0000c07f', 'opt': '00000000000080ff0000803f0000c0ff'}
+[nan-bits] O1: 128:_mm_min_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000080000080ff000080bf0000c07f', 'opt': '00000080000080ff000080bf0000c0ff'}
+[nan-bits] O1: 128:_mm_min_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_max_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000080000080ff000080bf0000c07f', 'opt': '00000080000080ff000080bf0000c0ff'}
+[nan-bits] O1: 128:_mm_max_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000800000807f0000c07f', 'opt': '0000803f000000800000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_max_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000000000807f0000c07f', 'opt': '0000803f000000000000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_max_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000807f0000807f0000c07f', 'opt': '0000803f0000807f0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_and_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=3', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[value] O1: 128:_mm_and_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000800000803f0000803f', 'opt': '00000000000000800000803f000080bf'}
+[value] O1: 128:_mm_and_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000000000000800000803f0000803f', 'opt': '00000000000000800000803f000080bf'}
+[value] O1: 128:_mm_and_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '00000080000000000000803f00000000', 'opt': '0000008000000000000080bf00000000'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_or_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f0000807f0000807f0000c0ff', 'opt': '0000803f0000807f0000807f0000c07f'}
+[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=1', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000000800000803f000080bf0000807f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_or_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '000080ff000080ff0000c07f010080bf', 'opt': '000080ff000080ff0000c0ff010080bf'}
+[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_or_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=5', 'x': '00000000000000800000803f000080bf', 'y': '000080ff0000c07f0100000001000080', 'ref': '0000807f0000c0ff010080bf010080bf', 'opt': '0000807f0000c07f010080bf010080bf'}
+[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000807f00000040000040c0', 'opt': '0000803f0000807f0000004000004040'}
+[value] O1: 128:_mm_xor_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f0000807f00000040000040c0', 'opt': '0000803f0000807f0000004000004040'}
+[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000000c000004040', 'opt': '000080bf000080ff000000c0000040c0'}
+[value] O1: 128:_mm_xor_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000080000000800000008000000000', 'opt': '00000080000000800000008000000080'}
+[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000080000000800000008000000000', 'opt': '00000080000000800000008000000080'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_andnot_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=5', 'x': '00000000000000800000803f000080bf', 'y': '000080ff0000c07f0100000001000080', 'ref': '0000807f0000c07f0100008001000080', 'opt': '0000807f0000c0ff0100008001000080'}
+[value] O1: 128:_mm_andnot_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000000000000000000080', 'opt': '00000000000000000000000000000000'}
+[value] O1: 128:_mm_andnot_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '000080ff0000807f0000404001000000', 'opt': '000080ff0000807f000040c001000000'}
+[value] O1: 128:_mm_andnot_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000004000004040', 'opt': '0000803f000080ff00000040000040c0'}
+[value] O1: 128:_mm_andnot_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000800000000000000000', 'opt': '00000000000000800000000000000080'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_EQ_OQ), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': 'ffffffffffffffffffffffffffffffff', 'opt': 'ffffff7fffffff7fffffff7fffffff7f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_LT_OS), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=1', 'x': '00000000000000800000803f000080bf', 'y': '000000800000803f000080bf0000807f', 'ref': '00000080ffffffff00000080ffffffff', 'opt': '00000080ffffff7f00000080ffffff7f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_LE_OS), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': 'ffffffffffffffffffffffffffffffff', 'opt': 'ffffff7fffffff7fffffff7fffffff7f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_NEQ_UQ), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=1', 'x': '00000000000000800000803f000080bf', 'y': '000000800000803f000080bf0000807f', 'ref': '00000080ffffffffffffffffffffffff', 'opt': '00000080ffffff7fffffff7fffffff7f'}
+== clang: 7788 differing (function, config) pairs
+[nan-bits] O1: 128:_mm_mul_ps(x, _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_sqrt_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000c0ff0000807f0000c07f', 'opt': '0000803f0000c0ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_set1_ps(-0.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}
+[nan-bits] O1: 128:_mm_sub_ps(_mm_setzero_ps(), _mm_xor_ps(x, _mm_set1_ps(-0.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_sqrt_ps(x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': '0000008000000000000080bf0000c0ff', 'opt': '0000008000000000000080bf0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_andnot_ps(_mm_set1_ps(-0.0f), x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_sub_ps(_mm_setzero_ps(), x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_floor_ps(x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_ceil_ps(x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_round_ps(x, _MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x1b), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000807f000080ff0000803f', 'opt': '0000c0ff0000807f000080ff0000803f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x39), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff0000807f0000c07f0000803f', 'opt': '000080ff0000807f0000c0ff0000803f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x93), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000803f000080ff0000807f', 'opt': '0000c0ff0000803f000080ff0000807f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x4e), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000c07f0000803f000080ff', 'opt': '0000807f0000c0ff0000803f000080ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_movehdup_ps(x), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff000080ff0000c07f0000c07f', 'opt': '000080ff000080ff0000c0ff0000c0ff'}
+[nan-bits] O1: 128:_mm_floor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_ceil_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_round_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x1b)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000807f000080ff0000803f', 'opt': '0000c0ff0000807f000080ff0000803f'}
+[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x39)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff0000807f0000c07f0000803f', 'opt': '000080ff0000807f0000c0ff0000803f'}
+[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x93)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000803f000080ff0000807f', 'opt': '0000c0ff0000803f000080ff0000807f'}
+[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x4e)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000c07f0000803f000080ff', 'opt': '0000807f0000c0ff0000803f000080ff'}
+[nan-bits] O1: 128:_mm_movehdup_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff000080ff0000c07f0000c07f', 'opt': '000080ff000080ff0000c0ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_set1_ps(-1.0f)), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_add_ps(x, _mm_sqrt_ps(y))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(x, _mm_sqrt_ps(y))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000800000c0ff000080ff0000c07f', 'opt': '000000800000c0ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_add_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c0ff', 'opt': '0000803f000080ff0000807f0000c07f'}
+[nan-bits] O1: 128:_mm_add_ps(x, _mm_xor_ps(y, _mm_set1_ps(-0.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c0ff', 'opt': '0000803f000080ff0000807f0000c07f'}
+[nan-bits] O1: 128:_mm_add_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_xor_ps(y, _mm_set1_ps(-0.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c0ff', 'opt': '0000803f000080ff0000807f0000c07f'}
+[nan-bits] O1: 128:_mm_add_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000000000c0ff0000c0ff0000c0ff', 'opt': '000000000000c0ff0000c0ff0000c07f'}
+[nan-bits] O1: 128:_mm_sub_ps(x, _mm_xor_ps(y, _mm_set1_ps(-0.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}
+[nan-bits] O1: 128:_mm_sub_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_xor_ps(y, _mm_set1_ps(-0.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(x, _mm_xor_ps(y, _mm_set1_ps(-0.0f)))
+      {'input': 'in lane=0 r1=3 r2=3', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_xor_ps(y, _mm_set1_ps(-0.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000000800000c0ff000080ff0000c0ff', 'opt': '000000800000c0ff000080ff0000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c0ff', 'opt': '000080bf000080ff000080ff0000c07f'}
+[nan-bits] O1: 128:_mm_div_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_xor_ps(y, _mm_set1_ps(-0.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000008000000080000000800000c0ff', 'opt': '0000008000000080000000800000c07f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_add_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_add_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_sub_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_sub_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_sub_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000040000080ff0000807f0000c07f', 'opt': '00000040000080ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c0ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c0ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c0ff0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_div_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000807f0000807f0000c07f', 'opt': '0000807f0000807f0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_div_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000807f0000807f0000c07f', 'opt': '0000807f0000807f0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_div_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000000000000000000000000000c07f', 'opt': '0000000000000000000000000000c0ff'}
+[nan-bits] O1: 128:_mm_div_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000c0ff0000c0ff0000c07f', 'opt': '000080bf0000c0ff0000c0ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_min_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000000000807f0000c07f', 'opt': '0000803f000000000000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_min_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000000000080ff0000803f0000c07f', 'opt': '00000000000080ff0000803f0000c0ff'}
+[nan-bits] O1: 128:_mm_min_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000080000080ff000080bf0000c07f', 'opt': '00000080000080ff000080bf0000c0ff'}
+[nan-bits] O1: 128:_mm_min_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_max_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000080000080ff000080bf0000c07f', 'opt': '00000080000080ff000080bf0000c0ff'}
+[nan-bits] O1: 128:_mm_max_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000800000807f0000c07f', 'opt': '0000803f000000800000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_max_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000000000807f0000c07f', 'opt': '0000803f000000000000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_max_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000807f0000807f0000c07f', 'opt': '0000803f0000807f0000807f0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_and_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=3 r2=3', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}
+[value] O1: 128:_mm_and_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000800000803f0000803f', 'opt': '00000000000000800000803f000080bf'}
+[value] O1: 128:_mm_and_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000000000000800000803f0000803f', 'opt': '00000000000000800000803f000080bf'}
+[value] O1: 128:_mm_and_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '00000080000000000000803f00000000', 'opt': '0000008000000000000080bf00000000'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_or_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f0000807f0000807f0000c0ff', 'opt': '0000803f0000807f0000807f0000c07f'}
+[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=1', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000000800000803f000080bf0000807f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_or_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '000080ff000080ff0000c07f010080bf', 'opt': '000080ff000080ff0000c0ff010080bf'}
+[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_or_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=5', 'x': '00000000000000800000803f000080bf', 'y': '000080ff0000c07f0100000001000080', 'ref': '0000807f0000c0ff010080bf010080bf', 'opt': '0000807f0000c07f010080bf010080bf'}
+[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000807f00000040000040c0', 'opt': '0000803f0000807f0000004000004040'}
+[value] O1: 128:_mm_xor_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f0000807f00000040000040c0', 'opt': '0000803f0000807f0000004000004040'}
+[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000000c000004040', 'opt': '000080bf000080ff000000c0000040c0'}
+[value] O1: 128:_mm_xor_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000080000000800000008000000000', 'opt': '00000080000000800000008000000080'}
+[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000080000000800000008000000000', 'opt': '00000080000000800000008000000080'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_andnot_ps(x, y), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=5', 'x': '00000000000000800000803f000080bf', 'y': '000080ff0000c07f0100000001000080', 'ref': '0000807f0000c07f0100008001000080', 'opt': '0000807f0000c0ff0100008001000080'}
+[value] O1: 128:_mm_andnot_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000000000000000000080', 'opt': '00000000000000000000000000000000'}
+[value] O1: 128:_mm_andnot_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '000080ff0000807f0000404001000000', 'opt': '000080ff0000807f000040c001000000'}
+[value] O1: 128:_mm_andnot_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000004000004040', 'opt': '0000803f000080ff00000040000040c0'}
+[value] O1: 128:_mm_andnot_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))
+      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000800000000000000000', 'opt': '00000000000000800000000000000080'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_EQ_OQ), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': 'ffffffffffffffffffffffffffffffff', 'opt': 'ffffff7fffffff7fffffff7fffffff7f'}
+[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_LT_OS), _mm_set1_ps(-1.0f))
+      {'input': 'in lane=0 r1=0 r2=1', 'x': '00000000000000800000803f000080bf', 'y': '000000800000803f000080bf0000807f', 'ref': '00000080ffffffff00000080ffffffff', 'opt': '00000080ffffff7f00000080ffffff7f'}
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 311753 bytes to __results__.html

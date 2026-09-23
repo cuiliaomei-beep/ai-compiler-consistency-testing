@@ -1,0 +1,44 @@
+{
+  "signature": "6d95da7a45b5",
+  "program": "issue_194345_inductor_cuda_torch_remainder_torch_fmod",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "194345",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/194345",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 194345,
+      "title": "[inductor][cuda] `torch.remainder` / `torch.fmod` wrong results under `torch.compile` on CUDA for large |a/b| ratios",
+      "url": "https://github.com/pytorch/pytorch/issues/194345",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-21"
+    },
+    {
+      "number": 186942,
+      "title": "[inductor] Round fmod/remainder scalars for bf16/fp16 CPU",
+      "url": "https://github.com/pytorch/pytorch/pull/186942",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-06-10"
+    }
+  ]
+}

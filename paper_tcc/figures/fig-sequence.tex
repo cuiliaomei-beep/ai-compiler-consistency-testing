@@ -1,0 +1,44 @@
+%% Figure: execution matrix as a sequence diagram (cold vs warm, return trip).
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+    font=\scriptsize,
+    lane/.style={black!45, thin},
+    run/.style={draw=black!60, fill=#1, rounded corners=1.5pt, minimum width=1.25cm, minimum height=0.46cm,
+                inner sep=1pt},
+    cmp/.style={{Stealth[length=3pt]}-{Stealth[length=3pt]}, tolred, thick},
+]
+  %% lanes
+  \foreach \y/\lab in {0/{eager (\EZ)}, -0.8/{cold artifact}, -1.6/{artifact compiled for $A$}} {
+    \node[anchor=east] at (-0.2,\y) {\lab};
+    \draw[lane] (0,\y) -- (10.4,\y);
+  }
+  \node[anchor=east, font=\scriptsize\itshape, black!60] at (-0.2,0.55) {time $\rightarrow$};
+  %% eager runs
+  \node[run=tolteal!18] (ea) at (1.0,0) {$E_A$};
+  \node[run=tolteal!18] (eb) at (4.6,0) {$E_B$};
+  %% cold runs
+  \node[run=tolblue!14] (ca) at (1.0,-0.8) {$C_A^{\mathit{cold}}$};
+  \node[run=tolblue!14] (cb) at (4.6,-0.8) {$C_B^{\mathit{cold}}$};
+  %% warm sequence
+  \node[run=tolblue!14] (wa) at (2.8,-1.6) {compile($A$)};
+  \node[run=tolorange!22] (wb) at (6.4,-1.6) {$C_B^{\mathit{warm}}$};
+  \node[run=tolorange!22] (wa2) at (8.9,-1.6) {$C_{A'}^{\mathit{warm}}$};
+  \draw[-{Stealth[length=3pt]}, black!60] (wa) -- node[above, font=\tiny] {one factor changes} (wb);
+  \draw[-{Stealth[length=3pt]}, black!60] (wb) -- node[above, font=\tiny] {return} (wa2);
+  %% comparisons
+  \draw[cmp] (eb) -- (cb);
+  \draw[cmp] (cb.south east) -- (wb.north west);
+  \draw[cmp] (eb.east) to[out=0, in=90] (wb.north);
+  \draw[cmp] (ca.east) to[out=-10, in=160] (wa2.north west);
+  %% verdict legend
+  \node[anchor=west, align=left, font=\scriptsize, text width=10.2cm] at (0,-2.55)
+    {\textcolor{tolred}{$\leftrightarrow$} comparisons.\;
+     $E_B \neq C_B^{\mathit{cold}}$: code generation or capture.\;
+     $E_B = C_B^{\mathit{cold}} \neq C_B^{\mathit{warm}}$ without recompilation: under-specialization.\;
+     $C_A^{\mathit{cold}} \neq C_{A'}^{\mathit{warm}}$: stale artifact after the return trip.};
+\end{tikzpicture}
+\caption{Execution matrix for two contexts $A$ and $B$ that differ in one semantic factor. Recompilations are
+counted exactly, so each verdict is tied to an observed cache decision.}
+\label{fig:sequence}
+\end{figure}

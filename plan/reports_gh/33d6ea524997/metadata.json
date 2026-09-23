@@ -1,0 +1,60 @@
+{
+  "signature": "33d6ea524997",
+  "program": "issue_177821_inductor_torch_compile_ignores_a_complex",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Pending",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": 195635,
+      "title": "[inductor-opt]allow horizontal fusion of copies from dynamic inputs into concat operation",
+      "url": "https://github.com/pytorch/pytorch/pull/195635",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-09-01"
+    },
+    {
+      "number": 172942,
+      "title": "cuda graphs dont play nice with numpy numbers",
+      "url": "https://github.com/pytorch/pytorch/issues/172942",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-01-21"
+    },
+    {
+      "number": 195355,
+      "title": "[dynamo] Lock ExtraState and make the exec strategy atomic",
+      "url": "https://github.com/pytorch/pytorch/pull/195355",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-30"
+    },
+    {
+      "number": 193710,
+      "title": "[inductor] `fallback_node_due_to_unsupported_type` blocks pattern matching on extern-kernel ops with `float8_e8m0fnu` inputs, with no way to opt in",
+      "url": "https://github.com/pytorch/pytorch/issues/193710",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-16"
+    },
+    {
+      "number": 50688,
+      "title": "[feature request] `torch.scan` (also port `lax.fori_loop` / `lax.while_loop` / `lax.associative_scan` and hopefully parallelized associative scans)",
+      "url": "https://github.com/pytorch/pytorch/issues/50688",
+      "state": "open",
+      "is_pr": false,
+      "created": "2021-01-18"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+torch 2.14.0+cpu
+!! remainder    float32   33/120  worst {'x': -1.0000000150474662e+30, 'y': 0.30000001192092896, 'eager': 0.29569894075393677, 'compiled': 7.555786372591432e+22, 'ref': 0.0, 'eager_rel': 2.515528386394099e+37, 'compiled_rel': 6.427752177035961e+60, 'kind': 'accuracy'}
+!! remainder    float64   31/120  worst {'x': -1e+30, 'y': -3.0, 'eager': -1.0, 'compiled': 0.0, 'ref': -1.0, 'eager_rel': 0.0, 'compiled_rel': 1.0, 'kind': 'accuracy'}
+!! floor_divide float32    6/108  worst {'x': -1.0, 'y': -0.10000000149011612, 'eager': 9.0, 'compiled': 10.0, 'ref': 9.0, 'eager_rel': 0.0, 'compiled_rel': 0.1111111111111111, 'kind': 'accuracy'}
+!! floor_divide float64    7/108  worst {'x': -1.0, 'y': -0.1, 'eager': 9.0, 'compiled': 10.0, 'ref': 9.0, 'eager_rel': 0.0, 'compiled_rel': 0.1111111111111111, 'kind': 'accuracy'}
+!! red:prod           float32  {'pattern': 'prod_mixed', 'eager': nan, 'compiled': inf, 'ref': 1.000000427245911, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:var            float32  {'pattern': 'large_uniform', 'eager': inf, 'compiled': 0.0, 'ref': 0.0, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:var            float32  {'pattern': 'large_uniform_neg', 'eager': inf, 'compiled': 0.0, 'ref': 0.0, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:var            float64  {'pattern': 'large_uniform', 'eager': inf, 'compiled': 0.0, 'ref': 0.0, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:var            float64  {'pattern': 'large_uniform_neg', 'eager': inf, 'compiled': 0.0, 'ref': 0.0, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:std            float32  {'pattern': 'big_cancel', 'eager': 1.3891968948479847e+38, 'compiled': inf, 'ref': 1.3891968629021105e+38, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:std            float32  {'pattern': 'large_uniform', 'eager': inf, 'compiled': 0.0, 'ref': 0.0, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:std            float32  {'pattern': 'large_uniform_neg', 'eager': inf, 'compiled': 0.0, 'ref': 0.0, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:std            float32  {'pattern': 'small_then_big', 'eager': 1.2500000188093328e+29, 'compiled': inf, 'ref': 1.2500000188093328e+29, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:std            float32  {'pattern': 'logsumexp_neg', 'eager': 4.364357835174199e+29, 'compiled': inf, 'ref': 4.3643578703923745e+29, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:std            float64  {'pattern': 'large_uniform', 'eager': inf, 'compiled': 0.0, 'ref': 0.0, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+!! red:std            float64  {'pattern': 'large_uniform_neg', 'eager': inf, 'compiled': 0.0, 'ref': 0.0, 'eager_rel': None, 'compiled_rel': None, 'kind': 'nan/inf pattern'}
+DONE: 9 (fn, dtype) flagged

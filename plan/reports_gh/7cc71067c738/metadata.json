@@ -1,0 +1,36 @@
+{
+  "signature": "7cc71067c738",
+  "program": "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "value"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "192906",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/192906",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 192906,
+      "title": "reuse_hash_fn leaves a subscripted capture pinned to the traced index",
+      "url": "https://github.com/pytorch/pytorch/issues/192906",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-11"
+    }
+  ]
+}

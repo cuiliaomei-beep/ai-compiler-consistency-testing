@@ -1,0 +1,235 @@
+{
+  "signature": "ccc1b7d85737",
+  "program": "issue_185248_torch_compile_silently_accepts_negative",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "ref raised RuntimeError, test returned normally",
+          "evidence": {
+            "exception": "RuntimeError",
+            "message": "normal expects all elements of std >= 0.0"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "normal expects all elements of std >= 0.0",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "normal expects all elements of std >= 0.0",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0239,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "normal expects all elements of std >= 0.0",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0353,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 2.922,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": false,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "loaded from reproducers_gh_rerun\\issue_185248_torch_compile_silently_accepts_negative.py\n`torch.compile` silently accepts negative standard deviations in `torch.normal` that eager mode rejects\nhttps://github.com/pytorch/pytorch/issues/185248",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 2,
+    "steps_kept": 0,
+    "original_lines": 4,
+    "final_lines": 4,
+    "original_numel": 0,
+    "final_numel": 0,
+    "input_recipe": "",
+    "log": [],
+    "source": "def model():\n    mean = torch.zeros((4,), dtype=torch.float32)\n    std = torch.full((4,), -1.0, dtype=torch.float32)\n    return torch.normal(mean, std)"
+  },
+  "duplicates": {
+    "query": "",
+    "searched": false,
+    "error": null,
+    "candidates": [
+      {
+        "number": "185248",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/185248",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      }
+    ]
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: RuntimeError",
+    "E1_dynamo_eager: RuntimeError",
+    "E2_aot_eager: RuntimeError",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

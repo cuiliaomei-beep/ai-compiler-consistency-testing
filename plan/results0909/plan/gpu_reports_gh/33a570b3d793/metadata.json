@@ -1,0 +1,36 @@
+{
+  "signature": "33a570b3d793",
+  "program": "issue_181428_torch_compile_torch_func_grad_superlinea",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "181428",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/181428",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 181428,
+      "title": "torch.compile + torch.func.grad: superlinear compile time with MaxPool2d → log/clamp → pow → AdaptiveAvgPool2d",
+      "url": "https://github.com/pytorch/pytorch/issues/181428",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-04-24"
+    }
+  ]
+}

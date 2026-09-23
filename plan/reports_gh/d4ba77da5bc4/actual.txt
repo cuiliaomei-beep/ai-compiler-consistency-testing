@@ -1,0 +1,6 @@
+exception InternalTorchDynamoError: TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given
+
+from user code:
+   File "reproducers_gh\issue_114415_aotautograd_should_detect_aliasing_of_in.py", line 104, in f
+    x1.mul_(2)
+    ^^^^^^^

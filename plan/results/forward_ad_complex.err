@@ -1,0 +1,27 @@
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\jit\_script.py:1485: FutureWarning: `torch.jit.script` is not supported in Python 3.14+ and may break. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\forward_ad_sweep.py:36: UserWarning: Using torch.cross without specifying the dim arg is deprecated.
+Please either pass the dim explicitly or simply use torch.linalg.cross.
+The default value of dim will change to agree with that of linalg.cross in a future release. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\Cross.cpp:67.)
+  out = fn(x, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\functional.py:680: UserWarning: A window was not provided. A rectangular window will be applied,which is known to cause spectral leakage. Other windows such as torch.hann_window or torch.hamming_window are recommended to reduce spectral leakage.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\SpectralOps.cpp:860.)
+  return _VF.stft(  # type: ignore[attr-defined]
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\forward_ad_sweep.py:36: UserWarning: A window was not provided. A rectangular window will be applied.Please provide the same window used by stft to make the inversion lossless.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\SpectralOps.cpp:1059.)
+  out = fn(x, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\functional.py:2208: UserWarning: torch.lu is deprecated in favor of torch.linalg.lu_factor / torch.linalg.lu_factor_ex and will be removed in a future PyTorch release.
+LU, pivots = torch.lu(A, compute_pivots)
+should be replaced with
+LU, pivots = torch.linalg.lu_factor(A, compute_pivots)
+and
+LU, pivots, info = torch.lu(A, compute_pivots, get_infos=True)
+should be replaced with
+LU, pivots, info = torch.linalg.lu_factor_ex(A, compute_pivots) (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\BatchLinearAlgebra.cpp:2066.)
+  return torch._lu_with_info(A, pivot=pivot, check_errors=(not get_infos))
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\forward_ad_sweep.py:36: UserWarning: torch.lu_solve is deprecated in favor of torch.linalg.lu_solveand will be removed in a future PyTorch release.
+Note that torch.linalg.lu_solve has its arguments reversed.
+X = torch.lu_solve(B, LU, pivots)
+should be replaced with
+X = torch.linalg.lu_solve(LU, pivots, B) (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\BatchLinearAlgebra.cpp:2220.)
+  out = fn(x, *args, **kwargs)
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\forward_ad_sweep.py:36: UserWarning: Casting complex values to real discards the imaginary part (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\Copy.cpp:308.)
+  out = fn(x, *args, **kwargs)

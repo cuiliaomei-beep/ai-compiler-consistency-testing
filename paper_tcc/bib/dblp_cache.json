@@ -1,0 +1,8402 @@
+{
+"T::PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation": "https://dblp.org/rec/conf/asplos/AnselYHGJVBBBBC24",
+"https://dblp.org/rec/conf/asplos/AnselYHGJVBBBBC24": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3918147",
+"bn25631618",
+"bn25631619",
+"bn25631620"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Jason Ansel et al.: PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation. (2024)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3620665.3640366",
+"http://www.wikidata.org/entity/Q130845999",
+"https://doi.org/10.1145/3620665.3640366"
+],
+"authoredBy": [
+"https://dblp.org/pid/07/1021",
+"https://dblp.org/pid/118/5750",
+"https://dblp.org/pid/118/9819",
+"https://dblp.org/pid/136/0357",
+"https://dblp.org/pid/147/4941",
+"https://dblp.org/pid/154/2959",
+"https://dblp.org/pid/160/2318",
+"https://dblp.org/pid/162/4018",
+"https://dblp.org/pid/163/1781-1",
+"https://dblp.org/pid/176/5569",
+"https://dblp.org/pid/19/9117",
+"https://dblp.org/pid/194/3390",
+"https://dblp.org/pid/200/8224",
+"https://dblp.org/pid/211/8026",
+"https://dblp.org/pid/220/3122",
+"https://dblp.org/pid/228/2610",
+"https://dblp.org/pid/230/4428",
+"https://dblp.org/pid/245/8820",
+"https://dblp.org/pid/255/5497",
+"https://dblp.org/pid/272/9960",
+"https://dblp.org/pid/279/7366",
+"https://dblp.org/pid/289/6271",
+"https://dblp.org/pid/289/6515",
+"https://dblp.org/pid/305/0050",
+"https://dblp.org/pid/31/5014",
+"https://dblp.org/pid/321/4245",
+"https://dblp.org/pid/327/6686",
+"https://dblp.org/pid/37/3580-4",
+"https://dblp.org/pid/373/5447",
+"https://dblp.org/pid/373/5503",
+"https://dblp.org/pid/373/5601",
+"https://dblp.org/pid/373/5639",
+"https://dblp.org/pid/373/5693",
+"https://dblp.org/pid/373/5704",
+"https://dblp.org/pid/373/5726",
+"https://dblp.org/pid/373/5750",
+"https://dblp.org/pid/373/5821",
+"https://dblp.org/pid/373/5848",
+"https://dblp.org/pid/373/5855",
+"https://dblp.org/pid/373/5947",
+"https://dblp.org/pid/373/6012",
+"https://dblp.org/pid/50/1205",
+"https://dblp.org/pid/57/8662",
+"https://dblp.org/pid/60/3985",
+"https://dblp.org/pid/68/7450",
+"https://dblp.org/pid/79/8314",
+"https://dblp.org/pid/83/8636",
+"https://dblp.org/pid/g/MichaelGschwind",
+"https://dblp.org/pid/w/PengWu1"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/07/1021",
+"https://dblp.org/pid/118/5750",
+"https://dblp.org/pid/118/9819",
+"https://dblp.org/pid/136/0357",
+"https://dblp.org/pid/147/4941",
+"https://dblp.org/pid/154/2959",
+"https://dblp.org/pid/160/2318",
+"https://dblp.org/pid/162/4018",
+"https://dblp.org/pid/163/1781-1",
+"https://dblp.org/pid/176/5569",
+"https://dblp.org/pid/19/9117",
+"https://dblp.org/pid/194/3390",
+"https://dblp.org/pid/200/8224",
+"https://dblp.org/pid/211/8026",
+"https://dblp.org/pid/220/3122",
+"https://dblp.org/pid/228/2610",
+"https://dblp.org/pid/230/4428",
+"https://dblp.org/pid/245/8820",
+"https://dblp.org/pid/255/5497",
+"https://dblp.org/pid/272/9960",
+"https://dblp.org/pid/279/7366",
+"https://dblp.org/pid/289/6271",
+"https://dblp.org/pid/289/6515",
+"https://dblp.org/pid/305/0050",
+"https://dblp.org/pid/31/5014",
+"https://dblp.org/pid/321/4245",
+"https://dblp.org/pid/327/6686",
+"https://dblp.org/pid/37/3580-4",
+"https://dblp.org/pid/373/5447",
+"https://dblp.org/pid/373/5503",
+"https://dblp.org/pid/373/5601",
+"https://dblp.org/pid/373/5639",
+"https://dblp.org/pid/373/5693",
+"https://dblp.org/pid/373/5704",
+"https://dblp.org/pid/373/5726",
+"https://dblp.org/pid/373/5750",
+"https://dblp.org/pid/373/5821",
+"https://dblp.org/pid/373/5848",
+"https://dblp.org/pid/373/5855",
+"https://dblp.org/pid/373/5947",
+"https://dblp.org/pid/373/6012",
+"https://dblp.org/pid/50/1205",
+"https://dblp.org/pid/57/8662",
+"https://dblp.org/pid/60/3985",
+"https://dblp.org/pid/68/7450",
+"https://dblp.org/pid/79/8314",
+"https://dblp.org/pid/83/8636",
+"https://dblp.org/pid/g/MichaelGschwind",
+"https://dblp.org/pid/w/PengWu1"
+],
+"documentPage": [
+"https://doi.org/10.1145/3620665.3640366"
+],
+"doi": [
+"https://doi.org/10.1145/3620665.3640366"
+],
+"hasSignature": [
+"bn25631621",
+"bn25631622",
+"bn25631623",
+"bn25631625",
+"bn25631626",
+"bn25631627",
+"bn25631628",
+"bn25631629",
+"bn25631630",
+"bn25631631",
+"bn25631632",
+"bn25631633",
+"bn25631634",
+"bn25631636",
+"bn25631637",
+"bn25631638",
+"bn25631639",
+"bn25631640",
+"bn25631641",
+"bn25631642",
+"bn25631643",
+"bn25631644",
+"bn25631645",
+"bn25631648",
+"bn25631649",
+"bn25631650",
+"bn25631651",
+"bn25631652",
+"bn25631653",
+"bn25631654",
+"bn25631655",
+"bn25631656",
+"bn25631657",
+"bn25631659",
+"bn25631660",
+"bn25631661",
+"bn25631662",
+"bn25631663",
+"bn25631664",
+"bn25631665",
+"bn25631666",
+"bn25631667",
+"bn25631668",
+"bn25631670",
+"bn25631671",
+"bn25631672",
+"bn25631673",
+"bn25631674",
+"bn25631675"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/asplos/asplos2024-2"
+],
+"numberOfCreators": [
+"49"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062104241422"
+],
+"pagination": [
+"929-947"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3620665.3640366"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/asplos/2024-2"
+],
+"publishedIn": [
+"ASPLOS (2)"
+],
+"publishedInBook": [
+"ASPLOS (2)"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/asplos"
+],
+"title": [
+"PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130845999"
+],
+"yearOfEvent": [
+"2024"
+],
+"yearOfPublication": [
+"2024"
+],
+"_authors": [
+"Jason Ansel",
+"Edward Z. Yang",
+"Horace He",
+"Natalia Gimelshein",
+"Animesh Jain",
+"Michael Voznesensky",
+"Bin Bao",
+"Peter Bell",
+"David Berard",
+"Evgeni Burovski",
+"Geeta Chauhan",
+"Anjali Chourdia",
+"Will Constable",
+"Alban Desmaison",
+"Zachary DeVito",
+"Elias Ellison",
+"Will Feng",
+"Jiong Gong",
+"Michael Gschwind",
+"Brian Hirsh",
+"Sherlock Huang",
+"Kshiteej Kalambarkar",
+"Laurent Kirsch",
+"Michael Lazos",
+"Mario Lezcano",
+"Yanbo Liang",
+"Jason Liang",
+"Yinghai Lu",
+"C. K. Luk",
+"Bert Maher",
+"Yunjie Pan",
+"Christian Puhrsch",
+"Matthias Reso",
+"Mark Saroufim",
+"Marcos Yukio Siraichi",
+"Helen Suk",
+"Shunting Zhang",
+"Michael Suo",
+"Phil Tillet",
+"Xu Zhao",
+"Eikan Wang",
+"Keren Zhou",
+"Richard Zou",
+"Xiaodong Wang",
+"Ajit Mathews",
+"William Wen",
+"Gregory Chanan",
+"Peng Wu",
+"Soumith Chintala"
+]
+},
+"https://dblp.org/rec/conf/asplos/2024-2": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2521781",
+"bn25602271",
+"bn25602272"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Rajiv Gupta et al.: Proceedings of the 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2, ASPLOS 2024, La Jolla, CA, USA, 27 April 2024- 1 May 2024 (2024)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3620665",
+"https://doi.org/10.1145/3620665"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/26/914",
+"https://dblp.org/pid/86/2654",
+"https://dblp.org/pid/95/6578",
+"https://dblp.org/pid/g/RajivGupta"
+],
+"documentPage": [
+"https://doi.org/10.1145/3620665"
+],
+"doi": [
+"https://doi.org/10.1145/3620665"
+],
+"editedBy": [
+"https://dblp.org/pid/26/914",
+"https://dblp.org/pid/86/2654",
+"https://dblp.org/pid/95/6578",
+"https://dblp.org/pid/g/RajivGupta"
+],
+"hasSignature": [
+"bn25602273",
+"bn25602275",
+"bn25602276",
+"bn25602277"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/asplos/asplos2024-2"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062504297481"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3620665"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/asplos"
+],
+"title": [
+"Proceedings of the 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2, ASPLOS 2024, La Jolla, CA, USA, 27 April 2024- 1 May 2024"
+],
+"yearOfPublication": [
+"2024"
+],
+"_authors": [
+"Rajiv Gupta",
+"Nael B. Abu-Ghazaleh",
+"Madan Musuvathi",
+"Dan Tsafrir"
+]
+},
+"T::PyTorch: An Imperative Style, High-Performance Deep Learning Library": "https://dblp.org/rec/conf/nips/PaszkeGMLBCKLGA19",
+"https://dblp.org/rec/conf/nips/PaszkeGMLBCKLGA19": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn10011125"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Adam Paszke et al.: PyTorch: An Imperative Style, High-Performance Deep Learning Library. (2019)"
+],
+"authoredBy": [
+"https://dblp.org/pid/118/9819",
+"https://dblp.org/pid/150/1515",
+"https://dblp.org/pid/150/4263",
+"https://dblp.org/pid/155/9885",
+"https://dblp.org/pid/160/2318",
+"https://dblp.org/pid/160/8773",
+"https://dblp.org/pid/176/5569",
+"https://dblp.org/pid/177/8797",
+"https://dblp.org/pid/177/9377",
+"https://dblp.org/pid/178/8595",
+"https://dblp.org/pid/180/5716",
+"https://dblp.org/pid/203/8950",
+"https://dblp.org/pid/247/9633",
+"https://dblp.org/pid/255/4763",
+"https://dblp.org/pid/255/5497",
+"https://dblp.org/pid/33/8116",
+"https://dblp.org/pid/36/6918",
+"https://dblp.org/pid/38/7583",
+"https://dblp.org/pid/57/8662",
+"https://dblp.org/pid/74/9763",
+"https://dblp.org/pid/83/8636"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/118/9819",
+"https://dblp.org/pid/150/1515",
+"https://dblp.org/pid/150/4263",
+"https://dblp.org/pid/155/9885",
+"https://dblp.org/pid/160/2318",
+"https://dblp.org/pid/160/8773",
+"https://dblp.org/pid/176/5569",
+"https://dblp.org/pid/177/8797",
+"https://dblp.org/pid/177/9377",
+"https://dblp.org/pid/178/8595",
+"https://dblp.org/pid/180/5716",
+"https://dblp.org/pid/203/8950",
+"https://dblp.org/pid/247/9633",
+"https://dblp.org/pid/255/4763",
+"https://dblp.org/pid/255/5497",
+"https://dblp.org/pid/33/8116",
+"https://dblp.org/pid/36/6918",
+"https://dblp.org/pid/38/7583",
+"https://dblp.org/pid/57/8662",
+"https://dblp.org/pid/74/9763",
+"https://dblp.org/pid/83/8636"
+],
+"documentPage": [
+"http://papers.nips.cc/paper/9015-pytorch-an-imperative-style-high-performance-deep-learning-library",
+"https://proceedings.neurips.cc/paper/2019/hash/bdbca288fee7f92f2bfa9f7012727740-Abstract.html"
+],
+"hasSignature": [
+"bn10011126",
+"bn10011127",
+"bn10011128",
+"bn10011129",
+"bn10011130",
+"bn10011131",
+"bn10011132",
+"bn10011134",
+"bn10011135",
+"bn10011136",
+"bn10011137",
+"bn10011138",
+"bn10011139",
+"bn10011140",
+"bn10011141",
+"bn10011142",
+"bn10011143",
+"bn10011146",
+"bn10011147",
+"bn10011148",
+"bn10011149"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/nips/nips2019"
+],
+"numberOfCreators": [
+"21"
+],
+"pagination": [
+"8024-8035"
+],
+"primaryDocumentPage": [
+"https://proceedings.neurips.cc/paper/2019/hash/bdbca288fee7f92f2bfa9f7012727740-Abstract.html"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/nips/2019"
+],
+"publishedIn": [
+"NeurIPS"
+],
+"publishedInBook": [
+"NeurIPS"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/nips"
+],
+"title": [
+"PyTorch: An Imperative Style, High-Performance Deep Learning Library."
+],
+"yearOfEvent": [
+"2019"
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Adam Paszke",
+"Sam Gross",
+"Francisco Massa",
+"Adam Lerer",
+"James Bradbury",
+"Gregory Chanan",
+"Trevor Killeen",
+"Zeming Lin",
+"Natalia Gimelshein",
+"Luca Antiga",
+"Alban Desmaison",
+"Andreas Köpf",
+"Edward Z. Yang",
+"Zachary DeVito",
+"Martin Raison",
+"Alykhan Tejani",
+"Sasank Chilamkurthy",
+"Benoit Steiner",
+"Lu Fang",
+"Junjie Bai",
+"Soumith Chintala"
+]
+},
+"https://dblp.org/rec/conf/nips/2019": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn9953744"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Hanna M. Wallach et al.: Advances in Neural Information Processing Systems 32: Annual Conference on Neural Information Processing Systems 2019, NeurIPS 2019, December 8-14, 2019, Vancouver, BC, Canada. (2019)"
+],
+"archivedWebpage": [
+"http://papers.nips.cc/book/advances-in-neural-information-processing-systems-32-2019"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/27/1683",
+"https://dblp.org/pid/29/7058",
+"https://dblp.org/pid/68/1212",
+"https://dblp.org/pid/84/3994",
+"https://dblp.org/pid/86/3862",
+"https://dblp.org/pid/96/4104"
+],
+"documentPage": [
+"https://proceedings.neurips.cc/paper/2019"
+],
+"editedBy": [
+"https://dblp.org/pid/27/1683",
+"https://dblp.org/pid/29/7058",
+"https://dblp.org/pid/68/1212",
+"https://dblp.org/pid/84/3994",
+"https://dblp.org/pid/86/3862",
+"https://dblp.org/pid/96/4104"
+],
+"hasSignature": [
+"bn9953745",
+"bn9953746",
+"bn9953747",
+"bn9953748",
+"bn9953749",
+"bn9953750"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/nips/nips2019"
+],
+"numberOfCreators": [
+"6"
+],
+"primaryDocumentPage": [
+"https://proceedings.neurips.cc/paper/2019"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/nips"
+],
+"title": [
+"Advances in Neural Information Processing Systems 32: Annual Conference on Neural Information Processing Systems 2019, NeurIPS 2019, December 8-14, 2019, Vancouver, BC, Canada."
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Hanna M. Wallach",
+"Hugo Larochelle",
+"Alina Beygelzimer",
+"Florence d'Alché-Buc",
+"Emily B. Fox",
+"Roman Garnett"
+]
+},
+"T::TVM: An Automated End-to-End Optimizing Compiler for Deep Learning": "https://dblp.org/rec/conf/osdi/ChenMJZYSCWHCGK18",
+"https://dblp.org/rec/conf/osdi/ChenMJZYSCWHCGK18": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn10146858"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Tianqi Chen et al.: TVM: An Automated End-to-End Optimizing Compiler for Deep Learning. (2018)"
+],
+"authoredBy": [
+"https://dblp.org/pid/120/1114",
+"https://dblp.org/pid/14/8980",
+"https://dblp.org/pid/161/3140",
+"https://dblp.org/pid/165/7400",
+"https://dblp.org/pid/202/1675",
+"https://dblp.org/pid/211/7027",
+"https://dblp.org/pid/34/8397",
+"https://dblp.org/pid/38/769",
+"https://dblp.org/pid/87/3135",
+"https://dblp.org/pid/94/8023-1",
+"https://dblp.org/pid/95/5263",
+"https://dblp.org/pid/k/AKrishnamurthy"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/120/1114",
+"https://dblp.org/pid/14/8980",
+"https://dblp.org/pid/161/3140",
+"https://dblp.org/pid/165/7400",
+"https://dblp.org/pid/202/1675",
+"https://dblp.org/pid/211/7027",
+"https://dblp.org/pid/34/8397",
+"https://dblp.org/pid/38/769",
+"https://dblp.org/pid/87/3135",
+"https://dblp.org/pid/94/8023-1",
+"https://dblp.org/pid/95/5263",
+"https://dblp.org/pid/k/AKrishnamurthy"
+],
+"documentPage": [
+"https://dl.acm.org/citation.cfm?id=3291211",
+"https://www.usenix.org/conference/osdi18/presentation/chen"
+],
+"hasSignature": [
+"bn10146859",
+"bn10146861",
+"bn10146862",
+"bn10146863",
+"bn10146864",
+"bn10146865",
+"bn10146866",
+"bn10146867",
+"bn10146868",
+"bn10146869",
+"bn10146870",
+"bn10146872"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/osdi/osdi2018"
+],
+"numberOfCreators": [
+"12"
+],
+"pagination": [
+"578-594"
+],
+"primaryDocumentPage": [
+"https://www.usenix.org/conference/osdi18/presentation/chen"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/osdi/2018"
+],
+"publishedIn": [
+"OSDI"
+],
+"publishedInBook": [
+"OSDI"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/osdi"
+],
+"title": [
+"TVM: An Automated End-to-End Optimizing Compiler for Deep Learning."
+],
+"yearOfEvent": [
+"2018"
+],
+"yearOfPublication": [
+"2018"
+],
+"_authors": [
+"Tianqi Chen",
+"Thierry Moreau",
+"Ziheng Jiang",
+"Lianmin Zheng",
+"Eddie Q. Yan",
+"Haichen Shen",
+"Meghan Cowan",
+"Leyuan Wang",
+"Yuwei Hu",
+"Luis Ceze",
+"Carlos Guestrin",
+"Arvind Krishnamurthy"
+]
+},
+"https://dblp.org/rec/conf/osdi/2018": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn10146401"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Andrea C. Arpaci-Dusseau and Geoff Voelker: 13th USENIX Symposium on Operating Systems Design and Implementation, OSDI 2018, Carlsbad, CA, USA, October 8-10, 2018. (2018)"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/a/AndreaCArpaciDusseau",
+"https://dblp.org/pid/v/GeoffreyMVoelker"
+],
+"documentPage": [
+"https://dl.acm.org/citation.cfm?id=3291168",
+"https://www.usenix.org/conference/osdi18"
+],
+"editedBy": [
+"https://dblp.org/pid/a/AndreaCArpaciDusseau",
+"https://dblp.org/pid/v/GeoffreyMVoelker"
+],
+"hasSignature": [
+"bn10146402",
+"bn10146403"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/osdi/osdi2018"
+],
+"numberOfCreators": [
+"2"
+],
+"primaryDocumentPage": [
+"https://www.usenix.org/conference/osdi18"
+],
+"publishedBy": [
+"USENIX Association"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/osdi"
+],
+"title": [
+"13th USENIX Symposium on Operating Systems Design and Implementation, OSDI 2018, Carlsbad, CA, USA, October 8-10, 2018."
+],
+"yearOfPublication": [
+"2018"
+],
+"_authors": [
+"Andrea C. Arpaci-Dusseau",
+"Geoff Voelker"
+]
+},
+"T::Triton: an intermediate language and compiler for tiled neural network computations": "https://dblp.org/rec/conf/pldi/TilletKC19",
+"https://dblp.org/rec/conf/pldi/TilletKC19": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4809178",
+"bn12603869",
+"bn12603870",
+"bn12603871"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Philippe Tillet et al.: Triton: an intermediate language and compiler for tiled neural network computations. (2019)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3315508.3329973",
+"http://www.wikidata.org/entity/Q130826116",
+"https://doi.org/10.1145/3315508.3329973"
+],
+"authoredBy": [
+"https://dblp.org/pid/145/7843",
+"https://dblp.org/pid/48/7659",
+"https://dblp.org/pid/k/HTKung"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/145/7843",
+"https://dblp.org/pid/48/7659",
+"https://dblp.org/pid/k/HTKung"
+],
+"documentPage": [
+"https://doi.org/10.1145/3315508.3329973"
+],
+"doi": [
+"https://doi.org/10.1145/3315508.3329973"
+],
+"hasSignature": [
+"bn12603873",
+"bn12603874",
+"bn12603875"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/mapl2019"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062602317344"
+],
+"pagination": [
+"10-19"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3315508.3329973"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/pldi/2019mapl"
+],
+"publishedIn": [
+"MAPL@PLDI"
+],
+"publishedInBook": [
+"MAPL@PLDI"
+],
+"title": [
+"Triton: an intermediate language and compiler for tiled neural network computations."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130826116"
+],
+"yearOfEvent": [
+"2019"
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Philippe Tillet",
+"Hsiang-Tsung Kung",
+"David D. Cox"
+]
+},
+"https://dblp.org/rec/conf/pldi/2019mapl": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1586726",
+"bn12603688",
+"bn12603689",
+"bn12603690"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Tim Mattson et al.: Proceedings of the 3rd ACM SIGPLAN International Workshop on Machine Learning and Programming Languages, MAPL@PLDI 2019, Phoenix, AZ, USA, June 22, 2019 (2019)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3315508",
+"https://doi.org/10.1145/3315508",
+"urn:isbn:9781450367196"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/45/7115",
+"https://dblp.org/pid/56/794",
+"https://dblp.org/pid/95/6919"
+],
+"documentPage": [
+"https://doi.org/10.1145/3315508"
+],
+"doi": [
+"https://doi.org/10.1145/3315508"
+],
+"editedBy": [
+"https://dblp.org/pid/45/7115",
+"https://dblp.org/pid/56/794",
+"https://dblp.org/pid/95/6919"
+],
+"hasSignature": [
+"bn12603691",
+"bn12603692",
+"bn12603693"
+],
+"isbn": [
+"urn:isbn:9781450367196"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/mapl2019"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06010669160"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3315508"
+],
+"publishedBy": [
+"ACM"
+],
+"title": [
+"Proceedings of the 3rd ACM SIGPLAN International Workshop on Machine Learning and Programming Languages, MAPL@PLDI 2019, Phoenix, AZ, USA, June 22, 2019"
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Tim Mattson",
+"Abdullah Muzahid",
+"Armando Solar-Lezama"
+]
+},
+"T::TensorFlow: A System for Large-Scale Machine Learning": "https://dblp.org/rec/conf/osdi/AbadiBCCDDDGIIK16",
+"https://dblp.org/rec/conf/osdi/AbadiBCCDDDGIIK16": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn10143924"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Martín Abadi et al.: TensorFlow: A System for Large-Scale Machine Learning. (2016)"
+],
+"authoredBy": [
+"https://dblp.org/pid/08/2793",
+"https://dblp.org/pid/17/5751",
+"https://dblp.org/pid/177/8967",
+"https://dblp.org/pid/177/9198",
+"https://dblp.org/pid/177/9377",
+"https://dblp.org/pid/23/2143",
+"https://dblp.org/pid/39/814",
+"https://dblp.org/pid/41/2560",
+"https://dblp.org/pid/49/1513",
+"https://dblp.org/pid/60/920",
+"https://dblp.org/pid/61/5154",
+"https://dblp.org/pid/61/7741",
+"https://dblp.org/pid/70/3165",
+"https://dblp.org/pid/82/1824",
+"https://dblp.org/pid/95/4978",
+"https://dblp.org/pid/98/4352",
+"https://dblp.org/pid/98/809",
+"https://dblp.org/pid/99/10669",
+"https://dblp.org/pid/a/MartinAbadi",
+"https://dblp.org/pid/b/PaulBarham",
+"https://dblp.org/pid/d/JeffreyDean",
+"https://dblp.org/pid/g/SGhemawat"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/08/2793",
+"https://dblp.org/pid/17/5751",
+"https://dblp.org/pid/177/8967",
+"https://dblp.org/pid/177/9198",
+"https://dblp.org/pid/177/9377",
+"https://dblp.org/pid/23/2143",
+"https://dblp.org/pid/39/814",
+"https://dblp.org/pid/41/2560",
+"https://dblp.org/pid/49/1513",
+"https://dblp.org/pid/60/920",
+"https://dblp.org/pid/61/5154",
+"https://dblp.org/pid/61/7741",
+"https://dblp.org/pid/70/3165",
+"https://dblp.org/pid/82/1824",
+"https://dblp.org/pid/95/4978",
+"https://dblp.org/pid/98/4352",
+"https://dblp.org/pid/98/809",
+"https://dblp.org/pid/99/10669",
+"https://dblp.org/pid/a/MartinAbadi",
+"https://dblp.org/pid/b/PaulBarham",
+"https://dblp.org/pid/d/JeffreyDean",
+"https://dblp.org/pid/g/SGhemawat"
+],
+"documentPage": [
+"http://dl.acm.org/citation.cfm?id=3026899",
+"https://www.usenix.org/conference/osdi16/technical-sessions/presentation/abadi"
+],
+"hasSignature": [
+"bn10143925",
+"bn10143926",
+"bn10143927",
+"bn10143929",
+"bn10143930",
+"bn10143931",
+"bn10143932",
+"bn10143933",
+"bn10143934",
+"bn10143935",
+"bn10143936",
+"bn10143937",
+"bn10143938",
+"bn10143940",
+"bn10143941",
+"bn10143942",
+"bn10143943",
+"bn10143944",
+"bn10143945",
+"bn10143946",
+"bn10143947",
+"bn10143948"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/osdi/osdi2016"
+],
+"numberOfCreators": [
+"22"
+],
+"pagination": [
+"265-283"
+],
+"primaryDocumentPage": [
+"https://www.usenix.org/conference/osdi16/technical-sessions/presentation/abadi"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/osdi/2016"
+],
+"publishedIn": [
+"OSDI"
+],
+"publishedInBook": [
+"OSDI"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/osdi"
+],
+"title": [
+"TensorFlow: A System for Large-Scale Machine Learning."
+],
+"yearOfEvent": [
+"2016"
+],
+"yearOfPublication": [
+"2016"
+],
+"_authors": [
+"Martín Abadi",
+"Paul Barham",
+"Jianmin Chen",
+"Zhifeng Chen",
+"Andy Davis",
+"Jeffrey Dean",
+"Matthieu Devin",
+"Sanjay Ghemawat",
+"Geoffrey Irving",
+"Michael Isard",
+"Manjunath Kudlur",
+"Josh Levenberg",
+"Rajat Monga",
+"Sherry Moore",
+"Derek Gordon Murray",
+"Benoit Steiner",
+"Paul A. Tucker",
+"Vijay Vasudevan",
+"Pete Warden",
+"Martin Wicke",
+"Yuan Yu",
+"Xiaoqiang Zheng"
+]
+},
+"https://dblp.org/rec/conf/osdi/2016": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn10142208"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Kimberly Keeton and Timothy Roscoe: 12th USENIX Symposium on Operating Systems Design and Implementation, OSDI 2016, Savannah, GA, USA, November 2-4, 2016. (2016)"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/k/KimberlyKeeton",
+"https://dblp.org/pid/r/TimothyRoscoe"
+],
+"documentPage": [
+"http://dl.acm.org/citation.cfm?id=3026877",
+"https://www.usenix.org/conference/osdi16"
+],
+"editedBy": [
+"https://dblp.org/pid/k/KimberlyKeeton",
+"https://dblp.org/pid/r/TimothyRoscoe"
+],
+"hasSignature": [
+"bn10142209",
+"bn10142210"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/osdi/osdi2016"
+],
+"numberOfCreators": [
+"2"
+],
+"primaryDocumentPage": [
+"https://www.usenix.org/conference/osdi16"
+],
+"publishedBy": [
+"USENIX Association"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/osdi"
+],
+"title": [
+"12th USENIX Symposium on Operating Systems Design and Implementation, OSDI 2016, Savannah, GA, USA, November 2-4, 2016."
+],
+"yearOfPublication": [
+"2016"
+],
+"_authors": [
+"Kimberly Keeton",
+"Timothy Roscoe"
+]
+},
+"T::Torch.fx: Practical Program Capture and Transformation for Deep Learning in Python": null,
+"T::MLIR: Scaling Compiler Infrastructure for Domain Specific Computation": "https://dblp.org/rec/conf/cgo/LattnerAB0DPRSV21",
+"https://dblp.org/rec/conf/cgo/LattnerAB0DPRSV21": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2202637",
+"bn12614668",
+"bn12614669",
+"bn12614670"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Chris Lattner et al.: MLIR: Scaling Compiler Infrastructure for Domain Specific Computation. (2021)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/CGO51591.2021.9370308",
+"http://www.wikidata.org/entity/Q130858655",
+"https://doi.org/10.1109/CGO51591.2021.9370308"
+],
+"authoredBy": [
+"https://dblp.org/pid/157/2803",
+"https://dblp.org/pid/259/2996",
+"https://dblp.org/pid/43/4613",
+"https://dblp.org/pid/52/5720",
+"https://dblp.org/pid/59/3624",
+"https://dblp.org/pid/60/920",
+"https://dblp.org/pid/81/6521",
+"https://dblp.org/pid/81/858-1",
+"https://dblp.org/pid/88/5676",
+"https://dblp.org/pid/96/9707"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/157/2803",
+"https://dblp.org/pid/259/2996",
+"https://dblp.org/pid/43/4613",
+"https://dblp.org/pid/52/5720",
+"https://dblp.org/pid/59/3624",
+"https://dblp.org/pid/60/920",
+"https://dblp.org/pid/81/6521",
+"https://dblp.org/pid/81/858-1",
+"https://dblp.org/pid/88/5676",
+"https://dblp.org/pid/96/9707"
+],
+"documentPage": [
+"https://doi.org/10.1109/CGO51591.2021.9370308"
+],
+"doi": [
+"https://doi.org/10.1109/CGO51591.2021.9370308"
+],
+"hasSignature": [
+"bn12614672",
+"bn12614673",
+"bn12614674",
+"bn12614675",
+"bn12614676",
+"bn12614677",
+"bn12614678",
+"bn12614679",
+"bn12614680",
+"bn12614681"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/cgo/cgo2021"
+],
+"numberOfCreators": [
+"10"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06803611268"
+],
+"pagination": [
+"2-14"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/CGO51591.2021.9370308"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/cgo/2021"
+],
+"publishedIn": [
+"CGO"
+],
+"publishedInBook": [
+"CGO"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/cgo"
+],
+"title": [
+"MLIR: Scaling Compiler Infrastructure for Domain Specific Computation."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130858655"
+],
+"yearOfEvent": [
+"2021"
+],
+"yearOfPublication": [
+"2021"
+],
+"_authors": [
+"Chris Lattner",
+"Mehdi Amini",
+"Uday Bondhugula",
+"Albert Cohen",
+"Andy Davis",
+"Jacques A. Pienaar",
+"River Riddle",
+"Tatiana Shpeisman",
+"Nicolas Vasilache",
+"Oleksandr Zinenko"
+]
+},
+"https://dblp.org/rec/conf/cgo/2021": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn12610909",
+"bn12610910",
+"bn12610911"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Jae W. Lee et al.: IEEE/ACM International Symposium on Code Generation and Optimization, CGO 2021, Seoul, South Korea, February 27 - March 3, 2021 (2021)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/CGO51591.2021",
+"https://doi.org/10.1109/CGO51591.2021",
+"urn:isbn:9781728186139"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/21/4685",
+"https://dblp.org/pid/80/2347",
+"https://dblp.org/pid/s/MaryLouSoffa"
+],
+"documentPage": [
+"https://doi.org/10.1109/CGO51591.2021"
+],
+"doi": [
+"https://doi.org/10.1109/CGO51591.2021"
+],
+"editedBy": [
+"https://dblp.org/pid/21/4685",
+"https://dblp.org/pid/80/2347",
+"https://dblp.org/pid/s/MaryLouSoffa"
+],
+"hasSignature": [
+"bn12610912",
+"bn12610913",
+"bn12610914"
+],
+"isbn": [
+"urn:isbn:9781728186139"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/cgo/cgo2021"
+],
+"numberOfCreators": [
+"3"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/CGO51591.2021"
+],
+"publishedBy": [
+"IEEE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/cgo"
+],
+"title": [
+"IEEE/ACM International Symposium on Code Generation and Optimization, CGO 2021, Seoul, South Korea, February 27 - March 3, 2021"
+],
+"yearOfPublication": [
+"2021"
+],
+"_authors": [
+"Jae W. Lee",
+"Mary Lou Soffa",
+"Ayal Zaks"
+]
+},
+"T::Halide: a language and compiler for optimizing parallelism, locality, and recomputation in image processing pipelines": "https://dblp.org/rec/conf/pldi/Ragan-KelleyBAPDA13",
+"https://dblp.org/rec/conf/pldi/Ragan-KelleyBAPDA13": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3276228",
+"bn3748550",
+"bn12629515",
+"bn12629516",
+"bn12629517",
+"bn12629518"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Jonathan Ragan-Kelley et al.: Halide: a language and compiler for optimizing parallelism, locality, and recomputation in image processing pipelines. (2013)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/2491956.2462176",
+"http://dx.doi.org/10.1145/2499370.2462176",
+"http://www.wikidata.org/entity/Q122278156",
+"https://doi.org/10.1145/2491956.2462176",
+"https://doi.org/10.1145/2499370.2462176"
+],
+"authoredBy": [
+"https://dblp.org/pid/04/5122",
+"https://dblp.org/pid/09/1000",
+"https://dblp.org/pid/35/6347",
+"https://dblp.org/pid/87/2617",
+"https://dblp.org/pid/a/SPAmarasinghe",
+"https://dblp.org/pid/p/SylvainParis"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/04/5122",
+"https://dblp.org/pid/09/1000",
+"https://dblp.org/pid/35/6347",
+"https://dblp.org/pid/87/2617",
+"https://dblp.org/pid/a/SPAmarasinghe",
+"https://dblp.org/pid/p/SylvainParis"
+],
+"documentPage": [
+"https://doi.org/10.1145/2491956.2462176",
+"https://doi.org/10.1145/2499370.2462176"
+],
+"doi": [
+"https://doi.org/10.1145/2491956.2462176",
+"https://doi.org/10.1145/2499370.2462176"
+],
+"hasSignature": [
+"bn12629519",
+"bn12629520",
+"bn12629521",
+"bn12629522",
+"bn12629523",
+"bn12629525"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/pldi2013"
+],
+"numberOfCreators": [
+"6"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/0615093905",
+"https://w3id.org/oc/meta/br/062302938462"
+],
+"pagination": [
+"519-530"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/2491956.2462176"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/pldi/2013"
+],
+"publishedIn": [
+"PLDI"
+],
+"publishedInBook": [
+"PLDI"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/pldi"
+],
+"title": [
+"Halide: a language and compiler for optimizing parallelism, locality, and recomputation in image processing pipelines."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q122278156"
+],
+"yearOfEvent": [
+"2013"
+],
+"yearOfPublication": [
+"2013"
+],
+"_authors": [
+"Jonathan Ragan-Kelley",
+"Connelly Barnes",
+"Andrew Adams",
+"Sylvain Paris",
+"Frédo Durand",
+"Saman P. Amarasinghe"
+]
+},
+"https://dblp.org/rec/conf/pldi/2013": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn696863",
+"bn12634169",
+"bn12634170",
+"bn12634171",
+"bn12634172"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Hans-Juergen Boehm and Cormac Flanagan: ACM SIGPLAN Conference on Programming Language Design and Implementation, PLDI '13, Seattle, WA, USA, June 16-19, 2013 (2013)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/2491956",
+"http://dx.doi.org/10.1145/2499370",
+"https://doi.org/10.1145/2491956",
+"https://doi.org/10.1145/2499370",
+"urn:isbn:9781450320146"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/43/2339",
+"https://dblp.org/pid/f/CormacFlanagan"
+],
+"documentPage": [
+"https://doi.org/10.1145/2491956",
+"https://doi.org/10.1145/2499370"
+],
+"doi": [
+"https://doi.org/10.1145/2491956",
+"https://doi.org/10.1145/2499370"
+],
+"editedBy": [
+"https://dblp.org/pid/43/2339",
+"https://dblp.org/pid/f/CormacFlanagan"
+],
+"hasSignature": [
+"bn12634173",
+"bn12634174"
+],
+"isbn": [
+"urn:isbn:9781450320146"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/pldi2013"
+],
+"numberOfCreators": [
+"2"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061702714683"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/2491956"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/pldi"
+],
+"title": [
+"ACM SIGPLAN Conference on Programming Language Design and Implementation, PLDI '13, Seattle, WA, USA, June 16-19, 2013"
+],
+"yearOfPublication": [
+"2013"
+],
+"_authors": [
+"Hans-Juergen Boehm",
+"Cormac Flanagan"
+]
+},
+"T::The Deep Learning Compiler: A Comprehensive Survey": "https://dblp.org/rec/journals/tpds/LiLLSYYLGYQ21",
+"https://dblp.org/rec/journals/tpds/LiLLSYYLGYQ21": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1019309",
+"bn43066937",
+"bn43066938",
+"bn43066939"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Mingzhen Li et al.: The Deep Learning Compiler: A Comprehensive Survey. (2021)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/TPDS.2020.3030548",
+"http://www.wikidata.org/entity/Q123272148",
+"https://doi.org/10.1109/TPDS.2020.3030548"
+],
+"authoredBy": [
+"https://dblp.org/pid/08/4002",
+"https://dblp.org/pid/120/9592-1",
+"https://dblp.org/pid/159/9844-1",
+"https://dblp.org/pid/230/3070-1",
+"https://dblp.org/pid/233/8532",
+"https://dblp.org/pid/26/2404",
+"https://dblp.org/pid/55/2775",
+"https://dblp.org/pid/67/3001-2",
+"https://dblp.org/pid/94/8072-2",
+"https://dblp.org/pid/97/4626-13"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/08/4002",
+"https://dblp.org/pid/120/9592-1",
+"https://dblp.org/pid/159/9844-1",
+"https://dblp.org/pid/230/3070-1",
+"https://dblp.org/pid/233/8532",
+"https://dblp.org/pid/26/2404",
+"https://dblp.org/pid/55/2775",
+"https://dblp.org/pid/67/3001-2",
+"https://dblp.org/pid/94/8072-2",
+"https://dblp.org/pid/97/4626-13"
+],
+"documentPage": [
+"https://doi.org/10.1109/TPDS.2020.3030548"
+],
+"doi": [
+"https://doi.org/10.1109/TPDS.2020.3030548"
+],
+"hasSignature": [
+"bn43066940",
+"bn43066941",
+"bn43066942",
+"bn43066943",
+"bn43066946",
+"bn43066947",
+"bn43066948",
+"bn43066949",
+"bn43066950",
+"bn43066951"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/tpds/tpds32"
+],
+"numberOfCreators": [
+"10"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06803440442"
+],
+"pagination": [
+"708-727"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/TPDS.2020.3030548"
+],
+"publishedIn": [
+"IEEE Trans. Parallel Distributed Syst."
+],
+"publishedInJournal": [
+"IEEE Trans. Parallel Distributed Syst."
+],
+"publishedInJournalVolume": [
+"32"
+],
+"publishedInJournalVolumeIssue": [
+"3"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/tpds"
+],
+"title": [
+"The Deep Learning Compiler: A Comprehensive Survey."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q123272148"
+],
+"yearOfPublication": [
+"2021"
+],
+"_authors": [
+"Mingzhen Li",
+"Yi Liu",
+"Xiaoyan Liu",
+"Qingxiao Sun",
+"Xin You",
+"Hailong Yang",
+"Zhongzhi Luan",
+"Lin Gan",
+"Guangwen Yang",
+"Depei Qian"
+]
+},
+"T::NNSmith: Generating Diverse and Valid Test Cases for Deep Learning Compilers": "https://dblp.org/rec/conf/asplos/LiuLRTLPZ23",
+"https://dblp.org/rec/conf/asplos/LiuLRTLPZ23": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1304960",
+"bn25632210",
+"bn25632211",
+"bn25632212"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Jiawei Liu et al.: NNSmith: Generating Diverse and Valid Test Cases for Deep Learning Compilers. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3575693.3575707",
+"http://www.wikidata.org/entity/Q130839131",
+"https://doi.org/10.1145/3575693.3575707"
+],
+"authoredBy": [
+"https://dblp.org/pid/12/8228-4",
+"https://dblp.org/pid/223/0452",
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/55/925",
+"https://dblp.org/pid/70/1533-5",
+"https://dblp.org/pid/78/2101",
+"https://dblp.org/pid/79/572-1"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/12/8228-4",
+"https://dblp.org/pid/223/0452",
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/55/925",
+"https://dblp.org/pid/70/1533-5",
+"https://dblp.org/pid/78/2101",
+"https://dblp.org/pid/79/572-1"
+],
+"documentPage": [
+"https://doi.org/10.1145/3575693.3575707"
+],
+"doi": [
+"https://doi.org/10.1145/3575693.3575707"
+],
+"hasSignature": [
+"bn25632213",
+"bn25632215",
+"bn25632216",
+"bn25632217",
+"bn25632218",
+"bn25632219",
+"bn25632220"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/asplos/asplos2023-2"
+],
+"numberOfCreators": [
+"7"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061203888741"
+],
+"pagination": [
+"530-543"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3575693.3575707"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/asplos/2023-2"
+],
+"publishedIn": [
+"ASPLOS (2)"
+],
+"publishedInBook": [
+"ASPLOS (2)"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/asplos"
+],
+"title": [
+"NNSmith: Generating Diverse and Valid Test Cases for Deep Learning Compilers."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130839131"
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Jiawei Liu",
+"Jinkun Lin",
+"Fabian Ruffy",
+"Cheng Tan",
+"Jinyang Li",
+"Aurojit Panda",
+"Lingming Zhang"
+]
+},
+"https://dblp.org/rec/conf/asplos/2023-2": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn25631552",
+"bn25631553",
+"bn25631554"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Tor M. Aamodt et al.: Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2, ASPLOS 2023, Vancouver, BC, Canada, March 25-29, 2023 (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3575693",
+"https://doi.org/10.1145/3575693",
+"urn:isbn:9781450399166"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/61/5482",
+"https://dblp.org/pid/a/TorMAamodt",
+"https://dblp.org/pid/s/MichaelMSwift"
+],
+"documentPage": [
+"https://doi.org/10.1145/3575693"
+],
+"doi": [
+"https://doi.org/10.1145/3575693"
+],
+"editedBy": [
+"https://dblp.org/pid/61/5482",
+"https://dblp.org/pid/a/TorMAamodt",
+"https://dblp.org/pid/s/MichaelMSwift"
+],
+"hasSignature": [
+"bn25631555",
+"bn25631556",
+"bn25631557"
+],
+"isbn": [
+"urn:isbn:9781450399166"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/asplos/asplos2023-2"
+],
+"numberOfCreators": [
+"3"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3575693"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/asplos"
+],
+"title": [
+"Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2, ASPLOS 2023, Vancouver, BC, Canada, March 25-29, 2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Tor M. Aamodt",
+"Natalie D. Enright Jerger",
+"Michael M. Swift"
+]
+},
+"T::TorchProbe: Fuzzing Dynamic Deep Learning Compilers": "https://dblp.org/rec/conf/aplas/SuGPS23",
+"https://dblp.org/rec/conf/aplas/SuGPS23": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn11170486",
+"bn11170487"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Qidong Su et al.: TorchProbe: Fuzzing Dynamic Deep Learning Compilers. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1007/978-981-99-8311-7_15",
+"https://doi.org/10.1007/978-981-99-8311-7_15"
+],
+"authoredBy": [
+"https://dblp.org/pid/118/8979",
+"https://dblp.org/pid/142/8449",
+"https://dblp.org/pid/276/5663",
+"https://dblp.org/pid/330/9828"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/118/8979",
+"https://dblp.org/pid/142/8449",
+"https://dblp.org/pid/276/5663",
+"https://dblp.org/pid/330/9828"
+],
+"documentPage": [
+"https://doi.org/10.1007/978-981-99-8311-7_15"
+],
+"doi": [
+"https://doi.org/10.1007/978-981-99-8311-7_15"
+],
+"hasSignature": [
+"bn11170488",
+"bn11170489",
+"bn11170490",
+"bn11170491"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/aplas/aplas2023"
+],
+"numberOfCreators": [
+"4"
+],
+"pagination": [
+"310-331"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1007/978-981-99-8311-7_15"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/aplas/2023"
+],
+"publishedIn": [
+"APLAS"
+],
+"publishedInBook": [
+"APLAS"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/aplas",
+"https://dblp.org/streams/series/lncs"
+],
+"title": [
+"TorchProbe: Fuzzing Dynamic Deep Learning Compilers."
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Qidong Su",
+"Chuqin Geng",
+"Gennady Pekhimenko",
+"Xujie Si"
+]
+},
+"https://dblp.org/rec/conf/aplas/2023": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn11171356",
+"bn11171357",
+"bn11171358",
+"bn11171359"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Chung-Kil Hur: Programming Languages and Systems - 21st Asian Symposium, APLAS 2023, Taipei, Taiwan, November 26-29, 2023, Proceedings (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1007/978-981-99-8311-7",
+"https://doi.org/10.1007/978-981-99-8311-7",
+"urn:isbn:9789819983100",
+"urn:isbn:9789819983117"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/75/3287"
+],
+"documentPage": [
+"https://doi.org/10.1007/978-981-99-8311-7"
+],
+"doi": [
+"https://doi.org/10.1007/978-981-99-8311-7"
+],
+"editedBy": [
+"https://dblp.org/pid/75/3287"
+],
+"hasSignature": [
+"bn11171361"
+],
+"isbn": [
+"urn:isbn:9789819983100",
+"urn:isbn:9789819983117"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/aplas/aplas2023"
+],
+"numberOfCreators": [
+"1"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1007/978-981-99-8311-7"
+],
+"publishedBy": [
+"Springer"
+],
+"publishedIn": [
+"Lecture Notes in Computer Science"
+],
+"publishedInSeries": [
+"Lecture Notes in Computer Science"
+],
+"publishedInSeriesVolume": [
+"14405"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/aplas",
+"https://dblp.org/streams/series/lncs"
+],
+"title": [
+"Programming Languages and Systems - 21st Asian Symposium, APLAS 2023, Taipei, Taiwan, November 26-29, 2023, Proceedings"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Chung-Kil Hur"
+]
+},
+"T::Coverage-guided tensor compiler fuzzing with joint IR-pass mutation": "https://dblp.org/rec/journals/pacmpl/LiuWYDZ22",
+"https://dblp.org/rec/journals/pacmpl/LiuWYDZ22": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2123811",
+"bn35596592",
+"bn35596593",
+"bn35596594"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Jiawei Liu et al.: Coverage-guided tensor compiler fuzzing with joint IR-pass mutation. (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3527317",
+"http://www.wikidata.org/entity/Q114071038",
+"https://doi.org/10.1145/3527317"
+],
+"authoredBy": [
+"https://dblp.org/pid/12/8228-4",
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/301/1212",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/90/4655-11"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/12/8228-4",
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/301/1212",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/90/4655-11"
+],
+"documentPage": [
+"https://doi.org/10.1145/3527317"
+],
+"doi": [
+"https://doi.org/10.1145/3527317"
+],
+"hasSignature": [
+"bn35596595",
+"bn35596596",
+"bn35596597",
+"bn35596599",
+"bn35596600"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/pacmpl/pacmpl6"
+],
+"numberOfCreators": [
+"5"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06202296657"
+],
+"pagination": [
+"1-26"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3527317"
+],
+"publishedIn": [
+"Proc. ACM Program. Lang."
+],
+"publishedInJournal": [
+"Proc. ACM Program. Lang."
+],
+"publishedInJournalVolume": [
+"6"
+],
+"publishedInJournalVolumeIssue": [
+"OOPSLA1"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/oopsla",
+"https://dblp.org/streams/journals/pacmpl"
+],
+"title": [
+"Coverage-guided tensor compiler fuzzing with joint IR-pass mutation."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q114071038"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Jiawei Liu",
+"Yuxiang Wei",
+"Sen Yang",
+"Yinlin Deng",
+"Lingming Zhang"
+]
+},
+"T::Fuzzing Deep Learning Compilers with HirGen": "https://dblp.org/rec/conf/issta/MaS00C23",
+"https://dblp.org/rec/conf/issta/MaS00C23": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1962324",
+"bn24536757",
+"bn24536758",
+"bn24536759"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Haoyang Ma et al.: Fuzzing Deep Learning Compilers with HirGen. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3597926.3598053",
+"http://www.wikidata.org/entity/Q130834744",
+"https://doi.org/10.1145/3597926.3598053"
+],
+"authoredBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/180/5774-1",
+"https://dblp.org/pid/247/3354",
+"https://dblp.org/pid/299/8755",
+"https://dblp.org/pid/c/SCCheung"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/180/5774-1",
+"https://dblp.org/pid/247/3354",
+"https://dblp.org/pid/299/8755",
+"https://dblp.org/pid/c/SCCheung"
+],
+"documentPage": [
+"https://doi.org/10.1145/3597926.3598053"
+],
+"doi": [
+"https://doi.org/10.1145/3597926.3598053"
+],
+"hasSignature": [
+"bn24536760",
+"bn24536762",
+"bn24536763",
+"bn24536764",
+"bn24536765"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/issta/issta2023"
+],
+"numberOfCreators": [
+"5"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06370158778"
+],
+"pagination": [
+"248-260"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3597926.3598053"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/issta/2023"
+],
+"publishedIn": [
+"ISSTA"
+],
+"publishedInBook": [
+"ISSTA"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/issta"
+],
+"title": [
+"Fuzzing Deep Learning Compilers with HirGen."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130834744"
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Haoyang Ma",
+"Qingchao Shen",
+"Yongqiang Tian",
+"Junjie Chen",
+"Shing-Chi Cheung"
+]
+},
+"https://dblp.org/rec/conf/issta/2023": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4991158",
+"bn24539746",
+"bn24539747"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"René Just and Gordon Fraser: Proceedings of the 32nd ACM SIGSOFT International Symposium on Software Testing and Analysis, ISSTA 2023, Seattle, WA, USA, July 17-21, 2023 (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3597926",
+"https://doi.org/10.1145/3597926"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/74/2259",
+"https://dblp.org/pid/75/10029"
+],
+"documentPage": [
+"https://doi.org/10.1145/3597926"
+],
+"doi": [
+"https://doi.org/10.1145/3597926"
+],
+"editedBy": [
+"https://dblp.org/pid/74/2259",
+"https://dblp.org/pid/75/10029"
+],
+"hasSignature": [
+"bn24539748",
+"bn24539751"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/issta/issta2023"
+],
+"numberOfCreators": [
+"2"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06104852419"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3597926"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/issta"
+],
+"title": [
+"Proceedings of the 32nd ACM SIGSOFT International Symposium on Software Testing and Analysis, ISSTA 2023, Seattle, WA, USA, July 17-21, 2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"René Just",
+"Gordon Fraser"
+]
+},
+"T::MLIRSmith: Random Program Generation for Fuzzing MLIR Compiler Infrastructure": "https://dblp.org/rec/conf/kbse/WangCXLWSZ23",
+"https://dblp.org/rec/conf/kbse/WangCXLWSZ23": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn6024891",
+"bn18215212",
+"bn18215213",
+"bn18215214"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Haoyu Wang et al.: MLIRSmith: Random Program Generation for Fuzzing MLIR Compiler Infrastructure. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/ASE56229.2023.00120",
+"http://www.wikidata.org/entity/Q130811458",
+"https://doi.org/10.1109/ASE56229.2023.00120"
+],
+"authoredBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/209/0123",
+"https://dblp.org/pid/299/8755",
+"https://dblp.org/pid/329/8567",
+"https://dblp.org/pid/50/8499-17",
+"https://dblp.org/pid/58/6609-7",
+"https://dblp.org/pid/71/7089"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/209/0123",
+"https://dblp.org/pid/299/8755",
+"https://dblp.org/pid/329/8567",
+"https://dblp.org/pid/50/8499-17",
+"https://dblp.org/pid/58/6609-7",
+"https://dblp.org/pid/71/7089"
+],
+"documentPage": [
+"https://doi.org/10.1109/ASE56229.2023.00120"
+],
+"doi": [
+"https://doi.org/10.1109/ASE56229.2023.00120"
+],
+"hasSignature": [
+"bn18215215",
+"bn18215216",
+"bn18215217",
+"bn18215218",
+"bn18215219",
+"bn18215222",
+"bn18215223"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/kbse/ase2023"
+],
+"numberOfCreators": [
+"7"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06904426445"
+],
+"pagination": [
+"1555-1566"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/ASE56229.2023.00120"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/kbse/2023"
+],
+"publishedIn": [
+"ASE"
+],
+"publishedInBook": [
+"ASE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/kbse"
+],
+"title": [
+"MLIRSmith: Random Program Generation for Fuzzing MLIR Compiler Infrastructure."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130811458"
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Haoyu Wang",
+"Junjie Chen",
+"Chuyue Xie",
+"Shuang Liu",
+"Zan Wang",
+"Qingchao Shen",
+"Yingquan Zhao"
+]
+},
+"https://dblp.org/rec/conf/kbse/2023": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn18245504",
+"bn18245505",
+"bn18245506"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"38th IEEE/ACM International Conference on Automated Software Engineering, ASE 2023, Luxembourg, September 11-15, 2023 (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/ASE56229.2023",
+"https://doi.org/10.1109/ASE56229.2023",
+"urn:isbn:9798350329964"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"documentPage": [
+"https://doi.org/10.1109/ASE56229.2023"
+],
+"doi": [
+"https://doi.org/10.1109/ASE56229.2023"
+],
+"isbn": [
+"urn:isbn:9798350329964"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/kbse/ase2023"
+],
+"numberOfCreators": [
+"0"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/ASE56229.2023"
+],
+"publishedBy": [
+"IEEE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/kbse"
+],
+"title": [
+"38th IEEE/ACM International Conference on Automated Software Engineering, ASE 2023, Luxembourg, September 11-15, 2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": []
+},
+"T::NeuRI: Diversifying DNN Generation via Inductive Rule Inference": "https://dblp.org/rec/conf/sigsoft/0004PW023",
+"https://dblp.org/rec/conf/sigsoft/0004PW023": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn5120869",
+"bn24450412",
+"bn24450413"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Jiawei Liu et al.: NeuRI: Diversifying DNN Generation via Inductive Rule Inference. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3611643.3616337",
+"https://doi.org/10.1145/3611643.3616337"
+],
+"authoredBy": [
+"https://dblp.org/pid/12/8228-4",
+"https://dblp.org/pid/138/4992",
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/339/7123"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/12/8228-4",
+"https://dblp.org/pid/138/4992",
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/339/7123"
+],
+"documentPage": [
+"https://doi.org/10.1145/3611643.3616337"
+],
+"doi": [
+"https://doi.org/10.1145/3611643.3616337"
+],
+"hasSignature": [
+"bn24450414",
+"bn24450415",
+"bn24450416",
+"bn24450418"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigsoft/fse2023"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06350546774"
+],
+"pagination": [
+"657-669"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3611643.3616337"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/sigsoft/2023"
+],
+"publishedIn": [
+"ESEC/SIGSOFT FSE"
+],
+"publishedInBook": [
+"ESEC/SIGSOFT FSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/esec",
+"https://dblp.org/streams/conf/sigsoft"
+],
+"title": [
+"NeuRI: Diversifying DNN Generation via Inductive Rule Inference."
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Jiawei Liu",
+"Jinjun Peng",
+"Yuyao Wang",
+"Lingming Zhang"
+]
+},
+"https://dblp.org/rec/conf/sigsoft/2023": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4189647",
+"bn24449482",
+"bn24449484"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Satish Chandra et al.: Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering, ESEC/FSE 2023, San Francisco, CA, USA, December 3-9, 2023 (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3611643",
+"https://doi.org/10.1145/3611643"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/50/10438",
+"https://dblp.org/pid/54/2734",
+"https://dblp.org/pid/c/SatishChandra"
+],
+"documentPage": [
+"https://doi.org/10.1145/3611643"
+],
+"doi": [
+"https://doi.org/10.1145/3611643"
+],
+"editedBy": [
+"https://dblp.org/pid/50/10438",
+"https://dblp.org/pid/54/2734",
+"https://dblp.org/pid/c/SatishChandra"
+],
+"hasSignature": [
+"bn24449485",
+"bn24449486",
+"bn24449487"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigsoft/fse2023"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061304139384"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3611643"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/esec",
+"https://dblp.org/streams/conf/sigsoft"
+],
+"title": [
+"Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering, ESEC/FSE 2023, San Francisco, CA, USA, December 3-9, 2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Satish Chandra",
+"Kelly Blincoe",
+"Paolo Tonella"
+]
+},
+"T::WhiteFox: White-Box Compiler Fuzzing Empowered by Large Language Models": "https://dblp.org/rec/journals/pacmpl/YangDLY0J024",
+"https://dblp.org/rec/journals/pacmpl/YangDLY0J024": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2134963",
+"bn35613915",
+"bn35613916",
+"bn35613917"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Chenyuan Yang et al.: WhiteFox: White-Box Compiler Fuzzing Empowered by Large Language Models. (2024)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3689736",
+"http://www.wikidata.org/entity/Q130811430",
+"https://doi.org/10.1145/3689736"
+],
+"authoredBy": [
+"https://dblp.org/pid/12/8228-4",
+"https://dblp.org/pid/18/10505",
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986",
+"https://dblp.org/pid/348/9280",
+"https://dblp.org/pid/71/10222"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/12/8228-4",
+"https://dblp.org/pid/18/10505",
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986",
+"https://dblp.org/pid/348/9280",
+"https://dblp.org/pid/71/10222"
+],
+"documentPage": [
+"https://doi.org/10.1145/3689736"
+],
+"doi": [
+"https://doi.org/10.1145/3689736"
+],
+"hasSignature": [
+"bn35613918",
+"bn35613919",
+"bn35613920",
+"bn35613921",
+"bn35613922",
+"bn35613923",
+"bn35613925"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/pacmpl/pacmpl8"
+],
+"numberOfCreators": [
+"7"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062404381271"
+],
+"pagination": [
+"709-735"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3689736"
+],
+"publishedIn": [
+"Proc. ACM Program. Lang."
+],
+"publishedInJournal": [
+"Proc. ACM Program. Lang."
+],
+"publishedInJournalVolume": [
+"8"
+],
+"publishedInJournalVolumeIssue": [
+"OOPSLA2"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/oopsla",
+"https://dblp.org/streams/journals/pacmpl"
+],
+"title": [
+"WhiteFox: White-Box Compiler Fuzzing Empowered by Large Language Models."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130811430"
+],
+"yearOfPublication": [
+"2024"
+],
+"_authors": [
+"Chenyuan Yang",
+"Yinlin Deng",
+"Runyu Lu",
+"Jiayi Yao",
+"Jiawei Liu",
+"Reyhaneh Jabbarvand",
+"Lingming Zhang"
+]
+},
+"T::GenCoG: A DSL-Based Approach to Generating Computation Graphs for TVM Testing": "https://dblp.org/rec/conf/issta/WangNMCWB023",
+"https://dblp.org/rec/conf/issta/WangNMCWB023": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn36279",
+"bn24540621",
+"bn24540622",
+"bn24540623"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Zihan Wang et al.: GenCoG: A DSL-Based Approach to Generating Computation Graphs for TVM Testing. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3597926.3598105",
+"http://www.wikidata.org/entity/Q130888946",
+"https://doi.org/10.1145/3597926.3598105"
+],
+"authoredBy": [
+"https://dblp.org/pid/138/7849",
+"https://dblp.org/pid/152/5077-32",
+"https://dblp.org/pid/183/4488",
+"https://dblp.org/pid/21/6510-1",
+"https://dblp.org/pid/278/0656",
+"https://dblp.org/pid/64/5155",
+"https://dblp.org/pid/71/6948-1"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/138/7849",
+"https://dblp.org/pid/152/5077-32",
+"https://dblp.org/pid/183/4488",
+"https://dblp.org/pid/21/6510-1",
+"https://dblp.org/pid/278/0656",
+"https://dblp.org/pid/64/5155",
+"https://dblp.org/pid/71/6948-1"
+],
+"documentPage": [
+"https://doi.org/10.1145/3597926.3598105"
+],
+"doi": [
+"https://doi.org/10.1145/3597926.3598105"
+],
+"hasSignature": [
+"bn24540624",
+"bn24540625",
+"bn24540627",
+"bn24540628",
+"bn24540629",
+"bn24540630",
+"bn24540631"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/issta/issta2023"
+],
+"numberOfCreators": [
+"7"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/0641085570"
+],
+"pagination": [
+"904-916"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3597926.3598105"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/issta/2023"
+],
+"publishedIn": [
+"ISSTA"
+],
+"publishedInBook": [
+"ISSTA"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/issta"
+],
+"title": [
+"GenCoG: A DSL-Based Approach to Generating Computation Graphs for TVM Testing."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130888946"
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Zihan Wang",
+"Pengbo Nie",
+"Xinyuan Miao",
+"Yuting Chen",
+"Chengcheng Wan",
+"Lei Bu",
+"Jianjun Zhao"
+]
+},
+"T::Metamorphic Testing of Deep Learning Compilers": "https://dblp.org/rec/conf/sigmetrics/XiaoLYPW22",
+"https://dblp.org/rec/conf/sigmetrics/XiaoLYPW22": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn5250310",
+"bn25517545",
+"bn25517546",
+"bn25517547"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Dongwei Xiao et al.: Metamorphic Testing of Deep Learning Compilers. (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3489048.3522655",
+"http://www.wikidata.org/entity/Q130856510",
+"https://doi.org/10.1145/3489048.3522655"
+],
+"authoredBy": [
+"https://dblp.org/pid/193/9286-1",
+"https://dblp.org/pid/295/5277-1",
+"https://dblp.org/pid/315/9934",
+"https://dblp.org/pid/42/1503-11",
+"https://dblp.org/pid/44/8421"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/193/9286-1",
+"https://dblp.org/pid/295/5277-1",
+"https://dblp.org/pid/315/9934",
+"https://dblp.org/pid/42/1503-11",
+"https://dblp.org/pid/44/8421"
+],
+"documentPage": [
+"https://doi.org/10.1145/3489048.3522655"
+],
+"doi": [
+"https://doi.org/10.1145/3489048.3522655"
+],
+"hasSignature": [
+"bn25517548",
+"bn25517550",
+"bn25517551",
+"bn25517552",
+"bn25517553"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigmetrics/sigmetrics2022"
+],
+"numberOfCreators": [
+"5"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062402951273"
+],
+"pagination": [
+"65-66"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3489048.3522655"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/sigmetrics/2022"
+],
+"publishedIn": [
+"SIGMETRICS (Abstracts)"
+],
+"publishedInBook": [
+"SIGMETRICS (Abstracts)"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/sigmetrics"
+],
+"title": [
+"Metamorphic Testing of Deep Learning Compilers."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130856510"
+],
+"yearOfEvent": [
+"2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Dongwei Xiao",
+"Zhibo Liu",
+"Yuanyuan Yuan",
+"Qi Pang",
+"Shuai Wang"
+]
+},
+"https://dblp.org/rec/conf/sigmetrics/2022": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn25543162",
+"bn25543163",
+"bn25543164"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"D. Manjunath et al.: SIGMETRICS/PERFORMANCE '22: ACM SIGMETRICS/IFIP PERFORMANCE Joint International Conference on Measurement and Modeling of Computer Systems, Mumbai, India, June 6 - 10, 2022 (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3489048",
+"https://doi.org/10.1145/3489048",
+"urn:isbn:9781450391412"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/32/4677",
+"https://dblp.org/pid/40/1039",
+"https://dblp.org/pid/41/5561",
+"https://dblp.org/pid/71/5073",
+"https://dblp.org/pid/97/736"
+],
+"documentPage": [
+"https://doi.org/10.1145/3489048"
+],
+"doi": [
+"https://doi.org/10.1145/3489048"
+],
+"editedBy": [
+"https://dblp.org/pid/32/4677",
+"https://dblp.org/pid/40/1039",
+"https://dblp.org/pid/41/5561",
+"https://dblp.org/pid/71/5073",
+"https://dblp.org/pid/97/736"
+],
+"hasSignature": [
+"bn25543165",
+"bn25543166",
+"bn25543167",
+"bn25543168",
+"bn25543169"
+],
+"isbn": [
+"urn:isbn:9781450391412"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigmetrics/sigmetrics2022"
+],
+"numberOfCreators": [
+"5"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3489048"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/sigmetrics"
+],
+"title": [
+"SIGMETRICS/PERFORMANCE '22: ACM SIGMETRICS/IFIP PERFORMANCE Joint International Conference on Measurement and Modeling of Computer Systems, Mumbai, India, June 6 - 10, 2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"D. Manjunath",
+"Jayakrishnan Nair",
+"Niklas Carlsson",
+"Edith Cohen",
+"Philippe Robert"
+]
+},
+"T::A comprehensive study of deep learning compiler bugs": "https://dblp.org/rec/conf/sigsoft/ShenM0TCC21",
+"https://dblp.org/rec/conf/sigsoft/ShenM0TCC21": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1062236",
+"bn24461387",
+"bn24461388",
+"bn24461389"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Qingchao Shen et al.: A comprehensive study of deep learning compiler bugs. (2021)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3468264.3468591",
+"http://www.wikidata.org/entity/Q130817900",
+"https://doi.org/10.1145/3468264.3468591"
+],
+"authoredBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/180/5774-1",
+"https://dblp.org/pid/247/3354",
+"https://dblp.org/pid/299/8755",
+"https://dblp.org/pid/64/3062-5",
+"https://dblp.org/pid/c/SCCheung"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/180/5774-1",
+"https://dblp.org/pid/247/3354",
+"https://dblp.org/pid/299/8755",
+"https://dblp.org/pid/64/3062-5",
+"https://dblp.org/pid/c/SCCheung"
+],
+"documentPage": [
+"https://doi.org/10.1145/3468264.3468591"
+],
+"doi": [
+"https://doi.org/10.1145/3468264.3468591"
+],
+"hasSignature": [
+"bn24461390",
+"bn24461391",
+"bn24461392",
+"bn24461393",
+"bn24461394",
+"bn24461396"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigsoft/fse2021"
+],
+"numberOfCreators": [
+"6"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061102924700"
+],
+"pagination": [
+"968-980"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3468264.3468591"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/sigsoft/2021"
+],
+"publishedIn": [
+"ESEC/SIGSOFT FSE"
+],
+"publishedInBook": [
+"ESEC/SIGSOFT FSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/esec",
+"https://dblp.org/streams/conf/sigsoft"
+],
+"title": [
+"A comprehensive study of deep learning compiler bugs."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130817900"
+],
+"yearOfEvent": [
+"2021"
+],
+"yearOfPublication": [
+"2021"
+],
+"_authors": [
+"Qingchao Shen",
+"Haoyang Ma",
+"Junjie Chen",
+"Yongqiang Tian",
+"Shing-Chi Cheung",
+"Xiang Chen"
+]
+},
+"https://dblp.org/rec/conf/sigsoft/2021": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2677890",
+"bn24435395",
+"bn24435396",
+"bn24435397"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Diomidis Spinellis et al.: ESEC/FSE '21: 29th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering, Athens, Greece, August 23-28, 2021 (2021)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3468264",
+"https://doi.org/10.1145/3468264",
+"urn:isbn:9781450385626"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/73/311",
+"https://dblp.org/pid/c/MarshaChechik",
+"https://dblp.org/pid/d/MassimilianoDiPenta",
+"https://dblp.org/pid/s/DiomidisSpinellis"
+],
+"documentPage": [
+"https://doi.org/10.1145/3468264"
+],
+"doi": [
+"https://doi.org/10.1145/3468264"
+],
+"editedBy": [
+"https://dblp.org/pid/73/311",
+"https://dblp.org/pid/c/MarshaChechik",
+"https://dblp.org/pid/d/MassimilianoDiPenta",
+"https://dblp.org/pid/s/DiomidisSpinellis"
+],
+"hasSignature": [
+"bn24435398",
+"bn24435399",
+"bn24435400",
+"bn24435401"
+],
+"isbn": [
+"urn:isbn:9781450385626"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigsoft/fse2021"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06403848800"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3468264"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/esec",
+"https://dblp.org/streams/conf/sigsoft"
+],
+"title": [
+"ESEC/FSE '21: 29th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering, Athens, Greece, August 23-28, 2021"
+],
+"yearOfPublication": [
+"2021"
+],
+"_authors": [
+"Diomidis Spinellis",
+"Georgios Gousios",
+"Marsha Chechik",
+"Massimiliano Di Penta"
+]
+},
+"T::Free Lunch for Testing: Fuzzing Deep-Learning Libraries from Open Source": "https://dblp.org/rec/conf/icse/WeiDYZ22",
+"https://dblp.org/rec/conf/icse/WeiDYZ22": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4691472",
+"bn7614852",
+"bn7614853"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Anjiang Wei et al.: Free Lunch for Testing: Fuzzing Deep-Learning Libraries from Open Source. (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3510003.3510041",
+"https://doi.org/10.1145/3510003.3510041"
+],
+"authoredBy": [
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/280/5656",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/280/5656",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986"
+],
+"documentPage": [
+"https://doi.org/10.1145/3510003.3510041"
+],
+"doi": [
+"https://doi.org/10.1145/3510003.3510041"
+],
+"hasSignature": [
+"bn7614854",
+"bn7614855",
+"bn7614856",
+"bn7614857"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2022"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06403897139"
+],
+"pagination": [
+"995-1007"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3510003.3510041"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/icse/2022"
+],
+"publishedIn": [
+"ICSE"
+],
+"publishedInBook": [
+"ICSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"Free Lunch for Testing: Fuzzing Deep-Learning Libraries from Open Source."
+],
+"yearOfEvent": [
+"2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Anjiang Wei",
+"Yinlin Deng",
+"Chenyuan Yang",
+"Lingming Zhang"
+]
+},
+"https://dblp.org/rec/conf/icse/2022": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4530762",
+"bn7665927",
+"bn7665928",
+"bn7665929",
+"bn7665930"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"44th IEEE/ACM 44th International Conference on Software Engineering, ICSE 2022, Pittsburgh, PA, USA, May 25-27, 2022 (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3510003",
+"http://www.wikidata.org/entity/Q124213257",
+"https://doi.org/10.1145/3510003",
+"urn:isbn:9781450392211"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"documentPage": [
+"https://doi.org/10.1145/3510003",
+"https://ieeexplore.ieee.org/xpl/conhome/9793835/proceeding"
+],
+"doi": [
+"https://doi.org/10.1145/3510003"
+],
+"isbn": [
+"urn:isbn:9781450392211"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2022"
+],
+"numberOfCreators": [
+"0"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06340592158"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3510003"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"44th IEEE/ACM 44th International Conference on Software Engineering, ICSE 2022, Pittsburgh, PA, USA, May 25-27, 2022"
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q124213257"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": []
+},
+"T::Large Language Models Are Zero-Shot Fuzzers: Fuzzing Deep-Learning Libraries via Large Language Models": "https://dblp.org/rec/conf/issta/DengXPY023",
+"https://dblp.org/rec/conf/issta/DengXPY023": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2059230",
+"bn24538253",
+"bn24538254"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Yinlin Deng et al.: Large Language Models Are Zero-Shot Fuzzers: Fuzzing Deep-Learning Libraries via Large Language Models. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3597926.3598067",
+"https://doi.org/10.1145/3597926.3598067"
+],
+"authoredBy": [
+"https://dblp.org/pid/249/5689",
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986",
+"https://dblp.org/pid/324/4827"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/249/5689",
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986",
+"https://dblp.org/pid/324/4827"
+],
+"documentPage": [
+"https://doi.org/10.1145/3597926.3598067"
+],
+"doi": [
+"https://doi.org/10.1145/3597926.3598067"
+],
+"hasSignature": [
+"bn24538255",
+"bn24538256",
+"bn24538257",
+"bn24538258",
+"bn24538259"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/issta/issta2023"
+],
+"numberOfCreators": [
+"5"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/0641085497"
+],
+"pagination": [
+"423-435"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3597926.3598067"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/issta/2023"
+],
+"publishedIn": [
+"ISSTA"
+],
+"publishedInBook": [
+"ISSTA"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/issta"
+],
+"title": [
+"Large Language Models Are Zero-Shot Fuzzers: Fuzzing Deep-Learning Libraries via Large Language Models."
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Yinlin Deng",
+"Chunqiu Steven Xia",
+"Haoran Peng",
+"Chenyuan Yang",
+"Lingming Zhang"
+]
+},
+"T::Large Language Models are Edge-Case Generators: Crafting Unusual Programs for Fuzzing Deep Learning Libraries": "https://dblp.org/rec/conf/icse/DengXYZY024",
+"https://dblp.org/rec/conf/icse/DengXYZY024": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3453286",
+"bn7648271",
+"bn7648272"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Yinlin Deng et al.: Large Language Models are Edge-Case Generators: Crafting Unusual Programs for Fuzzing Deep Learning Libraries. (2024)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3597503.3623343",
+"https://doi.org/10.1145/3597503.3623343"
+],
+"authoredBy": [
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986",
+"https://dblp.org/pid/324/4827",
+"https://dblp.org/pid/334/7280",
+"https://dblp.org/pid/344/2908"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986",
+"https://dblp.org/pid/324/4827",
+"https://dblp.org/pid/334/7280",
+"https://dblp.org/pid/344/2908"
+],
+"documentPage": [
+"https://doi.org/10.1145/3597503.3623343"
+],
+"doi": [
+"https://doi.org/10.1145/3597503.3623343"
+],
+"hasSignature": [
+"bn7648273",
+"bn7648274",
+"bn7648275",
+"bn7648276",
+"bn7648277",
+"bn7648278"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2024"
+],
+"numberOfCreators": [
+"6"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06340393145"
+],
+"pagination": [
+"70:1-70:13"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3597503.3623343"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/icse/2024"
+],
+"publishedIn": [
+"ICSE"
+],
+"publishedInBook": [
+"ICSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"Large Language Models are Edge-Case Generators: Crafting Unusual Programs for Fuzzing Deep Learning Libraries."
+],
+"yearOfEvent": [
+"2024"
+],
+"yearOfPublication": [
+"2024"
+],
+"_authors": [
+"Yinlin Deng",
+"Chunqiu Steven Xia",
+"Chenyuan Yang",
+"Shizhuo Dylan Zhang",
+"Shujing Yang",
+"Lingming Zhang"
+]
+},
+"https://dblp.org/rec/conf/icse/2024": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4500273",
+"bn7652881",
+"bn7652882"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Proceedings of the 46th IEEE/ACM International Conference on Software Engineering, ICSE 2024, Lisbon, Portugal, April 14-20, 2024 (2024)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3597503",
+"https://doi.org/10.1145/3597503"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"documentPage": [
+"https://doi.org/10.1145/3597503",
+"https://ieeexplore.ieee.org/xpl/conhome/10548016/proceeding"
+],
+"doi": [
+"https://doi.org/10.1145/3597503"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2024"
+],
+"numberOfCreators": [
+"0"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06340546352"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3597503"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"Proceedings of the 46th IEEE/ACM International Conference on Software Engineering, ICSE 2024, Lisbon, Portugal, April 14-20, 2024"
+],
+"yearOfPublication": [
+"2024"
+],
+"_authors": []
+},
+"T::Fuzzing deep-learning libraries via automated relational API inference": "https://dblp.org/rec/conf/sigsoft/DengYWZ22",
+"https://dblp.org/rec/conf/sigsoft/DengYWZ22": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn63755",
+"bn24448330",
+"bn24448331"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Yinlin Deng et al.: Fuzzing deep-learning libraries via automated relational API inference. (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3540250.3549085",
+"https://doi.org/10.1145/3540250.3549085"
+],
+"authoredBy": [
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/280/5656",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/280/5656",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986"
+],
+"documentPage": [
+"https://doi.org/10.1145/3540250.3549085"
+],
+"doi": [
+"https://doi.org/10.1145/3540250.3549085"
+],
+"hasSignature": [
+"bn24448332",
+"bn24448333",
+"bn24448334",
+"bn24448335"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigsoft/fse2022"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062203552548"
+],
+"pagination": [
+"44-56"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3540250.3549085"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/sigsoft/2022"
+],
+"publishedIn": [
+"ESEC/SIGSOFT FSE"
+],
+"publishedInBook": [
+"ESEC/SIGSOFT FSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/esec",
+"https://dblp.org/streams/conf/sigsoft"
+],
+"title": [
+"Fuzzing deep-learning libraries via automated relational API inference."
+],
+"yearOfEvent": [
+"2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Yinlin Deng",
+"Chenyuan Yang",
+"Anjiang Wei",
+"Lingming Zhang"
+]
+},
+"https://dblp.org/rec/conf/sigsoft/2022": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4984307",
+"bn24452153",
+"bn24452154",
+"bn24452155",
+"bn24452156"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Abhik Roychoudhury et al.: Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering, ESEC/FSE 2022, Singapore, Singapore, November 14-18, 2022 (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3540250",
+"http://www.wikidata.org/entity/Q124213258",
+"https://doi.org/10.1145/3540250",
+"urn:isbn:9781450394130"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/04/5884",
+"https://dblp.org/pid/56/5320",
+"https://dblp.org/pid/86/4141"
+],
+"documentPage": [
+"https://doi.org/10.1145/3540250"
+],
+"doi": [
+"https://doi.org/10.1145/3540250"
+],
+"editedBy": [
+"https://dblp.org/pid/04/5884",
+"https://dblp.org/pid/56/5320",
+"https://dblp.org/pid/86/4141"
+],
+"hasSignature": [
+"bn24452157",
+"bn24452158",
+"bn24452159"
+],
+"isbn": [
+"urn:isbn:9781450394130"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigsoft/fse2022"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06280530617"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3540250"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/esec",
+"https://dblp.org/streams/conf/sigsoft"
+],
+"title": [
+"Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering, ESEC/FSE 2022, Singapore, Singapore, November 14-18, 2022"
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q124213258"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Abhik Roychoudhury",
+"Cristian Cadar",
+"Miryung Kim"
+]
+},
+"T::DocTer: documentation-guided fuzzing for testing deep learning API functions": "https://dblp.org/rec/conf/issta/XieLKP0ZG22",
+"https://dblp.org/rec/conf/issta/XieLKP0ZG22": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn327360",
+"bn24539434",
+"bn24539435"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Danning Xie et al.: DocTer: documentation-guided fuzzing for testing deep learning API functions. (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3533767.3534220",
+"https://doi.org/10.1145/3533767.3534220"
+],
+"authoredBy": [
+"https://dblp.org/pid/127/0252",
+"https://dblp.org/pid/13/3957-1",
+"https://dblp.org/pid/163/1941",
+"https://dblp.org/pid/301/7958",
+"https://dblp.org/pid/83/7296",
+"https://dblp.org/pid/95/3760-1",
+"https://dblp.org/pid/g/MichaelWGodfrey"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/127/0252",
+"https://dblp.org/pid/13/3957-1",
+"https://dblp.org/pid/163/1941",
+"https://dblp.org/pid/301/7958",
+"https://dblp.org/pid/83/7296",
+"https://dblp.org/pid/95/3760-1",
+"https://dblp.org/pid/g/MichaelWGodfrey"
+],
+"documentPage": [
+"https://doi.org/10.1145/3533767.3534220"
+],
+"doi": [
+"https://doi.org/10.1145/3533767.3534220"
+],
+"hasSignature": [
+"bn24539436",
+"bn24539437",
+"bn24539439",
+"bn24539440",
+"bn24539441",
+"bn24539442",
+"bn24539443"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/issta/issta2022"
+],
+"numberOfCreators": [
+"7"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06203819465"
+],
+"pagination": [
+"176-188"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3533767.3534220"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/issta/2022"
+],
+"publishedIn": [
+"ISSTA"
+],
+"publishedInBook": [
+"ISSTA"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/issta"
+],
+"title": [
+"DocTer: documentation-guided fuzzing for testing deep learning API functions."
+],
+"yearOfEvent": [
+"2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Danning Xie",
+"Yitong Li",
+"Mijung Kim",
+"Hung Viet Pham",
+"Lin Tan",
+"Xiangyu Zhang",
+"Michael W. Godfrey"
+]
+},
+"https://dblp.org/rec/conf/issta/2022": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn811849",
+"bn24540862",
+"bn24540863",
+"bn24540864"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Sukyoung Ryu and Yannis Smaragdakis: ISSTA '22: 31st ACM SIGSOFT International Symposium on Software Testing and Analysis, Virtual Event, South Korea, July 18 - 22, 2022 (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3533767",
+"https://doi.org/10.1145/3533767",
+"urn:isbn:9781450393799"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/03/2760",
+"https://dblp.org/pid/s/YSmaragdakis"
+],
+"documentPage": [
+"https://doi.org/10.1145/3533767"
+],
+"doi": [
+"https://doi.org/10.1145/3533767"
+],
+"editedBy": [
+"https://dblp.org/pid/03/2760",
+"https://dblp.org/pid/s/YSmaragdakis"
+],
+"hasSignature": [
+"bn24540865",
+"bn24540866"
+],
+"isbn": [
+"urn:isbn:9781450393799"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/issta/issta2022"
+],
+"numberOfCreators": [
+"2"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061204133524"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3533767"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/issta"
+],
+"title": [
+"ISSTA '22: 31st ACM SIGSOFT International Symposium on Software Testing and Analysis, Virtual Event, South Korea, July 18 - 22, 2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Sukyoung Ryu",
+"Yannis Smaragdakis"
+]
+},
+"T::CRADLE: cross-backend validation to detect and localize bugs in deep learning libraries": "https://dblp.org/rec/conf/icse/PhamLQT19",
+"https://dblp.org/rec/conf/icse/PhamLQT19": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1076489",
+"bn7627536",
+"bn7627537"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Hung Viet Pham et al.: CRADLE: cross-backend validation to detect and localize bugs in deep learning libraries. (2019)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/ICSE.2019.00107",
+"https://doi.org/10.1109/ICSE.2019.00107"
+],
+"authoredBy": [
+"https://dblp.org/pid/13/3957-1",
+"https://dblp.org/pid/143/6569",
+"https://dblp.org/pid/163/1941",
+"https://dblp.org/pid/242/3895"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/13/3957-1",
+"https://dblp.org/pid/143/6569",
+"https://dblp.org/pid/163/1941",
+"https://dblp.org/pid/242/3895"
+],
+"documentPage": [
+"https://dl.acm.org/citation.cfm?id=3339633",
+"https://doi.org/10.1109/ICSE.2019.00107"
+],
+"doi": [
+"https://doi.org/10.1109/ICSE.2019.00107"
+],
+"hasSignature": [
+"bn7627538",
+"bn7627540",
+"bn7627541",
+"bn7627542"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2019"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062502273862"
+],
+"pagination": [
+"1027-1038"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/ICSE.2019.00107"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/icse/2019"
+],
+"publishedIn": [
+"ICSE"
+],
+"publishedInBook": [
+"ICSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"CRADLE: cross-backend validation to detect and localize bugs in deep learning libraries."
+],
+"yearOfEvent": [
+"2019"
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Hung Viet Pham",
+"Thibaud Lutellier",
+"Weizhen Qi",
+"Lin Tan"
+]
+},
+"https://dblp.org/rec/conf/icse/2019": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn7645705",
+"bn7645706"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Joanne M. Atlee et al.: Proceedings of the 41st International Conference on Software Engineering, ICSE 2019, Montreal, QC, Canada, May 25-31, 2019 (2019)"
+],
+"sameAs": [
+"urn:isbn:9781728108698"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/07/3368",
+"https://dblp.org/pid/a/JMAtlee",
+"https://dblp.org/pid/w/JonWhittle"
+],
+"documentPage": [
+"https://dl.acm.org/citation.cfm?id=3339505",
+"https://ieeexplore.ieee.org/xpl/conhome/8790403/proceeding"
+],
+"editedBy": [
+"https://dblp.org/pid/07/3368",
+"https://dblp.org/pid/a/JMAtlee",
+"https://dblp.org/pid/w/JonWhittle"
+],
+"hasSignature": [
+"bn7645707",
+"bn7645708",
+"bn7645709"
+],
+"isbn": [
+"urn:isbn:9781728108698"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2019"
+],
+"numberOfCreators": [
+"3"
+],
+"primaryDocumentPage": [
+"https://ieeexplore.ieee.org/xpl/conhome/8790403/proceeding"
+],
+"publishedBy": [
+"IEEE / ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"Proceedings of the 41st International Conference on Software Engineering, ICSE 2019, Montreal, QC, Canada, May 25-31, 2019"
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Joanne M. Atlee",
+"Tevfik Bultan",
+"Jon Whittle"
+]
+},
+"T::Deep learning library testing via effective model generation": "https://dblp.org/rec/conf/sigsoft/WangYCLZ20",
+"https://dblp.org/rec/conf/sigsoft/WangYCLZ20": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2767148",
+"bn24457390",
+"bn24457391"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Zan Wang et al.: Deep learning library testing via effective model generation. (2020)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3368089.3409761",
+"https://doi.org/10.1145/3368089.3409761"
+],
+"authoredBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/225/0304",
+"https://dblp.org/pid/51/5332-10",
+"https://dblp.org/pid/58/6609-7",
+"https://dblp.org/pid/71/7089"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/225/0304",
+"https://dblp.org/pid/51/5332-10",
+"https://dblp.org/pid/58/6609-7",
+"https://dblp.org/pid/71/7089"
+],
+"documentPage": [
+"https://doi.org/10.1145/3368089.3409761"
+],
+"doi": [
+"https://doi.org/10.1145/3368089.3409761"
+],
+"hasSignature": [
+"bn24457392",
+"bn24457393",
+"bn24457394",
+"bn24457395",
+"bn24457397"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigsoft/fse2020"
+],
+"numberOfCreators": [
+"5"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06303845120"
+],
+"pagination": [
+"788-799"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3368089.3409761"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/sigsoft/2020"
+],
+"publishedIn": [
+"ESEC/SIGSOFT FSE"
+],
+"publishedInBook": [
+"ESEC/SIGSOFT FSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/esec",
+"https://dblp.org/streams/conf/sigsoft"
+],
+"title": [
+"Deep learning library testing via effective model generation."
+],
+"yearOfEvent": [
+"2020"
+],
+"yearOfPublication": [
+"2020"
+],
+"_authors": [
+"Zan Wang",
+"Ming Yan",
+"Junjie Chen",
+"Shuang Liu",
+"Dongdi Zhang"
+]
+},
+"https://dblp.org/rec/conf/sigsoft/2020": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn186948",
+"bn24452380",
+"bn24452381",
+"bn24452382"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Prem Devanbu et al.: ESEC/FSE '20: 28th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering, Virtual Event, USA, November 8-13, 2020 (2020)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3368089",
+"https://doi.org/10.1145/3368089",
+"urn:isbn:9781450370431"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/19/3622-1",
+"https://dblp.org/pid/79/5975",
+"https://dblp.org/pid/d/PremkumarTDevanbu"
+],
+"documentPage": [
+"https://doi.org/10.1145/3368089"
+],
+"doi": [
+"https://doi.org/10.1145/3368089"
+],
+"editedBy": [
+"https://dblp.org/pid/19/3622-1",
+"https://dblp.org/pid/79/5975",
+"https://dblp.org/pid/d/PremkumarTDevanbu"
+],
+"hasSignature": [
+"bn24452385",
+"bn24452386",
+"bn24452387"
+],
+"isbn": [
+"urn:isbn:9781450370431"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigsoft/fse2020"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06403899910"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3368089"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/esec",
+"https://dblp.org/streams/conf/sigsoft"
+],
+"title": [
+"ESEC/FSE '20: 28th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering, Virtual Event, USA, November 8-13, 2020"
+],
+"yearOfPublication": [
+"2020"
+],
+"_authors": [
+"Prem Devanbu",
+"Myra B. Cohen",
+"Thomas Zimmermann"
+]
+},
+"T::Audee: Automated Testing for Deep Learning Frameworks": "https://dblp.org/rec/conf/kbse/GuoXLZLLS20",
+"https://dblp.org/rec/conf/kbse/GuoXLZLLS20": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4694233",
+"bn18220046",
+"bn18220047"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Qianyu Guo et al.: Audee: Automated Testing for Deep Learning Frameworks. (2020)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3324884.3416571",
+"https://doi.org/10.1145/3324884.3416571"
+],
+"authoredBy": [
+"https://dblp.org/pid/08/2489-1",
+"https://dblp.org/pid/12/5927-13",
+"https://dblp.org/pid/127/0713",
+"https://dblp.org/pid/230/4021",
+"https://dblp.org/pid/48/4825-1",
+"https://dblp.org/pid/51/3710-3",
+"https://dblp.org/pid/59/871-8"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/08/2489-1",
+"https://dblp.org/pid/12/5927-13",
+"https://dblp.org/pid/127/0713",
+"https://dblp.org/pid/230/4021",
+"https://dblp.org/pid/48/4825-1",
+"https://dblp.org/pid/51/3710-3",
+"https://dblp.org/pid/59/871-8"
+],
+"documentPage": [
+"https://doi.org/10.1145/3324884.3416571",
+"https://ieeexplore.ieee.org/document/9286000"
+],
+"doi": [
+"https://doi.org/10.1145/3324884.3416571"
+],
+"hasSignature": [
+"bn18220048",
+"bn18220049",
+"bn18220050",
+"bn18220051",
+"bn18220052",
+"bn18220054",
+"bn18220055"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/kbse/ase2020"
+],
+"numberOfCreators": [
+"7"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06803678893"
+],
+"pagination": [
+"486-498"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3324884.3416571"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/kbse/2020"
+],
+"publishedIn": [
+"ASE"
+],
+"publishedInBook": [
+"ASE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/kbse"
+],
+"title": [
+"Audee: Automated Testing for Deep Learning Frameworks."
+],
+"yearOfEvent": [
+"2020"
+],
+"yearOfPublication": [
+"2020"
+],
+"_authors": [
+"Qianyu Guo",
+"Xiaofei Xie",
+"Yi Li",
+"Xiaoyu Zhang",
+"Yang Liu",
+"Xiaohong Li",
+"Chao Shen"
+]
+},
+"https://dblp.org/rec/conf/kbse/2020": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4779652",
+"bn18248694",
+"bn18248695",
+"bn18248696"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"35th IEEE/ACM International Conference on Automated Software Engineering, ASE 2020, Melbourne, Australia, September 21-25, 2020 (2020)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3324884",
+"https://doi.org/10.1145/3324884",
+"urn:isbn:9781450367684"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"documentPage": [
+"https://doi.org/10.1145/3324884",
+"https://ieeexplore.ieee.org/xpl/conhome/9285973/proceeding"
+],
+"doi": [
+"https://doi.org/10.1145/3324884"
+],
+"isbn": [
+"urn:isbn:9781450367684"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/kbse/ase2020"
+],
+"numberOfCreators": [
+"0"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061604282806"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3324884"
+],
+"publishedBy": [
+"IEEE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/kbse"
+],
+"title": [
+"35th IEEE/ACM International Conference on Automated Software Engineering, ASE 2020, Melbourne, Australia, September 21-25, 2020"
+],
+"yearOfPublication": [
+"2020"
+],
+"_authors": []
+},
+"T::Muffin: Testing Deep Learning Libraries via Neural Architecture Fuzzing": "https://dblp.org/rec/conf/icse/GuLZ022",
+"https://dblp.org/rec/conf/icse/GuLZ022": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn5874963",
+"bn7651583",
+"bn7651584"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Jiazhen Gu et al.: Muffin: Testing Deep Learning Libraries via Neural Architecture Fuzzing. (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3510003.3510092",
+"https://doi.org/10.1145/3510003.3510092"
+],
+"authoredBy": [
+"https://dblp.org/pid/10/5630-2",
+"https://dblp.org/pid/185/1472",
+"https://dblp.org/pid/27/6390-2",
+"https://dblp.org/pid/318/9469"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/10/5630-2",
+"https://dblp.org/pid/185/1472",
+"https://dblp.org/pid/27/6390-2",
+"https://dblp.org/pid/318/9469"
+],
+"documentPage": [
+"https://doi.org/10.1145/3510003.3510092"
+],
+"doi": [
+"https://doi.org/10.1145/3510003.3510092"
+],
+"hasSignature": [
+"bn7651585",
+"bn7651586",
+"bn7651587",
+"bn7651588"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2022"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062502282350"
+],
+"pagination": [
+"1418-1430"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3510003.3510092"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/icse/2022"
+],
+"publishedIn": [
+"ICSE"
+],
+"publishedInBook": [
+"ICSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"Muffin: Testing Deep Learning Libraries via Neural Architecture Fuzzing."
+],
+"yearOfEvent": [
+"2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Jiazhen Gu",
+"Xuchuan Luo",
+"Yangfan Zhou",
+"Xin Wang"
+]
+},
+"T::Predoo: precision testing of deep learning operators": "https://dblp.org/rec/conf/issta/ZhangSFLLCWC21",
+"https://dblp.org/rec/conf/issta/ZhangSFLLCWC21": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn611561",
+"bn24539518",
+"bn24539519",
+"bn24539520"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Xufan Zhang et al.: Predoo: precision testing of deep learning operators. (2021)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3460319.3464843",
+"http://www.wikidata.org/entity/Q131019481",
+"https://doi.org/10.1145/3460319.3464843"
+],
+"authoredBy": [
+"https://dblp.org/pid/01/2998",
+"https://dblp.org/pid/12/8228",
+"https://dblp.org/pid/124/0310",
+"https://dblp.org/pid/143/4822",
+"https://dblp.org/pid/174/8813",
+"https://dblp.org/pid/49/1245-15",
+"https://dblp.org/pid/60/6810",
+"https://dblp.org/pid/86/541-1"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/01/2998",
+"https://dblp.org/pid/12/8228",
+"https://dblp.org/pid/124/0310",
+"https://dblp.org/pid/143/4822",
+"https://dblp.org/pid/174/8813",
+"https://dblp.org/pid/49/1245-15",
+"https://dblp.org/pid/60/6810",
+"https://dblp.org/pid/86/541-1"
+],
+"documentPage": [
+"https://doi.org/10.1145/3460319.3464843"
+],
+"doi": [
+"https://doi.org/10.1145/3460319.3464843"
+],
+"hasSignature": [
+"bn24539521",
+"bn24539522",
+"bn24539523",
+"bn24539524",
+"bn24539525",
+"bn24539528",
+"bn24539529",
+"bn24539530"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/issta/issta2021"
+],
+"numberOfCreators": [
+"8"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061802947375"
+],
+"pagination": [
+"400-412"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3460319.3464843"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/issta/2021"
+],
+"publishedIn": [
+"ISSTA"
+],
+"publishedInBook": [
+"ISSTA"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/issta"
+],
+"title": [
+"Predoo: precision testing of deep learning operators."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q131019481"
+],
+"yearOfEvent": [
+"2021"
+],
+"yearOfPublication": [
+"2021"
+],
+"_authors": [
+"Xufan Zhang",
+"Ning Sun",
+"Chunrong Fang",
+"Jiawei Liu",
+"Jia Liu",
+"Dong Chai",
+"Jiang Wang",
+"Zhenyu Chen"
+]
+},
+"https://dblp.org/rec/conf/issta/2021": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3535811",
+"bn24514582",
+"bn24514583",
+"bn24514584"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Cristian Cadar and Xiangyu Zhang: ISSTA '21: 30th ACM SIGSOFT International Symposium on Software Testing and Analysis, Virtual Event, Denmark, July 11-17, 2021. (2021)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3460319",
+"https://doi.org/10.1145/3460319",
+"urn:isbn:9781450384599"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/86/4141",
+"https://dblp.org/pid/95/3760-1"
+],
+"documentPage": [
+"https://doi.org/10.1145/3460319"
+],
+"doi": [
+"https://doi.org/10.1145/3460319"
+],
+"editedBy": [
+"https://dblp.org/pid/86/4141",
+"https://dblp.org/pid/95/3760-1"
+],
+"hasSignature": [
+"bn24514585",
+"bn24514586"
+],
+"isbn": [
+"urn:isbn:9781450384599"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/issta/issta2021"
+],
+"numberOfCreators": [
+"2"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06804692267"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3460319"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/issta"
+],
+"title": [
+"ISSTA '21: 30th ACM SIGSOFT International Symposium on Software Testing and Analysis, Virtual Event, Denmark, July 11-17, 2021."
+],
+"yearOfPublication": [
+"2021"
+],
+"_authors": [
+"Cristian Cadar",
+"Xiangyu Zhang"
+]
+},
+"T::ACETest: Automated Constraint Extraction for Testing Deep Learning Operators": "https://dblp.org/rec/conf/issta/ShiXLLYYSCH23",
+"https://dblp.org/rec/conf/issta/ShiXLLYYSCH23": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1104031",
+"bn24539163",
+"bn24539164"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Jingyi Shi et al.: ACETest: Automated Constraint Extraction for Testing Deep Learning Operators. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3597926.3598088",
+"https://doi.org/10.1145/3597926.3598088"
+],
+"authoredBy": [
+"https://dblp.org/pid/181/1848-11",
+"https://dblp.org/pid/185/7953",
+"https://dblp.org/pid/204/3729",
+"https://dblp.org/pid/211/4082",
+"https://dblp.org/pid/24/679-5",
+"https://dblp.org/pid/256/6148",
+"https://dblp.org/pid/286/1571",
+"https://dblp.org/pid/64/5715",
+"https://dblp.org/pid/89/1838"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/181/1848-11",
+"https://dblp.org/pid/185/7953",
+"https://dblp.org/pid/204/3729",
+"https://dblp.org/pid/211/4082",
+"https://dblp.org/pid/24/679-5",
+"https://dblp.org/pid/256/6148",
+"https://dblp.org/pid/286/1571",
+"https://dblp.org/pid/64/5715",
+"https://dblp.org/pid/89/1838"
+],
+"documentPage": [
+"https://doi.org/10.1145/3597926.3598088"
+],
+"doi": [
+"https://doi.org/10.1145/3597926.3598088"
+],
+"hasSignature": [
+"bn24539165",
+"bn24539166",
+"bn24539167",
+"bn24539168",
+"bn24539169",
+"bn24539170",
+"bn24539172",
+"bn24539173",
+"bn24539174"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/issta/issta2023"
+],
+"numberOfCreators": [
+"9"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/0641085464"
+],
+"pagination": [
+"690-702"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3597926.3598088"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/issta/2023"
+],
+"publishedIn": [
+"ISSTA"
+],
+"publishedInBook": [
+"ISSTA"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/issta"
+],
+"title": [
+"ACETest: Automated Constraint Extraction for Testing Deep Learning Operators."
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Jingyi Shi",
+"Yang Xiao",
+"Yuekang Li",
+"Yeting Li",
+"Dongsong Yu",
+"Chendong Yu",
+"Hui Su",
+"Yufeng Chen",
+"Wei Huo"
+]
+},
+"T::Fuzzing Automatic Differentiation in Deep-Learning Libraries": "https://dblp.org/rec/conf/icse/YangDYTLZ23",
+"https://dblp.org/rec/conf/icse/YangDYTLZ23": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2797319",
+"bn7596153",
+"bn7596154"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Chenyuan Yang et al.: Fuzzing Automatic Differentiation in Deep-Learning Libraries. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/ICSE48619.2023.00105",
+"https://doi.org/10.1109/ICSE48619.2023.00105"
+],
+"authoredBy": [
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986",
+"https://dblp.org/pid/339/8637",
+"https://dblp.org/pid/339/8885",
+"https://dblp.org/pid/71/10222"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/27/7057-1",
+"https://dblp.org/pid/311/4562",
+"https://dblp.org/pid/311/4986",
+"https://dblp.org/pid/339/8637",
+"https://dblp.org/pid/339/8885",
+"https://dblp.org/pid/71/10222"
+],
+"documentPage": [
+"https://doi.org/10.1109/ICSE48619.2023.00105"
+],
+"doi": [
+"https://doi.org/10.1109/ICSE48619.2023.00105"
+],
+"hasSignature": [
+"bn7596156",
+"bn7596157",
+"bn7596158",
+"bn7596159",
+"bn7596160",
+"bn7596161"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2023"
+],
+"numberOfCreators": [
+"6"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062104001723"
+],
+"pagination": [
+"1174-1186"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/ICSE48619.2023.00105"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/icse/2023"
+],
+"publishedIn": [
+"ICSE"
+],
+"publishedInBook": [
+"ICSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"Fuzzing Automatic Differentiation in Deep-Learning Libraries."
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Chenyuan Yang",
+"Yinlin Deng",
+"Jiayi Yao",
+"Yuxing Tu",
+"Hanchi Li",
+"Lingming Zhang"
+]
+},
+"https://dblp.org/rec/conf/icse/2023": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn5235737",
+"bn7638891",
+"bn7638892",
+"bn7638893"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"45th IEEE/ACM International Conference on Software Engineering, ICSE 2023, Melbourne, Australia, May 14-20, 2023 (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/ICSE48619.2023",
+"https://doi.org/10.1109/ICSE48619.2023",
+"urn:isbn:9781665457019"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"documentPage": [
+"https://doi.org/10.1109/ICSE48619.2023"
+],
+"doi": [
+"https://doi.org/10.1109/ICSE48619.2023"
+],
+"isbn": [
+"urn:isbn:9781665457019"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2023"
+],
+"numberOfCreators": [
+"0"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06904411436"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/ICSE48619.2023"
+],
+"publishedBy": [
+"IEEE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"45th IEEE/ACM International Conference on Software Engineering, ICSE 2023, Melbourne, Australia, May 14-20, 2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": []
+},
+"T::A comprehensive study on deep learning bug characteristics": "https://dblp.org/rec/conf/sigsoft/IslamNPR19",
+"https://dblp.org/rec/conf/sigsoft/IslamNPR19": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn5527668",
+"bn24445174",
+"bn24445175",
+"bn24445176"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Md Johirul Islam et al.: A comprehensive study on deep learning bug characteristics. (2019)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3338906.3338955",
+"http://www.wikidata.org/entity/Q131119860",
+"https://doi.org/10.1145/3338906.3338955"
+],
+"authoredBy": [
+"https://dblp.org/pid/210/2350",
+"https://dblp.org/pid/241/9733",
+"https://dblp.org/pid/99/4349",
+"https://dblp.org/pid/r/HrideshRajan"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/210/2350",
+"https://dblp.org/pid/241/9733",
+"https://dblp.org/pid/99/4349",
+"https://dblp.org/pid/r/HrideshRajan"
+],
+"documentPage": [
+"https://doi.org/10.1145/3338906.3338955"
+],
+"doi": [
+"https://doi.org/10.1145/3338906.3338955"
+],
+"hasSignature": [
+"bn24445177",
+"bn24445178",
+"bn24445179",
+"bn24445180"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigsoft/fse2019"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06302668078"
+],
+"pagination": [
+"510-520"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3338906.3338955"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/sigsoft/2019"
+],
+"publishedIn": [
+"ESEC/SIGSOFT FSE"
+],
+"publishedInBook": [
+"ESEC/SIGSOFT FSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/esec",
+"https://dblp.org/streams/conf/sigsoft"
+],
+"title": [
+"A comprehensive study on deep learning bug characteristics."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q131119860"
+],
+"yearOfEvent": [
+"2019"
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Md Johirul Islam",
+"Giang Nguyen",
+"Rangeet Pan",
+"Hridesh Rajan"
+]
+},
+"https://dblp.org/rec/conf/sigsoft/2019": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1058493",
+"bn24445012",
+"bn24445013",
+"bn24445014"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Marlon Dumas et al.: Proceedings of the ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering, ESEC/SIGSOFT FSE 2019, Tallinn, Estonia, August 26-30, 2019. (2019)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3338906",
+"https://doi.org/10.1145/3338906",
+"urn:isbn:9781450355728"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/79/683",
+"https://dblp.org/pid/a/SvenApel",
+"https://dblp.org/pid/d/MarlonDumas",
+"https://dblp.org/pid/p/DietmarPfahl"
+],
+"documentPage": [
+"https://doi.org/10.1145/3338906"
+],
+"doi": [
+"https://doi.org/10.1145/3338906"
+],
+"editedBy": [
+"https://dblp.org/pid/79/683",
+"https://dblp.org/pid/a/SvenApel",
+"https://dblp.org/pid/d/MarlonDumas",
+"https://dblp.org/pid/p/DietmarPfahl"
+],
+"hasSignature": [
+"bn24445015",
+"bn24445016",
+"bn24445018",
+"bn24445019"
+],
+"isbn": [
+"urn:isbn:9781450355728"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sigsoft/fse2019"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061702135934"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3338906"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/esec",
+"https://dblp.org/streams/conf/sigsoft"
+],
+"title": [
+"Proceedings of the ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering, ESEC/SIGSOFT FSE 2019, Tallinn, Estonia, August 26-30, 2019."
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Marlon Dumas",
+"Dietmar Pfahl",
+"Sven Apel",
+"Alessandra Russo"
+]
+},
+"T::Toward Understanding Deep Learning Framework Bugs": "https://dblp.org/rec/journals/tosem/ChenLSJL23",
+"https://dblp.org/rec/journals/tosem/ChenLSJL23": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn231045",
+"bn35299612",
+"bn35299613"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Junjie Chen et al.: Toward Understanding Deep Learning Framework Bugs. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3587155",
+"https://doi.org/10.1145/3587155"
+],
+"authoredBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/155/6527",
+"https://dblp.org/pid/291/7715",
+"https://dblp.org/pid/299/8755",
+"https://dblp.org/pid/351/8682"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/155/6527",
+"https://dblp.org/pid/291/7715",
+"https://dblp.org/pid/299/8755",
+"https://dblp.org/pid/351/8682"
+],
+"documentPage": [
+"https://doi.org/10.1145/3587155"
+],
+"doi": [
+"https://doi.org/10.1145/3587155"
+],
+"hasSignature": [
+"bn35299614",
+"bn35299615",
+"bn35299616",
+"bn35299617",
+"bn35299618"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/tosem/tosem32"
+],
+"monthOfPublication": [
+"--11"
+],
+"numberOfCreators": [
+"5"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06290129933"
+],
+"pagination": [
+"135:1-135:31"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3587155"
+],
+"publishedIn": [
+"ACM Trans. Softw. Eng. Methodol."
+],
+"publishedInJournal": [
+"ACM Trans. Softw. Eng. Methodol."
+],
+"publishedInJournalVolume": [
+"32"
+],
+"publishedInJournalVolumeIssue": [
+"6"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/tosem"
+],
+"title": [
+"Toward Understanding Deep Learning Framework Bugs."
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Junjie Chen",
+"Yihua Liang",
+"Qingchao Shen",
+"Jiajun Jiang",
+"Shuochuan Li"
+]
+},
+"T::Silent bugs in deep learning frameworks: an empirical study of Keras and TensorFlow": "https://dblp.org/rec/journals/ese/TambonNAKA24",
+"https://dblp.org/rec/journals/ese/TambonNAKA24": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn5434542",
+"bn44610489",
+"bn44610490"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Florian Tambon et al.: Silent bugs in deep learning frameworks: an empirical study of Keras and TensorFlow. (2024)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1007/S10664-023-10389-6",
+"https://doi.org/10.1007/S10664-023-10389-6"
+],
+"authoredBy": [
+"https://dblp.org/pid/15/11214",
+"https://dblp.org/pid/297/2892",
+"https://dblp.org/pid/32/147",
+"https://dblp.org/pid/42/1656",
+"https://dblp.org/pid/73/3515"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/15/11214",
+"https://dblp.org/pid/297/2892",
+"https://dblp.org/pid/32/147",
+"https://dblp.org/pid/42/1656",
+"https://dblp.org/pid/73/3515"
+],
+"documentPage": [
+"https://doi.org/10.1007/S10664-023-10389-6"
+],
+"doi": [
+"https://doi.org/10.1007/S10664-023-10389-6"
+],
+"hasSignature": [
+"bn44610491",
+"bn44610492",
+"bn44610493",
+"bn44610495",
+"bn44610496"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/ese/ese29"
+],
+"monthOfPublication": [
+"--02"
+],
+"numberOfCreators": [
+"5"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06304658931"
+],
+"pagination": [
+"10"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1007/S10664-023-10389-6"
+],
+"publishedIn": [
+"Empir. Softw. Eng."
+],
+"publishedInJournal": [
+"Empir. Softw. Eng."
+],
+"publishedInJournalVolume": [
+"29"
+],
+"publishedInJournalVolumeIssue": [
+"1"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/ese"
+],
+"title": [
+"Silent bugs in deep learning frameworks: an empirical study of Keras and TensorFlow."
+],
+"yearOfPublication": [
+"2024"
+],
+"_authors": [
+"Florian Tambon",
+"Amin Nikanjam",
+"Le An",
+"Foutse Khomh",
+"Giuliano Antoniol"
+]
+},
+"T::An Empirical Study towards Characterizing Deep Learning Development and Deployment across Different Frameworks and Platforms": "https://dblp.org/rec/journals/corr/abs-1909-06727",
+"https://dblp.org/rec/journals/corr/abs-1909-06727": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn51255817",
+"bn51255818"
+],
+"type": [
+"https://dblp.org/rdf/schema#Informal",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Qianyu Guo et al.: An Empirical Study towards Characterizing Deep Learning Development and Deployment across Different Frameworks and Platforms. (2019)"
+],
+"authoredBy": [
+"https://dblp.org/pid/08/2489-1",
+"https://dblp.org/pid/127/0713",
+"https://dblp.org/pid/180/8218-1",
+"https://dblp.org/pid/20/6534-3",
+"https://dblp.org/pid/230/4021",
+"https://dblp.org/pid/51/3710-3",
+"https://dblp.org/pid/71/6948-1",
+"https://dblp.org/pid/83/6946",
+"https://dblp.org/pid/93/5629"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/08/2489-1",
+"https://dblp.org/pid/127/0713",
+"https://dblp.org/pid/180/8218-1",
+"https://dblp.org/pid/20/6534-3",
+"https://dblp.org/pid/230/4021",
+"https://dblp.org/pid/51/3710-3",
+"https://dblp.org/pid/71/6948-1",
+"https://dblp.org/pid/83/6946",
+"https://dblp.org/pid/93/5629"
+],
+"documentPage": [
+"http://arxiv.org/abs/1909.06727"
+],
+"hasSignature": [
+"bn51255819",
+"bn51255821",
+"bn51255822",
+"bn51255823",
+"bn51255824",
+"bn51255825",
+"bn51255826",
+"bn51255827",
+"bn51255828"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/corr/corr1909"
+],
+"numberOfCreators": [
+"9"
+],
+"primaryDocumentPage": [
+"http://arxiv.org/abs/1909.06727"
+],
+"publishedIn": [
+"CoRR"
+],
+"publishedInJournal": [
+"CoRR"
+],
+"publishedInJournalVolume": [
+"abs/1909.06727"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/corr"
+],
+"title": [
+"An Empirical Study towards Characterizing Deep Learning Development and Deployment across Different Frameworks and Platforms."
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Qianyu Guo",
+"Sen Chen",
+"Xiaofei Xie",
+"Lei Ma",
+"Qiang Hu",
+"Hongtao Liu",
+"Yang Liu",
+"Jianjun Zhao",
+"Xiaohong Li"
+]
+},
+"T::Finding and understanding bugs in C compilers": "https://dblp.org/rec/conf/pldi/YangCER11",
+"https://dblp.org/rec/conf/pldi/YangCER11": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn621533",
+"bn5508229",
+"bn12606441",
+"bn12606442",
+"bn12606443",
+"bn12606444"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Xuejun Yang et al.: Finding and understanding bugs in C compilers. (2011)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/1993316.1993532",
+"http://dx.doi.org/10.1145/1993498.1993532",
+"http://www.wikidata.org/entity/Q57538302",
+"https://doi.org/10.1145/1993316.1993532",
+"https://doi.org/10.1145/1993498.1993532"
+],
+"authoredBy": [
+"https://dblp.org/pid/48/4792-24",
+"https://dblp.org/pid/98/6478",
+"https://dblp.org/pid/e/EricEide",
+"https://dblp.org/pid/r/JohnRegehr"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/48/4792-24",
+"https://dblp.org/pid/98/6478",
+"https://dblp.org/pid/e/EricEide",
+"https://dblp.org/pid/r/JohnRegehr"
+],
+"documentPage": [
+"https://doi.org/10.1145/1993316.1993532",
+"https://doi.org/10.1145/1993498.1993532"
+],
+"doi": [
+"https://doi.org/10.1145/1993316.1993532",
+"https://doi.org/10.1145/1993498.1993532"
+],
+"hasSignature": [
+"bn12606445",
+"bn12606446",
+"bn12606447",
+"bn12606448"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/pldi2011"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/0615094196",
+"https://w3id.org/oc/meta/br/062503131724"
+],
+"pagination": [
+"283-294"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/1993498.1993532"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/pldi/2011"
+],
+"publishedIn": [
+"PLDI"
+],
+"publishedInBook": [
+"PLDI"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/pldi"
+],
+"title": [
+"Finding and understanding bugs in C compilers."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q57538302"
+],
+"yearOfEvent": [
+"2011"
+],
+"yearOfPublication": [
+"2011"
+],
+"_authors": [
+"Xuejun Yang",
+"Yang Chen",
+"Eric Eide",
+"John Regehr"
+]
+},
+"https://dblp.org/rec/conf/pldi/2011": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3814640",
+"bn12635267",
+"bn12635269",
+"bn12635270",
+"bn12635271"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Mary W. Hall and David A. Padua: Proceedings of the 32nd ACM SIGPLAN Conference on Programming Language Design and Implementation, PLDI 2011, San Jose, CA, USA, June 4-8, 2011 (2011)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/1993316",
+"http://dx.doi.org/10.1145/1993498",
+"https://doi.org/10.1145/1993316",
+"https://doi.org/10.1145/1993498",
+"urn:isbn:9781450306638"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/h/MaryWHall",
+"https://dblp.org/pid/p/DavidAPadua"
+],
+"documentPage": [
+"https://doi.org/10.1145/1993316",
+"https://doi.org/10.1145/1993498"
+],
+"doi": [
+"https://doi.org/10.1145/1993316",
+"https://doi.org/10.1145/1993498"
+],
+"editedBy": [
+"https://dblp.org/pid/h/MaryWHall",
+"https://dblp.org/pid/p/DavidAPadua"
+],
+"hasSignature": [
+"bn12635272",
+"bn12635273"
+],
+"isbn": [
+"urn:isbn:9781450306638"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/pldi2011"
+],
+"numberOfCreators": [
+"2"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061603030971"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/1993498"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/pldi"
+],
+"title": [
+"Proceedings of the 32nd ACM SIGPLAN Conference on Programming Language Design and Implementation, PLDI 2011, San Jose, CA, USA, June 4-8, 2011"
+],
+"yearOfPublication": [
+"2011"
+],
+"_authors": [
+"Mary W. Hall",
+"David A. Padua"
+]
+},
+"T::Compiler validation via equivalence modulo inputs": "https://dblp.org/rec/conf/pldi/LeAS14",
+"https://dblp.org/rec/conf/pldi/LeAS14": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3226470",
+"bn5499598",
+"bn12635394",
+"bn12635395",
+"bn12635396",
+"bn12635397"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Vu Le et al.: Compiler validation via equivalence modulo inputs. (2014)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/2594291.2594334",
+"http://dx.doi.org/10.1145/2666356.2594334",
+"http://www.wikidata.org/entity/Q121453831",
+"https://doi.org/10.1145/2594291.2594334",
+"https://doi.org/10.1145/2666356.2594334"
+],
+"authoredBy": [
+"https://dblp.org/pid/00/2651-2",
+"https://dblp.org/pid/131/1698",
+"https://dblp.org/pid/s/ZhendongSu"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/00/2651-2",
+"https://dblp.org/pid/131/1698",
+"https://dblp.org/pid/s/ZhendongSu"
+],
+"documentPage": [
+"https://doi.org/10.1145/2594291.2594334",
+"https://doi.org/10.1145/2666356.2594334"
+],
+"doi": [
+"https://doi.org/10.1145/2594291.2594334",
+"https://doi.org/10.1145/2666356.2594334"
+],
+"hasSignature": [
+"bn12635398",
+"bn12635399",
+"bn12635400"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/pldi2014"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061202887935",
+"https://w3id.org/oc/meta/br/0614091044"
+],
+"pagination": [
+"216-226"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/2594291.2594334"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/pldi/2014"
+],
+"publishedIn": [
+"PLDI"
+],
+"publishedInBook": [
+"PLDI"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/pldi"
+],
+"title": [
+"Compiler validation via equivalence modulo inputs."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q121453831"
+],
+"yearOfEvent": [
+"2014"
+],
+"yearOfPublication": [
+"2014"
+],
+"_authors": [
+"Vu Le",
+"Mehrdad Afshari",
+"Zhendong Su"
+]
+},
+"https://dblp.org/rec/conf/pldi/2014": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn996787",
+"bn3689651",
+"bn12630626",
+"bn12630627",
+"bn12630628",
+"bn12630629"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Michael F. P. O'Boyle and Keshav Pingali: ACM SIGPLAN Conference on Programming Language Design and Implementation, PLDI '14, Edinburgh, United Kingdom - June 09 - 11, 2014 (2014)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/2594291",
+"http://dx.doi.org/10.1145/2666356",
+"https://doi.org/10.1145/2594291",
+"https://doi.org/10.1145/2666356",
+"urn:isbn:9781450327848"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/07/521",
+"https://dblp.org/pid/71/5735"
+],
+"documentPage": [
+"https://doi.org/10.1145/2594291",
+"https://doi.org/10.1145/2666356"
+],
+"doi": [
+"https://doi.org/10.1145/2594291",
+"https://doi.org/10.1145/2666356"
+],
+"editedBy": [
+"https://dblp.org/pid/07/521",
+"https://dblp.org/pid/71/5735"
+],
+"hasSignature": [
+"bn12630630",
+"bn12630631"
+],
+"isbn": [
+"urn:isbn:9781450327848"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/pldi2014"
+],
+"numberOfCreators": [
+"2"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06011094359",
+"https://w3id.org/oc/meta/br/062602677014"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/2594291"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/pldi"
+],
+"title": [
+"ACM SIGPLAN Conference on Programming Language Design and Implementation, PLDI '14, Edinburgh, United Kingdom - June 09 - 11, 2014"
+],
+"yearOfPublication": [
+"2014"
+],
+"_authors": [
+"Michael F. P. O'Boyle",
+"Keshav Pingali"
+]
+},
+"T::Random testing for C and C++ compilers with YARPGen": "https://dblp.org/rec/journals/pacmpl/LivinskiiBR20",
+"https://dblp.org/rec/journals/pacmpl/LivinskiiBR20": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1040986",
+"bn35597123",
+"bn35597124",
+"bn35597125"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Vsevolod Livinskii et al.: Random testing for C and C++ compilers with YARPGen. (2020)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3428264",
+"http://www.wikidata.org/entity/Q122441664",
+"https://doi.org/10.1145/3428264"
+],
+"authoredBy": [
+"https://dblp.org/pid/163/0094",
+"https://dblp.org/pid/280/5565",
+"https://dblp.org/pid/r/JohnRegehr"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/163/0094",
+"https://dblp.org/pid/280/5565",
+"https://dblp.org/pid/r/JohnRegehr"
+],
+"documentPage": [
+"https://doi.org/10.1145/3428264"
+],
+"doi": [
+"https://doi.org/10.1145/3428264"
+],
+"hasSignature": [
+"bn35597126",
+"bn35597127",
+"bn35597128"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/pacmpl/pacmpl4"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06202296943"
+],
+"pagination": [
+"196:1-196:25"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3428264"
+],
+"publishedIn": [
+"Proc. ACM Program. Lang."
+],
+"publishedInJournal": [
+"Proc. ACM Program. Lang."
+],
+"publishedInJournalVolume": [
+"4"
+],
+"publishedInJournalVolumeIssue": [
+"OOPSLA"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/oopsla",
+"https://dblp.org/streams/journals/pacmpl"
+],
+"title": [
+"Random testing for C and C++ compilers with YARPGen."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q122441664"
+],
+"yearOfPublication": [
+"2020"
+],
+"_authors": [
+"Vsevolod Livinskii",
+"Dmitry Babokin",
+"John Regehr"
+]
+},
+"T::Differential Testing for Software": "https://dblp.org/rec/journals/dtj/McKeeman98",
+"https://dblp.org/rec/journals/dtj/McKeeman98": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn37992409"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"William M. McKeeman: Differential Testing for Software. (1998)"
+],
+"authoredBy": [
+"https://dblp.org/pid/40/4856"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/40/4856"
+],
+"documentPage": [
+"https://www.hpl.hp.com/hpjournal/dtj/vol10num1/vol10num1art9.pdf"
+],
+"hasSignature": [
+"bn37992410"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/dtj/dtj10"
+],
+"numberOfCreators": [
+"1"
+],
+"pagination": [
+"100-107"
+],
+"primaryDocumentPage": [
+"https://www.hpl.hp.com/hpjournal/dtj/vol10num1/vol10num1art9.pdf"
+],
+"publishedIn": [
+"Digit. Tech. J."
+],
+"publishedInJournal": [
+"Digit. Tech. J."
+],
+"publishedInJournalVolume": [
+"10"
+],
+"publishedInJournalVolumeIssue": [
+"1"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/dtj"
+],
+"title": [
+"Differential Testing for Software."
+],
+"yearOfPublication": [
+"1998"
+],
+"_authors": [
+"William M. McKeeman"
+]
+},
+"T::A Survey of Compiler Testing": "https://dblp.org/rec/journals/csur/ChenPPXZHZ20",
+"https://dblp.org/rec/journals/csur/ChenPPXZHZ20": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn367898",
+"bn38498826",
+"bn38498827",
+"bn38498828"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Junjie Chen et al.: A Survey of Compiler Testing. (2021)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3363562",
+"http://www.wikidata.org/entity/Q122415966",
+"https://doi.org/10.1145/3363562"
+],
+"authoredBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/139/0517",
+"https://dblp.org/pid/25/2188",
+"https://dblp.org/pid/29/2726-2",
+"https://dblp.org/pid/50/456",
+"https://dblp.org/pid/82/2673",
+"https://dblp.org/pid/z/LuZhang1"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/139/0517",
+"https://dblp.org/pid/25/2188",
+"https://dblp.org/pid/29/2726-2",
+"https://dblp.org/pid/50/456",
+"https://dblp.org/pid/82/2673",
+"https://dblp.org/pid/z/LuZhang1"
+],
+"documentPage": [
+"https://doi.org/10.1145/3363562"
+],
+"doi": [
+"https://doi.org/10.1145/3363562"
+],
+"hasSignature": [
+"bn38498829",
+"bn38498830",
+"bn38498831",
+"bn38498833",
+"bn38498834",
+"bn38498835",
+"bn38498836"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/csur/csur53"
+],
+"numberOfCreators": [
+"7"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062501605527"
+],
+"pagination": [
+"4:1-4:36"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3363562"
+],
+"publishedIn": [
+"ACM Comput. Surv."
+],
+"publishedInJournal": [
+"ACM Comput. Surv."
+],
+"publishedInJournalVolume": [
+"53"
+],
+"publishedInJournalVolumeIssue": [
+"1"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/csur"
+],
+"title": [
+"A Survey of Compiler Testing."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q122415966"
+],
+"yearOfPublication": [
+"2021"
+],
+"_authors": [
+"Junjie Chen",
+"Jibesh Patra",
+"Michael Pradel",
+"Yingfei Xiong",
+"Hongyu Zhang",
+"Dan Hao",
+"Lu Zhang"
+]
+},
+"T::Test-case reduction for C compiler bugs": "https://dblp.org/rec/conf/pldi/RegehrCCEEY12",
+"https://dblp.org/rec/conf/pldi/RegehrCCEEY12": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2845542",
+"bn4617350",
+"bn12604785",
+"bn12604786",
+"bn12604787",
+"bn12604788"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"John Regehr et al.: Test-case reduction for C compiler bugs. (2012)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/2254064.2254104",
+"http://dx.doi.org/10.1145/2345156.2254104",
+"http://www.wikidata.org/entity/Q57538299",
+"https://doi.org/10.1145/2254064.2254104",
+"https://doi.org/10.1145/2345156.2254104"
+],
+"authoredBy": [
+"https://dblp.org/pid/22/7532",
+"https://dblp.org/pid/48/4792-24",
+"https://dblp.org/pid/86/3056",
+"https://dblp.org/pid/98/6478",
+"https://dblp.org/pid/e/EricEide",
+"https://dblp.org/pid/r/JohnRegehr"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/22/7532",
+"https://dblp.org/pid/48/4792-24",
+"https://dblp.org/pid/86/3056",
+"https://dblp.org/pid/98/6478",
+"https://dblp.org/pid/e/EricEide",
+"https://dblp.org/pid/r/JohnRegehr"
+],
+"documentPage": [
+"https://doi.org/10.1145/2254064.2254104",
+"https://doi.org/10.1145/2345156.2254104"
+],
+"doi": [
+"https://doi.org/10.1145/2254064.2254104",
+"https://doi.org/10.1145/2345156.2254104"
+],
+"hasSignature": [
+"bn12604789",
+"bn12604790",
+"bn12604791",
+"bn12604792",
+"bn12604793",
+"bn12604795"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/pldi2012"
+],
+"numberOfCreators": [
+"6"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06103414681",
+"https://w3id.org/oc/meta/br/0614090091"
+],
+"pagination": [
+"335-346"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/2254064.2254104"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/pldi/2012"
+],
+"publishedIn": [
+"PLDI"
+],
+"publishedInBook": [
+"PLDI"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/pldi"
+],
+"title": [
+"Test-case reduction for C compiler bugs."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q57538299"
+],
+"yearOfEvent": [
+"2012"
+],
+"yearOfPublication": [
+"2012"
+],
+"_authors": [
+"John Regehr",
+"Yang Chen",
+"Pascal Cuoq",
+"Eric Eide",
+"Chucky Ellison",
+"Xuejun Yang"
+]
+},
+"https://dblp.org/rec/conf/pldi/2012": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn5816279",
+"bn12629716",
+"bn12629717",
+"bn12629718",
+"bn12629719"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Jan Vitek et al.: ACM SIGPLAN Conference on Programming Language Design and Implementation, PLDI '12, Beijing, China - June 11 - 16, 2012 (2012)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/2254064",
+"http://dx.doi.org/10.1145/2345156",
+"https://doi.org/10.1145/2254064",
+"https://doi.org/10.1145/2345156",
+"urn:isbn:9781450312059"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/32/524",
+"https://dblp.org/pid/98/1091",
+"https://dblp.org/pid/v/JanVitek"
+],
+"documentPage": [
+"https://doi.org/10.1145/2254064",
+"https://doi.org/10.1145/2345156"
+],
+"doi": [
+"https://doi.org/10.1145/2254064",
+"https://doi.org/10.1145/2345156"
+],
+"editedBy": [
+"https://dblp.org/pid/32/524",
+"https://dblp.org/pid/98/1091",
+"https://dblp.org/pid/v/JanVitek"
+],
+"hasSignature": [
+"bn12629720",
+"bn12629721",
+"bn12629722"
+],
+"isbn": [
+"urn:isbn:9781450312059"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/pldi2012"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06303219736"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/2254064"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/pldi"
+],
+"title": [
+"ACM SIGPLAN Conference on Programming Language Design and Implementation, PLDI '12, Beijing, China - June 11 - 16, 2012"
+],
+"yearOfPublication": [
+"2012"
+],
+"_authors": [
+"Jan Vitek",
+"Haibo Lin",
+"Frank Tip"
+]
+},
+"T::Simplifying and Isolating Failure-Inducing Input": "https://dblp.org/rec/journals/tse/ZellerH02",
+"https://dblp.org/rec/journals/tse/ZellerH02": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn762812",
+"bn43118047",
+"bn43118048",
+"bn43118050"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Andreas Zeller and Ralf Hildebrandt: Simplifying and Isolating Failure-Inducing Input. (2002)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/32.988498",
+"http://www.wikidata.org/entity/Q56534943",
+"https://doi.org/10.1109/32.988498"
+],
+"authoredBy": [
+"https://dblp.org/pid/68/4105",
+"https://dblp.org/pid/z/AndreasZeller"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/68/4105",
+"https://dblp.org/pid/z/AndreasZeller"
+],
+"documentPage": [
+"http://doi.ieeecomputersociety.org/10.1109/32.988498",
+"https://doi.org/10.1109/32.988498"
+],
+"doi": [
+"https://doi.org/10.1109/32.988498"
+],
+"hasSignature": [
+"bn43118051",
+"bn43118052"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/tse/tse28"
+],
+"numberOfCreators": [
+"2"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062501961319"
+],
+"pagination": [
+"183-200"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/32.988498"
+],
+"publishedIn": [
+"IEEE Trans. Software Eng."
+],
+"publishedInJournal": [
+"IEEE Trans. Software Eng."
+],
+"publishedInJournalVolume": [
+"28"
+],
+"publishedInJournalVolumeIssue": [
+"2"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/tse"
+],
+"title": [
+"Simplifying and Isolating Failure-Inducing Input."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q56534943"
+],
+"yearOfPublication": [
+"2002"
+],
+"_authors": [
+"Andreas Zeller",
+"Ralf Hildebrandt"
+]
+},
+"T::Formal verification of a realistic compiler": "https://dblp.org/rec/journals/cacm/Leroy09",
+"https://dblp.org/rec/journals/cacm/Leroy09": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4965712",
+"bn43581075",
+"bn43581076",
+"bn43581079"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Xavier Leroy: Formal verification of a realistic compiler. (2009)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/1538788.1538814",
+"http://www.wikidata.org/entity/Q123359460",
+"https://doi.org/10.1145/1538788.1538814"
+],
+"authoredBy": [
+"https://dblp.org/pid/03/352"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/03/352"
+],
+"documentPage": [
+"https://doi.org/10.1145/1538788.1538814"
+],
+"doi": [
+"https://doi.org/10.1145/1538788.1538814"
+],
+"hasSignature": [
+"bn43581080"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/cacm/cacm52"
+],
+"numberOfCreators": [
+"1"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06202769295"
+],
+"pagination": [
+"107-115"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/1538788.1538814"
+],
+"publishedIn": [
+"Commun. ACM"
+],
+"publishedInJournal": [
+"Commun. ACM"
+],
+"publishedInJournalVolume": [
+"52"
+],
+"publishedInJournalVolumeIssue": [
+"7"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/cacm"
+],
+"title": [
+"Formal verification of a realistic compiler."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q123359460"
+],
+"yearOfPublication": [
+"2009"
+],
+"_authors": [
+"Xavier Leroy"
+]
+},
+"T::Alive2: bounded translation validation for LLVM": "https://dblp.org/rec/conf/pldi/LopesLHLR21",
+"https://dblp.org/rec/conf/pldi/LopesLHLR21": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn5240022",
+"bn12628906",
+"bn12628917"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Nuno P. Lopes et al.: Alive2: bounded translation validation for LLVM. (2021)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3453483.3454030",
+"https://doi.org/10.1145/3453483.3454030"
+],
+"authoredBy": [
+"https://dblp.org/pid/181/5852",
+"https://dblp.org/pid/75/3287",
+"https://dblp.org/pid/77/2149",
+"https://dblp.org/pid/96/8612-3",
+"https://dblp.org/pid/r/JohnRegehr"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/181/5852",
+"https://dblp.org/pid/75/3287",
+"https://dblp.org/pid/77/2149",
+"https://dblp.org/pid/96/8612-3",
+"https://dblp.org/pid/r/JohnRegehr"
+],
+"documentPage": [
+"https://doi.org/10.1145/3453483.3454030"
+],
+"doi": [
+"https://doi.org/10.1145/3453483.3454030"
+],
+"hasSignature": [
+"bn12628929",
+"bn12628940",
+"bn12628951",
+"bn12628962",
+"bn12628973"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/pldi2021"
+],
+"numberOfCreators": [
+"5"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061102984021"
+],
+"pagination": [
+"65-79"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3453483.3454030"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/pldi/2021"
+],
+"publishedIn": [
+"PLDI"
+],
+"publishedInBook": [
+"PLDI"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/pldi"
+],
+"title": [
+"Alive2: bounded translation validation for LLVM."
+],
+"yearOfEvent": [
+"2021"
+],
+"yearOfPublication": [
+"2021"
+],
+"_authors": [
+"Nuno P. Lopes",
+"Juneyoung Lee",
+"Chung-Kil Hur",
+"Zhengyang Liu",
+"John Regehr"
+]
+},
+"https://dblp.org/rec/conf/pldi/2021": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4932952",
+"bn12603709",
+"bn12603710",
+"bn12603711"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Stephen N. Freund and Eran Yahav: PLDI '21: 42nd ACM SIGPLAN International Conference on Programming Language Design and Implementation, Virtual Event, Canada, June 20-25, 2021. (2021)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3453483",
+"https://doi.org/10.1145/3453483",
+"urn:isbn:9781450383912"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/54/5133",
+"https://dblp.org/pid/93/2065"
+],
+"documentPage": [
+"https://doi.org/10.1145/3453483"
+],
+"doi": [
+"https://doi.org/10.1145/3453483"
+],
+"editedBy": [
+"https://dblp.org/pid/54/5133",
+"https://dblp.org/pid/93/2065"
+],
+"hasSignature": [
+"bn12603712",
+"bn12603713"
+],
+"isbn": [
+"urn:isbn:9781450383912"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/pldi/pldi2021"
+],
+"numberOfCreators": [
+"2"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06370102693"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3453483"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/pldi"
+],
+"title": [
+"PLDI '21: 42nd ACM SIGPLAN International Conference on Programming Language Design and Implementation, Virtual Event, Canada, June 20-25, 2021."
+],
+"yearOfPublication": [
+"2021"
+],
+"_authors": [
+"Stephen N. Freund",
+"Eran Yahav"
+]
+},
+"T::Translation Validation": "https://dblp.org/rec/conf/tacas/PnueliSS98",
+"https://dblp.org/rec/conf/tacas/PnueliSS98": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn6121502",
+"bn6288615",
+"bn6288616"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Amir Pnueli et al.: Translation Validation. (1998)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1007/BFB0054170",
+"https://doi.org/10.1007/BFB0054170"
+],
+"authoredBy": [
+"https://dblp.org/pid/22/3979",
+"https://dblp.org/pid/83/6687",
+"https://dblp.org/pid/p/AmirPnueli"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/22/3979",
+"https://dblp.org/pid/83/6687",
+"https://dblp.org/pid/p/AmirPnueli"
+],
+"documentPage": [
+"https://doi.org/10.1007/BFB0054170"
+],
+"doi": [
+"https://doi.org/10.1007/BFB0054170"
+],
+"hasSignature": [
+"bn6288617",
+"bn6288618",
+"bn6288619"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/tacas/tacas98"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062203137073"
+],
+"pagination": [
+"151-166"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1007/BFB0054170"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/tacas/1998"
+],
+"publishedIn": [
+"TACAS"
+],
+"publishedInBook": [
+"TACAS"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/tacas",
+"https://dblp.org/streams/series/lncs"
+],
+"title": [
+"Translation Validation."
+],
+"yearOfEvent": [
+"1998"
+],
+"yearOfPublication": [
+"1998"
+],
+"_authors": [
+"Amir Pnueli",
+"Michael Siegel",
+"Eli Singerman"
+]
+},
+"https://dblp.org/rec/conf/tacas/1998": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3350821",
+"bn6287195",
+"bn6287196",
+"bn6287198"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Bernhard Steffen: Tools and Algorithms for Construction and Analysis of Systems, 4th International Conference, TACAS '98, Held as Part of the European Joint Conferences on the Theory and Practice of Software, ETAPS'98, Lisbon, Portugal, March 28 - April 4, 1998, Proceedings (1998)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1007/BFB0054159",
+"https://doi.org/10.1007/BFB0054159",
+"urn:isbn:3540643567"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/s/BernhardSteffen"
+],
+"documentPage": [
+"https://doi.org/10.1007/BFB0054159"
+],
+"doi": [
+"https://doi.org/10.1007/BFB0054159"
+],
+"editedBy": [
+"https://dblp.org/pid/s/BernhardSteffen"
+],
+"hasSignature": [
+"bn6287199"
+],
+"isbn": [
+"urn:isbn:3540643567"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/tacas/tacas98"
+],
+"numberOfCreators": [
+"1"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/0614060860"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1007/BFB0054159"
+],
+"publishedBy": [
+"Springer"
+],
+"publishedIn": [
+"Lecture Notes in Computer Science"
+],
+"publishedInSeries": [
+"Lecture Notes in Computer Science"
+],
+"publishedInSeriesVolume": [
+"1384"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/tacas",
+"https://dblp.org/streams/series/lncs"
+],
+"title": [
+"Tools and Algorithms for Construction and Analysis of Systems, 4th International Conference, TACAS '98, Held as Part of the European Joint Conferences on the Theory and Practice of Software, ETAPS'98, Lisbon, Portugal, March 28 - April 4, 1998, Proceedings"
+],
+"yearOfPublication": [
+"1998"
+],
+"_authors": [
+"Bernhard Steffen"
+]
+},
+"T::An empirical comparison of compiler testing techniques": "https://dblp.org/rec/conf/icse/ChenHHXZ0X16",
+"https://dblp.org/rec/conf/icse/ChenHHXZ0X16": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1935708",
+"bn7656933",
+"bn7656934",
+"bn7656935"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Junjie Chen et al.: An empirical comparison of compiler testing techniques. (2016)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/2884781.2884878",
+"http://www.wikidata.org/entity/Q130851228",
+"https://doi.org/10.1145/2884781.2884878"
+],
+"authoredBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/141/4590",
+"https://dblp.org/pid/29/2726-2",
+"https://dblp.org/pid/50/456",
+"https://dblp.org/pid/82/2673",
+"https://dblp.org/pid/94/2438",
+"https://dblp.org/pid/z/LuZhang1"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/04/4498-3",
+"https://dblp.org/pid/141/4590",
+"https://dblp.org/pid/29/2726-2",
+"https://dblp.org/pid/50/456",
+"https://dblp.org/pid/82/2673",
+"https://dblp.org/pid/94/2438",
+"https://dblp.org/pid/z/LuZhang1"
+],
+"documentPage": [
+"https://doi.org/10.1145/2884781.2884878",
+"https://ieeexplore.ieee.org/document/7886902/"
+],
+"doi": [
+"https://doi.org/10.1145/2884781.2884878"
+],
+"hasSignature": [
+"bn7656937",
+"bn7656938",
+"bn7656939",
+"bn7656940",
+"bn7656941",
+"bn7656942",
+"bn7656943"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2016"
+],
+"numberOfCreators": [
+"7"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06102929954"
+],
+"pagination": [
+"180-190"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/2884781.2884878"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/icse/2016"
+],
+"publishedIn": [
+"ICSE"
+],
+"publishedInBook": [
+"ICSE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"An empirical comparison of compiler testing techniques."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130851228"
+],
+"yearOfEvent": [
+"2016"
+],
+"yearOfPublication": [
+"2016"
+],
+"_authors": [
+"Junjie Chen",
+"Wenxiang Hu",
+"Dan Hao",
+"Yingfei Xiong",
+"Hongyu Zhang",
+"Lu Zhang",
+"Bing Xie"
+]
+},
+"https://dblp.org/rec/conf/icse/2016": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2089668",
+"bn7621604",
+"bn7621615",
+"bn7621626",
+"bn7621638"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Laura K. Dillon et al.: Proceedings of the 38th International Conference on Software Engineering, ICSE 2016, Austin, TX, USA, May 14-22, 2016 (2016)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/2884781",
+"http://www.wikidata.org/entity/Q126710598",
+"https://doi.org/10.1145/2884781",
+"urn:isbn:9781450339001"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/54/5019",
+"https://dblp.org/pid/d/LKDillon",
+"https://dblp.org/pid/w/LaurieAWilliams"
+],
+"documentPage": [
+"https://doi.org/10.1145/2884781",
+"https://ieeexplore.ieee.org/xpl/conhome/7878354/proceeding"
+],
+"doi": [
+"https://doi.org/10.1145/2884781"
+],
+"editedBy": [
+"https://dblp.org/pid/54/5019",
+"https://dblp.org/pid/d/LKDillon",
+"https://dblp.org/pid/w/LaurieAWilliams"
+],
+"hasSignature": [
+"bn7621649",
+"bn7621660",
+"bn7621671"
+],
+"isbn": [
+"urn:isbn:9781450339001"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/icse/icse2016"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06804668083"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/2884781"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/icse"
+],
+"title": [
+"Proceedings of the 38th International Conference on Software Engineering, ICSE 2016, Austin, TX, USA, May 14-22, 2016"
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q126710598"
+],
+"yearOfPublication": [
+"2016"
+],
+"_authors": [
+"Laura K. Dillon",
+"Willem Visser",
+"Laurie A. Williams"
+]
+},
+"T::Metamorphic Testing: A Review of Challenges and Opportunities": "https://dblp.org/rec/journals/csur/ChenKLPTTZ18",
+"https://dblp.org/rec/journals/csur/ChenKLPTTZ18": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn178159",
+"bn38494406",
+"bn38494407"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Tsong Yueh Chen et al.: Metamorphic Testing: A Review of Challenges and Opportunities. (2018)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3143561",
+"https://doi.org/10.1145/3143561"
+],
+"authoredBy": [
+"https://dblp.org/pid/05/1906",
+"https://dblp.org/pid/40/3836",
+"https://dblp.org/pid/67/1531",
+"https://dblp.org/pid/70/4981",
+"https://dblp.org/pid/77/5181-1",
+"https://dblp.org/pid/88/612",
+"https://dblp.org/pid/t/THTse"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/05/1906",
+"https://dblp.org/pid/40/3836",
+"https://dblp.org/pid/67/1531",
+"https://dblp.org/pid/70/4981",
+"https://dblp.org/pid/77/5181-1",
+"https://dblp.org/pid/88/612",
+"https://dblp.org/pid/t/THTse"
+],
+"documentPage": [
+"https://doi.org/10.1145/3143561"
+],
+"doi": [
+"https://doi.org/10.1145/3143561"
+],
+"hasSignature": [
+"bn38494408",
+"bn38494409",
+"bn38494411",
+"bn38494412",
+"bn38494413",
+"bn38494414",
+"bn38494415"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/csur/csur51"
+],
+"numberOfCreators": [
+"7"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062501605799"
+],
+"pagination": [
+"4:1-4:27"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3143561"
+],
+"publishedIn": [
+"ACM Comput. Surv."
+],
+"publishedInJournal": [
+"ACM Comput. Surv."
+],
+"publishedInJournalVolume": [
+"51"
+],
+"publishedInJournalVolumeIssue": [
+"1"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/csur"
+],
+"title": [
+"Metamorphic Testing: A Review of Challenges and Opportunities."
+],
+"yearOfPublication": [
+"2018"
+],
+"_authors": [
+"Tsong Yueh Chen",
+"Fei-Ching Kuo",
+"Huai Liu",
+"Pak-Lok Poon",
+"Dave Towey",
+"T. H. Tse",
+"Zhi Quan Zhou"
+]
+},
+"T::A Survey on Metamorphic Testing": "https://dblp.org/rec/journals/tse/SeguraFSC16",
+"https://dblp.org/rec/journals/tse/SeguraFSC16": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3547159",
+"bn43107238",
+"bn43107239"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Sergio Segura et al.: A Survey on Metamorphic Testing. (2016)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/TSE.2016.2532875",
+"https://doi.org/10.1109/TSE.2016.2532875"
+],
+"authoredBy": [
+"https://dblp.org/pid/139/5712",
+"https://dblp.org/pid/74/2259",
+"https://dblp.org/pid/97/1263",
+"https://dblp.org/pid/c/AntonioRuizCortes"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/139/5712",
+"https://dblp.org/pid/74/2259",
+"https://dblp.org/pid/97/1263",
+"https://dblp.org/pid/c/AntonioRuizCortes"
+],
+"documentPage": [
+"http://doi.ieeecomputersociety.org/10.1109/TSE.2016.2532875",
+"https://doi.org/10.1109/TSE.2016.2532875"
+],
+"doi": [
+"https://doi.org/10.1109/TSE.2016.2532875"
+],
+"hasSignature": [
+"bn43107242",
+"bn43107243",
+"bn43107244",
+"bn43107245"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/tse/tse42"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062201956991"
+],
+"pagination": [
+"805-824"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/TSE.2016.2532875"
+],
+"publishedIn": [
+"IEEE Trans. Software Eng."
+],
+"publishedInJournal": [
+"IEEE Trans. Software Eng."
+],
+"publishedInJournalVolume": [
+"42"
+],
+"publishedInJournalVolumeIssue": [
+"9"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/tse"
+],
+"title": [
+"A Survey on Metamorphic Testing."
+],
+"yearOfPublication": [
+"2016"
+],
+"_authors": [
+"Sergio Segura",
+"Gordon Fraser",
+"Ana Belén Sánchez",
+"Antonio Ruiz Cortés"
+]
+},
+"T::The Oracle Problem in Software Testing: A Survey": "https://dblp.org/rec/journals/tse/BarrHMSY15",
+"https://dblp.org/rec/journals/tse/BarrHMSY15": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn2258297",
+"bn43119737",
+"bn43119748",
+"bn43119759"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Earl T. Barr et al.: The Oracle Problem in Software Testing: A Survey. (2015)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/TSE.2014.2372785",
+"http://www.wikidata.org/entity/Q56534940",
+"https://doi.org/10.1109/TSE.2014.2372785"
+],
+"authoredBy": [
+"https://dblp.org/pid/06/1626",
+"https://dblp.org/pid/33/13",
+"https://dblp.org/pid/43/4487",
+"https://dblp.org/pid/47/1088",
+"https://dblp.org/pid/h/MarkHarman"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/06/1626",
+"https://dblp.org/pid/33/13",
+"https://dblp.org/pid/43/4487",
+"https://dblp.org/pid/47/1088",
+"https://dblp.org/pid/h/MarkHarman"
+],
+"documentPage": [
+"http://doi.ieeecomputersociety.org/10.1109/TSE.2014.2372785",
+"https://doi.org/10.1109/TSE.2014.2372785"
+],
+"doi": [
+"https://doi.org/10.1109/TSE.2014.2372785"
+],
+"hasSignature": [
+"bn43119770",
+"bn43119781",
+"bn43119793",
+"bn43119804",
+"bn43119815"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/tse/tse41"
+],
+"numberOfCreators": [
+"5"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/062201957078"
+],
+"pagination": [
+"507-525"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/TSE.2014.2372785"
+],
+"publishedIn": [
+"IEEE Trans. Software Eng."
+],
+"publishedInJournal": [
+"IEEE Trans. Software Eng."
+],
+"publishedInJournalVolume": [
+"41"
+],
+"publishedInJournalVolumeIssue": [
+"5"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/tse"
+],
+"title": [
+"The Oracle Problem in Software Testing: A Survey."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q56534940"
+],
+"yearOfPublication": [
+"2015"
+],
+"_authors": [
+"Earl T. Barr",
+"Mark Harman",
+"Phil McMinn",
+"Muzammil Shahbaz",
+"Shin Yoo"
+]
+},
+"T::Validating JIT Compilers via Compilation Space Exploration": "https://dblp.org/rec/conf/sosp/Li00S23",
+"https://dblp.org/rec/conf/sosp/Li00S23": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn1532629",
+"bn23749724",
+"bn23749725",
+"bn23749726"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Cong Li et al.: Validating JIT Compilers via Compilation Space Exploration. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3600006.3613140",
+"http://www.wikidata.org/entity/Q130834851",
+"https://doi.org/10.1145/3600006.3613140"
+],
+"authoredBy": [
+"https://dblp.org/pid/08/8179-1",
+"https://dblp.org/pid/74/3487-3",
+"https://dblp.org/pid/97/2966-1",
+"https://dblp.org/pid/s/ZhendongSu"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/08/8179-1",
+"https://dblp.org/pid/74/3487-3",
+"https://dblp.org/pid/97/2966-1",
+"https://dblp.org/pid/s/ZhendongSu"
+],
+"documentPage": [
+"https://doi.org/10.1145/3600006.3613140"
+],
+"doi": [
+"https://doi.org/10.1145/3600006.3613140"
+],
+"hasSignature": [
+"bn23749727",
+"bn23749728",
+"bn23749730",
+"bn23749731"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sosp/sosp2023"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061704164680"
+],
+"pagination": [
+"66-79"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3600006.3613140"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/sosp/2023"
+],
+"publishedIn": [
+"SOSP"
+],
+"publishedInBook": [
+"SOSP"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/sosp"
+],
+"title": [
+"Validating JIT Compilers via Compilation Space Exploration."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130834851"
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Cong Li",
+"Yanyan Jiang",
+"Chang Xu",
+"Zhendong Su"
+]
+},
+"https://dblp.org/rec/conf/sosp/2023": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn23749693",
+"bn23749694",
+"bn23749696"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Jason Flinn et al.: Proceedings of the 29th Symposium on Operating Systems Principles, SOSP 2023, Koblenz, Germany, October 23-26, 2023 (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3600006",
+"http://www.wikidata.org/entity/Q126728547",
+"https://doi.org/10.1145/3600006"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/14/85",
+"https://dblp.org/pid/145/5081",
+"https://dblp.org/pid/154/0937",
+"https://dblp.org/pid/d/PDruschel",
+"https://dblp.org/pid/s/MargoISeltzer"
+],
+"documentPage": [
+"https://doi.org/10.1145/3600006"
+],
+"doi": [
+"https://doi.org/10.1145/3600006"
+],
+"editedBy": [
+"https://dblp.org/pid/14/85",
+"https://dblp.org/pid/145/5081",
+"https://dblp.org/pid/154/0937",
+"https://dblp.org/pid/d/PDruschel",
+"https://dblp.org/pid/s/MargoISeltzer"
+],
+"hasSignature": [
+"bn23749697",
+"bn23749698",
+"bn23749699",
+"bn23749700",
+"bn23749701"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sosp/sosp2023"
+],
+"numberOfCreators": [
+"5"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3600006"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/sosp"
+],
+"title": [
+"Proceedings of the 29th Symposium on Operating Systems Principles, SOSP 2023, Koblenz, Germany, October 23-26, 2023"
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q126728547"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Jason Flinn",
+"Margo I. Seltzer",
+"Peter Druschel",
+"Antoine Kaufmann",
+"Jonathan Mace"
+]
+},
+"T::JIT-Picking: Differential Fuzzing of JavaScript Engines": "https://dblp.org/rec/conf/ccs/BernhardSSBH22",
+"https://dblp.org/rec/conf/ccs/BernhardSSBH22": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn5016731",
+"bn23924683",
+"bn23924684",
+"bn23924685"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Lukas Bernhard et al.: JIT-Picking: Differential Fuzzing of JavaScript Engines. (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3548606.3560624",
+"http://www.wikidata.org/entity/Q131109794",
+"https://doi.org/10.1145/3548606.3560624"
+],
+"authoredBy": [
+"https://dblp.org/pid/155/0020",
+"https://dblp.org/pid/205/2079",
+"https://dblp.org/pid/207/4015",
+"https://dblp.org/pid/272/7190",
+"https://dblp.org/pid/h/ThorstenHolz"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/155/0020",
+"https://dblp.org/pid/205/2079",
+"https://dblp.org/pid/207/4015",
+"https://dblp.org/pid/272/7190",
+"https://dblp.org/pid/h/ThorstenHolz"
+],
+"documentPage": [
+"https://doi.org/10.1145/3548606.3560624"
+],
+"doi": [
+"https://doi.org/10.1145/3548606.3560624"
+],
+"hasSignature": [
+"bn23924686",
+"bn23924687",
+"bn23924688",
+"bn23924689",
+"bn23924690"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/ccs/ccs2022"
+],
+"numberOfCreators": [
+"5"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06303979886"
+],
+"pagination": [
+"351-364"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3548606.3560624"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/ccs/2022"
+],
+"publishedIn": [
+"CCS"
+],
+"publishedInBook": [
+"CCS"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/ccs"
+],
+"title": [
+"JIT-Picking: Differential Fuzzing of JavaScript Engines."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q131109794"
+],
+"yearOfEvent": [
+"2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Lukas Bernhard",
+"Tobias Scharnowski",
+"Moritz Schloegel",
+"Tim Blazytko",
+"Thorsten Holz"
+]
+},
+"https://dblp.org/rec/conf/ccs/2022": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn6081105",
+"bn23926372",
+"bn23926373",
+"bn23926374"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Heng Yin et al.: Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security, CCS 2022, Los Angeles, CA, USA, November 7-11, 2022 (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3548606",
+"https://doi.org/10.1145/3548606",
+"urn:isbn:9781450394505"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/14/5349",
+"https://dblp.org/pid/17/2282",
+"https://dblp.org/pid/77/6178-1",
+"https://dblp.org/pid/80/4580"
+],
+"documentPage": [
+"https://doi.org/10.1145/3548606"
+],
+"doi": [
+"https://doi.org/10.1145/3548606"
+],
+"editedBy": [
+"https://dblp.org/pid/14/5349",
+"https://dblp.org/pid/17/2282",
+"https://dblp.org/pid/77/6178-1",
+"https://dblp.org/pid/80/4580"
+],
+"hasSignature": [
+"bn23926375",
+"bn23926376",
+"bn23926377",
+"bn23926378"
+],
+"isbn": [
+"urn:isbn:9781450394505"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/ccs/ccs2022"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06310404632"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3548606"
+],
+"publishedBy": [
+"ACM"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/ccs"
+],
+"title": [
+"Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security, CCS 2022, Los Angeles, CA, USA, November 7-11, 2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Heng Yin",
+"Angelos Stavrou",
+"Cas Cremers",
+"Elaine Shi"
+]
+},
+"T::Reflections on Trusting Trust": "https://dblp.org/rec/journals/cacm/Thompson84",
+"https://dblp.org/rec/journals/cacm/Thompson84": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn6083215",
+"bn43603772",
+"bn43603773",
+"bn43603774"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Ken Thompson: Reflections on Trusting Trust. (1984)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/358198.358210",
+"http://www.wikidata.org/entity/Q55869086",
+"https://doi.org/10.1145/358198.358210"
+],
+"authoredBy": [
+"https://dblp.org/pid/t/KenThompson"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/t/KenThompson"
+],
+"documentPage": [
+"https://doi.org/10.1145/358198.358210"
+],
+"doi": [
+"https://doi.org/10.1145/358198.358210"
+],
+"hasSignature": [
+"bn43603775"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/cacm/cacm27"
+],
+"numberOfCreators": [
+"1"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06703884573"
+],
+"pagination": [
+"761-763"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/358198.358210"
+],
+"publishedIn": [
+"Commun. ACM"
+],
+"publishedInJournal": [
+"Commun. ACM"
+],
+"publishedInJournalVolume": [
+"27"
+],
+"publishedInJournalVolumeIssue": [
+"8"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/cacm"
+],
+"title": [
+"Reflections on Trusting Trust."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q55869086"
+],
+"yearOfPublication": [
+"1984"
+],
+"_authors": [
+"Ken Thompson"
+]
+},
+"T::Reproducible Builds: Increasing the Integrity of Software Supply Chains": "https://dblp.org/rec/journals/software/LambZ22",
+"https://dblp.org/rec/journals/software/LambZ22": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn951814",
+"bn47786821",
+"bn47786822"
+],
+"type": [
+"https://dblp.org/rdf/schema#Article",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Chris Lamb and Stefano Zacchiroli: Reproducible Builds: Increasing the Integrity of Software Supply Chains. (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/MS.2021.3073045",
+"https://doi.org/10.1109/MS.2021.3073045"
+],
+"authoredBy": [
+"https://dblp.org/pid/290/1710",
+"https://dblp.org/pid/53/2641"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Article"
+],
+"createdBy": [
+"https://dblp.org/pid/290/1710",
+"https://dblp.org/pid/53/2641"
+],
+"documentPage": [
+"https://doi.org/10.1109/MS.2021.3073045"
+],
+"doi": [
+"https://doi.org/10.1109/MS.2021.3073045"
+],
+"hasSignature": [
+"bn47786823",
+"bn47786824"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/journals/software/software39"
+],
+"numberOfCreators": [
+"2"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/061701212627"
+],
+"pagination": [
+"62-70"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/MS.2021.3073045"
+],
+"publishedIn": [
+"IEEE Softw."
+],
+"publishedInJournal": [
+"IEEE Softw."
+],
+"publishedInJournalVolume": [
+"39"
+],
+"publishedInJournalVolumeIssue": [
+"2"
+],
+"publishedInStream": [
+"https://dblp.org/streams/journals/software"
+],
+"title": [
+"Reproducible Builds: Increasing the Integrity of Software Supply Chains."
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Chris Lamb",
+"Stefano Zacchiroli"
+]
+},
+"T::in-toto: Providing farm-to-table guarantees for bits and bytes": "https://dblp.org/rec/conf/uss/Torres-AriasAKC19",
+"https://dblp.org/rec/conf/uss/Torres-AriasAKC19": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn12490928"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Santiago Torres-Arias et al.: in-toto: Providing farm-to-table guarantees for bits and bytes. (2019)"
+],
+"authoredBy": [
+"https://dblp.org/pid/185/1711",
+"https://dblp.org/pid/220/2550",
+"https://dblp.org/pid/27/5136",
+"https://dblp.org/pid/44/8573",
+"https://dblp.org/pid/c/RezaCurtmola"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/185/1711",
+"https://dblp.org/pid/220/2550",
+"https://dblp.org/pid/27/5136",
+"https://dblp.org/pid/44/8573",
+"https://dblp.org/pid/c/RezaCurtmola"
+],
+"documentPage": [
+"https://www.usenix.org/conference/usenixsecurity19/presentation/torres-arias"
+],
+"hasSignature": [
+"bn12490929",
+"bn12490930",
+"bn12490931",
+"bn12490932",
+"bn12490933"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/uss/uss2019"
+],
+"numberOfCreators": [
+"5"
+],
+"pagination": [
+"1393-1410"
+],
+"primaryDocumentPage": [
+"https://www.usenix.org/conference/usenixsecurity19/presentation/torres-arias"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/uss/2019"
+],
+"publishedIn": [
+"USENIX Security Symposium"
+],
+"publishedInBook": [
+"USENIX Security Symposium"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/uss"
+],
+"title": [
+"in-toto: Providing farm-to-table guarantees for bits and bytes."
+],
+"yearOfEvent": [
+"2019"
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Santiago Torres-Arias",
+"Hammad Afzali",
+"Trishank Karthik Kuppusamy",
+"Reza Curtmola",
+"Justin Cappos"
+]
+},
+"https://dblp.org/rec/conf/uss/2019": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn12464930"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Nadia Heninger and Patrick Traynor: 28th USENIX Security Symposium, USENIX Security 2019, Santa Clara, CA, USA, August 14-16, 2019. (2019)"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/12/3207",
+"https://dblp.org/pid/14/3295"
+],
+"documentPage": [
+"https://www.usenix.org/conference/usenixsecurity19"
+],
+"editedBy": [
+"https://dblp.org/pid/12/3207",
+"https://dblp.org/pid/14/3295"
+],
+"hasSignature": [
+"bn12464931",
+"bn12464932"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/uss/uss2019"
+],
+"numberOfCreators": [
+"2"
+],
+"primaryDocumentPage": [
+"https://www.usenix.org/conference/usenixsecurity19"
+],
+"publishedBy": [
+"USENIX Association"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/uss"
+],
+"title": [
+"28th USENIX Security Symposium, USENIX Security 2019, Santa Clara, CA, USA, August 14-16, 2019."
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Nadia Heninger",
+"Patrick Traynor"
+]
+},
+"T::Sigstore: Software Signing for Everybody": "https://dblp.org/rec/conf/ccs/NewmanMT22",
+"https://dblp.org/rec/conf/ccs/NewmanMT22": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3856248",
+"bn23903538",
+"bn23903539",
+"bn23903540"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Zachary Newman et al.: Sigstore: Software Signing for Everybody. (2022)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1145/3548606.3560596",
+"http://www.wikidata.org/entity/Q130875113",
+"https://doi.org/10.1145/3548606.3560596"
+],
+"authoredBy": [
+"https://dblp.org/pid/185/1711",
+"https://dblp.org/pid/277/3695",
+"https://dblp.org/pid/281/9630"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/185/1711",
+"https://dblp.org/pid/277/3695",
+"https://dblp.org/pid/281/9630"
+],
+"documentPage": [
+"https://doi.org/10.1145/3548606.3560596"
+],
+"doi": [
+"https://doi.org/10.1145/3548606.3560596"
+],
+"hasSignature": [
+"bn23903541",
+"bn23903542",
+"bn23903544"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/ccs/ccs2022"
+],
+"numberOfCreators": [
+"3"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06303979889"
+],
+"pagination": [
+"2353-2367"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1145/3548606.3560596"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/ccs/2022"
+],
+"publishedIn": [
+"CCS"
+],
+"publishedInBook": [
+"CCS"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/ccs"
+],
+"title": [
+"Sigstore: Software Signing for Everybody."
+],
+"wikidata": [
+"http://www.wikidata.org/entity/Q130875113"
+],
+"yearOfEvent": [
+"2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Zachary Newman",
+"John Speed Meyers",
+"Santiago Torres-Arias"
+]
+},
+"T::Backstabber's Knife Collection: A Review of Open Source Software Supply Chain Attacks": "https://dblp.org/rec/conf/dimva/OhmPS020",
+"https://dblp.org/rec/conf/dimva/OhmPS020": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3963010",
+"bn8075200",
+"bn8075201"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Marc Ohm et al.: Backstabber's Knife Collection: A Review of Open Source Software Supply Chain Attacks. (2020)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1007/978-3-030-52683-2_2",
+"https://doi.org/10.1007/978-3-030-52683-2_2"
+],
+"authoredBy": [
+"https://dblp.org/pid/223/9677",
+"https://dblp.org/pid/224/4378",
+"https://dblp.org/pid/64/1932",
+"https://dblp.org/pid/m/MichaelMeier1"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/223/9677",
+"https://dblp.org/pid/224/4378",
+"https://dblp.org/pid/64/1932",
+"https://dblp.org/pid/m/MichaelMeier1"
+],
+"documentPage": [
+"https://doi.org/10.1007/978-3-030-52683-2_2"
+],
+"doi": [
+"https://doi.org/10.1007/978-3-030-52683-2_2"
+],
+"hasSignature": [
+"bn8075202",
+"bn8075204",
+"bn8075205",
+"bn8075206"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/dimva/dimva2020"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06302364833"
+],
+"pagination": [
+"23-43"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1007/978-3-030-52683-2_2"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/dimva/2020"
+],
+"publishedIn": [
+"DIMVA"
+],
+"publishedInBook": [
+"DIMVA"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/dimva",
+"https://dblp.org/streams/series/lncs"
+],
+"title": [
+"Backstabber's Knife Collection: A Review of Open Source Software Supply Chain Attacks."
+],
+"yearOfEvent": [
+"2020"
+],
+"yearOfPublication": [
+"2020"
+],
+"_authors": [
+"Marc Ohm",
+"Henrik Plate",
+"Arnold Sykosch",
+"Michael Meier"
+]
+},
+"https://dblp.org/rec/conf/dimva/2020": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn3839087",
+"bn8075609",
+"bn8075610",
+"bn8075611",
+"bn8075612"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Clémentine Maurice et al.: Detection of Intrusions and Malware, and Vulnerability Assessment - 17th International Conference, DIMVA 2020, Lisbon, Portugal, June 24-26, 2020, Proceedings (2020)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1007/978-3-030-52683-2",
+"https://doi.org/10.1007/978-3-030-52683-2",
+"urn:isbn:9783030526825",
+"urn:isbn:9783030526832"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/136/6642",
+"https://dblp.org/pid/15/6037",
+"https://dblp.org/pid/24/4061",
+"https://dblp.org/pid/86/8823"
+],
+"documentPage": [
+"https://doi.org/10.1007/978-3-030-52683-2"
+],
+"doi": [
+"https://doi.org/10.1007/978-3-030-52683-2"
+],
+"editedBy": [
+"https://dblp.org/pid/136/6642",
+"https://dblp.org/pid/15/6037",
+"https://dblp.org/pid/24/4061",
+"https://dblp.org/pid/86/8823"
+],
+"hasSignature": [
+"bn8075613",
+"bn8075614",
+"bn8075616",
+"bn8075617"
+],
+"isbn": [
+"urn:isbn:9783030526825",
+"urn:isbn:9783030526832"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/dimva/dimva2020"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06302365753"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1007/978-3-030-52683-2"
+],
+"publishedBy": [
+"Springer"
+],
+"publishedIn": [
+"Lecture Notes in Computer Science"
+],
+"publishedInSeries": [
+"Lecture Notes in Computer Science"
+],
+"publishedInSeriesVolume": [
+"12223"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/dimva",
+"https://dblp.org/streams/series/lncs"
+],
+"title": [
+"Detection of Intrusions and Malware, and Vulnerability Assessment - 17th International Conference, DIMVA 2020, Lisbon, Portugal, June 24-26, 2020, Proceedings"
+],
+"yearOfPublication": [
+"2020"
+],
+"_authors": [
+"Clémentine Maurice",
+"Leyla Bilge",
+"Gianluca Stringhini",
+"Nuno Neves"
+]
+},
+"T::SoK: Taxonomy of Attacks on Open-Source Software Supply Chains": "https://dblp.org/rec/conf/sp/LadisaPMB23",
+"https://dblp.org/rec/conf/sp/LadisaPMB23": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn557632",
+"bn20120803",
+"bn20120804"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Piergiorgio Ladisa et al.: SoK: Taxonomy of Attacks on Open-Source Software Supply Chains. (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/SP46215.2023.10179304",
+"https://doi.org/10.1109/SP46215.2023.10179304"
+],
+"authoredBy": [
+"https://dblp.org/pid/135/6372",
+"https://dblp.org/pid/318/1293",
+"https://dblp.org/pid/64/1932",
+"https://dblp.org/pid/97/947"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/135/6372",
+"https://dblp.org/pid/318/1293",
+"https://dblp.org/pid/64/1932",
+"https://dblp.org/pid/97/947"
+],
+"documentPage": [
+"https://doi.org/10.1109/SP46215.2023.10179304"
+],
+"doi": [
+"https://doi.org/10.1109/SP46215.2023.10179304"
+],
+"hasSignature": [
+"bn20120805",
+"bn20120806",
+"bn20120808",
+"bn20120809"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sp/sp2023"
+],
+"numberOfCreators": [
+"4"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06330124400"
+],
+"pagination": [
+"1509-1526"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/SP46215.2023.10179304"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/sp/2023"
+],
+"publishedIn": [
+"SP"
+],
+"publishedInBook": [
+"SP"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/sp"
+],
+"title": [
+"SoK: Taxonomy of Attacks on Open-Source Software Supply Chains."
+],
+"yearOfEvent": [
+"2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": [
+"Piergiorgio Ladisa",
+"Henrik Plate",
+"Matias Martinez",
+"Olivier Barais"
+]
+},
+"https://dblp.org/rec/conf/sp/2023": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn20153774",
+"bn20153776",
+"bn20153777"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"44th IEEE Symposium on Security and Privacy, SP 2023, San Francisco, CA, USA, May 21-25, 2023 (2023)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/SP46215.2023",
+"https://doi.org/10.1109/SP46215.2023",
+"urn:isbn:9781665493369"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"documentPage": [
+"https://doi.org/10.1109/SP46215.2023"
+],
+"doi": [
+"https://doi.org/10.1109/SP46215.2023"
+],
+"isbn": [
+"urn:isbn:9781665493369"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/sp/sp2023"
+],
+"numberOfCreators": [
+"0"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/SP46215.2023"
+],
+"publishedBy": [
+"IEEE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/sp"
+],
+"title": [
+"44th IEEE Symposium on Security and Privacy, SP 2023, San Francisco, CA, USA, May 21-25, 2023"
+],
+"yearOfPublication": [
+"2023"
+],
+"_authors": []
+},
+"T::torch.fx: Practical Program Capture and Transformation for Deep Learning in Python": "https://dblp.org/rec/conf/mlsys/ReedDHUA22",
+"https://dblp.org/rec/conf/mlsys/ReedDHUA22": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn13099106"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"James K. Reed et al.: torch.fx: Practical Program Capture and Transformation for Deep Learning in Python. (2022)"
+],
+"authoredBy": [
+"https://dblp.org/pid/207/1596",
+"https://dblp.org/pid/230/4428",
+"https://dblp.org/pid/309/5987",
+"https://dblp.org/pid/60/3985",
+"https://dblp.org/pid/83/8636"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/207/1596",
+"https://dblp.org/pid/230/4428",
+"https://dblp.org/pid/309/5987",
+"https://dblp.org/pid/60/3985",
+"https://dblp.org/pid/83/8636"
+],
+"documentPage": [
+"https://proceedings.mlsys.org/paper_files/paper/2022/hash/7c98f9c7ab2df90911da23f9ce72ed6e-Abstract.html"
+],
+"hasSignature": [
+"bn13099107",
+"bn13099109",
+"bn13099110",
+"bn13099111",
+"bn13099112"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/mlsys/mlsys2022"
+],
+"numberOfCreators": [
+"5"
+],
+"primaryDocumentPage": [
+"https://proceedings.mlsys.org/paper_files/paper/2022/hash/7c98f9c7ab2df90911da23f9ce72ed6e-Abstract.html"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/mlsys/2022"
+],
+"publishedIn": [
+"MLSys"
+],
+"publishedInBook": [
+"MLSys"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/mlsys"
+],
+"title": [
+"torch.fx: Practical Program Capture and Transformation for Deep Learning in Python."
+],
+"yearOfEvent": [
+"2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"James K. Reed",
+"Zachary DeVito",
+"Horace He",
+"Ansley Ussery",
+"Jason Ansel"
+]
+},
+"https://dblp.org/rec/conf/mlsys/2022": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn13099738"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Diana Marculescu et al.: Proceedings of the Fifth Conference on Machine Learning and Systems, MLSys 2022, Santa Clara, CA, USA, August 29 - September 1, 2022 (2022)"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/26/9655",
+"https://dblp.org/pid/59/2715",
+"https://dblp.org/pid/82/8759"
+],
+"documentPage": [
+"https://proceedings.mlsys.org/book/2022"
+],
+"editedBy": [
+"https://dblp.org/pid/26/9655",
+"https://dblp.org/pid/59/2715",
+"https://dblp.org/pid/82/8759"
+],
+"hasSignature": [
+"bn13099739",
+"bn13099742",
+"bn13099743"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/mlsys/mlsys2022"
+],
+"numberOfCreators": [
+"3"
+],
+"primaryDocumentPage": [
+"https://proceedings.mlsys.org/book/2022"
+],
+"publishedBy": [
+"mlsys.org"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/mlsys"
+],
+"title": [
+"Proceedings of the Fifth Conference on Machine Learning and Systems, MLSys 2022, Santa Clara, CA, USA, August 29 - September 1, 2022"
+],
+"yearOfPublication": [
+"2022"
+],
+"_authors": [
+"Diana Marculescu",
+"Yuejie Chi",
+"Carole-Jean Wu"
+]
+},
+"T::An Empirical Study Towards Characterizing Deep Learning Development and Deployment Across Different Frameworks and Platforms": "https://dblp.org/rec/conf/kbse/GuoCXMHLLZL19",
+"https://dblp.org/rec/conf/kbse/GuoCXMHLLZL19": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn4985092",
+"bn18221636",
+"bn18221637"
+],
+"type": [
+"https://dblp.org/rdf/schema#Inproceedings",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"Qianyu Guo et al.: An Empirical Study Towards Characterizing Deep Learning Development and Deployment Across Different Frameworks and Platforms. (2019)"
+],
+"sameAs": [
+"http://dx.doi.org/10.1109/ASE.2019.00080",
+"https://doi.org/10.1109/ASE.2019.00080"
+],
+"authoredBy": [
+"https://dblp.org/pid/08/2489-1",
+"https://dblp.org/pid/127/0713",
+"https://dblp.org/pid/180/8218-1",
+"https://dblp.org/pid/20/6534-3",
+"https://dblp.org/pid/230/4021",
+"https://dblp.org/pid/51/3710-3",
+"https://dblp.org/pid/71/6948-1",
+"https://dblp.org/pid/83/6946",
+"https://dblp.org/pid/93/5629"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Inproceedings"
+],
+"createdBy": [
+"https://dblp.org/pid/08/2489-1",
+"https://dblp.org/pid/127/0713",
+"https://dblp.org/pid/180/8218-1",
+"https://dblp.org/pid/20/6534-3",
+"https://dblp.org/pid/230/4021",
+"https://dblp.org/pid/51/3710-3",
+"https://dblp.org/pid/71/6948-1",
+"https://dblp.org/pid/83/6946",
+"https://dblp.org/pid/93/5629"
+],
+"documentPage": [
+"https://doi.org/10.1109/ASE.2019.00080"
+],
+"doi": [
+"https://doi.org/10.1109/ASE.2019.00080"
+],
+"hasSignature": [
+"bn18221638",
+"bn18221639",
+"bn18221640",
+"bn18221641",
+"bn18221643",
+"bn18221644",
+"bn18221645",
+"bn18221646",
+"bn18221647"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/kbse/ase2019"
+],
+"numberOfCreators": [
+"9"
+],
+"omid": [
+"https://w3id.org/oc/meta/br/06501892501"
+],
+"pagination": [
+"810-822"
+],
+"primaryDocumentPage": [
+"https://doi.org/10.1109/ASE.2019.00080"
+],
+"publishedAsPartOf": [
+"https://dblp.org/rec/conf/kbse/2019"
+],
+"publishedIn": [
+"ASE"
+],
+"publishedInBook": [
+"ASE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/kbse"
+],
+"title": [
+"An Empirical Study Towards Characterizing Deep Learning Development and Deployment Across Different Frameworks and Platforms."
+],
+"yearOfEvent": [
+"2019"
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": [
+"Qianyu Guo",
+"Sen Chen",
+"Xiaofei Xie",
+"Lei Ma",
+"Qiang Hu",
+"Hongtao Liu",
+"Yang Liu",
+"Jianjun Zhao",
+"Xiaohong Li"
+]
+},
+"https://dblp.org/rec/conf/kbse/2019": {
+"http://purl.org/spar/datacite/hasIdentifier": [
+"bn18223057",
+"bn18223058"
+],
+"type": [
+"https://dblp.org/rdf/schema#Editorship",
+"https://dblp.org/rdf/schema#Publication"
+],
+"label": [
+"34th IEEE/ACM International Conference on Automated Software Engineering, ASE 2019, San Diego, CA, USA, November 11-15, 2019 (2019)"
+],
+"sameAs": [
+"urn:isbn:9781728125084"
+],
+"bibtexType": [
+"http://purl.org/net/nknouf/ns/bibtex#Proceedings"
+],
+"documentPage": [
+"https://ieeexplore.ieee.org/xpl/conhome/8949433/proceeding"
+],
+"isbn": [
+"urn:isbn:9781728125084"
+],
+"listedOnTocPage": [
+"https://dblp.org/db/conf/kbse/ase2019"
+],
+"numberOfCreators": [
+"0"
+],
+"primaryDocumentPage": [
+"https://ieeexplore.ieee.org/xpl/conhome/8949433/proceeding"
+],
+"publishedBy": [
+"IEEE"
+],
+"publishedInStream": [
+"https://dblp.org/streams/conf/kbse"
+],
+"title": [
+"34th IEEE/ACM International Conference on Automated Software Engineering, ASE 2019, San Diego, CA, USA, November 11-15, 2019"
+],
+"yearOfPublication": [
+"2019"
+],
+"_authors": []
+}
+}

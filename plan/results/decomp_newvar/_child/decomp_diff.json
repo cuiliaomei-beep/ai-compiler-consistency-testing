@@ -1,0 +1,31 @@
+{
+  "stats": {
+    "ops": 21,
+    "samples": 21,
+    "variants": 72,
+    "decomp_covered": 32,
+    "decomp_mismatch": 0,
+    "meta_mismatch": 0,
+    "data_dependent": 1,
+    "errors": 0,
+    "wall_s": 2.4
+  },
+  "mismatches": [
+    {
+      "op": "masked.median",
+      "variant": "dtype_complex64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        []
+      ],
+      "dtypes": [
+        "torch.complex64"
+      ],
+      "recipe": ""
+    }
+  ]
+}

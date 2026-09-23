@@ -1,0 +1,54 @@
+{
+  "factor_changed": "dtype",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "dtype=float16",
+    "factors": {
+      "dtype": "float16"
+    },
+    "warm": true,
+    "origin": "xs.dtype"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "container_len",
+    "factor": "xs.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "numerics depend on precision regardless of source",
+    "param": "xs",
+    "dim": null
+  },
+  "triage": {
+    "stage": "none",
+    "stage_label": "no divergence",
+    "priority": "info",
+    "rationale": "'dtype' changed without a recompile and the result matched; guards may be under-specified (informational)",
+    "kinds": [],
+    "recompiled": false,
+    "guard_suspicious": true,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": false
+  }
+}

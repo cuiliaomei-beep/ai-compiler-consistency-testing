@@ -1,0 +1,258 @@
+{
+  "signature": "abdc99a03d07",
+  "program": "mod_tiling",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "x.dim0=17",
+    "factors": {
+      "resize": {
+        "arg": 0,
+        "dim": 0,
+        "value": 17
+      }
+    },
+    "warm": false,
+    "origin": "x.shape[0]"
+  },
+  "context_b": null,
+  "factor_changed": "resize",
+  "controlled": {},
+  "obligation": {
+    "site": "mod_tiling",
+    "factor": "x.shape[0]",
+    "kind": "shape",
+    "values": [
+      16,
+      17,
+      15,
+      32,
+      33,
+      31
+    ],
+    "constraint": "n %16 16 (line 3)",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "exception"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "branch/index predicate: n %16 16 (line 3)",
+    "param": "x",
+    "dim": 0
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 4.768e-07",
+          "magnitude": 1.0000005811452866,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              8
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 1.000000238418579,
+            "max_rel_error": 406.82889982783286,
+            "n_mismatch": 16,
+            "n_total": 16,
+            "first_mismatch_index": [
+              0,
+              0
+            ],
+            "first_mismatch_expected": "-4.727891445",
+            "first_mismatch_actual": "-3.727891445",
+            "expected_preview": "[-4.727891445, -3.078510284, 2.729067087, 6.01960516, -1.66040659, 4.027376652, 3.954801083, -0.5515768528, ... (8 more)]",
+            "actual_preview": "[-3.727891445, -2.078510284, 3.729067087, 7.01960516, -0.6604065895, 5.027376652, 4.954801083, 0.4484231472, ... (8 more)]",
+            "eager_err_vs_fp64": 4.76837158203125e-07,
+            "compiled_err_vs_fp64": 1.0000005811452866,
+            "budget": 3.332023879920598e-06,
+            "noise_floor": 3.332023879920598e-06
+          }
+        }
+      ]
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            8,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1087,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            8,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0232,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            8,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "seed": 0,
+  "backend": "eager",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "n % 16 == 0 predicate; the analysis must derive 15/16/17/31/32/33",
+  "minimized": null,
+  "duplicates": null,
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": "codegen_mod16_tail"
+}

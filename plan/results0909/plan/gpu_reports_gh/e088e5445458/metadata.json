@@ -1,0 +1,37 @@
+{
+  "signature": "e088e5445458",
+  "program": "issue_177252_inductor_assertionerror_wrong_number_of",
+  "project": "pytorch/pytorch",
+  "stage": "aot_functionalization",
+  "priority": "high",
+  "kinds": [
+    "metadata",
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "177252",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/177252",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 177252,
+      "title": "[Inductor] AssertionError: wrong number of dimensions1 in backward() with dynamic shape involving nonzero() and item()",
+      "url": "https://github.com/pytorch/pytorch/issues/177252",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-03-12"
+    }
+  ]
+}

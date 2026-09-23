@@ -1,0 +1,44 @@
+{
+  "signature": "4b073e5a902f",
+  "program": "issue_185481_inductor_argmax_over_comparison_mask_is",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "185481",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/185481",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 185481,
+      "title": "[inductor] argmax over comparison mask is accepted and used for indexing while eager raises",
+      "url": "https://github.com/pytorch/pytorch/issues/185481",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-05-28"
+    },
+    {
+      "number": 195605,
+      "title": "Reject bool and complex input in the argmax/argmin meta kernels",
+      "url": "https://github.com/pytorch/pytorch/pull/195605",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-09-01"
+    }
+  ]
+}

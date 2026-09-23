@@ -1,0 +1,7 @@
+exception InternalTorchDynamoError: DataDependentOutputException: aten._local_scalar_dense.default
+
+from user code:
+   File "reproducers_gh/issue_179534_torch_compile_fails_on_aten_sparse_csr_t.py", line 15, in forward
+    sparse = torch.ops.aten.sparse_csr_tensor(crow_indices, col_indices, values, size)
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"

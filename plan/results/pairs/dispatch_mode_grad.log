@@ -1,0 +1,71 @@
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\dispatch_mode_grad_sweep.py:25: UserWarning: Using torch.cross without specifying the dim arg is deprecated.
+Please either pass the dim explicitly or simply use torch.linalg.cross.
+The default value of dim will change to agree with that of linalg.cross in a future release. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\Cross.cpp:67.)
+  out = [o for o in flat(fn(s.input, *s.args, **s.kwargs)) if o.requires_grad and (o.is_floating_point() or o.is_complex())]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\functional.py:680: UserWarning: A window was not provided. A rectangular window will be applied,which is known to cause spectral leakage. Other windows such as torch.hann_window or torch.hamming_window are recommended to reduce spectral leakage.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\SpectralOps.cpp:860.)
+  return _VF.stft(  # type: ignore[attr-defined]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\functional.py:680: UserWarning: stft with return_complex=False is deprecated. In a future pytorch release, stft will return complex tensors for all inputs, and return_complex=False will raise an error.
+Note: you can still call torch.view_as_real on the complex output to recover the old return format. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\SpectralOps.cpp:898.)
+  return _VF.stft(  # type: ignore[attr-defined]
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\dispatch_mode_grad_sweep.py:25: UserWarning: A window was not provided. A rectangular window will be applied.Please provide the same window used by stft to make the inversion lossless.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\SpectralOps.cpp:1059.)
+  out = [o for o in flat(fn(s.input, *s.args, **s.kwargs)) if o.requires_grad and (o.is_floating_point() or o.is_complex())]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:1251: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:51.)
+  .to_sparse_csr()
+Traceback (most recent call last):
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\dispatch_mode_grad_sweep.py", line 76, in <module>
+    main()
+    ~~~~^^
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\dispatch_mode_grad_sweep.py", line 66, in main
+    d = diff(x, y)
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\dispatch_mode_grad_sweep.py", line 37, in diff
+    if not torch.equal(a.isnan(), b.isnan()): return "nan pattern"
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+NotImplementedError: Could not run 'aten::equal' with arguments from the 'SparseCsrCPU' backend. This could be because the operator doesn't exist for this backend, or was omitted during the selective/custom build process (if using custom build). If you are a Facebook employee using PyTorch on mobile, please visit https://fburl.com/ptmfixes for possible resolutions. 'aten::equal' is only available for these backends: [CPU, Meta, QuantizedCPU, BackendSelect, Python, FuncTorchDynamicLayerBackMode, Functionalize, Conjugate, Negative, ZeroTensor, ADInplaceOrView, AutogradOther, AutogradCPU, AutogradCUDA, AutogradHIP, AutogradXLA, AutogradMPS, AutogradIPU, AutogradXPU, AutogradHPU, AutogradVE, AutogradLazy, AutogradMTIA, AutogradMAIA, AutogradPrivateUse1, AutogradPrivateUse2, AutogradPrivateUse3, AutogradMeta, AutogradNestedTensor, Tracer, AutocastCPU, AutocastMTIA, AutocastMAIA, AutocastXPU, AutocastMPS, AutocastCUDA, FuncTorchBatched, BatchedNestedTensor, FuncTorchVmapMode, Batched, VmapMode, FuncTorchGradWrapper, PythonTLSSnapshot, FuncTorchDynamicLayerFrontMode, PreDispatch, PythonDispatcher].
+
+CPU: registered at C:\actions-runner\_work\pytorch\pytorch\build\aten\src\ATen\RegisterCPU_1.cpp:9424 [kernel]
+Meta: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\core\MetaFallbackKernel.cpp:23 [backend fallback]
+QuantizedCPU: registered at C:\actions-runner\_work\pytorch\pytorch\build\aten\src\ATen\RegisterQuantizedCPU_0.cpp:2111 [kernel]
+BackendSelect: fallthrough registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\core\BackendSelectFallbackKernel.cpp:3 [backend fallback]
+Python: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\core\PythonFallbackKernel.cpp:192 [backend fallback]
+FuncTorchDynamicLayerBackMode: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\functorch\DynamicLayer.cpp:479 [backend fallback]
+Functionalize: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\FunctionalizeFallbackKernel.cpp:411 [backend fallback]
+Conjugate: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\ConjugateFallback.cpp:17 [backend fallback]
+Negative: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\NegateFallback.cpp:18 [backend fallback]
+ZeroTensor: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\ZeroTensorFallback.cpp:115 [backend fallback]
+ADInplaceOrView: fallthrough registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\core\VariableFallbackKernel.cpp:103 [backend fallback]
+AutogradOther: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradCPU: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradCUDA: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradHIP: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradXLA: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradMPS: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradIPU: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradXPU: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradHPU: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradVE: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradLazy: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradMTIA: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradMAIA: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradPrivateUse1: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradPrivateUse2: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradPrivateUse3: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradMeta: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+AutogradNestedTensor: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\VariableType_3.cpp:11486 [autograd kernel]
+Tracer: registered at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\TraceType_3.cpp:7641 [kernel]
+AutocastCPU: fallthrough registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\autocast_mode.cpp:333 [backend fallback]
+AutocastMTIA: fallthrough registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\autocast_mode.cpp:474 [backend fallback]
+AutocastMAIA: fallthrough registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\autocast_mode.cpp:512 [backend fallback]
+AutocastXPU: fallthrough registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\autocast_mode.cpp:550 [backend fallback]
+AutocastMPS: fallthrough registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\autocast_mode.cpp:224 [backend fallback]
+AutocastCUDA: fallthrough registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\autocast_mode.cpp:177 [backend fallback]
+FuncTorchBatched: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\functorch\LegacyBatchingRegistrations.cpp:730 [backend fallback]
+BatchedNestedTensor: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\functorch\LegacyBatchingRegistrations.cpp:757 [backend fallback]
+FuncTorchVmapMode: fallthrough registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\functorch\VmapModeRegistrations.cpp:22 [backend fallback]
+Batched: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\LegacyBatchingRegistrations.cpp:1072 [backend fallback]
+VmapMode: fallthrough registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\VmapModeRegistrations.cpp:32 [backend fallback]
+FuncTorchGradWrapper: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\functorch\TensorWrapper.cpp:210 [backend fallback]
+PythonTLSSnapshot: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\core\PythonFallbackKernel.cpp:200 [backend fallback]
+FuncTorchDynamicLayerFrontMode: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\functorch\DynamicLayer.cpp:475 [backend fallback]
+PreDispatch: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\core\PythonFallbackKernel.cpp:204 [backend fallback]
+PythonDispatcher: registered at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\core\PythonFallbackKernel.cpp:196 [backend fallback]
+

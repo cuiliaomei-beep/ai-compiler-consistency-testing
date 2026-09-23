@@ -1,0 +1,105 @@
+{
+  "signature": "069947b7bbfc",
+  "case": "seed_2026_01179",
+  "probe": "warm",
+  "triage": {
+    "stage": "none",
+    "priority": "info",
+    "rationale": "'dtype' changed without a recompile and the result matched; guards may be under-specified but nothing is observable yet - useful for steering further mutation",
+    "kinds": [],
+    "recompiled": false,
+    "guard_suspicious": true,
+    "layers_unavailable": [],
+    "submittable": false
+  },
+  "context": {
+    "name": "base",
+    "factors": {
+      "variant": "base"
+    }
+  },
+  "context_b": {
+    "name": "dtype_float16",
+    "factors": {
+      "variant": "base",
+      "dtype": "float16"
+    }
+  },
+  "factor_changed": "dtype",
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "cold_vs_warm": {
+      "ref": "cold_inductor",
+      "test": "warm_inductor",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "findings": []
+    }
+  },
+  "observations": {
+    "cold_B": {
+      "mode": "cold_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1317,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            10
+          ],
+          "dtype": "torch.complex128",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "warm_A_to_B": {
+      "mode": "warm_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0003,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            10
+          ],
+          "dtype": "torch.complex128",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "Compiling complex-valued functions fails\nhttps://github.com/pytorch/pytorch/issues/98161"
+}

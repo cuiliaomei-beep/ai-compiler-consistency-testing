@@ -1,0 +1,276 @@
+{
+  "signature": "419c745be494",
+  "program": "issue_177629_torch_compile_backend_inductor_silently",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "ref raised RuntimeError, test returned normally",
+          "evidence": {
+            "exception": "RuntimeError",
+            "message": "expected scalar type Half but found Float"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "expected scalar type Half but found Float",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "expected scalar type Half but found Float",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.2168,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "expected scalar type Half but found Float",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1371,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 2.6268,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            8,
+            64
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            512,
+            64,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_177629_torch_compile_backend_inductor_silently.py\n`torch.compile(backend=\"inductor\")` silently succeeds on `torch.bmm` with mismatched dtypes (float16 @ float32) where eager raises RuntimeError\nhttps://github.com/pytorch/pytorch/issues/177629\ncompile options in the issue: {'backend': 'inductor', 'fullgraph': True}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 11,
+    "steps_kept": 3,
+    "original_lines": 2,
+    "final_lines": 2,
+    "original_numel": 1152,
+    "final_numel": 1152,
+    "input_recipe": "torch.randn(2, 8, 8).to(torch.float16), torch.randn(2, 8, 64)",
+    "log": [
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags"
+    ],
+    "source": "def compiled_bmm(x, y):\n    return torch.bmm(x, y)"
+  },
+  "duplicates": {
+    "query": "backend inductor silently succeeds torch.bmm mismatched dtypes float16",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "177629",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/177629",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 173459,
+        "title": "Add dtype mismatch validation for mm/bmm in meta registrations (#171190)",
+        "url": "https://github.com/pytorch/pytorch/pull/173459",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-01-27"
+      },
+      {
+        "number": 177629,
+        "title": "`torch.compile(backend=\"inductor\")` silently succeeds on `torch.bmm` with mismatched dtypes (float16 @ float32) where eager raises RuntimeError",
+        "url": "https://github.com/pytorch/pytorch/issues/177629",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-03-17"
+      },
+      {
+        "number": 177630,
+        "title": "`torch.compile(backend=\"inductor\")` silently succeeds on `torch.matmul` (≥3D) with mismatched dtypes (float16 @ float32) where eager raises RuntimeError",
+        "url": "https://github.com/pytorch/pytorch/issues/177630",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-03-17"
+      },
+      {
+        "number": 177480,
+        "title": "`torch.compile` silently succeeds on `bmm`/`matmul` with mixed dtypes (float16 @ float32) where eager raises RuntimeError",
+        "url": "https://github.com/pytorch/pytorch/issues/177480",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-03-15"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: RuntimeError",
+    "E1_dynamo_eager: RuntimeError",
+    "E2_aot_eager: RuntimeError",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

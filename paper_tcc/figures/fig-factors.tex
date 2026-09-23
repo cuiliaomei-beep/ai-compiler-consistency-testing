@@ -1,0 +1,61 @@
+%% Figure: from a small program to its dependency graph, factors, and obligations.
+\begin{figure}[t]
+\centering
+\begin{minipage}[c]{0.37\linewidth}
+\begin{lstlisting}
+def f(x, use_fast):
+    n = x.shape[0]
+    y = x.view(-1)
+    if use_fast and n >= 32:
+        y[n - 1] += 1
+    return x.sum(dtype=x.dtype)
+\end{lstlisting}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.61\linewidth}
+\centering
+\begin{tikzpicture}[
+    font=\scriptsize, x=1cm, y=0.62cm,
+    attr/.style={draw=tolblue!70, fill=tolblue!10, rounded corners=1.5pt, inner sep=2pt, minimum width=1.45cm},
+    ir/.style={draw=black!55, fill=white, inner sep=2pt},
+    obs/.style={draw=tolorange!90!black, fill=tolorange!18, rounded corners=1.5pt, inner sep=2pt},
+    d/.style={-{Stealth[length=3pt]}, black!70},
+    c/.style={-{Stealth[length=3pt]}, tolred, densely dashed},
+    a/.style={-{Stealth[length=3pt]}, tolteal, thick, dotted},
+]
+  \node[attr] (shape) at (0,3) {x.shape[0]};
+  \node[attr] (flag)  at (0,2) {use\_fast};
+  \node[attr] (alias) at (0,1) {alias(x, y)};
+  \node[attr] (dtype) at (0,0) {x.dtype};
+  \node[ir] (n)   at (1.75,3) {n};
+  \node[ir] (br)  at (3.1,3) {Branch};
+  \node[ir] (idx) at (3.1,2) {Index n$-$1};
+  \node[ir] (mut) at (3.1,1) {Mutation y[$\cdot$]};
+  \node[obs] (state) at (5.55,1) {post-state of x};
+  \node[obs] (ret)   at (5.55,0) {Return};
+  \draw[d] (shape) -- (n); \draw[d] (n) -- (br);
+  \draw[d] (n.south) |- (idx.west);
+  \draw[d] (flag.east) -- ++(0.55,0) |- ([yshift=-3pt]br.west);
+  \draw[c] (br) -- (idx); \draw[d] (idx) -- (mut);
+  \draw[a] (alias) -- (mut); \draw[d] (mut) -- (state);
+  \draw[d] (mut.south) |- ([yshift=3pt]ret.west);
+  \draw[d] (dtype) -- ([yshift=-3pt]ret.west);
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{3pt}
+{\scriptsize
+\begin{tabular}{@{}llll@{}}
+\toprule
+Factor & Constraint values & Oracles & Execution \\
+\midrule
+\code{x.shape[0]} & 32, 31, 33 (predicate); $n{-}1$ (index bound) & value, exception & cold \\
+\code{use\_fast} & True, False, on each side of $n \geq 32$ & value, mutation & cold + warm \\
+\code{x.dtype} & float16, float32, float64, bfloat16 & value, metadata & cold + warm \\
+\code{alias(x, y)} & contiguous, non-contiguous, overlapping view & mutation, alias & cold \\
+\bottomrule
+\end{tabular}}
+\caption{Phase~1 on a small function. Solid edges are data dependencies, dashed edges control dependencies, dotted
+edges alias dependencies. Attributes that reach an observable (orange) become semantic factors; each factor yields
+a test obligation. Attributes the function never reads, such as \code{x.stride}, are pruned.}
+\label{fig:factors}
+\end{figure}

@@ -1,0 +1,451 @@
+{
+  "signature": "e6c0072e671f",
+  "program": "python_flag",
+  "project": "pytorch/pytorch",
+  "probe": "matrix",
+  "triage": {
+    "stage": "none",
+    "stage_label": "no divergence",
+    "priority": "info",
+    "rationale": "'substitute' changed without a recompile and the result matched; guards may be under-specified (informational)",
+    "kinds": [],
+    "recompiled": false,
+    "guard_suspicious": true,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": false
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "fast=True",
+    "factors": {
+      "substitute": {
+        "arg": 1,
+        "value": true
+      }
+    },
+    "warm": true,
+    "origin": "fast"
+  },
+  "factor_changed": "substitute",
+  "controlled": {},
+  "obligation": {
+    "site": "python_flag",
+    "factor": "fast",
+    "kind": "flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "T/F both paths",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "exception"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "parameter steers control flow",
+    "param": "fast",
+    "dim": null
+  },
+  "comparisons": {
+    "cold_vs_warm": {
+      "ref": "C2_cold",
+      "test": "C2_warm(A->B)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "eager_vs_cold": {
+      "ref": "E0_eager",
+      "test": "C2_cold",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "eager_vs_warm": {
+      "ref": "E0_eager",
+      "test": "C2_warm(A->B)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "A_vs_A_after_B": {
+      "ref": "C1_cold",
+      "test": "C1_return(A->B->A)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    }
+  },
+  "cache": {
+    "factor": "substitute",
+    "recompiled_on_switch": false,
+    "recompiled_on_return": false,
+    "cold_vs_warm": {
+      "ref": "C2_cold",
+      "test": "C2_warm(A->B)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "eager_vs_cold": {
+      "ref": "E0_eager",
+      "test": "C2_cold",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "eager_vs_warm": {
+      "ref": "E0_eager",
+      "test": "C2_warm(A->B)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "return_trip": {
+      "ref": "C1_cold",
+      "test": "C1_return(A->B->A)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "warm_only_failure": false,
+    "stale_reuse": false,
+    "guard_suspicious": true,
+    "invalidation_failure": false,
+    "findings": [
+      {
+        "kind": "cache",
+        "detail": "'substitute' changed without a recompile; result matched (guard may be under-specified; informational)"
+      }
+    ]
+  },
+  "observations": {
+    "ctx_a": {
+      "name": "base",
+      "factors": {},
+      "warm": true,
+      "origin": ""
+    },
+    "ctx_b": {
+      "name": "fast=True",
+      "factors": {
+        "substitute": {
+          "arg": 1,
+          "value": true
+        }
+      },
+      "warm": true,
+      "origin": "fast"
+    },
+    "E1": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C1": {
+      "mode": "C1_cold",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0973,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C2cold": {
+      "mode": "C2_cold",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0866,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C2warm": {
+      "mode": "C2_warm(A->B)",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C1_return": {
+      "mode": "C1_return(A->B->A)",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "recompiled_on_switch": false,
+    "recompiled_on_return": false,
+    "fp64_available": true,
+    "compile_count": 3,
+    "wall_s": 0.289
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 1,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "bool flag selects mathematically equal paths",
+  "minimized": null,
+  "duplicates": null,
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E1 = eager(A)",
+    "C1 = compiled_cold(A)",
+    "E2 = eager(B)",
+    "C2cold = compiled_cold(B)",
+    "reset; compiled(A)",
+    "C2warm = compiled_warm(B)",
+    "C1' = compiled_warm(A)"
+  ],
+  "status": "Generated",
+  "fault": null
+}

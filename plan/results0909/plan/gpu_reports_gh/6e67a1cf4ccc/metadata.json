@@ -1,0 +1,36 @@
+{
+  "signature": "6e67a1cf4ccc",
+  "program": "issue_182606_flex_attention_mask_mod_closure_over_a_d",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "182606",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/182606",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 182606,
+      "title": "`flex_attention` + `mask_mod` closure over a derived sym-int",
+      "url": "https://github.com/pytorch/pytorch/issues/182606",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-06"
+    }
+  ]
+}

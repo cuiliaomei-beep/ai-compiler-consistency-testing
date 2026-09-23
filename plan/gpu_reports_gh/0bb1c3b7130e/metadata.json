@@ -1,0 +1,44 @@
+{
+  "signature": "0bb1c3b7130e",
+  "program": "issue_162522_torch_compile_generated_wrong_graph_when",
+  "project": "pytorch/pytorch",
+  "stage": "aot_functionalization",
+  "priority": "high",
+  "kinds": [
+    "gradient"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "162522",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/162522",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 162522,
+      "title": "torch.compile generated wrong graph when tracing torch.use_deterministic_algorithms",
+      "url": "https://github.com/pytorch/pytorch/issues/162522",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2025-09-09"
+    },
+    {
+      "number": 96693,
+      "title": "torch.compile mode=\"max-autotune\" precision appears to be lower",
+      "url": "https://github.com/pytorch/pytorch/issues/96693",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2023-03-13"
+    }
+  ]
+}

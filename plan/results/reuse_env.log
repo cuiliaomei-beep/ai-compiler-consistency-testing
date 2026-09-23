@@ -1,0 +1,27 @@
+torch 2.14.0+cpu | device cpu
+  FLAG 0/1 mean_over_batch          dynamic=False batch=0: eager=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]) compiled=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan])
+  FLAG 0/1 mean_over_batch          dynamic=True  batch=0: eager=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]) compiled=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan])
+  FLAG 0/1 mean_over_batch          dynamic=None  batch=0: eager=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]) compiled=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan])
+  FLAG 0/1 batch_norm_train         dynamic=False batch=1: eager=raise:ValueError compiled=raise:TorchRuntimeError
+  FLAG 0/1 batch_norm_train         dynamic=True  batch=1: eager=raise:ValueError compiled=raise:TorchRuntimeError
+  FLAG 0/1 batch_norm_train         dynamic=None  batch=1: eager=raise:ValueError compiled=raise:TorchRuntimeError
+  FLAG 0/1 var_unbiased             dynamic=False batch=0: eager=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]) compiled=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan])
+  FLAG 0/1 var_unbiased             dynamic=False batch=1: eager=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]) compiled=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan])
+  FLAG 0/1 var_unbiased             dynamic=True  batch=0: eager=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]) compiled=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan])
+  FLAG 0/1 var_unbiased             dynamic=True  batch=1: eager=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]) compiled=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan])
+  FLAG 0/1 var_unbiased             dynamic=None  batch=0: eager=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]) compiled=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan])
+  FLAG 0/1 var_unbiased             dynamic=None  batch=1: eager=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]) compiled=('T', 'torch.float32', (4,), False, [nan, nan, nan, nan])
+  FLAG 0/1 std_mean                 dynamic=False batch=0: eager=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor compiled=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor
+  FLAG 0/1 std_mean                 dynamic=False batch=1: eager=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor compiled=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor
+  FLAG 0/1 std_mean                 dynamic=True  batch=0: eager=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor compiled=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor
+  FLAG 0/1 std_mean                 dynamic=True  batch=1: eager=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor compiled=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor
+  FLAG 0/1 std_mean                 dynamic=None  batch=0: eager=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor compiled=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor
+  FLAG 0/1 std_mean                 dynamic=None  batch=1: eager=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor compiled=(('T', 'torch.float32', (4,), False, [nan, nan, nan, nan]), ('T', 'tor
+[0/1] done (18 flagged so far)
+  FLAG env autocast_bf16               : after flip eager=('T', 'torch.bfloat16', (3, 4), False, [0.0078125, 0.0078125, 0.0078125, 0.00781 compiled=('T', 'torch.bfloat16', (3, 4), False, [0.007476806640625, 0.007476806640625, 0.
+  FLAG env flush_denormal              : after flip eager=('T', 'torch.float32', (3, 4), False, [nan, nan, nan, nan, nan, nan, nan, nan, n compiled=('T', 'torch.float32', (3, 4), False, [nan, nan, nan, nan, nan, nan, nan, nan, n
+  FLAG env module_train_mode           : after flip eager=('T', 'torch.float32', (3, 4), True, [0.0, -2.8091750144958496, 2.71566629409790 compiled=('T', 'torch.float32', (3, 4), True, [0.0, -0.0, 0.0, -0.0, -0.0, 0.0, -0.0, 0.3
+  (baseline already differs) manual_seed_before_call: eager=('T', 'torch.float32', (3, 4), False, [0.0728386640548706, 2 compiled=('T', 'torch.float32', (3, 4), False, [-0.22310756146907806,
+[env] done (21 flagged total)
+{"checks": 260, "flagged": 21, "wall_s": 308.5}
+written results/reuse_env\REUSE_ENV.md

@@ -1,0 +1,1104 @@
+[{"stream_name":"stdout","time":3.992360953,"data":"$ pip -q install nnsmith certifi expecttest hypothesis\n"}
+,{"stream_name":"stdout","time":11.633406203,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 90.5/90.5 kB 2.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":11.765427924,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 1.2/1.2 MB 19.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":11.86036821,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 163.1/163.1 kB 12.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":12.23466702,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 33.1/33.1 MB 54.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":16.286553647,"data":"$ /usr/bin/python3 run.py selfcheck\n"}
+,{"stream_name":"stdout","time":49.362613084,"data":"\n"}
+,{"stream_name":"stdout","time":49.362650991,"data":"tcc self-check\n"}
+,{"stream_name":"stdout","time":49.362658252,"data":"========================================================================\n"}
+,{"stream_name":"stdout","time":49.362663594,"data":"  [PASS] 6.3: x.shape[0] \u003e= 32 -\u003e 31/32/33                                   [[32, 31, 33]]\n"}
+,{"stream_name":"stdout","time":49.362669793,"data":"  [PASS] 6.3: n % 16 == 0 -\u003e 15/16/17/31/32/33                               [[16, 17, 15, 32, 33, 31]]\n"}
+,{"stream_name":"stdout","time":49.362675818,"data":"  [PASS] 6.2: use_fast -\u003e flag {True, False}                                 [{'param': 'use_fast', 'role': 'flag', 'values': [True, False], 'line': 2, 'reason': 'used directly as a branch condition'}]\n"}
+,{"stream_name":"stdout","time":49.362683165,"data":"  [PASS] 7: x.shape[0] -\u003e n -\u003e i -\u003e x[i]                                     [['x.shape[0]', 'i', 'x[i]']]\n"}
+,{"stream_name":"stdout","time":49.362688835,"data":"  [PASS] 8: view + in-place -\u003e mutation_visible/partial_write facts          facts=['mutation_visible', 'partial_write'] groups=[['x', 'y']]\n"}
+,{"stream_name":"stdout","time":49.362694475,"data":"  [PASS] 9/10: SCS -\u003e obligations -\u003e single-factor contexts                  4 obligations, 10 contexts\n"}
+,{"stream_name":"stdout","time":49.362700088,"data":"  [PASS] 5.2: IR kinds Assign/Branch/Mutation/Return + deps                  ['Assign', 'Branch', 'Mutation', 'Return'] ['alias', 'control', 'data']\n"}
+,{"stream_name":"stdout","time":49.362712862,"data":"  [PASS] 5.1: compilation sites (decorator, call, triton.jit)                [('decorator', 'g', 'torch.compile'), ('decorator', 'k', 'triton.jit'), ('call', 'h', 'torch.compile')]\n"}
+,{"stream_name":"stdout","time":49.362716894,"data":"  [PASS] 18.5: signature stable under whitespace, separates factors          33bb397b8df1 befd442c6fd7\n"}
+,{"stream_name":"stdout","time":49.362720643,"data":"  [PASS] 18.5: dedup suppresses repeats                                      {'unique': 1, 'total': 2}\n"}
+,{"stream_name":"stdout","time":49.362724213999996,"data":"  [PASS] torch importable                                                    torch 2.10.0+cu128 cuda 12.8 device Tesla T4\n"}
+,{"stream_name":"stdout","time":49.362728036,"data":"  [PASS] backend 'eager' resolvable                                          \n"}
+,{"stream_name":"stdout","time":49.362731425,"data":"  [PASS] backend 'aot_eager' resolvable                                      \n"}
+,{"stream_name":"stdout","time":49.3627348,"data":"  [PASS] backend 'inductor' resolvable                                       \n"}
+,{"stream_name":"stdout","time":49.362749244,"data":"  [PASS] compile counter: cold=1, repeat=0, dtype switch\u003e=1                  [1, 0, 1]\n"}
+,{"stream_name":"stdout","time":49.362752362,"data":"  [PASS] O1 value fires on injected codegen fault                            output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 2.260e-05\n"}
+,{"stream_name":"stdout","time":49.362756334,"data":"  [PASS] O1 no false positive on aot_eager                                   clean\n"}
+,{"stream_name":"stdout","time":49.362758997,"data":"  [PASS] fp64 reference builds                                               \n"}
+,{"stream_name":"stdout","time":49.36276155,"data":"  [PASS] O4 mutation fires on dropped in-place write                         \n"}
+,{"stream_name":"stdout","time":49.362764175,"data":"  [PASS] O5 alias fires on view materialised as copy                         \n"}
+,{"stream_name":"stdout","time":49.362767182,"data":"  [PASS] O4/O5 no false positive on aot_eager                                clean\n"}
+,{"stream_name":"stdout","time":49.362770145,"data":"  [PASS] O3 exception fires when compiled swallows a raise                   eager=ValueError compiled_ok=True\n"}
+,{"stream_name":"stdout","time":49.362772849,"data":"  [PASS] O6 gradient fires on 2x backward                                    \n"}
+,{"stream_name":"stdout","time":49.362775396,"data":"  [PASS] O6 no false positive on aot_eager                                   \n"}
+,{"stream_name":"stdout","time":49.362778105,"data":"  [PASS] O7 cache: stale dtype reuse -\u003e specialization_cache (no recompile)  specialization_cache recompiled=False\n"}
+,{"stream_name":"stdout","time":49.362819663,"data":"  [PASS] O7 cache: A-\u003eB-\u003eA stale -\u003e cache_invalidation                       cache_invalidation\n"}
+,{"stream_name":"stdout","time":49.362824693,"data":"  [PASS] O7 no false positive on aot_eager                                   cold and warm agree\n"}
+,{"stream_name":"stdout","time":49.362829398,"data":"  [PASS] 16: staged localization -\u003e inductor_codegen                         inductor_codegen\n"}
+,{"stream_name":"stdout","time":49.362833494,"data":"  [PASS] inductor cold run executes                                          9.6s\n"}
+,{"stream_name":"stdout","time":49.36283756,"data":"\n"}
+,{"stream_name":"stdout","time":49.362841296,"data":"  29/29 checks passed\n"}
+,{"stream_name":"stdout","time":54.935120883,"data":"$ /usr/bin/python3 run.py campaign --binding-variants 1 --binding-only --backend inductor --device cuda --reruns 2 --max-contexts 4 --test-budget 6 --isolate --child-timeout 900 --out gpu_reports_binding_corpus\n"}
+,{"stream_name":"stdout","time":124.406086144,"data":"binding-form variants: 29 program(s) -\u003e 197 (forms global,closure,attribute,list_elem,dict_elem,default_param,pos_param,kwargs_expand, 1 literal(s) each)\n"}
+,{"stream_name":"stdout","time":124.406151376,"data":"isolated campaign: 197 program(s) in 8 chunk(s) of 25\n"}
+,{"stream_name":"stdout","time":124.40615667,"data":"[1/8] --slice 0:25                                       exit 0 [67s]\n"}
+,{"stream_name":"stdout","time":124.406160519,"data":"      index_chain__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.5s]\n"}
+,{"stream_name":"stdout","time":124.40616424,"data":"      index_chain__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.5s]\n"}
+,{"stream_name":"stdout","time":124.406167922,"data":"      index_chain__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":124.406171539,"data":"      index_chain__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":124.406175357,"data":"      index_chain__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":124.406198021,"data":"      index_chain__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":124.406201014,"data":"      dtype_read__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.0s]\n"}
+,{"stream_name":"stdout","time":124.406204019,"data":"      dtype_read__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.4s]\n"}
+,{"stream_name":"stdout","time":124.406206686,"data":"      dtype_read__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":124.406209371,"data":"      dtype_read__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.5s]\n"}
+,{"stream_name":"stdout","time":124.406212094,"data":"    0 candidate(s); summary at gpu_reports_binding_corpus/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":191.89319485,"data":"[2/8] --slice 25:50                                      exit 0 [67s]\n"}
+,{"stream_name":"stdout","time":191.893238043,"data":"      python_flag_semantic__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":191.893252135,"data":"      python_flag_semantic__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":191.893256319,"data":"      python_flag_semantic__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":191.893259867,"data":"      scalar_compare__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":191.893263885,"data":"      scalar_compare__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":191.893267406,"data":"      scalar_compare__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":191.893270934,"data":"      scalar_compare__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":191.89327444,"data":"      scalar_compare__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":191.893277863,"data":"      scalar_compare__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":191.893281253,"data":"      scalar_compare__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":191.893284718,"data":"    0 candidate(s); summary at gpu_reports_binding_corpus/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":261.167794357,"data":"[3/8] --slice 50:75                                      exit 0 [69s]\n"}
+,{"stream_name":"stdout","time":261.167837887,"data":"      noncontig_copy__bind_closure0 0 candidate(s), 0 submittable, 4 tests, 14 compiles  [1.7s]\n"}
+,{"stream_name":"stdout","time":261.167847262,"data":"      noncontig_copy__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":261.167850792,"data":"      noncontig_copy__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":261.167853971,"data":"      noncontig_copy__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.4s]\n"}
+,{"stream_name":"stdout","time":261.167857202,"data":"      noncontig_copy__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.4s]\n"}
+,{"stream_name":"stdout","time":261.16786025,"data":"      noncontig_copy__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":261.167876028,"data":"      overlapping_views__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.6s]\n"}
+,{"stream_name":"stdout","time":261.16787889,"data":"      overlapping_views__bind_closure0 0 candidate(s), 0 submittable, 4 tests, 14 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":261.167881325,"data":"      overlapping_views__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.3s]\n"}
+,{"stream_name":"stdout","time":261.16788372,"data":"      overlapping_views__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.0s]\n"}
+,{"stream_name":"stdout","time":261.167886055,"data":"    0 candidate(s); summary at gpu_reports_binding_corpus/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":344.158672085,"data":"[4/8] --slice 75:100                                     exit 0 [83s]\n"}
+,{"stream_name":"stdout","time":344.15875066,"data":"      conditional_mutation__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 17 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":344.158757298,"data":"      conditional_mutation__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 17 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":344.158761134,"data":"      chunk_inplace__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.7s]\n"}
+,{"stream_name":"stdout","time":344.158764685,"data":"      chunk_inplace__bind_closure0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [3.3s]\n"}
+,{"stream_name":"stdout","time":344.158768118,"data":"      chunk_inplace__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.2s]\n"}
+,{"stream_name":"stdout","time":344.158772416,"data":"      chunk_inplace__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":344.158791315,"data":"      chunk_inplace__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.1s]\n"}
+,{"stream_name":"stdout","time":344.158796911,"data":"      chunk_inplace__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":344.158802428,"data":"      chunk_inplace__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.1s]\n"}
+,{"stream_name":"stdout","time":344.158808149,"data":"      requires_grad_switch__bind_global0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [17.6s]\n"}
+,{"stream_name":"stdout","time":344.158820181,"data":"    0 candidate(s); summary at gpu_reports_binding_corpus/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":414.937877134,"data":"[5/8] --slice 100:125                                    exit 0 [71s]\n"}
+,{"stream_name":"stdout","time":414.937922542,"data":"      reshape_dim__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":414.937932975,"data":"      reshape_dim__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":414.937936758,"data":"      reshape_dim__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":414.93794017,"data":"      reshape_dim__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":414.937943588,"data":"      reshape_dim__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":414.937947236,"data":"      loop_bound__bind_global0 0 candidate(s), 0 submittable, 6 tests, 13 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":414.937950614,"data":"      loop_bound__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":414.937966742,"data":"      loop_bound__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 13 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":414.93796945,"data":"      loop_bound__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 13 compiles  [1.5s]\n"}
+,{"stream_name":"stdout","time":414.937971918,"data":"      loop_bound__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 13 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":414.937974427,"data":"    0 candidate(s); summary at gpu_reports_binding_corpus/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":459.235873318,"data":"[6/8] --slice 125:150                                    exit 0 [44s]\n"}
+,{"stream_name":"stdout","time":459.235937177,"data":"      container_len__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 3 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":459.235945098,"data":"      string_mode__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":459.23595032,"data":"      string_mode__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":459.235957137,"data":"      string_mode__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":459.235966091,"data":"      string_mode__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":459.235969893,"data":"      string_mode__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":459.235984154,"data":"      string_mode__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":459.235987393,"data":"      string_mode__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":459.235990458,"data":"      stride_read__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":459.235993482,"data":"      stride_read__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":459.235996478,"data":"    0 candidate(s); summary at gpu_reports_binding_corpus/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":541.180982766,"data":"[7/8] --slice 150:175                                    exit 0 [82s]\n"}
+,{"stream_name":"stdout","time":541.181035592,"data":"      gather_shape__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":541.181043987,"data":"      gather_shape__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.5s]\n"}
+,{"stream_name":"stdout","time":541.181074687,"data":"      gather_shape__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":541.181080569,"data":"      gather_shape__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":541.181086068,"data":"      dtype_reduce__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [4.9s]\n"}
+,{"stream_name":"stdout","time":541.181091042,"data":"      dtype_reduce__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.2s]\n"}
+,{"stream_name":"stdout","time":541.181097334,"data":"      dtype_reduce__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.0s]\n"}
+,{"stream_name":"stdout","time":541.181102742,"data":"      dtype_reduce__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":541.181119394,"data":"      dtype_reduce__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.2s]\n"}
+,{"stream_name":"stdout","time":541.181123696,"data":"      dtype_reduce__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.0s]\n"}
+,{"stream_name":"stdout","time":541.181131952,"data":"    0 candidate(s); summary at gpu_reports_binding_corpus/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":589.405278711,"data":"[8/8] --slice 175:197                                    exit 0 [48s]\n"}
+,{"stream_name":"stdout","time":589.405339691,"data":"      rank_read__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 20 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":589.405348044,"data":"      rank_read__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 20 compiles  [1.7s]\n"}
+,{"stream_name":"stdout","time":589.405354241,"data":"      rank_read__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 20 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":589.40535986,"data":"      flag_and_shape__bind_global0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.5s]\n"}
+,{"stream_name":"stdout","time":589.405364732,"data":"      flag_and_shape__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":589.405369607,"data":"      flag_and_shape__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.4s]\n"}
+,{"stream_name":"stdout","time":589.405374725,"data":"      flag_and_shape__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.2s]\n"}
+,{"stream_name":"stdout","time":589.405379568,"data":"      flag_and_shape__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.2s]\n"}
+,{"stream_name":"stdout","time":589.405386207,"data":"      flag_and_shape__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.2s]\n"}
+,{"stream_name":"stdout","time":589.405394741,"data":"      flag_and_shape__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.2s]\n"}
+,{"stream_name":"stdout","time":589.405398073,"data":"    0 candidate(s); summary at gpu_reports_binding_corpus/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":589.406763396,"data":"isolated campaign finished: 8 unit(s), 0 failed child(ren); log gpu_reports_binding_corpus/isolated_children.log\n"}
+,{"stream_name":"stdout","time":589.406778213,"data":"gpu_reports_binding_corpus/CAMPAIGN.md\n"}
+,{"stream_name":"stdout","time":589.825301119,"data":"$ /usr/bin/python3 run.py campaign --from-dir reproducers_gh --binding-variants 1 --binding-only --backend inductor --device cuda --reruns 2 --max-contexts 4 --test-budget 6 --isolate --child-timeout 900 --out gpu_reports_binding_gh\n"}
+,{"stream_name":"stdout","time":599.319400102,"data":"isolated campaign: 193 reproducer(s) pending in reproducers_gh\n"}
+,{"stream_name":"stdout","time":599.319450822,"data":"[1/193] --file issue_108432_wrong_result_of_first_run_with_torch_com.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":604.52647554,"data":"[2/193] --file issue_109105_inductor_compiled_modules_produce_incorr.py exit 2 [5s]\n"}
+,{"stream_name":"stdout","time":604.526517228,"data":"        reject issue_109105_inductor_compiled_modules_produce_incorr.py: forbidden pattern 'open('\n"}
+,{"stream_name":"stdout","time":613.034491807,"data":"[3/193] --file issue_113641_compiling_double_inplace_clamp_on_stride.py exit 0 [9s]\n"}
+,{"stream_name":"stdout","time":613.034531379,"data":"      issue_113641_compiling_double_inplace_clamp_on_stride__bind_global0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":613.034541044,"data":"      issue_113641_compiling_double_inplace_clamp_on_stride__bind_closure0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":613.034589599,"data":"      issue_113641_compiling_double_inplace_clamp_on_stride__bind_attribute0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":613.034595181,"data":"      issue_113641_compiling_double_inplace_clamp_on_stride__bind_list_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":613.034598975,"data":"      issue_113641_compiling_double_inplace_clamp_on_stride__bind_dict_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":613.034602717,"data":"      issue_113641_compiling_double_inplace_clamp_on_stride__bind_default_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":613.034606656,"data":"      issue_113641_compiling_double_inplace_clamp_on_stride__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":613.034610394,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":631.596532438,"data":"[4/193] --file issue_114415_aotautograd_should_detect_aliasing_of_in.py exit 0 [19s]\n"}
+,{"stream_name":"stdout","time":631.596612577,"data":"      issue_114415_aotautograd_should_detect_aliasing_of_in__bind_dict_elem0 2 candidate(s), 0 submittable, 6 tests, 4 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":631.5966216,"data":"      issue_114415_aotautograd_should_detect_aliasing_of_in__bind_default_param0 2 candidate(s), 0 submittable, 6 tests, 4 compiles  [1.0s]\n"}
+,{"stream_name":"stdout","time":631.596626786,"data":"      issue_114415_aotautograd_should_detect_aliasing_of_in__bind_pos_param0 2 candidate(s), 0 submittable, 6 tests, 4 compiles  [0.8s]\n"}
+,{"stream_name":"stdout","time":631.596633776,"data":"    15 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":639.189442687,"data":"[5/193] --file issue_124357_torch_compile_produces_wrong_result_for.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":672.289830111,"data":"[6/193] --file issue_126848_torch_compile_generates_wrong_code_on_cp.py exit 0 [33s]\n"}
+,{"stream_name":"stdout","time":672.289861819,"data":"      issue_126848_torch_compile_generates_wrong_code_on_cp__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [8.1s]\n"}
+,{"stream_name":"stdout","time":672.289866246,"data":"      issue_126848_torch_compile_generates_wrong_code_on_cp__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":672.289885238,"data":"      issue_126848_torch_compile_generates_wrong_code_on_cp__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.8s]\n"}
+,{"stream_name":"stdout","time":672.289890979,"data":"      issue_126848_torch_compile_generates_wrong_code_on_cp__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":672.289896759,"data":"      issue_126848_torch_compile_generates_wrong_code_on_cp__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":672.289902449,"data":"      issue_126848_torch_compile_generates_wrong_code_on_cp__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":672.28990787,"data":"      issue_126848_torch_compile_generates_wrong_code_on_cp__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.8s]\n"}
+,{"stream_name":"stdout","time":672.289913149,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":678.65365093,"data":"[7/193] --file issue_128202_wrong_result_for_inplace_tensor_update_o.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":678.653687624,"data":"        reject issue_128202_wrong_result_for_inplace_tensor_update_o.py: does not run: ModuleNotFoundError: No module named 'habana_frameworks'\n"}
+,{"stream_name":"stdout","time":686.272950049,"data":"[8/193] --file issue_135432_torch_compile_cannot_handle_torch_tensor.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":695.782296068,"data":"[9/193] --file issue_136662_composition_of_torch_compile_and_torch_f.py exit 0 [10s]\n"}
+,{"stream_name":"stdout","time":695.78233489,"data":"      issue_136662_composition_of_torch_compile_and_torch_f__bind_global0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":695.782345884,"data":"      issue_136662_composition_of_torch_compile_and_torch_f__bind_closure0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":695.782349457,"data":"      issue_136662_composition_of_torch_compile_and_torch_f__bind_attribute0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":695.782352938,"data":"      issue_136662_composition_of_torch_compile_and_torch_f__bind_list_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":695.782356616,"data":"      issue_136662_composition_of_torch_compile_and_torch_f__bind_dict_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":695.782360144,"data":"      issue_136662_composition_of_torch_compile_and_torch_f__bind_default_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":695.782363313,"data":"      issue_136662_composition_of_torch_compile_and_torch_f__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":695.782366473,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":703.686096643,"data":"[10/193] --file issue_139257_error_compiling_the_torch_library_custom.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":709.997470812,"data":"[11/193] --file issue_145372_xpu_torch_nn_functional_pad_brings_wrong.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":709.997524466,"data":"        reject issue_145372_xpu_torch_nn_functional_pad_brings_wrong.py: does not run: AssertionError: Torch not compiled with XPU enabled\n"}
+,{"stream_name":"stdout","time":717.567758154,"data":"[12/193] --file issue_145466_torch_sin_cos_tan_torch_floor_round_may.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":725.157949575,"data":"[13/193] --file issue_158561_torch_compile_in_place_operation_raises.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":731.726815817,"data":"[14/193] --file issue_158626_freezing_layers_for_fine_tuning_leaves_t.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":731.726855635,"data":"        reject issue_158626_freezing_layers_for_fine_tuning_leaves_t.py: does not run: AttributeError: 'function' object has no attribute 'param'\n"}
+,{"stream_name":"stdout","time":738.153292356,"data":"[15/193] --file issue_159408_int64_mps_repeat_interleave_is_incorrect.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":738.153335508,"data":"        reject issue_159408_int64_mps_repeat_interleave_is_incorrect.py: does not run: RuntimeError: PyTorch is not linked with support for mps devices\n"}
+,{"stream_name":"stdout","time":1638.388352492,"data":"[16/193] --file issue_160840_torch_nn_functional_interpolate_generate.py timeout [900s]\n"}
+,{"stream_name":"stdout","time":1645.522668641,"data":"[17/193] --file issue_160873_torch_compile_inductor_fails_on_mkl_dnn.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":1645.522776959,"data":"        reject issue_160873_torch_compile_inductor_fails_on_mkl_dnn.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":1654.079006854,"data":"[18/193] --file issue_161150_multiplication_and_softmax_throws_incorr.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":1697.869938672,"data":"[19/193] --file issue_161763_neg_add_computation_including_uint_tenso.py exit 0 [44s]\n"}
+,{"stream_name":"stdout","time":1697.869988733,"data":"      issue_161763_neg_add_computation_including_uint_tenso__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [13.5s]\n"}
+,{"stream_name":"stdout","time":1697.86999497,"data":"      issue_161763_neg_add_computation_including_uint_tenso__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":1697.869999047,"data":"      issue_161763_neg_add_computation_including_uint_tenso__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.3s]\n"}
+,{"stream_name":"stdout","time":1697.870003057,"data":"      issue_161763_neg_add_computation_including_uint_tenso__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.5s]\n"}
+,{"stream_name":"stdout","time":1697.870006917,"data":"      issue_161763_neg_add_computation_including_uint_tenso__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.2s]\n"}
+,{"stream_name":"stdout","time":1697.870011396,"data":"      issue_161763_neg_add_computation_including_uint_tenso__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.3s]\n"}
+,{"stream_name":"stdout","time":1697.870015085,"data":"      issue_161763_neg_add_computation_including_uint_tenso__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.5s]\n"}
+,{"stream_name":"stdout","time":1697.870018841,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":1706.38968207,"data":"[20/193] --file issue_161905_mps_torch_compile_resnet_18_model_fails.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":1706.38973187,"data":"        reject issue_161905_mps_torch_compile_resnet_18_model_fails.py: does not run: RuntimeError: PyTorch is not linked with support for mps devices\n"}
+,{"stream_name":"stdout","time":1715.524617315,"data":"[21/193] --file issue_166514_inductor_fails_with_stride_mismatch_for.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":1722.853895166,"data":"[22/193] --file issue_167629_compile_error_torchdynamo_fails_to_compi.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":1722.853931601,"data":"        reject issue_167629_compile_error_torchdynamo_fails_to_compi.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":1730.09567792,"data":"[23/193] --file issue_167636_torchdynamo_compilation_error_invalid_st.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":1730.095718959,"data":"        reject issue_167636_torchdynamo_compilation_error_invalid_st.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":1737.346441,"data":"[24/193] --file issue_167641_torch_compile_fails_with_stride_mismatch.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":1737.346477966,"data":"        reject issue_167641_torch_compile_fails_with_stride_mismatch.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":1842.340943351,"data":"[25/193] --file issue_167780_inductor_combo_kernel_fails_with_cppsche.py exit 0 [105s]\n"}
+,{"stream_name":"stdout","time":1842.341014018,"data":"      issue_167780_inductor_combo_kernel_fails_with_cppsche__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [18.8s]\n"}
+,{"stream_name":"stdout","time":1842.341035436,"data":"      issue_167780_inductor_combo_kernel_fails_with_cppsche__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [12.6s]\n"}
+,{"stream_name":"stdout","time":1842.341044269,"data":"      issue_167780_inductor_combo_kernel_fails_with_cppsche__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [12.7s]\n"}
+,{"stream_name":"stdout","time":1842.341047744,"data":"      issue_167780_inductor_combo_kernel_fails_with_cppsche__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [12.8s]\n"}
+,{"stream_name":"stdout","time":1842.34105062,"data":"      issue_167780_inductor_combo_kernel_fails_with_cppsche__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [12.7s]\n"}
+,{"stream_name":"stdout","time":1842.341053681,"data":"      issue_167780_inductor_combo_kernel_fails_with_cppsche__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [12.4s]\n"}
+,{"stream_name":"stdout","time":1842.341056489,"data":"      issue_167780_inductor_combo_kernel_fails_with_cppsche__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [12.6s]\n"}
+,{"stream_name":"stdout","time":1842.34105925,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":1850.942276838,"data":"[26/193] --file issue_170666_inductor_fails_to_compile_models_contain.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":1875.447363115,"data":"[27/193] --file issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove.py exit 0 [25s]\n"}
+,{"stream_name":"stdout","time":1875.447421794,"data":"      issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove__bind_global0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [4.5s]\n"}
+,{"stream_name":"stdout","time":1875.447432484,"data":"      issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.7s]\n"}
+,{"stream_name":"stdout","time":1875.447436254,"data":"      issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":1875.447439779,"data":"      issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":1875.447443214,"data":"      issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":1875.447446874,"data":"      issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":1875.447450206,"data":"      issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":1875.447453506,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":1901.79590498,"data":"[28/193] --file issue_170939_inductor_f_pdist_fails_with_runtimeerror.py exit 0 [26s]\n"}
+,{"stream_name":"stdout","time":1901.795956169,"data":"      issue_170939_inductor_f_pdist_fails_with_runtimeerror__bind_global0 0 candidate(s), 0 submittable, 5 tests, 16 compiles  [5.9s]\n"}
+,{"stream_name":"stdout","time":1901.79596506,"data":"      issue_170939_inductor_f_pdist_fails_with_runtimeerror__bind_closure0 0 candidate(s), 0 submittable, 5 tests, 16 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":1901.795974912,"data":"      issue_170939_inductor_f_pdist_fails_with_runtimeerror__bind_attribute0 0 candidate(s), 0 submittable, 5 tests, 16 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":1901.796013496,"data":"      issue_170939_inductor_f_pdist_fails_with_runtimeerror__bind_list_elem0 0 candidate(s), 0 submittable, 5 tests, 16 compiles  [1.7s]\n"}
+,{"stream_name":"stdout","time":1901.796018872,"data":"      issue_170939_inductor_f_pdist_fails_with_runtimeerror__bind_dict_elem0 0 candidate(s), 0 submittable, 5 tests, 16 compiles  [1.7s]\n"}
+,{"stream_name":"stdout","time":1901.796023573,"data":"      issue_170939_inductor_f_pdist_fails_with_runtimeerror__bind_default_param0 0 candidate(s), 0 submittable, 5 tests, 16 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":1901.796028139,"data":"      issue_170939_inductor_f_pdist_fails_with_runtimeerror__bind_pos_param0 0 candidate(s), 0 submittable, 5 tests, 16 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":1901.79603282,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":1909.944954056,"data":"[29/193] --file issue_171979_inductor_fails_to_compile_models_using_t.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":1916.759718573,"data":"[30/193] --file issue_172207_torch_compile_changes_random_mask_genera.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":1916.759753619,"data":"        reject issue_172207_torch_compile_changes_random_mask_genera.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":1924.980528076,"data":"[31/193] --file issue_172711_torch_compile_produces_wrong_output_chan.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":1951.7264713,"data":"[32/193] --file issue_174386_torch_compile_ignores_torch_use_determin.py exit 0 [27s]\n"}
+,{"stream_name":"stdout","time":1951.726505884,"data":"      issue_174386_torch_compile_ignores_torch_use_determin__bind_list_elem0 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":1951.72651267,"data":"        * high   inductor_codegen       -                    8817232f67d6\n"}
+,{"stream_name":"stdout","time":1951.726518018,"data":"        * high   inductor_codegen       compile              572aac84e47f\n"}
+,{"stream_name":"stdout","time":1951.726523418,"data":"      issue_174386_torch_compile_ignores_torch_use_determin__bind_dict_elem0 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":1951.726529303,"data":"        * high   inductor_codegen       -                    388983957def\n"}
+,{"stream_name":"stdout","time":1951.726534973,"data":"        * high   inductor_codegen       compile              ea30dbce5212\n"}
+,{"stream_name":"stdout","time":1951.726540233,"data":"      issue_174386_torch_compile_ignores_torch_use_determin__bind_default_param0 1 candidate(s), 1 submittable, 2 tests, 6 compiles  [1.0s]\n"}
+,{"stream_name":"stdout","time":1951.72654701,"data":"        * high   inductor_codegen       -                    f67983daefc5\n"}
+,{"stream_name":"stdout","time":1951.726552823,"data":"      issue_174386_torch_compile_ignores_torch_use_determin__bind_pos_param0 1 candidate(s), 1 submittable, 2 tests, 6 compiles  [1.2s]\n"}
+,{"stream_name":"stdout","time":1951.72658061,"data":"        * high   inductor_codegen       compile              81724579bd5a\n"}
+,{"stream_name":"stdout","time":1951.726587439,"data":"    12 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":1959.700210683,"data":"[33/193] --file issue_174549_inconsistency_torch_nn_fractionalmaxpool.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":2006.261989501,"data":"[34/193] --file issue_174719_pallas_argmax_with_keepdim_true_on_middl.py exit 0 [47s]\n"}
+,{"stream_name":"stdout","time":2006.26205483,"data":"      issue_174719_pallas_argmax_with_keepdim_true_on_middl__bind_attribute0 1 candidate(s), 1 submittable, 2 tests, 6 compiles  [4.3s]\n"}
+,{"stream_name":"stdout","time":2006.262087163,"data":"        * high   inductor_codegen       -                    b9dd572b0d15\n"}
+,{"stream_name":"stdout","time":2006.262092102,"data":"      issue_174719_pallas_argmax_with_keepdim_true_on_middl__bind_list_elem0 1 candidate(s), 1 submittable, 2 tests, 6 compiles  [4.1s]\n"}
+,{"stream_name":"stdout","time":2006.262102194,"data":"        * high   inductor_codegen       -                    3ee01f56ee60\n"}
+,{"stream_name":"stdout","time":2006.262105072,"data":"      issue_174719_pallas_argmax_with_keepdim_true_on_middl__bind_dict_elem0 1 candidate(s), 1 submittable, 2 tests, 6 compiles  [4.3s]\n"}
+,{"stream_name":"stdout","time":2006.262107656,"data":"        * high   inductor_codegen       -                    43144b6d50d9\n"}
+,{"stream_name":"stdout","time":2006.262110064,"data":"      issue_174719_pallas_argmax_with_keepdim_true_on_middl__bind_default_param0 1 candidate(s), 1 submittable, 2 tests, 6 compiles  [4.1s]\n"}
+,{"stream_name":"stdout","time":2006.262112756,"data":"        * high   inductor_codegen       -                    4e324e495a01\n"}
+,{"stream_name":"stdout","time":2006.262115288,"data":"      issue_174719_pallas_argmax_with_keepdim_true_on_middl__bind_pos_param0 1 candidate(s), 1 submittable, 2 tests, 6 compiles  [4.4s]\n"}
+,{"stream_name":"stdout","time":2006.262117782,"data":"        * high   inductor_codegen       -                    0b1b70f22d4b\n"}
+,{"stream_name":"stdout","time":2006.262120179,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2041.249059513,"data":"[35/193] --file issue_174969_torch_compile_outputs_incorrect_results.py exit 0 [35s]\n"}
+,{"stream_name":"stdout","time":2041.249209135,"data":"      issue_174969_torch_compile_outputs_incorrect_results__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [7.1s]\n"}
+,{"stream_name":"stdout","time":2041.249220178,"data":"      issue_174969_torch_compile_outputs_incorrect_results__bind_closure0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [3.5s]\n"}
+,{"stream_name":"stdout","time":2041.249225515,"data":"      issue_174969_torch_compile_outputs_incorrect_results__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":2041.249230485,"data":"      issue_174969_torch_compile_outputs_incorrect_results__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.1s]\n"}
+,{"stream_name":"stdout","time":2041.249235519,"data":"      issue_174969_torch_compile_outputs_incorrect_results__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":2041.249240403,"data":"      issue_174969_torch_compile_outputs_incorrect_results__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.8s]\n"}
+,{"stream_name":"stdout","time":2041.249245285,"data":"      issue_174969_torch_compile_outputs_incorrect_results__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.1s]\n"}
+,{"stream_name":"stdout","time":2041.2492847,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2113.7057747,"data":"[36/193] --file issue_175156_inductor_multiple_randint_calls_cause_in.py exit 0 [72s]\n"}
+,{"stream_name":"stdout","time":2113.705830178,"data":"        * high   inductor_codegen       compile              7f9331007cd2\n"}
+,{"stream_name":"stdout","time":2113.705837012,"data":"      issue_175156_inductor_multiple_randint_calls_cause_in__bind_dict_elem0 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [10.6s]\n"}
+,{"stream_name":"stdout","time":2113.705841848,"data":"        * high   inductor_codegen       -                    4b48d195cb11\n"}
+,{"stream_name":"stdout","time":2113.705855722,"data":"        * high   inductor_codegen       compile              2c28d4ac2b48\n"}
+,{"stream_name":"stdout","time":2113.705859426,"data":"      issue_175156_inductor_multiple_randint_calls_cause_in__bind_default_param0 2 candidate(s), 2 submittable, 2 tests, 6 compiles  [7.2s]\n"}
+,{"stream_name":"stdout","time":2113.705863384,"data":"        * high   inductor_codegen       -                    0012e0e86dc9\n"}
+,{"stream_name":"stdout","time":2113.705866912,"data":"        * high   inductor_codegen       compile              7dd24c94a5ff\n"}
+,{"stream_name":"stdout","time":2113.705870956,"data":"      issue_175156_inductor_multiple_randint_calls_cause_in__bind_pos_param0 2 candidate(s), 2 submittable, 2 tests, 6 compiles  [7.1s]\n"}
+,{"stream_name":"stdout","time":2113.705874584,"data":"        * high   inductor_codegen       -                    f8ea3ba6f22f\n"}
+,{"stream_name":"stdout","time":2113.705878122,"data":"        * high   inductor_codegen       compile              8bf3e0a9fb45\n"}
+,{"stream_name":"stdout","time":2113.705882157,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2177.931427548,"data":"[37/193] --file issue_175496_inductor_model_with_torch_compile_output.py exit 0 [64s]\n"}
+,{"stream_name":"stdout","time":2177.931481934,"data":"      issue_175496_inductor_model_with_torch_compile_output__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [12.2s]\n"}
+,{"stream_name":"stdout","time":2177.931488535,"data":"      issue_175496_inductor_model_with_torch_compile_output__bind_closure0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [6.5s]\n"}
+,{"stream_name":"stdout","time":2177.93149303,"data":"      issue_175496_inductor_model_with_torch_compile_output__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [7.1s]\n"}
+,{"stream_name":"stdout","time":2177.93149699,"data":"      issue_175496_inductor_model_with_torch_compile_output__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [7.0s]\n"}
+,{"stream_name":"stdout","time":2177.931500758,"data":"      issue_175496_inductor_model_with_torch_compile_output__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [7.0s]\n"}
+,{"stream_name":"stdout","time":2177.93150461,"data":"      issue_175496_inductor_model_with_torch_compile_output__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [6.9s]\n"}
+,{"stream_name":"stdout","time":2177.931508264,"data":"      issue_175496_inductor_model_with_torch_compile_output__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [7.0s]\n"}
+,{"stream_name":"stdout","time":2177.931512003,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2184.993457292,"data":"[38/193] --file issue_175604_torch_compile_produces_stale_read_with_g.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":2184.993511831,"data":"        reject issue_175604_torch_compile_produces_stale_read_with_g.py: does not run: NameError: name 'nn' is not defined\n"}
+,{"stream_name":"stdout","time":2303.438447579,"data":"[39/193] --file issue_175632_inductor_torch_compile_produces_inconsis.py exit 0 [118s]\n"}
+,{"stream_name":"stdout","time":2303.43851535,"data":"        * high   inductor_codegen       dtype                3cd0085c3cc2\n"}
+,{"stream_name":"stdout","time":2303.438520947,"data":"      issue_175632_inductor_torch_compile_produces_inconsis__bind_dict_elem0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [14.3s]\n"}
+,{"stream_name":"stdout","time":2303.438525031,"data":"        * high   inductor_codegen       -                    02718c510e4e\n"}
+,{"stream_name":"stdout","time":2303.438547345,"data":"        * high   inductor_codegen       dtype                d40d7f30c082\n"}
+,{"stream_name":"stdout","time":2303.438550584,"data":"      issue_175632_inductor_torch_compile_produces_inconsis__bind_default_param0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [14.1s]\n"}
+,{"stream_name":"stdout","time":2303.43855398,"data":"        * high   inductor_codegen       -                    d5bcce3d3c75\n"}
+,{"stream_name":"stdout","time":2303.438559154,"data":"        * high   inductor_codegen       dtype                7bfb1649d43c\n"}
+,{"stream_name":"stdout","time":2303.438562082,"data":"      issue_175632_inductor_torch_compile_produces_inconsis__bind_pos_param0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [14.3s]\n"}
+,{"stream_name":"stdout","time":2303.438565264,"data":"        * high   inductor_codegen       -                    1bf8736f249d\n"}
+,{"stream_name":"stdout","time":2303.43856809,"data":"        * high   inductor_codegen       dtype                79f2cf14586c\n"}
+,{"stream_name":"stdout","time":2303.438570947,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2348.708917397,"data":"[40/193] --file issue_175791_inductor_incorrect_output_when_compiling.py exit 0 [45s]\n"}
+,{"stream_name":"stdout","time":2348.708953611,"data":"      issue_175791_inductor_incorrect_output_when_compiling__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [9.5s]\n"}
+,{"stream_name":"stdout","time":2348.708965519,"data":"      issue_175791_inductor_incorrect_output_when_compiling__bind_closure0 0 candidate(s), 0 submittable, 4 tests, 14 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":2348.708970474,"data":"      issue_175791_inductor_incorrect_output_when_compiling__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [4.7s]\n"}
+,{"stream_name":"stdout","time":2348.708974392,"data":"      issue_175791_inductor_incorrect_output_when_compiling__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [4.5s]\n"}
+,{"stream_name":"stdout","time":2348.708978103,"data":"      issue_175791_inductor_incorrect_output_when_compiling__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [4.7s]\n"}
+,{"stream_name":"stdout","time":2348.70898176,"data":"      issue_175791_inductor_incorrect_output_when_compiling__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [4.7s]\n"}
+,{"stream_name":"stdout","time":2348.708985424,"data":"      issue_175791_inductor_incorrect_output_when_compiling__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [4.7s]\n"}
+,{"stream_name":"stdout","time":2348.708989088,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2356.668916977,"data":"[41/193] --file issue_175903_inductor_incorrect_results_in_index_put.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":2416.078504168,"data":"[42/193] --file issue_175919_inductor_out_of_bounds_memory_read_via_r.py exit 0 [59s]\n"}
+,{"stream_name":"stdout","time":2416.078551098,"data":"        * high   inductor_codegen       dtype                93cf0c3865f2\n"}
+,{"stream_name":"stdout","time":2416.078556446,"data":"      issue_175919_inductor_out_of_bounds_memory_read_via_r__bind_dict_elem0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [6.5s]\n"}
+,{"stream_name":"stdout","time":2416.078601453,"data":"        * high   inductor_codegen       -                    104a88a075c7\n"}
+,{"stream_name":"stdout","time":2416.078608104,"data":"        * high   inductor_codegen       dtype                c9caa224e46c\n"}
+,{"stream_name":"stdout","time":2416.078613765,"data":"      issue_175919_inductor_out_of_bounds_memory_read_via_r__bind_default_param0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [6.6s]\n"}
+,{"stream_name":"stdout","time":2416.078634079,"data":"        * high   inductor_codegen       -                    9f16294f3e76\n"}
+,{"stream_name":"stdout","time":2416.07863792,"data":"        * high   inductor_codegen       dtype                7ab9d882fa62\n"}
+,{"stream_name":"stdout","time":2416.078643443,"data":"      issue_175919_inductor_out_of_bounds_memory_read_via_r__bind_pos_param0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [6.6s]\n"}
+,{"stream_name":"stdout","time":2416.07865053,"data":"        * high   inductor_codegen       -                    0d370b5d3d66\n"}
+,{"stream_name":"stdout","time":2416.078652953,"data":"        * high   inductor_codegen       dtype                667c501b44cc\n"}
+,{"stream_name":"stdout","time":2416.078655204,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2423.893571492,"data":"[43/193] --file issue_176596_torch_compile_does_not_correctly_invoke.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":2474.570526541,"data":"[44/193] --file issue_176599_torch_compile_bypasses_property_setter_a.py exit 0 [51s]\n"}
+,{"stream_name":"stdout","time":2474.570619021,"data":"      issue_176599_torch_compile_bypasses_property_setter_a__bind_dict_elem0 2 candidate(s), 0 submittable, 3 tests, 9 compiles  [5.2s]\n"}
+,{"stream_name":"stdout","time":2474.570629533,"data":"      issue_176599_torch_compile_bypasses_property_setter_a__bind_default_param0 2 candidate(s), 0 submittable, 2 tests, 6 compiles  [3.7s]\n"}
+,{"stream_name":"stdout","time":2474.57063538,"data":"      issue_176599_torch_compile_bypasses_property_setter_a__bind_pos_param0 2 candidate(s), 0 submittable, 2 tests, 6 compiles  [3.7s]\n"}
+,{"stream_name":"stdout","time":2474.570641062,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2483.049362851,"data":"[45/193] --file issue_176679_torch_compile_produces_incorrect_results.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":2491.587359168,"data":"[46/193] --file issue_176686_tensor_subclass_using_torch_function_pro.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":2525.184939377,"data":"[47/193] --file issue_176854_torch_compile_does_not_correctly_propaga.py exit 0 [34s]\n"}
+,{"stream_name":"stdout","time":2525.184983111,"data":"      issue_176854_torch_compile_does_not_correctly_propaga__bind_attribute0 1 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":2525.184990982,"data":"      issue_176854_torch_compile_does_not_correctly_propaga__bind_list_elem0 1 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":2525.184997199,"data":"      issue_176854_torch_compile_does_not_correctly_propaga__bind_dict_elem0 1 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":2525.1850037,"data":"      issue_176854_torch_compile_does_not_correctly_propaga__bind_default_param0 1 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.8s]\n"}
+,{"stream_name":"stdout","time":2525.185009954,"data":"      issue_176854_torch_compile_does_not_correctly_propaga__bind_pos_param0 1 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":2525.185016276,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2533.891508063,"data":"[48/193] --file issue_177252_inductor_assertionerror_wrong_number_of.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":2541.084317718,"data":"[49/193] --file issue_177372_add_torch_narrow_scatter_operator_to_com.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":2541.084363988,"data":"        reject issue_177372_add_torch_narrow_scatter_operator_to_com.py: does not run: AttributeError: module 'torch' has no attribute 'narrow_scatter'\n"}
+,{"stream_name":"stdout","time":2549.689317275,"data":"[50/193] --file issue_177451_torch_compile_fails_on_conv2d_with_kerne.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":2558.275117458,"data":"[51/193] --file issue_177629_torch_compile_backend_inductor_silently.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":2598.711239467,"data":"[52/193] --file issue_177631_inductor_torch_compile_produces_incorrec.py exit 0 [40s]\n"}
+,{"stream_name":"stdout","time":2598.711285893,"data":"      issue_177631_inductor_torch_compile_produces_incorrec__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [8.6s]\n"}
+,{"stream_name":"stdout","time":2598.711297636,"data":"      issue_177631_inductor_torch_compile_produces_incorrec__bind_closure0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":2598.711302264,"data":"      issue_177631_inductor_torch_compile_produces_incorrec__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.8s]\n"}
+,{"stream_name":"stdout","time":2598.71130605,"data":"      issue_177631_inductor_torch_compile_produces_incorrec__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":2598.711309928,"data":"      issue_177631_inductor_torch_compile_produces_incorrec__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.7s]\n"}
+,{"stream_name":"stdout","time":2598.711313556,"data":"      issue_177631_inductor_torch_compile_produces_incorrec__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.5s]\n"}
+,{"stream_name":"stdout","time":2598.711317098,"data":"      issue_177631_inductor_torch_compile_produces_incorrec__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.5s]\n"}
+,{"stream_name":"stdout","time":2598.711320721,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2637.955985904,"data":"[53/193] --file issue_177652_inductor_torch_compile_s_rng_state_is_in.py exit 0 [39s]\n"}
+,{"stream_name":"stdout","time":2637.956023569,"data":"      issue_177652_inductor_torch_compile_s_rng_state_is_in__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [7.3s]\n"}
+,{"stream_name":"stdout","time":2637.956030666,"data":"      issue_177652_inductor_torch_compile_s_rng_state_is_in__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.6s]\n"}
+,{"stream_name":"stdout","time":2637.956036272,"data":"      issue_177652_inductor_torch_compile_s_rng_state_is_in__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":2637.956041621,"data":"      issue_177652_inductor_torch_compile_s_rng_state_is_in__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.3s]\n"}
+,{"stream_name":"stdout","time":2637.956047422,"data":"      issue_177652_inductor_torch_compile_s_rng_state_is_in__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.6s]\n"}
+,{"stream_name":"stdout","time":2637.95605282,"data":"      issue_177652_inductor_torch_compile_s_rng_state_is_in__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":2637.956058103,"data":"      issue_177652_inductor_torch_compile_s_rng_state_is_in__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.5s]\n"}
+,{"stream_name":"stdout","time":2637.956063483,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2659.209874279,"data":"[54/193] --file issue_177821_inductor_torch_compile_ignores_a_complex.py exit 0 [21s]\n"}
+,{"stream_name":"stdout","time":2659.209934589,"data":"      issue_177821_inductor_torch_compile_ignores_a_complex__bind_global0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [5.0s]\n"}
+,{"stream_name":"stdout","time":2659.209966548,"data":"      issue_177821_inductor_torch_compile_ignores_a_complex__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [1.3s]\n"}
+,{"stream_name":"stdout","time":2659.209971796,"data":"      issue_177821_inductor_torch_compile_ignores_a_complex__bind_attribute0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [1.2s]\n"}
+,{"stream_name":"stdout","time":2659.209975988,"data":"      issue_177821_inductor_torch_compile_ignores_a_complex__bind_list_elem0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [1.0s]\n"}
+,{"stream_name":"stdout","time":2659.209980457,"data":"      issue_177821_inductor_torch_compile_ignores_a_complex__bind_dict_elem0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [1.0s]\n"}
+,{"stream_name":"stdout","time":2659.209984535,"data":"      issue_177821_inductor_torch_compile_ignores_a_complex__bind_default_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [1.0s]\n"}
+,{"stream_name":"stdout","time":2659.209988991,"data":"      issue_177821_inductor_torch_compile_ignores_a_complex__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [1.0s]\n"}
+,{"stream_name":"stdout","time":2659.209993236,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2697.6299442,"data":"[55/193] --file issue_177839_inductor_torch_compile_on_cpu_produces_i.py exit 0 [38s]\n"}
+,{"stream_name":"stdout","time":2697.63001214,"data":"      issue_177839_inductor_torch_compile_on_cpu_produces_i__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [7.6s]\n"}
+,{"stream_name":"stdout","time":2697.630043053,"data":"      issue_177839_inductor_torch_compile_on_cpu_produces_i__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.1s]\n"}
+,{"stream_name":"stdout","time":2697.630049447,"data":"      issue_177839_inductor_torch_compile_on_cpu_produces_i__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.0s]\n"}
+,{"stream_name":"stdout","time":2697.630055927,"data":"      issue_177839_inductor_torch_compile_on_cpu_produces_i__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.0s]\n"}
+,{"stream_name":"stdout","time":2697.630062293,"data":"      issue_177839_inductor_torch_compile_on_cpu_produces_i__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.0s]\n"}
+,{"stream_name":"stdout","time":2697.630068778,"data":"      issue_177839_inductor_torch_compile_on_cpu_produces_i__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.1s]\n"}
+,{"stream_name":"stdout","time":2697.630075225,"data":"      issue_177839_inductor_torch_compile_on_cpu_produces_i__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.0s]\n"}
+,{"stream_name":"stdout","time":2697.630080743,"data":"      issue_177839_inductor_torch_compile_on_cpu_produces_i__bind_kwargs_expand0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.0s]\n"}
+,{"stream_name":"stdout","time":2697.630086235,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2715.402338903,"data":"[56/193] --file issue_178125_conv_transpose1d_meta_implementation_all.py exit 0 [18s]\n"}
+,{"stream_name":"stdout","time":2715.402380591,"data":"      issue_178125_conv_transpose1d_meta_implementation_all__bind_global0 0 candidate(s), 0 submittable, 1 tests, 3 compiles  [4.6s]\n"}
+,{"stream_name":"stdout","time":2715.402388157,"data":"      issue_178125_conv_transpose1d_meta_implementation_all__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":2715.402394291,"data":"      issue_178125_conv_transpose1d_meta_implementation_all__bind_attribute0 0 candidate(s), 0 submittable, 1 tests, 3 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":2715.402421486,"data":"      issue_178125_conv_transpose1d_meta_implementation_all__bind_list_elem0 0 candidate(s), 0 submittable, 1 tests, 3 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":2715.402426928,"data":"      issue_178125_conv_transpose1d_meta_implementation_all__bind_dict_elem0 0 candidate(s), 0 submittable, 1 tests, 3 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":2715.402431471,"data":"      issue_178125_conv_transpose1d_meta_implementation_all__bind_default_param0 0 candidate(s), 0 submittable, 1 tests, 3 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":2715.402436275,"data":"      issue_178125_conv_transpose1d_meta_implementation_all__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":2715.40244084,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2726.06396227,"data":"[57/193] --file issue_178128_conv_transpose3d_meta_execution_produces.py exit 0 [11s]\n"}
+,{"stream_name":"stdout","time":2726.06399943,"data":"      issue_178128_conv_transpose3d_meta_execution_produces__bind_global0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [1.0s]\n"}
+,{"stream_name":"stdout","time":2726.064006604,"data":"      issue_178128_conv_transpose3d_meta_execution_produces__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 0 compiles  [0.3s]\n"}
+,{"stream_name":"stdout","time":2726.064012718,"data":"      issue_178128_conv_transpose3d_meta_execution_produces__bind_attribute0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":2726.064018725,"data":"      issue_178128_conv_transpose3d_meta_execution_produces__bind_list_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":2726.064024101,"data":"      issue_178128_conv_transpose3d_meta_execution_produces__bind_dict_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":2726.064029772,"data":"      issue_178128_conv_transpose3d_meta_execution_produces__bind_default_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":2726.064035851,"data":"      issue_178128_conv_transpose3d_meta_execution_produces__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":2726.06404151,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2734.232337311,"data":"[58/193] --file issue_178259_inductor_c_compilation_error_when_conver.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":2742.419242185,"data":"[59/193] --file issue_178262_inductor_incorrect_stride_calculation_in.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":2801.838650389,"data":"[60/193] --file issue_178382_torch_compile_data_dependent_guard_fails.py exit 0 [59s]\n"}
+,{"stream_name":"stdout","time":2801.838696832,"data":"      issue_178382_torch_compile_data_dependent_guard_fails__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 18 compiles  [4.4s]\n"}
+,{"stream_name":"stdout","time":2801.83870244,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2810.479429556,"data":"[61/193] --file issue_178482_torch_compile_dynamic_true_ignores_incom.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":2840.364283028,"data":"[62/193] --file issue_178869_eager_then_compile_crashes_with_indexerr.py exit 0 [30s]\n"}
+,{"stream_name":"stdout","time":2840.364332199,"data":"      issue_178869_eager_then_compile_crashes_with_indexerr__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [6.3s]\n"}
+,{"stream_name":"stdout","time":2840.364359405,"data":"      issue_178869_eager_then_compile_crashes_with_indexerr__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":2840.364363371,"data":"      issue_178869_eager_then_compile_crashes_with_indexerr__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":2840.364366795,"data":"      issue_178869_eager_then_compile_crashes_with_indexerr__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":2840.364369633,"data":"      issue_178869_eager_then_compile_crashes_with_indexerr__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":2840.364372332,"data":"      issue_178869_eager_then_compile_crashes_with_indexerr__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":2840.36437505,"data":"      issue_178869_eager_then_compile_crashes_with_indexerr__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":2840.364377887,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2879.375305464,"data":"[63/193] --file issue_178964_inductor_max_returns_incorrect_indices_w.py exit 0 [39s]\n"}
+,{"stream_name":"stdout","time":2879.375357943,"data":"      issue_178964_inductor_max_returns_incorrect_indices_w__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [8.0s]\n"}
+,{"stream_name":"stdout","time":2879.375364823,"data":"      issue_178964_inductor_max_returns_incorrect_indices_w__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.1s]\n"}
+,{"stream_name":"stdout","time":2879.375368817,"data":"      issue_178964_inductor_max_returns_incorrect_indices_w__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":2879.375372792,"data":"      issue_178964_inductor_max_returns_incorrect_indices_w__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":2879.375376526,"data":"      issue_178964_inductor_max_returns_incorrect_indices_w__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":2879.375380171,"data":"      issue_178964_inductor_max_returns_incorrect_indices_w__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.1s]\n"}
+,{"stream_name":"stdout","time":2879.375383726,"data":"      issue_178964_inductor_max_returns_incorrect_indices_w__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":2879.375387441,"data":"      issue_178964_inductor_max_returns_incorrect_indices_w__bind_kwargs_expand0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":2879.375391137,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2910.114096564,"data":"[64/193] --file issue_179026_torch_compile_guard_evaluation_crash_eva.py exit 0 [31s]\n"}
+,{"stream_name":"stdout","time":2910.114131044,"data":"      issue_179026_torch_compile_guard_evaluation_crash_eva__bind_global0 0 candidate(s), 0 submittable, 6 tests, 14 compiles  [6.4s]\n"}
+,{"stream_name":"stdout","time":2910.114137748,"data":"      issue_179026_torch_compile_guard_evaluation_crash_eva__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":2910.114143026,"data":"      issue_179026_torch_compile_guard_evaluation_crash_eva__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.1s]\n"}
+,{"stream_name":"stdout","time":2910.114167513,"data":"      issue_179026_torch_compile_guard_evaluation_crash_eva__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 14 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":2910.114172053,"data":"      issue_179026_torch_compile_guard_evaluation_crash_eva__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 14 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":2910.114176444,"data":"      issue_179026_torch_compile_guard_evaluation_crash_eva__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 14 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":2910.114181144,"data":"      issue_179026_torch_compile_guard_evaluation_crash_eva__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 14 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":2910.11418572,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2958.896314016,"data":"[65/193] --file issue_179383_torch_quantile_and_torch_nanquantile_fai.py exit 0 [49s]\n"}
+,{"stream_name":"stdout","time":2958.89638018,"data":"      issue_179383_torch_quantile_and_torch_nanquantile_fai__bind_attribute0 1 candidate(s), 0 submittable, 5 tests, 14 compiles  [4.4s]\n"}
+,{"stream_name":"stdout","time":2958.896389063,"data":"      issue_179383_torch_quantile_and_torch_nanquantile_fai__bind_list_elem0 1 candidate(s), 0 submittable, 5 tests, 14 compiles  [4.7s]\n"}
+,{"stream_name":"stdout","time":2958.896395705,"data":"      issue_179383_torch_quantile_and_torch_nanquantile_fai__bind_dict_elem0 1 candidate(s), 0 submittable, 5 tests, 14 compiles  [4.7s]\n"}
+,{"stream_name":"stdout","time":2958.896401203,"data":"      issue_179383_torch_quantile_and_torch_nanquantile_fai__bind_default_param0 1 candidate(s), 0 submittable, 5 tests, 14 compiles  [4.4s]\n"}
+,{"stream_name":"stdout","time":2958.89640685,"data":"      issue_179383_torch_quantile_and_torch_nanquantile_fai__bind_pos_param0 1 candidate(s), 0 submittable, 5 tests, 14 compiles  [4.7s]\n"}
+,{"stream_name":"stdout","time":2958.896412187,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2967.628467278,"data":"[66/193] --file issue_179534_torch_compile_fails_on_aten_sparse_csr_t.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":2976.33562253,"data":"[67/193] --file issue_179807_torch_compile_inductor_crash_f_pad_follo.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":2983.56246704,"data":"[68/193] --file issue_180841_inductor_importerror_file_too_short_when.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":2983.562502946,"data":"        reject issue_180841_inductor_importerror_file_too_short_when.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":2990.837306646,"data":"[69/193] --file issue_180848_torch_compile_produces_wrong_results_whe.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":2990.837342246,"data":"        reject issue_180848_torch_compile_produces_wrong_results_whe.py: does not run: NameError: name 'torch' is not defined\n"}
+,{"stream_name":"stdout","time":3160.829586732,"data":"[70/193] --file issue_181115_inductor_torch_compile_dynamic_true_cras.py exit 0 [170s]\n"}
+,{"stream_name":"stdout","time":3160.829628563,"data":"      issue_181115_inductor_torch_compile_dynamic_true_cras__bind_global0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [32.6s]\n"}
+,{"stream_name":"stdout","time":3160.829635537,"data":"      issue_181115_inductor_torch_compile_dynamic_true_cras__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [18.4s]\n"}
+,{"stream_name":"stdout","time":3160.829640717,"data":"      issue_181115_inductor_torch_compile_dynamic_true_cras__bind_attribute0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [18.6s]\n"}
+,{"stream_name":"stdout","time":3160.829665142,"data":"      issue_181115_inductor_torch_compile_dynamic_true_cras__bind_list_elem0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [17.6s]\n"}
+,{"stream_name":"stdout","time":3160.82967042,"data":"      issue_181115_inductor_torch_compile_dynamic_true_cras__bind_dict_elem0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [18.2s]\n"}
+,{"stream_name":"stdout","time":3160.829674701,"data":"      issue_181115_inductor_torch_compile_dynamic_true_cras__bind_default_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [18.0s]\n"}
+,{"stream_name":"stdout","time":3160.829679233,"data":"      issue_181115_inductor_torch_compile_dynamic_true_cras__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [17.3s]\n"}
+,{"stream_name":"stdout","time":3160.829683291,"data":"      issue_181115_inductor_torch_compile_dynamic_true_cras__bind_kwargs_expand0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [18.6s]\n"}
+,{"stream_name":"stdout","time":3160.829687464,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":3171.133539399,"data":"[71/193] --file issue_181175_aot_autograd_runtimeerror_cannot_call_nu.py exit 0 [10s]\n"}
+,{"stream_name":"stdout","time":3171.133617253,"data":"      issue_181175_aot_autograd_runtimeerror_cannot_call_nu__bind_global0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":3171.133627682,"data":"      issue_181175_aot_autograd_runtimeerror_cannot_call_nu__bind_closure0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3171.133634255,"data":"      issue_181175_aot_autograd_runtimeerror_cannot_call_nu__bind_attribute0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3171.133640061,"data":"      issue_181175_aot_autograd_runtimeerror_cannot_call_nu__bind_list_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3171.133645645,"data":"      issue_181175_aot_autograd_runtimeerror_cannot_call_nu__bind_dict_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3171.133656931,"data":"      issue_181175_aot_autograd_runtimeerror_cannot_call_nu__bind_default_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3171.133660966,"data":"      issue_181175_aot_autograd_runtimeerror_cannot_call_nu__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3171.133664824,"data":"      issue_181175_aot_autograd_runtimeerror_cannot_call_nu__bind_kwargs_expand0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3171.133668671,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":3179.96507365,"data":"[72/193] --file issue_181384_aot_autograd_runtimeerror_pytorch_build.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":3190.221755236,"data":"[73/193] --file issue_181428_torch_compile_torch_func_grad_superlinea.py exit 0 [10s]\n"}
+,{"stream_name":"stdout","time":3190.221821279,"data":"      issue_181428_torch_compile_torch_func_grad_superlinea__bind_global0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.8s]\n"}
+,{"stream_name":"stdout","time":3190.221884786,"data":"      issue_181428_torch_compile_torch_func_grad_superlinea__bind_closure0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3190.221891511,"data":"      issue_181428_torch_compile_torch_func_grad_superlinea__bind_attribute0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3190.221928275,"data":"      issue_181428_torch_compile_torch_func_grad_superlinea__bind_list_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3190.221933569,"data":"      issue_181428_torch_compile_torch_func_grad_superlinea__bind_dict_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3190.221937977,"data":"      issue_181428_torch_compile_torch_func_grad_superlinea__bind_default_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3190.221942497,"data":"      issue_181428_torch_compile_torch_func_grad_superlinea__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3190.221952902,"data":"      issue_181428_torch_compile_torch_func_grad_superlinea__bind_kwargs_expand0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":3190.221956106,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":3280.771544007,"data":"[74/193] --file issue_181568_torch_compile_mismatch_for_matmul_follow.py exit 0 [91s]\n"}
+,{"stream_name":"stdout","time":3280.771605471,"data":"        * high   inductor_codegen       requires_grad        bd41884acc00\n"}
+,{"stream_name":"stdout","time":3280.771612344,"data":"      issue_181568_torch_compile_mismatch_for_matmul_follow__bind_dict_elem0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [10.4s]\n"}
+,{"stream_name":"stdout","time":3280.771618706,"data":"        * high   inductor_codegen       -                    2bed56aa4d2c\n"}
+,{"stream_name":"stdout","time":3280.771623725,"data":"        * high   inductor_codegen       requires_grad        51e4389d56c3\n"}
+,{"stream_name":"stdout","time":3280.771629189,"data":"      issue_181568_torch_compile_mismatch_for_matmul_follow__bind_default_param0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [10.6s]\n"}
+,{"stream_name":"stdout","time":3280.771634296,"data":"        * high   inductor_codegen       -                    967b3964c081\n"}
+,{"stream_name":"stdout","time":3280.77163937,"data":"        * high   inductor_codegen       requires_grad        0c8925ce2543\n"}
+,{"stream_name":"stdout","time":3280.771644396,"data":"      issue_181568_torch_compile_mismatch_for_matmul_follow__bind_pos_param0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [10.4s]\n"}
+,{"stream_name":"stdout","time":3280.771649789,"data":"        * high   inductor_codegen       -                    0d8196a2ba71\n"}
+,{"stream_name":"stdout","time":3280.771655402,"data":"        * high   inductor_codegen       requires_grad        c4ef355296a1\n"}
+,{"stream_name":"stdout","time":3280.771660902,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":3289.519525344,"data":"[75/193] --file issue_181625_assertionerror_expected_size_stride_mism.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":3298.29791624,"data":"[76/193] --file issue_181653_torch_compile_torch_func_grad_fn_hangs_i.py exit 2 [9s]\n"}
+,{"stream_name":"stdout","time":3319.651239227,"data":"[77/193] --file issue_181688_heap_corruption_sigabrt_when_compiling_c.py exit -6 [21s]\n"}
+,{"stream_name":"stdout","time":3641.573370793,"data":"[78/193] --file issue_181693_nn_hardswish_produces_wrong_output_under.py exit 0 [322s]\n"}
+,{"stream_name":"stdout","time":3641.573421891,"data":"        * high   inductor_codegen       compile              c18d45c26d6e\n"}
+,{"stream_name":"stdout","time":3641.573429375,"data":"      issue_181693_nn_hardswish_produces_wrong_output_under__bind_default_param0 2 candidate(s), 2 submittable, 2 tests, 8 compiles  [31.9s]\n"}
+,{"stream_name":"stdout","time":3641.573453176,"data":"        * high   inductor_codegen       -                    8d43b375320f\n"}
+,{"stream_name":"stdout","time":3641.573457722,"data":"        * high   inductor_codegen       compile              2e2cc7713c16\n"}
+,{"stream_name":"stdout","time":3641.573462767,"data":"      issue_181693_nn_hardswish_produces_wrong_output_under__bind_pos_param0 2 candidate(s), 2 submittable, 2 tests, 8 compiles  [31.9s]\n"}
+,{"stream_name":"stdout","time":3641.573467284,"data":"        * high   inductor_codegen       -                    e2d6249199b7\n"}
+,{"stream_name":"stdout","time":3641.573471634,"data":"        * high   inductor_codegen       compile              d3a756894476\n"}
+,{"stream_name":"stdout","time":3641.573475756,"data":"      issue_181693_nn_hardswish_produces_wrong_output_under__bind_kwargs_expand0 2 candidate(s), 2 submittable, 3 tests, 11 compiles  [38.7s]\n"}
+,{"stream_name":"stdout","time":3641.573479958,"data":"        * high   inductor_codegen       -                    32a3cc33fc4a\n"}
+,{"stream_name":"stdout","time":3641.573483898,"data":"        * high   inductor_codegen       compile              02b83491d434\n"}
+,{"stream_name":"stdout","time":3641.573488046,"data":"    16 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":3890.313453747,"data":"[79/193] --file issue_181694_torch_addcdiv_produces_wrong_output_unde.py exit 0 [249s]\n"}
+,{"stream_name":"stdout","time":3890.31350891,"data":"        * high   inductor_codegen       compile              a432bf0fa1bb\n"}
+,{"stream_name":"stdout","time":3890.313520505,"data":"      issue_181694_torch_addcdiv_produces_wrong_output_unde__bind_dict_elem0 2 candidate(s), 2 submittable, 3 tests, 11 compiles  [32.0s]\n"}
+,{"stream_name":"stdout","time":3890.31352488,"data":"        * high   inductor_codegen       -                    a2478de6a627\n"}
+,{"stream_name":"stdout","time":3890.313528637,"data":"        * high   inductor_codegen       compile              e40e851e1a9a\n"}
+,{"stream_name":"stdout","time":3890.313532864,"data":"      issue_181694_torch_addcdiv_produces_wrong_output_unde__bind_default_param0 2 candidate(s), 2 submittable, 2 tests, 8 compiles  [22.0s]\n"}
+,{"stream_name":"stdout","time":3890.313552867,"data":"        * high   inductor_codegen       -                    b9ffb26e66a1\n"}
+,{"stream_name":"stdout","time":3890.313558754,"data":"        * high   inductor_codegen       compile              329b174792dc\n"}
+,{"stream_name":"stdout","time":3890.313564609,"data":"      issue_181694_torch_addcdiv_produces_wrong_output_unde__bind_pos_param0 2 candidate(s), 2 submittable, 2 tests, 8 compiles  [48.1s]\n"}
+,{"stream_name":"stdout","time":3890.313593902,"data":"        * high   inductor_codegen       -                    021447ec20d3\n"}
+,{"stream_name":"stdout","time":3890.31359992,"data":"        * high   inductor_codegen       compile              b8aac6eff432\n"}
+,{"stream_name":"stdout","time":3890.313605022,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4050.736863896,"data":"[80/193] --file issue_181695_torch_where_with_broadcast_shapes_produc.py exit 0 [160s]\n"}
+,{"stream_name":"stdout","time":4050.736934683,"data":"        * high   inductor_codegen       compile              c95b995aac10\n"}
+,{"stream_name":"stdout","time":4050.736943413,"data":"      issue_181695_torch_where_with_broadcast_shapes_produc__bind_dict_elem0 2 candidate(s), 2 submittable, 3 tests, 11 compiles  [20.0s]\n"}
+,{"stream_name":"stdout","time":4050.736950486,"data":"        * high   inductor_codegen       -                    e3075feb4467\n"}
+,{"stream_name":"stdout","time":4050.736955932,"data":"        * high   inductor_codegen       compile              67395cfe8fc2\n"}
+,{"stream_name":"stdout","time":4050.736988953,"data":"      issue_181695_torch_where_with_broadcast_shapes_produc__bind_default_param0 2 candidate(s), 2 submittable, 2 tests, 8 compiles  [16.0s]\n"}
+,{"stream_name":"stdout","time":4050.736992473,"data":"        * high   inductor_codegen       -                    688dd980a5ee\n"}
+,{"stream_name":"stdout","time":4050.736995821,"data":"        * high   inductor_codegen       compile              c4807092ae06\n"}
+,{"stream_name":"stdout","time":4050.737017071,"data":"      issue_181695_torch_where_with_broadcast_shapes_produc__bind_pos_param0 2 candidate(s), 2 submittable, 2 tests, 8 compiles  [17.5s]\n"}
+,{"stream_name":"stdout","time":4050.737022071,"data":"        * high   inductor_codegen       -                    907581f9d919\n"}
+,{"stream_name":"stdout","time":4050.737027106,"data":"        * high   inductor_codegen       compile              38857d74c762\n"}
+,{"stream_name":"stdout","time":4050.737031901,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4077.29788482,"data":"[81/193] --file issue_181851_register_fake_to_throw_error_if_signatur.py exit 0 [27s]\n"}
+,{"stream_name":"stdout","time":4077.297956913,"data":"      issue_181851_register_fake_to_throw_error_if_signatur__bind_global0 0 candidate(s), 0 submittable, 6 tests, 0 compiles  [3.3s]\n"}
+,{"stream_name":"stdout","time":4077.29796644,"data":"      issue_181851_register_fake_to_throw_error_if_signatur__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 0 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":4077.297973285,"data":"      issue_181851_register_fake_to_throw_error_if_signatur__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 0 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":4077.297979602,"data":"      issue_181851_register_fake_to_throw_error_if_signatur__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 0 compiles  [2.4s]\n"}
+,{"stream_name":"stdout","time":4077.297985124,"data":"      issue_181851_register_fake_to_throw_error_if_signatur__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 0 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":4077.297990628,"data":"      issue_181851_register_fake_to_throw_error_if_signatur__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 0 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":4077.297995934,"data":"      issue_181851_register_fake_to_throw_error_if_signatur__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 0 compiles  [2.4s]\n"}
+,{"stream_name":"stdout","time":4077.298001095,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4136.870451174,"data":"[82/193] --file issue_181870_torch_compile_dynamic_true_fails_on_f_cr.py exit 0 [60s]\n"}
+,{"stream_name":"stdout","time":4136.870522945,"data":"      issue_181870_torch_compile_dynamic_true_fails_on_f_cr__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [10.6s]\n"}
+,{"stream_name":"stdout","time":4136.870531474,"data":"      issue_181870_torch_compile_dynamic_true_fails_on_f_cr__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.4s]\n"}
+,{"stream_name":"stdout","time":4136.87053758,"data":"      issue_181870_torch_compile_dynamic_true_fails_on_f_cr__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.2s]\n"}
+,{"stream_name":"stdout","time":4136.870543767,"data":"      issue_181870_torch_compile_dynamic_true_fails_on_f_cr__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.6s]\n"}
+,{"stream_name":"stdout","time":4136.87055541,"data":"      issue_181870_torch_compile_dynamic_true_fails_on_f_cr__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.5s]\n"}
+,{"stream_name":"stdout","time":4136.870619559,"data":"      issue_181870_torch_compile_dynamic_true_fails_on_f_cr__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.6s]\n"}
+,{"stream_name":"stdout","time":4136.870627315,"data":"      issue_181870_torch_compile_dynamic_true_fails_on_f_cr__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.3s]\n"}
+,{"stream_name":"stdout","time":4136.870631967,"data":"      issue_181870_torch_compile_dynamic_true_fails_on_f_cr__bind_kwargs_expand0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.7s]\n"}
+,{"stream_name":"stdout","time":4136.870636297,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4246.248168117,"data":"[83/193] --file issue_182131_torch_compile_inductor_produces_differen.py exit 0 [109s]\n"}
+,{"stream_name":"stdout","time":4246.248212035,"data":"        * high   inductor_codegen       requires_grad        2bf6beef8b80\n"}
+,{"stream_name":"stdout","time":4246.248218301,"data":"      issue_182131_torch_compile_inductor_produces_differen__bind_dict_elem0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [12.9s]\n"}
+,{"stream_name":"stdout","time":4246.248223455,"data":"        * high   inductor_codegen       -                    0e04d409cf06\n"}
+,{"stream_name":"stdout","time":4246.248228294,"data":"        * high   inductor_codegen       requires_grad        a541982c30f1\n"}
+,{"stream_name":"stdout","time":4246.248232967,"data":"      issue_182131_torch_compile_inductor_produces_differen__bind_default_param0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [12.8s]\n"}
+,{"stream_name":"stdout","time":4246.248237775,"data":"        * high   inductor_codegen       -                    14797979a916\n"}
+,{"stream_name":"stdout","time":4246.248242349,"data":"        * high   inductor_codegen       requires_grad        253d13886c61\n"}
+,{"stream_name":"stdout","time":4246.248247291,"data":"      issue_182131_torch_compile_inductor_produces_differen__bind_pos_param0 2 candidate(s), 2 submittable, 6 tests, 21 compiles  [13.1s]\n"}
+,{"stream_name":"stdout","time":4246.248252889,"data":"        * high   inductor_codegen       -                    7a3a6b3c8ba0\n"}
+,{"stream_name":"stdout","time":4246.248258231,"data":"        * high   inductor_codegen       requires_grad        d9be889bcdc4\n"}
+,{"stream_name":"stdout","time":4246.248375832,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4253.247201379,"data":"[84/193] --file issue_182217_torch_compile_crashes_on_f_layer_norm_ne.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":4253.247268615,"data":"        reject issue_182217_torch_compile_crashes_on_f_layer_norm_ne.py: does not run: NameError: name 'torch' is not defined\n"}
+,{"stream_name":"stdout","time":4269.565340299,"data":"[85/193] --file issue_182225_torch_compile_mismatch_for_bfloat16_rope.py exit 0 [16s]\n"}
+,{"stream_name":"stdout","time":4269.565383398,"data":"      issue_182225_torch_compile_mismatch_for_bfloat16_rope__bind_default_param0 3 candidate(s), 0 submittable, 6 tests, 0 compiles  [0.8s]\n"}
+,{"stream_name":"stdout","time":4269.565394924,"data":"      issue_182225_torch_compile_mismatch_for_bfloat16_rope__bind_pos_param0 3 candidate(s), 0 submittable, 6 tests, 0 compiles  [1.0s]\n"}
+,{"stream_name":"stdout","time":4269.565399164,"data":"    21 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4289.273015448,"data":"[86/193] --file issue_182317_dynamo_leaks_torchfunctionmode_onto_stac.py exit 0 [20s]\n"}
+,{"stream_name":"stdout","time":4289.273059893,"data":"      issue_182317_dynamo_leaks_torchfunctionmode_onto_stac__bind_global0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [3.7s]\n"}
+,{"stream_name":"stdout","time":4289.273098383,"data":"      issue_182317_dynamo_leaks_torchfunctionmode_onto_stac__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":4289.273101805,"data":"      issue_182317_dynamo_leaks_torchfunctionmode_onto_stac__bind_attribute0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [1.3s]\n"}
+,{"stream_name":"stdout","time":4289.273104445,"data":"      issue_182317_dynamo_leaks_torchfunctionmode_onto_stac__bind_list_elem0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [1.2s]\n"}
+,{"stream_name":"stdout","time":4289.273107653,"data":"      issue_182317_dynamo_leaks_torchfunctionmode_onto_stac__bind_dict_elem0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [1.4s]\n"}
+,{"stream_name":"stdout","time":4289.273126017,"data":"      issue_182317_dynamo_leaks_torchfunctionmode_onto_stac__bind_default_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.8s]\n"}
+,{"stream_name":"stdout","time":4289.273130813,"data":"      issue_182317_dynamo_leaks_torchfunctionmode_onto_stac__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.8s]\n"}
+,{"stream_name":"stdout","time":4289.273136071,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4297.328166651,"data":"[87/193] --file issue_182318_dynamo_codegen_leaks_torch_function_enab.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":4355.560595049,"data":"[88/193] --file issue_182399_torch_compile_dynamic_true_fails_on_f_cr.py exit 0 [58s]\n"}
+,{"stream_name":"stdout","time":4355.560636757,"data":"      issue_182399_torch_compile_dynamic_true_fails_on_f_cr__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [10.1s]\n"}
+,{"stream_name":"stdout","time":4355.560644367,"data":"      issue_182399_torch_compile_dynamic_true_fails_on_f_cr__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.4s]\n"}
+,{"stream_name":"stdout","time":4355.560651254,"data":"      issue_182399_torch_compile_dynamic_true_fails_on_f_cr__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.4s]\n"}
+,{"stream_name":"stdout","time":4355.560656973,"data":"      issue_182399_torch_compile_dynamic_true_fails_on_f_cr__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.5s]\n"}
+,{"stream_name":"stdout","time":4355.560663024,"data":"      issue_182399_torch_compile_dynamic_true_fails_on_f_cr__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.6s]\n"}
+,{"stream_name":"stdout","time":4355.560668426,"data":"      issue_182399_torch_compile_dynamic_true_fails_on_f_cr__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.3s]\n"}
+,{"stream_name":"stdout","time":4355.560673769,"data":"      issue_182399_torch_compile_dynamic_true_fails_on_f_cr__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.5s]\n"}
+,{"stream_name":"stdout","time":4355.560678708,"data":"      issue_182399_torch_compile_dynamic_true_fails_on_f_cr__bind_kwargs_expand0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.7s]\n"}
+,{"stream_name":"stdout","time":4355.560683658,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4363.794227726,"data":"[89/193] --file issue_182965_torch_compile_silently_returns_a_result.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":4372.068201323,"data":"[90/193] --file issue_183082_inductor_cpu_returns_wrong_argmax_after.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":4545.446970796,"data":"[91/193] --file issue_183120_torch_compile_inductor_produces_wrong_ou.py exit 0 [173s]\n"}
+,{"stream_name":"stdout","time":4545.447040596,"data":"        * high   inductor_codegen       compile              9819b7192ef6\n"}
+,{"stream_name":"stdout","time":4545.447119935,"data":"      issue_183120_torch_compile_inductor_produces_wrong_ou__bind_dict_elem0 2 candidate(s), 2 submittable, 3 tests, 11 compiles  [19.5s]\n"}
+,{"stream_name":"stdout","time":4545.447127209,"data":"        * high   inductor_codegen       -                    145b3df76b48\n"}
+,{"stream_name":"stdout","time":4545.447131898,"data":"        * high   inductor_codegen       compile              2a22b5955096\n"}
+,{"stream_name":"stdout","time":4545.447136121,"data":"      issue_183120_torch_compile_inductor_produces_wrong_ou__bind_default_param0 2 candidate(s), 2 submittable, 2 tests, 8 compiles  [14.1s]\n"}
+,{"stream_name":"stdout","time":4545.447140211,"data":"        * high   inductor_codegen       -                    b8acf16a10a2\n"}
+,{"stream_name":"stdout","time":4545.447143869,"data":"        * high   inductor_codegen       compile              f49b0ada0b2b\n"}
+,{"stream_name":"stdout","time":4545.447147875,"data":"      issue_183120_torch_compile_inductor_produces_wrong_ou__bind_pos_param0 2 candidate(s), 2 submittable, 2 tests, 8 compiles  [29.6s]\n"}
+,{"stream_name":"stdout","time":4545.447151799,"data":"        * high   inductor_codegen       -                    d98a846bbb31\n"}
+,{"stream_name":"stdout","time":4545.44715547,"data":"        * high   inductor_codegen       compile              6e72bf70aab5\n"}
+,{"stream_name":"stdout","time":4545.447159119,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4553.483229128,"data":"[92/193] --file issue_183121_torch_compile_returns_wrong_shape_for_to.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":4810.729658993,"data":"[93/193] --file issue_183601_torch_compile_inductor_produces_wrong_ou.py exit 0 [257s]\n"}
+,{"stream_name":"stdout","time":4810.729707083,"data":"        * high   inductor_codegen       compile              545a1cb75eb2\n"}
+,{"stream_name":"stdout","time":4810.729714131,"data":"      issue_183601_torch_compile_inductor_produces_wrong_ou__bind_default_param0 2 candidate(s), 2 submittable, 2 tests, 8 compiles  [25.4s]\n"}
+,{"stream_name":"stdout","time":4810.729719459,"data":"        * high   inductor_codegen       -                    77bb89a62c87\n"}
+,{"stream_name":"stdout","time":4810.729724197,"data":"        * high   inductor_codegen       compile              8c3a3fd1fbd3\n"}
+,{"stream_name":"stdout","time":4810.729729015,"data":"      issue_183601_torch_compile_inductor_produces_wrong_ou__bind_pos_param0 2 candidate(s), 2 submittable, 2 tests, 8 compiles  [25.4s]\n"}
+,{"stream_name":"stdout","time":4810.729735707,"data":"        * high   inductor_codegen       -                    66d14cb81f25\n"}
+,{"stream_name":"stdout","time":4810.729744161,"data":"        * high   inductor_codegen       compile              3c2ecad4731d\n"}
+,{"stream_name":"stdout","time":4810.72974758,"data":"      issue_183601_torch_compile_inductor_produces_wrong_ou__bind_kwargs_expand0 2 candidate(s), 2 submittable, 3 tests, 11 compiles  [30.8s]\n"}
+,{"stream_name":"stdout","time":4810.729751076,"data":"        * high   inductor_codegen       -                    049e44d98766\n"}
+,{"stream_name":"stdout","time":4810.729754246,"data":"        * high   inductor_codegen       compile              4b8ad95a85fe\n"}
+,{"stream_name":"stdout","time":4810.729757598,"data":"    16 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4848.104710908,"data":"[94/193] --file issue_183605_torch_compile_changes_fp16_nan_behavior.py exit 0 [37s]\n"}
+,{"stream_name":"stdout","time":4848.104749354,"data":"      issue_183605_torch_compile_changes_fp16_nan_behavior__bind_global0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [8.1s]\n"}
+,{"stream_name":"stdout","time":4848.104786298,"data":"      issue_183605_torch_compile_changes_fp16_nan_behavior__bind_closure0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [3.2s]\n"}
+,{"stream_name":"stdout","time":4848.104791979,"data":"      issue_183605_torch_compile_changes_fp16_nan_behavior__bind_attribute0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":4848.104797016,"data":"      issue_183605_torch_compile_changes_fp16_nan_behavior__bind_list_elem0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [3.2s]\n"}
+,{"stream_name":"stdout","time":4848.104801226,"data":"      issue_183605_torch_compile_changes_fp16_nan_behavior__bind_dict_elem0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":4848.104805238,"data":"      issue_183605_torch_compile_changes_fp16_nan_behavior__bind_default_param0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [3.2s]\n"}
+,{"stream_name":"stdout","time":4848.104809106,"data":"      issue_183605_torch_compile_changes_fp16_nan_behavior__bind_pos_param0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [3.5s]\n"}
+,{"stream_name":"stdout","time":4848.104813011,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4855.916184017,"data":"[95/193] --file issue_183606_torch_compile_changes_signed_zero_behavi.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":4863.880138176,"data":"[96/193] --file issue_183607_torch_compile_changes_fp16_overflow_beha.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":4869.178628762,"data":"[97/193] --file issue_183761_torch_compile_produces_different_fp16_re.py exit 2 [5s]\n"}
+,{"stream_name":"stdout","time":4869.178658432,"data":"        reject issue_183761_torch_compile_produces_different_fp16_re.py: forbidden pattern 'sys.exit'\n"}
+,{"stream_name":"stdout","time":4877.090635783,"data":"[98/193] --file issue_183763_torch_compile_overflows_torch_sinh_near.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":4884.899132661,"data":"[99/193] --file issue_183765_torch_compile_overflows_torch_cosh_near.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":4893.088717775,"data":"[100/193] --file issue_183767_torch_compile_returns_inf_for_torch_asin.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":4900.959902152,"data":"[101/193] --file issue_183768_torch_compile_returns_inf_for_torch_acos.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":4907.157329985,"data":"[102/193] --file issue_183889_torch_compile_fails_with_pendingunbacked.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":4907.157374256,"data":"        reject issue_183889_torch_compile_fails_with_pendingunbacked.py: crashed in isolation (exit 1)\n"}
+,{"stream_name":"stdout","time":4913.153462868,"data":"[103/193] --file issue_183894_torch_compile_returns_wrong_argmin_after.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":4913.153503789,"data":"        reject issue_183894_torch_compile_returns_wrong_argmin_after.py: crashed in isolation (exit 1)\n"}
+,{"stream_name":"stdout","time":4923.346647441,"data":"[104/193] --file issue_184405_torch_compile_backend_inductor_returns_s.py exit 0 [10s]\n"}
+,{"stream_name":"stdout","time":4923.346676734,"data":"      issue_184405_torch_compile_backend_inductor_returns_s__bind_list_elem0 2 candidate(s), 0 submittable, 3 tests, 0 compiles  [0.3s]\n"}
+,{"stream_name":"stdout","time":4923.346682631,"data":"      issue_184405_torch_compile_backend_inductor_returns_s__bind_dict_elem0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":4923.346688407,"data":"      issue_184405_torch_compile_backend_inductor_returns_s__bind_default_param0 2 candidate(s), 0 submittable, 2 tests, 0 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":4923.346693564,"data":"      issue_184405_torch_compile_backend_inductor_returns_s__bind_pos_param0 2 candidate(s), 0 submittable, 2 tests, 0 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":4923.346718153,"data":"    10 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4948.180724901,"data":"[105/193] --file issue_185246_torch_compile_silently_accepts_invalid_b.py exit 0 [25s]\n"}
+,{"stream_name":"stdout","time":4948.180768422,"data":"      issue_185246_torch_compile_silently_accepts_invalid_b__bind_attribute0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":4948.180778844,"data":"        * high   inductor_codegen       -                    551c38130623\n"}
+,{"stream_name":"stdout","time":4948.180782624,"data":"      issue_185246_torch_compile_silently_accepts_invalid_b__bind_list_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.1s]\n"}
+,{"stream_name":"stdout","time":4948.180786332,"data":"        * high   inductor_codegen       -                    7590fc72750c\n"}
+,{"stream_name":"stdout","time":4948.180789698,"data":"      issue_185246_torch_compile_silently_accepts_invalid_b__bind_dict_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":4948.180793998,"data":"        * high   inductor_codegen       -                    e30f35054cb7\n"}
+,{"stream_name":"stdout","time":4948.180798726,"data":"      issue_185246_torch_compile_silently_accepts_invalid_b__bind_default_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.0s]\n"}
+,{"stream_name":"stdout","time":4948.180803608,"data":"        * high   inductor_codegen       -                    d626041cedc2\n"}
+,{"stream_name":"stdout","time":4948.180807712,"data":"      issue_185246_torch_compile_silently_accepts_invalid_b__bind_pos_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":4948.18081131,"data":"        * high   inductor_codegen       -                    ae34b0d3b568\n"}
+,{"stream_name":"stdout","time":4948.180814718,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4976.89713367,"data":"[106/193] --file issue_185248_torch_compile_silently_accepts_negative.py exit 0 [29s]\n"}
+,{"stream_name":"stdout","time":4976.897182642,"data":"      issue_185248_torch_compile_silently_accepts_negative__bind_attribute0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.4s]\n"}
+,{"stream_name":"stdout","time":4976.897188189,"data":"        * high   inductor_codegen       -                    2036d1fb1c97\n"}
+,{"stream_name":"stdout","time":4976.89719181,"data":"      issue_185248_torch_compile_silently_accepts_negative__bind_list_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.3s]\n"}
+,{"stream_name":"stdout","time":4976.897195346,"data":"        * high   inductor_codegen       -                    981a59a0585f\n"}
+,{"stream_name":"stdout","time":4976.897198636,"data":"      issue_185248_torch_compile_silently_accepts_negative__bind_dict_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.3s]\n"}
+,{"stream_name":"stdout","time":4976.897202142,"data":"        * high   inductor_codegen       -                    7ad1a254b9da\n"}
+,{"stream_name":"stdout","time":4976.897205353,"data":"      issue_185248_torch_compile_silently_accepts_negative__bind_default_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.3s]\n"}
+,{"stream_name":"stdout","time":4976.897208722,"data":"        * high   inductor_codegen       -                    f7e1fe963eff\n"}
+,{"stream_name":"stdout","time":4976.897211992,"data":"      issue_185248_torch_compile_silently_accepts_negative__bind_pos_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.3s]\n"}
+,{"stream_name":"stdout","time":4976.897255344,"data":"        * high   inductor_codegen       -                    ad5dc4afecc6\n"}
+,{"stream_name":"stdout","time":4976.897260682,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4994.336824718,"data":"[107/193] --file issue_185330_inductor_torch_index_select_on_uint16_in.py exit 0 [17s]\n"}
+,{"stream_name":"stdout","time":4994.336885298,"data":"      issue_185330_inductor_torch_index_select_on_uint16_in__bind_global0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [4.5s]\n"}
+,{"stream_name":"stdout","time":4994.336890331,"data":"      issue_185330_inductor_torch_index_select_on_uint16_in__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.5s]\n"}
+,{"stream_name":"stdout","time":4994.336894,"data":"      issue_185330_inductor_torch_index_select_on_uint16_in__bind_attribute0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.5s]\n"}
+,{"stream_name":"stdout","time":4994.336897864,"data":"      issue_185330_inductor_torch_index_select_on_uint16_in__bind_list_elem0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":4994.336914845,"data":"      issue_185330_inductor_torch_index_select_on_uint16_in__bind_dict_elem0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":4994.336917993,"data":"      issue_185330_inductor_torch_index_select_on_uint16_in__bind_default_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":4994.33692103,"data":"      issue_185330_inductor_torch_index_select_on_uint16_in__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":4994.336924197,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5005.188441348,"data":"[108/193] --file issue_185405_inductor_assertionerror_len_index_len_st.py exit 0 [11s]\n"}
+,{"stream_name":"stdout","time":5005.188485811,"data":"      issue_185405_inductor_assertionerror_len_index_len_st__bind_global0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [1.1s]\n"}
+,{"stream_name":"stdout","time":5005.188501043,"data":"      issue_185405_inductor_assertionerror_len_index_len_st__bind_closure0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":5005.188505423,"data":"      issue_185405_inductor_assertionerror_len_index_len_st__bind_attribute0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":5005.188509419,"data":"      issue_185405_inductor_assertionerror_len_index_len_st__bind_list_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":5005.188513116,"data":"      issue_185405_inductor_assertionerror_len_index_len_st__bind_dict_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":5005.188516702,"data":"      issue_185405_inductor_assertionerror_len_index_len_st__bind_default_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.2s]\n"}
+,{"stream_name":"stdout","time":5005.188520263,"data":"      issue_185405_inductor_assertionerror_len_index_len_st__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.4s]\n"}
+,{"stream_name":"stdout","time":5005.188523876,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5020.055104734,"data":"[109/193] --file issue_185481_inductor_argmax_over_comparison_mask_is.py exit 0 [15s]\n"}
+,{"stream_name":"stdout","time":5020.055139915,"data":"      issue_185481_inductor_argmax_over_comparison_mask_is__bind_global0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [5.6s]\n"}
+,{"stream_name":"stdout","time":5020.055159285,"data":"        * high   inductor_codegen       -                    a41d7c1c732d\n"}
+,{"stream_name":"stdout","time":5020.05516481,"data":"      issue_185481_inductor_argmax_over_comparison_mask_is__bind_closure0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5020.055169204,"data":"      issue_185481_inductor_argmax_over_comparison_mask_is__bind_attribute0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5020.055173542,"data":"      issue_185481_inductor_argmax_over_comparison_mask_is__bind_list_elem0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5020.055177422,"data":"      issue_185481_inductor_argmax_over_comparison_mask_is__bind_dict_elem0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5020.055182287,"data":"      issue_185481_inductor_argmax_over_comparison_mask_is__bind_default_param0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5020.055187169,"data":"      issue_185481_inductor_argmax_over_comparison_mask_is__bind_pos_param0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5020.055191272,"data":"    1 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5027.925314748,"data":"[110/193] --file issue_185488_dynamo_lazybatchnorm2d_fails_under_torch.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5035.894061155,"data":"[111/193] --file issue_185494_dynamo_lazybatchnorm2d_fails_under_torch.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5053.003099772,"data":"[112/193] --file issue_185515_inductor_tensor_view_dtype_after_transpo.py exit 0 [17s]\n"}
+,{"stream_name":"stdout","time":5053.003146974,"data":"      issue_185515_inductor_tensor_view_dtype_after_transpo__bind_global0 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [3.2s]\n"}
+,{"stream_name":"stdout","time":5053.003152786,"data":"      issue_185515_inductor_tensor_view_dtype_after_transpo__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 8 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":5053.003156618,"data":"      issue_185515_inductor_tensor_view_dtype_after_transpo__bind_attribute0 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [0.8s]\n"}
+,{"stream_name":"stdout","time":5053.003160246,"data":"      issue_185515_inductor_tensor_view_dtype_after_transpo__bind_list_elem0 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [1.0s]\n"}
+,{"stream_name":"stdout","time":5053.003163714,"data":"      issue_185515_inductor_tensor_view_dtype_after_transpo__bind_dict_elem0 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [0.8s]\n"}
+,{"stream_name":"stdout","time":5053.003167107,"data":"      issue_185515_inductor_tensor_view_dtype_after_transpo__bind_default_param0 0 candidate(s), 0 submittable, 2 tests, 8 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":5053.003170359,"data":"      issue_185515_inductor_tensor_view_dtype_after_transpo__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 8 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":5053.003173741,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5060.816628556,"data":"[113/193] --file issue_185575_inductor_upsample_mode_area_fails_under.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5068.708452293,"data":"[114/193] --file issue_185587_inductor_numerical_inconsistency_polygam.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5076.530819153,"data":"[115/193] --file issue_185589_inductor_severe_numerical_inconsistency.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5084.304300375,"data":"[116/193] --file issue_186671_dynamo_set_subclass_overriding_iter_give.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5117.573240232,"data":"[117/193] --file issue_186799_torch_compile_silently_produces_wrong_gr.py exit 0 [33s]\n"}
+,{"stream_name":"stdout","time":5117.573277531,"data":"      issue_186799_torch_compile_silently_produces_wrong_gr__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [7.2s]\n"}
+,{"stream_name":"stdout","time":5117.573283646,"data":"      issue_186799_torch_compile_silently_produces_wrong_gr__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.0s]\n"}
+,{"stream_name":"stdout","time":5117.573288454,"data":"      issue_186799_torch_compile_silently_produces_wrong_gr__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":5117.573293235,"data":"      issue_186799_torch_compile_silently_produces_wrong_gr__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":5117.573298367,"data":"      issue_186799_torch_compile_silently_produces_wrong_gr__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.9s]\n"}
+,{"stream_name":"stdout","time":5117.573304548,"data":"      issue_186799_torch_compile_silently_produces_wrong_gr__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":5117.573310102,"data":"      issue_186799_torch_compile_silently_produces_wrong_gr__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":5117.573315449,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5141.15321018,"data":"[118/193] --file issue_186875_inductor_fmod_remainder_with_python_floa.py exit 0 [24s]\n"}
+,{"stream_name":"stdout","time":5141.153250691,"data":"      issue_186875_inductor_fmod_remainder_with_python_floa__bind_global0 0 candidate(s), 0 submittable, 5 tests, 18 compiles  [5.4s]\n"}
+,{"stream_name":"stdout","time":5141.153258658,"data":"      issue_186875_inductor_fmod_remainder_with_python_floa__bind_closure0 0 candidate(s), 0 submittable, 5 tests, 18 compiles  [1.7s]\n"}
+,{"stream_name":"stdout","time":5141.153264225,"data":"      issue_186875_inductor_fmod_remainder_with_python_floa__bind_attribute0 0 candidate(s), 0 submittable, 5 tests, 18 compiles  [1.4s]\n"}
+,{"stream_name":"stdout","time":5141.153269388,"data":"      issue_186875_inductor_fmod_remainder_with_python_floa__bind_list_elem0 0 candidate(s), 0 submittable, 5 tests, 18 compiles  [1.4s]\n"}
+,{"stream_name":"stdout","time":5141.153275733,"data":"      issue_186875_inductor_fmod_remainder_with_python_floa__bind_dict_elem0 0 candidate(s), 0 submittable, 5 tests, 18 compiles  [1.4s]\n"}
+,{"stream_name":"stdout","time":5141.153280754,"data":"      issue_186875_inductor_fmod_remainder_with_python_floa__bind_default_param0 0 candidate(s), 0 submittable, 5 tests, 18 compiles  [1.4s]\n"}
+,{"stream_name":"stdout","time":5141.153286261,"data":"      issue_186875_inductor_fmod_remainder_with_python_floa__bind_pos_param0 0 candidate(s), 0 submittable, 5 tests, 18 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":5141.153291248,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5148.808416277,"data":"[119/193] --file issue_187018_abs_on_uint8_silently_miscompiled_via_st.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5156.578235265,"data":"[120/193] --file issue_187027_flip_after_repeat_interleave_generates_n.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5188.933515983,"data":"[121/193] --file issue_187953_torch_compile_out_variants_of_compositei.py exit 0 [32s]\n"}
+,{"stream_name":"stdout","time":5188.933554114,"data":"      issue_187953_torch_compile_out_variants_of_compositei__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [6.9s]\n"}
+,{"stream_name":"stdout","time":5188.933602911,"data":"      issue_187953_torch_compile_out_variants_of_compositei__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.8s]\n"}
+,{"stream_name":"stdout","time":5188.933608687,"data":"      issue_187953_torch_compile_out_variants_of_compositei__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":5188.93361259,"data":"      issue_187953_torch_compile_out_variants_of_compositei__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":5188.93361662,"data":"      issue_187953_torch_compile_out_variants_of_compositei__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":5188.933620955,"data":"      issue_187953_torch_compile_out_variants_of_compositei__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.8s]\n"}
+,{"stream_name":"stdout","time":5188.933625097,"data":"      issue_187953_torch_compile_out_variants_of_compositei__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":5188.933629235,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5195.469634801,"data":"[122/193] --file issue_188074_torch_compile_produces_inconsistent_outp.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":5195.469687951,"data":"        reject issue_188074_torch_compile_produces_inconsistent_outp.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":5203.236329364,"data":"[123/193] --file issue_188084_bug_inductor_reinplaces_index_put_on_exp.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5209.755228493,"data":"[124/193] --file issue_188420_torch_compile_produces_inconsistent_outp.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":5209.755266897,"data":"        reject issue_188420_torch_compile_produces_inconsistent_outp.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":5216.277217603,"data":"[125/193] --file issue_188425_torch_compile_produces_drastically_incor.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":5216.277254832,"data":"        reject issue_188425_torch_compile_produces_drastically_incor.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":5222.967066461,"data":"[126/193] --file issue_188430_torch_compile_produces_large_absolute_er.py exit 2 [7s]\n"}
+,{"stream_name":"stdout","time":5222.967106178,"data":"        reject issue_188430_torch_compile_produces_large_absolute_er.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":5229.355519763,"data":"[127/193] --file issue_188432_torch_compile_produces_inconsistent_outp.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":5229.355560842,"data":"        reject issue_188432_torch_compile_produces_inconsistent_outp.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":5235.769690946,"data":"[128/193] --file issue_188536_graph_break_reconstruction_loses_identit.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":5235.769722792,"data":"        reject issue_188536_graph_break_reconstruction_loses_identit.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":5242.201503798,"data":"[129/193] --file issue_188680_test_opinfo_gap_allclose_based_compile_v.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":5242.20155242,"data":"        reject issue_188680_test_opinfo_gap_allclose_based_compile_v.py: does not run: NameError: name 'ops' is not defined\n"}
+,{"stream_name":"stdout","time":5252.04338061,"data":"[130/193] --file issue_189271_inductor_keyerror_in_scheduler_compute_a.py exit 0 [10s]\n"}
+,{"stream_name":"stdout","time":5252.043418232,"data":"      issue_189271_inductor_keyerror_in_scheduler_compute_a__bind_global0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":5252.043424494,"data":"      issue_189271_inductor_keyerror_in_scheduler_compute_a__bind_closure0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5252.043429244,"data":"      issue_189271_inductor_keyerror_in_scheduler_compute_a__bind_attribute0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5252.043434226,"data":"      issue_189271_inductor_keyerror_in_scheduler_compute_a__bind_list_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5252.043439706,"data":"      issue_189271_inductor_keyerror_in_scheduler_compute_a__bind_dict_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5252.043445004,"data":"      issue_189271_inductor_keyerror_in_scheduler_compute_a__bind_default_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5252.043450962,"data":"      issue_189271_inductor_keyerror_in_scheduler_compute_a__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5252.043456048,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5258.370520208,"data":"[131/193] --file issue_189341_torch_compile_causes_segmentation_fault.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":5258.370549229,"data":"        reject issue_189341_torch_compile_causes_segmentation_fault.py: does not run: AssertionError: Torch not compiled with XPU enabled\n"}
+,{"stream_name":"stdout","time":5296.017947555,"data":"[132/193] --file issue_189518_inductor_s_pointless_cumsum_replacement.py exit 0 [38s]\n"}
+,{"stream_name":"stdout","time":5296.018000287,"data":"        * high   inductor_codegen       compile              224112ac0d5e\n"}
+,{"stream_name":"stdout","time":5296.018008723,"data":"      issue_189518_inductor_s_pointless_cumsum_replacement__bind_dict_elem0 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [2.7s]\n"}
+,{"stream_name":"stdout","time":5296.018014849,"data":"        * high   inductor_codegen       -                    75ffe48b7d8e\n"}
+,{"stream_name":"stdout","time":5296.018020442,"data":"        * high   inductor_codegen       compile              088c03bd4bef\n"}
+,{"stream_name":"stdout","time":5296.018025803,"data":"      issue_189518_inductor_s_pointless_cumsum_replacement__bind_default_param0 2 candidate(s), 2 submittable, 2 tests, 6 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":5296.018030679,"data":"        * high   inductor_codegen       -                    8bde2f43e0c3\n"}
+,{"stream_name":"stdout","time":5296.01803535,"data":"        * high   inductor_codegen       compile              2be7cbd4cc5d\n"}
+,{"stream_name":"stdout","time":5296.018040093,"data":"      issue_189518_inductor_s_pointless_cumsum_replacement__bind_pos_param0 2 candidate(s), 2 submittable, 2 tests, 6 compiles  [2.5s]\n"}
+,{"stream_name":"stdout","time":5296.01804501,"data":"        * high   inductor_codegen       -                    3a08bf771904\n"}
+,{"stream_name":"stdout","time":5296.018054175,"data":"        * high   inductor_codegen       compile              7ceed9ba0da7\n"}
+,{"stream_name":"stdout","time":5296.018070198,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5354.090960881,"data":"[133/193] --file issue_189528_cond_inductor_nameerror_on_inner_dim_bra.py exit 0 [58s]\n"}
+,{"stream_name":"stdout","time":5354.091002225,"data":"      issue_189528_cond_inductor_nameerror_on_inner_dim_bra__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [14.4s]\n"}
+,{"stream_name":"stdout","time":5354.091010564,"data":"      issue_189528_cond_inductor_nameerror_on_inner_dim_bra__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.8s]\n"}
+,{"stream_name":"stdout","time":5354.091018738,"data":"      issue_189528_cond_inductor_nameerror_on_inner_dim_bra__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.5s]\n"}
+,{"stream_name":"stdout","time":5354.091022184,"data":"      issue_189528_cond_inductor_nameerror_on_inner_dim_bra__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.6s]\n"}
+,{"stream_name":"stdout","time":5354.091025492,"data":"      issue_189528_cond_inductor_nameerror_on_inner_dim_bra__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.6s]\n"}
+,{"stream_name":"stdout","time":5354.091028658,"data":"      issue_189528_cond_inductor_nameerror_on_inner_dim_bra__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.6s]\n"}
+,{"stream_name":"stdout","time":5354.091031826,"data":"      issue_189528_cond_inductor_nameerror_on_inner_dim_bra__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.7s]\n"}
+,{"stream_name":"stdout","time":5354.091035018,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5361.680419431,"data":"[134/193] --file issue_189787_inductor_constant_folds_sum_softmax_to_e.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5369.380687906,"data":"[135/193] --file issue_189808_inductor_sqrt_produces_negative_nan_0xff.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5377.05044614,"data":"[136/193] --file issue_189925_dynamo_io_text_encoding_causes_a_graph_b.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5384.617601646,"data":"[137/193] --file issue_190274_inductor_runtimeerror_self_stride_0_must.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5420.404511514,"data":"[138/193] --file issue_190755_some_dynamo_descriptors_tp_descr_get_imp.py exit 0 [36s]\n"}
+,{"stream_name":"stdout","time":5420.404665326,"data":"      issue_190755_some_dynamo_descriptors_tp_descr_get_imp__bind_default_param0 3 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.4s]\n"}
+,{"stream_name":"stdout","time":5420.404678952,"data":"      issue_190755_some_dynamo_descriptors_tp_descr_get_imp__bind_pos_param0 3 candidate(s), 0 submittable, 6 tests, 21 compiles  [3.2s]\n"}
+,{"stream_name":"stdout","time":5420.404685826,"data":"    21 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5429.674028186,"data":"[139/193] --file issue_190758_memory_budget_partitioner_recomputes_rng.py exit 0 [9s]\n"}
+,{"stream_name":"stdout","time":5429.674065096,"data":"      issue_190758_memory_budget_partitioner_recomputes_rng__bind_global0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":5429.674072335,"data":"      issue_190758_memory_budget_partitioner_recomputes_rng__bind_closure0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5429.674078053,"data":"      issue_190758_memory_budget_partitioner_recomputes_rng__bind_attribute0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5429.674084686,"data":"      issue_190758_memory_budget_partitioner_recomputes_rng__bind_list_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5429.674108961,"data":"      issue_190758_memory_budget_partitioner_recomputes_rng__bind_dict_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5429.674114599,"data":"      issue_190758_memory_budget_partitioner_recomputes_rng__bind_default_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5429.674119344,"data":"      issue_190758_memory_budget_partitioner_recomputes_rng__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.1s]\n"}
+,{"stream_name":"stdout","time":5429.674123806,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5439.298439973,"data":"[140/193] --file issue_190855_inductor_wrong_hessian_torch_compile_tor.py exit 0 [10s]\n"}
+,{"stream_name":"stdout","time":5439.298479723,"data":"      issue_190855_inductor_wrong_hessian_torch_compile_tor__bind_global0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.8s]\n"}
+,{"stream_name":"stdout","time":5439.298486572,"data":"      issue_190855_inductor_wrong_hessian_torch_compile_tor__bind_closure0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5439.298491953,"data":"      issue_190855_inductor_wrong_hessian_torch_compile_tor__bind_attribute0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5439.298496857,"data":"      issue_190855_inductor_wrong_hessian_torch_compile_tor__bind_list_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5439.298503708,"data":"      issue_190855_inductor_wrong_hessian_torch_compile_tor__bind_dict_elem0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5439.298512179,"data":"      issue_190855_inductor_wrong_hessian_torch_compile_tor__bind_default_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5439.298515427,"data":"      issue_190855_inductor_wrong_hessian_torch_compile_tor__bind_pos_param0 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":5439.298518707,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5466.843002576,"data":"[141/193] --file issue_191136_inductor_torch_view_copy_fails_on_expand.py exit 0 [28s]\n"}
+,{"stream_name":"stdout","time":5466.843060777,"data":"      issue_191136_inductor_torch_view_copy_fails_on_expand__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.8s]\n"}
+,{"stream_name":"stdout","time":5466.843069475,"data":"      issue_191136_inductor_torch_view_copy_fails_on_expand__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":5466.843075702,"data":"      issue_191136_inductor_torch_view_copy_fails_on_expand__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":5466.843081234,"data":"      issue_191136_inductor_torch_view_copy_fails_on_expand__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":5466.84308667,"data":"      issue_191136_inductor_torch_view_copy_fails_on_expand__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":5466.843092297,"data":"      issue_191136_inductor_torch_view_copy_fails_on_expand__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":5466.843097826,"data":"      issue_191136_inductor_torch_view_copy_fails_on_expand__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":5466.843210366,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5474.541189509,"data":"[142/193] --file issue_191499_inductor_cpu_torch_compile_returns_0_for.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5500.866026929,"data":"[143/193] --file issue_191833_constraintviolationerror_is_not_raised_w.py exit 0 [26s]\n"}
+,{"stream_name":"stdout","time":5500.866068747,"data":"      issue_191833_constraintviolationerror_is_not_raised_w__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.5s]\n"}
+,{"stream_name":"stdout","time":5500.866081391,"data":"      issue_191833_constraintviolationerror_is_not_raised_w__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":5500.866085169,"data":"      issue_191833_constraintviolationerror_is_not_raised_w__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":5500.866088855,"data":"      issue_191833_constraintviolationerror_is_not_raised_w__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":5500.866092637,"data":"      issue_191833_constraintviolationerror_is_not_raised_w__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":5500.866095981,"data":"      issue_191833_constraintviolationerror_is_not_raised_w__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":5500.866099331,"data":"      issue_191833_constraintviolationerror_is_not_raised_w__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":5500.866102607,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5507.202450165,"data":"[144/193] --file issue_192872_dynamo_mutation_to_a_load_build_class_cr.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":5507.202489611,"data":"        reject issue_192872_dynamo_mutation_to_a_load_build_class_cr.py: does not run: AttributeError: torch._dynamo.config.enable_trace_load_build_class does not e\n"}
+,{"stream_name":"stdout","time":5515.105389928,"data":"[145/193] --file issue_192905_nested_nested_compile_region_silently_re.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5521.532812695,"data":"[146/193] --file issue_192906_reuse_hash_fn_leaves_a_subscripted_captu.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":5521.53285152,"data":"        reject issue_192906_reuse_hash_fn_leaves_a_subscripted_captu.py: does not run: TypeError: nested_compile_region() got an unexpected keyword argument 'reuse_\n"}
+,{"stream_name":"stdout","time":5546.287468203,"data":"[147/193] --file issue_192985_dynamo_silently_drops_custom_jvp_of_auto.py exit 0 [25s]\n"}
+,{"stream_name":"stdout","time":5546.287501288,"data":"      issue_192985_dynamo_silently_drops_custom_jvp_of_auto__bind_default_param0 3 candidate(s), 0 submittable, 6 tests, 0 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":5546.287506644,"data":"      issue_192985_dynamo_silently_drops_custom_jvp_of_auto__bind_pos_param0 3 candidate(s), 0 submittable, 6 tests, 0 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":5546.287511864,"data":"    21 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5553.981024938,"data":"[148/193] --file issue_193279_dynamo_silently_drops_custom_backward_of.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5560.425657514,"data":"[149/193] --file issue_193490_inductor_batch_linear_lhs_fusion_leaks_w.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":5560.425718696,"data":"        reject issue_193490_inductor_batch_linear_lhs_fusion_leaks_w.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)\n"}
+,{"stream_name":"stdout","time":5660.982807632,"data":"[150/193] --file issue_193661_inductor_wrong_argmax_after_fused_traili.py exit 0 [101s]\n"}
+,{"stream_name":"stdout","time":5660.982844589,"data":"        * high   inductor_codegen       dtype                1389668fdab6\n"}
+,{"stream_name":"stdout","time":5660.982851622,"data":"        * high   inductor_codegen       requires_grad        548ae8faf576\n"}
+,{"stream_name":"stdout","time":5660.982856262,"data":"      issue_193661_inductor_wrong_argmax_after_fused_traili__bind_default_param0 3 candidate(s), 3 submittable, 6 tests, 21 compiles  [12.2s]\n"}
+,{"stream_name":"stdout","time":5660.982861207,"data":"        * high   inductor_codegen       -                    6dbfe7989a65\n"}
+,{"stream_name":"stdout","time":5660.982868809,"data":"        * high   inductor_codegen       dtype                c5fbd581146c\n"}
+,{"stream_name":"stdout","time":5660.982871889,"data":"        * high   inductor_codegen       requires_grad        b85b0ecdfc38\n"}
+,{"stream_name":"stdout","time":5660.982875102,"data":"      issue_193661_inductor_wrong_argmax_after_fused_traili__bind_pos_param0 3 candidate(s), 3 submittable, 6 tests, 21 compiles  [12.2s]\n"}
+,{"stream_name":"stdout","time":5660.982878372,"data":"        * high   inductor_codegen       -                    ef0b9e8d4152\n"}
+,{"stream_name":"stdout","time":5660.9828815,"data":"        * high   inductor_codegen       dtype                f56857b747d0\n"}
+,{"stream_name":"stdout","time":5660.982884457,"data":"        * high   inductor_codegen       requires_grad        e0e6965ecc98\n"}
+,{"stream_name":"stdout","time":5660.982887452,"data":"    21 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5671.194650117,"data":"[151/193] --file issue_193710_inductor_fallback_node_due_to_unsupporte.py exit 2 [10s]\n"}
+,{"stream_name":"stdout","time":5679.154446434,"data":"[152/193] --file issue_193757_inductor_cpu_torch_compile_silently_acce.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5686.812423762,"data":"[153/193] --file issue_193809_torch_compile_torch_func_vjp_raises_inte.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5746.42866006,"data":"[154/193] --file issue_193811_torch_compile_silently_accepts_int32_inp.py exit 0 [60s]\n"}
+,{"stream_name":"stdout","time":5746.428722274,"data":"      issue_193811_torch_compile_silently_accepts_int32_inp__bind_attribute0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [6.3s]\n"}
+,{"stream_name":"stdout","time":5746.428730222,"data":"        * high   aot_functionalization  -                    2e5c98b0c8fc\n"}
+,{"stream_name":"stdout","time":5746.428737758,"data":"      issue_193811_torch_compile_silently_accepts_int32_inp__bind_list_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [6.4s]\n"}
+,{"stream_name":"stdout","time":5746.42874655,"data":"        * high   aot_functionalization  -                    9e5b63d1b4b0\n"}
+,{"stream_name":"stdout","time":5746.42875032,"data":"      issue_193811_torch_compile_silently_accepts_int32_inp__bind_dict_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [6.4s]\n"}
+,{"stream_name":"stdout","time":5746.42875419,"data":"        * high   aot_functionalization  -                    63b65aa6a544\n"}
+,{"stream_name":"stdout","time":5746.428757604,"data":"      issue_193811_torch_compile_silently_accepts_int32_inp__bind_default_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [6.3s]\n"}
+,{"stream_name":"stdout","time":5746.428761629,"data":"        * high   aot_functionalization  -                    d5937dc747cf\n"}
+,{"stream_name":"stdout","time":5746.428784595,"data":"      issue_193811_torch_compile_silently_accepts_int32_inp__bind_pos_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [6.4s]\n"}
+,{"stream_name":"stdout","time":5746.428799848,"data":"        * high   aot_functionalization  -                    0f00cc2abd58\n"}
+,{"stream_name":"stdout","time":5746.428802366,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5770.120782069,"data":"[155/193] --file issue_193876_inductor_compiling_two_torch_full_cumsum.py exit 0 [24s]\n"}
+,{"stream_name":"stdout","time":5770.120826281,"data":"      issue_193876_inductor_compiling_two_torch_full_cumsum__bind_global0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [9.7s]\n"}
+,{"stream_name":"stdout","time":5770.120832288,"data":"      issue_193876_inductor_compiling_two_torch_full_cumsum__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [1.5s]\n"}
+,{"stream_name":"stdout","time":5770.12086764,"data":"      issue_193876_inductor_compiling_two_torch_full_cumsum__bind_attribute0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":5770.120873674,"data":"      issue_193876_inductor_compiling_two_torch_full_cumsum__bind_list_elem0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":5770.120879305,"data":"      issue_193876_inductor_compiling_two_torch_full_cumsum__bind_dict_elem0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":5770.120885224,"data":"      issue_193876_inductor_compiling_two_torch_full_cumsum__bind_default_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.5s]\n"}
+,{"stream_name":"stdout","time":5770.120890617,"data":"      issue_193876_inductor_compiling_two_torch_full_cumsum__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":5770.120895574,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5776.590524765,"data":"[156/193] --file issue_194001_aotautogradcache_stale_guards_expr_from.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":5776.590580781,"data":"        reject issue_194001_aotautogradcache_stale_guards_expr_from.py: does not run: NameError: name 'torch' is not defined\n"}
+,{"stream_name":"stdout","time":5784.227179317,"data":"[157/193] --file issue_194005_graphs_containing_linalg_cholesky_inv_so.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5827.500205064,"data":"[158/193] --file issue_194062_inductor_silent_incorrectness_torch_full.py exit 0 [43s]\n"}
+,{"stream_name":"stdout","time":5827.500258245,"data":"        * high   inductor_codegen       compile              d37530ce8a0e\n"}
+,{"stream_name":"stdout","time":5827.500264958,"data":"      issue_194062_inductor_silent_incorrectness_torch_full__bind_dict_elem0 2 candidate(s), 2 submittable, 2 tests, 6 compiles  [3.2s]\n"}
+,{"stream_name":"stdout","time":5827.500271018,"data":"        * high   inductor_codegen       -                    bd1da6ee0fe8\n"}
+,{"stream_name":"stdout","time":5827.500276363,"data":"        * high   inductor_codegen       compile              de42b4cbe57b\n"}
+,{"stream_name":"stdout","time":5827.500280935,"data":"      issue_194062_inductor_silent_incorrectness_torch_full__bind_default_param0 2 candidate(s), 2 submittable, 2 tests, 6 compiles  [3.5s]\n"}
+,{"stream_name":"stdout","time":5827.50028572,"data":"        * high   inductor_codegen       -                    620c1e8387de\n"}
+,{"stream_name":"stdout","time":5827.50029016,"data":"        * high   inductor_codegen       compile              c3d0d5fce533\n"}
+,{"stream_name":"stdout","time":5827.500294712,"data":"      issue_194062_inductor_silent_incorrectness_torch_full__bind_pos_param0 2 candidate(s), 2 submittable, 2 tests, 6 compiles  [4.1s]\n"}
+,{"stream_name":"stdout","time":5827.500313926,"data":"        * high   inductor_codegen       -                    b471cb328dda\n"}
+,{"stream_name":"stdout","time":5827.500318837,"data":"        * high   inductor_codegen       compile              f6543bfb67de\n"}
+,{"stream_name":"stdout","time":5827.500322718,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5856.065874455,"data":"[159/193] --file issue_194103_torch_compile_dynamic_true_fails_for_sca.py exit 0 [29s]\n"}
+,{"stream_name":"stdout","time":5856.065933112,"data":"      issue_194103_torch_compile_dynamic_true_fails_for_sca__bind_attribute0 1 candidate(s), 0 submittable, 5 tests, 14 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":5856.06594078,"data":"      issue_194103_torch_compile_dynamic_true_fails_for_sca__bind_list_elem0 1 candidate(s), 0 submittable, 5 tests, 14 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":5856.065946512,"data":"      issue_194103_torch_compile_dynamic_true_fails_for_sca__bind_dict_elem0 1 candidate(s), 0 submittable, 5 tests, 14 compiles  [2.3s]\n"}
+,{"stream_name":"stdout","time":5856.065951388,"data":"      issue_194103_torch_compile_dynamic_true_fails_for_sca__bind_default_param0 1 candidate(s), 0 submittable, 5 tests, 14 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":5856.06595643,"data":"      issue_194103_torch_compile_dynamic_true_fails_for_sca__bind_pos_param0 1 candidate(s), 0 submittable, 5 tests, 14 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":5856.065961,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5909.255710983,"data":"[160/193] --file issue_194444_inductor_sdpa_fusion_silently_lost_when.py exit 0 [53s]\n"}
+,{"stream_name":"stdout","time":5909.255749055,"data":"      issue_194444_inductor_sdpa_fusion_silently_lost_when__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [11.1s]\n"}
+,{"stream_name":"stdout","time":5909.255755846,"data":"      issue_194444_inductor_sdpa_fusion_silently_lost_when__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.4s]\n"}
+,{"stream_name":"stdout","time":5909.25576119,"data":"      issue_194444_inductor_sdpa_fusion_silently_lost_when__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.5s]\n"}
+,{"stream_name":"stdout","time":5909.255766447,"data":"      issue_194444_inductor_sdpa_fusion_silently_lost_when__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.5s]\n"}
+,{"stream_name":"stdout","time":5909.255772178,"data":"      issue_194444_inductor_sdpa_fusion_silently_lost_when__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.4s]\n"}
+,{"stream_name":"stdout","time":5909.255777652,"data":"      issue_194444_inductor_sdpa_fusion_silently_lost_when__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.5s]\n"}
+,{"stream_name":"stdout","time":5909.25578304,"data":"      issue_194444_inductor_sdpa_fusion_silently_lost_when__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.3s]\n"}
+,{"stream_name":"stdout","time":5909.255788958,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5934.481335813,"data":"[161/193] --file issue_194501_torch_compile_inductor_smooth_l1_loss_wi.py exit 0 [25s]\n"}
+,{"stream_name":"stdout","time":5934.481369764,"data":"      issue_194501_torch_compile_inductor_smooth_l1_loss_wi__bind_attribute0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":5934.481376052,"data":"        * high   inductor_codegen       -                    aadb0424dbe8\n"}
+,{"stream_name":"stdout","time":5934.481390149,"data":"      issue_194501_torch_compile_inductor_smooth_l1_loss_wi__bind_list_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.7s]\n"}
+,{"stream_name":"stdout","time":5934.48139414,"data":"        * high   inductor_codegen       -                    4606d7e27709\n"}
+,{"stream_name":"stdout","time":5934.481398053,"data":"      issue_194501_torch_compile_inductor_smooth_l1_loss_wi__bind_dict_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":5934.481401884,"data":"        * high   inductor_codegen       -                    ef3822aa355e\n"}
+,{"stream_name":"stdout","time":5934.481405257,"data":"      issue_194501_torch_compile_inductor_smooth_l1_loss_wi__bind_default_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.7s]\n"}
+,{"stream_name":"stdout","time":5934.481409327,"data":"        * high   inductor_codegen       -                    cf08475f8295\n"}
+,{"stream_name":"stdout","time":5934.48141271,"data":"      issue_194501_torch_compile_inductor_smooth_l1_loss_wi__bind_pos_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":5934.481416176,"data":"        * high   inductor_codegen       -                    151a8ebb0c7b\n"}
+,{"stream_name":"stdout","time":5934.481420011,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5942.223447861,"data":"[162/193] --file issue_194503_torch_compile_gaussian_nll_loss_fails_wi.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5949.835940375,"data":"[163/193] --file issue_194504_torch_compile_batchnorm1d_momentum_none.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5957.61730152,"data":"[164/193] --file issue_194547_torch_compile_silently_promotes_dtype_fo.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5963.968869093,"data":"[165/193] --file issue_194548_torch_compile_silently_accepts_zero_batc.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":5963.968929307,"data":"        reject issue_194548_torch_compile_silently_accepts_zero_batc.py: does not run: RuntimeError: cannot reshape tensor of 0 elements into shape [0, -1] because \n"}
+,{"stream_name":"stdout","time":5971.677332812,"data":"[166/193] --file issue_194558_inductor_in_place_padding_optimization_m.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5979.24922255,"data":"[167/193] --file issue_194593_torch_compile_kl_divergence_binomial_bin.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5987.022638653,"data":"[168/193] --file issue_194596_torch_compile_wishart_mean_with_tensor_v.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":5994.941107116,"data":"[169/193] --file issue_194765_torch_compile_adaptivelogsoftmaxwithloss.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":6009.591730216,"data":"[170/193] --file issue_194766_torch_compile_torch_masked_median_fails.py exit 0 [15s]\n"}
+,{"stream_name":"stdout","time":6009.591770374,"data":"      issue_194766_torch_compile_torch_masked_median_fails__bind_global0 0 candidate(s), 0 submittable, 2 tests, 0 compiles  [1.6s]\n"}
+,{"stream_name":"stdout","time":6009.591777401,"data":"      issue_194766_torch_compile_torch_masked_median_fails__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 0 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":6009.591782617,"data":"      issue_194766_torch_compile_torch_masked_median_fails__bind_attribute0 0 candidate(s), 0 submittable, 2 tests, 0 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":6009.591787838,"data":"      issue_194766_torch_compile_torch_masked_median_fails__bind_list_elem0 0 candidate(s), 0 submittable, 2 tests, 0 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":6009.591792706,"data":"      issue_194766_torch_compile_torch_masked_median_fails__bind_dict_elem0 0 candidate(s), 0 submittable, 2 tests, 0 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":6009.591815224,"data":"      issue_194766_torch_compile_torch_masked_median_fails__bind_default_param0 0 candidate(s), 0 submittable, 2 tests, 0 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":6009.591819522,"data":"      issue_194766_torch_compile_torch_masked_median_fails__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 0 compiles  [0.8s]\n"}
+,{"stream_name":"stdout","time":6009.591823318,"data":"      issue_194766_torch_compile_torch_masked_median_fails__bind_kwargs_expand0 0 candidate(s), 0 submittable, 2 tests, 0 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":6009.591827154,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6017.212438376,"data":"[171/193] --file issue_195282_inductor_dynamo_fake_tensor_tracing_reje.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":6024.854554657,"data":"[172/193] --file issue_195320_inductor_sdpa_fusion_matches_a_permuted.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":6031.203671658,"data":"[173/193] --file issue_195418_dynamo_canonicalize_output_graph_node_or.py exit 2 [6s]\n"}
+,{"stream_name":"stdout","time":6031.203706968,"data":"        reject issue_195418_dynamo_canonicalize_output_graph_node_or.py: does not run: AttributeError: torch._dynamo.config.canonicalize_output_graph_node_order doe\n"}
+,{"stream_name":"stdout","time":6109.632451661,"data":"[174/193] --file issue_195422_inductor_torch_compile_silently_drops_an.py exit 0 [78s]\n"}
+,{"stream_name":"stdout","time":6109.632502456,"data":"        * high   aot_functionalization  dtype                ea6af021ab4c\n"}
+,{"stream_name":"stdout","time":6109.632508175,"data":"        * high   aot_functionalization  compile              9b2b3ffbe047\n"}
+,{"stream_name":"stdout","time":6109.632511994,"data":"      issue_195422_inductor_torch_compile_silently_drops_an__bind_default_param0 3 candidate(s), 3 submittable, 5 tests, 19 compiles  [8.8s]\n"}
+,{"stream_name":"stdout","time":6109.632515692,"data":"        * high   aot_functionalization  -                    23ed5e2428e8\n"}
+,{"stream_name":"stdout","time":6109.632518995,"data":"        * high   aot_functionalization  dtype                1b8524a17907\n"}
+,{"stream_name":"stdout","time":6109.632522293,"data":"        * high   aot_functionalization  compile              4f72cfb8645f\n"}
+,{"stream_name":"stdout","time":6109.632525448,"data":"      issue_195422_inductor_torch_compile_silently_drops_an__bind_pos_param0 3 candidate(s), 3 submittable, 5 tests, 19 compiles  [9.2s]\n"}
+,{"stream_name":"stdout","time":6109.632528819,"data":"        * high   aot_functionalization  -                    126155d8d256\n"}
+,{"stream_name":"stdout","time":6109.632531952,"data":"        * high   aot_functionalization  dtype                616d9e881d53\n"}
+,{"stream_name":"stdout","time":6109.632535098,"data":"        * high   aot_functionalization  compile              4c92b4efbaa5\n"}
+,{"stream_name":"stdout","time":6109.632538293,"data":"    21 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6117.972691728,"data":"[175/193] --file issue_195488_dynamo_autocast_context_manager_is_lower.py exit 0 [8s]\n"}
+,{"stream_name":"stdout","time":6117.972734996,"data":"      issue_195488_dynamo_autocast_context_manager_is_lower__bind_global0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.3s]\n"}
+,{"stream_name":"stdout","time":6117.972739976,"data":"      issue_195488_dynamo_autocast_context_manager_is_lower__bind_closure0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":6117.972743866,"data":"      issue_195488_dynamo_autocast_context_manager_is_lower__bind_attribute0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":6117.97277533,"data":"      issue_195488_dynamo_autocast_context_manager_is_lower__bind_list_elem0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":6117.972781369,"data":"      issue_195488_dynamo_autocast_context_manager_is_lower__bind_dict_elem0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":6117.972786734,"data":"      issue_195488_dynamo_autocast_context_manager_is_lower__bind_default_param0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":6117.972791566,"data":"      issue_195488_dynamo_autocast_context_manager_is_lower__bind_pos_param0 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]\n"}
+,{"stream_name":"stdout","time":6117.972795745,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6125.661604702,"data":"[176/193] --file issue_195579_meta_decomps_torch_compile_skips_addmm_s.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":6133.27374996,"data":"[177/193] --file issue_195582_inductor_silent_wrong_and_non_reproducib.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":6163.630276323,"data":"[178/193] --file issue_195665_inductor_torch_compile_skips_as_strided.py exit 0 [30s]\n"}
+,{"stream_name":"stdout","time":6163.630316745,"data":"      issue_195665_inductor_torch_compile_skips_as_strided__bind_attribute0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":6163.630322566,"data":"        * high   inductor_codegen       -                    a15d1d83c360\n"}
+,{"stream_name":"stdout","time":6163.630325947,"data":"      issue_195665_inductor_torch_compile_skips_as_strided__bind_list_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":6163.63032943,"data":"        * high   inductor_codegen       -                    14ebcd1966dc\n"}
+,{"stream_name":"stdout","time":6163.630332534,"data":"      issue_195665_inductor_torch_compile_skips_as_strided__bind_dict_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":6163.630335872,"data":"        * high   inductor_codegen       -                    2eec36ebb1d4\n"}
+,{"stream_name":"stdout","time":6163.630338905,"data":"      issue_195665_inductor_torch_compile_skips_as_strided__bind_default_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":6163.630342103,"data":"        * high   inductor_codegen       -                    1cccb7d66e0d\n"}
+,{"stream_name":"stdout","time":6163.630345204,"data":"      issue_195665_inductor_torch_compile_skips_as_strided__bind_pos_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.3s]\n"}
+,{"stream_name":"stdout","time":6163.630348313,"data":"        * high   inductor_codegen       -                    aab6b020e48e\n"}
+,{"stream_name":"stdout","time":6163.6303513,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6171.256902078,"data":"[179/193] --file issue_195673_torch_compile_accepts_rand_like_on_an_in.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":6197.101785413,"data":"[180/193] --file issue_195674_torch_compile_evaluates_subtraction_on_a.py exit 0 [26s]\n"}
+,{"stream_name":"stdout","time":6197.101821433,"data":"      issue_195674_torch_compile_evaluates_subtraction_on_a__bind_attribute0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":6197.101827285,"data":"        * high   inductor_codegen       -                    831fc17059b8\n"}
+,{"stream_name":"stdout","time":6197.101860697,"data":"      issue_195674_torch_compile_evaluates_subtraction_on_a__bind_list_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":6197.101865234,"data":"        * high   inductor_codegen       -                    7785633e370e\n"}
+,{"stream_name":"stdout","time":6197.101869517,"data":"      issue_195674_torch_compile_evaluates_subtraction_on_a__bind_dict_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":6197.101873511,"data":"        * high   inductor_codegen       -                    aca450c04a51\n"}
+,{"stream_name":"stdout","time":6197.101877777,"data":"      issue_195674_torch_compile_evaluates_subtraction_on_a__bind_default_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":6197.10188153,"data":"        * high   inductor_codegen       -                    ad5fd649b80c\n"}
+,{"stream_name":"stdout","time":6197.101885091,"data":"      issue_195674_torch_compile_evaluates_subtraction_on_a__bind_pos_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":6197.101888797,"data":"        * high   inductor_codegen       -                    d13b2fa99e0d\n"}
+,{"stream_name":"stdout","time":6197.101892811,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6223.184669725,"data":"[181/193] --file issue_195675_torch_clamp_with_a_bound_unrepresentable.py exit 0 [26s]\n"}
+,{"stream_name":"stdout","time":6223.184728451,"data":"      issue_195675_torch_clamp_with_a_bound_unrepresentable__bind_attribute0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":6223.184781256,"data":"        * high   inductor_codegen       -                    ed31753f5d2b\n"}
+,{"stream_name":"stdout","time":6223.184787982,"data":"      issue_195675_torch_clamp_with_a_bound_unrepresentable__bind_list_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":6223.184793493,"data":"        * high   inductor_codegen       -                    b578889c2945\n"}
+,{"stream_name":"stdout","time":6223.184804454,"data":"      issue_195675_torch_clamp_with_a_bound_unrepresentable__bind_dict_elem0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.8s]\n"}
+,{"stream_name":"stdout","time":6223.184808826,"data":"        * high   inductor_codegen       -                    c2ba637f8ebf\n"}
+,{"stream_name":"stdout","time":6223.184812274,"data":"      issue_195675_torch_clamp_with_a_bound_unrepresentable__bind_default_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [1.9s]\n"}
+,{"stream_name":"stdout","time":6223.184816205,"data":"        * high   inductor_codegen       -                    917a2af67e2f\n"}
+,{"stream_name":"stdout","time":6223.184820833,"data":"      issue_195675_torch_clamp_with_a_bound_unrepresentable__bind_pos_param0 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":6223.184826032,"data":"        * high   inductor_codegen       -                    68fd8132ab78\n"}
+,{"stream_name":"stdout","time":6223.184830611,"data":"    7 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6230.722919952,"data":"[182/193] --file issue_195969_torch_compile_isinstance_x_protoa_protob.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":6239.07225304,"data":"[183/193] --file issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":6246.629944211,"data":"[184/193] --file issue_196173_torch_compile_produces_incorrect_results.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":6291.171992038,"data":"[185/193] --file issue_196198_fullgraph_true_does_not_enforce_graph_br.py exit 0 [45s]\n"}
+,{"stream_name":"stdout","time":6291.172056997,"data":"      issue_196198_fullgraph_true_does_not_enforce_graph_br__bind_global0 0 candidate(s), 0 submittable, 6 tests, 42 compiles  [8.6s]\n"}
+,{"stream_name":"stdout","time":6291.172061937,"data":"      issue_196198_fullgraph_true_does_not_enforce_graph_br__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 42 compiles  [4.2s]\n"}
+,{"stream_name":"stdout","time":6291.17206483,"data":"      issue_196198_fullgraph_true_does_not_enforce_graph_br__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 42 compiles  [4.6s]\n"}
+,{"stream_name":"stdout","time":6291.172067579,"data":"      issue_196198_fullgraph_true_does_not_enforce_graph_br__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 42 compiles  [4.4s]\n"}
+,{"stream_name":"stdout","time":6291.172070411,"data":"      issue_196198_fullgraph_true_does_not_enforce_graph_br__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 42 compiles  [4.6s]\n"}
+,{"stream_name":"stdout","time":6291.172073828,"data":"      issue_196198_fullgraph_true_does_not_enforce_graph_br__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 42 compiles  [4.4s]\n"}
+,{"stream_name":"stdout","time":6291.17207666,"data":"      issue_196198_fullgraph_true_does_not_enforce_graph_br__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 42 compiles  [4.6s]\n"}
+,{"stream_name":"stdout","time":6291.172079409,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6298.735646012,"data":"[186/193] --file issue_196221_torch_compile_crashes_with_an_internal_f.py exit 2 [8s]\n"}
+,{"stream_name":"stdout","time":6327.769636616,"data":"[187/193] --file issue_196285_torch_compile_dynamic_true_fails_to_hand.py exit 0 [29s]\n"}
+,{"stream_name":"stdout","time":6327.769676339,"data":"      issue_196285_torch_compile_dynamic_true_fails_to_hand__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [6.1s]\n"}
+,{"stream_name":"stdout","time":6327.769683556,"data":"      issue_196285_torch_compile_dynamic_true_fails_to_hand__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.4s]\n"}
+,{"stream_name":"stdout","time":6327.769689508,"data":"      issue_196285_torch_compile_dynamic_true_fails_to_hand__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":6327.769694918,"data":"      issue_196285_torch_compile_dynamic_true_fails_to_hand__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":6327.769699834,"data":"      issue_196285_torch_compile_dynamic_true_fails_to_hand__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":6327.769704471,"data":"      issue_196285_torch_compile_dynamic_true_fails_to_hand__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.4s]\n"}
+,{"stream_name":"stdout","time":6327.769709088,"data":"      issue_196285_torch_compile_dynamic_true_fails_to_hand__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.2s]\n"}
+,{"stream_name":"stdout","time":6327.769715451,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6350.514898858,"data":"[188/193] --file issue_93357_pt2_compiled_model_with_cat_and_expand_g.py exit 0 [23s]\n"}
+,{"stream_name":"stdout","time":6350.514939023,"data":"      issue_93357_pt2_compiled_model_with_cat_and_expand_g__bind_global0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [9.4s]\n"}
+,{"stream_name":"stdout","time":6350.514944799,"data":"      issue_93357_pt2_compiled_model_with_cat_and_expand_g__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.5s]\n"}
+,{"stream_name":"stdout","time":6350.514964789,"data":"      issue_93357_pt2_compiled_model_with_cat_and_expand_g__bind_attribute0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":6350.514967787,"data":"      issue_93357_pt2_compiled_model_with_cat_and_expand_g__bind_list_elem0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":6350.51497048,"data":"      issue_93357_pt2_compiled_model_with_cat_and_expand_g__bind_dict_elem0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":6350.514973159,"data":"      issue_93357_pt2_compiled_model_with_cat_and_expand_g__bind_default_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.5s]\n"}
+,{"stream_name":"stdout","time":6350.514975899,"data":"      issue_93357_pt2_compiled_model_with_cat_and_expand_g__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.5s]\n"}
+,{"stream_name":"stdout","time":6350.514978595,"data":"      issue_93357_pt2_compiled_model_with_cat_and_expand_g__bind_kwargs_expand0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [0.7s]\n"}
+,{"stream_name":"stdout","time":6350.514981308,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6378.204218466,"data":"[189/193] --file issue_93363_aotautograd_returns_wrong_result_for_in.py exit 0 [28s]\n"}
+,{"stream_name":"stdout","time":6378.204262176,"data":"      issue_93363_aotautograd_returns_wrong_result_for_in__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [5.5s]\n"}
+,{"stream_name":"stdout","time":6378.204270342,"data":"      issue_93363_aotautograd_returns_wrong_result_for_in__bind_closure0 0 candidate(s), 0 submittable, 5 tests, 17 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":6378.204277399,"data":"      issue_93363_aotautograd_returns_wrong_result_for_in__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":6378.204284558,"data":"      issue_93363_aotautograd_returns_wrong_result_for_in__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":6378.20429174,"data":"      issue_93363_aotautograd_returns_wrong_result_for_in__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":6378.204298858,"data":"      issue_93363_aotautograd_returns_wrong_result_for_in__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.1s]\n"}
+,{"stream_name":"stdout","time":6378.20430605,"data":"      issue_93363_aotautograd_returns_wrong_result_for_in__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.0s]\n"}
+,{"stream_name":"stdout","time":6378.204313382,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6403.341168104,"data":"[190/193] --file issue_93365_pt2_compiled_function_with_cat_and_mul_g.py exit 0 [25s]\n"}
+,{"stream_name":"stdout","time":6403.341216151,"data":"      issue_93365_pt2_compiled_function_with_cat_and_mul_g__bind_global0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [10.4s]\n"}
+,{"stream_name":"stdout","time":6403.341224752,"data":"      issue_93365_pt2_compiled_function_with_cat_and_mul_g__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":6403.341230451,"data":"      issue_93365_pt2_compiled_function_with_cat_and_mul_g__bind_attribute0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [1.1s]\n"}
+,{"stream_name":"stdout","time":6403.341236061,"data":"      issue_93365_pt2_compiled_function_with_cat_and_mul_g__bind_list_elem0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":6403.341257478,"data":"      issue_93365_pt2_compiled_function_with_cat_and_mul_g__bind_dict_elem0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":6403.341260652,"data":"      issue_93365_pt2_compiled_function_with_cat_and_mul_g__bind_default_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":6403.341263207,"data":"      issue_93365_pt2_compiled_function_with_cat_and_mul_g__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.6s]\n"}
+,{"stream_name":"stdout","time":6403.341265589,"data":"      issue_93365_pt2_compiled_function_with_cat_and_mul_g__bind_kwargs_expand0 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [0.9s]\n"}
+,{"stream_name":"stdout","time":6403.341268052,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6458.45525872,"data":"[191/193] --file issue_95161_aotautograd_based_torch_compile_doesn_t.py exit 0 [55s]\n"}
+,{"stream_name":"stdout","time":6458.455301489,"data":"        * high   inductor_codegen       compile              d1049a8ec92d\n"}
+,{"stream_name":"stdout","time":6458.45530811,"data":"      issue_95161_aotautograd_based_torch_compile_doesn_t__bind_dict_elem0 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [6.0s]\n"}
+,{"stream_name":"stdout","time":6458.455320772,"data":"        * high   inductor_codegen       -                    9e76b3689586\n"}
+,{"stream_name":"stdout","time":6458.455324813,"data":"        * high   inductor_codegen       compile              ab1f8fb04974\n"}
+,{"stream_name":"stdout","time":6458.455328504,"data":"      issue_95161_aotautograd_based_torch_compile_doesn_t__bind_default_param0 2 candidate(s), 2 submittable, 2 tests, 6 compiles  [4.1s]\n"}
+,{"stream_name":"stdout","time":6458.455332308,"data":"        * high   inductor_codegen       -                    839988d20a36\n"}
+,{"stream_name":"stdout","time":6458.455335885,"data":"        * high   inductor_codegen       compile              0f0454b11b13\n"}
+,{"stream_name":"stdout","time":6458.455339358,"data":"      issue_95161_aotautograd_based_torch_compile_doesn_t__bind_pos_param0 2 candidate(s), 2 submittable, 2 tests, 6 compiles  [4.0s]\n"}
+,{"stream_name":"stdout","time":6458.455342933,"data":"        * high   inductor_codegen       -                    3fe16e8a4896\n"}
+,{"stream_name":"stdout","time":6458.455346299,"data":"        * high   inductor_codegen       compile              661319126576\n"}
+,{"stream_name":"stdout","time":6458.45534984,"data":"    14 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6474.388051827,"data":"[192/193] --file issue_95695_torch_ge_produces_wrong_results_in_compi.py exit 0 [16s]\n"}
+,{"stream_name":"stdout","time":6474.388088283,"data":"      issue_95695_torch_ge_produces_wrong_results_in_compi__bind_global0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [4.0s]\n"}
+,{"stream_name":"stdout","time":6474.38809545,"data":"      issue_95695_torch_ge_produces_wrong_results_in_compi__bind_closure0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.4s]\n"}
+,{"stream_name":"stdout","time":6474.388101195,"data":"      issue_95695_torch_ge_produces_wrong_results_in_compi__bind_attribute0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.4s]\n"}
+,{"stream_name":"stdout","time":6474.388106548,"data":"      issue_95695_torch_ge_produces_wrong_results_in_compi__bind_list_elem0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.4s]\n"}
+,{"stream_name":"stdout","time":6474.388112155,"data":"      issue_95695_torch_ge_produces_wrong_results_in_compi__bind_dict_elem0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.5s]\n"}
+,{"stream_name":"stdout","time":6474.388135384,"data":"      issue_95695_torch_ge_produces_wrong_results_in_compi__bind_default_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.5s]\n"}
+,{"stream_name":"stdout","time":6474.38813846,"data":"      issue_95695_torch_ge_produces_wrong_results_in_compi__bind_pos_param0 0 candidate(s), 0 submittable, 2 tests, 6 compiles  [0.5s]\n"}
+,{"stream_name":"stdout","time":6474.388140908,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6506.615091877,"data":"[193/193] --file issue_96728_redundant_statement_leads_to_wrong_outpu.py exit 0 [32s]\n"}
+,{"stream_name":"stdout","time":6506.615135999,"data":"      issue_96728_redundant_statement_leads_to_wrong_outpu__bind_global0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [6.7s]\n"}
+,{"stream_name":"stdout","time":6506.61514234,"data":"      issue_96728_redundant_statement_leads_to_wrong_outpu__bind_closure0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.8s]\n"}
+,{"stream_name":"stdout","time":6506.615148035,"data":"      issue_96728_redundant_statement_leads_to_wrong_outpu__bind_attribute0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":6506.615153657,"data":"      issue_96728_redundant_statement_leads_to_wrong_outpu__bind_list_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":6506.615159117,"data":"      issue_96728_redundant_statement_leads_to_wrong_outpu__bind_dict_elem0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.8s]\n"}
+,{"stream_name":"stdout","time":6506.615164327,"data":"      issue_96728_redundant_statement_leads_to_wrong_outpu__bind_default_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":6506.615169448,"data":"      issue_96728_redundant_statement_leads_to_wrong_outpu__bind_pos_param0 0 candidate(s), 0 submittable, 6 tests, 21 compiles  [2.6s]\n"}
+,{"stream_name":"stdout","time":6506.615174883,"data":"    0 candidate(s); summary at gpu_reports_binding_gh/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6506.639546946,"data":"isolated campaign finished: 193 unit(s), 108 failed child(ren); log gpu_reports_binding_gh/isolated_children.log\n"}
+,{"stream_name":"stdout","time":6506.639592354,"data":"gpu_reports_binding_gh/CAMPAIGN.md\n"}
+,{"stream_name":"stdout","time":6507.000159766,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":6509.810713758,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":6509.810768692,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":6510.31639026,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":6510.316422731,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":6511.121433917,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":6512.917115471,"data":"[NbConvertApp] Writing 280796 bytes to __results__.html\n"}
+]

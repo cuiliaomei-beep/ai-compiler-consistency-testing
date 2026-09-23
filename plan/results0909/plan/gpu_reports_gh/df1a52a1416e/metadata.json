@@ -1,0 +1,37 @@
+{
+  "signature": "df1a52a1416e",
+  "program": "issue_189518_inductor_s_pointless_cumsum_replacement",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "metadata",
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "189518",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/189518",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 189518,
+      "title": "Inductor's pointless_cumsum_replacement drops cumsum's explicit dtype argument",
+      "url": "https://github.com/pytorch/pytorch/issues/189518",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-07-10"
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "signature": "1ff4c4b659d6",
+  "program": "issue_185543_inductor_gradient_mismatch_between_eager",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "compile.dynamic=True",
+    "factors": {
+      "compile": {
+        "dynamic": true
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "factor_changed": "compile",
+  "controlled": {},
+  "obligation": {
+    "site": "fn",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised TorchRuntimeError, ref returned normally",
+          "evidence": {
+            "exception": "TorchRuntimeError",
+            "message": "Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x7f36fe2e4b40>(*(FakeTensor(..., device='cuda:0', size=(s77, s27), dtype=torch.float64), 0.0)"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised TorchRuntimeError, ref returned normally",
+          "evidence": {
+            "exception": "TorchRuntimeError",
+            "message": "Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x7f36fe2e4b40>(*(FakeTensor(..., device='cuda:0', size=(s77, s27), dtype=torch.float64), 0.0)"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised TorchRuntimeError, ref returned normally",
+          "evidence": {
+            "exception": "TorchRuntimeError",
+            "message": "Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x7f36fe2e4b40>(*(FakeTensor(..., device='cuda:0', size=(s77, s27), dtype=torch.float64), 0.0)"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0004,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [],
+          "dtype": "torch.float64",
+          "device": "cuda",
+          "stride": [],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x7f36fe2e4b40>(*(FakeTensor(..., device='cuda:0', size=(s77, s27), dtype=torch.float64), 0.0), **{'dim': 1, 'keepdim': True}): got RuntimeError('Cannot call numel() on tensor with symbolic sizes/strides\\nException raised from throw_cannot_call_with_symbolic at /pytorch/c10/core/TensorImpl.cpp:289 (most recent call first):\\nframe #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7f37c8eddfdd in /usr/local/l",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0211,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x7f36fe2e4b40>(*(FakeTensor(..., device='cuda:0', size=(s77, s27), dtype=torch.float64), 0.0), **{'dim': 1, 'keepdim': True}): got RuntimeError('Cannot call numel() on tensor with symbolic sizes/strides\\nException raised from throw_cannot_call_with_symbolic at /pytorch/c10/core/TensorImpl.cpp:289 (most recent call first):\\nframe #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7f37c8eddfdd in /usr/local/l",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0154,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Dynamo failed to run FX node with fake tensors: call_function <built-in method quantile of type object at 0x7f36fe2e4b40>(*(FakeTensor(..., device='cuda:0', size=(s77, s27), dtype=torch.float64), 0.0), **{'dim': 1, 'keepdim': True}): got RuntimeError('Cannot call numel() on tensor with symbolic sizes/strides\\nException raised from throw_cannot_call_with_symbolic at /pytorch/c10/core/TensorImpl.cpp:289 (most recent call first):\\nframe #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7f37c8eddfdd in /usr/local/l",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0152,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_185543_inductor_gradient_mismatch_between_eager.py\n[inductor] Gradient mismatch between eager and inductor for torch.quantile on tied values\nhttps://github.com/pytorch/pytorch/issues/185543\ncompile options in the issue: {'backend': 'inductor', 'fullgraph': True}",
+  "minimized": null,
+  "duplicates": {
+    "query": "inductor Gradient mismatch between eager inductor torch.quantile tied",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "185543",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/185543",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 185543,
+        "title": "[inductor] Gradient mismatch between eager and inductor for torch.quantile on tied values",
+        "url": "https://github.com/pytorch/pytorch/issues/185543",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-05-28"
+      },
+      {
+        "number": 77764,
+        "title": "General MPS op coverage tracking issue",
+        "url": "https://github.com/pytorch/pytorch/issues/77764",
+        "state": "open",
+        "is_pr": false,
+        "created": "2022-05-18"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: TorchRuntimeError",
+    "E2_aot_eager: TorchRuntimeError",
+    "E3_inductor: TorchRuntimeError"
+  ],
+  "status": "Generated",
+  "fault": null
+}

@@ -1,0 +1,52 @@
+{
+  "signature": "063be0ee1994",
+  "program": "issue_195674_torch_compile_evaluates_subtraction_on_a",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "195674",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/195674",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 195674,
+      "title": "torch.compile evaluates subtraction on a bool tensor that eager deliberately rejects (1 - mask)",
+      "url": "https://github.com/pytorch/pytorch/issues/195674",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-09-02"
+    },
+    {
+      "number": 195354,
+      "title": "[aot_compile] Fix global guards on reloaded nn.Module artifacts",
+      "url": "https://github.com/pytorch/pytorch/pull/195354",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-30"
+    },
+    {
+      "number": 195355,
+      "title": "[dynamo] Lock ExtraState and make the exec strategy atomic",
+      "url": "https://github.com/pytorch/pytorch/pull/195355",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-30"
+    }
+  ]
+}

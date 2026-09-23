@@ -1,0 +1,36 @@
+{
+  "signature": "c30c811c31cf",
+  "program": "issue_192872_dynamo_mutation_to_a_load_build_class_cr",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "value"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "192872",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/192872",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 192872,
+      "title": "dynamo: mutation to a LOAD_BUILD_CLASS-created class's sourceless attribute is lost across a graph break",
+      "url": "https://github.com/pytorch/pytorch/issues/192872",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-11"
+    }
+  ]
+}

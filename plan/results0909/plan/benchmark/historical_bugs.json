@@ -1,0 +1,25 @@
+{
+  "_schema": {
+    "BugID": "stable identifier, e.g. PT-0001",
+    "Project": "pytorch/pytorch | triton-lang/triton | tile-ai/tilelang",
+    "BuggyVersion": "version or commit on which the reproducer shows the inconsistency",
+    "FixedVersion": "version or commit on which it does not (or the fixing PR)",
+    "PythonEntry": "reproducer file next to this manifest: defines `f` (or a torch.compile target) and `args`",
+    "SemanticFactor": "shape | dtype | stride | device | requires_grad | scalar | flag | alias/mutation | compile_flag | backend",
+    "ExpectedBehavior": "eager / reference behaviour in one sentence",
+    "ActualBehavior": "compiled / JIT behaviour in one sentence",
+    "CompilerStage": "dynamo_capture | aot_functionalization | inductor_codegen | triton_codegen | specialization_cache | cache_invalidation",
+    "OriginalIssue": "issue URL",
+    "Verified": "true only after a person has run the reproducer on both versions"
+  },
+  "_selection_criteria": [
+    "a Python-level reproducer exists",
+    "eager / reference behaviour is explicit",
+    "compiled / JIT behaviour is runnable",
+    "a buggy commit/version is known",
+    "a fixed commit/version (or an explicit fix) is known",
+    "the defect is a consistency failure, not API misuse"
+  ],
+  "_note": "Entries are filled from the toxic-compilation dataset after manual verification (plan section 21). Nothing here is used as an empirical contribution; the file is a ground-truth detection benchmark. Run: python run.py bench --historical benchmark/historical_bugs.json",
+  "entries": []
+}

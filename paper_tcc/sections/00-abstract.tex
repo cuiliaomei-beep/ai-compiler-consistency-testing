@@ -1,0 +1,22 @@
+\begin{abstract}
+The same Python program can be compiled by \tcompile along several paths. Graph breaks are placed at positions
+that depend on the call site, automatic differentiation is traced only when a gradient is required, loops are
+vectorized only above a length threshold, execution may take place under a dispatch mode, autocast, or CUDA
+graphs, and a program may be exported and packaged for deployment. Existing testing techniques for AI compiler
+stacks vary the program and compile it along whichever path the harness takes, and they compare output
+values. Consistency failures between eager and compiled execution, however, often occur where a rarely used
+program feature meets a rarely taken path, and many of them do not change an output value.
+This paper varies the compilation instead and treats its path as a test dimension. We identify four path factors that a harness can
+enumerate and control one at a time: the position of graph breaks, the backend layer, the execution context,
+and the artifact route from export to a packaged runtime. Together with program-side factors derived from the
+source and from operator metadata, they form an execution matrix in which every difference from the reference
+execution has one candidate cause. Executions are compared on seven observables (values against a
+high-precision reference, metadata, object identity, exception type and routing, side effects, gradients, and
+process survival), and layered execution names the compiler stage at which a difference first appears.
+Applied to PyTorch~2.14 and nightly builds, the approach has produced 73 reports: 55 new issues, 15
+issue comments, and 3 reports to a C++ compiler vendor. At the time of writing, 14 are fixed or have a fix under
+review, 10 are confirmed, 48 await triage, and 1 was rejected. On a 185-program corpus that program-only
+differential testing under three configurations had already covered, one path factor exposed two new defects; one
+program-side factor exposed 134 operators that compute under \tcompile on dtypes their eager kernels reject.
+Factor families for which no inconsistency was found are reported as well.
+\end{abstract}

@@ -1,0 +1,57 @@
+{
+  "factor_changed": "requires_grad",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "x.grad=False",
+    "factors": {
+      "requires_grad": {
+        "arg": 0,
+        "value": false
+      }
+    },
+    "warm": true,
+    "origin": "x.requires_grad"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "index_chain",
+    "factor": "x.requires_grad",
+    "kind": "requires_grad",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "grad on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "gradient"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "requires_grad changes the traced graph regardless of source",
+    "param": "x",
+    "dim": null
+  },
+  "triage": {
+    "stage": "none",
+    "stage_label": "no divergence",
+    "priority": "info",
+    "rationale": "'requires_grad' changed without a recompile and the result matched; guards may be under-specified (informational)",
+    "kinds": [],
+    "recompiled": false,
+    "guard_suspicious": true,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": false
+  }
+}

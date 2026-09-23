@@ -1,0 +1,28 @@
+{
+  "signature": "b3ffd22a7829",
+  "program": "issue_175919_inductor_out_of_bounds_memory_read_via_r",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "175919",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/175919",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

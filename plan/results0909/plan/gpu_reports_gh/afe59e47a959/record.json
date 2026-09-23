@@ -1,0 +1,350 @@
+{
+  "signature": "afe59e47a959",
+  "program": "issue_191571_torch_compile_silently_returns_stale_zer",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "dtype=float16",
+    "factors": {
+      "dtype": "float16"
+    },
+    "warm": true,
+    "origin": "x.dtype"
+  },
+  "context_b": null,
+  "factor_changed": "dtype",
+  "controlled": {},
+  "obligation": {
+    "site": "f",
+    "factor": "x.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "dtype read in the source",
+    "param": "x",
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.322e+00 exceeds 4.0x eager err 1.558e-03",
+          "magnitude": 1.3218708038330078,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              8,
+              4
+            ],
+            "dtype": "torch.float16",
+            "max_abs_error": 1.3203125,
+            "max_rel_error": 1.0,
+            "n_mismatch": 32,
+            "n_total": 32,
+            "first_mismatch_index": [
+              0,
+              0
+            ],
+            "first_mismatch_expected": "-1.3203125",
+            "first_mismatch_actual": "0",
+            "expected_preview": "[-1.3203125, -1.310546875, -0.4890136719, -0.896484375, -1.3203125, -1.310546875, -0.4890136719, -0.896484375, ... (24 more)]",
+            "actual_preview": "[0, 0, 0, 0, 0, 0, 0, 0, ... (24 more)]",
+            "eager_err_vs_fp64": 0.0015583038330078125,
+            "compiled_err_vs_fp64": 1.3218708038330078,
+            "budget": 0.00623321533203125,
+            "noise_floor": 0.005157470703125
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8,
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.2104,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8,
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0641,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8,
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.2449,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8,
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_191571_torch_compile_silently_returns_stale_zer.py\n`torch.compile` silently returns stale zeros when a size-1 `scatter_add_` is gathered from in the same graph (read-before-write in a fused Triton kernel)\nhttps://github.com/pytorch/pytorch/issues/191571",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 12,
+    "steps_kept": 7,
+    "original_lines": 4,
+    "final_lines": 4,
+    "original_numel": 40,
+    "final_numel": 4,
+    "input_recipe": "torch.randn(2, 1).to(torch.float16), torch.randint(0, 4, (2,))",
+    "log": [
+      "kept: halve dim 0",
+      "kept: halve dim 1",
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags",
+      "kept: halve dim 0",
+      "kept: halve dim 1"
+    ],
+    "source": "def f(x, idx):\n    res = torch.zeros(1, x.shape[1], device=x.device, dtype=x.dtype)\n    res.scatter_add_(0, idx.unsqueeze(-1).expand(-1, x.shape[1]), x)\n    return torch.index_select(res, 0, idx)"
+  },
+  "duplicates": {
+    "query": "silently returns stale zeros size scatter_add_ gathered from",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "191571",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/191571",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 191571,
+        "title": "`torch.compile` silently returns stale zeros when a size-1 `scatter_add_` is gathered from in the same graph (read-before-write in a fused Triton kernel)",
+        "url": "https://github.com/pytorch/pytorch/issues/191571",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-07-30"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

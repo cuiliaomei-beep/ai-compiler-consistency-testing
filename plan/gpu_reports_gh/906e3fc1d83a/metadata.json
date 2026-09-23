@@ -1,0 +1,36 @@
+{
+  "signature": "906e3fc1d83a",
+  "program": "issue_171493_incorrect_fusion_and_re_ordering_of_an_i",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "171493",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/171493",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 171493,
+      "title": "incorrect fusion and re-ordering of an index_add",
+      "url": "https://github.com/pytorch/pytorch/issues/171493",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2025-12-30"
+    }
+  ]
+}

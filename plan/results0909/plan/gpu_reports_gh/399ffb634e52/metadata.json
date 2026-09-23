@@ -1,0 +1,44 @@
+{
+  "signature": "399ffb634e52",
+  "program": "issue_185543_inductor_gradient_mismatch_between_eager",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "gradient"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "185543",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/185543",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 185543,
+      "title": "[inductor] Gradient mismatch between eager and inductor for torch.quantile on tied values",
+      "url": "https://github.com/pytorch/pytorch/issues/185543",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-28"
+    },
+    {
+      "number": 77764,
+      "title": "General MPS op coverage tracking issue",
+      "url": "https://github.com/pytorch/pytorch/issues/77764",
+      "state": "open",
+      "is_pr": false,
+      "created": "2022-05-18"
+    }
+  ]
+}

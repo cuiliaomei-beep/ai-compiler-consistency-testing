@@ -1,0 +1,400 @@
+{
+  "stats": {
+    "ops": 21,
+    "samples": 42,
+    "variants": 699,
+    "decomp_covered": 637,
+    "decomp_mismatch": 13,
+    "meta_mismatch": 4,
+    "data_dependent": 0,
+    "errors": 0,
+    "wall_s": 154.2
+  },
+  "mismatches": [
+    {
+      "op": "softmax",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten._softmax.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "empty_dim0",
+      "kind": "decomp",
+      "detail": "[exception] ref raised RuntimeError, test returned normally",
+      "decomps_hit": [
+        "aten.detach.default",
+        "aten.reflection_pad1d.default",
+        "aten.arange.default",
+        "aten.ones_like.default",
+        "aten.reflection_pad1d_backward.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          0,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "empty_last",
+      "kind": "decomp",
+      "detail": "[exception] exception type differs: RuntimeError vs IndexError :: index is out of bounds for dimension with size 0",
+      "decomps_hit": [
+        "aten.detach.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          1,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "size1_last",
+      "kind": "decomp",
+      "detail": "[exception] ref raised RuntimeError, test returned normally",
+      "decomps_hit": [
+        "aten.detach.default",
+        "aten.reflection_pad1d.default",
+        "aten.arange.default",
+        "aten.ones_like.default",
+        "aten.reflection_pad1d_backward.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          1,
+          1
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "dtype_bool",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.reflection_pad1d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          1,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "channels_last",
+      "kind": "meta_stride",
+      "detail": "output[0] stride (245, 49, 7, 1) vs real (245, 1, 35, 5)",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          3,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "empty_last",
+      "kind": "decomp",
+      "detail": "[exception] exception type differs: RuntimeError vs IndexError :: index is out of bounds for dimension with size 0",
+      "decomps_hit": [
+        "aten.detach.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          1,
+          3,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "dtype_bool",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.replication_pad1d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "exception type differs: NotImplementedError vs TorchRuntimeError",
+      "shapes": [
+        [
+          1,
+          3,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "channels_last",
+      "kind": "meta_stride",
+      "detail": "output[1] stride (75, 25, 5, 1) vs real (75, 1, 15, 3)",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          3,
+          3,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "dtype_bool",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.replication_pad2d.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "exception type differs: NotImplementedError vs TorchRuntimeError",
+      "shapes": [
+        [
+          8,
+          1,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "empty_last",
+      "kind": "decomp",
+      "detail": "[exception] exception type differs: RuntimeError vs IndexError :: index is out of bounds for dimension with size 0",
+      "decomps_hit": [
+        "aten.detach.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [
+          2,
+          6,
+          5,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "nn.functional.pad",
+      "variant": "channels_last",
+      "kind": "meta_stride",
+      "detail": "output[1] stride (150, 25, 5, 1) vs real (150, 1, 30, 6)",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          2,
+          6,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "log_softmax",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten._log_softmax.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "log_softmax",
+      "variant": "dtype_bool",
+      "kind": "meta",
+      "detail": "fake-tensor path raised NotImplementedError: Subtraction, the `-` operator, with two bool tensors is not supported. Use the `^` or `logical_xor()` operator instead.",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          0,
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "std",
+      "variant": "huge",
+      "kind": "decomp",
+      "detail": "[value] output[0]: NaN/Inf pattern differs from the float64 truth",
+      "decomps_hit": [
+        "aten.detach.default",
+        "aten.std.correction",
+        "aten.arange.default",
+        "aten.ones_like.default",
+        "aten.masked_fill_.Scalar"
+      ],
+      "confirmed": true,
+      "confirm_detail": "output[0]: NaN/Inf pattern differs from the float64 truth",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "std",
+      "variant": "tiny",
+      "kind": "decomp",
+      "detail": "[value] output[1]: compiled err vs fp64 = 1.090e-02 exceeds 4.0x eager err 7.987e-10",
+      "decomps_hit": [
+        "aten.detach.default",
+        "aten.std.correction",
+        "aten.arange.default",
+        "aten.ones_like.default",
+        "aten.masked_fill_.Scalar"
+      ],
+      "confirmed": true,
+      "confirm_detail": "output[1]: compiled err vs fp64 = 1.090e-02 exceeds 4.0x eager err 7.987e-10",
+      "shapes": [
+        [
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "std",
+      "variant": "tiny",
+      "kind": "decomp",
+      "detail": "[value] output[1]: compiled err vs fp64 = 4.330e-01 exceeds 4.0x eager err 5.909e-08",
+      "decomps_hit": [
+        "aten.detach.default",
+        "aten.std.correction",
+        "aten.arange.default",
+        "aten.ones_like.default",
+        "aten.masked_fill_.Scalar"
+      ],
+      "confirmed": true,
+      "confirm_detail": "output[1]: compiled err vs fp64 = 4.330e-01 exceeds 4.0x eager err 5.909e-08",
+      "shapes": [
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "recipe": ""
+    }
+  ]
+}

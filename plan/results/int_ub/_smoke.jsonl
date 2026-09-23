@@ -1,0 +1,4 @@
+{"op": "int_binary:floor_divide", "verdict": "ok", "findings": []}
+{"op": "int_unary:neg", "verdict": "ok", "findings": []}
+{"op": "float_unary:round", "verdict": "ok", "findings": []}
+{"op": "float_binary:maximum", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_binary:maximum float32 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_binary:maximum float64 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}]}

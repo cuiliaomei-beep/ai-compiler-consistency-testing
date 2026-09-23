@@ -1,0 +1,52 @@
+{
+  "signature": "2460662f23a8",
+  "program": "issue_178046_torch_compile_silently_accepts_nn_parame",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "178046",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/178046",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 183915,
+      "title": "dynamo: Preserve eager torch.full validation for nn.Parameter fill values in Dynamo",
+      "url": "https://github.com/pytorch/pytorch/pull/183915",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-15"
+    },
+    {
+      "number": 183912,
+      "title": "Preserve eager `torch.full` validation for `nn.Parameter` fill values in Dynamo",
+      "url": "https://github.com/pytorch/pytorch/pull/183912",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-15"
+    },
+    {
+      "number": 178046,
+      "title": "`torch.compile` silently accepts `nn.Parameter` as `fill_value` in `torch.full()` where eager raises TypeError",
+      "url": "https://github.com/pytorch/pytorch/issues/178046",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-03-21"
+    }
+  ]
+}

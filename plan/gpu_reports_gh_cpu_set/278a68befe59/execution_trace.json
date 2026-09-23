@@ -1,0 +1,293 @@
+{
+  "sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0641,
+      "alias_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.091,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.3428,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            2
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            2,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "cache": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "mutation",
+        "alias"
+      ],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "mutation",
+          "detail": "input[0] holds a different value after the call (max diff 2.000e+00); in-place effects diverge",
+          "magnitude": 2.0,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              2
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 2.0,
+            "max_rel_error": 0.5,
+            "n_mismatch": 4,
+            "n_total": 4,
+            "first_mismatch_index": [
+              0,
+              0
+            ],
+            "first_mismatch_expected": "4",
+            "first_mismatch_actual": "2",
+            "expected_preview": "[4, 4, 4, 4]",
+            "actual_preview": "[2, 2, 2, 2]"
+          }
+        },
+        {
+          "kind": "alias",
+          "detail": "storage-sharing relation changed: lost [(0, 1)] (indices < 1 are inputs, >= 1 outputs)",
+          "evidence": {
+            "lost": [
+              [
+                0,
+                1
+              ]
+            ],
+            "gained": []
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "mutation",
+        "alias"
+      ],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "mutation",
+          "detail": "input[0] holds a different value after the call (max diff 2.000e+00); in-place effects diverge",
+          "magnitude": 2.0,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              2
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 2.0,
+            "max_rel_error": 0.5,
+            "n_mismatch": 4,
+            "n_total": 4,
+            "first_mismatch_index": [
+              0,
+              0
+            ],
+            "first_mismatch_expected": "4",
+            "first_mismatch_actual": "2",
+            "expected_preview": "[4, 4, 4, 4]",
+            "actual_preview": "[2, 2, 2, 2]"
+          }
+        },
+        {
+          "kind": "alias",
+          "detail": "storage-sharing relation changed: lost [(0, 1)] (indices < 1 are inputs, >= 1 outputs)",
+          "evidence": {
+            "lost": [
+              [
+                0,
+                1
+              ]
+            ],
+            "gained": []
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  }
+}

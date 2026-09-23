@@ -1,0 +1,971 @@
+{
+  "completed": {
+    "issue_108432_wrong_result_of_first_run_with_torch_com": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788866865.964469
+    },
+    "issue_113641_compiling_double_inplace_clamp_on_stride": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788866980.235267
+    },
+    "issue_114415_aotautograd_should_detect_aliasing_of_in": {
+      "records": 3,
+      "tests": 16,
+      "error": null,
+      "at": 1788866997.7167664
+    },
+    "issue_124357_torch_compile_produces_wrong_result_for": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788867004.86762
+    },
+    "issue_126848_torch_compile_generates_wrong_code_on_cp": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788867103.1164074
+    },
+    "issue_135432_torch_compile_cannot_handle_torch_tensor": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788867110.1304274
+    },
+    "issue_136662_composition_of_torch_compile_and_torch_f": {
+      "records": 0,
+      "tests": 8,
+      "error": null,
+      "at": 1788867290.2113132
+    },
+    "issue_139257_error_compiling_the_torch_library_custom": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788867345.2254953
+    },
+    "issue_145466_torch_sin_cos_tan_torch_floor_round_may": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788867433.2984896
+    },
+    "issue_158561_torch_compile_in_place_operation_raises": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788867462.518929
+    },
+    "issue_160840_torch_nn_functional_interpolate_generate": {
+      "records": 1,
+      "tests": 3,
+      "error": null,
+      "at": 1788867660.0781739
+    },
+    "issue_161150_multiplication_and_softmax_throws_incorr": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788867770.4145648
+    },
+    "issue_161763_neg_add_computation_including_uint_tenso": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788867871.6210327
+    },
+    "issue_166514_inductor_fails_with_stride_mismatch_for": {
+      "records": 0,
+      "tests": 10,
+      "error": null,
+      "at": 1788868055.629067
+    },
+    "issue_167780_inductor_combo_kernel_fails_with_cppsche": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788868218.1495254
+    },
+    "issue_170666_inductor_fails_to_compile_models_contain": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788868278.6159005
+    },
+    "issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788868382.7622805
+    },
+    "issue_170939_inductor_f_pdist_fails_with_runtimeerror": {
+      "records": 0,
+      "tests": 9,
+      "error": null,
+      "at": 1788868433.7752886
+    },
+    "issue_171979_inductor_fails_to_compile_models_using_t": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788868535.9198446
+    },
+    "issue_174386_torch_compile_ignores_torch_use_determin": {
+      "records": 2,
+      "tests": 3,
+      "error": null,
+      "at": 1788868542.1259675
+    },
+    "issue_174549_inconsistency_torch_nn_fractionalmaxpool": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788868641.3292823
+    },
+    "issue_174719_pallas_argmax_with_keepdim_true_on_middl": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788868649.3126922
+    },
+    "issue_174969_torch_compile_outputs_incorrect_results": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788868749.7021053
+    },
+    "issue_175156_inductor_multiple_randint_calls_cause_in": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788868750.886583
+    },
+    "issue_175496_inductor_model_with_torch_compile_output": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788868894.0985377
+    },
+    "issue_175632_inductor_torch_compile_produces_inconsis": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788869007.0591826
+    },
+    "issue_175791_inductor_incorrect_output_when_compiling": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788869113.4182522
+    },
+    "issue_175919_inductor_out_of_bounds_memory_read_via_r": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788869203.4989374
+    },
+    "issue_176596_torch_compile_does_not_correctly_invoke": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788869303.175867
+    },
+    "issue_176599_torch_compile_bypasses_property_setter_a": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788869303.5857306
+    },
+    "issue_176679_torch_compile_produces_incorrect_results": {
+      "records": 2,
+      "tests": 3,
+      "error": null,
+      "at": 1788869367.988382
+    },
+    "issue_176686_tensor_subclass_using_torch_function_pro": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788869427.7392178
+    },
+    "issue_176854_torch_compile_does_not_correctly_propaga": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788869525.7244334
+    },
+    "issue_177252_inductor_assertionerror_wrong_number_of": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788869630.6416605
+    },
+    "issue_177451_torch_compile_fails_on_conv2d_with_kerne": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788869630.6740875
+    },
+    "issue_177629_torch_compile_backend_inductor_silently": {
+      "records": 0,
+      "tests": 9,
+      "error": null,
+      "at": 1788869634.719077
+    },
+    "issue_177631_inductor_torch_compile_produces_incorrec": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788869737.160506
+    },
+    "issue_177652_inductor_torch_compile_s_rng_state_is_in": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788869746.1004333
+    },
+    "issue_177821_inductor_torch_compile_ignores_a_complex": {
+      "records": 2,
+      "tests": 3,
+      "error": null,
+      "at": 1788869907.5743885
+    },
+    "issue_177839_inductor_torch_compile_on_cpu_produces_i": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788870010.5780363
+    },
+    "issue_178125_conv_transpose1d_meta_implementation_all": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788870012.7187388
+    },
+    "issue_178128_conv_transpose3d_meta_execution_produces": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788870013.5768442
+    },
+    "issue_178382_torch_compile_data_dependent_guard_fails": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788870042.3520024
+    },
+    "issue_178482_torch_compile_dynamic_true_ignores_incom": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788870043.0284228
+    },
+    "issue_178869_eager_then_compile_crashes_with_indexerr": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788870141.7494183
+    },
+    "issue_178964_inductor_max_returns_incorrect_indices_w": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788870250.9758284
+    },
+    "issue_179026_torch_compile_guard_evaluation_crash_eva": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788870331.0890453
+    },
+    "issue_179383_torch_quantile_and_torch_nanquantile_fai": {
+      "records": 0,
+      "tests": 9,
+      "error": null,
+      "at": 1788870385.7427568
+    },
+    "issue_179534_torch_compile_fails_on_aten_sparse_csr_t": {
+      "records": 0,
+      "tests": 1,
+      "error": null,
+      "at": 1788870388.4715843
+    },
+    "issue_179807_torch_compile_inductor_crash_f_pad_follo": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788870499.7010372
+    },
+    "issue_181115_inductor_torch_compile_dynamic_true_cras": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788870510.3445024
+    },
+    "issue_181428_torch_compile_torch_func_grad_superlinea": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788870700.031746
+    },
+    "issue_181568_torch_compile_mismatch_for_matmul_follow": {
+      "records": 3,
+      "tests": 16,
+      "error": null,
+      "at": 1788870887.5634363
+    },
+    "issue_181693_nn_hardswish_produces_wrong_output_under": {
+      "records": 2,
+      "tests": 3,
+      "error": null,
+      "at": 1788870997.6792717
+    },
+    "issue_181695_torch_where_with_broadcast_shapes_produc": {
+      "records": 2,
+      "tests": 3,
+      "error": null,
+      "at": 1788871082.1123164
+    },
+    "issue_181851_register_fake_to_throw_error_if_signatur": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788871086.0690486
+    },
+    "issue_181870_torch_compile_dynamic_true_fails_on_f_cr": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788871193.7049131
+    },
+    "issue_182131_torch_compile_inductor_produces_differen": {
+      "records": 4,
+      "tests": 9,
+      "error": null,
+      "at": 1788871393.4564831
+    },
+    "issue_182225_torch_compile_mismatch_for_bfloat16_rope": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788871506.1899517
+    },
+    "issue_182317_dynamo_leaks_torchfunctionmode_onto_stac": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788871506.484011
+    },
+    "issue_182318_dynamo_codegen_leaks_torch_function_enab": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788871507.2068317
+    },
+    "issue_182399_torch_compile_dynamic_true_fails_on_f_cr": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788871613.7871733
+    },
+    "issue_182965_torch_compile_silently_returns_a_result": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788871613.841776
+    },
+    "issue_183082_inductor_cpu_returns_wrong_argmax_after": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788871720.837601
+    },
+    "issue_183121_torch_compile_returns_wrong_shape_for_to": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788871820.8416755
+    },
+    "issue_183601_torch_compile_inductor_produces_wrong_ou": {
+      "records": 2,
+      "tests": 3,
+      "error": null,
+      "at": 1788871919.7706022
+    },
+    "issue_183605_torch_compile_changes_fp16_nan_behavior": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788872012.5643668
+    },
+    "issue_183606_torch_compile_changes_signed_zero_behavi": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788872019.8068738
+    },
+    "issue_183607_torch_compile_changes_fp16_overflow_beha": {
+      "records": 4,
+      "tests": 13,
+      "error": null,
+      "at": 1788872206.4051616
+    },
+    "issue_183763_torch_compile_overflows_torch_sinh_near": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788872306.069231
+    },
+    "issue_183765_torch_compile_overflows_torch_cosh_near": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788872405.4676347
+    },
+    "issue_183767_torch_compile_returns_inf_for_torch_asin": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788872504.6044102
+    },
+    "issue_183768_torch_compile_returns_inf_for_torch_acos": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788872604.3777814
+    },
+    "issue_184405_torch_compile_backend_inductor_returns_s": {
+      "records": 1,
+      "tests": 3,
+      "error": null,
+      "at": 1788872622.9954345
+    },
+    "issue_185246_torch_compile_silently_accepts_invalid_b": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788872623.019282
+    },
+    "issue_185248_torch_compile_silently_accepts_negative": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788872623.0442774
+    },
+    "issue_185330_inductor_torch_index_select_on_uint16_in": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788872630.2419019
+    },
+    "issue_185405_inductor_assertionerror_len_index_len_st": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788872630.305531
+    },
+    "issue_185481_inductor_argmax_over_comparison_mask_is": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788872630.34904
+    },
+    "issue_185488_dynamo_lazybatchnorm2d_fails_under_torch": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788872666.9918468
+    },
+    "issue_185494_dynamo_lazybatchnorm2d_fails_under_torch": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788872702.6754763
+    },
+    "issue_185515_inductor_tensor_view_dtype_after_transpo": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788872717.30634
+    },
+    "issue_185575_inductor_upsample_mode_area_fails_under": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788872726.4387238
+    },
+    "issue_185587_inductor_numerical_inconsistency_polygam": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788872795.874449
+    },
+    "issue_185589_inductor_severe_numerical_inconsistency": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788872868.5421238
+    },
+    "issue_186671_dynamo_set_subclass_overriding_iter_give": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788872868.7591925
+    },
+    "issue_186875_inductor_fmod_remainder_with_python_floa": {
+      "records": 0,
+      "tests": 11,
+      "error": null,
+      "at": 1788872937.664123
+    },
+    "issue_187018_abs_on_uint8_silently_miscompiled_via_st": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788872945.2149262
+    },
+    "issue_187027_flip_after_repeat_interleave_generates_n": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788872953.3757622
+    },
+    "issue_172711_torch_compile_produces_wrong_output_chan": {
+      "records": 2,
+      "tests": 4,
+      "error": null,
+      "at": 1788874393.2731066
+    },
+    "issue_175903_inductor_incorrect_results_in_index_put": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788874486.450757
+    },
+    "issue_178259_inductor_c_compilation_error_when_conver": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788874494.2903275
+    },
+    "issue_178262_inductor_incorrect_stride_calculation_in": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788874550.1799638
+    },
+    "issue_181175_aot_autograd_runtimeerror_cannot_call_nu": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788874721.8772182
+    },
+    "issue_181384_aot_autograd_runtimeerror_pytorch_build": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788874736.0170894
+    },
+    "issue_181625_assertionerror_expected_size_stride_mism": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788874768.7190142
+    },
+    "issue_181653_torch_compile_torch_func_grad_fn_hangs_i": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788874915.7465105
+    },
+    "issue_181688_heap_corruption_sigabrt_when_compiling_c": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788874939.030994
+    },
+    "issue_181694_torch_addcdiv_produces_wrong_output_unde": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788874939.0442526
+    },
+    "issue_183120_torch_compile_inductor_produces_wrong_ou": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788874939.0569274
+    },
+    "issue_187953_torch_compile_out_variants_of_compositei": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788875028.2144375
+    },
+    "issue_189271_inductor_keyerror_in_scheduler_compute_a": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788875028.3178358
+    },
+    "issue_189518_inductor_s_pointless_cumsum_replacement": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788875035.7284503
+    },
+    "issue_189528_cond_inductor_nameerror_on_inner_dim_bra": {
+      "records": 0,
+      "tests": 11,
+      "error": null,
+      "at": 1788875219.445337
+    },
+    "issue_189787_inductor_constant_folds_sum_softmax_to_e": {
+      "records": 1,
+      "tests": 16,
+      "error": null,
+      "at": 1788875384.169658
+    },
+    "issue_189808_inductor_sqrt_produces_negative_nan_0xff": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788875481.355689
+    },
+    "issue_189925_dynamo_io_text_encoding_causes_a_graph_b": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788875481.5071127
+    },
+    "issue_190274_inductor_runtimeerror_self_stride_0_must": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788875482.9033
+    },
+    "issue_190755_some_dynamo_descriptors_tp_descr_get_imp": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788875573.2875538
+    },
+    "issue_190758_memory_budget_partitioner_recomputes_rng": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788875576.7947881
+    },
+    "issue_190855_inductor_wrong_hessian_torch_compile_tor": {
+      "records": 0,
+      "tests": 13,
+      "error": null,
+      "at": 1788875777.9404533
+    },
+    "issue_191136_inductor_torch_view_copy_fails_on_expand": {
+      "records": 0,
+      "tests": 16,
+      "error": null,
+      "at": 1788911416.5982382
+    },
+    "issue_191499_inductor_cpu_torch_compile_returns_0_for": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788911423.2058272
+    },
+    "issue_191833_constraintviolationerror_is_not_raised_w": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788911504.4959831
+    },
+    "issue_192872_dynamo_mutation_to_a_load_build_class_cr": {
+      "records": 3,
+      "tests": 3,
+      "error": null,
+      "at": 1788911782.6011665
+    },
+    "issue_192905_nested_nested_compile_region_silently_re": {
+      "records": 4,
+      "tests": 12,
+      "error": null,
+      "at": 1788911973.8329377
+    },
+    "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu": {
+      "records": 4,
+      "tests": 12,
+      "error": null,
+      "at": 1788912163.0895395
+    },
+    "issue_192985_dynamo_silently_drops_custom_jvp_of_auto": {
+      "records": 4,
+      "tests": 14,
+      "error": null,
+      "at": 1788912285.4773033
+    },
+    "issue_193279_dynamo_silently_drops_custom_backward_of": {
+      "records": 4,
+      "tests": 14,
+      "error": null,
+      "at": 1788912406.5066142
+    },
+    "issue_193661_inductor_wrong_argmax_after_fused_traili": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788912488.6908956
+    },
+    "issue_193710_inductor_fallback_node_due_to_unsupporte": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788912492.1797063
+    },
+    "issue_193757_inductor_cpu_torch_compile_silently_acce": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788912492.2084816
+    },
+    "issue_193809_torch_compile_torch_func_vjp_raises_inte": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788912495.2865949
+    },
+    "issue_193811_torch_compile_silently_accepts_int32_inp": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788912495.3337035
+    },
+    "issue_193876_inductor_compiling_two_torch_full_cumsum": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788912500.085153
+    },
+    "issue_194005_graphs_containing_linalg_cholesky_inv_so": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788912501.2305722
+    },
+    "issue_194062_inductor_silent_incorrectness_torch_full": {
+      "records": 2,
+      "tests": 3,
+      "error": null,
+      "at": 1788912551.4158938
+    },
+    "issue_194103_torch_compile_dynamic_true_fails_for_sca": {
+      "records": 1,
+      "tests": 14,
+      "error": null,
+      "at": 1788912632.616025
+    },
+    "issue_194444_inductor_sdpa_fusion_silently_lost_when": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788912641.4875572
+    },
+    "issue_194501_torch_compile_inductor_smooth_l1_loss_wi": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788912641.5087788
+    },
+    "issue_194503_torch_compile_gaussian_nll_loss_fails_wi": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788912643.261072
+    },
+    "issue_194504_torch_compile_batchnorm1d_momentum_none": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788912643.806389
+    },
+    "issue_194547_torch_compile_silently_promotes_dtype_fo": {
+      "records": 3,
+      "tests": 16,
+      "error": null,
+      "at": 1788912661.5559855
+    },
+    "issue_194558_inductor_in_place_padding_optimization_m": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788912687.59721
+    },
+    "issue_194593_torch_compile_kl_divergence_binomial_bin": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788912693.1609304
+    },
+    "issue_194596_torch_compile_wishart_mean_with_tensor_v": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788912694.445106
+    },
+    "issue_194765_torch_compile_adaptivelogsoftmaxwithloss": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788912694.9758615
+    },
+    "issue_194766_torch_compile_torch_masked_median_fails": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788912695.3568523
+    },
+    "issue_195282_inductor_dynamo_fake_tensor_tracing_reje": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788912700.174399
+    },
+    "issue_195320_inductor_sdpa_fusion_matches_a_permuted": {
+      "records": 3,
+      "tests": 6,
+      "error": null,
+      "at": 1788912727.900674
+    },
+    "issue_195402_inductor_out_of_bounds_index_aborts_the": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788912727.9286013
+    },
+    "issue_195418_dynamo_canonicalize_output_graph_node_or": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788912808.3423858
+    },
+    "issue_195422_inductor_torch_compile_silently_drops_an": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788912888.8682325
+    },
+    "issue_195488_dynamo_autocast_context_manager_is_lower": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788912888.889495
+    },
+    "issue_195579_meta_decomps_torch_compile_skips_addmm_s": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788912888.9117806
+    },
+    "issue_195582_inductor_silent_wrong_and_non_reproducib": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788912918.845344
+    },
+    "issue_195665_inductor_torch_compile_skips_as_strided": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788912918.8685465
+    },
+    "issue_195673_torch_compile_accepts_rand_like_on_an_in": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788912918.884914
+    },
+    "issue_195674_torch_compile_evaluates_subtraction_on_a": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788912918.9293244
+    },
+    "issue_195675_torch_clamp_with_a_bound_unrepresentable": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788912944.7297783
+    },
+    "issue_195969_torch_compile_isinstance_x_protoa_protob": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788912944.8079631
+    },
+    "issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec": {
+      "records": 0,
+      "tests": 6,
+      "error": null,
+      "at": 1788913023.5752494
+    },
+    "issue_196173_torch_compile_produces_incorrect_results": {
+      "records": 0,
+      "tests": 0,
+      "error": null,
+      "at": 1788913023.5827398
+    },
+    "issue_196198_fullgraph_true_does_not_enforce_graph_br": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788913106.3539503
+    },
+    "issue_196221_torch_compile_crashes_with_an_internal_f": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788913275.4421668
+    },
+    "issue_196285_torch_compile_dynamic_true_fails_to_hand": {
+      "records": 1,
+      "tests": 14,
+      "error": null,
+      "at": 1788913356.648193
+    },
+    "issue_93357_pt2_compiled_model_with_cat_and_expand_g": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788913363.275199
+    },
+    "issue_93365_pt2_compiled_function_with_cat_and_mul_g": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788913369.943255
+    },
+    "issue_95161_aotautograd_based_torch_compile_doesn_t": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788913376.6036317
+    },
+    "issue_95695_torch_ge_produces_wrong_results_in_compi": {
+      "records": 0,
+      "tests": 3,
+      "error": null,
+      "at": 1788913383.0552297
+    },
+    "issue_96728_redundant_statement_leads_to_wrong_outpu": {
+      "records": 0,
+      "tests": 14,
+      "error": null,
+      "at": 1788913464.115544
+    }
+  },
+  "started": 1788866846.8271859
+}

@@ -1,0 +1,56 @@
+{
+  "factor_changed": "dtype",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "dtype=float16",
+    "factors": {
+      "dtype": "float16"
+    },
+    "warm": true,
+    "origin": "x.dtype"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "python_flag_semantic",
+    "factor": "x.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "numerics depend on precision regardless of source",
+    "param": "x",
+    "dim": null
+  },
+  "triage": {
+    "stage": "specialization_cache",
+    "stage_label": "cache specialization (guard / stale artifact reuse)",
+    "priority": "high",
+    "rationale": "changing 'dtype' did not trigger a recompile, yet the warm result differs from a cold compile of the same context: a cached artifact was reused under assumptions that no longer hold",
+    "kinds": [
+      "metadata"
+    ],
+    "recompiled": false,
+    "guard_suspicious": false,
+    "warm_only": true,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": true
+  }
+}

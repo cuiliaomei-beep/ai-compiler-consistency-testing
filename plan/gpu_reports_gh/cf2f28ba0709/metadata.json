@@ -1,0 +1,68 @@
+{
+  "signature": "cf2f28ba0709",
+  "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "114415",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/114415",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 114415,
+      "title": "AOTAutograd should detect aliasing of inputs that happens *below* subclasses",
+      "url": "https://github.com/pytorch/pytorch/issues/114415",
+      "state": "open",
+      "is_pr": false,
+      "created": "2023-11-22"
+    },
+    {
+      "number": 195358,
+      "title": "[aot_autograd] Name the forward output when a kept tangent slot arrives as None",
+      "url": "https://github.com/pytorch/pytorch/pull/195358",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-30"
+    },
+    {
+      "number": 194787,
+      "title": "grid_sample: support mode='bicubic' with 5-D input, including its double backward",
+      "url": "https://github.com/pytorch/pytorch/pull/194787",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-25"
+    },
+    {
+      "number": 186554,
+      "title": "Preserve hooks for dependent AOTAutograd outputs",
+      "url": "https://github.com/pytorch/pytorch/pull/186554",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-06-07"
+    },
+    {
+      "number": 185585,
+      "title": "Fix mark_unbacked stride recompiles",
+      "url": "https://github.com/pytorch/pytorch/pull/185585",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-29"
+    }
+  ]
+}

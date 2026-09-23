@@ -1,0 +1,3 @@
+exception TorchRuntimeError: RuntimeError when making fake tensor call
+  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function local_response_norm at 0x000001ED065901A0>(*(FakeTensor(..., size=(6, 3)), 2), **{'beta': 0.5}): got ValueError('Expected 3D or higher dimensionality                          input (got 2 dimensions)')
+  Hint: Your code may result in an error when running in eager. Pleas

@@ -1,0 +1,156 @@
+[{"stream_name":"stdout","time":11.478428986,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":65.418895422,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":65.419080022,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.419089288,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":65.606603381,"data":"===== deterministic_mode_parity.py\n"}
+,{"stream_name":"stdout","time":68.560567576,"data":"torch 2.14.0+cpu cuda False\n"}
+,{"stream_name":"stdout","time":77.687006495,"data":"!! cpu  put_(accumulate=False)               eager: raises       aot_eager: raises       inductor: runs\n"}
+,{"stream_name":"stdout","time":77.937191198,"data":"   cpu  kthvalue                             eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":78.118988449,"data":"   cpu  median(dim) indices                  eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":78.224026378,"data":"   cpu  bincount                             eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":78.394262424,"data":"   cpu  histc                                eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":78.569592359,"data":"   cpu  cumsum                               eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":91.905595808,"data":"   cpu  scatter_(src tensor, dup idx)        eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":92.109001086,"data":"   cpu  scatter_reduce prod                  eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":92.304755468,"data":"   cpu  index_put_(accumulate=False, dup)    eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":92.509042836,"data":"   cpu  index_copy                           eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":93.942470459,"data":"   cpu  resize_ quantized-free               eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":97.872804447,"data":"   cpu  interpolate bilinear backward        eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":104.251069359,"data":"   cpu  interpolate bicubic backward         eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":107.310265485,"data":"   cpu  interpolate linear backward          eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":112.314582541,"data":"   cpu  interpolate trilinear backward       eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":114.761994835,"data":"   cpu  grid_sample backward                 eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":117.666477309,"data":"   cpu  max_pool3d backward                  eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":120.428357433,"data":"   cpu  adaptive_max_pool2d backward         eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":121.953311697,"data":"   cpu  adaptive_avg_pool2d backward         eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":122.211501782,"data":"   cpu  adaptive_avg_pool3d backward         eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":125.144164567,"data":"   cpu  avg_pool3d backward                  eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":127.439824519,"data":"   cpu  fractional_max_pool2d backward       eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":129.951392967,"data":"   cpu  reflection_pad1d backward            eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":133.403674101,"data":"   cpu  reflection_pad2d backward            eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":134.663689861,"data":"   cpu  replication_pad1d backward           eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":136.129341111,"data":"   cpu  replication_pad2d backward           eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":138.425321939,"data":"   cpu  nll_loss 2d backward                 eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":141.122524846,"data":"   cpu  ctc_loss backward                    eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":142.370741395,"data":"   cpu  embedding_bag max backward           eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":143.626645408,"data":"   cpu  index_add backward-free fwd          eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":144.846010855,"data":"   cpu  scatter_add fwd                      eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":145.147411887,"data":"   cpu  gather backward (dup idx)            eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":146.432216389,"data":"   cpu  take_along_dim backward              eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":146.746002918,"data":"   cpu  index_select backward                eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":146.859655206,"data":"   cpu  repeat_interleave backward           eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":148.292284457,"data":"   cpu  cumsum backward                      eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":148.29232006,"data":"--- fill_uninitialized_memory on cpu\n"}
+,{"stream_name":"stdout","time":148.451112156,"data":"!! cpu  empty(5)                             eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":148.620003048,"data":"!! cpu  empty_like(x)                        eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":148.790814734,"data":"!! cpu  x.new_empty(4)                       eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":148.951599533,"data":"!! cpu  empty(3, int32)                      eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":149.113582027,"data":"!! cpu  empty_strided                        eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":149.28034072,"data":"!! cpu  empty_permuted                       eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":149.456161173,"data":"!! cpu  x.new_empty_strided                  eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":150.902929595,"data":"===== safety_mechanisms_lost.py\n"}
+,{"stream_name":"stdout","time":162.459139877,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":162.45918512,"data":"in-place on inference tensor outside InferenceMode   eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [2.0, 2.0, 2.0]\n"}
+,{"stream_name":"stdout","time":162.459190411,"data":"in-place mul_ on inference tensor (+ reduction)      eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [2.0, 2.0, 2.0]\n"}
+,{"stream_name":"stdout","time":162.45919399,"data":"deterministic: put_(accumulate=False)                eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [0.0, 2.0, 0.0, 0.0]\n"}
+,{"stream_name":"stdout","time":162.459197448,"data":"deterministic: torch.put (functional)                eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [0.0, 2.0, 0.0, 0.0]\n"}
+,{"stream_name":"stdout","time":162.45920092,"data":"deterministic: empty() is NaN-filled                 eager: returns True                     aot_eager: returns True                     inductor: returns True\n"}
+,{"stream_name":"stdout","time":162.459204472,"data":"deterministic: empty_like() is NaN-filled            eager: returns True                     aot_eager: returns True                     inductor: returns False\n"}
+,{"stream_name":"stdout","time":162.45920788,"data":"deterministic: new_empty() is NaN-filled             eager: returns True                     aot_eager: returns True                     inductor: returns False\n"}
+,{"stream_name":"stdout","time":162.459211154,"data":"deterministic: empty(int32) is MAX-filled            eager: returns True                     aot_eager: returns True                     inductor: returns False\n"}
+,{"stream_name":"stdout","time":162.459214583,"data":"deterministic: resize_ tail is NaN-filled            eager: returns True                     aot_eager: returns True                     inductor: returns True\n"}
+,{"stream_name":"stdout","time":162.459217903,"data":"deterministic: empty_strided is NaN-filled           eager: returns True                     aot_eager: returns True                     inductor: returns True\n"}
+,{"stream_name":"stdout","time":163.658986892,"data":"===== float_arg_cache_matrix.py\n"}
+,{"stream_name":"stdout","time":171.858980563,"data":"2.14.0+cpu FX_GRAPH_CACHE=default AUTOGRAD_CACHE=default\n"}
+,{"stream_name":"stdout","time":171.859027435,"data":"    d=0.9: ok\n"}
+,{"stream_name":"stdout","time":171.859034474,"data":"    d=0.5: ok\n"}
+,{"stream_name":"stdout","time":171.859039723,"data":"    d=0.25: WRONG got [0.75, 1.25, 1.75] want [1.0, 1.75, 2.5]\n"}
+,{"stream_name":"stdout","time":171.859045176,"data":"    d=0.75: WRONG got [1.25, 1.75, 2.25] want [1.0, 1.25, 1.5]\n"}
+,{"stream_name":"stdout","time":171.859051015,"data":"    d=0.5: ok\n"}
+,{"stream_name":"stdout","time":171.859056096,"data":"    d=0.1: WRONG got [0.6, 1.1, 1.6] want [1.0, 1.9, 2.8]\n"}
+,{"stream_name":"stdout","time":173.052183509,"data":"===== draft19.py\n"}
+,{"stream_name":"stdout","time":196.450390306,"data":"floor      raised RuntimeError, ZeroDivisionError in message: True\n"}
+,{"stream_name":"stdout","time":196.450455522,"data":"remainder  raised RuntimeError, ZeroDivisionError in message: True\n"}
+,{"stream_name":"stdout","time":196.450460962,"data":"trunc      process died, return code 0xfffffff8\n"}
+,{"stream_name":"stdout","time":201.908099225,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.4/199.4 MB 9.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":224.972973841,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":224.973010851,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":224.973015138,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":225.174081374,"data":"===== deterministic_mode_parity.py\n"}
+,{"stream_name":"stdout","time":227.005059858,"data":"torch 2.15.0.dev20260921+cpu cuda False\n"}
+,{"stream_name":"stdout","time":231.227014835,"data":"!! cpu  put_(accumulate=False)               eager: raises       aot_eager: raises       inductor: runs\n"}
+,{"stream_name":"stdout","time":231.483971858,"data":"   cpu  kthvalue                             eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":231.66677144,"data":"   cpu  median(dim) indices                  eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":231.769828024,"data":"   cpu  bincount                             eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":231.939647701,"data":"   cpu  histc                                eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":232.115197646,"data":"   cpu  cumsum                               eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":243.173661134,"data":"   cpu  scatter_(src tensor, dup idx)        eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":243.385355883,"data":"   cpu  scatter_reduce prod                  eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":243.581493197,"data":"   cpu  index_put_(accumulate=False, dup)    eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":243.791364611,"data":"   cpu  index_copy                           eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":244.993092217,"data":"   cpu  resize_ quantized-free               eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":248.582679513,"data":"   cpu  interpolate bilinear backward        eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":254.475416213,"data":"   cpu  interpolate bicubic backward         eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":257.156067538,"data":"   cpu  interpolate linear backward          eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":261.786040939,"data":"   cpu  interpolate trilinear backward       eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":264.090826623,"data":"   cpu  grid_sample backward                 eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":266.878277768,"data":"   cpu  max_pool3d backward                  eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":269.6042909,"data":"   cpu  adaptive_max_pool2d backward         eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":271.163147378,"data":"   cpu  adaptive_avg_pool2d backward         eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":271.422556059,"data":"   cpu  adaptive_avg_pool3d backward         eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":274.314158976,"data":"   cpu  avg_pool3d backward                  eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":276.073477535,"data":"   cpu  fractional_max_pool2d backward       eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":278.563741874,"data":"   cpu  reflection_pad1d backward            eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":281.857817528,"data":"   cpu  reflection_pad2d backward            eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":283.107596475,"data":"   cpu  replication_pad1d backward           eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":284.555307522,"data":"   cpu  replication_pad2d backward           eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":286.847717333,"data":"   cpu  nll_loss 2d backward                 eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":289.482444839,"data":"   cpu  ctc_loss backward                    eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":290.722586093,"data":"   cpu  embedding_bag max backward           eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":291.981031819,"data":"   cpu  index_add backward-free fwd          eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":293.18387488,"data":"   cpu  scatter_add fwd                      eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":293.484973844,"data":"   cpu  gather backward (dup idx)            eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":294.770863742,"data":"   cpu  take_along_dim backward              eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":295.080273018,"data":"   cpu  index_select backward                eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":295.193250015,"data":"   cpu  repeat_interleave backward           eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":296.33741863,"data":"   cpu  cumsum backward                      eager: runs         aot_eager: runs         inductor: runs\n"}
+,{"stream_name":"stdout","time":296.337455803,"data":"--- fill_uninitialized_memory on cpu\n"}
+,{"stream_name":"stdout","time":296.500676503,"data":"!! cpu  empty(5)                             eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":296.675279162,"data":"!! cpu  empty_like(x)                        eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":296.849687156,"data":"!! cpu  x.new_empty(4)                       eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":297.014524664,"data":"!! cpu  empty(3, int32)                      eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":297.177269095,"data":"!! cpu  empty_strided                        eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":297.354644872,"data":"!! cpu  empty_permuted                       eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":297.530453236,"data":"!! cpu  x.new_empty_strided                  eager: filled       aot_eager: filled       inductor: NOT filled\n"}
+,{"stream_name":"stdout","time":299.373899867,"data":"===== safety_mechanisms_lost.py\n"}
+,{"stream_name":"stdout","time":310.87738252,"data":"torch 2.15.0.dev20260921+cpu\n"}
+,{"stream_name":"stdout","time":310.877424979,"data":"in-place on inference tensor outside InferenceMode   eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [2.0, 2.0, 2.0]\n"}
+,{"stream_name":"stdout","time":310.877431293,"data":"in-place mul_ on inference tensor (+ reduction)      eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [2.0, 2.0, 2.0]\n"}
+,{"stream_name":"stdout","time":310.877436211,"data":"deterministic: put_(accumulate=False)                eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [0.0, 2.0, 0.0, 0.0]\n"}
+,{"stream_name":"stdout","time":310.87744085,"data":"deterministic: torch.put (functional)                eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [0.0, 2.0, 0.0, 0.0]\n"}
+,{"stream_name":"stdout","time":310.877450987,"data":"deterministic: empty() is NaN-filled                 eager: returns True                     aot_eager: returns True                     inductor: returns True\n"}
+,{"stream_name":"stdout","time":310.877453949,"data":"deterministic: empty_like() is NaN-filled            eager: returns True                     aot_eager: returns True                     inductor: returns False\n"}
+,{"stream_name":"stdout","time":310.877456889,"data":"deterministic: new_empty() is NaN-filled             eager: returns True                     aot_eager: returns True                     inductor: returns False\n"}
+,{"stream_name":"stdout","time":310.877459692,"data":"deterministic: empty(int32) is MAX-filled            eager: returns True                     aot_eager: returns True                     inductor: returns False\n"}
+,{"stream_name":"stdout","time":310.877462463,"data":"deterministic: resize_ tail is NaN-filled            eager: returns True                     aot_eager: returns True                     inductor: returns True\n"}
+,{"stream_name":"stdout","time":310.877465199,"data":"deterministic: empty_strided is NaN-filled           eager: returns True                     aot_eager: returns True                     inductor: returns True\n"}
+,{"stream_name":"stdout","time":312.324342478,"data":"===== float_arg_cache_matrix.py\n"}
+,{"stream_name":"stdout","time":323.377843771,"data":"2.15.0.dev20260921+cpu FX_GRAPH_CACHE=default AUTOGRAD_CACHE=default\n"}
+,{"stream_name":"stdout","time":323.377939725,"data":"    d=0.9: ok\n"}
+,{"stream_name":"stdout","time":323.377948846,"data":"    d=0.5: ok\n"}
+,{"stream_name":"stdout","time":323.37795321,"data":"    d=0.25: ok\n"}
+,{"stream_name":"stdout","time":323.377957307,"data":"    d=0.75: ok\n"}
+,{"stream_name":"stdout","time":323.377961502,"data":"    d=0.5: ok\n"}
+,{"stream_name":"stdout","time":323.377965355,"data":"    d=0.1: ok\n"}
+,{"stream_name":"stdout","time":324.58767215,"data":"===== draft19.py\n"}
+,{"stream_name":"stdout","time":348.359558191,"data":"floor      raised RuntimeError, ZeroDivisionError in message: True\n"}
+,{"stream_name":"stdout","time":348.359641789,"data":"remainder  raised RuntimeError, ZeroDivisionError in message: True\n"}
+,{"stream_name":"stdout","time":348.359648049,"data":"trunc      process died, return code 0xfffffff8\n"}
+,{"stream_name":"stdout","time":348.378275079,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":351.625144355,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":351.625191138,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":352.198680693,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":352.198723144,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":353.115731277,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":355.241256722,"data":"[NbConvertApp] Writing 291537 bytes to __results__.html\n"}
+]

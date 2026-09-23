@@ -1,0 +1,149 @@
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.linalg_vector_norm.default
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3223, in _dispatch_impl
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_refs\linalg\__init__.py", line 146, in vector_norm
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_vector_norm_args(x, ord, dim)
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_refs\linalg\__init__.py", line 121, in _check_vector_norm_args
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     torch._check(
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~^
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         sym_or(x.numel() != 0, d < len(shape) and d >= 0 and shape[d] != 0),
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ...<2 lines>...
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         "operation does not have an identity",
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     )
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ^
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2161, in _check
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2139, in _check_with
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 16:27:44.619000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] RuntimeError: linalg.vector_norm cannot compute the inf norm on the dimension -1 because this dimension is empty and the operation does not have an identity
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.linalg_vector_norm.default
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3223, in _dispatch_impl
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_refs\linalg\__init__.py", line 146, in vector_norm
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_vector_norm_args(x, ord, dim)
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_refs\linalg\__init__.py", line 121, in _check_vector_norm_args
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     torch._check(
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~^
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         sym_or(x.numel() != 0, d < len(shape) and d >= 0 and shape[d] != 0),
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ...<2 lines>...
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         "operation does not have an identity",
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     )
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ^
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2161, in _check
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2139, in _check_with
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 16:27:44.640000 3340 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] RuntimeError: linalg.vector_norm cannot compute the inf norm on the dimension -1 because this dimension is empty and the operation does not have an identity
+scripts/verify_candidates_cuda.py:49: UserWarning: var_mean(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  print("   eager    :", show(fn(*args)))
+D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py:916: UserWarning: var_mean(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  return self._op(*args, **kwargs)
+scripts/verify_candidates_cuda.py:49: UserWarning: std_mean(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  print("   eager    :", show(fn(*args)))
+torch 2.15.0.dev20260911+cpu | device cpu | 
+
+[01 argmin broadcast equal dims dynamic=True]
+   eager    : () int64 cpu stride=() 7
+   inductor : InductorError: CppCompileError: C++ compile error  Command: cl /I C:/Users/clm/AppData/Local/Python/pythoncore-3.14-64/Include /I D:/wsl/personal/dr/paper/ || C:/Users/clm/AppData/Local/Temp/torchinductor_clm/oi/coitjsh6gnzygye7duozertjws5gmouebbhcl4d3x6ztf6st7can.main.cpp(28): error C2100: 无法取消引用类型为“int”的操作数 | C:/Users/clm/AppData/Local/Temp/torchinductor_clm/oi/coitjsh6gnzygye7duozertjws5gmouebbhcl4d3x6ztf6st7can.main.cpp(38): error C2100: 无法取消引用类型为“int”的操作数
+
+[03 interpolate (2,3,0)->3 (child process)]
+   eager: RuntimeError Input and output sizes should be greater than 0, but got input (W: 0) and output | inductor: (2, 3, 3) nan 18
+
+[04 vector_norm ord=inf dim=-1 on (0,5)]
+   eager    : (0,) float32 cpu stride=(1,) []
+   aot_eager: TorchRuntimeError: RuntimeError when making fake tensor call   Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in function li
+   inductor : TorchRuntimeError: RuntimeError when making fake tensor call   Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in function li
+
+[04 vector_norm ord=inf dim=1 on (0,5)]
+   eager    : (0,) float32 cpu stride=(1,) []
+   inductor : (0,) float32 cpu stride=(1,) []
+
+[05 std of 1e-30 values]
+   eager    : () float32 cpu stride=() 1.1581279734414313e-30
+   inductor : () float32 cpu stride=() 0.0
+   grad eager   : (5,) float32 cpu stride=(1,) [0.1387888789176941, 0.21450941264629364, -0.3816143572330475, 0.1532496064901352, -0.12493353337049484]
+   grad inductor: (5,) float32 cpu stride=(1,) [0.0, 0.0, -0.0, 0.0, -0.0]
+
+[05 std of (4,8)*1e30]
+   eager    : () float32 cpu stride=() 9.148753168480315e+29
+   inductor : () float32 cpu stride=() inf
+
+[06 var_mean empty]
+   eager    : (() float32 cpu stride=() nan, () float32 cpu stride=() nan)
+   aot_eager: (() float32 cpu stride=() nan, () float32 cpu stride=() nan)
+   inductor : (() float32 cpu stride=() nan, () float32 cpu stride=() 0.0)
+
+[06 std_mean empty]
+   eager    : (() float32 cpu stride=() nan, () float32 cpu stride=() nan)
+   inductor : (() float32 cpu stride=() nan, () float32 cpu stride=() 0.0)
+
+[07 pdist (0,4) backward (child process)]
+   forward ok (0,)   <-- child exit 3221225620: 
+
+[08 BCE bf16 inputs fp32 weight]
+   eager    : () bfloat16 cpu stride=() 0.50390625
+   aot_eager: () bfloat16 cpu stride=() 0.50390625
+   inductor : () float32 cpu stride=() 0.5013980269432068
+
+[09 channel_shuffle channels_last]
+   eager    : (2, 6, 8, 8) float32 cpu stride=(384, 1, 48, 6) nan=0 max=4.101
+   aot_eager: (2, 6, 8, 8) float32 cpu stride=(384, 1, 48, 6) nan=0 max=4.101
+   inductor : (2, 6, 8, 8) float32 cpu stride=(384, 64, 8, 1) nan=0 max=4.101
+
+[10 addmm 0-d bias max_autotune]
+   eager    : (2, 3) float32 cpu stride=(3, 1) [[1.2859805822372437, 0.4093663990497589, -1.166354775428772], [2.3327994346618652, 0.45918554067611694, -3.4034740924835205]]
+   inductor : InductorError: LoweringException: IndexError: list index out of range   target: aten.addmm.default   args[0]: TensorBox(StorageBox(     InputBuffer(name='a
+
+[02 bmm max_autotune]
+   eager    : (4, 8, 8) float32 cpu stride=(64, 8, 1) nan=0 max=10.68
+   inductor : InductorError: LoweringException: AttributeError: function 'cpp_CppMicroGemmFP32Vec' not found   target: aten.bmm.default   args[0]: TensorBox(StorageBox( 
+
+[G2 adaptive_avg_pool2d output_size as SymInt (dynamic=True, positional param)]
+   eager    : (2, 8, 5, 5) float32 cpu stride=(200, 25, 5, 1) nan=0 max=1.348
+   inductor : (2, 8, 5, 5) float32 cpu stride=(200, 25, 5, 1) nan=0 max=1.348
+
+[G3 combinations r=1 dynamic=True]
+   eager    : (2, 1) float32 cpu stride=(1, 1) [[0.4550809860229492], [-0.4511180818080902]]
+   inductor : (2, 1) float32 cpu stride=(1, 1) [[0.4550809860229492], [-0.4511180818080902]]
+
+[G4 interpolate scale 2 bilinear dynamic=True]
+   eager    : (2, 3, 8, 8) float32 cpu stride=(192, 64, 8, 1) nan=0 max=2.453
+   inductor : (2, 3, 8, 8) float32 cpu stride=(192, 64, 8, 1) nan=0 max=2.453
+
+[G5 quantile dynamic=True]
+   eager    : (2,) float32 cpu stride=(1,) [-0.42214810848236084, 0.269697904586792]
+   inductor : (2,) float32 cpu stride=(1,) [-0.42214810848236084, 0.269697904586792]
+
+[G6 nonzero_static size 5 -> 6]
+   call v1  : (5, 2) int64 cpu stride=(2, 1) | eager (5, 2) int64 cpu stride=(2, 1)
+   call v2  : (6, 2) int64 cpu stride=(2, 1) | eager (6, 2) int64 cpu stride=(2, 1)
+
+[G7 grid_sampler_2d interpolation_mode 0 -> 1]
+   call v1  : (1, 2, 4, 4) float32 cpu stride=(32, 16, 4, 1) nan=0 max=0.915 | eager (1, 2, 4, 4) float32 cpu stride=(32, 16, 4, 1) nan=0 max=0.915
+   call v2  : (1, 2, 4, 4) float32 cpu stride=(32, 16, 4, 1) nan=0 max=0.915 | eager (1, 2, 4, 4) float32 cpu stride=(32, 16, 4, 1) nan=0 max=0.915
+
+[11 aoti return_types] NotImplementedError: No registered serialization name for <class 'torch.return_types.max'> found. Please update your _register_pytree_node call with a `serialize
+[12 run_decompositions] RuntimeError: Constant lifted_tensor_0 is mutated in the forward method. Pls register it as buffer
+[12 aoti] RuntimeError: false INTERNAL ASSERT FAILED at "C:\\actions-runner\\_work\\pytorch\\pytorch\\build\\aten\\src\\ATen\\RegisterFunctionalization_2.cpp":8066,
+
+VERIFY DONE

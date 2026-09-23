@@ -1,0 +1,36 @@
+{
+  "signature": "5be76596664f",
+  "program": "issue_173133_inductor_cuda_torch_bucketize_produces_i",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "173133",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/173133",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 173133,
+      "title": "[Inductor] [CUDA] torch.bucketize produces inconsistent results for nan values between Eager and Inductor modes on CUDA",
+      "url": "https://github.com/pytorch/pytorch/issues/173133",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-01-23"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "signature": "d8921d1911c3",
+  "program": "issue_188541_inductor_cuda_f_logsigmoid_flushes_negat",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "188541",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/188541",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 188541,
+      "title": "[Inductor][CUDA] F.logsigmoid flushes negative float32 subnormal outputs to +0.0, changing sign-sensitive behavior",
+      "url": "https://github.com/pytorch/pytorch/issues/188541",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-06-30"
+    }
+  ]
+}

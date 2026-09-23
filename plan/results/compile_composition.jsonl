@@ -1,0 +1,232 @@
+{"prog": "mlp_with_buffer_effect", "mode": "compile_mod", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "mlp_with_buffer_effect", "mode": "mod_dot_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "mlp_with_buffer_effect", "mode": "compile_forward", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "mlp_with_buffer_effect", "mode": "compile_compile_mod", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "mlp_with_buffer_effect", "mode": "compile_mod_fullgraph", "verdict": "DIFF", "why": "ok vs exc", "ref": "ok", "got": "Unsupported"}
+{"prog": "mlp_with_buffer_effect", "mode": "compile_mod_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "mlp_with_buffer_effect", "mode": "compile_mod_in_fn", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "mlp_with_buffer_effect", "mode": "compile_mod_in_compiled_fn", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "module_with_graph_break_and_list", "mode": "compile_mod", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "module_with_graph_break_and_list", "mode": "mod_dot_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "module_with_graph_break_and_list", "mode": "compile_forward", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "module_with_graph_break_and_list", "mode": "compile_compile_mod", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "module_with_graph_break_and_list", "mode": "compile_mod_fullgraph", "verdict": "DIFF", "why": "ok vs exc", "ref": "ok", "got": "Unsupported"}
+{"prog": "module_with_graph_break_and_list", "mode": "compile_mod_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "module_with_graph_break_and_list", "mode": "compile_mod_in_fn", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "module_with_graph_break_and_list", "mode": "compile_mod_in_compiled_fn", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "compile_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "calls_other_compiled", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "allow_in_graph_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "graph_break_around", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "dynamic_true", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "dynamic_false", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "reset_between", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "no_grad_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "inference_mode_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "autocast_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "pure_math", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "compile_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "calls_other_compiled", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "allow_in_graph_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "graph_break_around", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "dynamic_true", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "dynamic_false", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "reset_between", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "no_grad_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "inference_mode_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "autocast_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "inplace_on_input", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "compile_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "calls_other_compiled", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "allow_in_graph_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "graph_break_around", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "dynamic_true", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "dynamic_false", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "reset_between", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "no_grad_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "inference_mode_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "autocast_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "python_control_flow", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "compile_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "calls_other_compiled", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "allow_in_graph_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "graph_break_around", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "dynamic_true", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "dynamic_false", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "reset_between", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "no_grad_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "inference_mode_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "autocast_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "grad_through", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "compile", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "compile_compile", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "compile_fullgraph_in_compile", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "calls_other_compiled", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "allow_in_graph_wrapped", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "graph_break_around", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "dynamic_true", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "dynamic_false", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "inductor_after_aot_eager", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "inductor_after_eager_backend", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "reset_between", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "no_grad_first", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "inference_mode_first", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "autocast_first", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "warm_twice_then_dynamic", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "mode_reduce_overhead", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "dtype_promotion_chain", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "DIFF", "why": "max rel diff 0.000138", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "compile_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "calls_other_compiled", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "allow_in_graph_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "graph_break_around", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "dynamic_true", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "dynamic_false", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "reset_between", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "no_grad_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "inference_mode_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "autocast_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "views_and_strides", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "compile_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "calls_other_compiled", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "allow_in_graph_wrapped", "verdict": "DIFF", "why": "max rel diff 1", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "graph_break_around", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "dynamic_true", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "dynamic_false", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "reset_between", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "no_grad_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "inference_mode_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "autocast_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "closure_state_counter", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "compile_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "calls_other_compiled", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "allow_in_graph_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "graph_break_around", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "dynamic_true", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "dynamic_false", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "reset_between", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "no_grad_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "inference_mode_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "autocast_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "dynamic_shapes_sequence", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "exception_after_effect", "mode": "compile", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "compile_compile", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "calls_other_compiled", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "disable_wrapped", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "allow_in_graph_wrapped", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "graph_break_around", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "dynamic_true", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "dynamic_false", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "reset_between", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "no_grad_first", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "inference_mode_first", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "autocast_first", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "exception_after_effect", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "ValueError vs ValueError", "ref": "ValueError", "got": "ValueError"}
+{"prog": "complex_and_conj", "mode": "compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "compile_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "calls_other_compiled", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "allow_in_graph_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "graph_break_around", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "dynamic_true", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "dynamic_false", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "reset_between", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "no_grad_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "inference_mode_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "autocast_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "complex_and_conj", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "compile_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "calls_other_compiled", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "allow_in_graph_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "graph_break_around", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "dynamic_true", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "dynamic_false", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "reset_between", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "no_grad_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "inference_mode_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "autocast_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "reductions_int", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "compile_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "compile_fullgraph_in_compile", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "calls_other_compiled", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "disable_wrapped", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "allow_in_graph_wrapped", "verdict": "DIFF", "why": "ok vs exc", "ref": "ok", "got": "TorchRuntimeError"}
+{"prog": "nested_module_in_fn", "mode": "graph_break_around", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "dynamic_true", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "dynamic_false", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "inductor_after_aot_eager", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "inductor_after_eager_backend", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "reset_between", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "no_grad_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "inference_mode_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "autocast_first", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "warm_twice_then_dynamic", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "mode_reduce_overhead", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}
+{"prog": "nested_module_in_fn", "mode": "mode_max_autotune_no_cudagraphs", "verdict": "OK", "why": "", "ref": "ok", "got": "ok"}

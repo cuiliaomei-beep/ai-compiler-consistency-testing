@@ -1,0 +1,334 @@
+{
+  "signature": "7238fca2848c",
+  "program": "issue_160840_torch_nn_functional_interpolate_generate",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "dtype=float16",
+    "factors": {
+      "dtype": "float16"
+    },
+    "warm": true,
+    "origin": "input.dtype"
+  },
+  "context_b": null,
+  "factor_changed": "dtype",
+  "controlled": {},
+  "obligation": {
+    "site": "foo",
+    "factor": "input.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "numerics depend on precision regardless of source",
+    "param": "input",
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: non-float values differ exactly",
+          "index": 0,
+          "evidence": {
+            "shape": [
+              40,
+              40
+            ],
+            "dtype": "torch.int64",
+            "n_mismatch": 1600,
+            "n_total": 1600,
+            "first_mismatch_index": [
+              0,
+              0
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "8",
+            "expected_preview": "[0, 0, 0, 0, 0, 0, 0, 0, ... (1592 more)]",
+            "actual_preview": "[8, 10, 8, 8, 29, 8, 8, 8, ... (1592 more)]"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            40,
+            40
+          ],
+          "dtype": "torch.int64",
+          "device": "cuda",
+          "stride": [
+            40,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1132,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            40,
+            40
+          ],
+          "dtype": "torch.int64",
+          "device": "cuda",
+          "stride": [
+            40,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.3721,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            40,
+            40
+          ],
+          "dtype": "torch.int64",
+          "device": "cuda",
+          "stride": [
+            40,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 2.4361,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            40,
+            40
+          ],
+          "dtype": "torch.int64",
+          "device": "cuda",
+          "stride": [
+            40,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh/issue_160840_torch_nn_functional_interpolate_generate.py\n`torch.nn.functional.interpolate` generates inconsistent computation results after `torch.compile`\nhttps://github.com/pytorch/pytorch/issues/160840",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 15,
+    "steps_kept": 7,
+    "original_lines": 13,
+    "final_lines": 13,
+    "original_numel": 40,
+    "final_numel": 2,
+    "input_recipe": "torch.randn(1, 2, 1, 1).to(torch.float16),",
+    "log": [
+      "kept: halve dim 1",
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags",
+      "kept: halve dim 1",
+      "kept: halve dim 1",
+      "kept: halve dim 1"
+    ],
+    "source": "def foo(input):\n    interpolate = torch.nn.functional.interpolate(\n        input,\n        size=[40, 40],\n        scale_factor=None,\n        mode=\"bicubic\",\n        align_corners=None,\n        recompute_scale_factor=None,\n        antialias=False,\n    )\n    squeeze = interpolate.squeeze(0)\n    argmin = squeeze.argmin(1)\n    return argmin"
+  },
+  "duplicates": {
+    "query": "",
+    "searched": false,
+    "error": null,
+    "candidates": [
+      {
+        "number": "160840",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/160840",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      }
+    ]
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

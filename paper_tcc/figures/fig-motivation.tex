@@ -1,0 +1,57 @@
+%% Figure: two motivating defects, each with its layer outcome strip.
+\newcommand{\layercell}[3]{% #1 label, #2 colour, #3 text
+  \node[draw=black!40, fill=#2, minimum width=1.5cm, minimum height=0.62cm, font=\scriptsize, align=center,
+        inner sep=1pt] (#1) {#3};}
+\begin{figure}[t]
+\centering
+\begin{minipage}[t]{0.485\linewidth}
+\begin{lstlisting}
+import random, torch
+
+def augment(x):
+    idx = [0, 1, 2, 3]
+    random.shuffle(idx)  # Python state
+    return x[idx]
+
+g = torch.compile(augment)
+x = torch.arange(4.)
+g(x); g(x); g(x)   # same order each time
+\end{lstlisting}
+\centering
+\begin{tikzpicture}[node distance=0pt]
+  \layercell{a0}{tolteal!18}{\EZ eager\\varies}
+  \node[right=2pt of a0] (s1) {};
+  \begin{scope}[shift={(1.62,0)}]\layercell{a1}{tolred!22}{\EO Dynamo\\frozen}\end{scope}
+  \begin{scope}[shift={(3.24,0)}]\layercell{a2}{tolred!22}{\ET AOT\\frozen}\end{scope}
+  \begin{scope}[shift={(4.86,0)}]\layercell{a3}{tolred!22}{\ER Inductor\\frozen}\end{scope}
+\end{tikzpicture}
+\subcaption{\code{random.shuffle} is evaluated once at trace time: divergence enters at graph capture and is
+visible only when the artifact is reused.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\linewidth}
+\begin{lstlisting}
+import torch
+
+def stats(x):
+    return torch.var_mean(x, correction=1)
+
+x = torch.randn(0)        # shape[0] = 0
+stats(x)                  # (nan, nan)
+torch.compile(stats)(x)   # (nan, 0.)
+# same for std_mean, float16, (0, 1),
+# dynamic=True, and AOTInductor
+\end{lstlisting}
+\centering
+\begin{tikzpicture}[node distance=0pt]
+  \layercell{b0}{tolteal!18}{\EZ eager\\(nan, nan)}
+  \begin{scope}[shift={(1.62,0)}]\layercell{b1}{tolteal!18}{\EO Dynamo\\(nan, nan)}\end{scope}
+  \begin{scope}[shift={(3.24,0)}]\layercell{b2}{tolteal!18}{\ET AOT\\(nan, nan)}\end{scope}
+  \begin{scope}[shift={(4.86,0)}]\layercell{b3}{tolred!22}{\ER Inductor\\(nan, 0.)}\end{scope}
+\end{tikzpicture}
+\subcaption{A boundary value of \code{x.shape[0]} makes Inductor fabricate a mean of zero: $E_0{=}E_1{=}E_2{\neq}E_3$
+localizes the defect to code generation.}
+\end{minipage}
+\caption{Two source--artifact consistency failures found by \tool in PyTorch~2.14. Each strip shows the outcome
+on eager execution and on the three compiled layers used for localization.}
+\label{fig:motivation}
+\end{figure}

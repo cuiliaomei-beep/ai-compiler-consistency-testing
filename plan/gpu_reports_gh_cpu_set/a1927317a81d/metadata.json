@@ -1,0 +1,28 @@
+{
+  "signature": "a1927317a81d",
+  "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "183607",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/183607",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

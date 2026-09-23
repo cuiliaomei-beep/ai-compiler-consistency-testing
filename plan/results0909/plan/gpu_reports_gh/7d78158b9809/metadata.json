@@ -1,0 +1,68 @@
+{
+  "signature": "7d78158b9809",
+  "program": "issue_182131_torch_compile_inductor_produces_differen",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "182131",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/182131",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 194310,
+      "title": "Add tiled CUDA kernel for dense 2D transpose copies",
+      "url": "https://github.com/pytorch/pytorch/pull/194310",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-21"
+    },
+    {
+      "number": 195223,
+      "title": "[inductor] Preserve low-precision rounding before comparisons",
+      "url": "https://github.com/pytorch/pytorch/pull/195223",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-08-28"
+    },
+    {
+      "number": 182131,
+      "title": "torch.compile/Inductor produces different result for float16 cast before elementwise add",
+      "url": "https://github.com/pytorch/pytorch/issues/182131",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-01"
+    },
+    {
+      "number": 183639,
+      "title": "Add low precision cast barrier regression coverage",
+      "url": "https://github.com/pytorch/pytorch/pull/183639",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-14"
+    },
+    {
+      "number": 176994,
+      "title": "[Inductor] Improve materialization heuristic for a chain of computations",
+      "url": "https://github.com/pytorch/pytorch/pull/176994",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-03-10"
+    }
+  ]
+}

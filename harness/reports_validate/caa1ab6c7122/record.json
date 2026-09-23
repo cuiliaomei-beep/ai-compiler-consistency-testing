@@ -1,0 +1,208 @@
+{
+  "signature": "caa1ab6c7122",
+  "case": "overlapping_views",
+  "probe": "layered",
+  "triage": {
+    "stage": "layer:E_poison",
+    "priority": "high",
+    "rationale": "first divergence appears at layer 'E_poison'",
+    "kinds": [
+      "value",
+      "alias"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "layers_unavailable": [],
+    "submittable": true
+  },
+  "context": {
+    "name": "fp16",
+    "factors": {
+      "dtype": "float16"
+    }
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "E_poison": {
+      "ref": "E0_eager",
+      "test": "E_poison",
+      "differs": true,
+      "kinds": [
+        "value",
+        "alias"
+      ],
+      "dynamo_same": false,
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[1]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 1.0,
+          "index": 1
+        },
+        {
+          "kind": "value",
+          "detail": "output[2]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 1.00048828125,
+          "index": 2
+        },
+        {
+          "kind": "alias",
+          "detail": "storage-sharing relation changed: lost [(0, 2), (0, 3), (1, 2), (1, 3), (2, 3)] (indices < 1 are inputs, >= 1 are outputs)"
+        }
+      ]
+    }
+  },
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "P[T,T,T]",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "out_meta": [
+        {
+          "shape": [
+            10
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            6
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": true
+        },
+        {
+          "shape": [
+            6
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 4,
+          "is_view": true
+        }
+      ]
+    },
+    "E_poison": {
+      "mode": "E_poison",
+      "ok": true,
+      "exception": null,
+      "out_struct": "P[T,T,T]",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0183,
+      "alias_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "out_meta": [
+        {
+          "shape": [
+            10
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            6
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            6
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "Two views over overlapping ranges, written in order. Write ordering and the alias relation among (x, a, b) must both survive."
+}

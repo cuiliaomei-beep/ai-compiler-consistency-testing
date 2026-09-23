@@ -1,0 +1,52 @@
+{
+  "factor_changed": "layout",
+  "context": {
+    "name": "layout=transposed",
+    "factors": {
+      "layout": "transposed"
+    },
+    "warm": true,
+    "origin": "x.is_contiguous()"
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": {
+    "site": "forward",
+    "factor": "x.is_contiguous()",
+    "kind": "contiguous",
+    "values": [
+      "noncontig",
+      "transposed"
+    ],
+    "constraint": "layout variants with identical values",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "alias",
+      "mutation"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "layout read, or alias structure is written through",
+    "param": "x",
+    "dim": null
+  },
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  }
+}

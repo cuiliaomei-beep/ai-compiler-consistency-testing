@@ -1,0 +1,13 @@
+==== rq1_bench : python -u run.py bench --backend eager --budget 16
+     done in 53s (exit 0)
+==== rq3_ablation : python -u run.py ablate --backend eager --budget 12
+     done in 173s (exit 0)
+==== rq4_cache : python -u run.py cache --backend eager --budget 12
+     done in 38s (exit 0)
+==== rq2_baselines : python -u run.py baselines --backend eager --budget 12
+     done in 875s (exit 0)
+==== experiments : python -u run.py experiments --backend eager --budget 12
+     done in 16s (exit 0)
+==== metrics : python -u run.py metrics
+     done in 4s (exit 0)
+==== all experiments finished

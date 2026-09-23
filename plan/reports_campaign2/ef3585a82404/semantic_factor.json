@@ -1,0 +1,57 @@
+{
+  "factor_changed": "resize",
+  "context": {
+    "name": "self.dim0=2",
+    "factors": {
+      "resize": {
+        "arg": 0,
+        "dim": 0,
+        "value": 2
+      }
+    },
+    "warm": false,
+    "origin": "self.shape[0]"
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": {
+    "site": "forward",
+    "factor": "self.shape[0]",
+    "kind": "shape",
+    "values": [
+      1,
+      2,
+      33
+    ],
+    "constraint": "shape read inside a branch predicate",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "exception",
+      "mutation",
+      "alias"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "branch/index predicate: shape read inside a branch predicate",
+    "param": "self",
+    "dim": 0
+  },
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  }
+}

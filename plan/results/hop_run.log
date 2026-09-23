@@ -1,0 +1,33 @@
+ok    cond: pred from data, both branches elementwise      
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\higher_order_ops.py:2416: UserWarning: Pred is a Python constant. When used with torch.cond, it specializes on one of the branches. If you want torch.cond to preserve two branches, please make the predicate a boolean tensor or a SymBool.
+  warnings.warn(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\higher_order_ops.py:2416: UserWarning: Pred is a Python constant. When used with torch.cond, it specializes on one of the branches. If you want torch.cond to preserve two branches, please make the predicate a boolean tensor or a SymBool.
+  warnings.warn(
+ok    cond: pred false, true branch sqrt                   
+ok    cond: branches return different dtype (int vs float) 
+ok    cond: branch returns view of input                   
+ok    cond: branch returns input itself                    
+ok    cond: closure over outer tensor                      
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\higher_order_ops.py:2416: UserWarning: Pred is a Python constant. When used with torch.cond, it specializes on one of the branches. If you want torch.cond to preserve two branches, please make the predicate a boolean tensor or a SymBool.
+  warnings.warn(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\higher_order_ops.py:2416: UserWarning: Pred is a Python constant. When used with torch.cond, it specializes on one of the branches. If you want torch.cond to preserve two branches, please make the predicate a boolean tensor or a SymBool.
+  warnings.warn(
+ok    cond: python bool pred                               
+ok    cond: pred is 0-d int tensor 0                       
+DIFF  cond: pred NaN tensor                                {'inductor': 'RAISES ValueError: cannot convert float NaN to integer'}
+ok    cond: nested cond                                    
+ok    cond: branches reduce to 0-d                         
+ok    cond: int floor_divide / mod in branches             
+ok    cond: in-place inside branch on clone                
+ok    cond: grad through both branches                     
+ok    cond: pred from inf comparison                       
+ok    cond: bool tensor operands                           
+ok    cond: float16 branch overflow                        
+ok    cond: branch with 0-size slice                       
+ok    while_loop: count to 5                               
+ok    while_loop: zero iterations                          
+ok    while_loop: stop cond with NaN sum                   
+ok    while_loop: int8 overflow wrap                       
+ok    while_loop: body returns carried input unchanged     
+ok    while_loop: float counter 0.1 steps                  
+ok    while_loop: grad through loop                        

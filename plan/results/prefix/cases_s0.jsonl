@@ -1,0 +1,47 @@
+{"op": "u:abs", "verdict": "ok", "findings": []}
+{"op": "u:neg", "verdict": "ok", "findings": []}
+{"op": "u:sign", "verdict": "ok", "findings": []}
+{"op": "u:sgn", "verdict": "ok", "findings": []}
+{"op": "u:signbit", "verdict": "ok", "findings": []}
+{"op": "u:reciprocal", "verdict": "ok", "findings": []}
+{"op": "u:sqrt", "verdict": "ok", "findings": []}
+{"op": "u:rsqrt", "verdict": "ok", "findings": []}
+{"op": "u:square", "verdict": "ok", "findings": []}
+{"op": "u:exp", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:exp float64 static n=3", "detail": "i=2: in full-length run 0.04148389349477018, in length-3 run 0.04148389349477017, eager 0.04148389349477017"}]}
+{"op": "u:expm1", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:expm1 float32 static n=3", "detail": "i=1: in full-length run -0.6736394762992859, in length-3 run -0.6736394166946411, eager -0.6736394762992859"}, {"category": "prefix", "where": "u:expm1 bool static n=3", "detail": "i=1: in full-length run 1.718281865119934, in length-3 run 1.7182817459106445, eager 1.718281865119934"}]}
+{"op": "u:exp2", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:exp2 float64 dynamic n=1", "detail": "i=0: in full-length run 0.17677669529663687, in length-1 run 0.1767766952966369, eager 0.17677669529663687"}, {"category": "prefix", "where": "u:exp2 float64 static n=3", "detail": "i=0: in full-length run 0.17677669529663687, in length-3 run 0.1767766952966369, eager 0.17677669529663687"}]}
+{"op": "u:log", "verdict": "ok", "findings": []}
+{"op": "u:log1p", "verdict": "ok", "findings": []}
+{"op": "u:log2", "verdict": "ok", "findings": []}
+{"op": "u:log10", "verdict": "ok", "findings": []}
+{"op": "u:sin", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:sin uint8 dynamic n=3", "detail": "i=2: in full-length run -0.6636338829994202, in length-3 run -0.6636339426040649, eager -0.6636338829994202"}, {"category": "prefix", "where": "u:sin uint8 static n=9", "detail": "i=2: in full-length run -0.6636338829994202, in length-9 run -0.6636339426040649, eager -0.6636338829994202"}, {"category": "prefix", "where": "u:sin int64 dynamic n=1", "detail": "i=0: in full-length run -0.9999304413795471, in length-1 run -0.9999303817749023, eager -0.9999303817749023"}, {"category": "prefix", "where": "u:sin int64 static n=3", "detail": "i=0: in full-length run -0.9999304413795471, in length-3 run -0.9999303817749023, eager -0.9999303817749023"}]}
+{"op": "u:cos", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:cos float32 dynamic n=1", "detail": "i=0: in full-length run -0.8011436462402344, in length-1 run -0.8011435866355896, eager -0.8011435866355896"}, {"category": "prefix", "where": "u:cos float32 static n=3", "detail": "i=0: in full-length run -0.8011436462402344, in length-3 run -0.8011435866355896, eager -0.8011435866355896"}, {"category": "prefix", "where": "u:cos int8 dynamic n=1", "detail": "i=0: in full-length run -0.692895770072937, in length-1 run -0.6928958296775818, eager -0.6928958296775818"}, {"category": "prefix", "where": "u:cos int8 static n=3", "detail": "i=0: in full-length run -0.692895770072937, in length-3 run -0.6928958296775818, eager -0.6928958296775818"}, {"category": "prefix", "where": "u:cos uint8 dynamic n=33", "detail": "i=32: in full-length run 0.4080820679664612, in length-33 run 0.4080820381641388, eager 0.4080820679664612"}, {"category": "prefix", "where": "u:cos uint8 static n=33", "detail": "i=32: in full-length run 0.4080820679664612, in length-33 run 0.4080820381641388, eager 0.4080820679664612"}]}
+{"op": "u:tan", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:tan float32 dynamic n=1", "detail": "i=0: in full-length run 0.7470223307609558, in length-1 run 0.747022271156311, eager 0.747022271156311"}, {"category": "prefix", "where": "u:tan float32 static n=3", "detail": "i=0: in full-length run 0.7470223307609558, in length-3 run 0.747022271156311, eager 0.747022271156311"}, {"category": "prefix", "where": "u:tan float64 dynamic n=1", "detail": "i=0: in full-length run 0.7470222972386603, in length-1 run 0.7470222972386602, eager 0.7470222972386603"}, {"category": "prefix", "where": "u:tan float64 static n=3", "detail": "i=0: in full-length run 0.7470222972386603, in length-3 run 0.7470222972386602, eager 0.7470222972386603"}]}
+{"op": "u:asin", "verdict": "ok", "findings": []}
+{"op": "u:acos", "verdict": "ok", "findings": []}
+{"op": "u:atan", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:atan bool static n=3", "detail": "i=1: in full-length run 0.7853981256484985, in length-3 run 0.7853981852531433, eager 0.7853981852531433"}]}
+{"op": "u:sinh", "verdict": "ok", "findings": []}
+{"op": "u:cosh", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:cosh float64 dynamic n=1", "detail": "i=0: in full-length run 6.132289479663686, in length-1 run 6.132289479663687, eager 6.132289479663686"}, {"category": "prefix", "where": "u:cosh float64 static n=3", "detail": "i=0: in full-length run 6.132289479663686, in length-3 run 6.132289479663687, eager 6.132289479663686"}]}
+{"op": "u:tanh", "verdict": "ok", "findings": []}
+{"op": "u:asinh", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:asinh float32 static n=3", "detail": "i=1: in full-length run -0.9635688066482544, in length-3 run -0.9635688662528992, eager -0.9635688662528992"}, {"category": "prefix", "where": "u:asinh float64 static n=3", "detail": "i=2: in full-length run -1.8746157498766076, in length-3 run -1.8746157498766078, eager -1.8746157498766078"}, {"category": "prefix", "where": "u:asinh uint8 static n=3", "detail": "i=1: in full-length run 1.818446397781372, in length-3 run 1.8184465169906616, eager 1.8184465169906616"}]}
+{"op": "u:acosh", "verdict": "ok", "findings": []}
+{"op": "u:atanh", "verdict": "ok", "findings": []}
+{"op": "u:erf", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:erf float32 dynamic n=1", "detail": "i=0: in full-length run -0.9995929598808289, in length-1 run -0.9995930194854736, eager -0.9995930194854736"}, {"category": "prefix", "where": "u:erf float32 static n=3", "detail": "i=0: in full-length run -0.9995929598808289, in length-3 run -0.9995930194854736, eager -0.9995930194854736"}, {"category": "prefix", "where": "u:erf float64 static n=3", "detail": "i=1: in full-length run -0.8867082330484797, in length-3 run -0.8867082330484796, eager -0.8867082330484797"}, {"category": "prefix", "where": "u:erf bool static n=3", "detail": "i=1: in full-length run 0.8427006602287292, in length-3 run 0.8427008390426636, eager 0.8427007794380188"}]}
+{"op": "u:erfc", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:erfc uint8 static n=3", "detail": "i=1: in full-length run 2.2090496713644825e-05, in length-3 run 2.209049853263423e-05, eager 2.2090496713644825e-05"}]}
+{"op": "u:erfinv", "verdict": "ok", "findings": []}
+{"op": "u:lgamma", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:lgamma float64 dynamic n=1", "detail": "i=0: in full-length run -0.05624371649767405, in length-1 run -0.056243716497674054, eager -0.05624371649767405"}, {"category": "prefix", "where": "u:lgamma float64 static n=3", "detail": "i=0: in full-length run -0.05624371649767405, in length-3 run -0.056243716497674054, eager -0.05624371649767405"}, {"category": "prefix", "where": "u:lgamma uint8 static n=3", "detail": "i=2: in full-length run 67.88973999023438, in length-3 run 67.8897476196289, eager 67.88973999023438"}]}
+{"op": "u:digamma", "verdict": "ok", "findings": []}
+{"op": "u:sigmoid", "verdict": "ok", "findings": []}
+{"op": "u:logit", "verdict": "ok", "findings": []}
+{"op": "u:sinc", "verdict": "prefix", "findings": [{"category": "prefix", "where": "u:sinc float32 dynamic n=1", "detail": "i=0: in full-length run 0.1273239403963089, in length-1 run 0.1273239552974701, eager 0.1273239552974701"}, {"category": "prefix", "where": "u:sinc int32 dynamic n=1", "detail": "i=0: in full-length run -1.0174583398026016e-10, in length-1 run -1.0174584091915406e-10, eager -1.0174584091915406e-10"}]}
+{"op": "u:i0", "verdict": "ok", "findings": []}
+{"op": "u:round", "verdict": "ok", "findings": []}
+{"op": "u:round_dec", "verdict": "ok", "findings": []}
+{"op": "u:trunc", "verdict": "ok", "findings": []}
+{"op": "u:floor", "verdict": "ok", "findings": []}
+{"op": "u:ceil", "verdict": "ok", "findings": []}
+{"op": "u:frac", "verdict": "ok", "findings": []}
+{"op": "u:nan_to_num", "verdict": "ok", "findings": []}
+{"op": "u:isnan", "verdict": "ok", "findings": []}
+{"op": "u:isinf", "verdict": "ok", "findings": []}
+{"op": "u:isfinite", "verdict": "ok", "findings": []}

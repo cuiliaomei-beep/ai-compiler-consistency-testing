@@ -1,0 +1,36 @@
+{
+  "signature": "b3f89a009fcc",
+  "program": "issue_195673_torch_compile_accepts_rand_like_on_an_in",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "195673",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/195673",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 195673,
+      "title": "torch.compile accepts rand_like on an integer tensor that eager rejects, and returns an all-zero tensor",
+      "url": "https://github.com/pytorch/pytorch/issues/195673",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-09-02"
+    }
+  ]
+}

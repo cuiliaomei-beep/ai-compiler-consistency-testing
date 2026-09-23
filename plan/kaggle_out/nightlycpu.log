@@ -1,0 +1,478 @@
+[{"stream_name":"stdout","time":2.207555878,"data":"$ pip -q install --pre --upgrade torch --index-url https://download.pytorch.org/whl/nightly/cpu\n"}
+,{"stream_name":"stdout","time":8.91480907,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.1/198.1 MB 9.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":45.887426568,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":45.887480452,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260911+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":45.887493225,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260911+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":46.041752058,"data":"$ pip -q install expecttest hypothesis\n"}
+,{"stream_name":"stdout","time":49.046740668,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 44.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":52.210710609,"data":"$ /usr/bin/python3 -c import torch; print('TORCH', torch.__version__, torch.version.git_version)\n"}
+,{"stream_name":"stdout","time":54.488924509,"data":"TORCH 2.15.0.dev20260911+cpu fb8ff0f16a05cb6ba9604a5e69ad36199277d9e0\n"}
+,{"stream_name":"stdout","time":54.888624645,"data":"$ /usr/bin/python3 scripts/verify_candidates_cuda.py cpu\n"}
+,{"stream_name":"stderr","time":84.450847225,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.linalg_vector_norm.default\n"}
+,{"stream_name":"stderr","time":84.450891378,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":84.450898666,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":84.450905181,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":84.450911041,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":84.450916805,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":84.450923013,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":84.450928621,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":84.450934433,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 313, in _fn\n"}
+,{"stream_name":"stderr","time":84.450940578,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":84.450946226,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]              ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":84.450951979,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_refs/linalg/__init__.py\", line 146, in vector_norm\n"}
+,{"stream_name":"stderr","time":84.450971785,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_vector_norm_args(x, ord, dim)\n"}
+,{"stream_name":"stderr","time":84.450977293,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_refs/linalg/__init__.py\", line 121, in _check_vector_norm_args\n"}
+,{"stream_name":"stderr","time":84.450984412,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":84.450990718,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":84.450996095,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":84.451001093,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":84.451005925,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":84.45102294,"data":"E0912 07:49:47.101000 25 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: linalg.vector_norm cannot compute the inf norm on the dimension -1 because this dimension is empty and the operation does not have an identity\n"}
+,{"stream_name":"stderr","time":84.472271722,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.linalg_vector_norm.default\n"}
+,{"stream_name":"stderr","time":84.472318064,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":84.472324373,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":84.472329912,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":84.472334962,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":84.47234019,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":84.472400092,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":84.472406507,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":84.472418203,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 313, in _fn\n"}
+,{"stream_name":"stderr","time":84.472423924,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":84.472428864,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]              ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":84.472433683,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_refs/linalg/__init__.py\", line 146, in vector_norm\n"}
+,{"stream_name":"stderr","time":84.472455544,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_vector_norm_args(x, ord, dim)\n"}
+,{"stream_name":"stderr","time":84.47246095,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_refs/linalg/__init__.py\", line 121, in _check_vector_norm_args\n"}
+,{"stream_name":"stderr","time":84.47246657,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":84.47247317,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":84.472478634,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":84.472483783,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":84.472489281,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":84.472494226,"data":"E0912 07:49:47.124000 25 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: linalg.vector_norm cannot compute the inf norm on the dimension -1 because this dimension is empty and the operation does not have an identity\n"}
+,{"stream_name":"stderr","time":88.381917502,"data":"/kaggle/working/plan/scripts/verify_candidates_cuda.py:49: UserWarning: var_mean(): degrees of freedom is \u003c= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1914.)\n"}
+,{"stream_name":"stderr","time":88.381956122,"data":"  print(\"   eager    :\", show(fn(*args)))\n"}
+,{"stream_name":"stderr","time":88.45118874,"data":"/usr/local/lib/python3.12/dist-packages/torch/_ops.py:916: UserWarning: var_mean(): degrees of freedom is \u003c= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1914.)\n"}
+,{"stream_name":"stderr","time":88.451222522,"data":"  return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":89.385986214,"data":"/kaggle/working/plan/scripts/verify_candidates_cuda.py:49: UserWarning: std_mean(): degrees of freedom is \u003c= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/native/ReduceOps.cpp:1914.)\n"}
+,{"stream_name":"stderr","time":89.386027056,"data":"  print(\"   eager    :\", show(fn(*args)))\n"}
+,{"stream_name":"stderr","time":99.419845215,"data":"Autotune Choices Stats:\n"}
+,{"stream_name":"stderr","time":99.419921412,"data":"{\"num_choices\": 2, \"num_triton_choices\": 0, \"best_kernel\": \"cpp_CppMicroGemmFP32Vec_0\", \"best_time\": 0.004386000000522472}\n"}
+,{"stream_name":"stderr","time":99.420810475,"data":"AUTOTUNE bmm(4x8x8, 4x8x8)\n"}
+,{"stream_name":"stderr","time":99.420831703,"data":"strides: [64, 8, 1], [64, 8, 1]\n"}
+,{"stream_name":"stderr","time":99.420836902,"data":"dtypes: torch.float32, torch.float32\n"}
+,{"stream_name":"stderr","time":99.420889146,"data":"  cpp_CppMicroGemmFP32Vec_0 0.0044 ms 100.0% \n"}
+,{"stream_name":"stderr","time":99.420896274,"data":"  bmm 0.0167 ms 26.2% \n"}
+,{"stream_name":"stderr","time":99.420914227,"data":"SingleProcess AUTOTUNE benchmarking takes 0.2504 seconds and 3.7545 seconds precompiling for 2 choices\n"}
+,{"stream_name":"stdout","time":115.726311461,"data":"torch 2.15.0.dev20260911+cpu | device cpu | \n"}
+,{"stream_name":"stdout","time":115.726371727,"data":"\n"}
+,{"stream_name":"stdout","time":115.726381483,"data":"[01 argmin broadcast equal dims dynamic=True]\n"}
+,{"stream_name":"stdout","time":115.726388057,"data":"   eager    : () int64 cpu stride=() 7\n"}
+,{"stream_name":"stdout","time":115.726394844,"data":"   inductor : InductorError: CppCompileError: C++ compile error  Command: g++ /tmp/torchinductor_root/ez/cezw4xhdrj2em4lpim3maqi2dim4ewk6foazd5gzwf6dchwy2lu6.main.cpp -D || /tmp/torchinductor_root/ez/cezw4xhdrj2em4lpim3maqi2dim4ewk6foazd5gzwf6dchwy2lu6.main.cpp:28:106: error: invalid type argument of unary ‘*’ (have ‘int’) | /tmp/torchinductor_root/ez/cezw4xhdrj2em4lpim3maqi2dim4ewk6foazd5gzwf6dchwy2lu6.main.cpp:38:106: error: invalid type argument of unary ‘*’ (have ‘int’)\n"}
+,{"stream_name":"stdout","time":115.726405532,"data":"\n"}
+,{"stream_name":"stdout","time":115.726410714,"data":"[03 interpolate (2,3,0)-\u003e3 (child process)]\n"}
+,{"stream_name":"stdout","time":115.726417224,"data":"   eager: RuntimeError Input and output sizes should be greater than 0, but got input (W: 0) and output | inductor: (2, 3, 3) nan 18\n"}
+,{"stream_name":"stdout","time":115.726421692,"data":"\n"}
+,{"stream_name":"stdout","time":115.726425266,"data":"[04 vector_norm ord=inf dim=-1 on (0,5)]\n"}
+,{"stream_name":"stdout","time":115.726429045,"data":"   eager    : (0,) float32 cpu stride=(1,) []\n"}
+,{"stream_name":"stdout","time":115.726432777,"data":"   aot_eager: TorchRuntimeError: RuntimeError when making fake tensor call   Explanation: Dynamo failed to run FX node with fake tensors: call_function \u003cbuilt-in function li\n"}
+,{"stream_name":"stdout","time":115.7264371,"data":"   inductor : TorchRuntimeError: RuntimeError when making fake tensor call   Explanation: Dynamo failed to run FX node with fake tensors: call_function \u003cbuilt-in function li\n"}
+,{"stream_name":"stdout","time":115.726441176,"data":"\n"}
+,{"stream_name":"stdout","time":115.726444673,"data":"[04 vector_norm ord=inf dim=1 on (0,5)]\n"}
+,{"stream_name":"stdout","time":115.72644832,"data":"   eager    : (0,) float32 cpu stride=(1,) []\n"}
+,{"stream_name":"stdout","time":115.726452009,"data":"   inductor : (0,) float32 cpu stride=(1,) []\n"}
+,{"stream_name":"stdout","time":115.726455644,"data":"\n"}
+,{"stream_name":"stdout","time":115.726459202,"data":"[05 std of 1e-30 values]\n"}
+,{"stream_name":"stdout","time":115.726462823,"data":"   eager    : () float32 cpu stride=() 1.1581279734414313e-30\n"}
+,{"stream_name":"stdout","time":115.72646663,"data":"   inductor : () float32 cpu stride=() 0.0\n"}
+,{"stream_name":"stdout","time":115.726470353,"data":"   grad eager   : (5,) float32 cpu stride=(1,) [0.1387888789176941, 0.21450941264629364, -0.3816143572330475, 0.1532496064901352, -0.12493353337049484]\n"}
+,{"stream_name":"stdout","time":115.726474384,"data":"   grad inductor: (5,) float32 cpu stride=(1,) [0.0, 0.0, -0.0, 0.0, -0.0]\n"}
+,{"stream_name":"stdout","time":115.726478382,"data":"\n"}
+,{"stream_name":"stdout","time":115.726481877,"data":"[05 std of (4,8)*1e30]\n"}
+,{"stream_name":"stdout","time":115.726485465,"data":"   eager    : () float32 cpu stride=() 9.148753168480315e+29\n"}
+,{"stream_name":"stdout","time":115.726489282,"data":"   inductor : () float32 cpu stride=() inf\n"}
+,{"stream_name":"stdout","time":115.72649294,"data":"\n"}
+,{"stream_name":"stdout","time":115.726496497,"data":"[06 var_mean empty]\n"}
+,{"stream_name":"stdout","time":115.726513689,"data":"   eager    : (() float32 cpu stride=() nan, () float32 cpu stride=() nan)\n"}
+,{"stream_name":"stdout","time":115.726517287,"data":"   aot_eager: (() float32 cpu stride=() nan, () float32 cpu stride=() nan)\n"}
+,{"stream_name":"stdout","time":115.726521663,"data":"   inductor : (() float32 cpu stride=() nan, () float32 cpu stride=() 0.0)\n"}
+,{"stream_name":"stdout","time":115.726524867,"data":"\n"}
+,{"stream_name":"stdout","time":115.726527747,"data":"[06 std_mean empty]\n"}
+,{"stream_name":"stdout","time":115.726530783,"data":"   eager    : (() float32 cpu stride=() nan, () float32 cpu stride=() nan)\n"}
+,{"stream_name":"stdout","time":115.726533852,"data":"   inductor : (() float32 cpu stride=() nan, () float32 cpu stride=() 0.0)\n"}
+,{"stream_name":"stdout","time":115.726536962,"data":"\n"}
+,{"stream_name":"stdout","time":115.726539736,"data":"[07 pdist (0,4) backward (child process)]\n"}
+,{"stream_name":"stdout","time":115.726542686,"data":"   forward ok (0,)   \u003c-- child exit -11: \n"}
+,{"stream_name":"stdout","time":115.726545819,"data":"\n"}
+,{"stream_name":"stdout","time":115.726548636,"data":"[08 BCE bf16 inputs fp32 weight]\n"}
+,{"stream_name":"stdout","time":115.726551555,"data":"   eager    : () bfloat16 cpu stride=() 0.50390625\n"}
+,{"stream_name":"stdout","time":115.726554626,"data":"   aot_eager: () bfloat16 cpu stride=() 0.50390625\n"}
+,{"stream_name":"stdout","time":115.72655775,"data":"   inductor : () float32 cpu stride=() 0.5013980865478516\n"}
+,{"stream_name":"stdout","time":115.726560732,"data":"\n"}
+,{"stream_name":"stdout","time":115.726563867,"data":"[09 channel_shuffle channels_last]\n"}
+,{"stream_name":"stdout","time":115.726566857,"data":"   eager    : (2, 6, 8, 8) float32 cpu stride=(384, 1, 48, 6) nan=0 max=4.101\n"}
+,{"stream_name":"stdout","time":115.726569996,"data":"   aot_eager: (2, 6, 8, 8) float32 cpu stride=(384, 1, 48, 6) nan=0 max=4.101\n"}
+,{"stream_name":"stdout","time":115.726573077,"data":"   inductor : (2, 6, 8, 8) float32 cpu stride=(384, 64, 8, 1) nan=0 max=4.101\n"}
+,{"stream_name":"stdout","time":115.726576126,"data":"\n"}
+,{"stream_name":"stdout","time":115.726578974,"data":"[10 addmm 0-d bias max_autotune]\n"}
+,{"stream_name":"stdout","time":115.726581959,"data":"   eager    : (2, 3) float32 cpu stride=(3, 1) [[1.2859805822372437, 0.4093663990497589, -1.166354775428772], [2.3327994346618652, 0.45918554067611694, -3.4034740924835205]]\n"}
+,{"stream_name":"stdout","time":115.726585302,"data":"   inductor : InductorError: LoweringException: IndexError: list index out of range   target: aten.addmm.default   args[0]: TensorBox(StorageBox(     InputBuffer(name='a\n"}
+,{"stream_name":"stdout","time":115.726588706,"data":"\n"}
+,{"stream_name":"stdout","time":115.72659151,"data":"[02 bmm max_autotune]\n"}
+,{"stream_name":"stdout","time":115.726594394,"data":"   eager    : (4, 8, 8) float32 cpu stride=(64, 8, 1) nan=0 max=10.68\n"}
+,{"stream_name":"stdout","time":115.726597419,"data":"   inductor : (4, 8, 8) float32 cpu stride=(64, 8, 1) nan=0 max=10.68\n"}
+,{"stream_name":"stdout","time":115.72660041500001,"data":"\n"}
+,{"stream_name":"stdout","time":115.726603286,"data":"[G2 adaptive_avg_pool2d output_size as SymInt (dynamic=True, positional param)]\n"}
+,{"stream_name":"stdout","time":115.726606363,"data":"   eager    : (2, 8, 5, 5) float32 cpu stride=(200, 25, 5, 1) nan=0 max=1.348\n"}
+,{"stream_name":"stdout","time":115.726609369,"data":"   inductor : (2, 8, 5, 5) float32 cpu stride=(200, 25, 5, 1) nan=0 max=1.348\n"}
+,{"stream_name":"stdout","time":115.72661236,"data":"\n"}
+,{"stream_name":"stdout","time":115.726615187,"data":"[G3 combinations r=1 dynamic=True]\n"}
+,{"stream_name":"stdout","time":115.726625372,"data":"   eager    : (2, 1) float32 cpu stride=(1, 1) [[0.4550809860229492], [-0.4511180818080902]]\n"}
+,{"stream_name":"stdout","time":115.726628696,"data":"   inductor : (2, 1) float32 cpu stride=(1, 1) [[0.4550809860229492], [-0.4511180818080902]]\n"}
+,{"stream_name":"stdout","time":115.726631836,"data":"\n"}
+,{"stream_name":"stdout","time":115.726634822,"data":"[G4 interpolate scale 2 bilinear dynamic=True]\n"}
+,{"stream_name":"stdout","time":115.72663784,"data":"   eager    : (2, 3, 8, 8) float32 cpu stride=(192, 64, 8, 1) nan=0 max=2.453\n"}
+,{"stream_name":"stdout","time":115.72664098,"data":"   inductor : (2, 3, 8, 8) float32 cpu stride=(192, 64, 8, 1) nan=0 max=2.453\n"}
+,{"stream_name":"stdout","time":115.726644063,"data":"\n"}
+,{"stream_name":"stdout","time":115.726646956,"data":"[G5 quantile dynamic=True]\n"}
+,{"stream_name":"stdout","time":115.726650406,"data":"   eager    : (2,) float32 cpu stride=(1,) [-0.42214810848236084, 0.2696978747844696]\n"}
+,{"stream_name":"stdout","time":115.726653586,"data":"   inductor : (2,) float32 cpu stride=(1,) [-0.42214810848236084, 0.269697904586792]\n"}
+,{"stream_name":"stdout","time":115.72665667,"data":"\n"}
+,{"stream_name":"stdout","time":115.726659609,"data":"[G6 nonzero_static size 5 -\u003e 6]\n"}
+,{"stream_name":"stdout","time":115.726662673,"data":"   call v1  : (5, 2) int64 cpu stride=(2, 1) | eager (5, 2) int64 cpu stride=(2, 1)\n"}
+,{"stream_name":"stdout","time":115.726665807,"data":"   call v2  : (6, 2) int64 cpu stride=(2, 1) | eager (6, 2) int64 cpu stride=(2, 1)\n"}
+,{"stream_name":"stdout","time":115.726668819,"data":"\n"}
+,{"stream_name":"stdout","time":115.726671695,"data":"[G7 grid_sampler_2d interpolation_mode 0 -\u003e 1]\n"}
+,{"stream_name":"stdout","time":115.72667488,"data":"   call v1  : (1, 2, 4, 4) float32 cpu stride=(32, 16, 4, 1) nan=0 max=0.915 | eager (1, 2, 4, 4) float32 cpu stride=(32, 16, 4, 1) nan=0 max=0.915\n"}
+,{"stream_name":"stdout","time":115.72667822,"data":"   call v2  : (1, 2, 4, 4) float32 cpu stride=(32, 16, 4, 1) nan=0 max=0.915 | eager (1, 2, 4, 4) float32 cpu stride=(32, 16, 4, 1) nan=0 max=0.915\n"}
+,{"stream_name":"stdout","time":115.726681377,"data":"\n"}
+,{"stream_name":"stdout","time":115.726684367,"data":"[11 aoti return_types] NotImplementedError: No registered serialization name for \u003cclass 'torch.return_types.max'\u003e found. Please update your _register_pytree_node call with a `serialize\n"}
+,{"stream_name":"stdout","time":115.72668804,"data":"[12 run_decompositions] RuntimeError: Constant lifted_tensor_0 is mutated in the forward method. Pls register it as buffer\n"}
+,{"stream_name":"stdout","time":115.726691245,"data":"[12 aoti] RuntimeError: false INTERNAL ASSERT FAILED at \"/__w/pytorch/pytorch/build/aten/src/ATen/RegisterFunctionalization_2.cpp\":8064, please report a bug to PyTo\n"}
+,{"stream_name":"stdout","time":115.726694776,"data":"\n"}
+,{"stream_name":"stdout","time":115.726697653,"data":"VERIFY DONE\n"}
+,{"stream_name":"stdout","time":116.872445626,"data":"$ /usr/bin/python3 run.py decomp --isolate --samples 1 --out nightly_results_decomp\n"}
+,{"stream_name":"stdout","time":300.748002376,"data":"isolated decomp sweep: 595 operators, 0 already done, 595 to go\n"}
+,{"stream_name":"stdout","time":300.748053286,"data":"[25/595] abs .. atan\n"}
+,{"stream_name":"stdout","time":300.748061409,"data":"  DECOMP mv                                   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74806764,"data":"  DECOMP bmm                                  size1_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=False\n"}
+,{"stream_name":"stdout","time":300.74809644,"data":"  DECOMP bmm                                  dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748102343,"data":"[50/595] atan2 .. view_as_complex\n"}
+,{"stream_name":"stdout","time":300.748113236,"data":"[75/595] complex .. diagonal\n"}
+,{"stream_name":"stdout","time":300.748118666,"data":"  DECOMP cross                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748122594,"data":"[100/595] diagonal_copy .. le\n"}
+,{"stream_name":"stdout","time":300.748125698,"data":"  DECOMP frac                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748129311,"data":"  DECOMP stft                                 empty_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=False\n"}
+,{"stream_name":"stdout","time":300.748132656,"data":"  DECOMP isin                                 dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748161181,"data":"[125/595] linspace .. var_mean\n"}
+,{"stream_name":"stdout","time":300.74816583,"data":"  DECOMP logaddexp                            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74817058,"data":"  DECOMP logaddexp2                           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748175718,"data":"[150/595] var_mean .. nn.functional.linear_cross_entropy\n"}
+,{"stream_name":"stdout","time":300.748180489,"data":"  DECOMP heaviside                            dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748185323,"data":"  DECOMP softmax                              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748190588,"data":"  DECOMP nn.functional.cross_entropy          empty_last     [exception] exception type differs: IndexError vs RuntimeError :: index 0 is out  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748197878,"data":"  DECOMP nn.functional.cross_entropy          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748202971,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748208178,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74821339,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748224368,"data":"[175/595] nn.functional.linear_cross_entropy .. nn.functional.conv1d\n"}
+,{"stream_name":"stdout","time":300.748229308,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748234336,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748244333,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748247878,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748251101,"data":"  DECOMP native_batch_norm                    empty_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74825587,"data":"  META   native_batch_norm                    size1_dim0     fake-tensor path raised ZeroDivisionError: float division by zero\n"}
+,{"stream_name":"stdout","time":300.74826111,"data":"[200/595] nn.functional.conv2d .. nn.functional.upsample_nearest\n"}
+,{"stream_name":"stdout","time":300.748265786,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748270768,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748275598,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748280594,"data":"  DECOMP nn.functional.hardswish              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748286648,"data":"  DECOMP nn.functional.hardswish              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748291674,"data":"  DECOMP nn.functional.unfold                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74829658,"data":"  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":300.748302521,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74830762,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748312722,"data":"  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":300.748317778,"data":"  DECOMP nn.functional.interpolate            size1_last     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748322698,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.7483277,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748332701,"data":"  DECOMP nn.functional.interpolate            empty_last     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74833761,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.7483695,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748379168,"data":"  DECOMP nn.functional.soft_margin_loss       dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748384381,"data":"  DECOMP nn.functional.soft_margin_loss       dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74838974,"data":"  META   nn.functional.upsample_nearest       empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":300.748394821,"data":"  DECOMP nn.functional.upsample_nearest       size1_last     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74839951,"data":"  DECOMP nn.functional.upsample_nearest       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748404453,"data":"  DECOMP nn.functional.upsample_nearest       dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748409617,"data":"[225/595] nn.functional.margin_ranking_loss .. nn.functional.scaled_dot_product_attention\n"}
+,{"stream_name":"stdout","time":300.748414276,"data":"  DECOMP nn.functional.multi_margin_loss      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74841946,"data":"  DECOMP nn.functional.multi_margin_loss      dtype_float16  [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74842458,"data":"  DECOMP nn.functional.multi_margin_loss      dtype_bfloat16 [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748429528,"data":"  DECOMP nn.functional.multilabel_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748434528,"data":"  DECOMP nn.functional.multilabel_margin_loss dtype_float16  [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748439667,"data":"  DECOMP nn.functional.multilabel_margin_loss dtype_bfloat16 [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748444605,"data":"  DECOMP nn.functional.multilabel_soft_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748449703,"data":"  DECOMP max_pool2d_with_indices_backward     dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.748454681,"data":"  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":300.74845972,"data":"  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771740927,"data":"  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771860222,"data":"  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771868052,"data":"  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771873964,"data":"  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771879494,"data":"  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771885275,"data":"  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771890131,"data":"  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771895332,"data":"  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771900571,"data":"  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771905732,"data":"  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771911414,"data":"  DECOMP nn.functional.prelu                  dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771917002,"data":"  DECOMP nn.functional.celu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771922399,"data":"  DECOMP nn.functional.celu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771927995,"data":"[250/595] torch.ops.aten._scaled_dot_product_flash_attention_for_cpu .. mvlgamma\n"}
+,{"stream_name":"stdout","time":490.771933293,"data":"  DECOMP nn.functional.silu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771940454,"data":"  DECOMP nn.functional.hardsigmoid            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771946088,"data":"  DECOMP nn.functional.hardsigmoid            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771951365,"data":"  DECOMP nn.functional.logsigmoid             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771956779,"data":"  DECOMP nn.functional.threshold              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771962159,"data":"  DECOMP nn.functional.binary_cross_entropy   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771967798,"data":"  DECOMP nn.functional.binary_cross_entropy   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771977996,"data":"  DECOMP nn.functional.binary_cross_entropy   nan_inf        [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771983587,"data":"  DECOMP nn.functional.binary_cross_entropy   huge           [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771989207,"data":"  DECOMP nn.functional.hardshrink             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.771994832,"data":"  DECOMP nn.functional.gelu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772000452,"data":"  DECOMP nn.functional.gelu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772005989,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772011558,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772017156,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772022719,"data":"[275/595] mvlgamma .. sinh\n"}
+,{"stream_name":"stdout","time":490.772027916,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772034349,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772040011,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772045515,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772051217,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772056742,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772062432,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772068037,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772073639,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772079354,"data":"[300/595] sign .. reciprocal\n"}
+,{"stream_name":"stdout","time":490.772083681,"data":"[325/595] rsqrt .. view\n"}
+,{"stream_name":"stdout","time":490.772087681,"data":"  DECOMP lerp                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772096605,"data":"[350/595] view_as .. bfloat16\n"}
+,{"stream_name":"stdout","time":490.772101556,"data":"  DECOMP index_add                            zero_dim       [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772106934,"data":"[375/595] bool .. stack\n"}
+,{"stream_name":"stdout","time":490.772112018,"data":"[400/595] hstack .. take_along_dim\n"}
+,{"stream_name":"stdout","time":490.772117194,"data":"[425/595] tile .. digamma\n"}
+,{"stream_name":"stdout","time":490.772122111,"data":"  DECOMP trace                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772127236,"data":"[450/595] erf .. native_dropout_backward\n"}
+,{"stream_name":"stdout","time":490.772132044,"data":"  DECOMP nn.functional.smooth_l1_loss         dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772137532,"data":"  DECOMP log_softmax                          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772142741,"data":"[475/595] nn.functional.dropout2d .. prod\n"}
+,{"stream_name":"stdout","time":490.772150164,"data":"  DECOMP nn.functional.softplus               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772155871,"data":"  DECOMP nn.functional.mse_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772162319,"data":"  DECOMP nn.functional.grid_sample            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772168015,"data":"  DECOMP nn.functional.grid_sample            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772173552,"data":"  DECOMP grid_sampler_2d                      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772179268,"data":"  DECOMP grid_sampler_2d                      dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772184939,"data":"  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772190712,"data":"[500/595] sum .. fft.fft\n"}
+,{"stream_name":"stdout","time":490.772195705,"data":"  DECOMP nn.functional.nll_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772201452,"data":"  DECOMP nn.functional.huber_loss             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772206945,"data":"  DECOMP nn.functional.huber_loss             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772212625,"data":"  META   nn.functional.channel_shuffle        channels_last  output[0] stride (200, 25, 5, 1) vs real (200, 1, 40, 8)\n"}
+,{"stream_name":"stdout","time":490.772218098,"data":"[525/595] fft.fft2 .. linalg.cholesky_ex\n"}
+,{"stream_name":"stdout","time":490.772227024,"data":"  DECOMP linalg.cross                         dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":490.772232832,"data":"[550/595] linalg.vecdot .. linalg.lu\n"}
+,{"stream_name":"stdout","time":490.772237907,"data":"  child exit -11: orch/aten/src/ATen/EmptyTensor.cpp:54.)\n"}
+,{"stream_name":"stdout","time":490.772243802,"data":"  return _op(*a, **kw)\n"}
+,{"stream_name":"stdout","time":490.772249401,"data":"/kaggle/working/plan/tcc/decomp_diff.py:355: UserWarning: BComplex32 support is experimental and many operators don't support it yet. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/EmptyTensor.cpp:57.)\n"}
+,{"stream_name":"stdout","time":654.633881317,"data":"  return _op(*a, **kw)\n"}
+,{"stream_name":"stdout","time":654.633919922,"data":"  child exit -11: \n"}
+,{"stream_name":"stdout","time":654.633927596,"data":"  CRASH  linalg.eigvals                       process exit -11 (timeout if -999)\n"}
+,{"stream_name":"stdout","time":654.633933996,"data":"  META   linalg.vector_norm                   empty_dim0     fake-tensor path raised RuntimeError: linalg.vector_norm cannot compute the -inf\n"}
+,{"stream_name":"stdout","time":654.633940632,"data":"[575/595] linalg.lu_solve .. signal.windows.nuttall\n"}
+,{"stream_name":"stdout","time":654.633946022,"data":"  META   linalg.pinv                          dtype_bool     fake-tensor path raised RuntimeError: expected scalar type torch.bool but found \n"}
+,{"stream_name":"stdout","time":654.633951589,"data":"[600/595] masked.sum .. bmm\n"}
+,{"stream_name":"stdout","time":654.633956849,"data":"  DECOMP masked.softmax                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":654.633972825,"data":"  DECOMP masked.softmin                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":654.633979245,"data":"  DECOMP masked.logaddexp                     dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":654.633985118,"data":"  DECOMP bmm                                  size1_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=False\n"}
+,{"stream_name":"stdout","time":654.633991208,"data":"  DECOMP bmm                                  dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=False\n"}
+,{"stream_name":"stdout","time":654.633997124,"data":"{\"ops\": 576, \"samples\": 576, \"variants\": 8075, \"decomp_covered\": 3037, \"decomp_mismatch\": 108, \"meta_mismatch\": 7, \"data_dependent\": 156, \"errors\": 0, \"wall_s\": 529.8, \"crashes\": 1}\n"}
+,{"stream_name":"stdout","time":654.634005848,"data":"written nightly_results_decomp/DECOMP_DIFF.md\n"}
+,{"stream_name":"stdout","time":655.709132495,"data":"$ /usr/bin/python3 run.py decomp --isolate --grad --samples 1 --out nightly_results_decomp_grad\n"}
+,{"stream_name":"stdout","time":801.066901343,"data":"isolated decomp sweep: 595 operators, 0 already done, 595 to go\n"}
+,{"stream_name":"stdout","time":801.066946392,"data":"[25/595] abs .. atan\n"}
+,{"stream_name":"stdout","time":801.06695416,"data":"  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.066960901,"data":"  DECOMP mv                                   zero_dim       [exception] exception type differs: IndexError vs RuntimeError :: matrix @ vecto  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.066982837,"data":"  DECOMP mv                                   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.066988524,"data":"  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.066992209,"data":"[50/595] atan2 .. view_as_complex\n"}
+,{"stream_name":"stdout","time":801.066995645,"data":"[75/595] complex .. diagonal\n"}
+,{"stream_name":"stdout","time":801.066998685,"data":"  DECOMP cross                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.06700202,"data":"[100/595] diagonal_copy .. le\n"}
+,{"stream_name":"stdout","time":801.06700494,"data":"  DECOMP frac                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067008091,"data":"  DECOMP stft                                 empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067011318,"data":"  DECOMP stft                                 size1_last     [exception] exception type differs: RuntimeError vs IndexError :: index -8 is ou  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067014593,"data":"  DECOMP stft                                 zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: index -8 is ou  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067018171,"data":"  DECOMP isin                                 dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067023174,"data":"[125/595] linspace .. var_mean\n"}
+,{"stream_name":"stdout","time":801.067027875,"data":"  DECOMP logaddexp                            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.06703272,"data":"  DECOMP logaddexp2                           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.06703896,"data":"[150/595] var_mean .. nn.functional.linear_cross_entropy\n"}
+,{"stream_name":"stdout","time":801.067043705,"data":"  DECOMP quantile                             prime_dim0     [value] output[1]: compiled err vs fp64 = 7.500e-01 exceeds 4.0x eager err 0.000  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067048436,"data":"  DECOMP softmax                              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067053378,"data":"  DECOMP nn.functional.cross_entropy          empty_last     [exception] exception type differs: IndexError vs RuntimeError :: index 0 is out  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067058225,"data":"  DECOMP nn.functional.cross_entropy          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067063335,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067068362,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067073317,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.06708267,"data":"  DECOMP nn.functional.linear_cross_entropy   base           [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.0670878,"data":"  DECOMP nn.functional.linear_cross_entropy   noncontig      [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067092907,"data":"  DECOMP nn.functional.linear_cross_entropy   nan_inf        [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067097821,"data":"  DECOMP nn.functional.linear_cross_entropy   huge           [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067102886,"data":"  DECOMP nn.functional.linear_cross_entropy   tiny           [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067107705,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_float16  [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067111433,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067114751,"data":"[175/595] nn.functional.linear_cross_entropy .. nn.functional.conv1d\n"}
+,{"stream_name":"stdout","time":801.067117864,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.06712282,"data":"  DECOMP nn.functional.linear_cross_entropy   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067127402,"data":"  DECOMP native_group_norm                    dtype_bool     [exception] exception type differs: RuntimeError vs NotImplementedError :: var_m  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.06713222,"data":"[200/595] nn.functional.conv2d .. nn.functional.upsample_nearest\n"}
+,{"stream_name":"stdout","time":801.067136579,"data":"  DECOMP nn.functional.layer_norm             dtype_bool     [exception] exception type differs: RuntimeError vs NotImplementedError :: var_m  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067141583,"data":"  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067146355,"data":"  DECOMP nn.functional.pad                    size1_last     [exception] exception type differs: RuntimeError vs IndexError :: index -2 is ou  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067158644,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067164301,"data":"  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067169588,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067180191,"data":"  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":801.067189237,"data":"  META   nn.functional.pad                    channels_last  output[1] stride (96, 16, 4, 1) vs real (96, 1, 24, 6)\n"}
+,{"stream_name":"stdout","time":801.067194358,"data":"  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067200185,"data":"  DECOMP nn.functional.hardswish              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067205443,"data":"  DECOMP nn.functional.hardswish              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.06721067,"data":"  DECOMP nn.functional.hardswish              nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067216079,"data":"  DECOMP nn.functional.unfold                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067220372,"data":"  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":801.067226071,"data":"  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: divisio  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067231329,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067236654,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067241838,"data":"  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":801.067246965,"data":"  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: float d  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067251711,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067256907,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067261668,"data":"  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":801.067266741,"data":"  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185410248,"data":"  DECOMP nn.functional.soft_margin_loss       dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185458785,"data":"  META   nn.functional.upsample_nearest       empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got \u003cclass 'int'\u003e\n"}
+,{"stream_name":"stdout","time":1134.185467914,"data":"  DECOMP nn.functional.upsample_nearest       empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: float d  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185489517,"data":"  DECOMP nn.functional.upsample_nearest       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185494685,"data":"  DECOMP nn.functional.upsample_nearest       dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185499319,"data":"[225/595] nn.functional.margin_ranking_loss .. nn.functional.scaled_dot_product_attention\n"}
+,{"stream_name":"stdout","time":1134.185503846,"data":"  DECOMP nn.functional.multi_margin_loss      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185508274,"data":"  DECOMP nn.functional.multilabel_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185512858,"data":"  DECOMP nn.functional.multilabel_soft_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185517538,"data":"  DECOMP max_pool2d_with_indices_backward     dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185522099,"data":"  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185526742,"data":"  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185531351,"data":"  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185536182,"data":"  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185540878,"data":"  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185546999,"data":"  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185551475,"data":"  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185556108,"data":"  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185560948,"data":"  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185565313,"data":"  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185569626,"data":"  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185574035,"data":"  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185582339,"data":"  DECOMP nn.functional.prelu                  dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185586931,"data":"  DECOMP nn.functional.celu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185591604,"data":"  DECOMP nn.functional.celu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185596303,"data":"  DECOMP nn.functional.celu                   nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185600699,"data":"[250/595] torch.ops.aten._scaled_dot_product_flash_attention_for_cpu .. mvlgamma\n"}
+,{"stream_name":"stdout","time":1134.185605291,"data":"  child exit -6: double free or corruption (out)\n"}
+,{"stream_name":"stdout","time":1134.185609717,"data":"  child exit -6: free(): invalid size\n"}
+,{"stream_name":"stdout","time":1134.185614342,"data":"  CRASH  torch.ops.aten._scaled_dot_product_flash_attention_for_cpu process exit -6 (timeout if -999)\n"}
+,{"stream_name":"stdout","time":1134.185618588,"data":"  DECOMP nn.functional.silu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185623544,"data":"  DECOMP nn.functional.hardsigmoid            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185628423,"data":"  DECOMP nn.functional.hardsigmoid            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185633173,"data":"  DECOMP nn.functional.logsigmoid             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185637719,"data":"  DECOMP nn.functional.threshold              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185642684,"data":"  DECOMP nn.functional.batch_norm             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185647471,"data":"  DECOMP nn.functional.binary_cross_entropy   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185652301,"data":"  DECOMP nn.functional.binary_cross_entropy   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185657253,"data":"  DECOMP nn.functional.binary_cross_entropy   nan_inf        [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185661906,"data":"  DECOMP nn.functional.binary_cross_entropy   huge           [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185666728,"data":"  DECOMP nn.functional.hardshrink             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185671794,"data":"  DECOMP nn.functional.gelu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185677071,"data":"  DECOMP nn.functional.gelu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185686503,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185691763,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185696413,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185701328,"data":"[275/595] mvlgamma .. sinh\n"}
+,{"stream_name":"stdout","time":1134.185706564,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185711508,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185716469,"data":"  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185721163,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185725637,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185730681,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185735769,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185740799,"data":"  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185745922,"data":"  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185750978,"data":"[300/595] sign .. reciprocal\n"}
+,{"stream_name":"stdout","time":1134.185755666,"data":"[325/595] rsqrt .. view\n"}
+,{"stream_name":"stdout","time":1134.185760429,"data":"  DECOMP lerp                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185765531,"data":"  DECOMP lerp                                 dtype_bool     [exception] exception type differs: RuntimeError vs NotImplementedError :: Subtr  confirmed=False\n"}
+,{"stream_name":"stdout","time":1134.185770096,"data":"[350/595] view_as .. bfloat16\n"}
+,{"stream_name":"stdout","time":1134.185773361,"data":"  DECOMP index_copy                           empty_dim0     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False\n"}
+,{"stream_name":"stdout","time":1134.185776794,"data":"  DECOMP index_add                            zero_dim       [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1134.185780119,"data":"[375/595] bool .. stack\n"}
+,{"stream_name":"stdout","time":1134.185783188,"data":"[400/595] hstack .. take_along_dim\n"}
+,{"stream_name":"stdout","time":1134.185789868,"data":"[425/595] tile .. digamma\n"}
+,{"stream_name":"stdout","time":1368.555442611,"data":"  DECOMP trace                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555484958,"data":"[450/595] erf .. native_dropout_backward\n"}
+,{"stream_name":"stdout","time":1368.555493104,"data":"  DECOMP nn.functional.smooth_l1_loss         dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555499696,"data":"  DECOMP nn.functional.smooth_l1_loss         nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555506181,"data":"  DECOMP log_softmax                          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555512478,"data":"[475/595] nn.functional.dropout2d .. prod\n"}
+,{"stream_name":"stdout","time":1368.555517999,"data":"  DECOMP nn.functional.softplus               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.55552208,"data":"  DECOMP nn.functional.mse_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555526091,"data":"  DECOMP nn.functional.grid_sample            empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555530191,"data":"  DECOMP nn.functional.grid_sample            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555534092,"data":"  DECOMP grid_sampler_2d                      empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555538069,"data":"  DECOMP grid_sampler_2d                      zero_dim       [exception] exception type differs: IndexError vs ValueError :: not enough value  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555542006,"data":"  DECOMP grid_sampler_2d                      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555545946,"data":"  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555550061,"data":"  DECOMP std                                  tiny           [value] output[1]: compiled err vs fp64 = 1.890e-01 exceeds 4.0x eager err 1.132  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555554131,"data":"[500/595] sum .. fft.fft\n"}
+,{"stream_name":"stdout","time":1368.555557809,"data":"  child exit -11: \n"}
+,{"stream_name":"stdout","time":1368.555561386,"data":"  child exit -11: \n"}
+,{"stream_name":"stdout","time":1368.555565061,"data":"  CRASH  nn.functional.ctc_loss               process exit -11 (timeout if -999)\n"}
+,{"stream_name":"stdout","time":1368.555569941,"data":"  DECOMP nn.functional.nll_loss               channels_last  [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555573924,"data":"  DECOMP nn.functional.nll_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.55557782,"data":"  DECOMP nn.functional.nll_loss               dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555630193,"data":"  DECOMP nn.functional.nll_loss               dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555635151,"data":"  DECOMP nn.functional.nll_loss               dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555638869,"data":"  DECOMP nn.functional.huber_loss             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555642167,"data":"  DECOMP nn.functional.huber_loss             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555645491,"data":"  child exit -11: \n"}
+,{"stream_name":"stdout","time":1368.555653229,"data":"  CRASH  nn.functional.pdist                  process exit -11 (timeout if -999)\n"}
+,{"stream_name":"stdout","time":1368.555656463,"data":"  META   nn.functional.channel_shuffle        channels_last  output[0] stride (384, 64, 8, 1) vs real (384, 1, 48, 6)\n"}
+,{"stream_name":"stdout","time":1368.555659716,"data":"[525/595] fft.fft2 .. linalg.cholesky_ex\n"}
+,{"stream_name":"stdout","time":1368.555662784,"data":"  DECOMP linalg.cross                         dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555670533,"data":"[550/595] linalg.vecdot .. linalg.lu\n"}
+,{"stream_name":"stdout","time":1368.555673647,"data":"[575/595] linalg.lu_solve .. signal.windows.nuttall\n"}
+,{"stream_name":"stdout","time":1368.555676801,"data":"  META   linalg.pinv                          dtype_bool     fake-tensor path raised RuntimeError: expected scalar type torch.bool but found \n"}
+,{"stream_name":"stdout","time":1368.555680104,"data":"[600/595] masked.sum .. bmm\n"}
+,{"stream_name":"stdout","time":1368.555683069,"data":"  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False\n"}
+,{"stream_name":"stdout","time":1368.555686369,"data":"  DECOMP masked.softmax                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555690131,"data":"  DECOMP masked.softmin                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555693476,"data":"  DECOMP masked.logaddexp                     dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True\n"}
+,{"stream_name":"stdout","time":1368.555696701,"data":"  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False\n"}
+,{"stream_name":"stdout","time":1368.555700069,"data":"{\"ops\": 574, \"samples\": 574, \"variants\": 8051, \"decomp_covered\": 7441, \"decomp_mismatch\": 128, \"meta_mismatch\": 6, \"data_dependent\": 141, \"errors\": 0, \"wall_s\": 707.2, \"crashes\": 3}\n"}
+,{"stream_name":"stdout","time":1368.555706123,"data":"written nightly_results_decomp_grad/DECOMP_DIFF.md\n"}
+,{"stream_name":"stdout","time":1369.621527694,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":1372.303312854,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1372.303388767,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1372.585858572,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1372.58590125,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1373.338658089,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1374.85686237,"data":"[NbConvertApp] Writing 280739 bytes to __results__.html\n"}
+]

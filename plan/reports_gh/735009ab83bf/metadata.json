@@ -1,0 +1,28 @@
+{
+  "signature": "735009ab83bf",
+  "program": "issue_182131_torch_compile_inductor_produces_differen",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Pending",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": 96064,
+      "title": "`torch.compile` silently produces wrong answer when compiling functions with (unrolled) loop",
+      "url": "https://github.com/pytorch/pytorch/issues/96064",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2023-03-05"
+    }
+  ]
+}

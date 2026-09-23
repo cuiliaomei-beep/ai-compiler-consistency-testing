@@ -1,0 +1,164 @@
+{
+  "sequence": [
+    "E0_eager: InternalTorchDynamoError",
+    "E1_dynamo_eager: TorchRuntimeError",
+    "E2_aot_eager: TorchRuntimeError",
+    "E3_inductor: TorchRuntimeError"
+  ],
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.048,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), **{}): got RuntimeError('Unhandled FakeTensor Device Propagation for aten.mm.default, found two different devices cuda:0, cpu')\n\nfrom user code:\n   File \"reproducers_gh/issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py\", line 18, in rollout\n    _, ys = scan(body, state0, xs)\n  File \"/usr/local/lib/python3.12/dist-packages/torch/_higher_order_ops/scan.py\", line 211, in scan\n    carry, out = ",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0675,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), **{}): got RuntimeError('Unhandled FakeTensor Device Propagation for aten.mm.default, found two different devices cuda:0, cpu')\n\nfrom user code:\n   File \"reproducers_gh/issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py\", line 18, in rollout\n    _, ys = scan(body, state0, xs)\n  File \"/usr/local/lib/python3.12/dist-packages/torch/_higher_order_ops/scan.py\", line 211, in scan\n    carry, out = ",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0549,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), **{}): got RuntimeError('Unhandled FakeTensor Device Propagation for aten.mm.default, found two different devices cuda:0, cpu')\n\nfrom user code:\n   File \"reproducers_gh/issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py\", line 18, in rollout\n    _, ys = scan(body, state0, xs)\n  File \"/usr/local/lib/python3.12/dist-packages/torch/_higher_order_ops/scan.py\", line 211, in scan\n    carry, out = ",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.055,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "cache": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: InternalTorchDynamoError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "ModuleNotFoundError: No module named '_repro_issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec'",
+            "test_message": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), "
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: InternalTorchDynamoError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "ModuleNotFoundError: No module named '_repro_issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec'",
+            "test_message": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), "
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: InternalTorchDynamoError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "ModuleNotFoundError: No module named '_repro_issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec'",
+            "test_message": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), "
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  }
+}

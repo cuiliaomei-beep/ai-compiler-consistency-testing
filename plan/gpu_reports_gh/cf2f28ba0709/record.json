@@ -1,0 +1,326 @@
+{
+  "signature": "cf2f28ba0709",
+  "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "dtype=float16",
+    "factors": {
+      "dtype": "float16"
+    },
+    "warm": true,
+    "origin": "x1.dtype"
+  },
+  "context_b": null,
+  "factor_changed": "dtype",
+  "controlled": {},
+  "obligation": {
+    "site": "f",
+    "factor": "x1.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "mutation",
+      "alias"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "numerics depend on precision regardless of source",
+    "param": "x1",
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", "
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", "
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", "
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0003,
+      "alias_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "TypeError",
+      "exception_msg": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", line 55, in f\n    x1.mul_(2)\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0074,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "TypeError",
+      "exception_msg": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", line 55, in f\n    x1.mul_(2)\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0076,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "TypeError",
+      "exception_msg": "TypeError: SubclassTensor.__tensor_unflatten__() takes 2 positional arguments but 4 were given\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_114415_aotautograd_should_detect_aliasing_of_in.py\", line 55, in f\n    x1.mul_(2)\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0092,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_114415_aotautograd_should_detect_aliasing_of_in.py\nAOTAutograd should detect aliasing of inputs that happens *below* subclasses\nhttps://github.com/pytorch/pytorch/issues/114415",
+  "minimized": null,
+  "duplicates": {
+    "query": "AOTAutograd should detect aliasing inputs that happens below",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "114415",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/114415",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 114415,
+        "title": "AOTAutograd should detect aliasing of inputs that happens *below* subclasses",
+        "url": "https://github.com/pytorch/pytorch/issues/114415",
+        "state": "open",
+        "is_pr": false,
+        "created": "2023-11-22"
+      },
+      {
+        "number": 195358,
+        "title": "[aot_autograd] Name the forward output when a kept tangent slot arrives as None",
+        "url": "https://github.com/pytorch/pytorch/pull/195358",
+        "state": "open",
+        "is_pr": true,
+        "created": "2026-08-30"
+      },
+      {
+        "number": 194787,
+        "title": "grid_sample: support mode='bicubic' with 5-D input, including its double backward",
+        "url": "https://github.com/pytorch/pytorch/pull/194787",
+        "state": "open",
+        "is_pr": true,
+        "created": "2026-08-25"
+      },
+      {
+        "number": 186554,
+        "title": "Preserve hooks for dependent AOTAutograd outputs",
+        "url": "https://github.com/pytorch/pytorch/pull/186554",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-06-07"
+      },
+      {
+        "number": 185585,
+        "title": "Fix mark_unbacked stride recompiles",
+        "url": "https://github.com/pytorch/pytorch/pull/185585",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-05-29"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: InternalTorchDynamoError",
+    "E2_aot_eager: InternalTorchDynamoError",
+    "E3_inductor: InternalTorchDynamoError"
+  ],
+  "status": "Generated",
+  "fault": null
+}

@@ -1,0 +1,28 @@
+{
+  "signature": "b082e0f17097",
+  "program": "issue_160840_torch_nn_functional_interpolate_generate",
+  "project": "pytorch/pytorch",
+  "stage": "aot_functionalization",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Invalid",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "160840",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/160840",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

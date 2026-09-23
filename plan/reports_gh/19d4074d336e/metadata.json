@@ -1,0 +1,44 @@
+{
+  "signature": "19d4074d336e",
+  "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "195320",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/195320",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 195320,
+      "title": "[inductor] SDPA fusion matches a permuted K as if it were key.transpose(-2,-1), silently producing wrong attention outputs",
+      "url": "https://github.com/pytorch/pytorch/issues/195320",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-30"
+    },
+    {
+      "number": 195383,
+      "title": "[inductor] Validate pattern-matcher matches by re-tracing with matched inputs",
+      "url": "https://github.com/pytorch/pytorch/pull/195383",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-31"
+    }
+  ]
+}

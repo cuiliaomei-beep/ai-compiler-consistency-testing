@@ -1,0 +1,400 @@
+[
+  {
+    "incident_id": "TC-2026-01109",
+    "fn_name": "f",
+    "fn_source": "def f(x):\n    return torch.full_like(x, 3)",
+    "prelude": "import torch\ndef f(x):\n    return torch.full_like(x, 3)",
+    "setup": "x = torch.randn(4, 5, 6).transpose(1, -1)",
+    "arg_exprs": [
+      "x"
+    ],
+    "n_params": 1,
+    "title": "inductor `full_like` decompositions give incorrect strides",
+    "project": "pytorch/pytorch",
+    "references": [
+      "https://github.com/pytorch/pytorch/issues/144699"
+    ],
+    "contexts": [
+      {
+        "name": "base",
+        "factors": {
+          "variant": "base"
+        }
+      },
+      {
+        "name": "dtype_float16",
+        "factors": {
+          "variant": "base",
+          "dtype": "float16"
+        }
+      },
+      {
+        "name": "dtype_float64",
+        "factors": {
+          "variant": "base",
+          "dtype": "float64"
+        }
+      },
+      {
+        "name": "noncontig",
+        "factors": {
+          "variant": "noncontig"
+        }
+      }
+    ]
+  },
+  {
+    "incident_id": "TC-2026-01120",
+    "fn_name": "fn",
+    "fn_source": "def fn(x):\n    x = torch.vmap(gn)(x)\n    return x + 1",
+    "prelude": "import torch\nimport inspect\n@torch.compile(backend='eager', fullgraph=True)\ndef fn(x):\n    x = torch.vmap(gn)(x)\n    return x + 1\ndef gn(x: torch.Tensor) -> torch.Tensor:\n    if x.requires_grad:\n        return x + 1\n    else:\n        return x - 1",
+    "setup": "x = torch.ones(2, 3, requires_grad=True)",
+    "arg_exprs": [
+      "x"
+    ],
+    "n_params": 1,
+    "title": "Dynamo x autograd.Function x funtorch transform: intermediate sliced tensor doesn't require grad caused incorrect result ",
+    "project": "pytorch/pytorch",
+    "references": [
+      "https://github.com/pytorch/pytorch/issues/134784"
+    ],
+    "contexts": [
+      {
+        "name": "base",
+        "factors": {
+          "variant": "base"
+        }
+      },
+      {
+        "name": "dtype_float16",
+        "factors": {
+          "variant": "base",
+          "dtype": "float16"
+        }
+      },
+      {
+        "name": "dtype_float64",
+        "factors": {
+          "variant": "base",
+          "dtype": "float64"
+        }
+      },
+      {
+        "name": "noncontig",
+        "factors": {
+          "variant": "noncontig"
+        }
+      }
+    ]
+  },
+  {
+    "incident_id": "TC-2026-01131",
+    "fn_name": "fn",
+    "fn_source": "@config.patch(combo_kernels=True)\ndef fn(x):\n    return (torch.ops.aten._adaptive_avg_pool2d(x, (6, 6)), torch.ops.aten._adaptive_avg_pool2d(x + 1, (2, 5)))",
+    "prelude": "import torch\nfrom torch._inductor import config\n@config.patch(combo_kernels=True)\ndef fn(x):\n    return (torch.ops.aten._adaptive_avg_pool2d(x, (6, 6)), torch.ops.aten._adaptive_avg_pool2d(x + 1, (2, 5)))",
+    "setup": "x = torch.randn(2, 4, 16, 16, device='cpu')",
+    "arg_exprs": [
+      "x"
+    ],
+    "n_params": 1,
+    "title": "[Inductor] combo_kernel fails with CppScheduling backend",
+    "project": "pytorch/pytorch",
+    "references": [
+      "https://github.com/pytorch/pytorch/issues/167780"
+    ],
+    "contexts": [
+      {
+        "name": "base",
+        "factors": {
+          "variant": "base"
+        }
+      },
+      {
+        "name": "dtype_float16",
+        "factors": {
+          "variant": "base",
+          "dtype": "float16"
+        }
+      },
+      {
+        "name": "dtype_float64",
+        "factors": {
+          "variant": "base",
+          "dtype": "float64"
+        }
+      },
+      {
+        "name": "noncontig",
+        "factors": {
+          "variant": "noncontig"
+        }
+      }
+    ]
+  },
+  {
+    "incident_id": "TC-2026-01137",
+    "fn_name": "g",
+    "fn_source": "def g(x):\n    return map(f, x)",
+    "prelude": "import torch\ndef f(a):\n    return a[0] * a[1]\ndef g(x):\n    return map(f, x)",
+    "setup": "x = [torch.randn(5) for _ in range(3)]",
+    "arg_exprs": [
+      "x"
+    ],
+    "n_params": 1,
+    "title": "[dynamo] map in dynamo doesn't return an iterable",
+    "project": "pytorch/pytorch",
+    "references": [
+      "https://github.com/pytorch/pytorch/issues/130750"
+    ],
+    "contexts": [
+      {
+        "name": "base",
+        "factors": {
+          "variant": "base"
+        }
+      },
+      {
+        "name": "dtype_float16",
+        "factors": {
+          "variant": "base",
+          "dtype": "float16"
+        }
+      },
+      {
+        "name": "dtype_float64",
+        "factors": {
+          "variant": "base",
+          "dtype": "float64"
+        }
+      },
+      {
+        "name": "noncontig",
+        "factors": {
+          "variant": "noncontig"
+        }
+      }
+    ]
+  },
+  {
+    "incident_id": "TC-2026-01148",
+    "fn_name": "fn",
+    "fn_source": "def fn(x):\n    x = torch.nn.functional.interpolate(x, scale_factor=1.3, mode='nearest')\n    return x",
+    "prelude": "import torch\ndef fn(x):\n    x = torch.nn.functional.interpolate(x, scale_factor=1.3, mode='nearest')\n    return x",
+    "setup": "x1 = torch.tensor([[[[1.0, 2.0]]]], dtype=torch.float64)",
+    "arg_exprs": [
+      "x1"
+    ],
+    "n_params": 1,
+    "title": "[inductor/aot_eager] interpolate under torch.compile produces incorrect result when mode is `nearest`",
+    "project": "pytorch/pytorch",
+    "references": [
+      "https://github.com/pytorch/pytorch/issues/175154"
+    ],
+    "contexts": [
+      {
+        "name": "base",
+        "factors": {
+          "variant": "base"
+        }
+      },
+      {
+        "name": "dtype_float16",
+        "factors": {
+          "variant": "base",
+          "dtype": "float16"
+        }
+      },
+      {
+        "name": "dtype_float64",
+        "factors": {
+          "variant": "base",
+          "dtype": "float64"
+        }
+      },
+      {
+        "name": "noncontig",
+        "factors": {
+          "variant": "noncontig"
+        }
+      }
+    ]
+  },
+  {
+    "incident_id": "TC-2026-01161",
+    "fn_name": "f",
+    "fn_source": "def f(x):\n    x.add_(1)\n    result = torch.as_strided_copy(x, (3,), (2,))\n    return result",
+    "prelude": "import torch\n@torch.compile(backend='aot_eager', fullgraph=True)\ndef f(x):\n    x.add_(1)\n    result = torch.as_strided_copy(x, (3,), (2,))\n    return result",
+    "setup": "x = torch.arange(10)[::2]",
+    "arg_exprs": [
+      "x"
+    ],
+    "n_params": 1,
+    "title": "functionalization doesn't faithfully reproduce strides of intermediate values",
+    "project": "pytorch/pytorch",
+    "references": [
+      "https://github.com/pytorch/pytorch/issues/133512"
+    ],
+    "contexts": [
+      {
+        "name": "base",
+        "factors": {
+          "variant": "base"
+        }
+      },
+      {
+        "name": "dtype_float16",
+        "factors": {
+          "variant": "base",
+          "dtype": "float16"
+        }
+      },
+      {
+        "name": "dtype_float64",
+        "factors": {
+          "variant": "base",
+          "dtype": "float64"
+        }
+      },
+      {
+        "name": "noncontig",
+        "factors": {
+          "variant": "noncontig"
+        }
+      }
+    ]
+  },
+  {
+    "incident_id": "TC-2026-01170",
+    "fn_name": "function",
+    "fn_source": "def function(x, y):\n    return (x + 1j * y).pow(4).real.sum()",
+    "prelude": "import torch\ndef function(x, y):\n    return (x + 1j * y).pow(4).real.sum()\ndef grad_function(x, y):\n    x.requires_grad_()\n    y.requires_grad_()\n    out = function(x, y)\n    derivative = torch.autograd.grad(out, [x, y])\n    return (derivative[0], derivative[1])",
+    "setup": "x = torch.rand((5,))\ny = torch.rand((5,))",
+    "arg_exprs": [
+      "x",
+      "y"
+    ],
+    "n_params": 2,
+    "title": "`torch.compile` and complex numbers",
+    "project": "pytorch/pytorch",
+    "references": [
+      "https://github.com/pytorch/pytorch/issues/125718"
+    ],
+    "contexts": [
+      {
+        "name": "base",
+        "factors": {
+          "variant": "base"
+        }
+      },
+      {
+        "name": "dtype_float16",
+        "factors": {
+          "variant": "base",
+          "dtype": "float16"
+        }
+      },
+      {
+        "name": "dtype_float64",
+        "factors": {
+          "variant": "base",
+          "dtype": "float64"
+        }
+      },
+      {
+        "name": "noncontig",
+        "factors": {
+          "variant": "noncontig"
+        }
+      }
+    ]
+  },
+  {
+    "incident_id": "TC-2026-01179",
+    "fn_name": "foo",
+    "fn_source": "def foo(X, Y):\n    Z = X + Y\n    return Z",
+    "prelude": "import torch\n@torch.compile\ndef foo(X, Y):\n    Z = X + Y\n    return Z",
+    "setup": "X = torch.zeros(10, dtype=torch.complex128)\nY = torch.zeros(10, dtype=torch.complex128)",
+    "arg_exprs": [
+      "X",
+      "Y"
+    ],
+    "n_params": 2,
+    "title": "Compiling complex-valued functions fails",
+    "project": "pytorch/pytorch",
+    "references": [
+      "https://github.com/pytorch/pytorch/issues/98161"
+    ],
+    "contexts": [
+      {
+        "name": "base",
+        "factors": {
+          "variant": "base"
+        }
+      },
+      {
+        "name": "dtype_float16",
+        "factors": {
+          "variant": "base",
+          "dtype": "float16"
+        }
+      },
+      {
+        "name": "dtype_float64",
+        "factors": {
+          "variant": "base",
+          "dtype": "float64"
+        }
+      },
+      {
+        "name": "noncontig",
+        "factors": {
+          "variant": "noncontig"
+        }
+      }
+    ]
+  },
+  {
+    "incident_id": "TC-2026-01230",
+    "fn_name": "func",
+    "fn_source": "def func(tensor: torch.Tensor) -> torch.Tensor:\n    return tensor * 2.0 ** (-127 + 3)",
+    "prelude": "import torch\nimport torch._inductor.config\ndef func(tensor: torch.Tensor) -> torch.Tensor:\n    return tensor * 2.0 ** (-127 + 3)",
+    "setup": "x = torch.tensor(0.1875)",
+    "arg_exprs": [
+      "x"
+    ],
+    "n_params": 1,
+    "title": "torch.compile generates wrong code on CPU and compiled code replaces original function",
+    "project": "pytorch/pytorch",
+    "references": [
+      "https://github.com/pytorch/pytorch/issues/126848"
+    ],
+    "contexts": [
+      {
+        "name": "base",
+        "factors": {
+          "variant": "base"
+        }
+      },
+      {
+        "name": "dtype_float16",
+        "factors": {
+          "variant": "base",
+          "dtype": "float16"
+        }
+      },
+      {
+        "name": "dtype_float64",
+        "factors": {
+          "variant": "base",
+          "dtype": "float64"
+        }
+      },
+      {
+        "name": "noncontig",
+        "factors": {
+          "variant": "noncontig"
+        }
+      }
+    ]
+  }
+]

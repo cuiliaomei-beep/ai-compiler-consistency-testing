@@ -1,0 +1,19 @@
+{
+  "signature": "08384e33c10f",
+  "program": "dtype_reduce",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "1/1",
+  "fault": "codegen_fp16_rounding",
+  "backend": "eager",
+  "torch": "2.14.0+cpu",
+  "minimized": false,
+  "duplicates": []
+}

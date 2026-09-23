@@ -1,0 +1,160 @@
+[{"stream_name":"stdout","time":2.8839342329999997,"data":"$ pip -q install nnsmith certifi expecttest hypothesis\n"}
+,{"stream_name":"stdout","time":7.633589687,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 90.5/90.5 kB 4.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.674231965,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 1.2/1.2 MB 64.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":7.7247730709999995,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 163.1/163.1 kB 10.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.005682763,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 33.1/33.1 MB 60.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":11.706205571,"data":"$ /usr/bin/python3 -c import torch; print('GPU', torch.cuda.get_device_name(0), torch.__version__); x = torch.ones(4, device='cuda'); print('cuda ok', (x * 2).sum().item())\n"}
+,{"stream_name":"stdout","time":17.217476481,"data":"GPU Tesla T4 2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":17.217517883,"data":"cuda ok 8.0\n"}
+,{"stream_name":"stdout","time":19.101821552,"data":"$ /usr/bin/python3 run.py selfcheck\n"}
+,{"stream_name":"stdout","time":37.07097231,"data":"\n"}
+,{"stream_name":"stdout","time":37.071009294,"data":"tcc self-check\n"}
+,{"stream_name":"stdout","time":37.07101524,"data":"========================================================================\n"}
+,{"stream_name":"stdout","time":37.071020245,"data":"  [PASS] 6.3: x.shape[0] \u003e= 32 -\u003e 31/32/33                                   [[32, 31, 33]]\n"}
+,{"stream_name":"stdout","time":37.071027317,"data":"  [PASS] 6.3: n % 16 == 0 -\u003e 15/16/17/31/32/33                               [[16, 17, 15, 32, 33, 31]]\n"}
+,{"stream_name":"stdout","time":37.07103468,"data":"  [PASS] 6.2: use_fast -\u003e flag {True, False}                                 [{'param': 'use_fast', 'role': 'flag', 'values': [True, False], 'line': 2, 'reason': 'used directly as a branch condition'}]\n"}
+,{"stream_name":"stdout","time":37.071039299,"data":"  [PASS] 7: x.shape[0] -\u003e n -\u003e i -\u003e x[i]                                     [['x.shape[0]', 'i', 'x[i]']]\n"}
+,{"stream_name":"stdout","time":37.071042597,"data":"  [PASS] 8: view + in-place -\u003e mutation_visible/partial_write facts          facts=['mutation_visible', 'partial_write'] groups=[['x', 'y']]\n"}
+,{"stream_name":"stdout","time":37.071045943,"data":"  [PASS] 9/10: SCS -\u003e obligations -\u003e single-factor contexts                  4 obligations, 10 contexts\n"}
+,{"stream_name":"stdout","time":37.071049194,"data":"  [PASS] 5.2: IR kinds Assign/Branch/Mutation/Return + deps                  ['Assign', 'Branch', 'Mutation', 'Return'] ['alias', 'control', 'data']\n"}
+,{"stream_name":"stdout","time":37.0710528,"data":"  [PASS] 5.1: compilation sites (decorator, call, triton.jit)                [('decorator', 'g', 'torch.compile'), ('decorator', 'k', 'triton.jit'), ('call', 'h', 'torch.compile')]\n"}
+,{"stream_name":"stdout","time":37.071056093,"data":"  [PASS] 18.5: signature stable under whitespace, separates factors          33bb397b8df1 befd442c6fd7\n"}
+,{"stream_name":"stdout","time":37.07105919,"data":"  [PASS] 18.5: dedup suppresses repeats                                      {'unique': 1, 'total': 2}\n"}
+,{"stream_name":"stdout","time":37.071062738,"data":"  [PASS] torch importable                                                    torch 2.10.0+cu128 cuda 12.8 device Tesla T4\n"}
+,{"stream_name":"stdout","time":37.071080223,"data":"  [PASS] backend 'eager' resolvable                                          \n"}
+,{"stream_name":"stdout","time":37.071100299,"data":"  [PASS] backend 'aot_eager' resolvable                                      \n"}
+,{"stream_name":"stdout","time":37.071104868,"data":"  [PASS] backend 'inductor' resolvable                                       \n"}
+,{"stream_name":"stdout","time":37.071108394,"data":"  [PASS] compile counter: cold=1, repeat=0, dtype switch\u003e=1                  [1, 0, 1]\n"}
+,{"stream_name":"stdout","time":37.071112064,"data":"  [PASS] O1 value fires on injected codegen fault                            output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 2.260e-05\n"}
+,{"stream_name":"stdout","time":37.071117146,"data":"  [PASS] O1 no false positive on aot_eager                                   clean\n"}
+,{"stream_name":"stdout","time":37.071120438,"data":"  [PASS] fp64 reference builds                                               \n"}
+,{"stream_name":"stdout","time":37.071123801,"data":"  [PASS] O4 mutation fires on dropped in-place write                         \n"}
+,{"stream_name":"stdout","time":37.071127194,"data":"  [PASS] O5 alias fires on view materialised as copy                         \n"}
+,{"stream_name":"stdout","time":37.071130613,"data":"  [PASS] O4/O5 no false positive on aot_eager                                clean\n"}
+,{"stream_name":"stdout","time":37.071134065,"data":"  [PASS] O3 exception fires when compiled swallows a raise                   eager=ValueError compiled_ok=True\n"}
+,{"stream_name":"stdout","time":37.071137586,"data":"  [PASS] O6 gradient fires on 2x backward                                    \n"}
+,{"stream_name":"stdout","time":37.071141006,"data":"  [PASS] O6 no false positive on aot_eager                                   \n"}
+,{"stream_name":"stdout","time":37.071144429,"data":"  [PASS] O7 cache: stale dtype reuse -\u003e specialization_cache (no recompile)  specialization_cache recompiled=False\n"}
+,{"stream_name":"stdout","time":37.071153664,"data":"  [PASS] O7 cache: A-\u003eB-\u003eA stale -\u003e cache_invalidation                       cache_invalidation\n"}
+,{"stream_name":"stdout","time":37.07115713,"data":"  [PASS] O7 no false positive on aot_eager                                   cold and warm agree\n"}
+,{"stream_name":"stdout","time":37.071173798,"data":"  [PASS] 16: staged localization -\u003e inductor_codegen                         inductor_codegen\n"}
+,{"stream_name":"stdout","time":37.071177711,"data":"  [PASS] inductor cold run executes                                          5.6s\n"}
+,{"stream_name":"stdout","time":37.071181777,"data":"\n"}
+,{"stream_name":"stdout","time":37.071185468,"data":"  29/29 checks passed\n"}
+,{"stream_name":"stdout","time":38.811802737,"data":"$ /usr/bin/python3 run.py metamorphic --isolate --samples 2 --seed 2 --device cuda --relations config --configs dynamic,max_autotune,cudagraphs,no_persistent_reductions,no_multi_kernel --chunk-size 20 --out gpu_results_meta_cfg\n"}
+,{"stream_name":"stdout","time":1833.754965019,"data":"isolated metamorphic sweep: 589 operators, 0 already done, 589 to go\n"}
+,{"stream_name":"stdout","time":1833.7550177,"data":"[20/589] abs .. addr\n"}
+,{"stream_name":"stdout","time":1833.755022143,"data":"[40/589] addcmul .. chunk\n"}
+,{"stream_name":"stdout","time":1833.755025289,"data":"[60/589] unsafe_chunk .. cumprod\n"}
+,{"stream_name":"stdout","time":1833.755028453,"data":"[80/589] cummax .. eq\n"}
+,{"stream_name":"stdout","time":1833.755031444,"data":"[100/589] fmax .. kthvalue\n"}
+,{"stream_name":"stdout","time":1833.755034711,"data":"[120/589] le .. matrix_exp\n"}
+,{"stream_name":"stdout","time":1833.75503779,"data":"[140/589] matmul .. logical_and\n"}
+,{"stream_name":"stdout","time":1833.755056027,"data":"[160/589] logical_or .. nn.functional.adaptive_avg_pool2d\n"}
+,{"stream_name":"stdout","time":1833.755058661,"data":"[180/589] nn.functional.adaptive_avg_pool3d .. constant_pad_nd\n"}
+,{"stream_name":"stdout","time":1833.755061005,"data":"[200/589] nn.functional.pad .. nn.functional.multilabel_margin_loss\n"}
+,{"stream_name":"stdout","time":1833.755063335,"data":"[220/589] nn.functional.leaky_relu .. nn.functional.selu\n"}
+,{"stream_name":"stdout","time":1833.755065644,"data":"[240/589] torch.ops.aten._safe_softmax.default .. nn.functional.hardshrink\n"}
+,{"stream_name":"stdout","time":1833.755068045,"data":"[260/589] nn.functional.hardtanh .. float_power\n"}
+,{"stream_name":"stdout","time":1833.755070436,"data":"[280/589] qr .. rsub\n"}
+,{"stream_name":"stdout","time":1833.755072668,"data":"[300/589] select .. square\n"}
+,{"stream_name":"stdout","time":1833.755074969,"data":"[320/589] lerp .. reshape\n"}
+,{"stream_name":"stdout","time":1833.75507718,"data":"[340/589] reshape_as .. index_put\n"}
+,{"stream_name":"stdout","time":1833.75507948,"data":"[360/589] sort .. zeros_like\n"}
+,{"stream_name":"stdout","time":1833.755081709,"data":"[380/589] ones_like .. cat\n"}
+,{"stream_name":"stdout","time":1833.755083925,"data":"[400/589] unbind .. trapezoid\n"}
+,{"stream_name":"stdout","time":1833.755086173,"data":"[420/589] cumulative_trapezoid .. logcumsumexp\n"}
+,{"stream_name":"stdout","time":1833.755088626,"data":"[440/589] sigmoid .. jiterator_2inputs_2outputs\n"}
+,{"stream_name":"stdout","time":1833.755090889,"data":"[460/589] norm .. any\n"}
+,{"stream_name":"stdout","time":1833.75509312,"data":"[480/589] amax .. nn.functional.hinge_embedding_loss\n"}
+,{"stream_name":"stdout","time":1833.755095397,"data":"[500/589] nn.functional.huber_loss .. fft.hfft\n"}
+,{"stream_name":"stdout","time":1833.755097633,"data":"[520/589] fft.hfft2 .. linalg.cholesky\n"}
+,{"stream_name":"stdout","time":1833.755099852,"data":"[540/589] linalg.cholesky_ex .. linalg.slogdet\n"}
+,{"stream_name":"stdout","time":1833.755102089,"data":"[560/589] linalg.vander .. linalg.tensorsolve\n"}
+,{"stream_name":"stdout","time":1833.755104306,"data":"[580/589] signal.windows.hamming .. masked.median\n"}
+,{"stream_name":"stdout","time":1833.755106612,"data":"[600/589] masked.norm .. masked.logsumexp\n"}
+,{"stream_name":"stdout","time":1833.755108954,"data":"{\"ops\": 561, \"samples\": 1080, \"compiles\": 6455, \"relation_checks\": 5375, \"not_applicable\": 0, \"violations\": 9, \"standard_differs\": 0, \"infra\": 0, \"wall_s\": 1786.2, \"crashes\": 0}\n"}
+,{"stream_name":"stdout","time":1834.769755954,"data":"$ /usr/bin/python3 run.py aoti --isolate --samples 1 --device cuda --chunk-size 20 --out gpu_results_aoti\n"}
+,{"stream_name":"stdout","time":4785.845307686,"data":"isolated aoti sweep: 589 operators, 0 already done, 589 to go\n"}
+,{"stream_name":"stdout","time":4785.845357157,"data":"[20/589] abs .. addr\n"}
+,{"stream_name":"stdout","time":4785.845363169,"data":"[40/589] addcmul .. chunk\n"}
+,{"stream_name":"stdout","time":4785.845368135,"data":"[60/589] unsafe_chunk .. cumprod\n"}
+,{"stream_name":"stdout","time":4785.84537261,"data":"[80/589] cummax .. eq\n"}
+,{"stream_name":"stdout","time":4785.845377043,"data":"[100/589] fmax .. kthvalue\n"}
+,{"stream_name":"stdout","time":4785.845381698,"data":"[120/589] le .. matrix_exp\n"}
+,{"stream_name":"stdout","time":4785.845386383,"data":"[140/589] matmul .. logical_and\n"}
+,{"stream_name":"stdout","time":4785.845390867,"data":"[160/589] logical_or .. nn.functional.adaptive_avg_pool2d\n"}
+,{"stream_name":"stdout","time":4785.845395351,"data":"[180/589] nn.functional.adaptive_avg_pool3d .. constant_pad_nd\n"}
+,{"stream_name":"stdout","time":4785.845419308,"data":"[200/589] nn.functional.pad .. nn.functional.multilabel_margin_loss\n"}
+,{"stream_name":"stdout","time":4785.845423658,"data":"[220/589] nn.functional.leaky_relu .. nn.functional.selu\n"}
+,{"stream_name":"stdout","time":4785.845427012,"data":"[240/589] torch.ops.aten._safe_softmax.default .. nn.functional.hardshrink\n"}
+,{"stream_name":"stdout","time":4785.84543082,"data":"[260/589] nn.functional.hardtanh .. float_power\n"}
+,{"stream_name":"stdout","time":4785.84543456,"data":"[280/589] qr .. rsub\n"}
+,{"stream_name":"stdout","time":4785.845438418,"data":"[300/589] select .. square\n"}
+,{"stream_name":"stdout","time":4785.845442036,"data":"[320/589] lerp .. reshape\n"}
+,{"stream_name":"stdout","time":4785.845445898,"data":"[340/589] reshape_as .. index_put\n"}
+,{"stream_name":"stdout","time":4785.845449682,"data":"[360/589] sort .. zeros_like\n"}
+,{"stream_name":"stdout","time":4785.84545366,"data":"[380/589] ones_like .. cat\n"}
+,{"stream_name":"stdout","time":4785.845457899,"data":"[400/589] unbind .. trapezoid\n"}
+,{"stream_name":"stdout","time":4785.845461976,"data":"[420/589] cumulative_trapezoid .. logcumsumexp\n"}
+,{"stream_name":"stdout","time":4785.845465392,"data":"[440/589] sigmoid .. jiterator_2inputs_2outputs\n"}
+,{"stream_name":"stdout","time":4785.845468953,"data":"[460/589] norm .. any\n"}
+,{"stream_name":"stdout","time":4785.845473028,"data":"[480/589] amax .. nn.functional.hinge_embedding_loss\n"}
+,{"stream_name":"stdout","time":4785.84547717,"data":"[500/589] nn.functional.huber_loss .. fft.hfft\n"}
+,{"stream_name":"stdout","time":4785.845481374,"data":"[520/589] fft.hfft2 .. linalg.cholesky\n"}
+,{"stream_name":"stdout","time":4785.84548582,"data":"[540/589] linalg.cholesky_ex .. linalg.slogdet\n"}
+,{"stream_name":"stdout","time":4785.845489411,"data":"[560/589] linalg.vander .. linalg.tensorsolve\n"}
+,{"stream_name":"stdout","time":4785.845493734,"data":"[580/589] signal.windows.hamming .. masked.median\n"}
+,{"stream_name":"stdout","time":4785.845497815,"data":"[600/589] masked.norm .. masked.logsumexp\n"}
+,{"stream_name":"stdout","time":4785.845501287,"data":"{\"ops\": 561, \"samples\": 561, \"export_ok\": 544, \"export_fail\": 15, \"aoti_ok\": 2, \"aoti_fail\": 542, \"findings\": 2, \"export_only\": 2, \"aoti_only\": 0, \"shared_with_inductor\": 0, \"wall_s\": 2945.8, \"crashes\": 0}\n"}
+,{"stream_name":"stdout","time":4786.823400353,"data":"$ /usr/bin/python3 run.py binding --isolate --samples 1 --device cuda --chunk-size 15 --out gpu_results_binding\n"}
+,{"stream_name":"stdout","time":7269.812687818,"data":"isolated binding sweep: 589 operators, 0 already done, 589 to go\n"}
+,{"stream_name":"stdout","time":7269.812732298,"data":"[15/589] abs .. baddbmm\n"}
+,{"stream_name":"stdout","time":7269.81273809,"data":"[30/589] dot .. broadcast_shapes\n"}
+,{"stream_name":"stdout","time":7269.812742342,"data":"[45/589] broadcast_tensors .. clamp\n"}
+,{"stream_name":"stdout","time":7269.812746698,"data":"[60/589] positive .. cumprod\n"}
+,{"stream_name":"stdout","time":7269.812751166,"data":"[75/589] cummax .. diag_embed\n"}
+,{"stream_name":"stdout","time":7269.812755355,"data":"[90/589] diagonal .. flipud\n"}
+,{"stream_name":"stdout","time":7269.812759633,"data":"[105/589] i0 .. logspace\n"}
+,{"stream_name":"stdout","time":7269.812764279,"data":"[120/589] log .. matrix_exp\n"}
+,{"stream_name":"stdout","time":7269.81276889,"data":"[135/589] matmul .. nanquantile\n"}
+,{"stream_name":"stdout","time":7269.812773052,"data":"[150/589] max .. nn.functional.normalize\n"}
+,{"stream_name":"stdout","time":7269.812777479,"data":"[165/589] aminmax .. nn.functional.avg_pool1d\n"}
+,{"stream_name":"stdout","time":7269.81279204,"data":"[180/589] nn.functional.avg_pool3d .. constant_pad_nd\n"}
+,{"stream_name":"stdout","time":7269.812795749,"data":"[195/589] nn.functional.pad .. nn.functional.upsample_bilinear\n"}
+,{"stream_name":"stdout","time":7269.812799365,"data":"[210/589] nn.functional.soft_margin_loss .. nn.functional.max_unpool2d\n"}
+,{"stream_name":"stdout","time":7269.812803107,"data":"[225/589] nn.functional.max_unpool2d .. nn.functional.logsigmoid\n"}
+,{"stream_name":"stdout","time":7269.812806963,"data":"[240/589] nn.functional.mish .. nn.functional.hardshrink\n"}
+,{"stream_name":"stdout","time":7269.812810172,"data":"[255/589] nn.functional.hardtanh .. outer\n"}
+,{"stream_name":"stdout","time":7269.812813286,"data":"[270/589] ormqr .. sin\n"}
+,{"stream_name":"stdout","time":7269.812816475,"data":"[285/589] sinc .. signbit\n"}
+,{"stream_name":"stdout","time":7269.812820174,"data":"[300/589] tan .. square\n"}
+,{"stream_name":"stdout","time":7269.812824129,"data":"[315/589] lerp .. polygamma\n"}
+,{"stream_name":"stdout","time":7269.812827775,"data":"[330/589] polygamma .. pinverse\n"}
+,{"stream_name":"stdout","time":7269.812830867,"data":"[345/589] gather .. take\n"}
+,{"stream_name":"stdout","time":7269.812834392,"data":"[360/589] scatter .. zeros_like\n"}
+,{"stream_name":"stdout","time":7269.812837655,"data":"[375/589] ones_like .. histogram\n"}
+,{"stream_name":"stdout","time":7269.812841152,"data":"[390/589] histogramdd .. repeat\n"}
+,{"stream_name":"stdout","time":7269.812844754,"data":"[405/589] squeeze .. zero_\n"}
+,{"stream_name":"stdout","time":7269.81284917,"data":"[420/589] logsumexp .. logcumsumexp\n"}
+,{"stream_name":"stdout","time":7269.812852913,"data":"[435/589] sigmoid .. nonzero_static\n"}
+,{"stream_name":"stdout","time":7269.812856574,"data":"[450/589] jiterator_unary .. nn.functional.embedding\n"}
+,{"stream_name":"stdout","time":7269.812860044,"data":"[465/589] nn.functional.embedding_bag .. count_nonzero\n"}
+,{"stream_name":"stdout","time":7269.812864203,"data":"[480/589] mean .. nn.functional.hinge_embedding_loss\n"}
+,{"stream_name":"stdout","time":7269.812868019,"data":"[495/589] nn.functional.huber_loss .. scatter_reduce\n"}
+,{"stream_name":"stdout","time":7269.81287121,"data":"[510/589] scatter_reduce .. fft.ihfft2\n"}
+,{"stream_name":"stdout","time":7269.812874582,"data":"[525/589] fft.ihfftn .. linalg.eigvals\n"}
+,{"stream_name":"stdout","time":7269.812877746,"data":"[540/589] linalg.eigh .. linalg.slogdet\n"}
+,{"stream_name":"stdout","time":7269.812880865,"data":"[555/589] linalg.vander .. linalg.pinv\n"}
+,{"stream_name":"stdout","time":7269.812884168,"data":"[570/589] linalg.pinv .. signal.windows.nuttall\n"}
+,{"stream_name":"stdout","time":7269.812887539,"data":"[585/589] masked.sum .. masked.log_softmax\n"}
+,{"stream_name":"stdout","time":7269.812891074,"data":"[600/589] masked.softmin .. masked.logsumexp\n"}
+,{"stream_name":"stdout","time":7269.812894889,"data":"{\"ops\": 357, \"samples\": 357, \"slots\": 357, \"variants\": 3807, \"compiles\": 9835, \"checks\": 9956, \"findings\": 114, \"form_specific\": 8, \"infra\": 121, \"wall_s\": 2477.8, \"crashes\": 0}\n"}
+,{"stream_name":"stdout","time":7270.918639326,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":7273.171361125,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":7273.171401271,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":7273.457880266,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":7273.457921234,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":7274.144898891,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":7275.436332829,"data":"[NbConvertApp] Writing 282167 bytes to __results__.html\n"}
+]

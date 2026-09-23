@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "ops": 14,
+    "samples": 14,
+    "variants": 210,
+    "decomp_covered": 192,
+    "decomp_mismatch": 3,
+    "meta_mismatch": 0,
+    "data_dependent": 2,
+    "errors": 0,
+    "wall_s": 13.8
+  },
+  "mismatches": [
+    {
+      "op": "masked.median",
+      "variant": "dtype_int64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.median",
+      "variant": "dtype_bool",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.softmax",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten._softmax.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.softmin",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten._softmax.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.logaddexp",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.logaddexp.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    }
+  ]
+}

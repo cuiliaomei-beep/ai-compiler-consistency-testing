@@ -1,0 +1,36 @@
+{
+  "signature": "f79e81acc67b",
+  "program": "issue_174719_pallas_argmax_with_keepdim_true_on_middl",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "174719",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/174719",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 174719,
+      "title": "[Pallas] argmax with keepdim=True on middle dimension produces incorrect reshape in generated kernel",
+      "url": "https://github.com/pytorch/pytorch/issues/174719",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-02-10"
+    }
+  ]
+}

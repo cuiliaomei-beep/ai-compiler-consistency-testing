@@ -1,0 +1,353 @@
+{
+  "signature": "33e02cf82893",
+  "program": "issue_183601_torch_compile_inductor_produces_wrong_ou",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "compile.dynamic=True",
+    "factors": {
+      "compile": {
+        "dynamic": true
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "factor_changed": "compile",
+  "controlled": {},
+  "obligation": {
+    "site": "m",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.000e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 1.9999904036521912,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              4,
+              3,
+              10,
+              12
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 1.9999904036521912,
+            "max_rel_error": 999607205390.9302,
+            "n_mismatch": 1200,
+            "n_total": 1440,
+            "first_mismatch_index": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "first_mismatch_expected": "0.6749433875",
+            "first_mismatch_actual": "0",
+            "expected_preview": "[0.6749433875, 0.5141887665, 0.4928756952, -0.6085039377, 0.5829028487, -0.6080034971, -0.1380058378, -0.6845261455, ... (1432 more)]",
+            "actual_preview": "[0, 0, 0, -0, 0, -0, -0, -0, ... (1432 more)]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 1.9999904036521912,
+            "budget": 4.76837158203125e-07,
+            "noise_floor": 4.76837158203125e-07
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0004,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            3,
+            10,
+            12
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            360,
+            120,
+            12,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.5338,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            3,
+            10,
+            12
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            360,
+            120,
+            12,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 2,
+      "frames_delta": 1,
+      "wall_s": 1.5142,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            3,
+            10,
+            12
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            360,
+            120,
+            12,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 2,
+      "frames_delta": 1,
+      "wall_s": 4.2227,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            3,
+            10,
+            12
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            360,
+            120,
+            12,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cpu",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh/issue_183601_torch_compile_inductor_produces_wrong_ou.py\ntorch.compile Inductor produces wrong output for InstanceNorm2d + normalize + hardswish chain\nhttps://github.com/pytorch/pytorch/issues/183601\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 4,
+    "steps_kept": 0,
+    "original_lines": 7,
+    "final_lines": 7,
+    "original_numel": 0,
+    "final_numel": 0,
+    "input_recipe": "",
+    "log": [],
+    "source": "def m():\n    t = inst_norm(x)\n    t = pool(t)\n    t = F.normalize(t, dim=0)\n    t = t * x\n    t = F.hardswish(t)\n    return F.normalize(t, dim=0)"
+  },
+  "duplicates": {
+    "query": "",
+    "searched": false,
+    "error": null,
+    "candidates": [
+      {
+        "number": "183601",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/183601",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      }
+    ]
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

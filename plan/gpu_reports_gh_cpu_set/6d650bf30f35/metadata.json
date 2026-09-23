@@ -1,0 +1,28 @@
+{
+  "signature": "6d650bf30f35",
+  "program": "issue_184405_torch_compile_backend_inductor_returns_s",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "184405",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/184405",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

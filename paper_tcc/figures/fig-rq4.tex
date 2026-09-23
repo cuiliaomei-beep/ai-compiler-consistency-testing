@@ -1,0 +1,27 @@
+%% Figure: lollipop chart for cache/specialization faults + test counts as annotated bars.
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[
+    group style={group size=2 by 1, horizontal sep=0.5cm, y descriptions at=edge left},
+    tccaxis, height=3.4cm,
+    ytick={1,2,3},
+    yticklabels={ordinary eager vs.\ compiled, random sequences, \scs-guided sequences},
+    ymin=0.4, ymax=3.6, ymajorgrids=false, xmajorgrids,
+]
+  \nextgroupplot[width=0.40\linewidth, xmin=0, xmax=6.6, xtick={0,2,4,6}, xlabel={cache faults detected (of 6)}]
+    \addplot[xcomb, very thick, tolblue, mark=*, mark size=2.6pt] coordinates {(0,1) (5,2) (6,3)};
+    \node[font=\scriptsize, anchor=west] at (axis cs:0.15,1) {0};
+    \node[font=\scriptsize, anchor=east] at (axis cs:4.8,2.32) {5};
+    \node[font=\scriptsize, anchor=east] at (axis cs:5.8,3.32) {6};
+  \nextgroupplot[width=0.40\linewidth, xmin=0, xmax=190, xlabel={tests executed (mean tests to trigger)}]
+    \addplot[xbar, bar width=6pt, fill=tolorange!60, draw=tolorange!80!black] coordinates {(148,1) (155,2) (93,3)};
+    \node[font=\scriptsize, anchor=west] at (axis cs:149,1) {(--)};
+    \node[font=\scriptsize, anchor=west] at (axis cs:156,2) {(6.5)};
+    \node[font=\scriptsize, anchor=west] at (axis cs:94,3) {(4.8)};
+\end{groupplot}
+\end{tikzpicture}
+\caption{RQ4: the six faults that need a warm artifact. A cold-only comparison cannot observe them; \scs guidance
+finds all six with fewer tests than random sequences.}
+\label{fig:rq4}
+\end{figure}

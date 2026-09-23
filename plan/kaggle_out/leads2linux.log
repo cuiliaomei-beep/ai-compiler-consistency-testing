@@ -1,0 +1,64 @@
+[{"stream_name":"stdout","time":7.071749629,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 9.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":44.540599715,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":44.54065582,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":44.54066124,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":52.829070862,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":52.829120317,"data":"[f] eager=\"'k'\"  compiled(fullgraph)='k'   \u003c-- DIFF\n"}
+,{"stream_name":"stdout","time":52.829127328,"data":"[g] eager=\"'missing'\"  compiled(fullgraph)='missing'   \u003c-- DIFF\n"}
+,{"stream_name":"stdout","time":52.829131285,"data":"[h] eager=\"key error: 'k'\"  compiled(fullgraph)='key error: k'   \u003c-- DIFF\n"}
+,{"stream_name":"stderr","time":57.491779728,"data":"W0912 13:30:35.018000 19 torch/_logging/_internal.py:1394] [0/0] Profiler record function \u003cclass 'torch.autograd.profiler.record_function'\u003e will be ignored\n"}
+,{"stream_name":"stderr","time":59.751893391,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.\n"}
+,{"stream_name":"stderr","time":59.7519373,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":99.111128075,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":99.111179151,"data":"[SGD {'foreach': True} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=raise InductorError: AssertionError: \u003cbuilt-in function getitem\u003e is not an OpOverload   \u003c-- DIFF\n"}
+,{"stream_name":"stdout","time":99.111187365,"data":"[SGD {'foreach': True} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410\n"}
+,{"stream_name":"stdout","time":99.11119153,"data":"[SGD {'foreach': False} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j\n"}
+,{"stream_name":"stdout","time":99.11119509,"data":"[SGD {'foreach': False} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410\n"}
+,{"stream_name":"stdout","time":99.111198468,"data":"[SGD {'foreach': True, 'momentum': 0.9} complex64] eager=ok 1.2510+0.4033j | aot_eager=ok 1.2510+0.4033j | inductor=raise InductorError: AssertionError: \u003cbuilt-in function getitem\u003e is not an OpOverload   \u003c-- DIFF\n"}
+,{"stream_name":"stdout","time":99.111202546,"data":"[SGD {'foreach': True, 'momentum': 0.9} float32] eager=ok 1.2510 | aot_eager=ok 1.2510 | inductor=ok 1.2510\n"}
+,{"stream_name":"stdout","time":99.111205825,"data":"[Adam {'foreach': True} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j\n"}
+,{"stream_name":"stdout","time":99.111208972,"data":"[Adam {'foreach': True} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410\n"}
+,{"stream_name":"stdout","time":99.111212149,"data":"[Adam {'foreach': False} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j\n"}
+,{"stream_name":"stdout","time":99.111215287,"data":"[Adam {'foreach': False} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410\n"}
+,{"stream_name":"stdout","time":99.111218421,"data":"[AdamW {'foreach': True} complex64] eager=ok 1.3380+0.4025j | aot_eager=ok 1.3380+0.4025j | inductor=ok 1.3380+0.4025j\n"}
+,{"stream_name":"stdout","time":99.111237903,"data":"[AdamW {'foreach': True} float32] eager=ok 1.3380 | aot_eager=ok 1.3380 | inductor=ok 1.3380\n"}
+,{"stream_name":"stdout","time":99.111242623,"data":"[RMSprop {'foreach': True} complex64] eager=ok -0.1679+0.4033j | aot_eager=ok -0.1679+0.4033j | inductor=ok -0.1679+0.4033j\n"}
+,{"stream_name":"stdout","time":99.111246906,"data":"[RMSprop {'foreach': True} float32] eager=ok -0.1679 | aot_eager=ok -0.1679 | inductor=ok -0.1679\n"}
+,{"stream_name":"stdout","time":99.111250599,"data":"[Adagrad {'foreach': True} complex64] eager=ok 1.3703+0.4033j | aot_eager=ok 1.3703+0.4033j | inductor=ok 1.3703+0.4033j\n"}
+,{"stream_name":"stdout","time":99.111254511,"data":"[Adagrad {'foreach': True} float32] eager=ok 1.3703 | aot_eager=ok 1.3703 | inductor=ok 1.3703\n"}
+,{"stream_name":"stdout","time":104.501704662,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 9.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":126.282799099,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":126.282837297,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":126.282843356,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":130.383596921,"data":"torch 2.15.0.dev20260912+cpu\n"}
+,{"stream_name":"stdout","time":130.383640098,"data":"[f] eager=\"'k'\"  compiled(fullgraph)='k'   \u003c-- DIFF\n"}
+,{"stream_name":"stdout","time":130.383646699,"data":"[g] eager=\"'missing'\"  compiled(fullgraph)='missing'   \u003c-- DIFF\n"}
+,{"stream_name":"stdout","time":130.383693733,"data":"[h] eager=\"key error: 'k'\"  compiled(fullgraph)='key error: k'   \u003c-- DIFF\n"}
+,{"stream_name":"stderr","time":135.124567273,"data":"W0912 13:31:52.650000 162 torch/_logging/_internal.py:1407] [0/0] Profiler record function \u003cclass 'torch.autograd.profiler.record_function'\u003e will be ignored\n"}
+,{"stream_name":"stderr","time":137.470739132,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2826: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.\n"}
+,{"stream_name":"stderr","time":137.470785499,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":174.110979968,"data":"torch 2.15.0.dev20260912+cpu\n"}
+,{"stream_name":"stdout","time":174.111029273,"data":"[SGD {'foreach': True} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=raise InductorError: AssertionError: \u003cbuilt-in function getitem\u003e is not an OpOverload   \u003c-- DIFF\n"}
+,{"stream_name":"stdout","time":174.111038798,"data":"[SGD {'foreach': True} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410\n"}
+,{"stream_name":"stdout","time":174.111044147,"data":"[SGD {'foreach': False} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j\n"}
+,{"stream_name":"stdout","time":174.111048965,"data":"[SGD {'foreach': False} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410\n"}
+,{"stream_name":"stdout","time":174.111053428,"data":"[SGD {'foreach': True, 'momentum': 0.9} complex64] eager=ok 1.2510+0.4033j | aot_eager=ok 1.2510+0.4033j | inductor=raise InductorError: AssertionError: \u003cbuilt-in function getitem\u003e is not an OpOverload   \u003c-- DIFF\n"}
+,{"stream_name":"stdout","time":174.111059035,"data":"[SGD {'foreach': True, 'momentum': 0.9} float32] eager=ok 1.2510 | aot_eager=ok 1.2510 | inductor=ok 1.2510\n"}
+,{"stream_name":"stdout","time":174.111079867,"data":"[Adam {'foreach': True} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j\n"}
+,{"stream_name":"stdout","time":174.11108415,"data":"[Adam {'foreach': True} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410\n"}
+,{"stream_name":"stdout","time":174.111088596,"data":"[Adam {'foreach': False} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j\n"}
+,{"stream_name":"stdout","time":174.111092638,"data":"[Adam {'foreach': False} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410\n"}
+,{"stream_name":"stdout","time":174.111096768,"data":"[AdamW {'foreach': True} complex64] eager=ok 1.3380+0.4025j | aot_eager=ok 1.3380+0.4025j | inductor=ok 1.3380+0.4025j\n"}
+,{"stream_name":"stdout","time":174.111100622,"data":"[AdamW {'foreach': True} float32] eager=ok 1.3380 | aot_eager=ok 1.3380 | inductor=ok 1.3380\n"}
+,{"stream_name":"stdout","time":174.111104514,"data":"[RMSprop {'foreach': True} complex64] eager=ok -0.1679+0.4033j | aot_eager=ok -0.1679+0.4033j | inductor=ok -0.1679+0.4033j\n"}
+,{"stream_name":"stdout","time":174.111108308,"data":"[RMSprop {'foreach': True} float32] eager=ok -0.1679 | aot_eager=ok -0.1679 | inductor=ok -0.1679\n"}
+,{"stream_name":"stdout","time":174.111112182,"data":"[Adagrad {'foreach': True} complex64] eager=ok 1.3703+0.4033j | aot_eager=ok 1.3703+0.4033j | inductor=ok 1.3703+0.4033j\n"}
+,{"stream_name":"stdout","time":174.111116415,"data":"[Adagrad {'foreach': True} float32] eager=ok 1.3703 | aot_eager=ok 1.3703 | inductor=ok 1.3703\n"}
+,{"stream_name":"stdout","time":175.777025182,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":178.264626301,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":178.264662855,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":178.575751386,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":178.575784252,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":179.30106827,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":180.810719232,"data":"[NbConvertApp] Writing 279179 bytes to __results__.html\n"}
+]

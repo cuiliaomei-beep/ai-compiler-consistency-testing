@@ -1,0 +1,191 @@
+{
+  "11ddea7fd13c": {
+    "status": "Duplicate",
+    "program": "opinfo_nn_functional_multi_margin_loss",
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "13837d85e4fa": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty",
+    "stage": "compile_nondeterminism",
+    "priority": "medium",
+    "factor": "requires_grad",
+    "probe": "matrix",
+    "reproducibility": "1/2"
+  },
+  "149531700f54": {
+    "status": "Invalid",
+    "program": "opinfo_nn_functional_binary_cross_entropy_with_logits",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "resize",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "32499290a129": {
+    "status": "Duplicate",
+    "program": "opinfo_max_pool2d_with_indices_backward",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "335edb1af632": {
+    "status": "Invalid",
+    "program": "opinfo_nn_functional_interpolate_area",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "rank",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "34fa9b83500e": {
+    "status": "Invalid",
+    "program": "opinfo_nn_functional_interpolate_trilinear",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "rank",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "37e7d7870f21": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty_strided",
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "0/2"
+  },
+  "42f770c843c0": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty_strided",
+    "stage": "compile_nondeterminism",
+    "priority": "medium",
+    "factor": "dtype",
+    "probe": "matrix",
+    "reproducibility": "1/2"
+  },
+  "43d01b3bbeec": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty",
+    "stage": "cache_invalidation",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "matrix",
+    "reproducibility": "2/2"
+  },
+  "645be2109059": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty_strided",
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "1/2"
+  },
+  "6c59eb427924": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "1/2"
+  },
+  "7733daf44630": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty_strided",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "0/2"
+  },
+  "8b04478377ff": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty",
+    "stage": "compile_nondeterminism",
+    "priority": "medium",
+    "factor": "dtype",
+    "probe": "matrix",
+    "reproducibility": "1/2"
+  },
+  "956b02bb30e6": {
+    "status": "Invalid",
+    "program": "opinfo_nn_functional_local_response_norm",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "rank",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "9953fe7318e2": {
+    "status": "Invalid",
+    "program": "opinfo_nn_functional_binary_cross_entropy",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "resize",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "a8bd5795d4ba": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "1/2"
+  },
+  "bdd560632a42": {
+    "status": "Invalid",
+    "program": "opinfo_nn_functional_interpolate_linear",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "rank",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "c0176ec1bfeb": {
+    "status": "Invalid",
+    "program": "opinfo_nn_functional_interpolate_bicubic",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "rank",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "c4398b2ccfef": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty_strided",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "1/2"
+  },
+  "d1765495c781": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty_strided",
+    "stage": "cache_invalidation",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "matrix",
+    "reproducibility": "1/2"
+  },
+  "e2ff23c37250": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty_strided",
+    "stage": "cache_invalidation",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "matrix",
+    "reproducibility": "0/2"
+  }
+}

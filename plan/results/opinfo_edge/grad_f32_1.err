@@ -1,0 +1,48 @@
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:1267: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:51.)
+  .to_sparse_csr()
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in struct torch::autograd::NotImplemented. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in struct torch::autograd::NotImplemented. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in struct torch::autograd::NotImplemented. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:176: UserWarning: linear_cross_entropy: ``options`` ignored; chunked path needs reduction in {'mean','sum','none'}, label_smoothing == 0, target.dtype == int64 (or a probability target with reduction in {'mean','sum'}, dtype matching input, and requires_grad == False), out_features == (). Got reduction='mean', label_smoothing=0.0, target.dtype=torch.int64, out_features=(3,), tracing=False, target.requires_grad=False, linear_bias.shape=None.
+  eager = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py:69: UserWarning: linear_cross_entropy: ``options`` ignored; chunked path needs reduction in {'mean','sum','none'}, label_smoothing == 0, target.dtype == int64 (or a probability target with reduction in {'mean','sum'}, dtype matching input, and requires_grad == False), out_features == (). Got reduction='mean', label_smoothing=0.0, target.dtype=torch.int64, out_features=(3,), tracing=False, target.requires_grad=False, linear_bias.shape=None.
+  return fn(*args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in IgammacBackward0. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in IgammacBackward0. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in IgammacBackward0. Traceback of forward call that caused the error:
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:19760: UserWarning: ComplexHalf support is experimental and many operators don't support it yet. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\EmptyTensor.cpp:55.)
+  op=lambda x, *args, **kwargs: x.chalf(*args, **kwargs),
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:176: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  eager = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\utils.py:4415: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  return node.target(*args, **kwargs)  # type: ignore[operator]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\interpreter.py:377: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  return target(*args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py:2014: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  return func(*args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(

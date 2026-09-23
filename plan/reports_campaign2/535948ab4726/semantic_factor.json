@@ -1,0 +1,57 @@
+{
+  "factor_changed": "substitute",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "use_relu=True",
+    "factors": {
+      "substitute": {
+        "arg": 1,
+        "value": true
+      }
+    },
+    "warm": true,
+    "origin": "use_relu"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "python_flag_semantic",
+    "factor": "use_relu",
+    "kind": "flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "T/F both paths",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "exception"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "parameter steers control flow",
+    "param": "use_relu",
+    "dim": null
+  },
+  "triage": {
+    "stage": "none",
+    "stage_label": "no divergence",
+    "priority": "info",
+    "rationale": "'substitute' changed without a recompile and the result matched; guards may be under-specified (informational)",
+    "kinds": [],
+    "recompiled": false,
+    "guard_suspicious": true,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": false
+  }
+}

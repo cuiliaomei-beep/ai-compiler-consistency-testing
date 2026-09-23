@@ -1,0 +1,29 @@
+{
+  "signature": "6218c276f95d",
+  "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "value",
+    "gradient"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "192985",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/192985",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

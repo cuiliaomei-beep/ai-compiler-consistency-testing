@@ -1,0 +1,104 @@
+programs on both versions: 193; fixed-between: 35, present-on-both: 26, old-version-only (open issue): 6
+{"issue": "113641", "title": "compiling double inplace clamp on strides produces wrong result with s", "closed_at": "2023-11-17", "state_reason": "completed", "fix_commit": "e736d27e386176fe24d16d77bd36d1c84a664e4a", "status_vs_tag": "behind", "in_release": true}
+{"issue": "166514", "title": "Inductor Fails with Stride Mismatch for `torch.fft.ifft` Due to Incorr", "closed_at": "2026-05-16", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "174969", "title": "torch.compile outputs incorrect results when applying `add_` on transp", "closed_at": "2026-03-31", "state_reason": "completed", "fix_commit": "ae81c1491fc78123db31191def2606cca5d342b7", "status_vs_tag": "behind", "in_release": true}
+{"issue": "175156", "title": "[inductor] Multiple randint calls cause inconsistent RNG results betwe", "closed_at": "2026-05-14", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "175496", "title": "[inductor] model with torch.compile outputs inconsistent result when r", "closed_at": "2026-05-15", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "175632", "title": "[inductor] torch.compile produces inconsistent output for attention-li", "closed_at": "2026-03-25", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "175919", "title": "[Inductor] Out-of-Bounds Memory Read via `resize` on Overlapping Views", "closed_at": "2026-03-26", "state_reason": "completed", "fix_commit": "fd55c516bdb44045228bac7669d2966db6815c79", "status_vs_tag": "behind", "in_release": true}
+{"issue": "176854", "title": "torch.compile does not correctly propagate detach_() in-place autograd", "closed_at": "2026-03-24", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "177252", "title": "[Inductor] AssertionError: wrong number of dimensions1 in backward() w", "closed_at": "2026-03-18", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "177629", "title": "`torch.compile(backend=\"inductor\")` silently succeeds on `torch.bmm` w", "closed_at": "2026-06-09", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "178125", "title": "conv_transpose1d meta implementation allows invalid output_padding tha", "closed_at": "2026-08-03", "state_reason": "completed", "fix_commit": "3d99896d477c69400c9206d00fa8bf7c4a139681", "status_vs_tag": "behind", "in_release": true}
+{"issue": "178128", "title": "conv_transpose3d meta execution produces output for invalid bias shape", "closed_at": "2026-08-03", "state_reason": "completed", "fix_commit": "3d99896d477c69400c9206d00fa8bf7c4a139681", "status_vs_tag": "behind", "in_release": true}
+{"issue": "178262", "title": "[Inductor] Incorrect stride calculation in convolution meta kernel whe", "closed_at": "2026-03-24", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "178964", "title": "[inductor] `max` returns incorrect indices when compiling a function i", "closed_at": "2026-04-16", "state_reason": "completed", "fix_commit": "93c689cc25b407c12dd8730e5ab5895924e53014", "status_vs_tag": "behind", "in_release": true}
+{"issue": "179383", "title": "`torch.quantile` and `torch.nanquantile` fail under `torch.compile(dyn", "closed_at": "2026-05-21", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "179534", "title": "torch.compile fails on aten.sparse_csr_tensor with DataDependentOutput", "closed_at": "2026-05-21", "state_reason": "completed", "fix_commit": "d565abc641e16c4369cb175aa2fabc9828f188dc", "status_vs_tag": "behind", "in_release": true}
+{"issue": "179807", "title": "`torch.compile` inductor crash: `F.pad` followed by `stft`", "closed_at": "2026-04-15", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "181175", "title": "[aot_autograd] RuntimeError: Cannot call numel() on tensor with symbol", "closed_at": "2026-05-28", "state_reason": "completed", "fix_commit": "849eb888e57d87255dd5bb4188119c55e311ee7f", "status_vs_tag": "behind", "in_release": true}
+{"issue": "181625", "title": "`AssertionError: expected size/stride mismatch` in Inductor-generated ", "closed_at": "2026-04-29", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "181870", "title": "`torch.compile(dynamic=True)` fails on `F.cross_entropy` with probabil", "closed_at": "2026-06-01", "state_reason": "completed", "fix_commit": "44932144f561267d08a5f55dd5c43c0202c9c496", "status_vs_tag": "behind", "in_release": true}
+{"issue": "182399", "title": "torch.compile(dynamic=True) fails on F.cross_entropy with probability ", "closed_at": "2026-05-05", "state_reason": "duplicate", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "182965", "title": "`torch.compile` silently returns a result for `torch.linalg.cholesky` ", "closed_at": "2026-06-14", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "183082", "title": "Inductor CPU returns wrong argmax after sin_() and transpose", "closed_at": "2026-05-20", "state_reason": "completed", "fix_commit": "b298938ef64f91fcea15e09d325edeb99f702249", "status_vs_tag": "behind", "in_release": true}
+{"issue": "183121", "title": "torch.compile returns wrong shape for torch.norm(dim=-1) when reduced ", "closed_at": "2026-05-12", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "183763", "title": "torch.compile overflows torch.sinh near float32 boundary while eager r", "closed_at": "2026-06-15", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "183765", "title": "torch.compile overflows torch.cosh near float32 boundary while eager r", "closed_at": "2026-06-18", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "183767", "title": "torch.compile returns inf for torch.asinh on large finite float32 inpu", "closed_at": "2026-06-11", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "185330", "title": "[inductor] torch.index_select on uint16 input silently succeeds while ", "closed_at": "2026-06-01", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "187018", "title": "abs on uint8 silently miscompiled via std::abs integer promotion", "closed_at": "2026-06-14", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "187027", "title": "flip after repeat_interleave generates negative (out-of-bounds) index ", "closed_at": "2026-08-28", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "188084", "title": "[BUG] Inductor reinplaces `index_put` on expanded view and silently co", "closed_at": "2026-06-24", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "189518", "title": "Inductor's pointless_cumsum_replacement drops cumsum's explicit dtype ", "closed_at": "2026-07-12", "state_reason": "completed", "fix_commit": "62cdf554bccef899229e33992a77280d5695bcff", "status_vs_tag": "behind", "in_release": true}
+{"issue": "189528", "title": "[cond] Inductor NameError on inner-dim branch output mismatch", "closed_at": "2026-07-19", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+{"issue": "190755", "title": "Some Dynamo descriptors (`tp_descr_get_impl`) are missing a `descr_che", "closed_at": "2026-07-28", "state_reason": "completed", "fix_commit": "809044678aa14020fee0b72b57688137489be180", "status_vs_tag": "behind", "in_release": true}
+{"issue": "195422", "title": "[inductor] torch.compile silently drops an in-place mutation of an inp", "closed_at": "2026-09-01", "state_reason": "completed", "fix_commit": null, "status_vs_tag": "no commit on the closed event (closed manually / by PR reference)", "in_release": null}
+written D:\wsl\personal\dr\paper\toxic_compile\plan\benchmark\historical_bugs.json: 67 entries
+  PT-0001 fixed    #113641  dynamo_capture                           compiling double inplace clamp on strides produces wrong res
+  PT-0002 fixed    #166514  inductor_codegen                         Inductor Fails with Stride Mismatch for `torch.fft.ifft` Due
+  PT-0003 fixed    #174969  inductor_codegen                         torch.compile outputs incorrect results when applying `add_`
+  PT-0004 fixed    #175156  inductor_codegen                         [inductor] Multiple randint calls cause inconsistent RNG res
+  PT-0005 fixed    #175496  inductor_codegen                         [inductor] model with torch.compile outputs inconsistent res
+  PT-0006 fixed    #175632  inductor_codegen                         [inductor] torch.compile produces inconsistent output for at
+  PT-0007 fixed    #175919  inductor_codegen                         [Inductor] Out-of-Bounds Memory Read via `resize` on Overlap
+  PT-0008 fixed    #176854  dynamo_capture                           torch.compile does not correctly propagate detach_() in-plac
+  PT-0009 fixed    #177252  aot_functionalization                    [Inductor] AssertionError: wrong number of dimensions1 in ba
+  PT-0010 fixed    #177629  inductor_codegen                         `torch.compile(backend="inductor")` silently succeeds on `to
+  PT-0011 fixed    #178125  dynamo_capture                           conv_transpose1d meta implementation allows invalid output_p
+  PT-0012 fixed    #178128  dynamo_capture                           conv_transpose3d meta execution produces output for invalid 
+  PT-0013 fixed    #178262  inductor_codegen                         [Inductor] Incorrect stride calculation in convolution meta 
+  PT-0014 fixed    #178964  inductor_codegen                         [inductor] `max` returns incorrect indices when compiling a 
+  PT-0015 fixed    #179383  dynamo_capture                           `torch.quantile` and `torch.nanquantile` fail under `torch.c
+  PT-0016 fixed    #179534  dynamo_capture                           torch.compile fails on aten.sparse_csr_tensor with DataDepen
+  PT-0017 fixed    #179807  inductor_codegen                         `torch.compile` inductor crash: `F.pad` followed by `stft`
+  PT-0018 fixed    #181175  dynamo_capture                           [aot_autograd] RuntimeError: Cannot call numel() on tensor w
+  PT-0019 fixed    #181625  inductor_codegen                         `AssertionError: expected size/stride mismatch` in Inductor-
+  PT-0020 fixed    #181870  dynamo_capture                           `torch.compile(dynamic=True)` fails on `F.cross_entropy` wit
+  PT-0021 fixed    #182399  dynamo_capture                           torch.compile(dynamic=True) fails on F.cross_entropy with pr
+  PT-0022 fixed    #182965  aot_functionalization                    `torch.compile` silently returns a result for `torch.linalg.
+  PT-0023 fixed    #183082  inductor_codegen                         Inductor CPU returns wrong argmax after sin_() and transpose
+  PT-0024 fixed    #183121  inductor_codegen                         torch.compile returns wrong shape for torch.norm(dim=-1) whe
+  PT-0025 fixed    #183763  inductor_codegen                         torch.compile overflows torch.sinh near float32 boundary whi
+  PT-0026 fixed    #183765  inductor_codegen                         torch.compile overflows torch.cosh near float32 boundary whi
+  PT-0027 fixed    #183767  inductor_codegen                         torch.compile returns inf for torch.asinh on large finite fl
+  PT-0028 fixed    #185330  inductor_codegen                         [inductor] torch.index_select on uint16 input silently succe
+  PT-0029 fixed    #187018  inductor_codegen                         abs on uint8 silently miscompiled via std::abs integer promo
+  PT-0030 fixed    #187027  inductor_codegen                         flip after repeat_interleave generates negative (out-of-boun
+  PT-0031 fixed    #188084  dynamo_capture                           [BUG] Inductor reinplaces `index_put` on expanded view and s
+  PT-0032 fixed    #189518  inductor_codegen                         Inductor's pointless_cumsum_replacement drops cumsum's expli
+  PT-0033 fixed    #189528  dynamo_capture                           [cond] Inductor NameError on inner-dim branch output mismatc
+  PT-0034 fixed    #190755  dynamo_capture                           Some Dynamo descriptors (`tp_descr_get_impl`) are missing a 
+  PT-0035 fixed    #195422  aot_functionalization                    [inductor] torch.compile silently drops an in-place mutation
+  PT-0036 present  #114415  dynamo_capture                           AOTAutograd should detect aliasing of inputs that happens *b
+  PT-0037 present  #183120  inductor_codegen                         torch.compile Inductor produces wrong output for BatchNorm2d
+  PT-0038 present  #183607  inductor_codegen                         torch.compile changes fp16 overflow behavior for cast-to-flo
+  PT-0039 present  #185246  inductor_codegen                         torch.compile silently accepts invalid Bernoulli probabiliti
+  PT-0040 present  #185248  inductor_codegen                         `torch.compile` silently accepts negative standard deviation
+  PT-0041 present  #185481  inductor_codegen                         [inductor] argmax over comparison mask is accepted and used 
+  PT-0042 present  #186799  inductor_codegen                         `torch.compile` silently produces wrong gradient for `atan2(
+  PT-0043 present  #189787  inductor_codegen                         Inductor constant-folds `sum(softmax)` to exactly 1.0, causi
+  PT-0044 present  #190758  aot_functionalization,inductor_codegen   Memory-budget partitioner recomputes RNG ops with fresh rand
+  PT-0045 present  #192905  dynamo_capture                           Nested nested_compile_region silently reuses a body speciali
+  PT-0046 present  #192985  dynamo_capture                           Dynamo silently drops custom `jvp` of `autograd.Function` un
+  PT-0047 present  #193710  aot_functionalization                    [inductor] `fallback_node_due_to_unsupported_type` blocks pa
+  PT-0048 present  #193757  inductor_codegen                         [inductor][cpu] torch.compile silently accepts `binary_cross
+  PT-0049 present  #193811  aot_functionalization                    torch.compile silently accepts int32 input to upsample_bilin
+  PT-0050 present  #194062  inductor_codegen                         [inductor] [silent incorrectness] torch.full ignores dtype w
+  PT-0051 present  #194103  dynamo_capture                           torch.compile(dynamic=True) fails for scatter out variants w
+  PT-0052 present  #194501  inductor_codegen                         [torch.compile][Inductor] smooth_l1_loss with negative beta 
+  PT-0053 present  #194547  inductor_codegen                         torch.compile silently promotes dtype for torch.distribution
+  PT-0054 present  #195320  inductor_codegen                         [inductor] SDPA fusion matches a permuted K as if it were ke
+  PT-0055 present  #195488  inductor_codegen                         [dynamo] autocast context manager is lowered without try/fin
+  PT-0056 present  #195579  inductor_codegen                         [meta / decomps] torch.compile skips addmm's broadcast check
+  PT-0057 present  #195665  inductor_codegen                         [inductor] torch.compile skips as_strided's storage-bounds c
+  PT-0058 present  #195673  inductor_codegen                         torch.compile accepts rand_like on an integer tensor that ea
+  PT-0059 present  #195674  inductor_codegen                         torch.compile evaluates subtraction on a bool tensor that ea
+  PT-0060 present  #195675  inductor_codegen                         torch.clamp with a bound unrepresentable in the tensor dtype
+  PT-0061 present  #196285  dynamo_capture                           torch.compile(dynamic=True) fails to handle shape-derived sy
+  PT-0062 old-only #181428  dynamo_capture                           torch.compile + torch.func.grad: superlinear compile time wi
+  PT-0063 old-only #181653  dynamo_capture                           torch.compile(torch.func.grad(fn)) hangs indefinitely on mod
+  PT-0064 old-only #183768  inductor_codegen                         torch.compile returns inf for torch.acosh on large finite fl
+  PT-0065 old-only #190855  dynamo_capture                           [inductor] Wrong Hessian: `torch.compile(torch.func.hessian(
+  PT-0066 old-only #195977  dynamo_capture                           [scan] inductor refuses a tanh/sigmoid recurrence under auto
+  PT-0067 old-only #196221  dynamo_capture                           torch.compile crashes with an internal FakeTensor assertion 

@@ -1,0 +1,1228 @@
+[
+  {
+    "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_global0",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 3,
+    "tests_invalid": 0,
+    "contexts_pruned": 0,
+    "compile_count": 10,
+    "wall_s": 6.764,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_global0",
+      "level": "FULL",
+      "scs": {
+        "site": "forward",
+        "params": [
+          "a",
+          "b"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [],
+        "entries": [
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "forward",
+          "factor": "a.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "a.requires_grad",
+          "kind": "requires_grad",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "grad on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "gradient"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "requires_grad changes the traced graph regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {},
+          "warm": true,
+          "origin": ""
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          },
+          "warm": true,
+          "origin": "a.dtype"
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "gradient",
+        "mutation",
+        "alias",
+        "exception"
+      ],
+      "n_tests": 6,
+      "generation_ms": 0.979,
+      "analysis_ms": 0.884
+    }
+  },
+  {
+    "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_closure0",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 3,
+    "tests_invalid": 0,
+    "contexts_pruned": 0,
+    "compile_count": 10,
+    "wall_s": 0.408,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_closure0",
+      "level": "FULL",
+      "scs": {
+        "site": "_bind_make0",
+        "params": [
+          "_bind_k0"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [],
+        "entries": [
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "_bind_make0",
+          "factor": "_bind_k0.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "_bind_k0",
+          "dim": null
+        },
+        {
+          "site": "_bind_make0",
+          "factor": "_bind_k0.requires_grad",
+          "kind": "requires_grad",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "grad on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "gradient"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "requires_grad changes the traced graph regardless of source",
+          "param": "_bind_k0",
+          "dim": null
+        },
+        {
+          "site": "_bind_make0",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {},
+          "warm": true,
+          "origin": ""
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          },
+          "warm": true,
+          "origin": "_bind_k0.dtype"
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "gradient",
+        "mutation",
+        "alias",
+        "exception"
+      ],
+      "n_tests": 6,
+      "generation_ms": 0.922,
+      "analysis_ms": 0.846
+    }
+  },
+  {
+    "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_attribute0",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 3,
+    "tests_invalid": 0,
+    "contexts_pruned": 0,
+    "compile_count": 10,
+    "wall_s": 0.41,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_attribute0",
+      "level": "FULL",
+      "scs": {
+        "site": "forward",
+        "params": [
+          "a",
+          "b"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [],
+        "entries": [
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "forward",
+          "factor": "a.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "a.requires_grad",
+          "kind": "requires_grad",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "grad on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "gradient"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "requires_grad changes the traced graph regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {},
+          "warm": true,
+          "origin": ""
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          },
+          "warm": true,
+          "origin": "a.dtype"
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "gradient",
+        "mutation",
+        "alias",
+        "exception"
+      ],
+      "n_tests": 6,
+      "generation_ms": 0.82,
+      "analysis_ms": 0.765
+    }
+  },
+  {
+    "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_list_elem0",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 3,
+    "tests_invalid": 0,
+    "contexts_pruned": 0,
+    "compile_count": 10,
+    "wall_s": 0.418,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_list_elem0",
+      "level": "FULL",
+      "scs": {
+        "site": "forward",
+        "params": [
+          "a",
+          "b"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [],
+        "entries": [
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "forward",
+          "factor": "a.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "a.requires_grad",
+          "kind": "requires_grad",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "grad on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "gradient"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "requires_grad changes the traced graph regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {},
+          "warm": true,
+          "origin": ""
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          },
+          "warm": true,
+          "origin": "a.dtype"
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "gradient",
+        "mutation",
+        "alias",
+        "exception"
+      ],
+      "n_tests": 6,
+      "generation_ms": 0.826,
+      "analysis_ms": 0.773
+    }
+  },
+  {
+    "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_dict_elem0",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 3,
+    "tests_invalid": 0,
+    "contexts_pruned": 0,
+    "compile_count": 10,
+    "wall_s": 0.443,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_dict_elem0",
+      "level": "FULL",
+      "scs": {
+        "site": "forward",
+        "params": [
+          "a",
+          "b"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [],
+        "entries": [
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "forward",
+          "factor": "a.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "a.requires_grad",
+          "kind": "requires_grad",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "grad on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "gradient"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "requires_grad changes the traced graph regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {},
+          "warm": true,
+          "origin": ""
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          },
+          "warm": true,
+          "origin": "a.dtype"
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "gradient",
+        "mutation",
+        "alias",
+        "exception"
+      ],
+      "n_tests": 6,
+      "generation_ms": 0.871,
+      "analysis_ms": 0.815
+    }
+  },
+  {
+    "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_default_param0",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 3,
+    "tests_invalid": 0,
+    "contexts_pruned": 0,
+    "compile_count": 10,
+    "wall_s": 0.416,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_default_param0",
+      "level": "FULL",
+      "scs": {
+        "site": "forward",
+        "params": [
+          "a",
+          "b",
+          "_bind_k0"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [],
+        "entries": [
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "forward",
+          "factor": "a.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "a.requires_grad",
+          "kind": "requires_grad",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "grad on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "gradient"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "requires_grad changes the traced graph regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {},
+          "warm": true,
+          "origin": ""
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          },
+          "warm": true,
+          "origin": "a.dtype"
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "gradient",
+        "mutation",
+        "alias",
+        "exception"
+      ],
+      "n_tests": 6,
+      "generation_ms": 0.867,
+      "analysis_ms": 0.806
+    }
+  },
+  {
+    "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_pos_param0",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 3,
+    "tests_invalid": 0,
+    "contexts_pruned": 0,
+    "compile_count": 10,
+    "wall_s": 0.417,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "issue_96728_redundant_statement_leads_to_wrong_outpu__bind_pos_param0",
+      "level": "FULL",
+      "scs": {
+        "site": "forward",
+        "params": [
+          "a",
+          "b",
+          "_bind_k0"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [],
+        "entries": [
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "forward",
+          "factor": "a.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "a.requires_grad",
+          "kind": "requires_grad",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "grad on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "gradient"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "requires_grad changes the traced graph regardless of source",
+          "param": "a",
+          "dim": null
+        },
+        {
+          "site": "forward",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {},
+          "warm": true,
+          "origin": ""
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          },
+          "warm": true,
+          "origin": "a.dtype"
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "gradient",
+        "mutation",
+        "alias",
+        "exception"
+      ],
+      "n_tests": 6,
+      "generation_ms": 0.881,
+      "analysis_ms": 0.826
+    }
+  }
+]

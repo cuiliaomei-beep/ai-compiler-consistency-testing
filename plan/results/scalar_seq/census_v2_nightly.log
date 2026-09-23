@@ -1,0 +1,58 @@
+torch 2.15.0.dev20260911+cpu
+   S zeros(int(s*8))                            
+   S x[: int(s*8)]                              
+   S x[int(s*7)]                                
+   S arange(0, s, 0.125)                        
+!! S linspace steps int(s*8)+2                  s=0.25: shape/dtype eager (4,) torch.float32 compiled (6,) torch.float32; s=0.75: shape/dtype eager (8,) torch.float32 compiled (6,) torch.float32; s=1.0: shape/dtype eager (10,) torch.float32 compiled (6,) torch.float32; s=0.0: shape/dtype eager (2,) torch.float32 compiled (6,) torch.float32
+   S pad int(s*4)                               
+   S repeat int(s*4)+1                          
+   S roll int(s*8)                              
+   S topk int(s*6)+1                            
+   S narrow int(s*6)                            
+!! S view(-1, 2**int(s*2))                      s=0.5: eager ok / compiled raises TorchRuntimeError; s=0.25: eager ok / compiled raises TorchRuntimeError; s=0.75: eager ok / compiled raises TorchRuntimeError; s=1.0: eager ok / compiled raises TorchRuntimeError
+   S tril(int(s*4))                             
+!! S round(decimals=int(s*4))                   s=0.25: max err 0.05 (nan pattern equal: True); s=0.75: max err 0.005 (nan pattern equal: True); s=1.0: max err 0.0049 (nan pattern equal: True); s=2.0: max err 0.00499 (nan pattern equal: True)
+!! S cumsum(dim=int(s*2)%2)                     s=0.25: max err 1.79 (nan pattern equal: True); s=1.0: max err 7.18 (nan pattern equal: True); s=2.0: max err 14.4 (nan pattern equal: True); s=0.125: max err 0.897 (nan pattern equal: True)
+!! S one_hot(num_classes=int(s*8)+3)            s=0.25: shape/dtype eager (3, 5) torch.float32 compiled (3, 7) torch.float32; s=0.75: shape/dtype eager (3, 9) torch.float32 compiled (3, 7) torch.float32; s=1.0: shape/dtype eager (3, 11) torch.float32 compiled (3, 7) torch.float32; s=0.0: shape/dtype eager (3, 3) torch.float32 compiled (3, 7) torch.float32
+!! S adaptive_avg_pool1d(int(s*6)+1)            s=0.25: shape/dtype eager (1, 8, 2) torch.float32 compiled (1, 8, 4) torch.float32; s=0.75: shape/dtype eager (1, 8, 5) torch.float32 compiled (1, 8, 4) torch.float32; s=1.0: shape/dtype eager (1, 8, 7) torch.float32 compiled (1, 8, 4) torch.float32; s=0.0: shape/dtype eager (1, 8, 1) torch.float32 compiled (1, 8, 4) torch.float32
+!! S interpolate size=int(s*8)+2                s=0.5: eager ok / compiled raises BackendCompilerFailed
+!! S unfold size int(s*4)+1                     s=0.25: shape/dtype eager (7, 8, 2) torch.float32 compiled (6, 8, 3) torch.float32; s=0.75: shape/dtype eager (5, 8, 4) torch.float32 compiled (6, 8, 3) torch.float32; s=1.0: shape/dtype eager (4, 8, 5) torch.float32 compiled (6, 8, 3) torch.float32; s=0.0: shape/dtype eager (8, 8, 1) torch.float32 compiled (6, 8, 3) torch.float32
+   D pow(x, s*2)                                
+   D pow(x, s) at 0 with nan                    
+   D addmm beta=s (nan input, beta 0)           
+   D baddbmm beta=1-s                           
+   D addcmul value=s (inf operand, value 0)     
+   D lerp weight 1-s                            
+   D dropout p=s (0 or 1, train)                
+   D clamp(min=s, max=1-s) crossing             
+   D hardtanh(-s, s) crossing                   
+   D softplus beta=s+1 threshold=s*20           
+   D norm p=s*2                                 
+   D normalize p=s*2                            
+   D mul by s==0 with nan                       
+   D where(x > s, s, 1-s)                       
+   D celu alpha=s+0.5                           
+!! D logit eps=s/8                              s=0.25: max err 0.726 (nan pattern equal: True); s=0.75: max err 0.439 (nan pattern equal: True); s=1.0: max err 0.762 (nan pattern equal: True); s=0.0: max err 7.52 (nan pattern equal: True)
+!! D std correction=int(s*2)                    s=0.5: eager ok / compiled raises TorchRuntimeError; s=0.25: eager ok / compiled raises TorchRuntimeError; s=0.75: eager ok / compiled raises TorchRuntimeError; s=1.0: eager ok / compiled raises TorchRuntimeError
+   D leaky_relu(x, s) negative slope > 1        
+   B x * (s > 0.5)                              
+   B x * (s == 1.0) + (s != 0.0)                
+   B full((2,), s > 0.5)                        
+!! B masked_fill(x > 0, s > 0.5)                s=0.5: eager ok / compiled raises BackendCompilerFailed
+   B max(s, 0.3) * x + min(1-s, 0.6)            
+   B abs(s) and round(s, 1)                     
+   B int(s) + math-free floor                   
+   I x[:k] * k                                  
+   I roll(k) + k % 3                            
+   I pow(x, k)                                  
+!! I x.long() ** k                              s=2: eager ok / compiled raises InductorError; s=4: eager ok / compiled raises InductorError; s=1: eager ok / compiled raises InductorError; s=5: eager ok / compiled raises InductorError
+   I topk(k + 1)                                
+   I repeat(k + 1)                              
+   I addmm beta=k (0 with nan)                  
+   I arange(k) * (10 - k)                       
+   I x.sum(k % 2) * (k // 2)                    
+   I F.pad(x, (k, k % 2))                       
+   I tril(k - 2)                                
+   I one_hot(idx % (k + 1), k + 1)              
+   I unflatten(0, (k or 1, -1))                 
+DONE

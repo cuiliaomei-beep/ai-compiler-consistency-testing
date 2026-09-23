@@ -1,0 +1,89 @@
+{
+  "signature": "d3ff9deca070",
+  "case": "seed_2026_01137",
+  "probe": "warm",
+  "triage": {
+    "stage": "specialization_cache",
+    "priority": "high",
+    "rationale": "changing 'dtype' did not trigger a recompile, yet the warm result differs from a cold compile of the same context: the cached artifact was reused under assumptions that no longer hold",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": false,
+    "guard_suspicious": false,
+    "layers_unavailable": [],
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {
+      "variant": "base"
+    }
+  },
+  "context_b": {
+    "name": "dtype_float16",
+    "factors": {
+      "variant": "base",
+      "dtype": "float16"
+    }
+  },
+  "factor_changed": "dtype",
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "cold_vs_warm": {
+      "ref": "cold_inductor",
+      "test": "warm_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": null,
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: non-float values differ exactly",
+          "index": 0
+        }
+      ]
+    }
+  },
+  "observations": {
+    "cold_B": {
+      "mode": "cold_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "map",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0054,
+      "alias_pairs": [],
+      "out_meta": [
+        null
+      ]
+    },
+    "warm_A_to_B": {
+      "mode": "warm_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "map",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "out_meta": [
+        null
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "[dynamo] map in dynamo doesn't return an iterable\nhttps://github.com/pytorch/pytorch/issues/130750"
+}

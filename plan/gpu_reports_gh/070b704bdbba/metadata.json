@@ -1,0 +1,44 @@
+{
+  "signature": "070b704bdbba",
+  "program": "issue_179561_inductor_x_to_torch_bfloat16_float_preci",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "179561",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/179561",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 179561,
+      "title": "[inductor] `x.to(torch.bfloat16).float()` precision cast silently elided during fusion",
+      "url": "https://github.com/pytorch/pytorch/issues/179561",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-04-07"
+    },
+    {
+      "number": 179572,
+      "title": "[inductor] Preserve explicit low-precision FP casts during fusion",
+      "url": "https://github.com/pytorch/pytorch/pull/179572",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-04-07"
+    }
+  ]
+}

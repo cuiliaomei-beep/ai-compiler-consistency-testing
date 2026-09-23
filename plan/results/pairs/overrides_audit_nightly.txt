@@ -1,0 +1,3193 @@
+torch 2.15.0.dev20260911+cpu
+
+===== ASYM airy_ai   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"airy_ai_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM asinh   scalar-only keys []   vec-only keys ['copysign', 'overflow']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def asinh(x):
+        return f"std::asinh({x})"
+--- vector
+    @staticmethod
+    def asinh(x):
+        vec_t = f"decltype({x})"
+        code = BracesBuffer()
+        code.writeline("[&]()")
+        with code.indent():
+            # Avoid Vectorized::asinh/SLEEF here: it overflows internally for
+            # large finite fp32 inputs where eager std::asinh remains finite.
+            # This is asinh(x) = sign(x) * log(abs(x) + sqrt(abs(x)^2 + 1)),
+            # rewritten with 1 / abs(x) to avoid squaring large values.
+            code.writeline(f"auto abs_x = {x}.abs();")
+            code.writeline(f"auto one = {vec_t}(1);")
+            code.writeline("auto inv_abs_x = one / abs_x;")
+            code.writeline(
+                "auto correction = "
+                "(one / (one + inv_abs_x)) / "
+                "((one + inv_abs_x * inv_abs_x).sqrt() + inv_abs_x);"
+            )
+            code.writeline("auto result = abs_x.log1p() + correction.log1p();")
+            code.writeline(f"return result.copysign({x});")
+        code.writeline("()")
+        return code
+
+===== ASYM bessel_j0   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"bessel_j0_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM bessel_j1   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"bessel_j1_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM bessel_y0   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"bessel_y0_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM bessel_y1   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"bessel_y1_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM bitwise_and   scalar-only keys []   vec-only keys ['mask']
+--- scalar
+    @staticmethod
+    def bitwise_and(a, b):
+        return f"decltype({a})({a} & {b})"
+--- vector
+    @staticmethod
+    def bitwise_and(a, b):
+        a, b = may_unify_binary_op_mask_type(a, b)
+        return f"{a} & {b}"
+
+===== ASYM bitwise_or   scalar-only keys []   vec-only keys ['mask']
+--- scalar
+    @staticmethod
+    def bitwise_or(a, b):
+        return f"decltype({a})({a} | {b})"
+--- vector
+    @staticmethod
+    def bitwise_or(a, b):
+        a, b = may_unify_binary_op_mask_type(a, b)
+        return f"{a} | {b}"
+
+===== ASYM bitwise_xor   scalar-only keys []   vec-only keys ['mask']
+--- scalar
+    @staticmethod
+    def bitwise_xor(a, b):
+        return f"decltype({a})({a} ^ {b})"
+--- vector
+    @staticmethod
+    def bitwise_xor(a, b):
+        a, b = may_unify_binary_op_mask_type(a, b)
+        return f"{a} ^ {b}"
+
+===== ASYM chebyshev_polynomial_t   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"chebyshev_polynomial_t_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM chebyshev_polynomial_u   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"chebyshev_polynomial_u_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM chebyshev_polynomial_v   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"chebyshev_polynomial_v_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM chebyshev_polynomial_w   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"chebyshev_polynomial_w_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM constant   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+    @staticmethod
+    def constant(val, dtype):
+        return value_to_cpp(val, DTYPE_TO_CPP[dtype])
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM erfcx   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"calc_erfcx({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM floordiv   scalar-only keys []   vec-only keys ['is_integer']
+--- scalar
+    @staticmethod
+    def floordiv(a, b):
+        # a and b are integer type
+        return f"floor_divide_integral({a}, {b})"
+--- vector
+    @staticmethod
+    def floordiv(a, b):
+        if is_float_dtype(a.dtype):
+            if a.dtype != b.dtype:
+                raise AssertionError(
+                    "div_floor_floating_vec implementation expect the same inputs' dtype."
+                )
+            return f"div_floor_floating_vec({a}, {b})"
+        else:
+            if not (all(is_integer_dtype(item.dtype) for item in [a, b])):
+                raise AssertionError(
+                    "expected all(is_integer_dtype(item.dtype) for item in [a, b])"
+                )
+            # a and b are integer type
+            _t = f"decltype({b})"
+            b = f"{_t}::set({_t}(1), {b}, {cexpr_index(V.kernel.num_elems)})"
+            return f"floor_divide_integral({a}, {b})"
+
+===== ASYM fmaximum   scalar-only keys []   vec-only keys ['blendv']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def fmaximum(a, b):
+        return f"std::max({a}, {b})"
+--- vector
+    @staticmethod
+    def fmaximum(a, b):
+        return f"decltype({a})::blendv({a}, {b}, {a} < {b})"
+
+===== ASYM gammainc   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"calc_igamma({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM gammaincc   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"calc_igammac({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM hermite_polynomial_h   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"hermite_polynomial_h_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM hermite_polynomial_he   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"hermite_polynomial_he_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM i1   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"calc_i1({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM i1e   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"calc_i1e({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM igamma   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"calc_igamma({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM igammac   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"calc_igammac({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM index_expr   scalar-only keys []   vec-only keys ['== 0']
+--- scalar
+    @staticmethod
+    def index_expr(expr, dtype):
+        idx_str = cexpr(V.kernel.rename_indexing(expr))
+        var = V.kernel.cse.generate(
+            V.kernel.compute, idx_str, bounds=get_bounds_index_expr(expr)
+        )
+        return ops.to_dtype(var, dtype)
+--- vector
+    @staticmethod
+    def index_expr(expr, dtype):
+        if not isinstance(V.kernel, CppVecKernel):
+            raise AssertionError("expected isinstance(V.kernel, CppVecKernel)")
+        index = V.kernel.rename_indexing(expr)
+        tiling_var = V.kernel.itervars[V.kernel.tiling_idx]
+        stride = V.kernel._try_get_const_stride(index, tiling_var)
+        if stride == 0:
+            return CppOverrides.index_expr(expr, dtype)
+        elif stride is not None:
+            idx = V.kernel.cse.generate(
+                V.kernel.compute, cexpr(index), bounds=get_bounds_index_expr(expr)
+            )
+            value = ops.to_dtype(idx, dtype)
+            if isinstance(value, OpsValue):
+                value = value.value
+            csevar = V.kernel.arange(value, stride)
+        else:
+            csevar = V.kernel._load_or_store_non_contiguous(  # type: ignore[assignment]
+                None, index, dtype, V.kernel.compute
+            )
+        # pyrefly: ignore [missing-attribute]
+        csevar.update_on_args("index_expr", (expr, dtype), {})
+        return csevar
+
+===== ASYM isinf   scalar-only keys []   vec-only keys ['isnan', 'mask', 'signbit']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def isinf(x):
+        return f"std::isinf({x})"
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM isnan   scalar-only keys []   vec-only keys ['isinf', 'mask', 'signbit']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def isnan(x):
+        return f"std::isnan({x})"
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM laguerre_polynomial_l   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"laguerre_polynomial_l_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM ldexp   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def ldexp(x, n):
+        return f"std::ldexp({x}, {n})"
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM legendre_polynomial_p   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"legendre_polynomial_p_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM log_ndtr   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"calc_log_ndtr({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM logical_and   scalar-only keys []   vec-only keys ['mask']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def logical_and(a, b):
+        return f"{a} && {b}"
+--- vector
+    @staticmethod
+    def logical_and(a, b):
+        a, b = may_unify_binary_op_mask_type(a, b)
+        return f"{a} & {b}"
+
+===== ASYM logical_or   scalar-only keys []   vec-only keys ['mask']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def logical_or(a, b):
+        return f"{a} || {b}"
+--- vector
+    @staticmethod
+    def logical_or(a, b):
+        a, b = may_unify_binary_op_mask_type(a, b)
+        return f"{a} | {b}"
+
+===== ASYM logical_xor   scalar-only keys []   vec-only keys ['mask']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def logical_xor(a, b):
+        return f"{a} != {b}"
+--- vector
+    @staticmethod
+    def logical_xor(a, b):
+        a, b = may_unify_binary_op_mask_type(a, b)
+        return f"{a} ^ {b}"
+
+===== ASYM masked   scalar-only keys []   vec-only keys ['zero']
+--- scalar
+    @staticmethod
+    def masked(mask, body, other):
+        code = BracesBuffer()
+
+        # Write masked operation into a lambda
+        body_var = V.kernel.cse.newvar()
+        code.writeline(f"auto {body_var} = [&]")
+        with V.kernel.swap_buffers(code), code.indent():
+            result = body()
+            code.writeline(f"return {result};")
+        code.writeline(";")
+        V.kernel.compute.splice(code)
+
+        # Use the lambda's return type as the type of other
+        other_code = value_to_cpp(other, f"decltype({body_var}())")
+        return f"{mask} ? {body_var}() : {other_code}"
+--- vector
+    @staticmethod
+    def masked(mask, body, other):
+        if not isinstance(V.kernel, CppVecKernel):
+            raise AssertionError("expected isinstance(V.kernel, CppVecKernel)")
+        code = BracesBuffer()
+        var = V.kernel.cse.newvar()
+        with V.kernel.masked(mask) as new_mask:
+            code.writeline(f"auto {var} = [&]")
+            with V.kernel.swap_buffers(code), code.indent():
+                result = body()
+                code.writeline(f"return {result};")
+        code.writeline(";")
+        V.kernel.compute.splice(code)
+
+        dtype = result.dtype
+        body_code = f"{var}()"
+
+        def maskify_or_vecify(code):
+            return (
+                f"{V.kernel._get_mask_type()}::from({code})"
+                if dtype == torch.bool
+                else f"{V.kernel._get_vec_type(dtype)}({code})"
+            )
+
+        if result.is_vec:
+            body_code_vec = body_code
+        else:
+            body_code_vec = maskify_or_vecify(body_code)
+        other_code = value_to_cpp(other, DTYPE_TO_CPP[dtype])
+        # loading bool as VecMask<float, N>
+        other_code_vec = maskify_or_vecify(other_code)
+        if not isinstance(new_mask, CppCSEVariable):
+            raise AssertionError(new_mask)
+        if new_mask.is_vec:
+            code = BracesBuffer()
+            code.writeline("[&]")
+            with V.kernel.swap_buffers(code), code.indent():
+                code.writeline(f"if ({new_mask}.all_zero())")
+                with code.indent():
+                    code.writeline(f"return {other_code_vec};")
+                code.writeline("else")
+                with code.indent():
+                    # Create cse variable to reuse kernel.overrides.where
+                    body_vec_var = V.kernel.cse.generate(
+                        V.kernel.compute,
+                        body_code_vec,
+                    )
+                    other_vec_var = V.kernel.cse.generate(
+                        V.kernel.compute,
+                        other_code_vec,
+                    )
+                    if not isinstance(body_vec_var, CppCSEVariable):
+                        raise AssertionError(body_vec_var)
+                    if not isinstance(other_vec_var, CppCSEVariable):
+                        raise AssertionError(other_vec_var)
+                    body_vec_var.dtype = dtype
+                    other_vec_var.dtype = dtype
+                    overrides: type[CppOverrides | CppVecOverrides] = (
+                        # pyrefly: ignore [bad-assignment]
+                        V.kernel.overrides
+                    )  # type: ignore[has-type]
+                    code.writeline(
+                        f"return {overrides.where(new_mask, body_vec_var, other_vec_var)};"
+                    )
+            code.writeline("()")
+            csevar = V.kernel.cse.generate(
+                V.kernel.compute,
+                code,
+            )
+            if not isinstance(csevar, CppCSEVariable):
+                raise AssertionError("expected isinstance(csevar, CppCSEVariable)")
+            csevar.is_vec = True
+        elif result.is_vec:
+            csevar = V.kernel.cse.generate(
+                V.kernel.compute, f"{mask} ? {body_code_vec} : {other_code_vec}"
+            )
+        else:
+            csevar = V.kernel.cse.generate(
+                V.kernel.compute, f"{mask} ? {body_code} : {other_code}"
+            )
+        # `result` is explicitly added to the args for correct propagation
+        # of relevant itervars and vectorization status.
+        csevar.update_on_args("masked", (mask, body, other, result), {})
+        return csevar
+
+===== ASYM maximum   scalar-only keys ['nan']   vec-only keys ['mask']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def maximum(a, b):
+        return f"max_propagate_nan({a}, {b})"
+--- vector
+    @staticmethod
+    def maximum(a, b):
+        if a.dtype == torch.bool:
+            if b.dtype != torch.bool:
+                raise AssertionError("expected b.dtype == torch.bool")
+            a_cast, b_cast = unify_mask_base_type(V.kernel.compute, (a, b))
+            return f"{a_cast} | {b_cast}"
+        else:
+            return f"at::vec::maximum({a}, {b})"
+
+===== ASYM minimum   scalar-only keys ['nan']   vec-only keys ['mask']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def minimum(a, b):
+        return f"min_propagate_nan({a}, {b})"
+--- vector
+    @staticmethod
+    def minimum(a, b):
+        if a.dtype == torch.bool:
+            if b.dtype != torch.bool:
+                raise AssertionError("expected b.dtype == torch.bool")
+            a_cast, b_cast = unify_mask_base_type(V.kernel.compute, (a, b))
+            return f"{a_cast} & {b_cast}"
+        else:
+            return f"at::vec::minimum({a}, {b})"
+
+===== ASYM mod   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+    @staticmethod
+    def mod(a, b):
+        return f"mod({a}, {b})"
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM modified_bessel_i0   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"modified_bessel_i0_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM modified_bessel_i1   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"modified_bessel_i1_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM modified_bessel_k0   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"modified_bessel_k0_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM modified_bessel_k1   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"modified_bessel_k1_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM mul_rn   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"({x}) * ({y})",  # C++ doesn't need special handling
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM ndtr   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"calc_ndtr({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM ndtri   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"calc_ndtri({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM polygamma   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x,
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM rand_eager   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+    @staticmethod
+    def rand_eager(
+        seed: sympy.Expr,
+        base_offset: sympy.Expr,
+        threads_per_round: sympy.Expr,
+        tid: sympy.Expr,
+        vec: sympy.Expr,
+    ):
+        # NOTE: This is a codegen fallback used by the C++ backend for eager random.
+        # It is not intended to provide CPU parity; parity target is CUDA eager vs compiled.
+        # Keep this hook to satisfy codegen paths and CI.
+        return f"normalized_rand_cpu({seed}, {base_offset})"
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM scaled_modified_bessel_k0   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"scaled_modified_bessel_k0_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM scaled_modified_bessel_k1   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"scaled_modified_bessel_k1_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM shifted_chebyshev_polynomial_t   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"shifted_chebyshev_polynomial_t_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM shifted_chebyshev_polynomial_u   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"shifted_chebyshev_polynomial_u_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM shifted_chebyshev_polynomial_v   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"shifted_chebyshev_polynomial_v_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM shifted_chebyshev_polynomial_w   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"shifted_chebyshev_polynomial_w_forward({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM sign   scalar-only keys []   vec-only keys ['blendv']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def sign(x):
+        code = BracesBuffer()
+        scalar_zero = f"decltype({x})(0)"
+        scalar_one = f"decltype({x})(1)"
+        code.writeline("[&]()")
+        with code.indent():
+            code.writeline(f"auto left = {x} > 0 ? {scalar_one} : {scalar_zero};")
+            code.writeline(f"auto right = {x} < 0 ? {scalar_one} : {scalar_zero};")
+            code.writeline("return left - right;")
+        code.writeline("()")
+        return code
+--- vector
+    @staticmethod
+    def sign(x):
+        code = BracesBuffer()
+        vec_zero = f"decltype({x})(0)"
+        vec_one = f"decltype({x})(1)"
+        blendv_l = f"decltype({x})::blendv({vec_zero}, {vec_one}, {vec_zero} < {x})"
+        blendv_r = f"decltype({x})::blendv({vec_zero}, {vec_one}, {x} < {vec_zero})"
+        code.writeline("[&]()")
+        with code.indent():
+            code.writeline(f"auto left = {blendv_l};")
+            code.writeline(f"auto right = {blendv_r};")
+            code.writeline("return left - right;")
+        code.writeline("()")
+        return code
+
+===== ASYM signbit   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def signbit(x):
+        """
+        On windows std::signbit only support float type.
+        Ref: https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/signbit?view=msvc-170
+        """
+        return (
+            f"std::signbit(static_cast<float>({x}))"
+            if _IS_WINDOWS
+            else f"std::signbit({x})"
+        )
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM spherical_bessel_j0   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x: f"spherical_bessel_j0_forward({x})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM to_dtype_bitcast   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+    @staticmethod
+    def to_dtype_bitcast(x, dtype, src_dtype):
+        if dtype not in DTYPE_TO_CPP:
+            raise AssertionError(f"{dtype} missing from {__name__}.DTYPE_TO_CPP")
+        return f"c10::bit_cast<{DTYPE_TO_CPP[dtype]}>({x})"
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+===== ASYM where   scalar-only keys []   vec-only keys ['blendv', 'mask']
+--- scalar
+    @staticmethod
+    # pyrefly: ignore [bad-override]
+    def where(a, b, c):
+        return f"{a} ? {b} : {c}"
+--- vector
+    @staticmethod
+    def where(a, b, c):
+        if not isinstance(V.kernel, CppVecKernel):
+            raise AssertionError("expected isinstance(V.kernel, CppVecKernel)")
+        if b.dtype == torch.bool:
+            if c.dtype != torch.bool:
+                raise AssertionError("expected c.dtype == torch.bool")
+            blendv_a, blendv_b, blendv_c = unify_mask_base_type(
+                V.kernel.compute, (a, b, c)
+            )
+            return f"decltype({blendv_b})::blendv({blendv_c}, {blendv_b}, {blendv_a})"
+        else:
+            return f"decltype({b})::blendv({c}, {b}, {V.kernel._get_mask_cast(a, b.dtype)})"
+
+===== ASYM zeta   scalar-only keys []   vec-only keys ['isinf', 'isnan', 'mask', 'signbit']
+--- scalar
+        cpp=lambda x, y: f"zeta({x}, {y})",
+--- vector
+        def inner(*args, **kwargs):
+            if kwargs:
+                raise AssertionError("expected not kwargs")
+            kernel = V.kernel
+            if not isinstance(kernel, CppVecKernel):
+                raise AssertionError("expected isinstance(kernel, CppVecKernel)")
+            code = BracesBuffer()
+            code.writeline("[&]()")
+            vec_dtype = args[0].dtype
+            n_vec = kernel._get_num_vectors(vec_dtype)
+            size = kernel.tail_size if kernel.tail_size else kernel.tiling_factor
+            scalar_args = []
+            cdtype = DTYPE_TO_CPP[vec_dtype]
+            output_mask = scalar_func.__name__ in (
+                "isinf",
+                "isnan",
+                "signbit",
+            )
+            octype = "bool" if output_mask else cdtype
+            octype = (
+                DTYPE_TO_CPP[args[-2]]
+                if (scalar_func.__name__ == "to_dtype_bitcast")
+                else octype
+            )
+            with code.indent():
+                for argidx, arg in enumerate(args):
+                    if isinstance(arg, CppCSEVariable):
+                        if not arg.is_vec:
+                            raise AssertionError("expected arg.is_vec")
+                        if arg.dtype != vec_dtype:
+                            raise AssertionError("expected arg.dtype == vec_dtype")
+                        code.writeline(
+                            f"__at_align__ std::array<{cdtype}, {kernel.tiling_factor}> tmpbuf{argidx};"
+                        )
+                        code.writeline(
+                            f"{arg}.store(tmpbuf{argidx}.data(), {cexpr_index(size)});"
+                        )
+                        scalar_args.append(f"tmpbuf{argidx}[i]")
+                    else:
+                        scalar_args.append(arg)
+                code.writeline(
+                    f"__at_align__ std::array<{octype}, {kernel.tiling_factor}> tmpbuf_out;"
+                )
+                res = scalar_func(*scalar_args)
+                code.writeline(f"for (int i = 0; i < {cexpr_index(size)}; i++)")
+                with code.indent():
+                    code.writeline(f"tmpbuf_out[i] = {res};")
+                load_args = f"tmpbuf_out.data(), {cexpr_index(size)}"
+                if output_mask:
+                    load_fn = f"at::vec::VecMask<{cdtype},{n_vec}>::from"
+                elif n_vec == 1:
+                    load_fn = f"at::vec::Vectorized<{octype}>::loadu"
+                else:
+                    load_fn = f" at::vec::VectorizedN<{octype}, {n_vec}>::loadu"
+                code.writeline(f"return {load_fn}({load_args});")
+            code.writeline("()")
+            return code
+
+scalar only (vector falls back to scalar loop): ['partial_accumulate']
+vector only: ['and_', 'eq', 'ge', 'gt', 'le', 'load_seed', 'lt', 'ne', 'reciprocal', 'remainder', 'square', 'truediv']

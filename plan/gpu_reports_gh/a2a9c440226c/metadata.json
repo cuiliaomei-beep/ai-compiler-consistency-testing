@@ -1,0 +1,36 @@
+{
+  "signature": "a2a9c440226c",
+  "program": "issue_171258_inductor_torchinductor_produces_inconsis",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "171258",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/171258",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 171258,
+      "title": "[Inductor] TorchInductor produces inconsistent results with eager for `aten.fractional_max_pool2d`",
+      "url": "https://github.com/pytorch/pytorch/issues/171258",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2025-12-24"
+    }
+  ]
+}

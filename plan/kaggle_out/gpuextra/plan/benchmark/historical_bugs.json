@@ -1,0 +1,1300 @@
+{
+  "_schema": {
+    "BugID": "stable identifier, e.g. PT-0001",
+    "Project": "pytorch/pytorch | triton-lang/triton | tile-ai/tilelang",
+    "BuggyVersion": "version or commit on which the reproducer shows the inconsistency",
+    "FixedVersion": "version or commit on which it does not (or the fixing PR)",
+    "PythonEntry": "reproducer file next to this manifest: defines `f` (or a torch.compile target) and `args`",
+    "SemanticFactor": "shape | dtype | stride | device | requires_grad | scalar | flag | alias/mutation | compile_flag | backend",
+    "ExpectedBehavior": "eager / reference behaviour in one sentence",
+    "ActualBehavior": "compiled / JIT behaviour in one sentence",
+    "CompilerStage": "dynamo_capture | aot_functionalization | inductor_codegen | triton_codegen | specialization_cache | cache_invalidation",
+    "OriginalIssue": "issue URL",
+    "Verified": "true only after a person has run the reproducer on both versions"
+  },
+  "_selection_criteria": [
+    "a Python-level reproducer exists",
+    "eager / reference behaviour is explicit",
+    "compiled / JIT behaviour is runnable",
+    "a buggy commit/version is known",
+    "a fixed commit/version (or an explicit fix) is known",
+    "the defect is a consistency failure, not API misuse"
+  ],
+  "_note": "Entries are filled from the toxic-compilation dataset after manual verification (plan section 21). Nothing here is used as an empirical contribution; the file is a ground-truth detection benchmark. Run: python run.py bench --historical benchmark/historical_bugs.json",
+  "entries": [
+    {
+      "BugID": "PT-0001",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit e736d27e38, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_113641_compiling_double_inplace_clamp_on_stride.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "compiling double inplace clamp on strides produces wrong result with static shapes",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/113641",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0002",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_166514_inductor_fails_with_stride_mismatch_for.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "Inductor Fails with Stride Mismatch for `torch.fft.ifft` Due to Incorrect Meta Kernel Implementation",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/166514",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0003",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit ae81c1491f, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_174969_torch_compile_outputs_incorrect_results.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile outputs incorrect results when applying `add_` on transposed tensor",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/174969",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0004",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_175156_inductor_multiple_randint_calls_cause_in.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] Multiple randint calls cause inconsistent RNG results between eager and compiled mode after fixing the rng seed",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/175156",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0005",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_175496_inductor_model_with_torch_compile_output.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] model with torch.compile outputs inconsistent result when return value includes detached tensor",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/175496",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0006",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_175632_inductor_torch_compile_produces_inconsis.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] torch.compile produces inconsistent output for attention-like computation when only returning the final output tensor",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/175632",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0007",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit fd55c516bd, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_175919_inductor_out_of_bounds_memory_read_via_r.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[Inductor] Out-of-Bounds Memory Read via `resize` on Overlapping Views",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/175919",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0008",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_176854_torch_compile_does_not_correctly_propaga.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile does not correctly propagate detach_() in-place autograd semantics",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/176854",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0009",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_177252_inductor_assertionerror_wrong_number_of.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[Inductor] AssertionError: wrong number of dimensions1 in backward() with dynamic shape involving nonzero() and item()",
+      "CompilerStage": "aot_functionalization",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/177252",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0010",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_177629_torch_compile_backend_inductor_silently.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "`torch.compile(backend=\"inductor\")` silently succeeds on `torch.bmm` with mismatched dtypes (float16 @ float32) where eager raises RuntimeError",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/177629",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0011",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit 3d99896d47, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_178125_conv_transpose1d_meta_implementation_all.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "conv_transpose1d meta implementation allows invalid output_padding that real CUDA execution rejects",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/178125",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0012",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit 3d99896d47, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_178128_conv_transpose3d_meta_execution_produces.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "conv_transpose3d meta execution produces output for invalid bias shape instead of matching eager validation",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/178128",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0013",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_178262_inductor_incorrect_stride_calculation_in.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[Inductor] Incorrect stride calculation in convolution meta kernel when using torch.compile with GRU and Conv1d combination",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/178262",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0014",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit 93c689cc25, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_178964_inductor_max_returns_incorrect_indices_w.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] `max` returns incorrect indices when compiling a function includes `(a + b).max(dim=1)`",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/178964",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0015",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_179383_torch_quantile_and_torch_nanquantile_fai.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "`torch.quantile` and `torch.nanquantile` fail under `torch.compile(dynamic=True)`",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/179383",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0016",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit d565abc641, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_179534_torch_compile_fails_on_aten_sparse_csr_t.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile fails on aten.sparse_csr_tensor with DataDependentOutputException (aten._local_scalar_dense)",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/179534",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0017",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_179807_torch_compile_inductor_crash_f_pad_follo.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "`torch.compile` inductor crash: `F.pad` followed by `stft`",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/179807",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0018",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit 849eb888e5, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_181175_aot_autograd_runtimeerror_cannot_call_nu.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[aot_autograd] RuntimeError: Cannot call numel() on tensor with symbolic sizes/strides in _convolution_double_backward when using torch.compile(dynamic=True) wi",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/181175",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0019",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_181625_assertionerror_expected_size_stride_mism.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "`AssertionError: expected size/stride mismatch` in Inductor-generated code for `torch.fft.fft` after `MultiheadAttention`, with warning about unsupported comple",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/181625",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0020",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit 44932144f5, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_181870_torch_compile_dynamic_true_fails_on_f_cr.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "`torch.compile(dynamic=True)` fails on `F.cross_entropy` with probability targets and class weight due to symbolic numel()",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/181870",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0021",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_182399_torch_compile_dynamic_true_fails_on_f_cr.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile(dynamic=True) fails on F.cross_entropy with probability targets and class weights",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/182399",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0022",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_182965_torch_compile_silently_returns_a_result.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "`torch.compile` silently returns a result for `torch.linalg.cholesky` on non-positive-definite input",
+      "CompilerStage": "aot_functionalization",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/182965",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0023",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit b298938ef6, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_183082_inductor_cpu_returns_wrong_argmax_after.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "Inductor CPU returns wrong argmax after sin_() and transpose",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/183082",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0024",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_183121_torch_compile_returns_wrong_shape_for_to.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile returns wrong shape for torch.norm(dim=-1) when reduced dimension has size 1",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/183121",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0025",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_183763_torch_compile_overflows_torch_sinh_near.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile overflows torch.sinh near float32 boundary while eager returns finite values",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/183763",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0026",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_183765_torch_compile_overflows_torch_cosh_near.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile overflows torch.cosh near float32 boundary while eager returns finite values",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/183765",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0027",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_183767_torch_compile_returns_inf_for_torch_asin.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile returns inf for torch.asinh on large finite float32 inputs while eager returns finite values",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/183767",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0028",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_185330_inductor_torch_index_select_on_uint16_in.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] torch.index_select on uint16 input silently succeeds while eager/aot_eager raise NotImplementedError",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/185330",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0029",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_187018_abs_on_uint8_silently_miscompiled_via_st.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "abs on uint8 silently miscompiled via std::abs integer promotion",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/187018",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0030",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_187027_flip_after_repeat_interleave_generates_n.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "flip after repeat_interleave generates negative (out-of-bounds) index under dynamic shapes",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/187027",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0031",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_188084_bug_inductor_reinplaces_index_put_on_exp.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[BUG] Inductor reinplaces `index_put` on expanded view and silently corrupts gradients",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/188084",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0032",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit 62cdf554bc, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_189518_inductor_s_pointless_cumsum_replacement.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "Inductor's pointless_cumsum_replacement drops cumsum's explicit dtype argument",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/189518",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0033",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_189528_cond_inductor_nameerror_on_inner_dim_bra.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[cond] Inductor NameError on inner-dim branch output mismatch",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/189528",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0034",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected); fix commit 809044678a, in v2.14.0",
+      "PythonEntry": "reproducers_gh/issue_190755_some_dynamo_descriptors_tp_descr_get_imp.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "Some Dynamo descriptors (`tp_descr_get_impl`) are missing a `descr_check` equivalent",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/190755",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0035",
+      "Project": "pytorch/pytorch",
+      "Kind": "fixed",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "2.14.0+cpu (Kaggle Linux CPU) (not detected)",
+      "PythonEntry": "reproducers_gh/issue_195422_inductor_torch_compile_silently_drops_an.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] torch.compile silently drops an in-place mutation of an input made through F.dropout's identity return",
+      "CompilerStage": "aot_functionalization",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/195422",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": true,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0036",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_114415_aotautograd_should_detect_aliasing_of_in.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "AOTAutograd should detect aliasing of inputs that happens *below* subclasses",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/114415",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0037",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_183120_torch_compile_inductor_produces_wrong_ou.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile Inductor produces wrong output for BatchNorm2d + ELU + GroupNorm + log clamp chain",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/183120",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0038",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_183607_torch_compile_changes_fp16_overflow_beha.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile changes fp16 overflow behavior for cast-to-float16 multiplication",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/183607",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0039",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_185246_torch_compile_silently_accepts_invalid_b.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile silently accepts invalid Bernoulli probabilities that eager mode rejects",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/185246",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0040",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_185248_torch_compile_silently_accepts_negative.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "`torch.compile` silently accepts negative standard deviations in `torch.normal` that eager mode rejects",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/185248",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0041",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_185481_inductor_argmax_over_comparison_mask_is.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] argmax over comparison mask is accepted and used for indexing while eager raises",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/185481",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0042",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_186799_torch_compile_silently_produces_wrong_gr.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "`torch.compile` silently produces wrong gradient for `atan2(x, y).amin(dim)` on float32",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/186799",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0043",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_189787_inductor_constant_folds_sum_softmax_to_e.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "Inductor constant-folds `sum(softmax)` to exactly 1.0, causing `floor()` to produce wrong integer results",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/189787",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0044",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_190758_memory_budget_partitioner_recomputes_rng.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "Memory-budget partitioner recomputes RNG ops with fresh randomness in backward, silently corrupting gradients at any activation_memory_budget < 1.0",
+      "CompilerStage": "aot_functionalization,inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/190758",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0045",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_192905_nested_nested_compile_region_silently_re.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "Nested nested_compile_region silently reuses a body specialized on the inner region's guards",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/192905",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0046",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_192985_dynamo_silently_drops_custom_jvp_of_auto.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "Dynamo silently drops custom `jvp` of `autograd.Function` under `torch.func.jvp`, producing wrong tangents",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/192985",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0047",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_193710_inductor_fallback_node_due_to_unsupporte.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] `fallback_node_due_to_unsupported_type` blocks pattern matching on extern-kernel ops with `float8_e8m0fnu` inputs, with no way to opt in",
+      "CompilerStage": "aot_functionalization",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/193710",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0048",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_193757_inductor_cpu_torch_compile_silently_acce.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor][cpu] torch.compile silently accepts `binary_cross_entropy` targets outside `[0, 1]` that eager rejects",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/193757",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0049",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_193811_torch_compile_silently_accepts_int32_inp.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile silently accepts int32 input to upsample_bilinear2d that eager correctly rejects",
+      "CompilerStage": "aot_functionalization",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/193811",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0050",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_194062_inductor_silent_incorrectness_torch_full.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] [silent incorrectness] torch.full ignores dtype when fill_value is symbolic",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/194062",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0051",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_194103_torch_compile_dynamic_true_fails_for_sca.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile(dynamic=True) fails for scatter out variants with symbolic shapes",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/194103",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0052",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_194501_torch_compile_inductor_smooth_l1_loss_wi.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[torch.compile][Inductor] smooth_l1_loss with negative beta bypasses eager validation",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/194501",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0053",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_194547_torch_compile_silently_promotes_dtype_fo.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile silently promotes dtype for torch.distributions.Normal.sample() where eager preserves it",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/194547",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0054",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_195320_inductor_sdpa_fusion_matches_a_permuted.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] SDPA fusion matches a permuted K as if it were key.transpose(-2,-1), silently producing wrong attention outputs",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/195320",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0055",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_195488_dynamo_autocast_context_manager_is_lower.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[dynamo] autocast context manager is lowered without try/finally, so an exception leaks autocast state",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/195488",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0056",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_195579_meta_decomps_torch_compile_skips_addmm_s.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[meta / decomps] torch.compile skips addmm's broadcast check: eager raises, compiled returns the broadcast result",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/195579",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0057",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_195665_inductor_torch_compile_skips_as_strided.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] torch.compile skips as_strided's storage-bounds check and reads out of bounds, returning non-reproducible memory",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/195665",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0058",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_195673_torch_compile_accepts_rand_like_on_an_in.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile accepts rand_like on an integer tensor that eager rejects, and returns an all-zero tensor",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/195673",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0059",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_195674_torch_compile_evaluates_subtraction_on_a.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile evaluates subtraction on a bool tensor that eager deliberately rejects (1 - mask)",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/195674",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0060",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_195675_torch_clamp_with_a_bound_unrepresentable.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.clamp with a bound unrepresentable in the tensor dtype: eager raises, torch.compile ignores the bound",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/195675",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0061",
+      "Project": "pytorch/pytorch",
+      "Kind": "present",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "still open on 2.14.0+cpu (Kaggle Linux CPU)",
+      "PythonEntry": "reproducers_gh/issue_196285_torch_compile_dynamic_true_fails_to_hand.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile(dynamic=True) fails to handle shape-derived symbolic indices in list.pop()",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/196285",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": true
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0062",
+      "Project": "pytorch/pytorch",
+      "Kind": "old-only",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "not detected on 2.14.0+cpu (Kaggle Linux CPU) (open issue)",
+      "PythonEntry": "reproducers_gh/issue_181428_torch_compile_torch_func_grad_superlinea.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile + torch.func.grad: superlinear compile time with MaxPool2d → log/clamp → pow → AdaptiveAvgPool2d",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/181428",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0063",
+      "Project": "pytorch/pytorch",
+      "Kind": "old-only",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "not detected on 2.14.0+cpu (Kaggle Linux CPU) (open issue)",
+      "PythonEntry": "reproducers_gh/issue_181653_torch_compile_torch_func_grad_fn_hangs_i.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile(torch.func.grad(fn)) hangs indefinitely on models with pooling ops — sympy.simplify exponential recursion in stride_at",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/181653",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0064",
+      "Project": "pytorch/pytorch",
+      "Kind": "old-only",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "not detected on 2.14.0+cpu (Kaggle Linux CPU) (open issue)",
+      "PythonEntry": "reproducers_gh/issue_183768_torch_compile_returns_inf_for_torch_acos.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile returns inf for torch.acosh on large finite float32 inputs while eager returns finite values",
+      "CompilerStage": "inductor_codegen",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/183768",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0065",
+      "Project": "pytorch/pytorch",
+      "Kind": "old-only",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "not detected on 2.14.0+cpu (Kaggle Linux CPU) (open issue)",
+      "PythonEntry": "reproducers_gh/issue_190855_inductor_wrong_hessian_torch_compile_tor.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[inductor] Wrong Hessian: `torch.compile(torch.func.hessian(f))` miscompiles the derivative of `torch.trace` — a constant is added to every Hessian entry",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/190855",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0066",
+      "Project": "pytorch/pytorch",
+      "Kind": "old-only",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "not detected on 2.14.0+cpu (Kaggle Linux CPU) (open issue)",
+      "PythonEntry": "reproducers_gh/issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "[scan] inductor refuses a tanh/sigmoid recurrence under autograd (\"scan might be aliasing the input or the output!\"): ScanAutogradOp returns the carry twice as ",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/195977",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    },
+    {
+      "BugID": "PT-0067",
+      "Project": "pytorch/pytorch",
+      "Kind": "old-only",
+      "BuggyVersion": "2.10.0+cpu (Kaggle Linux CPU)",
+      "FixedVersion": "not detected on 2.14.0+cpu (Kaggle Linux CPU) (open issue)",
+      "PythonEntry": "reproducers_gh/issue_196221_torch_compile_crashes_with_an_internal_f.py",
+      "SemanticFactor": "see issue",
+      "ExpectedBehavior": "eager result of the reproducer",
+      "ActualBehavior": "torch.compile crashes with an internal FakeTensor assertion for torch.func.grad with masked_select",
+      "CompilerStage": "dynamo_capture",
+      "OriginalIssue": "https://github.com/pytorch/pytorch/issues/196221",
+      "Detected": {
+        "2.10.0+cpu (Kaggle Linux CPU)": true,
+        "2.14.0+cpu (Kaggle Linux CPU)": false
+      },
+      "Verified": false,
+      "Note": "same device for both runs"
+    }
+  ],
+  "_provenance": "built by scripts/build_benchmark.py from kaggle_out/chenyuefei_notebookf4aab87efb/plan/reports_gh_cpu_2.10/KNOWN_BUGS.md (2.10.0+cpu (Kaggle Linux CPU)) and kaggle_out/chenyuefei_notebook955c6cac50/plan/reports_gh_cpu_2.14/KNOWN_BUGS.md (2.14.0+cpu (Kaggle Linux CPU)); same reproducer files"
+}

@@ -1,0 +1,36 @@
+{
+  "signature": "cd9c7a7f8494",
+  "program": "issue_122381_torch_compile_a_potential_oob_access_in",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Invalid",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "122381",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/122381",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 122381,
+      "title": "[torch.compile] A potential OOB access in CUDA for attention model",
+      "url": "https://github.com/pytorch/pytorch/issues/122381",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2024-03-21"
+    }
+  ]
+}

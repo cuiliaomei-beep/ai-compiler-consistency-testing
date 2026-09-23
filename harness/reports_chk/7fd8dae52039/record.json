@@ -1,0 +1,105 @@
+{
+  "signature": "7fd8dae52039",
+  "case": "chain_012",
+  "probe": "warm",
+  "triage": {
+    "stage": "specialization_cache",
+    "priority": "high",
+    "rationale": "changing 'requires_grad' did not trigger a recompile, yet the warm result differs from a cold compile of the same context: the cached artifact was reused under assumptions that no longer hold",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": false,
+    "guard_suspicious": false,
+    "layers_unavailable": [],
+    "submittable": true
+  },
+  "context": {
+    "name": "pad_rand3",
+    "factors": {
+      "variant": "base",
+      "requires_grad": {
+        "arg": 0,
+        "value": true
+      }
+    }
+  },
+  "context_b": {
+    "name": "base",
+    "factors": {
+      "variant": "base"
+    }
+  },
+  "factor_changed": "requires_grad",
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "cold_vs_warm": {
+      "ref": "cold_aot_eager",
+      "test": "warm_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised WarmupFailed, ref returned normally"
+        }
+      ]
+    }
+  },
+  "observations": {
+    "cold_B": {
+      "mode": "cold_aot_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0547,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            8,
+            16
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            16,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "warm_A_to_B": {
+      "mode": "warm_aot_eager",
+      "ok": false,
+      "exception": "WarmupFailed",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "out_meta": []
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "synthesised chain: relu + cross_write 鈫?sigmoid + alias_write 鈫?neg_abs"
+}

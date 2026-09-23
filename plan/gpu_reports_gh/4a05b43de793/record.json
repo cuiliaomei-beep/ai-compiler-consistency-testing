@@ -1,0 +1,343 @@
+{
+  "signature": "4a05b43de793",
+  "program": "issue_177252_inductor_assertionerror_wrong_number_of",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "aot_functionalization",
+    "stage_label": "AOTAutograd / functionalization",
+    "priority": "high",
+    "rationale": "eager and backend='eager' agree but aot_eager differs: AOTAutograd / functionalization (alias and in-place handling)",
+    "kinds": [
+      "metadata",
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E2_aot_eager",
+    "submittable": true
+  },
+  "context": {
+    "name": "compile.dynamic=True",
+    "factors": {
+      "compile": {
+        "dynamic": true
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "factor_changed": "compile",
+  "controlled": {},
+  "obligation": {
+    "site": "f",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "metadata",
+        "value"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "metadata",
+          "detail": "output[0].shape: () vs (1,)",
+          "index": 0
+        },
+        {
+          "kind": "value",
+          "detail": "output[0]: values differ (not numerically comparable)",
+          "index": 0,
+          "evidence": {
+            "shape": [],
+            "dtype": "torch.float32",
+            "actual_shape": [
+              1
+            ]
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "metadata",
+        "value"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "metadata",
+          "detail": "output[0].shape: () vs (1,)",
+          "index": 0
+        },
+        {
+          "kind": "value",
+          "detail": "output[0]: values differ (not numerically comparable)",
+          "index": 0,
+          "evidence": {
+            "shape": [],
+            "dtype": "torch.float32",
+            "actual_shape": [
+              1
+            ]
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 2,
+      "frames_delta": 2,
+      "wall_s": 0.1138,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 2,
+      "frames_delta": 2,
+      "wall_s": 0.2014,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 2,
+      "frames_delta": 2,
+      "wall_s": 0.5992,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_177252_inductor_assertionerror_wrong_number_of.py\n[Inductor] AssertionError: wrong number of dimensions1 in backward() with dynamic shape involving nonzero() and item()\nhttps://github.com/pytorch/pytorch/issues/177252\ncompile options in the issue: {'dynamic': True, 'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 8,
+    "steps_kept": 5,
+    "original_lines": 5,
+    "final_lines": 5,
+    "original_numel": 4,
+    "final_numel": 1,
+    "input_recipe": "torch.randn(1),",
+    "log": [
+      "kept: halve dim 0",
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags",
+      "kept: halve dim 0"
+    ],
+    "source": "def f(x):\n    num = x.nonzero().numel()\n    num = x.new_tensor([num]).item()\n    y = w * x\n    return y.sum() / num"
+  },
+  "duplicates": {
+    "query": "Inductor AssertionError wrong number dimensions1 backward dynamic shape",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "177252",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/177252",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 177252,
+        "title": "[Inductor] AssertionError: wrong number of dimensions1 in backward() with dynamic shape involving nonzero() and item()",
+        "url": "https://github.com/pytorch/pytorch/issues/177252",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-03-12"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

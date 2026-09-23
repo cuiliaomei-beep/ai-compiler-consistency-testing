@@ -1,0 +1,961 @@
+{
+  "0040e8a6753e": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_196285_torch_compile_dynamic_true_fails_to_hand",
+    "stage": "dynamo_capture"
+  },
+  "005073e88f34": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_178128_conv_transpose3d_meta_execution_produces",
+    "stage": "dynamo_capture"
+  },
+  "013c4ae3e934": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181625_assertionerror_expected_size_stride_mism",
+    "stage": "inductor_codegen"
+  },
+  "015e900d1dd8": {
+    "count": 1,
+    "factor": "device",
+    "probe": "layered",
+    "program": "issue_113641_compiling_double_inplace_clamp_on_stride",
+    "stage": "dynamo_capture"
+  },
+  "02a53bfe419d": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181693_nn_hardswish_produces_wrong_output_under",
+    "stage": "inductor_codegen"
+  },
+  "063be0ee1994": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_195674_torch_compile_evaluates_subtraction_on_a",
+    "stage": "inductor_codegen"
+  },
+  "08ffaf94c6c3": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_176854_torch_compile_does_not_correctly_propaga",
+    "stage": "dynamo_capture"
+  },
+  "093d6127d075": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_193661_inductor_wrong_argmax_after_fused_traili",
+    "stage": "inductor_codegen"
+  },
+  "0943fd907367": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture"
+  },
+  "0b19429353f5": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_185248_torch_compile_silently_accepts_negative",
+    "stage": "inductor_codegen"
+  },
+  "0ec09af1e3ee": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_194062_inductor_silent_incorrectness_torch_full",
+    "stage": "inductor_codegen"
+  },
+  "0ef98537b363": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_193661_inductor_wrong_argmax_after_fused_traili",
+    "stage": "inductor_codegen"
+  },
+  "138a850da12b": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_174386_torch_compile_ignores_torch_use_determin",
+    "stage": "inductor_codegen"
+  },
+  "1b36156538f8": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_181568_torch_compile_mismatch_for_matmul_follow",
+    "stage": "inductor_codegen"
+  },
+  "1c6361e3fda0": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_175919_inductor_out_of_bounds_memory_read_via_r",
+    "stage": "inductor_codegen"
+  },
+  "1e1f7eb0f7aa": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture"
+  },
+  "20940ca4f2ca": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_196221_torch_compile_crashes_with_an_internal_f",
+    "stage": "dynamo_capture"
+  },
+  "2141064c29a5": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181568_torch_compile_mismatch_for_matmul_follow",
+    "stage": "inductor_codegen"
+  },
+  "23aea4ad6e5f": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_195665_inductor_torch_compile_skips_as_strided",
+    "stage": "inductor_codegen"
+  },
+  "26cc08f9e08f": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen"
+  },
+  "277c49ca719d": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181625_assertionerror_expected_size_stride_mism",
+    "stage": "inductor_codegen"
+  },
+  "278a68befe59": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_195422_inductor_torch_compile_silently_drops_an",
+    "stage": "aot_functionalization"
+  },
+  "27e3f8bed866": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_178128_conv_transpose3d_meta_execution_produces",
+    "stage": "dynamo_capture"
+  },
+  "2ad86ba19172": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+    "stage": "inductor_codegen"
+  },
+  "2af77973fefe": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+    "stage": "dynamo_capture"
+  },
+  "2cdd2a7076b6": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_183121_torch_compile_returns_wrong_shape_for_to",
+    "stage": "inductor_codegen"
+  },
+  "2d6a9ef101c3": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181694_torch_addcdiv_produces_wrong_output_unde",
+    "stage": "inductor_codegen"
+  },
+  "315368b35d1b": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_175632_inductor_torch_compile_produces_inconsis",
+    "stage": "inductor_codegen"
+  },
+  "31ffbabcc81b": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_177252_inductor_assertionerror_wrong_number_of",
+    "stage": "aot_functionalization"
+  },
+  "32ae1243eda5": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture"
+  },
+  "32b1c63feaab": {
+    "count": 4,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_176679_torch_compile_produces_incorrect_results",
+    "stage": "dynamo_capture"
+  },
+  "33a570b3d793": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_181428_torch_compile_torch_func_grad_superlinea",
+    "stage": "dynamo_capture"
+  },
+  "33e02cf82893": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_183601_torch_compile_inductor_produces_wrong_ou",
+    "stage": "inductor_codegen"
+  },
+  "3a6b57762a33": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+    "stage": "inductor_codegen"
+  },
+  "3b8951712f43": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_193661_inductor_wrong_argmax_after_fused_traili",
+    "stage": "inductor_codegen"
+  },
+  "40170d036777": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_194062_inductor_silent_incorrectness_torch_full",
+    "stage": "inductor_codegen"
+  },
+  "419c745be494": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_177629_torch_compile_backend_inductor_silently",
+    "stage": "inductor_codegen"
+  },
+  "450b71f4c193": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181695_torch_where_with_broadcast_shapes_produc",
+    "stage": "inductor_codegen"
+  },
+  "465daa651bc8": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture"
+  },
+  "4a05b43de793": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_177252_inductor_assertionerror_wrong_number_of",
+    "stage": "aot_functionalization"
+  },
+  "4a33347a73a5": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_193710_inductor_fallback_node_due_to_unsupporte",
+    "stage": "aot_functionalization"
+  },
+  "4b073e5a902f": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_185481_inductor_argmax_over_comparison_mask_is",
+    "stage": "inductor_codegen"
+  },
+  "4fdc112db257": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_182965_torch_compile_silently_returns_a_result",
+    "stage": "aot_functionalization"
+  },
+  "51c49eddc26e": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_185587_inductor_numerical_inconsistency_polygam",
+    "stage": "inductor_codegen"
+  },
+  "549bae5e5b87": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_189518_inductor_s_pointless_cumsum_replacement",
+    "stage": "inductor_codegen"
+  },
+  "5760a6f4149a": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_190755_some_dynamo_descriptors_tp_descr_get_imp",
+    "stage": "dynamo_capture"
+  },
+  "5830d06a5f70": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181625_assertionerror_expected_size_stride_mism",
+    "stage": "inductor_codegen"
+  },
+  "5bb974e08155": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_193661_inductor_wrong_argmax_after_fused_traili",
+    "stage": "inductor_codegen"
+  },
+  "5c13fdde0656": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_179383_torch_quantile_and_torch_nanquantile_fai",
+    "stage": "dynamo_capture"
+  },
+  "5eaac3595429": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181694_torch_addcdiv_produces_wrong_output_unde",
+    "stage": "inductor_codegen"
+  },
+  "5ffb5476b45d": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_183120_torch_compile_inductor_produces_wrong_ou",
+    "stage": "inductor_codegen"
+  },
+  "6218c276f95d": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture"
+  },
+  "62917c405e50": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_196221_torch_compile_crashes_with_an_internal_f",
+    "stage": "dynamo_capture"
+  },
+  "644c6e8989e2": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181693_nn_hardswish_produces_wrong_output_under",
+    "stage": "inductor_codegen"
+  },
+  "645182fe9713": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_175156_inductor_multiple_randint_calls_cause_in",
+    "stage": "inductor_codegen"
+  },
+  "653c84c285b9": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_195422_inductor_torch_compile_silently_drops_an",
+    "stage": "aot_functionalization"
+  },
+  "656533664503": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181870_torch_compile_dynamic_true_fails_on_f_cr",
+    "stage": "dynamo_capture"
+  },
+  "65cdb9cbf304": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_190755_some_dynamo_descriptors_tp_descr_get_imp",
+    "stage": "dynamo_capture"
+  },
+  "661c68135450": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture"
+  },
+  "6be6054cf276": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_160840_torch_nn_functional_interpolate_generate",
+    "stage": "aot_functionalization"
+  },
+  "6d650bf30f35": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_184405_torch_compile_backend_inductor_returns_s",
+    "stage": "dynamo_capture"
+  },
+  "6d957df4ef4e": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181695_torch_where_with_broadcast_shapes_produc",
+    "stage": "inductor_codegen"
+  },
+  "71b953dfc7ab": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_95161_aotautograd_based_torch_compile_doesn_t",
+    "stage": "inductor_codegen"
+  },
+  "7238fca2848c": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_160840_torch_nn_functional_interpolate_generate",
+    "stage": "inductor_codegen"
+  },
+  "7495eef02f9e": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_178125_conv_transpose1d_meta_implementation_all",
+    "stage": "dynamo_capture"
+  },
+  "74a043c71b8d": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_196221_torch_compile_crashes_with_an_internal_f",
+    "stage": "dynamo_capture"
+  },
+  "74b6f5ae2795": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_181428_torch_compile_torch_func_grad_superlinea",
+    "stage": "dynamo_capture"
+  },
+  "77712ec1d6ab": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_190755_some_dynamo_descriptors_tp_descr_get_imp",
+    "stage": "dynamo_capture"
+  },
+  "77980ec8237d": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_181653_torch_compile_torch_func_grad_fn_hangs_i",
+    "stage": "dynamo_capture"
+  },
+  "7ab06356e264": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+    "stage": "dynamo_capture"
+  },
+  "7d73c2553d18": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_187027_flip_after_repeat_interleave_generates_n",
+    "stage": "inductor_codegen"
+  },
+  "7d78158b9809": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen"
+  },
+  "8a443851507d": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181653_torch_compile_torch_func_grad_fn_hangs_i",
+    "stage": "dynamo_capture"
+  },
+  "8d9767847a77": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_175919_inductor_out_of_bounds_memory_read_via_r",
+    "stage": "inductor_codegen"
+  },
+  "8fa2747fe54b": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_195422_inductor_torch_compile_silently_drops_an",
+    "stage": "aot_functionalization"
+  },
+  "90551be8cf06": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_184405_torch_compile_backend_inductor_returns_s",
+    "stage": "dynamo_capture"
+  },
+  "9287cdd0377a": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_113641_compiling_double_inplace_clamp_on_stride",
+    "stage": "dynamo_capture"
+  },
+  "9956d139f5a5": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec",
+    "stage": "dynamo_capture"
+  },
+  "9b560cc9c2f8": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_177252_inductor_assertionerror_wrong_number_of",
+    "stage": "aot_functionalization"
+  },
+  "9f2778cffcff": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_113641_compiling_double_inplace_clamp_on_stride",
+    "stage": "dynamo_capture"
+  },
+  "9f9f17163842": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_188084_bug_inductor_reinplaces_index_put_on_exp",
+    "stage": "dynamo_capture"
+  },
+  "a1927317a81d": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen"
+  },
+  "a6d67c365760": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_175156_inductor_multiple_randint_calls_cause_in",
+    "stage": "inductor_codegen"
+  },
+  "a6e334da4975": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_189787_inductor_constant_folds_sum_softmax_to_e",
+    "stage": "inductor_codegen"
+  },
+  "a80d240e8eeb": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_175903_inductor_incorrect_results_in_index_put",
+    "stage": "inductor_codegen"
+  },
+  "a858b000314e": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_194103_torch_compile_dynamic_true_fails_for_sca",
+    "stage": "dynamo_capture"
+  },
+  "aafd62a347fe": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181653_torch_compile_torch_func_grad_fn_hangs_i",
+    "stage": "dynamo_capture"
+  },
+  "aedb91e190c6": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+    "stage": "inductor_codegen"
+  },
+  "af0e1cdc17d8": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_113641_compiling_double_inplace_clamp_on_stride",
+    "stage": "dynamo_capture"
+  },
+  "af4f302cca46": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_193811_torch_compile_silently_accepts_int32_inp",
+    "stage": "aot_functionalization"
+  },
+  "b082e0f17097": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_160840_torch_nn_functional_interpolate_generate",
+    "stage": "aot_functionalization"
+  },
+  "b3f89a009fcc": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_195673_torch_compile_accepts_rand_like_on_an_in",
+    "stage": "inductor_codegen"
+  },
+  "b3ffd22a7829": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_175919_inductor_out_of_bounds_memory_read_via_r",
+    "stage": "inductor_codegen"
+  },
+  "b40d0d03026a": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181175_aot_autograd_runtimeerror_cannot_call_nu",
+    "stage": "dynamo_capture"
+  },
+  "b610f2aee5d6": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen"
+  },
+  "b7260f42d43d": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_183601_torch_compile_inductor_produces_wrong_ou",
+    "stage": "inductor_codegen"
+  },
+  "b737f71fffcb": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_174719_pallas_argmax_with_keepdim_true_on_middl",
+    "stage": "inductor_codegen"
+  },
+  "b75670df639b": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_182399_torch_compile_dynamic_true_fails_on_f_cr",
+    "stage": "dynamo_capture"
+  },
+  "bb4d985139a3": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen"
+  },
+  "bbfc461be8a7": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_160840_torch_nn_functional_interpolate_generate",
+    "stage": "aot_functionalization"
+  },
+  "bd0e5e06be92": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_181568_torch_compile_mismatch_for_matmul_follow",
+    "stage": "inductor_codegen"
+  },
+  "bec282093f70": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_175632_inductor_torch_compile_produces_inconsis",
+    "stage": "inductor_codegen"
+  },
+  "c104dbaa9664": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_113641_compiling_double_inplace_clamp_on_stride",
+    "stage": "dynamo_capture"
+  },
+  "c11e3d242a45": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_190855_inductor_wrong_hessian_torch_compile_tor",
+    "stage": "dynamo_capture"
+  },
+  "c13830db798e": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_183121_torch_compile_returns_wrong_shape_for_to",
+    "stage": "inductor_codegen"
+  },
+  "c2e79ca22ff0": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_194501_torch_compile_inductor_smooth_l1_loss_wi",
+    "stage": "inductor_codegen"
+  },
+  "c5a6f7958c59": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture"
+  },
+  "c5c29791d04a": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_183120_torch_compile_inductor_produces_wrong_ou",
+    "stage": "inductor_codegen"
+  },
+  "c6585a76c04d": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_175632_inductor_torch_compile_produces_inconsis",
+    "stage": "inductor_codegen"
+  },
+  "c8e3da048a2f": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_174386_torch_compile_ignores_torch_use_determin",
+    "stage": "inductor_codegen"
+  },
+  "cb87c86c653a": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_178125_conv_transpose1d_meta_implementation_all",
+    "stage": "dynamo_capture"
+  },
+  "cc4d9affb449": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_185587_inductor_numerical_inconsistency_polygam",
+    "stage": "inductor_codegen"
+  },
+  "cf2f28ba0709": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+    "stage": "dynamo_capture"
+  },
+  "d134e53413bd": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_185587_inductor_numerical_inconsistency_polygam",
+    "stage": "inductor_codegen"
+  },
+  "d2f60327ea7c": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen"
+  },
+  "d7540d909e40": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_195675_torch_clamp_with_a_bound_unrepresentable",
+    "stage": "inductor_codegen"
+  },
+  "d769053952ec": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+    "stage": "inductor_codegen"
+  },
+  "daba1be0d104": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_95161_aotautograd_based_torch_compile_doesn_t",
+    "stage": "inductor_codegen"
+  },
+  "dd20f71ed3d1": {
+    "count": 2,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_176679_torch_compile_produces_incorrect_results",
+    "stage": "dynamo_capture"
+  },
+  "ddc30b59b7f0": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_185246_torch_compile_silently_accepts_invalid_b",
+    "stage": "inductor_codegen"
+  },
+  "de9f07323b0a": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture"
+  },
+  "deacc361fead": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181428_torch_compile_torch_func_grad_superlinea",
+    "stage": "dynamo_capture"
+  },
+  "df1a52a1416e": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_189518_inductor_s_pointless_cumsum_replacement",
+    "stage": "inductor_codegen"
+  },
+  "dfce1bcf7769": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181568_torch_compile_mismatch_for_matmul_follow",
+    "stage": "inductor_codegen"
+  },
+  "e088e5445458": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_177252_inductor_assertionerror_wrong_number_of",
+    "stage": "aot_functionalization"
+  },
+  "e12844eef0cb": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_181653_torch_compile_torch_func_grad_fn_hangs_i",
+    "stage": "dynamo_capture"
+  },
+  "e6235471dcc8": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_192905_nested_nested_compile_region_silently_re",
+    "stage": "dynamo_capture"
+  },
+  "e6a678ddfbd9": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_183121_torch_compile_returns_wrong_shape_for_to",
+    "stage": "inductor_codegen"
+  },
+  "e822c4aa9d24": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_196221_torch_compile_crashes_with_an_internal_f",
+    "stage": "dynamo_capture"
+  },
+  "e9ca0c44112a": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+    "stage": "inductor_codegen"
+  },
+  "eacb6b88db9c": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen"
+  },
+  "edb2ef25b17e": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen"
+  },
+  "f254bb88c24f": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_189528_cond_inductor_nameerror_on_inner_dim_bra",
+    "stage": "dynamo_capture"
+  },
+  "f748589093f8": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181428_torch_compile_torch_func_grad_superlinea",
+    "stage": "dynamo_capture"
+  },
+  "f79e81acc67b": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_174719_pallas_argmax_with_keepdim_true_on_middl",
+    "stage": "inductor_codegen"
+  },
+  "f95ad207a5a8": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_190755_some_dynamo_descriptors_tp_descr_get_imp",
+    "stage": "dynamo_capture"
+  },
+  "fec14e8e686c": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+    "stage": "inductor_codegen"
+  }
+}

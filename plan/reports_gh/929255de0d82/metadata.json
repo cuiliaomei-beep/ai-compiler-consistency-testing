@@ -1,0 +1,28 @@
+{
+  "signature": "929255de0d82",
+  "program": "issue_174386_torch_compile_ignores_torch_use_determin",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Pending",
+  "reproducibility": "1/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": 173939,
+      "title": "[inductor] Inductor doesn't preserve pin_memory=True for some constructors.",
+      "url": "https://github.com/pytorch/pytorch/issues/173939",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-01-30"
+    }
+  ]
+}

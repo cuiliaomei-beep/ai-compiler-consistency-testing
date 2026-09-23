@@ -1,0 +1,283 @@
+{
+  "signature": "781e52b7cbfe",
+  "program": "issue_171259_torch_acceleratorerror_cuda_error_device",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "ModuleNotFoundError: No module named '_repro_issue_171259_torch_acceleratorerror_cuda_error_device'"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "ModuleNotFoundError: No module named '_repro_issue_171259_torch_acceleratorerror_cuda_error_device'"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised InternalTorchDynamoError, ref returned normally",
+          "evidence": {
+            "exception": "InternalTorchDynamoError",
+            "message": "ModuleNotFoundError: No module named '_repro_issue_171259_torch_acceleratorerror_cuda_error_device'"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_171259_torch_acceleratorerror_cuda_error_device'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.1685,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_171259_torch_acceleratorerror_cuda_error_device'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0078,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_171259_torch_acceleratorerror_cuda_error_device'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0077,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_171259_torch_acceleratorerror_cuda_error_device.py\ntorch.AcceleratorError: CUDA error: device-side assert triggered\nhttps://github.com/pytorch/pytorch/issues/171259\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": null,
+  "duplicates": {
+    "query": "torch.AcceleratorError CUDA error device side assert triggered",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "171259",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/171259",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 195656,
+        "title": "DISABLED test_cudnn_rnn_cuda_float16 (__main__.TestNNDeviceTypeCUDA)",
+        "url": "https://github.com/pytorch/pytorch/issues/195656",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-09-02"
+      },
+      {
+        "number": 187368,
+        "title": "[inductor] add input validation to normal and bernoulli decompositions",
+        "url": "https://github.com/pytorch/pytorch/pull/187368",
+        "state": "open",
+        "is_pr": true,
+        "created": "2026-06-15"
+      },
+      {
+        "number": 189972,
+        "title": "[MPS] Bounds-check indices in index_copy_, index_fill_, and index_reduce_",
+        "url": "https://github.com/pytorch/pytorch/pull/189972",
+        "state": "open",
+        "is_pr": true,
+        "created": "2026-07-15"
+      },
+      {
+        "number": 120902,
+        "title": "RuntimeError: cuFFT error: CUFFT_INTERNAL_ERROR",
+        "url": "https://github.com/pytorch/pytorch/issues/120902",
+        "state": "open",
+        "is_pr": false,
+        "created": "2024-02-29"
+      },
+      {
+        "number": 170350,
+        "title": "[feature request] Checked version of indexing/embedding ops",
+        "url": "https://github.com/pytorch/pytorch/issues/170350",
+        "state": "open",
+        "is_pr": false,
+        "created": "2025-12-13"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: InternalTorchDynamoError",
+    "E2_aot_eager: InternalTorchDynamoError",
+    "E3_inductor: InternalTorchDynamoError"
+  ],
+  "status": "Generated",
+  "fault": null
+}

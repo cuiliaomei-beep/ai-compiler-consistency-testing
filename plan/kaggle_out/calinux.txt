@@ -1,0 +1,281 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.8 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+E0912 14:06:08.610000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] failed while attempting to run meta for aten.upsample_bilinear2d_backward.default
+E0912 14:06:08.610000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] Traceback (most recent call last):
+E0912 14:06:08.610000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:08.610000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]     r = func(*args, **kwargs)
+E0912 14:06:08.610000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:08.610000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:08.610000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]     return self._op(*args, **kwargs)
+E0912 14:06:08.610000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:08.610000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:08.732000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] failed while attempting to run meta for aten.upsample_bilinear2d_backward.default
+E0912 14:06:08.732000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] Traceback (most recent call last):
+E0912 14:06:08.732000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:08.732000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]     r = func(*args, **kwargs)
+E0912 14:06:08.732000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:08.732000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:08.732000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]     return self._op(*args, **kwargs)
+E0912 14:06:08.732000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:08.732000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:08.848000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] failed while attempting to run meta for aten.upsample_bilinear2d_backward.default
+E0912 14:06:08.848000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] Traceback (most recent call last):
+E0912 14:06:08.848000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:08.848000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]     r = func(*args, **kwargs)
+E0912 14:06:08.848000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:08.848000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:08.848000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]     return self._op(*args, **kwargs)
+E0912 14:06:08.848000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:08.848000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:08.995000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] failed while attempting to run meta for aten.upsample_bicubic2d_backward.default
+E0912 14:06:08.995000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] Traceback (most recent call last):
+E0912 14:06:08.995000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:08.995000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]     r = func(*args, **kwargs)
+E0912 14:06:08.995000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:08.995000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:08.995000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]     return self._op(*args, **kwargs)
+E0912 14:06:08.995000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:08.995000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:09.119000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] failed while attempting to run meta for aten.upsample_bicubic2d_backward.default
+E0912 14:06:09.119000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] Traceback (most recent call last):
+E0912 14:06:09.119000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:09.119000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]     r = func(*args, **kwargs)
+E0912 14:06:09.119000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:09.119000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:09.119000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]     return self._op(*args, **kwargs)
+E0912 14:06:09.119000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:09.119000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:09.242000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] failed while attempting to run meta for aten.upsample_bicubic2d_backward.default
+E0912 14:06:09.242000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] Traceback (most recent call last):
+E0912 14:06:09.242000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:09.242000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]     r = func(*args, **kwargs)
+E0912 14:06:09.242000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:09.242000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:09.242000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]     return self._op(*args, **kwargs)
+E0912 14:06:09.242000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:09.242000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:09.415000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] failed while attempting to run meta for aten.upsample_linear1d_backward.default
+E0912 14:06:09.415000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] Traceback (most recent call last):
+E0912 14:06:09.415000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:09.415000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]     r = func(*args, **kwargs)
+E0912 14:06:09.415000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:09.415000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:09.415000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]     return self._op(*args, **kwargs)
+E0912 14:06:09.415000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:09.415000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:09.545000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] failed while attempting to run meta for aten.upsample_linear1d_backward.default
+E0912 14:06:09.545000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] Traceback (most recent call last):
+E0912 14:06:09.545000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:09.545000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]     r = func(*args, **kwargs)
+E0912 14:06:09.545000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:09.545000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:09.545000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]     return self._op(*args, **kwargs)
+E0912 14:06:09.545000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:09.545000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:09.673000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] failed while attempting to run meta for aten.upsample_linear1d_backward.default
+E0912 14:06:09.673000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] Traceback (most recent call last):
+E0912 14:06:09.673000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:09.673000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]     r = func(*args, **kwargs)
+E0912 14:06:09.673000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:09.673000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:09.673000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]     return self._op(*args, **kwargs)
+E0912 14:06:09.673000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:09.673000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:10.100000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] failed while attempting to run meta for aten.upsample_trilinear3d_backward.default
+E0912 14:06:10.100000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] Traceback (most recent call last):
+E0912 14:06:10.100000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:10.100000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]     r = func(*args, **kwargs)
+E0912 14:06:10.100000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:10.100000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:10.100000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]     return self._op(*args, **kwargs)
+E0912 14:06:10.100000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:10.100000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/0] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:10.267000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] failed while attempting to run meta for aten.upsample_trilinear3d_backward.default
+E0912 14:06:10.267000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] Traceback (most recent call last):
+E0912 14:06:10.267000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:10.267000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]     r = func(*args, **kwargs)
+E0912 14:06:10.267000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:10.267000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:10.267000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]     return self._op(*args, **kwargs)
+E0912 14:06:10.267000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:10.267000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/1] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:10.432000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] failed while attempting to run meta for aten.upsample_trilinear3d_backward.default
+E0912 14:06:10.432000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] Traceback (most recent call last):
+E0912 14:06:10.432000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 14:06:10.432000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]     r = func(*args, **kwargs)
+E0912 14:06:10.432000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:10.432000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:10.432000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]     return self._op(*args, **kwargs)
+E0912 14:06:10.432000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:10.432000 15 torch/_subclasses/fake_tensor.py:3212] [!0/0/2] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1981, please report a bug to PyTorch. Expected IntList but got GenericList
+torch 2.14.0+cpu
+[nearest size] compiled_autograd(eager): ok (max diff 0.0e+00)
+[nearest size] compiled_autograd(aot_eager): ok (max diff 0.0e+00)
+[nearest size] compiled_autograd(inductor): ok (max diff 0.0e+00)
+[nearest scale] compiled_autograd(eager): ok (max diff 0.0e+00)
+[nearest scale] compiled_autograd(aot_eager): ok (max diff 0.0e+00)
+[nearest scale] compiled_autograd(inductor): ok (max diff 0.0e+00)
+[bilinear] compiled_autograd(eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[bilinear] compiled_autograd(aot_eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[bilinear] compiled_autograd(inductor): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[bicubic] compiled_autograd(eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[bicubic] compiled_autograd(aot_eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[bicubic] compiled_autograd(inductor): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[linear 1d] compiled_autograd(eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[linear 1d] compiled_autograd(aot_eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[linear 1d] compiled_autograd(inductor): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[trilinear] compiled_autograd(eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[trilinear] compiled_autograd(aot_eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[trilinear] compiled_autograd(inductor): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[adaptive_avg_pool2d] compiled_autograd(eager): ok (max diff 0.0e+00)
+[adaptive_avg_pool2d] compiled_autograd(aot_eager): ok (max diff 0.0e+00)
+[adaptive_avg_pool2d] compiled_autograd(inductor): ok (max diff 0.0e+00)
+[conv2d] compiled_autograd(eager): ok (max diff 0.0e+00)
+[conv2d] compiled_autograd(aot_eager): ok (max diff 0.0e+00)
+[conv2d] compiled_autograd(inductor): ok (max diff 0.0e+00)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 9.4 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+E0912 14:06:46.032000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] failed while attempting to run meta for aten.upsample_bilinear2d_backward.default
+E0912 14:06:46.032000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] Traceback (most recent call last):
+E0912 14:06:46.032000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:46.032000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]     r = func(*args, **kwargs)
+E0912 14:06:46.032000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.032000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:46.032000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]     return self._op(*args, **kwargs)
+E0912 14:06:46.032000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.032000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:46.165000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] failed while attempting to run meta for aten.upsample_bilinear2d_backward.default
+E0912 14:06:46.165000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] Traceback (most recent call last):
+E0912 14:06:46.165000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:46.165000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]     r = func(*args, **kwargs)
+E0912 14:06:46.165000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.165000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:46.165000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]     return self._op(*args, **kwargs)
+E0912 14:06:46.165000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.165000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:46.287000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] failed while attempting to run meta for aten.upsample_bilinear2d_backward.default
+E0912 14:06:46.287000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] Traceback (most recent call last):
+E0912 14:06:46.287000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:46.287000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]     r = func(*args, **kwargs)
+E0912 14:06:46.287000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.287000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:46.287000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]     return self._op(*args, **kwargs)
+E0912 14:06:46.287000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.287000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:46.437000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] failed while attempting to run meta for aten.upsample_bicubic2d_backward.default
+E0912 14:06:46.437000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] Traceback (most recent call last):
+E0912 14:06:46.437000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:46.437000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]     r = func(*args, **kwargs)
+E0912 14:06:46.437000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.437000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:46.437000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]     return self._op(*args, **kwargs)
+E0912 14:06:46.437000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.437000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:46.562000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] failed while attempting to run meta for aten.upsample_bicubic2d_backward.default
+E0912 14:06:46.562000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] Traceback (most recent call last):
+E0912 14:06:46.562000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:46.562000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]     r = func(*args, **kwargs)
+E0912 14:06:46.562000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.562000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:46.562000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]     return self._op(*args, **kwargs)
+E0912 14:06:46.562000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.562000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:46.684000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] failed while attempting to run meta for aten.upsample_bicubic2d_backward.default
+E0912 14:06:46.684000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] Traceback (most recent call last):
+E0912 14:06:46.684000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:46.684000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]     r = func(*args, **kwargs)
+E0912 14:06:46.684000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.684000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:46.684000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]     return self._op(*args, **kwargs)
+E0912 14:06:46.684000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:46.684000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:47.041000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] failed while attempting to run meta for aten.upsample_linear1d_backward.default
+E0912 14:06:47.041000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] Traceback (most recent call last):
+E0912 14:06:47.041000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:47.041000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]     r = func(*args, **kwargs)
+E0912 14:06:47.041000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.041000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:47.041000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]     return self._op(*args, **kwargs)
+E0912 14:06:47.041000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.041000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:47.171000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] failed while attempting to run meta for aten.upsample_linear1d_backward.default
+E0912 14:06:47.171000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] Traceback (most recent call last):
+E0912 14:06:47.171000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:47.171000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]     r = func(*args, **kwargs)
+E0912 14:06:47.171000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.171000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:47.171000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]     return self._op(*args, **kwargs)
+E0912 14:06:47.171000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.171000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:47.305000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] failed while attempting to run meta for aten.upsample_linear1d_backward.default
+E0912 14:06:47.305000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] Traceback (most recent call last):
+E0912 14:06:47.305000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:47.305000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]     r = func(*args, **kwargs)
+E0912 14:06:47.305000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.305000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:47.305000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]     return self._op(*args, **kwargs)
+E0912 14:06:47.305000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.305000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:47.529000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] failed while attempting to run meta for aten.upsample_trilinear3d_backward.default
+E0912 14:06:47.529000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] Traceback (most recent call last):
+E0912 14:06:47.529000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:47.529000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]     r = func(*args, **kwargs)
+E0912 14:06:47.529000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.529000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:47.529000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]     return self._op(*args, **kwargs)
+E0912 14:06:47.529000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.529000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/0] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:47.690000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] failed while attempting to run meta for aten.upsample_trilinear3d_backward.default
+E0912 14:06:47.690000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] Traceback (most recent call last):
+E0912 14:06:47.690000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:47.690000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]     r = func(*args, **kwargs)
+E0912 14:06:47.690000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.690000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:47.690000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]     return self._op(*args, **kwargs)
+E0912 14:06:47.690000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.690000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/1] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+E0912 14:06:47.844000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] failed while attempting to run meta for aten.upsample_trilinear3d_backward.default
+E0912 14:06:47.844000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] Traceback (most recent call last):
+E0912 14:06:47.844000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 14:06:47.844000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]     r = func(*args, **kwargs)
+E0912 14:06:47.844000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.844000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 14:06:47.844000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]     return self._op(*args, **kwargs)
+E0912 14:06:47.844000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 14:06:47.844000 26 torch/_subclasses/fake_tensor.py:3227] [!0/0/2] RuntimeError: isIntList() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/core/ivalue_inl.h":1966, please report a bug to PyTorch. Expected IntList but got GenericList
+torch 2.15.0.dev20260912+cpu
+[nearest size] compiled_autograd(eager): ok (max diff 0.0e+00)
+[nearest size] compiled_autograd(aot_eager): ok (max diff 0.0e+00)
+[nearest size] compiled_autograd(inductor): ok (max diff 0.0e+00)
+[nearest scale] compiled_autograd(eager): ok (max diff 0.0e+00)
+[nearest scale] compiled_autograd(aot_eager): ok (max diff 0.0e+00)
+[nearest scale] compiled_autograd(inductor): ok (max diff 0.0e+00)
+[bilinear] compiled_autograd(eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[bilinear] compiled_autograd(aot_eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[bilinear] compiled_autograd(inductor): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[bicubic] compiled_autograd(eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[bicubic] compiled_autograd(aot_eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[bicubic] compiled_autograd(inductor): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[linear 1d] compiled_autograd(eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[linear 1d] compiled_autograd(aot_eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[linear 1d] compiled_autograd(inductor): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[trilinear] compiled_autograd(eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[trilinear] compiled_autograd(aot_eager): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[trilinear] compiled_autograd(inductor): raise TorchRuntimeError: RuntimeError when making fake tensor call
+[adaptive_avg_pool2d] compiled_autograd(eager): ok (max diff 0.0e+00)
+[adaptive_avg_pool2d] compiled_autograd(aot_eager): ok (max diff 0.0e+00)
+[adaptive_avg_pool2d] compiled_autograd(inductor): ok (max diff 0.0e+00)
+[conv2d] compiled_autograd(eager): ok (max diff 0.0e+00)
+[conv2d] compiled_autograd(aot_eager): ok (max diff 0.0e+00)
+[conv2d] compiled_autograd(inductor): ok (max diff 0.0e+00)
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 277307 bytes to __results__.html

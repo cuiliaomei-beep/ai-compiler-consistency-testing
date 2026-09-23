@@ -1,0 +1,28 @@
+{
+  "signature": "d4ba77da5bc4",
+  "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": 2,
+      "title": "Don't support legacy Python",
+      "url": "https://github.com/pytorch/pytorch/issues/2",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2016-08-16"
+    }
+  ]
+}

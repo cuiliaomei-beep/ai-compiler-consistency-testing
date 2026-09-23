@@ -1,0 +1,31 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.6 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torch 2.14.0+cpu
+[bitwise_not] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(float32, [-8.0, 4.0, -2.0, nan])
+[bitwise_and] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(float32, [0.5, 1.0, 2.0, 0.0])
+[bitwise_or] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(float32, [1.5, -1.0, 3.0, 1.0])
+[bitwise_xor] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(float32, [0.0, -0.0, 0.0, 1.0])
+[bitwise_left_shift] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=raise InductorError
+[bitwise_not bf16] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(bfloat16, [-8.0, 4.0, -2.0, nan])
+[bitwise_not fp64] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(float64, [-8.0, 4.0, -2.0, nan])
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 9.2 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torch 2.15.0.dev20260912+cpu
+[bitwise_not] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(float32, [-8.0, 4.0, -2.0, nan])
+[bitwise_and] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(float32, [0.5, 1.0, 2.0, 0.0])
+[bitwise_or] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(float32, [1.5, -1.0, 3.0, 1.0])
+[bitwise_xor] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(float32, [0.0, -0.0, 0.0, 1.0])
+[bitwise_left_shift] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=raise InductorError
+[bitwise_not bf16] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(bfloat16, [-8.0, 4.0, -2.0, nan])
+[bitwise_not fp64] eager=raise NotImplementedError | aot_eager=raise NotImplementedError | inductor=(float64, [-8.0, 4.0, -2.0, nan])
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 276716 bytes to __results__.html

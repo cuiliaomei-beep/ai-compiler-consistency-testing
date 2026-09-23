@@ -1,0 +1,11 @@
+exception TorchRuntimeError: RuntimeError when making fake tensor call
+  Explanation: Dynamo failed to run FX node with fake tensors: call_function aten.max_pool2d_with_indices_backward.default(*(FakeTensor(..., size=(s33, s33, (((s69 - 1)//2)) + 1, (((s69 - 3)//2)) + 1)), FakeTensor(..., size=(s33, s33, s69, s69)), 3, 2, 1, (1, 2), False, FakeTensor(..., size=(s33, s33, (((s69 - 1)//2)) + 1, (((s69 - 3)//2)) + 1),
+               dtype=torch.int64)), **{}): got RuntimeError("aten::max_pool2d_with_indices_backward() Expected a value of type 'List[int]' for argument 'kernel_size' but instead found type 'SymInt'.\nPosition: 2\nValue: 3\nDeclaration: aten::max_pool2d_with_indices_backward(Tensor grad_output, Tensor self, int[2] kernel_size, int[2] stride, int[2] padding, int[2] dilation, bool ceil_mode, Tensor indices) -> Tensor\nCast error details: Unable to cast Python instance of type <class 'torch.SymInt'> to C++ type '?' (#define PYBIND11_DETAILED_ERROR_MESSAGES or compile in debug mode for details)")
+  Hint: Your code may result in an error when running in eager. Please double check that your code doesn't contain a similar error when actually running eager/uncompiled. You can do this by removing the `torch.compile` call, or by using `torch.compiler.set_stance("force_eager")`. 
+
+  Developer debug context: 
+
+ For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb4315.html
+
+from user code:
+   File "D:\wsl\personal\dr\paper\toxic_compile\plan\tc

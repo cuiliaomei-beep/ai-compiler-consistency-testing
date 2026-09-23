@@ -1,0 +1,19 @@
+{
+  "signature": "bffb984ad81f",
+  "program": "dtype_read",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "gradient"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "1/1",
+  "fault": "autograd_wrong_gradient",
+  "backend": "eager",
+  "torch": "2.14.0+cpu",
+  "minimized": false,
+  "duplicates": []
+}

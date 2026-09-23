@@ -1,0 +1,257 @@
+{
+  "signature": "66441a9e53df",
+  "program": "issue_171191_torch_compile_inductor_ignores_float64_f",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "ref raised RuntimeError, test returned normally",
+          "evidence": {
+            "exception": "RuntimeError",
+            "message": "expected scalar type Double but found Float"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "expected scalar type Double but found Float",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 4,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "expected scalar type Double but found Float",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.2555,
+      "alias_pairs": [],
+      "n_inputs": 4,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "expected scalar type Double but found Float",
+      "out_struct": "",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1774,
+      "alias_pairs": [],
+      "n_inputs": 4,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 2.7589,
+      "alias_pairs": [],
+      "n_inputs": 4,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            4,
+            32,
+            16
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            2048,
+            16,
+            64,
+            1
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_171191_torch_compile_inductor_ignores_float64_f.py\ntorch.compile (Inductor) ignores float64→float32 dtype promotion in SDPA, diverging from eager semantics\nhttps://github.com/pytorch/pytorch/issues/171191\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 12,
+    "steps_kept": 6,
+    "original_lines": 29,
+    "final_lines": 29,
+    "original_numel": 20480,
+    "final_numel": 2560,
+    "input_recipe": "torch.randn(1, 1, 32, 16), torch.randn(1, 1, 32, 16), torch.randn(1, 1, 32, 16), torch.randn(1, 1, 32, 32).to(torch.float64)",
+    "log": [
+      "kept: halve dim 0",
+      "kept: halve dim 1",
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags",
+      "kept: halve dim 1"
+    ],
+    "source": "def forward(self, query, key, value, attention_mask):\n        bs = query.size(0)\n        n_head = query.size(1)\n        head_size = query.size(3)\n        \n        q = query.view(bs * n_head, -1, head_size)\n        k = key.reshape(bs * n_head, -1, head_size)\n        v = value.reshape(bs * n_head, -1, head_size)\n        \n        # Compute attention scores (float32)\n        attn_weights = torch.bmm(q, k.transpose(1, 2))\n        \n        # Add attention mask (float64) to attn_weights (float32)\n        # This triggers dtype promotion to float64\n        attn_weights = attn_weights.view(bs, n_head, self.seq_len, -1) + attention_mask\n        attn_weights = attn_weights.view(bs * n_head, self.seq_len, -1)\n        \n        # Softmax preserves float64\n        attn_weights = F.softmax(attn_weights, dim=-1)\n        \n        # Conditional conversion (doesn't trigger for float32 query)\n        if query.dtype == torch.half:\n            attn_weights = attn_weights.to(torch.half)\n        \n        # This bmm has dtype mismatch: attn_weights (float64) vs v (float32)\n        attn_output = torch.bmm(attn_weights, v)\n        attn_output = attn_output.view(bs, n_head, self.seq_len, head_size)\n        \n        return attn_output"
+  },
+  "duplicates": {
+    "query": "Inductor ignores float64 float32 dtype promotion SDPA diverging",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "171191",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/171191",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 171191,
+        "title": "torch.compile (Inductor) ignores float64→float32 dtype promotion in SDPA, diverging from eager semantics",
+        "url": "https://github.com/pytorch/pytorch/issues/171191",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2025-12-23"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: RuntimeError",
+    "E1_dynamo_eager: RuntimeError",
+    "E2_aot_eager: RuntimeError",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

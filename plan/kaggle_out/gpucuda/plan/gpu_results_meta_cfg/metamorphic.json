@@ -1,0 +1,188 @@
+{
+  "stats": {
+    "ops": 561,
+    "samples": 1080,
+    "compiles": 6455,
+    "relation_checks": 5375,
+    "not_applicable": 0,
+    "violations": 9,
+    "standard_differs": 0,
+    "infra": 0,
+    "wall_s": 1786.2,
+    "crashes": 0
+  },
+  "mismatches": [
+    {
+      "op": "combinations",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "cov",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "quantile",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "nanquantile",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "nn.functional.adaptive_avg_pool2d",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised InductorError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          2,
+          8,
+          8,
+          8
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised InductorError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "nn.functional.upsample_bilinear",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised InductorError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          2,
+          3,
+          4,
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          1,
+          2,
+          6,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "new_zeros",
+      "relation": "config",
+      "variant": "cudagraphs",
+      "detail": "[metadata] output[0].device: cpu vs cuda (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    }
+  ],
+  "crashes": []
+}

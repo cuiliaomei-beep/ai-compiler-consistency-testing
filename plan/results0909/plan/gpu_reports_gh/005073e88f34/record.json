@@ -1,0 +1,240 @@
+{
+  "signature": "005073e88f34",
+  "program": "issue_178128_conv_transpose3d_meta_execution_produces",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: RuntimeError vs InternalTorchDynamoError",
+          "evidence": {
+            "ref_message": "Given transposed=1, weight of size [16, 33, 3, 3, 3], expected bias to be 1-dimensional with 66 elements, but got bias of size [33] instead",
+            "test_message": "ModuleNotFoundError: No module named '_repro_issue_178128_conv_transpose3d_meta_execution_produces'"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: RuntimeError vs InternalTorchDynamoError",
+          "evidence": {
+            "ref_message": "Given transposed=1, weight of size [16, 33, 3, 3, 3], expected bias to be 1-dimensional with 66 elements, but got bias of size [33] instead",
+            "test_message": "ModuleNotFoundError: No module named '_repro_issue_178128_conv_transpose3d_meta_execution_produces'"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: RuntimeError vs InternalTorchDynamoError",
+          "evidence": {
+            "ref_message": "Given transposed=1, weight of size [16, 33, 3, 3, 3], expected bias to be 1-dimensional with 66 elements, but got bias of size [33] instead",
+            "test_message": "ModuleNotFoundError: No module named '_repro_issue_178128_conv_transpose3d_meta_execution_produces'"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "RuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Given transposed=1, weight of size [16, 33, 3, 3, 3], expected bias to be 1-dimensional with 66 elements, but got bias of size [33] instead",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_178128_conv_transpose3d_meta_execution_produces'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.1711,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_178128_conv_transpose3d_meta_execution_produces'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0083,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_178128_conv_transpose3d_meta_execution_produces'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0079,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": false,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_178128_conv_transpose3d_meta_execution_produces.py\nconv_transpose3d meta execution produces output for invalid bias shape instead of matching eager validation\nhttps://github.com/pytorch/pytorch/issues/178128\ncompile options in the issue: {'dynamic': True}",
+  "minimized": null,
+  "duplicates": {
+    "query": "conv_transpose3d meta execution produces output invalid bias shape",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "178128",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/178128",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 178128,
+        "title": "conv_transpose3d meta execution produces output for invalid bias shape instead of matching eager validation",
+        "url": "https://github.com/pytorch/pytorch/issues/178128",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-03-23"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: RuntimeError",
+    "E1_dynamo_eager: InternalTorchDynamoError",
+    "E2_aot_eager: InternalTorchDynamoError",
+    "E3_inductor: InternalTorchDynamoError"
+  ],
+  "status": "Generated",
+  "fault": null
+}

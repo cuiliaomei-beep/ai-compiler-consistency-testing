@@ -1,0 +1,250 @@
+[{"stream_name":"stdout","time":5.148305887,"data":"$ pip -q install nnsmith certifi expecttest hypothesis\n"}
+,{"stream_name":"stdout","time":12.527461854,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.5/90.5 kB 2.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":12.635451485,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 18.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":12.7267895,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 163.1/163.1 kB 12.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":13.01870834,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 33.1/33.1 MB 59.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":16.854716313,"data":"$ /usr/bin/python3 run.py selfcheck\n"}
+,{"stream_name":"stdout","time":48.985615153,"data":"\n"}
+,{"stream_name":"stdout","time":48.985658967,"data":"tcc self-check\n"}
+,{"stream_name":"stdout","time":48.985664606,"data":"========================================================================\n"}
+,{"stream_name":"stdout","time":48.985668165,"data":"  [PASS] 6.3: x.shape[0] \u003e= 32 -\u003e 31/32/33                                   [[32, 31, 33]]\n"}
+,{"stream_name":"stdout","time":48.985672122,"data":"  [PASS] 6.3: n % 16 == 0 -\u003e 15/16/17/31/32/33                               [[16, 17, 15, 32, 33, 31]]\n"}
+,{"stream_name":"stdout","time":48.985676099,"data":"  [PASS] 6.2: use_fast -\u003e flag {True, False}                                 [{'param': 'use_fast', 'role': 'flag', 'values': [True, False], 'line': 2, 'reason': 'used directly as a branch condition'}]\n"}
+,{"stream_name":"stdout","time":48.985680773,"data":"  [PASS] 7: x.shape[0] -\u003e n -\u003e i -\u003e x[i]                                     [['x.shape[0]', 'i', 'x[i]']]\n"}
+,{"stream_name":"stdout","time":48.985684451,"data":"  [PASS] 8: view + in-place -\u003e mutation_visible/partial_write facts          facts=['mutation_visible', 'partial_write'] groups=[['x', 'y']]\n"}
+,{"stream_name":"stdout","time":48.98568784,"data":"  [PASS] 9/10: SCS -\u003e obligations -\u003e single-factor contexts                  4 obligations, 10 contexts\n"}
+,{"stream_name":"stdout","time":48.985707477,"data":"  [PASS] 5.2: IR kinds Assign/Branch/Mutation/Return + deps                  ['Assign', 'Branch', 'Mutation', 'Return'] ['alias', 'control', 'data']\n"}
+,{"stream_name":"stdout","time":48.985713002,"data":"  [PASS] 5.1: compilation sites (decorator, call, triton.jit)                [('decorator', 'g', 'torch.compile'), ('decorator', 'k', 'triton.jit'), ('call', 'h', 'torch.compile')]\n"}
+,{"stream_name":"stdout","time":48.985718456,"data":"  [PASS] 18.5: signature stable under whitespace, separates factors          33bb397b8df1 befd442c6fd7\n"}
+,{"stream_name":"stdout","time":48.985722792,"data":"  [PASS] 18.5: dedup suppresses repeats                                      {'unique': 1, 'total': 2}\n"}
+,{"stream_name":"stdout","time":48.985727027,"data":"  [PASS] torch importable                                                    torch 2.10.0+cu128 cuda 12.8 device Tesla T4\n"}
+,{"stream_name":"stdout","time":48.985731693,"data":"  [PASS] backend 'eager' resolvable                                          \n"}
+,{"stream_name":"stdout","time":48.985736067,"data":"  [PASS] backend 'aot_eager' resolvable                                      \n"}
+,{"stream_name":"stdout","time":48.985740305,"data":"  [PASS] backend 'inductor' resolvable                                       \n"}
+,{"stream_name":"stdout","time":48.985760265,"data":"  [PASS] compile counter: cold=1, repeat=0, dtype switch\u003e=1                  [1, 0, 1]\n"}
+,{"stream_name":"stdout","time":48.985764533,"data":"  [PASS] O1 value fires on injected codegen fault                            output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 2.260e-05\n"}
+,{"stream_name":"stdout","time":48.985769927,"data":"  [PASS] O1 no false positive on aot_eager                                   clean\n"}
+,{"stream_name":"stdout","time":48.985776617,"data":"  [PASS] fp64 reference builds                                               \n"}
+,{"stream_name":"stdout","time":48.985780711,"data":"  [PASS] O4 mutation fires on dropped in-place write                         \n"}
+,{"stream_name":"stdout","time":48.9857848,"data":"  [PASS] O5 alias fires on view materialised as copy                         \n"}
+,{"stream_name":"stdout","time":48.985788701,"data":"  [PASS] O4/O5 no false positive on aot_eager                                clean\n"}
+,{"stream_name":"stdout","time":48.985792661,"data":"  [PASS] O3 exception fires when compiled swallows a raise                   eager=ValueError compiled_ok=True\n"}
+,{"stream_name":"stdout","time":48.985796177,"data":"  [PASS] O6 gradient fires on 2x backward                                    \n"}
+,{"stream_name":"stdout","time":48.985800629,"data":"  [PASS] O6 no false positive on aot_eager                                   \n"}
+,{"stream_name":"stdout","time":48.985804668,"data":"  [PASS] O7 cache: stale dtype reuse -\u003e specialization_cache (no recompile)  specialization_cache recompiled=False\n"}
+,{"stream_name":"stdout","time":48.985809027,"data":"  [PASS] O7 cache: A-\u003eB-\u003eA stale -\u003e cache_invalidation                       cache_invalidation\n"}
+,{"stream_name":"stdout","time":48.985813385,"data":"  [PASS] O7 no false positive on aot_eager                                   cold and warm agree\n"}
+,{"stream_name":"stdout","time":48.985817459,"data":"  [PASS] 16: staged localization -\u003e inductor_codegen                         inductor_codegen\n"}
+,{"stream_name":"stdout","time":48.985821765,"data":"  [PASS] inductor cold run executes                                          9.9s\n"}
+,{"stream_name":"stdout","time":48.985826039,"data":"\n"}
+,{"stream_name":"stdout","time":48.985829567,"data":"  29/29 checks passed\n"}
+,{"stream_name":"stdout","time":54.983339538,"data":"$ /usr/bin/python3 run.py campaign --from-dir reproducers_models --backend inductor --device cuda --reruns 2 --minimize --max-contexts 6 --test-budget 8 --time-budget 300 --isolate --child-timeout 1200 --out gpu_reports_models\n"}
+,{"stream_name":"stdout","time":170.413921425,"data":"isolated campaign: 68 reproducer(s) pending in reproducers_models\n"}
+,{"stream_name":"stdout","time":170.413965203,"data":"[1/68] --file model_convnext_tiny_bf16_autocast.py        exit 0 [114s]\n"}
+,{"stream_name":"stdout","time":170.413973392,"data":"      model_convnext_tiny_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [101.4s]\n"}
+,{"stream_name":"stdout","time":170.413982431,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":371.673837101,"data":"[2/68] --file model_convnext_tiny_channels_last.py        exit 0 [201s]\n"}
+,{"stream_name":"stdout","time":371.673879197,"data":"      model_convnext_tiny_channels_last 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [188.4s]\n"}
+,{"stream_name":"stdout","time":371.673889203,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":568.173836597,"data":"[3/68] --file model_convnext_tiny_dynamic.py              exit 0 [196s]\n"}
+,{"stream_name":"stdout","time":568.173937947,"data":"      model_convnext_tiny_dynamic 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [184.4s]\n"}
+,{"stream_name":"stdout","time":568.1739577,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":752.313432728,"data":"[4/68] --file model_convnext_tiny_fp32.py                 exit 0 [184s]\n"}
+,{"stream_name":"stdout","time":752.313483119,"data":"      model_convnext_tiny_fp32 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [172.1s]\n"}
+,{"stream_name":"stdout","time":752.313487918,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":959.027058763,"data":"[5/68] --file model_convnext_tiny_train.py                exit 0 [207s]\n"}
+,{"stream_name":"stdout","time":959.027105534,"data":"      model_convnext_tiny_train 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [194.9s]\n"}
+,{"stream_name":"stdout","time":959.027111335,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":1092.627465134,"data":"[6/68] --file model_efficientnet_b0_bf16_autocast.py      exit 0 [134s]\n"}
+,{"stream_name":"stdout","time":1092.627500233,"data":"      model_efficientnet_b0_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [123.1s]\n"}
+,{"stream_name":"stdout","time":1092.627505521,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":1379.876177775,"data":"[7/68] --file model_efficientnet_b0_channels_last.py      exit 0 [287s]\n"}
+,{"stream_name":"stdout","time":1379.876220342,"data":"      model_efficientnet_b0_channels_last 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [274.3s]\n"}
+,{"stream_name":"stdout","time":1379.876226778,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":1655.617066557,"data":"[8/68] --file model_efficientnet_b0_dynamic.py            exit 0 [276s]\n"}
+,{"stream_name":"stdout","time":1655.617110517,"data":"      model_efficientnet_b0_dynamic 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [262.8s]\n"}
+,{"stream_name":"stdout","time":1655.617115554,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":1894.485076346,"data":"[9/68] --file model_efficientnet_b0_fp32.py               exit 0 [239s]\n"}
+,{"stream_name":"stdout","time":1894.485115558,"data":"      model_efficientnet_b0_fp32 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [226.7s]\n"}
+,{"stream_name":"stdout","time":1894.485121642,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2132.428482611,"data":"[10/68] --file model_efficientnet_b0_train.py              exit 0 [238s]\n"}
+,{"stream_name":"stdout","time":2132.428536743,"data":"      model_efficientnet_b0_train 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [225.6s]\n"}
+,{"stream_name":"stdout","time":2132.428542755,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2180.525922114,"data":"[11/68] --file model_fcn_resnet18_like_bf16_autocast.py    exit 0 [48s]\n"}
+,{"stream_name":"stdout","time":2180.525961593,"data":"      model_fcn_resnet18_like_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [38.0s]\n"}
+,{"stream_name":"stdout","time":2180.525967875,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2286.760458534,"data":"[12/68] --file model_fcn_resnet18_like_channels_last.py    exit 0 [106s]\n"}
+,{"stream_name":"stdout","time":2286.760543066,"data":"      model_fcn_resnet18_like_channels_last 0 candidate(s), 0 submittable, 5 tests, 19 compiles  [94.9s]\n"}
+,{"stream_name":"stdout","time":2286.760572483,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2388.178022744,"data":"[13/68] --file model_fcn_resnet18_like_dynamic.py          exit 0 [101s]\n"}
+,{"stream_name":"stdout","time":2388.178062956,"data":"      model_fcn_resnet18_like_dynamic 0 candidate(s), 0 submittable, 5 tests, 19 compiles  [90.1s]\n"}
+,{"stream_name":"stdout","time":2388.178071014,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2484.064748634,"data":"[14/68] --file model_fcn_resnet18_like_fp32.py             exit 0 [96s]\n"}
+,{"stream_name":"stdout","time":2484.06479165,"data":"      model_fcn_resnet18_like_fp32 0 candidate(s), 0 submittable, 5 tests, 19 compiles  [84.7s]\n"}
+,{"stream_name":"stdout","time":2484.064798394,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2580.719736324,"data":"[15/68] --file model_fcn_resnet18_like_train.py            exit 0 [97s]\n"}
+,{"stream_name":"stdout","time":2580.719829196,"data":"      model_fcn_resnet18_like_train 0 candidate(s), 0 submittable, 5 tests, 19 compiles  [85.3s]\n"}
+,{"stream_name":"stdout","time":2580.719834707,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":2771.206778383,"data":"[16/68] --file model_googlenet_bf16_autocast.py            exit 0 [190s]\n"}
+,{"stream_name":"stdout","time":2771.206814191,"data":"      model_googlenet_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [179.2s]\n"}
+,{"stream_name":"stdout","time":2771.206821515,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":3453.3199264,"data":"[17/68] --file model_googlenet_channels_last.py            exit 0 [682s]\n"}
+,{"stream_name":"stdout","time":3453.319966015,"data":"      model_googlenet_channels_last 0 candidate(s), 0 submittable, 2 tests, 8 compiles  [668.2s]\n"}
+,{"stream_name":"stdout","time":3453.319972089,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4079.599292089,"data":"[18/68] --file model_googlenet_dynamic.py                  exit 0 [626s]\n"}
+,{"stream_name":"stdout","time":4079.599355136,"data":"      model_googlenet_dynamic  0 candidate(s), 0 submittable, 2 tests, 8 compiles  [613.5s]\n"}
+,{"stream_name":"stdout","time":4079.599363087,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":4661.938214524,"data":"[19/68] --file model_googlenet_fp32.py                     exit 0 [582s]\n"}
+,{"stream_name":"stdout","time":4661.938251374,"data":"      model_googlenet_fp32     0 candidate(s), 0 submittable, 2 tests, 8 compiles  [569.5s]\n"}
+,{"stream_name":"stdout","time":4661.938257819,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5270.809679444,"data":"[20/68] --file model_googlenet_train.py                    exit 0 [609s]\n"}
+,{"stream_name":"stdout","time":5270.809740789,"data":"      model_googlenet_train    0 candidate(s), 0 submittable, 2 tests, 8 compiles  [596.0s]\n"}
+,{"stream_name":"stdout","time":5270.809748593,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5355.506312366,"data":"[21/68] --file model_mnasnet0_5_bf16_autocast.py           exit 0 [85s]\n"}
+,{"stream_name":"stdout","time":5355.506362691,"data":"      model_mnasnet0_5_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [75.0s]\n"}
+,{"stream_name":"stdout","time":5355.506368392,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5557.220486106,"data":"[22/68] --file model_mnasnet0_5_channels_last.py           exit 0 [202s]\n"}
+,{"stream_name":"stdout","time":5557.220537118,"data":"      model_mnasnet0_5_channels_last 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [190.5s]\n"}
+,{"stream_name":"stdout","time":5557.220544482,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5729.789802489,"data":"[23/68] --file model_mnasnet0_5_dynamic.py                 exit 0 [173s]\n"}
+,{"stream_name":"stdout","time":5729.789847612,"data":"      model_mnasnet0_5_dynamic 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [161.5s]\n"}
+,{"stream_name":"stdout","time":5729.789852231,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":5895.408503229,"data":"[24/68] --file model_mnasnet0_5_fp32.py                    exit 0 [166s]\n"}
+,{"stream_name":"stdout","time":5895.40854865,"data":"      model_mnasnet0_5_fp32    0 candidate(s), 0 submittable, 3 tests, 11 compiles  [154.6s]\n"}
+,{"stream_name":"stdout","time":5895.408560757,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6059.591899194,"data":"[25/68] --file model_mnasnet0_5_train.py                   exit 0 [164s]\n"}
+,{"stream_name":"stdout","time":6059.591936026,"data":"      model_mnasnet0_5_train   0 candidate(s), 0 submittable, 3 tests, 11 compiles  [153.0s]\n"}
+,{"stream_name":"stdout","time":6059.591941996,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6148.426403024,"data":"[26/68] --file model_mobilenet_v2_bf16_autocast.py         exit 0 [89s]\n"}
+,{"stream_name":"stdout","time":6148.426442767,"data":"      model_mobilenet_v2_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [79.0s]\n"}
+,{"stream_name":"stdout","time":6148.426448054,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6388.448782452,"data":"[27/68] --file model_mobilenet_v2_channels_last.py         exit 0 [240s]\n"}
+,{"stream_name":"stdout","time":6388.448829464,"data":"      model_mobilenet_v2_channels_last 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [228.3s]\n"}
+,{"stream_name":"stdout","time":6388.448836538,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6610.70371919,"data":"[28/68] --file model_mobilenet_v2_dynamic.py               exit 0 [222s]\n"}
+,{"stream_name":"stdout","time":6610.70375585,"data":"      model_mobilenet_v2_dynamic 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [210.9s]\n"}
+,{"stream_name":"stdout","time":6610.703762328,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":6827.639277178,"data":"[29/68] --file model_mobilenet_v2_fp32.py                  exit 0 [217s]\n"}
+,{"stream_name":"stdout","time":6827.639317015,"data":"      model_mobilenet_v2_fp32  0 candidate(s), 0 submittable, 3 tests, 11 compiles  [205.3s]\n"}
+,{"stream_name":"stdout","time":6827.639323743,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":7041.839185183,"data":"[30/68] --file model_mobilenet_v2_train.py                 exit 0 [214s]\n"}
+,{"stream_name":"stdout","time":7041.839235421,"data":"      model_mobilenet_v2_train 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [202.4s]\n"}
+,{"stream_name":"stdout","time":7041.839241928,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":7134.335812743,"data":"[31/68] --file model_mobilenet_v3_small_bf16_autocast.py   exit 0 [92s]\n"}
+,{"stream_name":"stdout","time":7134.335879645,"data":"      model_mobilenet_v3_small_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [82.7s]\n"}
+,{"stream_name":"stdout","time":7134.335886671,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":7366.391772748,"data":"[32/68] --file model_mobilenet_v3_small_channels_last.py   exit 0 [232s]\n"}
+,{"stream_name":"stdout","time":7366.391820056,"data":"      model_mobilenet_v3_small_channels_last 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [220.4s]\n"}
+,{"stream_name":"stdout","time":7366.391825114,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":7575.841703103,"data":"[33/68] --file model_mobilenet_v3_small_dynamic.py         exit 0 [209s]\n"}
+,{"stream_name":"stdout","time":7575.841749169,"data":"      model_mobilenet_v3_small_dynamic 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [197.9s]\n"}
+,{"stream_name":"stdout","time":7575.841755511,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":7769.518330169,"data":"[34/68] --file model_mobilenet_v3_small_fp32.py            exit 0 [194s]\n"}
+,{"stream_name":"stdout","time":7769.51837287,"data":"      model_mobilenet_v3_small_fp32 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [182.1s]\n"}
+,{"stream_name":"stdout","time":7769.518378767,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":7963.211741693,"data":"[35/68] --file model_mobilenet_v3_small_train.py           exit 0 [194s]\n"}
+,{"stream_name":"stdout","time":7963.211778646,"data":"      model_mobilenet_v3_small_train 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [181.9s]\n"}
+,{"stream_name":"stdout","time":7963.211784873,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":8072.310068536,"data":"[36/68] --file model_regnet_y_400mf_bf16_autocast.py       exit 0 [109s]\n"}
+,{"stream_name":"stdout","time":8072.310108247,"data":"      model_regnet_y_400mf_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [99.0s]\n"}
+,{"stream_name":"stdout","time":8072.310116362,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":8292.922259565,"data":"[37/68] --file model_regnet_y_400mf_channels_last.py       exit 0 [221s]\n"}
+,{"stream_name":"stdout","time":8292.922295165,"data":"      model_regnet_y_400mf_channels_last 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [209.1s]\n"}
+,{"stream_name":"stdout","time":8292.922301062,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":8492.21873959,"data":"[38/68] --file model_regnet_y_400mf_dynamic.py             exit 0 [199s]\n"}
+,{"stream_name":"stdout","time":8492.218776695,"data":"      model_regnet_y_400mf_dynamic 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [187.4s]\n"}
+,{"stream_name":"stdout","time":8492.218782928,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":8681.038622461,"data":"[39/68] --file model_regnet_y_400mf_fp32.py                exit 0 [189s]\n"}
+,{"stream_name":"stdout","time":8681.038662925,"data":"      model_regnet_y_400mf_fp32 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [177.0s]\n"}
+,{"stream_name":"stdout","time":8681.03867015,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":8927.924556896,"data":"[40/68] --file model_regnet_y_400mf_train.py               exit 0 [247s]\n"}
+,{"stream_name":"stdout","time":8927.924729695,"data":"      model_regnet_y_400mf_train 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [234.8s]\n"}
+,{"stream_name":"stdout","time":8927.924758999,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":8983.747375884,"data":"[41/68] --file model_resnet18_bf16_autocast.py             exit 0 [56s]\n"}
+,{"stream_name":"stdout","time":8983.747432122,"data":"      model_resnet18_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [46.0s]\n"}
+,{"stream_name":"stdout","time":8983.747439422,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":9075.787566115,"data":"[42/68] --file model_resnet18_channels_last.py             exit 0 [92s]\n"}
+,{"stream_name":"stdout","time":9075.787773488,"data":"      model_resnet18_channels_last 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [81.3s]\n"}
+,{"stream_name":"stdout","time":9075.78778484,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":9165.169402096,"data":"[43/68] --file model_resnet18_dynamic.py                   exit 0 [89s]\n"}
+,{"stream_name":"stdout","time":9165.169440218,"data":"      model_resnet18_dynamic   0 candidate(s), 0 submittable, 3 tests, 11 compiles  [78.5s]\n"}
+,{"stream_name":"stdout","time":9165.169446122,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":9246.870505395,"data":"[44/68] --file model_resnet18_fp32.py                      exit 0 [82s]\n"}
+,{"stream_name":"stdout","time":9246.870565604,"data":"      model_resnet18_fp32      0 candidate(s), 0 submittable, 3 tests, 11 compiles  [71.0s]\n"}
+,{"stream_name":"stdout","time":9246.87057337,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":9354.035028592,"data":"[45/68] --file model_resnet18_train.py                     exit 0 [107s]\n"}
+,{"stream_name":"stdout","time":9354.035073804,"data":"      model_resnet18_train     0 candidate(s), 0 submittable, 3 tests, 11 compiles  [96.2s]\n"}
+,{"stream_name":"stdout","time":9354.035081297,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":9457.433421368,"data":"[46/68] --file model_shufflenet_v2_x0_5_bf16_autocast.py   exit 0 [103s]\n"}
+,{"stream_name":"stdout","time":9457.433477075,"data":"      model_shufflenet_v2_x0_5_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [93.5s]\n"}
+,{"stream_name":"stdout","time":9457.433484737,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":9695.926414484,"data":"[47/68] --file model_shufflenet_v2_x0_5_channels_last.py   exit 0 [238s]\n"}
+,{"stream_name":"stdout","time":9695.926465299,"data":"      model_shufflenet_v2_x0_5_channels_last 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [227.0s]\n"}
+,{"stream_name":"stdout","time":9695.926571695,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":9919.905940392,"data":"[48/68] --file model_shufflenet_v2_x0_5_dynamic.py         exit 0 [224s]\n"}
+,{"stream_name":"stdout","time":9919.905979978,"data":"      model_shufflenet_v2_x0_5_dynamic 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [212.5s]\n"}
+,{"stream_name":"stdout","time":9919.905986396,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":10134.228662022,"data":"[49/68] --file model_shufflenet_v2_x0_5_fp32.py            exit 0 [214s]\n"}
+,{"stream_name":"stdout","time":10134.228705499,"data":"      model_shufflenet_v2_x0_5_fp32 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [202.9s]\n"}
+,{"stream_name":"stdout","time":10134.228711934,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":10398.901324559,"data":"[50/68] --file model_shufflenet_v2_x0_5_train.py           exit 0 [265s]\n"}
+,{"stream_name":"stdout","time":10398.901368561,"data":"      model_shufflenet_v2_x0_5_train 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [253.1s]\n"}
+,{"stream_name":"stdout","time":10398.901390773,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":10459.701452168,"data":"[51/68] --file model_squeezenet1_0_bf16_autocast.py        exit 0 [61s]\n"}
+,{"stream_name":"stdout","time":10459.701507633,"data":"      model_squeezenet1_0_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [51.3s]\n"}
+,{"stream_name":"stdout","time":10459.70151393,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":10622.685234452,"data":"[52/68] --file model_squeezenet1_0_channels_last.py        exit 0 [163s]\n"}
+,{"stream_name":"stdout","time":10622.685286419,"data":"      model_squeezenet1_0_channels_last 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [152.5s]\n"}
+,{"stream_name":"stdout","time":10622.685293096,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":10759.977842427,"data":"[53/68] --file model_squeezenet1_0_dynamic.py              exit 0 [137s]\n"}
+,{"stream_name":"stdout","time":10759.977898219,"data":"      model_squeezenet1_0_dynamic 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [126.9s]\n"}
+,{"stream_name":"stdout","time":10759.977903071,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":10891.607630761,"data":"[54/68] --file model_squeezenet1_0_fp32.py                 exit 0 [132s]\n"}
+,{"stream_name":"stdout","time":10891.607676936,"data":"      model_squeezenet1_0_fp32 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [121.1s]\n"}
+,{"stream_name":"stdout","time":10891.607681765,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":11023.882148201,"data":"[55/68] --file model_squeezenet1_0_train.py                exit 0 [132s]\n"}
+,{"stream_name":"stdout","time":11023.882208768,"data":"      model_squeezenet1_0_train 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [121.8s]\n"}
+,{"stream_name":"stdout","time":11023.882216674,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":11122.518842683,"data":"[56/68] --file model_swin_small_bf16_autocast.py           exit 0 [99s]\n"}
+,{"stream_name":"stdout","time":11122.518889504,"data":"      model_swin_small_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [87.7s]\n"}
+,{"stream_name":"stdout","time":11122.518894809,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":12322.851620681,"data":"[57/68] --file model_swin_small_dynamic.py                 timeout [1200s]\n"}
+,{"stream_name":"stdout","time":13523.097949603,"data":"[58/68] --file model_swin_small_fp32.py                    timeout [1200s]\n"}
+,{"stream_name":"stdout","time":14723.431330411,"data":"[59/68] --file model_swin_small_train.py                   timeout [1200s]\n"}
+,{"stream_name":"stdout","time":14760.723044011,"data":"[60/68] --file model_vit_small_bf16_autocast.py            exit 0 [37s]\n"}
+,{"stream_name":"stdout","time":14760.723087792,"data":"      model_vit_small_bf16_autocast 0 candidate(s), 0 submittable, 4 tests, 6 compiles  [28.1s]\n"}
+,{"stream_name":"stdout","time":14760.723092887,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":14810.322171628,"data":"[61/68] --file model_vit_small_dynamic.py                  exit 0 [50s]\n"}
+,{"stream_name":"stdout","time":14810.322242944,"data":"      model_vit_small_dynamic  0 candidate(s), 0 submittable, 3 tests, 11 compiles  [39.8s]\n"}
+,{"stream_name":"stdout","time":14810.322247582,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":14852.180150927,"data":"[62/68] --file model_vit_small_fp32.py                     exit 0 [42s]\n"}
+,{"stream_name":"stdout","time":14852.180198475,"data":"      model_vit_small_fp32     0 candidate(s), 0 submittable, 3 tests, 11 compiles  [32.0s]\n"}
+,{"stream_name":"stdout","time":14852.180208085,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":14894.242822369,"data":"[63/68] --file model_vit_small_train.py                    exit 0 [42s]\n"}
+,{"stream_name":"stdout","time":14894.242853514,"data":"      model_vit_small_train    0 candidate(s), 0 submittable, 3 tests, 11 compiles  [32.3s]\n"}
+,{"stream_name":"stdout","time":14894.242859223,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":14940.211196208,"data":"[64/68] --file ops_box_iou.py                              exit 0 [46s]\n"}
+,{"stream_name":"stdout","time":14940.211245171,"data":"      ops_box_iou              0 candidate(s), 0 submittable, 8 tests, 28 compiles  [36.7s]\n"}
+,{"stream_name":"stdout","time":14940.211250752,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":14957.96010654,"data":"[65/68] --file ops_deform_conv2d.py                        exit 0 [18s]\n"}
+,{"stream_name":"stdout","time":14957.9601453,"data":"      ops_deform_conv2d        0 candidate(s), 0 submittable, 8 tests, 28 compiles  [8.8s]\n"}
+,{"stream_name":"stdout","time":14957.960150047,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":14979.1345688,"data":"[66/68] --file ops_nms.py                                  exit 0 [21s]\n"}
+,{"stream_name":"stdout","time":14979.134629979,"data":"      ops_nms                  0 candidate(s), 0 submittable, 8 tests, 58 compiles  [11.9s]\n"}
+,{"stream_name":"stdout","time":14979.134639844,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":14995.332374577,"data":"[67/68] --file ops_roi_align.py                            exit 0 [16s]\n"}
+,{"stream_name":"stdout","time":14995.332410383,"data":"      ops_roi_align            0 candidate(s), 0 submittable, 8 tests, 28 compiles  [7.0s]\n"}
+,{"stream_name":"stdout","time":14995.332417354,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":15018.285650476,"data":"[68/68] --file ops_stochastic_depth_eval.py                exit 0 [23s]\n"}
+,{"stream_name":"stdout","time":15018.285695093,"data":"      ops_stochastic_depth_eval 0 candidate(s), 0 submittable, 8 tests, 30 compiles  [13.5s]\n"}
+,{"stream_name":"stdout","time":15018.285699865,"data":"    0 candidate(s); summary at gpu_reports_models/SUMMARY.md\n"}
+,{"stream_name":"stdout","time":15018.28703296,"data":"isolated campaign finished: 68 unit(s), 3 failed child(ren); log gpu_reports_models/isolated_children.log\n"}
+,{"stream_name":"stdout","time":15018.287049591,"data":"gpu_reports_models/CAMPAIGN.md\n"}
+,{"stream_name":"stdout","time":15018.644430315,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":15021.437783229,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":15021.437848076,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":15021.931407345,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":15021.931436823,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":15022.744914255,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":15024.476521567,"data":"[NbConvertApp] Writing 279969 bytes to __results__.html\n"}
+]

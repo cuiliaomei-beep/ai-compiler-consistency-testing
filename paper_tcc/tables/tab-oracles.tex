@@ -1,0 +1,19 @@
+\begin{table}[t]
+\caption{The seven observables compared by \tool and the mechanisms each one exposes. Cold and warm executions
+of Figure~\ref{fig:sequence} are compared on every observable.}
+\label{tab:oracles}
+\footnotesize
+\begin{tabular}{@{}lp{5.1cm}p{6.0cm}@{}}
+\toprule
+Observable & Compared observation & Typical mechanism exposed \\
+\midrule
+O1 Value & scalars, tensors, nested containers; float64 or 30-digit reference with a dtype-aware noise floor; NaN/Inf pattern; sign of zero & wrong generated loop, unstable fused reduction, fabricated value on an empty reduction, vector polynomial with absolute-only accuracy \\
+O2 Metadata & shape, dtype, stride, device, layout & wrong dtype promotion in a lowering, lost \code{channels\_last}, ignored \code{device=} \\
+O3 Identity & output \emph{is} an input; storage sharing between inputs and outputs & no-op elimination that returns the input object, view replaced by a copy, generator replaced by an iterator \\
+O4 Exception & raised or not; innermost exception type; whether the program's handler ran & missing validation, internal assertion, compile-only failure, exception that bypasses \code{except} \\
+O5 State & post-state of inputs, module buffers, reachable Python objects; count of external effects & dropped or reordered in-place update, dropped container mutation, side effect replayed twice \\
+O6 Gradient & input and parameter gradients against a higher-precision reference & wrong backward after tracing, lost in-place check, zero gradient from underflow \\
+O7 Process & exit code and signal of the child process & native crash, hang, runtime destroyed while its threads run \\
+\bottomrule
+\end{tabular}
+\end{table}

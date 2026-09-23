@@ -1,0 +1,47 @@
+{"op": "cond: pred from data, both branches elementwise", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: pred false, true branch sqrt", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: branches return different dtype (int vs float)", "eager": "raises UncapturedHigherOrderOpError", "diffs": {}, "verdict": "ok"}
+{"op": "cond: branch returns view of input", "eager": "raises UncapturedHigherOrderOpError", "diffs": {}, "verdict": "ok"}
+{"op": "cond: branch returns input itself", "eager": "raises UncapturedHigherOrderOpError", "diffs": {}, "verdict": "ok"}
+{"op": "cond: closure over outer tensor", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: python bool pred", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: pred is 0-d int tensor 0", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: pred NaN tensor", "eager": "ok", "diffs": {"inductor": "RAISES ValueError: cannot convert float NaN to integer"}, "verdict": "DIFF"}
+{"op": "cond: nested cond", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: branches reduce to 0-d", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: int floor_divide / mod in branches", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: in-place inside branch on clone", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: grad through both branches", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: pred from inf comparison", "eager": "raises UncapturedHigherOrderOpError", "diffs": {}, "verdict": "ok"}
+{"op": "cond: bool tensor operands", "eager": "raises UncapturedHigherOrderOpError", "diffs": {}, "verdict": "ok"}
+{"op": "cond: float16 branch overflow", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "cond: branch with 0-size slice", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "while_loop: count to 5", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "while_loop: zero iterations", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "while_loop: stop cond with NaN sum", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "while_loop: int8 overflow wrap", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "while_loop: body returns carried input unchanged", "eager": "raises UncapturedHigherOrderOpError", "diffs": {}, "verdict": "ok"}
+{"op": "while_loop: float counter 0.1 steps", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "while_loop: grad through loop", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "scan: running sum", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "scan: running sum reverse", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "scan: running max with nan", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "scan: int8 product wraps", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "scan: float carry, int xs", "eager": "raises UncapturedHigherOrderOpError", "diffs": {}, "verdict": "ok"}
+{"op": "scan: length 1", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "scan: 2-D along dim=1", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "scan: grad", "eager": "raises UncapturedHigherOrderOpError", "diffs": {}, "verdict": "ok"}
+{"op": "assoc_scan: add pointwise", "eager": "ok", "diffs": {"inductor": "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}, "verdict": "DIFF"}
+{"op": "assoc_scan: add generic", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "assoc_scan: mul with 0 and inf", "eager": "ok", "diffs": {"inductor": "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}, "verdict": "DIFF"}
+{"op": "assoc_scan: max with nan", "eager": "ok", "diffs": {"inductor": "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}, "verdict": "DIFF"}
+{"op": "assoc_scan: reverse", "eager": "ok", "diffs": {"inductor": "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}, "verdict": "DIFF"}
+{"op": "assoc_scan: int64 add", "eager": "ok", "diffs": {"inductor": "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}, "verdict": "DIFF"}
+{"op": "assoc_scan: 2-D dim=1", "eager": "ok", "diffs": {"inductor": "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}, "verdict": "DIFF"}
+{"op": "assoc_scan: cancellation vs cumsum", "eager": "ok", "diffs": {"inductor": "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}, "verdict": "DIFF"}
+{"op": "assoc_scan: grad", "eager": "ok", "diffs": {"inductor": "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}, "verdict": "DIFF"}
+{"op": "checkpoint: values", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "checkpoint: grad", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "checkpoint: dropout inside, rng preserved", "eager": "ok", "diffs": {"aot_eager": "RAISES BackendCompilerFailed: backend='aot_eager' raised:\nRuntimeError: Activation checkpoint rematerialization in `forward-loss-backward` graph does ", "inductor": "RAISES BackendCompilerFailed: backend='inductor' raised:\nRuntimeError: Activation checkpoint rematerialization in `forward-loss-backward` graph does n"}, "verdict": "DIFF"}
+{"op": "checkpoint: returns input view", "eager": "ok", "diffs": {}, "verdict": "ok"}
+{"op": "checkpoint: in-place on clone inside", "eager": "ok", "diffs": {}, "verdict": "ok"}

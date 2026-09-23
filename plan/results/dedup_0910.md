@@ -1,0 +1,284 @@
+# Deduplication pass 2026-09-10 (GitHub search API, pytorch/pytorch, issues + PRs)
+
+## argmin_pow_dynamic
+- `argmin dynamic shapes C++ compile error` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20argmin%20dynamic%20shapes%20C%2B%2B%20compile%20error)
+  - #185157 (open) [Inductor] Fix CPU bool argmin/argmax incorrect indices
+  - #191543 (open) [Inductor][CPU] Fix int8/uint8 min/max vectorized reductions polluted by inactive lanes
+  - #193680 (open) [inductor] Preserve logical indices for fused arg reductions
+  - #193673 (open) Attempt to fix list UDOV inheritance
+  - #171870 (open) [s390x/ZVECTOR] C++ compilation failure in argmax/argmin operations with torch.compile inductor back
+  - #195063 (closed) [inductor] Fix argmax/argmin logical index for non-row-major fused inputs
+  - #193118 (open) [Testcase Refactoring] Decouple and classify torchinductor tests by hardware
+  - #189635 (open) Expose reduced ViewAndMutationMeta subset to Inductor via TracingContext
+- `argmax dynamic=True cpp compile error inductor` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20argmax%20dynamic%3DTrue%20cpp%20compile%20error%20inductor)
+  - #171870 (open) [s390x/ZVECTOR] C++ compilation failure in argmax/argmin operations with torch.compile inductor back
+  - #179941 (open) [inductor] Add reduction loop peeling for Triton codegen
+  - #184149 (closed) Deduplicate Triton max dim reductions
+  - #165979 (closed) [CI] Use serial mode to run unit tests for XPU
+  - #160166 (closed) fix(inductor): show intermediate buffers for split reductions in profile
+  - #159088 (closed) [Inductor] ReductionHints.OUTER heuristic tuning
+  - #126926 (closed) [wip] add metadata of orig model parameter ID to aot_autograd FX nodes
+  - #126894 (closed) Unwrap functorch tensor if dead on metadata analysis
+- `inductor cpp ** index expression` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20inductor%20cpp%20%2A%2A%20index%20expression)
+  - #194093 (open) [inductor] Fix Triton reduction CSE for logical arg indices
+  - #192498 (open) [AArch64/SVE][Inductor] test_vec_compare_op_cpu_only consumes excessive CPU and memory in scheduler 
+  - #196277 (open) [Inductor] Add FlyDSL GEMM accumulator epilogue fusion
+  - #186049 (open) Fix bool argmax meta validation for Inductor
+  - #194062 (open) [inductor] [silent incorrectness] torch.full ignores dtype when fill_value is symbolic
+  - #194972 (open) [inductor] SIMDKernel._split_iteration_ranges incorrectly asserts guarding_hint_or_throw(s) == 1 on 
+  - #193614 (open) [inductor] Dispatch aligned dynamic Triton kernels at runtime
+  - #179699 (open) [torch][inductor] Extend KernelContextGuard profiling to the fallback and template kernel paths
+- `argmin_combine_vec` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20argmin_combine_vec)
+  - #184118 (closed) [Bugfix] Improper iteration order for reduction operations for non-contiguous tensors on cpu
+  - #183972 (closed) Fix CPU argmin/argmax logical indices
+  - #131016 (closed) [inductor] support vectorization for torch.argmax/min(float/int64_t)-> int64_t
+- `masked argmin dynamic compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20masked%20argmin%20dynamic%20compile)
+  - #191543 (open) [Inductor][CPU] Fix int8/uint8 min/max vectorized reductions polluted by inactive lanes
+  - #179941 (open) [inductor] Add reduction loop peeling for Triton codegen
+  - #178988 (open) Cannot build documentation (`RecursionError`)
+  - #193868 (closed) Add more ops support for functional all_reduce_coalesced
+  - #173402 (closed) [dynamic shapes] fix masked op DDEs
+  - #184149 (closed) Deduplicate Triton max dim reductions
+  - #172358 (closed) [BE][Ez]: Add missings slots enablement for sympy ValueRanges
+  - #170388 (closed) [inductor] Fix torch.compile performance regression for cumprod backward
+
+## bmm_autotune_windows
+- `bmm max_autotune windows` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20bmm%20max_autotune%20windows)
+  - #185767 (closed) Fix CppGemmTemplate duplicate input remapping
+  - #152823 (closed) Performance Regression nightly 03/11→03/12, on nanogpt speedrun
+- `cpp_CppMicroGemm not found` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20cpp_CppMicroGemm%20not%20found)
+- `CppBmmTemplate windows dllexport` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20CppBmmTemplate%20windows%20dllexport)
+- `max_autotune cpu bmm AttributeError function not found` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20max_autotune%20cpu%20bmm%20AttributeError%20function%20not%20found)
+  - #184276 (closed) [inductor] fix torch.randperm for slice_shape node in fx_passes
+- `inductor windows autotune bmm` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20inductor%20windows%20autotune%20bmm)
+  - #193860 (open) [wip][inductor] Enforce freeze discipline for FlexibleLayout strides
+  - #191620 (closed) DISABLED test_max_autotune_decompose_k_dynamic_input_bwd (__main__.TestMaxAutotune)
+  - #183866 (closed) Preserve native matmul lowp output precision
+  - #185574 (closed) [inductor][sdpa] Fuse decomposed _safe_softmax SDPA back to native SDPA
+  - #185767 (closed) Fix CppGemmTemplate duplicate input remapping
+  - #182342 (closed) [Inductor] Deal with choices that fail to compile in async pipelined autotuning path (#182342)
+  - #183661 (closed) Add L2-aware two-pass variance heuristic
+  - #181854 (closed) [inductor][xpu] Auto-enable batch_linear_lhs fusion for XPU inference
+
+## interpolate_zero_size
+- `interpolate empty tensor compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20interpolate%20empty%20tensor%20compile)
+  - #195550 (open) Use TORCH_CHECK_VALUE for adaptive_avg_pool2d input validation
+  - #195358 (open) [aot_autograd] Name the forward output when a kept tangent slot arrives as None
+  - #195354 (open) [aot_compile] Fix global guards on reloaded nn.Module artifacts
+  - #194787 (open) grid_sample: support mode='bicubic' with 5-D input, including its double backward
+  - #195393 (closed) [inductor] Replay cond_fn mutations of captured tensors in while_loop
+  - #190093 (closed) test_interpolate_propagate_real_tensors_cuda fails CUDA mem-leak check: real CUDA tensor from data-d
+  - #193015 (closed) [BugFix] release tracked fake tensors
+  - #195353 (open) [guards] Reconstruct fqn-mismatched functions when a guard is rooted at them
+- `interpolate zero size inductor NaN` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20interpolate%20zero%20size%20inductor%20NaN)
+  - #194787 (open) grid_sample: support mode='bicubic' with 5-D input, including its double backward
+  - #138813 (open) Strange recompilations on torch 2.5 + FSDP + UNet
+  - #188299 (closed) Lazily build error messages for assert*() calls across tests to reduce overhead
+  - #178988 (open) Cannot build documentation (`RecursionError`)
+  - #166396 (closed) [xpu][test][1/N] Enable tests of test_nn.py on Intel GPU - instantiate TestNN with instantiate_devic
+  - #77764 (open) General MPS op coverage tracking issue
+  - #152185 (closed) GroupNorm compilation errors on UNet-based architecture on torch >= 2.6.0
+  - #133571 (closed) Errors with torch.compile after upgrading to 2.4.0
+- `upsample empty input torch.compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20upsample%20empty%20input%20torch.compile)
+  - #193811 (open) torch.compile silently accepts int32 input to upsample_bilinear2d that eager correctly rejects
+  - #194787 (open) grid_sample: support mode='bicubic' with 5-D input, including its double backward
+  - #77764 (open) General MPS op coverage tracking issue
+  - #190928 (closed) [inductor][cpu] Fix max parallel depth to prevent OMP fork overhead when freezing
+  - #186622 (closed) Fix bf16 autocast precision barriers in Inductor
+  - #160230 (open) Offer official Pytorch Vulkan backend on pytorch.org
+  - #96002 (closed) Remove mention of dynamo.optimize() in docs
+  - #114774 (closed) Decomposition for upsample_linear{1d, 3d}
+- `interpolate output size 0 compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20interpolate%20output%20size%200%20compile)
+  - #193811 (open) torch.compile silently accepts int32 input to upsample_bilinear2d that eager correctly rejects
+  - #195358 (open) [aot_autograd] Name the forward output when a kept tangent slot arrives as None
+  - #179272 (open) `torch.compile` returns different output stride/contiguity from eager for upsample_nearest3d on non-
+  - #185510 (open) [Dynamo] TypeError: cannot determine truth value of Relational during stride sorting with dynamic=Tr
+  - #160391 (open) `torch.compile` backward pass fails with `AssertionError` in Inductor C++ codegen when model returns
+  - #185497 (open) [pt2] RuntimeError: variable modified by inplace operation during backward in compiled mode (succeed
+  - #147475 (open) [Export AOTI] dynamic_shapes  export and compile degraded output
+  - #195354 (open) [aot_compile] Fix global guards on reloaded nn.Module artifacts
+- `Input and output sizes should be greater than 0 compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20Input%20and%20output%20sizes%20should%20be%20greater%20than%200%20compile)
+  - #194787 (open) grid_sample: support mode='bicubic' with 5-D input, including its double backward
+  - #132300 (open) CUDA Memory Explosion -- Conv3D
+  - #162476 (open) heap-buffer-overflow in torch.quantized_max_pool2d via Python API
+  - #123119 (open) `nn.Embedding` behaves differently on CPU (fails) and MPS (fails not) 
+  - #40497 (open) Mixed precision causes NaN loss
+  - #195301 (closed) Add BF16x9 precision mode for CUDA FP32 matmul
+  - #56187 (open) AVX512 and Vec512
+  - #191871 (closed) [XPU] `torch.topk()` fails for tensors with 4096 or more elements in v2.13
+
+## vector_norm_empty_batch
+- `vector_norm empty batch compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20vector_norm%20empty%20batch%20compile)
+  - #116336 (closed) ONNX export: Unsupported FX nodes: {'call_function': ['aten._sample_dirichlet.default', 
+- `vector_norm inf norm empty tensor compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20vector_norm%20inf%20norm%20empty%20tensor%20compile)
+  - #195050 (open) [_native][2/11] Add shared CuteDSL machinery (ops/_cutedsl/)
+  - #116336 (closed) ONNX export: Unsupported FX nodes: {'call_function': ['aten._sample_dirichlet.default', 
+- `linalg.norm ord inf empty compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20linalg.norm%20ord%20inf%20empty%20compile)
+- `vector_norm cannot compute the inf norm` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20vector_norm%20cannot%20compute%20the%20inf%20norm)
+  - #195050 (open) [_native][2/11] Add shared CuteDSL machinery (ops/_cutedsl/)
+  - #76547 (closed) Update linalg.*norm functions
+  - #51099 (closed) Add torch.linalg.vector_norm function
+- `_check_vector_norm_args numel` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20_check_vector_norm_args%20numel)
+
+## std_var_fp32_accumulation
+- `std inductor nan large values` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20std%20inductor%20nan%20large%20values)
+  - #185263 (open) Fix torch.compile normal tensor std validation
+  - #183328 (open) [special] Add arbitrary-order modified Bessel functions
+  - #173793 (open) Numerical stability discrepancy in torch.compile: LayerNorm produces NaN for large inputs (~1e37) wh
+  - #194585 (open) [arm]Port AOR sin and cos to SVE128 and SVE256 on aarch64
+  - #194787 (open) grid_sample: support mode='bicubic' with 5-D input, including its double backward
+  - #149301 (open) Unexpected results w/ LayerNorm -- suspecting possible memory issue?
+  - #193868 (closed) Add more ops support for functional all_reduce_coalesced
+  - #184105 (closed) Fix CPU Inductor vector asinh overflow
+- `var torch.compile overflow inf` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20var%20torch.compile%20overflow%20inf)
+  - #173793 (open) Numerical stability discrepancy in torch.compile: LayerNorm produces NaN for large inputs (~1e37) wh
+  - #190417 (open) Inductor codegen errors on layer_norm(log2(zeros)) because -inf causes NaN in symbolic bounds
+  - #194616 (open) Preserve channels_last in InstanceNorm and fix the channels-last group norm reductions at D == 1
+  - #190421 (closed) [Inductor] OverflowError in index_propagation.TypedExpr when converting inf to int32 in sum
+  - #178096 (closed) torch.compile(dynamic=True) on CUDA: large eager vs compiled mismatch for BatchNorm2d + Conv2d
+  - #173989 (closed) [Inductor] Fix NaN output in LayerNorm CPU by guarding Welford variance.
+  - #185405 (closed) [Inductor] AssertionError: len(index) == len(stride) in ir.py when using torch.compile(mode="max-aut
+  - #148397 (closed) [inductor][fuzzer] `IndexError` error at `torch.dstack`
+- `std compile zero gradient small values` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20std%20compile%20zero%20gradient%20small%20values)
+  - #195557 (open) Add vmap rules for multi_margin_loss
+  - #185876 (open) Prevent saving mutated grad inputs in AOT min-cut
+  - #132135 (open) [torch.special] Adding betainc, betaincc, betaincinv, betainccinv, betaln and beta with backward ope
+  - #194787 (open) grid_sample: support mode='bicubic' with 5-D input, including its double backward
+  - #1369 (open) "Sparsified" mathematical operations
+  - #194818 (closed) [varlen] Fix cuDNN backend bugs found by fuzz testing
+  - #193868 (closed) Add more ops support for functional all_reduce_coalesced
+  - #74235 (open) RuntimeError: CUDA error: unspecified launch failure
+- `inductor var_mean float32 accumulation` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20inductor%20var_mean%20float32%20accumulation)
+  - #183654 (open) Fix Inductor CPU group norm affine precision
+  - #184158 (closed) Fix low precision CUDA var_mean numerics
+  - #184383 (closed) [inductor] Use two-step variance for small CUDA reductions
+  - #183980 (closed) [cpu][cuda] Extend native_group_norm_backward to handle grad from all outputs
+  - #183661 (closed) Add L2-aware two-pass variance heuristic
+  - #182255 (closed) [MPS] Replace MPSGraph prod/var/std/argmax/min with Metal kernels
+  - #177163 (closed) Stop decomposing native_layer_norm to fix bf16 precision divergence
+- `std 1e30 compile nan` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20std%201e30%20compile%20nan)
+  - #183328 (open) [special] Add arbitrary-order modified Bessel functions
+
+## var_mean_empty_mean
+- `var_mean empty tensor compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20var_mean%20empty%20tensor%20compile)
+  - #195050 (open) [_native][2/11] Add shared CuteDSL machinery (ops/_cutedsl/)
+  - #169290 (open) [MPS][Inductor] LayerNorm/BatchNorm/GroupNorm fail to compile with dynamic=True due to invalid Metal
+  - #74748 (open) [jiterator] Jiterate Complex Ops
+  - #29137 (open) torch.sum(tensor, dim=()) is different from np.sum(arr, axis=())
+  - #187787 (closed) [MPS] Migrate var/std to native Metal kernels (Welford)
+  - #186622 (closed) Fix bf16 autocast precision barriers in Inductor
+  - #186380 (closed) Run python decompositions under functionalization
+  - #191166 (closed) [ROCm][inductor] gfx1250 TDM support for dense mm/addmm
+- `std_mean empty inductor mean 0` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20std_mean%20empty%20inductor%20mean%200)
+  - #187787 (closed) [MPS] Migrate var/std to native Metal kernels (Welford)
+  - #182255 (closed) [MPS] Replace MPSGraph prod/var/std/argmax/min with Metal kernels
+- `var_mean empty nan inductor` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20var_mean%20empty%20nan%20inductor)
+  - #169290 (open) [MPS][Inductor] LayerNorm/BatchNorm/GroupNorm fail to compile with dynamic=True due to invalid Metal
+  - #183001 (closed) Refactor CompositeExplicitAutograd for aten.native_group_norm
+  - #182255 (closed) [MPS] Replace MPSGraph prod/var/std/argmax/min with Metal kernels
+
+## pdist_backward_crash
+- `pdist backward empty` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20pdist%20backward%20empty)
+  - #193044 (open) [inductor] Report cudagraph skip when no graph partition is cudagraphable
+  - #88221 (open) Add torch.tensor replacement and int_tensor prim
+  - #119930 (open) [dtensor] ops coverage tracker
+  - #176066 (closed) [MPS] Add `_pdist_forward` and `_pdist_backward` aten ops
+  - #77764 (open) General MPS op coverage tracking issue
+  - #194077 (closed) Use `_unsafe_view` in the nD `linear` fast path
+  - #183814 (closed) [DDE] Fix data-dependent errors in pixel_shuffle, pdist, and padding ops
+  - #75432 (open) Rollup: Top forward-over-reverse formulas
+- `pdist crash zero rows` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20pdist%20crash%20zero%20rows)
+- `pdist_backward segfault` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20pdist_backward%20segfault)
+- `pdist empty input autograd crash` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20pdist%20empty%20input%20autograd%20crash)
+  - #194077 (closed) Use `_unsafe_view` in the nD `linear` fast path
+  - #77764 (open) General MPS op coverage tracking issue
+  - #75782 (closed) Improves the OpInfo out= tests
+- `pdist integer division by zero` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20pdist%20integer%20division%20by%20zero)
+
+## bce_weight_dtype
+- `binary_cross_entropy weight dtype compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20binary_cross_entropy%20weight%20dtype%20compile)
+  - #187553 (open) [MPS] Migrate mse_loss to a native fused Metal kernel
+  - #187556 (open) [MPS] Migrate smooth_l1_loss and huber_loss to native Metal kernels
+  - #40497 (open) Mixed precision causes NaN loss
+  - #77764 (open) General MPS op coverage tracking issue
+  - #183093 (closed) MPS: Replace MPSGraph loss ops with fixed Metal kernels (LossOps.metal)
+  - #172286 (closed) Add naive nn.linear_cross_entropy.
+  - #5560 (closed) "Reduce Failed to Synchronise" in F.binary_cross_entropy 
+- `binary_cross_entropy bfloat16 inductor float32` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20binary_cross_entropy%20bfloat16%20inductor%20float32)
+  - #172286 (closed) Add naive nn.linear_cross_entropy.
+  - #77764 (open) General MPS op coverage tracking issue
+- `binary_cross_entropy inductor different dtype` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20binary_cross_entropy%20inductor%20different%20dtype)
+  - #77764 (open) General MPS op coverage tracking issue
+  - #172286 (closed) Add naive nn.linear_cross_entropy.
+- `BCELoss half compile output dtype` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20BCELoss%20half%20compile%20output%20dtype)
+  - #69033 (open) Lazy Tensor Core Documentation Out-of-Date
+  - #40497 (open) Mixed precision causes NaN loss
+  - #77764 (open) General MPS op coverage tracking issue
+  - #178988 (open) Cannot build documentation (`RecursionError`)
+  - #183093 (closed) MPS: Replace MPSGraph loss ops with fixed Metal kernels (LossOps.metal)
+  - #494 (closed) Add windows support please
+
+## channel_shuffle_layout
+- `channel_shuffle channels_last` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20channel_shuffle%20channels_last)
+- `channel_shuffle compile stride` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20channel_shuffle%20compile%20stride)
+  - #157603 (closed) Incorrect inference of the groups parameter type for channel_stuffle (int misclassified as Tensor)
+  - #180310 (closed) [ROCm] Workaround for UpSamplingNearest2D Fwd due to HIP UINT32_MAX limit
+  - #157602 (closed) Incorrect inference of the groups parameter type for channel_stuffle (int misclassified as Tensor)
+- `channel_shuffle memory format inductor` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20channel_shuffle%20memory%20format%20inductor)
+  - #180310 (closed) [ROCm] Workaround for UpSamplingNearest2D Fwd due to HIP UINT32_MAX limit
+- `native_channel_shuffle torch.compile` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20native_channel_shuffle%20torch.compile)
+  - #189649 (open) Reject groups > channels in channel_shuffle to avoid FPE
+
+## addmm_scalar_bias_autotune
+- `addmm max_autotune scalar bias` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20addmm%20max_autotune%20scalar%20bias)
+  - #180330 (closed) [Inductor] Use unexpanded bias for ATen addmm on XPU
+  - #184086 (closed) Fix Inductor scaled_mm scale_result lowering
+  - #184276 (closed) [inductor] fix torch.randperm for slice_shape node in fx_passes
+  - #173765 (closed) TorchInductor out of shared memory while compiling backwards pass
+- `addmm 0-d bias inductor IndexError` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20addmm%200-d%20bias%20inductor%20IndexError)
+- `tuned_addmm get_stride IndexError` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20tuned_addmm%20get_stride%20IndexError)
+- `addmm bias scalar compile crash` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20addmm%20bias%20scalar%20compile%20crash)
+  - #184968 (open) Fix autocast state propagation for normalization layers in functorch batched autograd
+  - #195008 (closed) Release 2.14 validations checklist and cherry-picks
+  - #77764 (open) General MPS op coverage tracking issue
+  - #184276 (closed) [inductor] fix torch.randperm for slice_shape node in fx_passes
+  - #112296 (closed) [WIP] Dynamo single step graph
+
+## expand_neg_dim
+- `expand -1 scalar tensor` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20expand%20-1%20scalar%20tensor)
+  - #194521 (open) Fix vmap index_select with batched scalar indices
+  - #190038 (open) `Tensor.is_contiguous` is false for expanded tensors
+  - #192313 (open) Feat/divmod
+  - #193464 (open) [MPS] Add `Tensor.record_stream` for MPS
+  - #192809 (open) [pytorch] Add scoped custom-op opt-in to the FakeTensor dispatch cache (#192809)
+  - #188900 (open) `sparse.mul`: broadcasting a size-1 dimension of the sparse operand silently drops data
+  - #188931 (open) Fix matrix-vector linear fallback crashes with 1D weight and bias
+  - #195322 (open) [while_loop] vmap for while_loop
+- `expand negative dimension zero-dim tensor` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20expand%20negative%20dimension%20zero-dim%20tensor)
+  - #194521 (open) Fix vmap index_select with batched scalar indices
+  - #188947 (open) [Bugfix][DTensor] Fix wrong shard offsets for uneven DTensor shards in TP-FSDP metadata
+  - #192389 (open) [assoc_scan] Support compile + pointwise for vmap
+  - #41508 (open) nn.MultiheadAttention causes gradients to become NaN under some use cases
+  - #186893 (closed) Fix dynamic size-one tensor recompiles
+  - #184134 (closed) Fix Inductor split Tensor decomposition
+  - #184632 (closed) Fix CUDA fake strides for mixed dtype pointwise ops
+  - #185866 (closed) Fix CPU Inductor numerics for BatchNorm erf normalize
+- `expand -1 leading dimension 0-d` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20expand%20-1%20leading%20dimension%200-d)
+  - #192941 (open) Fix block_diag vmap batching rule crash on batch size 0
+  - #189122 (open) Fix sparse-dense mul dropping data when broadcasting a size-1 sparse dim
+  - #191232 (open) Validate input/hidden dimension consistency in RNN cells
+  - #194366 (open) [inductor] Fix graph ordering and broadcast values in partitioned scatter
+  - #192389 (open) [assoc_scan] Support compile + pointwise for vmap
+  - #7786 (open) [feature request] Simple and Efficient way to get gradients of each element of a sum
+  - #191706 (closed) Avoid D2D copy for addmm with distinct C and D
+  - #187506 (closed) Fix cpu flash sdpa incorrect results when inputs' innermost dim is not contiguous
+- `tensor negative shape expand` — [search](https://github.com/pytorch/pytorch/issues?q=is%3Aissue%20tensor%20negative%20shape%20expand)
+  - #194521 (open) Fix vmap index_select with batched scalar indices
+  - #192164 (open) [MPS] Use atomic counters for histc
+  - #70398 (open) `torch.broadcast_to` can create tensor with negative dimension.
+  - #195427 (open) [xpu][1/N] Integrate OneDNN grouped_mm and scaled_grouped_mm
+  - #192313 (open) Feat/divmod
+  - #192786 (open) Inductor: fuse CUDA FNUZ FP8 conversions into Triton kernels
+  - #185977 (open) Fix index_add out-of-bounds parity between eager and inductor
+  - #76483 (open) Expand pow and float_pow sampling function for more coverage
+

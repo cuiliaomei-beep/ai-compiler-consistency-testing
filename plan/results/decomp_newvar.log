@@ -1,0 +1,57 @@
+isolated decomp sweep: 595 operators, 0 already done, 595 to go
+[25/595] abs .. atan
+[50/595] atan2 .. view_as_complex
+[75/595] complex .. diagonal
+[100/595] diagonal_copy .. le
+  DECOMP isin                                 dtype_complex64 [exception] ref raised RuntimeError, test returned normally  confirmed=False
+[125/595] linspace .. var_mean
+[150/595] var_mean .. nn.functional.linear_cross_entropy
+[175/595] nn.functional.linear_cross_entropy .. nn.functional.conv1d
+  DECOMP nn.functional.linear_cross_entropy   dtype_complex64 [exception] exception type differs: RuntimeError vs NotImplementedError :: "max_  confirmed=True
+  DECOMP native_group_norm                    dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP native_batch_norm                    dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  child exit 3221225477: bability target with reduction in {'mean','sum'}, dtype matching input, and requires_grad == False), out_features == (). Got reduction='none', label_smoothing=0.0, target.dtype=torch.complex64, out_features=(), tracing=False, target.requires_grad=False, linear_bias.shape=(8,).
+  return _op(*a, **kw)
+  DECOMP native_batch_norm                    dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  child exit 3221225477: 
+  CRASH  native_batch_norm                    process exit 3221225477 (timeout if -999)
+[200/595] nn.functional.conv2d .. nn.functional.upsample_nearest
+  DECOMP nn.functional.group_norm             dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.instance_norm          dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.upsample_nearest       dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[225/595] nn.functional.margin_ranking_loss .. nn.functional.scaled_dot_product_attention
+  DECOMP nn.functional.max_unpool1d           dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool1d           dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool2d           dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool2d           dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool3d           dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool3d           dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[250/595] torch.ops.aten._scaled_dot_product_flash_attention_for_cpu .. mvlgamma
+  DECOMP nn.functional.hardshrink             dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[275/595] mvlgamma .. sinh
+[300/595] sign .. reciprocal
+[325/595] rsqrt .. view
+[350/595] view_as .. bfloat16
+  DECOMP index_reduce                         dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[375/595] bool .. stack
+[400/595] hstack .. take_along_dim
+  CRASH  unbind                               process exit -999 (timeout if -999)
+[425/595] tile .. digamma
+  DECOMP xlogy                                dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[450/595] erf .. native_dropout_backward
+  DECOMP nn.functional.smooth_l1_loss         dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[475/595] nn.functional.dropout2d .. prod
+  DECOMP nn.functional.mse_loss               dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nanmean                              dtype_complex64 [exception] ref raised RuntimeError, test returned normally  confirmed=True
+[500/595] sum .. fft.fft
+  DECOMP nansum                               dtype_complex64 [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.nll_loss               dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.huber_loss             dtype_complex64 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[525/595] fft.fft2 .. linalg.cholesky_ex
+[550/595] linalg.vecdot .. linalg.lu
+[575/595] linalg.lu_solve .. signal.windows.nuttall
+[600/595] masked.sum .. bmm
+{"ops": 561, "samples": 561, "variants": 1918, "decomp_covered": 660, "decomp_mismatch": 21, "meta_mismatch": 0, "data_dependent": 39, "errors": 0, "wall_s": 3798.5, "crashes": 2}
+written results/decomp_newvar\DECOMP_DIFF.md

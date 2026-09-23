@@ -1,0 +1,1400 @@
+{
+  "repo": "pytorch/pytorch",
+  "queries": [
+    "\"torch.compile\" \"wrong result\" in:body",
+    "\"torch.compile\" \"incorrect\" in:body label:\"module: inductor\"",
+    "\"torch.compile\" \"eager\" \"different\" in:body label:\"oncall: pt2\"",
+    "\"torch.compile\" \"inconsistent\" in:body",
+    "\"torch.compile\" label:\"module: dynamic shapes\" in:body",
+    "\"torch.compile\" \"silently\" in:body"
+  ],
+  "written": [
+    {
+      "number": 195665,
+      "file": "issue_195665_inductor_torch_compile_skips_as_strided.py",
+      "title": "[inductor] torch.compile skips as_strided's storage-bounds check and reads out of bounds, returning non-reproducible memory",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195665"
+    },
+    {
+      "number": 195582,
+      "file": "issue_195582_inductor_silent_wrong_and_non_reproducib.py",
+      "title": "[inductor] Silent wrong and non-reproducible results: BatchNorm2d followed by a shrinking F.pad",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195582"
+    },
+    {
+      "number": 195422,
+      "file": "issue_195422_inductor_torch_compile_silently_drops_an.py",
+      "title": "[inductor] torch.compile silently drops an in-place mutation of an input made through F.dropout's identity return",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/195422"
+    },
+    {
+      "number": 195320,
+      "file": "issue_195320_inductor_sdpa_fusion_matches_a_permuted.py",
+      "title": "[inductor] SDPA fusion matches a permuted K as if it were key.transpose(-2,-1), silently producing wrong attention outputs",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195320"
+    },
+    {
+      "number": 194062,
+      "file": "issue_194062_inductor_silent_incorrectness_torch_full.py",
+      "title": "[inductor] [silent incorrectness] torch.full ignores dtype when fill_value is symbolic",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194062"
+    },
+    {
+      "number": 193661,
+      "file": "issue_193661_inductor_wrong_argmax_after_fused_traili.py",
+      "title": "[inductor] Wrong argmax after fused trailing-dim reduction on non-contiguous inputs (incl. non-unit-stride reduction window) — generic reduction fusion ignores input strides, CPU and CUDA",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/193661"
+    },
+    {
+      "number": 193279,
+      "file": "issue_193279_dynamo_silently_drops_custom_backward_of.py",
+      "title": "Dynamo silently drops custom `backward` of `autograd.Function` under `torch.func.grad`, producing wrong gradients",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/193279"
+    },
+    {
+      "number": 192905,
+      "file": "issue_192905_nested_nested_compile_region_silently_re.py",
+      "title": "Nested nested_compile_region silently reuses a body specialized on the inner region's guards",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/192905"
+    },
+    {
+      "number": 191499,
+      "file": "issue_191499_inductor_cpu_torch_compile_returns_0_for.py",
+      "title": "[Inductor][CPU] torch.compile returns 0 for short positive uint8/int8 amin reductions on Apple Silicon",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/191499"
+    },
+    {
+      "number": 190855,
+      "file": "issue_190855_inductor_wrong_hessian_torch_compile_tor.py",
+      "title": "[inductor] Wrong Hessian: `torch.compile(torch.func.hessian(f))` miscompiles the derivative of `torch.trace` — a constant is added to every Hessian entry",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/190855"
+    },
+    {
+      "number": 189518,
+      "file": "issue_189518_inductor_s_pointless_cumsum_replacement.py",
+      "title": "Inductor's pointless_cumsum_replacement drops cumsum's explicit dtype argument",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/189518"
+    },
+    {
+      "number": 188680,
+      "file": "issue_188680_test_opinfo_gap_allclose_based_compile_v.py",
+      "title": "[test] OpInfo gap: allclose-based compile-vs-eager checks are blind to signed-zero and signed-infinity divergences",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/188680"
+    },
+    {
+      "number": 187027,
+      "file": "issue_187027_flip_after_repeat_interleave_generates_n.py",
+      "title": "flip after repeat_interleave generates negative (out-of-bounds) index under dynamic shapes",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/187027"
+    },
+    {
+      "number": 187018,
+      "file": "issue_187018_abs_on_uint8_silently_miscompiled_via_st.py",
+      "title": "abs on uint8 silently miscompiled via std::abs integer promotion",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/187018"
+    },
+    {
+      "number": 186671,
+      "file": "issue_186671_dynamo_set_subclass_overriding_iter_give.py",
+      "title": "[dynamo] set subclass overriding __iter__ gives wrong result for set comparison under torch.compile",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/186671"
+    },
+    {
+      "number": 185587,
+      "file": "issue_185587_inductor_numerical_inconsistency_polygam.py",
+      "title": "[inductor] Numerical inconsistency: polygamma + cumulative_trapezoid under torch.compile(dynamic=True) produces wrong results after Conv2d + GroupNorm",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/185587"
+    },
+    {
+      "number": 180848,
+      "file": "issue_180848_torch_compile_produces_wrong_results_whe.py",
+      "title": "`torch.compile` produces wrong results when fusing `adaptive_avg_pool2d` with `flatten + sum`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/180848"
+    },
+    {
+      "number": 175919,
+      "file": "issue_175919_inductor_out_of_bounds_memory_read_via_r.py",
+      "title": "[Inductor] Out-of-Bounds Memory Read via `resize` on Overlapping Views",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/175919"
+    },
+    {
+      "number": 174719,
+      "file": "issue_174719_pallas_argmax_with_keepdim_true_on_middl.py",
+      "title": "[Pallas] argmax with keepdim=True on middle dimension produces incorrect reshape in generated kernel",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/174719"
+    },
+    {
+      "number": 172711,
+      "file": "issue_172711_torch_compile_produces_wrong_output_chan.py",
+      "title": "torch.compile produces wrong output channels for mkldnn._convolution_transpose_pointwise (FakeTensor shape inference bug) ",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/172711"
+    },
+    {
+      "number": 159408,
+      "file": "issue_159408_int64_mps_repeat_interleave_is_incorrect.py",
+      "title": "int64 mps repeat_interleave is incorrect under torch.compile",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/159408"
+    },
+    {
+      "number": 145466,
+      "file": "issue_145466_torch_sin_cos_tan_torch_floor_round_may.py",
+      "title": "torch.sin/cos/tan+torch.floor/round may bring wrong results with torch.compile",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/145466"
+    },
+    {
+      "number": 145372,
+      "file": "issue_145372_xpu_torch_nn_functional_pad_brings_wrong.py",
+      "title": "[XPU] torch.nn.functional.pad brings wrong results with torch.compile on Intel GPU",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/145372"
+    },
+    {
+      "number": 139257,
+      "file": "issue_139257_error_compiling_the_torch_library_custom.py",
+      "title": "Error compiling the torch.library.custom_op with input mutations with set_",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/139257"
+    },
+    {
+      "number": 136662,
+      "file": "issue_136662_composition_of_torch_compile_and_torch_f.py",
+      "title": "Composition of torch.compile and torch.func.grad silently produces a wrong result. ",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/136662"
+    },
+    {
+      "number": 135432,
+      "file": "issue_135432_torch_compile_cannot_handle_torch_tensor.py",
+      "title": "torch.compile cannot handle torch.Tensor correctly",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/135432"
+    },
+    {
+      "number": 128202,
+      "file": "issue_128202_wrong_result_for_inplace_tensor_update_o.py",
+      "title": "Wrong result for Inplace tensor update on transpose for some devices with torch 2.3.0",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/128202"
+    },
+    {
+      "number": 126848,
+      "file": "issue_126848_torch_compile_generates_wrong_code_on_cp.py",
+      "title": "torch.compile generates wrong code on CPU and compiled code replaces original function",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/126848"
+    },
+    {
+      "number": 124357,
+      "file": "issue_124357_torch_compile_produces_wrong_result_for.py",
+      "title": "torch.compile produces wrong result for changing attributes in python class instances",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/124357"
+    },
+    {
+      "number": 114415,
+      "file": "issue_114415_aotautograd_should_detect_aliasing_of_in.py",
+      "title": "AOTAutograd should detect aliasing of inputs that happens *below* subclasses",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/114415"
+    },
+    {
+      "number": 113641,
+      "file": "issue_113641_compiling_double_inplace_clamp_on_stride.py",
+      "title": "compiling double inplace clamp on strides produces wrong result with static shapes",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/113641"
+    },
+    {
+      "number": 109105,
+      "file": "issue_109105_inductor_compiled_modules_produce_incorr.py",
+      "title": "Inductor-Compiled Modules Produce  Incorrect Result When Handling Distributive Property of Multiplication",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/109105"
+    },
+    {
+      "number": 108432,
+      "file": "issue_108432_wrong_result_of_first_run_with_torch_com.py",
+      "title": "Wrong result of first run with torch.compile() when backend is using torch.jit.trace() and model has inplace operators ",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/108432"
+    },
+    {
+      "number": 96728,
+      "file": "issue_96728_redundant_statement_leads_to_wrong_outpu.py",
+      "title": "Redundant statement leads to wrong output",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/96728"
+    },
+    {
+      "number": 95695,
+      "file": "issue_95695_torch_ge_produces_wrong_results_in_compi.py",
+      "title": "`torch.ge` produces wrong results in compile mode when given int tensors",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/95695"
+    },
+    {
+      "number": 95161,
+      "file": "issue_95161_aotautograd_based_torch_compile_doesn_t.py",
+      "title": "AOTAutograd based torch.compile doesn't capture manual seed setting in the graph",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/95161"
+    },
+    {
+      "number": 93365,
+      "file": "issue_93365_pt2_compiled_function_with_cat_and_mul_g.py",
+      "title": "[pt2] compiled function with cat and mul gives wrong results",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/93365"
+    },
+    {
+      "number": 93363,
+      "file": "issue_93363_aotautograd_returns_wrong_result_for_in.py",
+      "title": "AOTautograd returns wrong result for in_place update on input which is view tensor ",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/93363"
+    },
+    {
+      "number": 93357,
+      "file": "issue_93357_pt2_compiled_model_with_cat_and_expand_g.py",
+      "title": "[pt2] compiled model with cat and expand gives wrong results",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/93357"
+    },
+    {
+      "number": 193710,
+      "file": "issue_193710_inductor_fallback_node_due_to_unsupporte.py",
+      "title": "[inductor] `fallback_node_due_to_unsupported_type` blocks pattern matching on extern-kernel ops with `float8_e8m0fnu` inputs, with no way to opt in",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/193710"
+    },
+    {
+      "number": 191136,
+      "file": "issue_191136_inductor_torch_view_copy_fails_on_expand.py",
+      "title": "[Inductor] torch.view_copy fails on expanded tensors",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/191136"
+    },
+    {
+      "number": 188084,
+      "file": "issue_188084_bug_inductor_reinplaces_index_put_on_exp.py",
+      "title": "[BUG] Inductor reinplaces `index_put` on expanded view and silently corrupts gradients",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/188084"
+    },
+    {
+      "number": 185589,
+      "file": "issue_185589_inductor_severe_numerical_inconsistency.py",
+      "title": "[inductor] Severe numerical inconsistency: diag_embed + erf + normalize(p=-1) under torch.compile(dynamic=True) — max diff up to 565,248",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/185589"
+    },
+    {
+      "number": 183894,
+      "file": "issue_183894_torch_compile_returns_wrong_argmin_after.py",
+      "title": "torch.compile returns wrong argmin after in-place sin_ followed by transpose",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183894"
+    },
+    {
+      "number": 183601,
+      "file": "issue_183601_torch_compile_inductor_produces_wrong_ou.py",
+      "title": "torch.compile Inductor produces wrong output for InstanceNorm2d + normalize + hardswish chain",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183601"
+    },
+    {
+      "number": 183121,
+      "file": "issue_183121_torch_compile_returns_wrong_shape_for_to.py",
+      "title": "torch.compile returns wrong shape for torch.norm(dim=-1) when reduced dimension has size 1",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183121"
+    },
+    {
+      "number": 183120,
+      "file": "issue_183120_torch_compile_inductor_produces_wrong_ou.py",
+      "title": "torch.compile Inductor produces wrong output for BatchNorm2d + ELU + GroupNorm + log clamp chain",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/183120"
+    },
+    {
+      "number": 181695,
+      "file": "issue_181695_torch_where_with_broadcast_shapes_produc.py",
+      "title": "`torch.where` with broadcast shapes produces wrong output under `torch.compile(backend='inductor')`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/181695"
+    },
+    {
+      "number": 181694,
+      "file": "issue_181694_torch_addcdiv_produces_wrong_output_unde.py",
+      "title": "`torch.addcdiv` produces wrong output under `torch.compile(backend='inductor')`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/181694"
+    },
+    {
+      "number": 181693,
+      "file": "issue_181693_nn_hardswish_produces_wrong_output_under.py",
+      "title": "`nn.Hardswish` produces wrong output under `torch.compile(backend='inductor')`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/181693"
+    },
+    {
+      "number": 181625,
+      "file": "issue_181625_assertionerror_expected_size_stride_mism.py",
+      "title": "`AssertionError: expected size/stride mismatch` in Inductor-generated code for `torch.fft.fft` after `MultiheadAttention`, with warning about unsupported complex op codegen",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/181625"
+    },
+    {
+      "number": 180841,
+      "file": "issue_180841_inductor_importerror_file_too_short_when.py",
+      "title": "[Inductor] ImportError: file too short when compiling model with nn.MultiheadAttention and invalid attn_mask shape",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/180841"
+    },
+    {
+      "number": 179807,
+      "file": "issue_179807_torch_compile_inductor_crash_f_pad_follo.py",
+      "title": "`torch.compile` inductor crash: `F.pad` followed by `stft`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/179807"
+    },
+    {
+      "number": 178262,
+      "file": "issue_178262_inductor_incorrect_stride_calculation_in.py",
+      "title": "[Inductor] Incorrect stride calculation in convolution meta kernel when using torch.compile with GRU and Conv1d combination",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/178262"
+    },
+    {
+      "number": 178259,
+      "file": "issue_178259_inductor_c_compilation_error_when_conver.py",
+      "title": "[Inductor] C++ compilation error when converting between int8_t and int64_t in vectorized code with torch.compile",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/178259"
+    },
+    {
+      "number": 177821,
+      "file": "issue_177821_inductor_torch_compile_ignores_a_complex.py",
+      "title": "[inductor] torch.compile ignores a complex indexing assignment and produces incorrect result",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/177821"
+    },
+    {
+      "number": 177631,
+      "file": "issue_177631_inductor_torch_compile_produces_incorrec.py",
+      "title": "[inductor] torch.compile produces incorrect results when applying `index_put` and `sort` on the return of `pad`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/177631"
+    },
+    {
+      "number": 177629,
+      "file": "issue_177629_torch_compile_backend_inductor_silently.py",
+      "title": "`torch.compile(backend=\"inductor\")` silently succeeds on `torch.bmm` with mismatched dtypes (float16 @ float32) where eager raises RuntimeError",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/177629"
+    },
+    {
+      "number": 175903,
+      "file": "issue_175903_inductor_incorrect_results_in_index_put.py",
+      "title": "[Inductor] Incorrect results in `index_put_` when `randperm` views are not injective",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/175903"
+    },
+    {
+      "number": 175791,
+      "file": "issue_175791_inductor_incorrect_output_when_compiling.py",
+      "title": "[inductor] Incorrect output when compiling model with expand+broadcasted index put",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/175791"
+    },
+    {
+      "number": 174969,
+      "file": "issue_174969_torch_compile_outputs_incorrect_results.py",
+      "title": "torch.compile outputs incorrect results when applying `add_` on transposed tensor",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/174969"
+    },
+    {
+      "number": 170666,
+      "file": "issue_170666_inductor_fails_to_compile_models_contain.py",
+      "title": "Inductor Fails to Compile Models Containing `nn.RReLU` Due to Incorrect Meta Kernel for `aten.uniform.default`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/170666"
+    },
+    {
+      "number": 167780,
+      "file": "issue_167780_inductor_combo_kernel_fails_with_cppsche.py",
+      "title": "[Inductor] combo_kernel fails with CppScheduling backend",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/167780"
+    },
+    {
+      "number": 167636,
+      "file": "issue_167636_torchdynamo_compilation_error_invalid_st.py",
+      "title": "TorchDynamo Compilation Error: Invalid Stride Handling for FFT in Custom Model During Compilation",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/167636"
+    },
+    {
+      "number": 166514,
+      "file": "issue_166514_inductor_fails_with_stride_mismatch_for.py",
+      "title": "Inductor Fails with Stride Mismatch for `torch.fft.ifft` Due to Incorrect Meta Kernel Implementation",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/166514"
+    },
+    {
+      "number": 161905,
+      "file": "issue_161905_mps_torch_compile_resnet_18_model_fails.py",
+      "title": "[MPS] `torch.compile` ResNet-18 model fails during `loss.backward()` on MPS backend, but works on CPU",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/161905"
+    },
+    {
+      "number": 161763,
+      "file": "issue_161763_neg_add_computation_including_uint_tenso.py",
+      "title": "`neg` + `add` computation including `uint` tensor is incorrect under inductor",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/161763"
+    },
+    {
+      "number": 161150,
+      "file": "issue_161150_multiplication_and_softmax_throws_incorr.py",
+      "title": "multiplication and softmax throws incorrect results under torch.compile",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/161150"
+    },
+    {
+      "number": 195977,
+      "file": "issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py",
+      "title": "[scan] inductor refuses a tanh/sigmoid recurrence under autograd (\"scan might be aliasing the input or the output!\"): ScanAutogradOp returns the carry twice as a saved intermediate",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195977"
+    },
+    {
+      "number": 195673,
+      "file": "issue_195673_torch_compile_accepts_rand_like_on_an_in.py",
+      "title": "torch.compile accepts rand_like on an integer tensor that eager rejects, and returns an all-zero tensor",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195673"
+    },
+    {
+      "number": 195488,
+      "file": "issue_195488_dynamo_autocast_context_manager_is_lower.py",
+      "title": "[dynamo] autocast context manager is lowered without try/finally, so an exception leaks autocast state",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195488"
+    },
+    {
+      "number": 195282,
+      "file": "issue_195282_inductor_dynamo_fake_tensor_tracing_reje.py",
+      "title": "[inductor] Dynamo fake-tensor tracing rejects a valid broadcasting matmul→attention graph with \"Expected size for first two dimensions of batch2 tensor\", eager runs fine",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195282"
+    },
+    {
+      "number": 194593,
+      "file": "issue_194593_torch_compile_kl_divergence_binomial_bin.py",
+      "title": "[torch.compile] kl_divergence(Binomial, Binomial) fails with tensor total_count under fullgraph=True",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194593"
+    },
+    {
+      "number": 194558,
+      "file": "issue_194558_inductor_in_place_padding_optimization_m.py",
+      "title": "[inductor] in-place padding optimization mishandles negative (shrinking) F.pad, producing a buffer with negative declared size and crashing with ValueRangeError: Invalid ranges",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/194558"
+    },
+    {
+      "number": 194547,
+      "file": "issue_194547_torch_compile_silently_promotes_dtype_fo.py",
+      "title": "torch.compile silently promotes dtype for torch.distributions.Normal.sample() where eager preserves it",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194547"
+    },
+    {
+      "number": 193876,
+      "file": "issue_193876_inductor_compiling_two_torch_full_cumsum.py",
+      "title": "[inductor] Compiling two `torch.full -> cumsum` graphs with different fill constants in one process raises InductorError (FakeTensor/Node in pointless_cumsum_replacement)",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/193876"
+    },
+    {
+      "number": 193809,
+      "file": "issue_193809_torch_compile_torch_func_vjp_raises_inte.py",
+      "title": "torch.compile` + `torch.func.vjp` raises internal error not seen in eager",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/193809"
+    },
+    {
+      "number": 192985,
+      "file": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto.py",
+      "title": "Dynamo silently drops custom `jvp` of `autograd.Function` under `torch.func.jvp`, producing wrong tangents",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/192985"
+    },
+    {
+      "number": 192906,
+      "file": "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu.py",
+      "title": "reuse_hash_fn leaves a subscripted capture pinned to the traced index",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/192906"
+    },
+    {
+      "number": 190758,
+      "file": "issue_190758_memory_budget_partitioner_recomputes_rng.py",
+      "title": "Memory-budget partitioner recomputes RNG ops with fresh randomness in backward, silently corrupting gradients at any activation_memory_budget < 1.0",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/190758"
+    },
+    {
+      "number": 190755,
+      "file": "issue_190755_some_dynamo_descriptors_tp_descr_get_imp.py",
+      "title": "Some Dynamo descriptors (`tp_descr_get_impl`) are missing a `descr_check` equivalent",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/190755"
+    },
+    {
+      "number": 190274,
+      "file": "issue_190274_inductor_runtimeerror_self_stride_0_must.py",
+      "title": "[inductor] RuntimeError: self.stride(0) must be divisible by 2 to view Double as ComplexDouble",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/190274"
+    },
+    {
+      "number": 189808,
+      "file": "issue_189808_inductor_sqrt_produces_negative_nan_0xff.py",
+      "title": "Inductor sqrt produces negative NaN (0xffc00000) for negative inputs instead of positive NaN (0x7fc00000)",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/189808"
+    },
+    {
+      "number": 189787,
+      "file": "issue_189787_inductor_constant_folds_sum_softmax_to_e.py",
+      "title": "Inductor constant-folds `sum(softmax)` to exactly 1.0, causing `floor()` to produce wrong integer results",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/189787"
+    },
+    {
+      "number": 189341,
+      "file": "issue_189341_torch_compile_causes_segmentation_fault.py",
+      "title": "torch.compile causes segmentation fault on XPU with all nightly builds",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/189341"
+    },
+    {
+      "number": 188536,
+      "file": "issue_188536_graph_break_reconstruction_loses_identit.py",
+      "title": "Graph-break reconstruction loses identity of graph-created torch.Event subclasses; record() and wait() operate on different event objects",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/188536"
+    },
+    {
+      "number": 188425,
+      "file": "issue_188425_torch_compile_produces_drastically_incor.py",
+      "title": "torch.compile produces drastically incorrect outputs for model with symbolic dimensions and random operations",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/188425"
+    },
+    {
+      "number": 186875,
+      "file": "issue_186875_inductor_fmod_remainder_with_python_floa.py",
+      "title": "[Inductor] fmod/remainder with Python float scalar diverge from eager for bf16/fp16 on CPU (same class as #185517)",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/186875"
+    },
+    {
+      "number": 186799,
+      "file": "issue_186799_torch_compile_silently_produces_wrong_gr.py",
+      "title": "`torch.compile` silently produces wrong gradient for `atan2(x, y).amin(dim)` on float32",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/186799"
+    },
+    {
+      "number": 185515,
+      "file": "issue_185515_inductor_tensor_view_dtype_after_transpo.py",
+      "title": "[inductor] Tensor.view(dtype) after transpose().contiguous() fails with stale non-contiguous stride",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/185515"
+    },
+    {
+      "number": 185405,
+      "file": "issue_185405_inductor_assertionerror_len_index_len_st.py",
+      "title": "[Inductor] AssertionError: len(index) == len(stride) in ir.py when using torch.compile(mode=\"max-autotune\") on CPU BMM/GEMM",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/185405"
+    },
+    {
+      "number": 184405,
+      "file": "issue_184405_torch_compile_backend_inductor_returns_s.py",
+      "title": "`torch.compile(..., backend=\"inductor\")` returns stale float32 for dtype=None factory op after torch.set_default_dtype(torch.float64)",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/184405"
+    },
+    {
+      "number": 183768,
+      "file": "issue_183768_torch_compile_returns_inf_for_torch_acos.py",
+      "title": "torch.compile returns inf for torch.acosh on large finite float32 inputs while eager returns finite values",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/183768"
+    },
+    {
+      "number": 183767,
+      "file": "issue_183767_torch_compile_returns_inf_for_torch_asin.py",
+      "title": "torch.compile returns inf for torch.asinh on large finite float32 inputs while eager returns finite values",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183767"
+    },
+    {
+      "number": 183765,
+      "file": "issue_183765_torch_compile_overflows_torch_cosh_near.py",
+      "title": "torch.compile overflows torch.cosh near float32 boundary while eager returns finite values",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183765"
+    },
+    {
+      "number": 183763,
+      "file": "issue_183763_torch_compile_overflows_torch_sinh_near.py",
+      "title": "torch.compile overflows torch.sinh near float32 boundary while eager returns finite values",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183763"
+    },
+    {
+      "number": 183761,
+      "file": "issue_183761_torch_compile_produces_different_fp16_re.py",
+      "title": "torch.compile produces different fp16 results for where + full_like + cast + add pattern",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183761"
+    },
+    {
+      "number": 183607,
+      "file": "issue_183607_torch_compile_changes_fp16_overflow_beha.py",
+      "title": "torch.compile changes fp16 overflow behavior for cast-to-float16 multiplication",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/183607"
+    },
+    {
+      "number": 183606,
+      "file": "issue_183606_torch_compile_changes_signed_zero_behavi.py",
+      "title": "torch.compile changes signed-zero behavior for torch.frac on -0.0",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183606"
+    },
+    {
+      "number": 183605,
+      "file": "issue_183605_torch_compile_changes_fp16_nan_behavior.py",
+      "title": "torch.compile changes fp16 NaN behavior for var + rsqrt normalization",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183605"
+    },
+    {
+      "number": 183082,
+      "file": "issue_183082_inductor_cpu_returns_wrong_argmax_after.py",
+      "title": "Inductor CPU returns wrong argmax after sin_() and transpose",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183082"
+    },
+    {
+      "number": 182611,
+      "file": "issue_182611_flex_attention_backward_is_10_30_slower.py",
+      "title": "`flex_attention` backward is 10-30× slower than SDPA backward under `torch.compile(backend=\"aot_eager\")` (math fallback materializes O(S²) and runs 114 ATen ops/layer)",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/182611"
+    },
+    {
+      "number": 182225,
+      "file": "issue_182225_torch_compile_mismatch_for_bfloat16_rope.py",
+      "title": "torch.compile mismatch for bfloat16 RoPE-style computation involving rotate_half and broadcasted sin/cos",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/182225"
+    },
+    {
+      "number": 182131,
+      "file": "issue_182131_torch_compile_inductor_produces_differen.py",
+      "title": "torch.compile/Inductor produces different result for float16 cast before elementwise add",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/182131"
+    },
+    {
+      "number": 181568,
+      "file": "issue_181568_torch_compile_mismatch_for_matmul_follow.py",
+      "title": "torch.compile mismatch for matmul followed by bfloat16 cast and fp32 add",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/181568"
+    },
+    {
+      "number": 196198,
+      "file": "issue_196198_fullgraph_true_does_not_enforce_graph_br.py",
+      "title": "fullgraph=True does not enforce graph break for Tensor.item() when capture_scalar_outputs=False",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/196198"
+    },
+    {
+      "number": 196173,
+      "file": "issue_196173_torch_compile_produces_incorrect_results.py",
+      "title": "torch.compile produces incorrect results and loses object state mutations for control flow based on mutable object identity",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/196173"
+    },
+    {
+      "number": 188432,
+      "file": "issue_188432_torch_compile_produces_inconsistent_outp.py",
+      "title": "torch.compile produces inconsistent outputs for Multi-Query Attention model with manually implemented attention",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/188432"
+    },
+    {
+      "number": 188430,
+      "file": "issue_188430_torch_compile_produces_large_absolute_er.py",
+      "title": "torch.compile produces large absolute errors for model with LSTM, MultiheadAttention, and torch.reciprocal",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/188430"
+    },
+    {
+      "number": 188420,
+      "file": "issue_188420_torch_compile_produces_inconsistent_outp.py",
+      "title": "torch.compile produces inconsistent outputs for MultiHeadAttentionModel with scaled_dot_product_attention",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/188420"
+    },
+    {
+      "number": 188074,
+      "file": "issue_188074_torch_compile_produces_inconsistent_outp.py",
+      "title": "torch.compile produces inconsistent outputs for stateful SNN model with custom LIF neurons",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/188074"
+    },
+    {
+      "number": 182399,
+      "file": "issue_182399_torch_compile_dynamic_true_fails_on_f_cr.py",
+      "title": "torch.compile(dynamic=True) fails on F.cross_entropy with probability targets and class weights",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/182399"
+    },
+    {
+      "number": 178964,
+      "file": "issue_178964_inductor_max_returns_incorrect_indices_w.py",
+      "title": "[inductor] `max` returns incorrect indices when compiling a function includes `(a + b).max(dim=1)`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/178964"
+    },
+    {
+      "number": 178482,
+      "file": "issue_178482_torch_compile_dynamic_true_ignores_incom.py",
+      "title": "torch.compile(dynamic=True) ignores incompatible `out` tensor for `torch.empty` and returns wrong shape",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/178482"
+    },
+    {
+      "number": 178128,
+      "file": "issue_178128_conv_transpose3d_meta_execution_produces.py",
+      "title": "conv_transpose3d meta execution produces output for invalid bias shape instead of matching eager validation",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/178128"
+    },
+    {
+      "number": 178125,
+      "file": "issue_178125_conv_transpose1d_meta_implementation_all.py",
+      "title": "conv_transpose1d meta implementation allows invalid output_padding that real CUDA execution rejects",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/178125"
+    },
+    {
+      "number": 177839,
+      "file": "issue_177839_inductor_torch_compile_on_cpu_produces_i.py",
+      "title": "[inductor] torch.compile on CPU produces incorrect result when applying `logit` on sliced tensor with specific shape",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/177839"
+    },
+    {
+      "number": 177652,
+      "file": "issue_177652_inductor_torch_compile_s_rng_state_is_in.py",
+      "title": "[inductor] torch.compile's RNG state is inconsistent with eager on non-contiguous tensor when size >= 16",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/177652"
+    },
+    {
+      "number": 177451,
+      "file": "issue_177451_torch_compile_fails_on_conv2d_with_kerne.py",
+      "title": "torch.compile fails on conv2d with kernel size larger than input size, while meta device succeeds",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/177451"
+    },
+    {
+      "number": 177372,
+      "file": "issue_177372_add_torch_narrow_scatter_operator_to_com.py",
+      "title": "Add torch.narrow_scatter operator to complete the *_copy/*_scatter operator family.",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/177372"
+    },
+    {
+      "number": 176854,
+      "file": "issue_176854_torch_compile_does_not_correctly_propaga.py",
+      "title": "torch.compile does not correctly propagate detach_() in-place autograd semantics",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/176854"
+    },
+    {
+      "number": 176686,
+      "file": "issue_176686_tensor_subclass_using_torch_function_pro.py",
+      "title": "Tensor subclass using __torch_function__ produce wrong results with torch.compile",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/176686"
+    },
+    {
+      "number": 176679,
+      "file": "issue_176679_torch_compile_produces_incorrect_results.py",
+      "title": "torch.compile produces incorrect results with Tensor subclass using __torch_function__",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/176679"
+    },
+    {
+      "number": 176599,
+      "file": "issue_176599_torch_compile_bypasses_property_setter_a.py",
+      "title": "torch.compile bypasses `@property` setter and getter logic during compilation.",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/176599"
+    },
+    {
+      "number": 176596,
+      "file": "issue_176596_torch_compile_does_not_correctly_invoke.py",
+      "title": "torch.compile does not correctly invoke property setter during object initialization",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/176596"
+    },
+    {
+      "number": 175632,
+      "file": "issue_175632_inductor_torch_compile_produces_inconsis.py",
+      "title": "[inductor] torch.compile produces inconsistent output for attention-like computation when only returning the final output tensor",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/175632"
+    },
+    {
+      "number": 175604,
+      "file": "issue_175604_torch_compile_produces_stale_read_with_g.py",
+      "title": "torch.compile produces stale read with generator over mutated list",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/175604"
+    },
+    {
+      "number": 175496,
+      "file": "issue_175496_inductor_model_with_torch_compile_output.py",
+      "title": "[inductor] model with torch.compile outputs inconsistent result when return value includes detached tensor",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/175496"
+    },
+    {
+      "number": 175156,
+      "file": "issue_175156_inductor_multiple_randint_calls_cause_in.py",
+      "title": "[inductor] Multiple randint calls cause inconsistent RNG results between eager and compiled mode after fixing the rng seed",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/175156"
+    },
+    {
+      "number": 174549,
+      "file": "issue_174549_inconsistency_torch_nn_fractionalmaxpool.py",
+      "title": "[Inconsistency] `torch.nn.FractionalMaxPool2d` generates lower result with `torch.compile`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/174549"
+    },
+    {
+      "number": 174386,
+      "file": "issue_174386_torch_compile_ignores_torch_use_determin.py",
+      "title": "`torch.compile` ignores `torch.use_deterministic_algorithms(True)` on `empty_like`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/174386"
+    },
+    {
+      "number": 172207,
+      "file": "issue_172207_torch_compile_changes_random_mask_genera.py",
+      "title": "torch.compile() changes random mask generation causing 2x difference in loss values",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/172207"
+    },
+    {
+      "number": 171979,
+      "file": "issue_171979_inductor_fails_to_compile_models_using_t.py",
+      "title": "Inductor fails to compile models using `torch.cat` with `axis` keyword argument",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/171979"
+    },
+    {
+      "number": 170939,
+      "file": "issue_170939_inductor_f_pdist_fails_with_runtimeerror.py",
+      "title": "[Inductor] F.pdist fails with \"RuntimeError: _pdist_forward requires contiguous input\" on non-contiguous inputs",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/170939"
+    },
+    {
+      "number": 170937,
+      "file": "issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove.py",
+      "title": "[Inductor] F.lp_pool{1,2,3}d fail with OverflowError when norm_type=float('inf')",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/170937"
+    },
+    {
+      "number": 167641,
+      "file": "issue_167641_torch_compile_fails_with_stride_mismatch.py",
+      "title": "torch.compile fails with stride mismatch in torch.complex() after FFT operations due to fake kernel inconsistency",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/167641"
+    },
+    {
+      "number": 167629,
+      "file": "issue_167629_compile_error_torchdynamo_fails_to_compi.py",
+      "title": "[Compile Error] TorchDynamo fails to compile model with scalar argument passed to tensor.copy_() (type mismatch)",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/167629"
+    },
+    {
+      "number": 160873,
+      "file": "issue_160873_torch_compile_inductor_fails_on_mkl_dnn.py",
+      "title": "`torch.compile` (Inductor) fails on MKL-DNN tensor densify (`to_dense`) with \"Cannot access data pointer of Tensor that doesn't have storage\"",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/160873"
+    },
+    {
+      "number": 160840,
+      "file": "issue_160840_torch_nn_functional_interpolate_generate.py",
+      "title": "`torch.nn.functional.interpolate` generates inconsistent computation results after `torch.compile`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/160840"
+    },
+    {
+      "number": 158626,
+      "file": "issue_158626_freezing_layers_for_fine_tuning_leaves_t.py",
+      "title": "Freezing layers for fine-tuning leaves TorchInductor Scheduler node mappings in inconsistent state",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/158626"
+    },
+    {
+      "number": 158561,
+      "file": "issue_158561_torch_compile_in_place_operation_raises.py",
+      "title": "`torch.compile` In-place operation raises Autograd error even when gradients are not required",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/158561"
+    },
+    {
+      "number": 196285,
+      "file": "issue_196285_torch_compile_dynamic_true_fails_to_hand.py",
+      "title": "torch.compile(dynamic=True) fails to handle shape-derived symbolic indices in list.pop()",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/196285"
+    },
+    {
+      "number": 196221,
+      "file": "issue_196221_torch_compile_crashes_with_an_internal_f.py",
+      "title": "torch.compile crashes with an internal FakeTensor assertion for torch.func.grad with masked_select",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/196221"
+    },
+    {
+      "number": 194766,
+      "file": "issue_194766_torch_compile_torch_masked_median_fails.py",
+      "title": "[torch.compile] torch.masked.median fails on integer inputs under fullgraph=True",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194766"
+    },
+    {
+      "number": 194765,
+      "file": "issue_194765_torch_compile_adaptivelogsoftmaxwithloss.py",
+      "title": "[torch.compile] AdaptiveLogSoftmaxWithLoss.forward fails on valid inputs under fullgraph=True",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194765"
+    },
+    {
+      "number": 194596,
+      "file": "issue_194596_torch_compile_wishart_mean_with_tensor_v.py",
+      "title": "[torch.compile] Wishart.mean with tensor-valued df fails under fullgraph=True",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194596"
+    },
+    {
+      "number": 194548,
+      "file": "issue_194548_torch_compile_silently_accepts_zero_batc.py",
+      "title": "torch.compile silently accepts zero-batch input to Categorical that eager correctly rejects",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194548"
+    },
+    {
+      "number": 194504,
+      "file": "issue_194504_torch_compile_batchnorm1d_momentum_none.py",
+      "title": "[torch.compile] BatchNorm1d(momentum=None) training fails under fullgraph=True",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194504"
+    },
+    {
+      "number": 194503,
+      "file": "issue_194503_torch_compile_gaussian_nll_loss_fails_wi.py",
+      "title": "[torch.compile] gaussian_nll_loss fails with a data-dependent guard under fullgraph=True",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194503"
+    },
+    {
+      "number": 194444,
+      "file": "issue_194444_inductor_sdpa_fusion_silently_lost_when.py",
+      "title": "[inductor] SDPA fusion silently lost when a SymFloat scale is tensorified (dynamic shapes, e.g. head_dim ** 0.5)",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194444"
+    },
+    {
+      "number": 194103,
+      "file": "issue_194103_torch_compile_dynamic_true_fails_for_sca.py",
+      "title": "torch.compile(dynamic=True) fails for scatter out variants with symbolic shapes",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194103"
+    },
+    {
+      "number": 194001,
+      "file": "issue_194001_aotautogradcache_stale_guards_expr_from.py",
+      "title": "AOTAutogradCache: stale `guards_expr` from a prior compile causes spurious `ConstraintViolationError` on cache hit",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194001"
+    },
+    {
+      "number": 191833,
+      "file": "issue_191833_constraintviolationerror_is_not_raised_w.py",
+      "title": "ConstraintViolationError is not raised when multiple shape guards specialize dynamic dimensions to a single shape",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/191833"
+    },
+    {
+      "number": 189528,
+      "file": "issue_189528_cond_inductor_nameerror_on_inner_dim_bra.py",
+      "title": "[cond] Inductor NameError on inner-dim branch output mismatch",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/189528"
+    },
+    {
+      "number": 189271,
+      "file": "issue_189271_inductor_keyerror_in_scheduler_compute_a.py",
+      "title": "[inductor] KeyError in Scheduler.compute_ancestors: self-edge from realizing a reshaped in-place-mutated buffer",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/189271"
+    },
+    {
+      "number": 187953,
+      "file": "issue_187953_torch_compile_out_variants_of_compositei.py",
+      "title": "torch.compile: out= variants of CompositeImplicitAutograd linalg ops (linalg.norm, cholesky, ...) recompile on every input shape",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/187953"
+    },
+    {
+      "number": 187547,
+      "file": "issue_187547_dynamo_graph_breaks_on_raw_unbacked_symi.py",
+      "title": "Dynamo graph-breaks on raw unbacked SymInt BlockMask lengths in FlexAttention",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/187547"
+    },
+    {
+      "number": 186775,
+      "file": "issue_186775_flex_attention_produces_nan_with_torch_c.py",
+      "title": "Flex Attention produces NaN with `torch.compile(flex_attention, dynamic=True)` and batch-dependent mask closures",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/186775"
+    },
+    {
+      "number": 185575,
+      "file": "issue_185575_inductor_upsample_mode_area_fails_under.py",
+      "title": "[inductor] Upsample(mode='area') fails under torch.compile(dynamic=True) — \"cannot determine truth value of Relational\" in _adaptive_avg_pool2d lowering",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/185575"
+    },
+    {
+      "number": 185494,
+      "file": "issue_185494_dynamo_lazybatchnorm2d_fails_under_torch.py",
+      "title": "[dynamo] LazyBatchNorm2d fails under torch.compile(dynamic=True) — \"SymIntArrayRef expected to contain only concrete integers\"",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/185494"
+    },
+    {
+      "number": 185488,
+      "file": "issue_185488_dynamo_lazybatchnorm2d_fails_under_torch.py",
+      "title": "[dynamo] LazyBatchNorm2d fails under torch.compile(dynamic=True) — \"SymIntArrayRef expected to contain only concrete integers\"",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/185488"
+    },
+    {
+      "number": 183889,
+      "file": "issue_183889_torch_compile_fails_with_pendingunbacked.py",
+      "title": "torch.compile fails with PendingUnbackedSymbolNotFound for Tensor.add with tensor-derived alpha",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/183889"
+    },
+    {
+      "number": 182217,
+      "file": "issue_182217_torch_compile_crashes_on_f_layer_norm_ne.py",
+      "title": "`torch.compile` crashes on `F.layer_norm(NestedTensor)` — `InternalTorchDynamoError` in guard building",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/182217"
+    },
+    {
+      "number": 181870,
+      "file": "issue_181870_torch_compile_dynamic_true_fails_on_f_cr.py",
+      "title": "`torch.compile(dynamic=True)` fails on `F.cross_entropy` with probability targets and class weight due to symbolic numel()",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/181870"
+    },
+    {
+      "number": 181653,
+      "file": "issue_181653_torch_compile_torch_func_grad_fn_hangs_i.py",
+      "title": "torch.compile(torch.func.grad(fn)) hangs indefinitely on models with pooling ops — sympy.simplify exponential recursion in stride_at",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/181653"
+    },
+    {
+      "number": 181428,
+      "file": "issue_181428_torch_compile_torch_func_grad_superlinea.py",
+      "title": "torch.compile + torch.func.grad: superlinear compile time with MaxPool2d → log/clamp → pow → AdaptiveAvgPool2d",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/181428"
+    },
+    {
+      "number": 181384,
+      "file": "issue_181384_aot_autograd_runtimeerror_pytorch_build.py",
+      "title": "[aot_autograd] RuntimeError: /pytorch/build/aten/src/ATen/RegisterZeroTensor_0.cpp:254: SymIntArrayRef expected to contain only concrete integers when using torch.compile(dynamic=True) with torch.func.grad over GroupNorm",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/181384"
+    },
+    {
+      "number": 181175,
+      "file": "issue_181175_aot_autograd_runtimeerror_cannot_call_nu.py",
+      "title": "[aot_autograd] RuntimeError: Cannot call numel() on tensor with symbolic sizes/strides in _convolution_double_backward when using torch.compile(dynamic=True) with torch.func.grad over ConvTranspose2d",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/181175"
+    },
+    {
+      "number": 181115,
+      "file": "issue_181115_inductor_torch_compile_dynamic_true_cras.py",
+      "title": "[inductor] torch.compile(dynamic=True) crashes in TorchInductor CPU codegen with AttributeError: 'StrictLessThan' object has no attribute 'diff'",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/181115"
+    },
+    {
+      "number": 179534,
+      "file": "issue_179534_torch_compile_fails_on_aten_sparse_csr_t.py",
+      "title": "torch.compile fails on aten.sparse_csr_tensor with DataDependentOutputException (aten._local_scalar_dense)",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/179534"
+    },
+    {
+      "number": 179383,
+      "file": "issue_179383_torch_quantile_and_torch_nanquantile_fai.py",
+      "title": "`torch.quantile` and `torch.nanquantile` fail under `torch.compile(dynamic=True)`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/179383"
+    },
+    {
+      "number": 179026,
+      "file": "issue_179026_torch_compile_guard_evaluation_crash_eva.py",
+      "title": "`torch.compile` guard evaluation crash: `eval_is_non_overlapping_and_dense()` calling convention mismatch with `IsNonOverlappingAndDenseIndicator`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/179026"
+    },
+    {
+      "number": 178869,
+      "file": "issue_178869_eager_then_compile_crashes_with_indexerr.py",
+      "title": "eager_then_compile crashes with IndexError when number of dims changes",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/178869"
+    },
+    {
+      "number": 178382,
+      "file": "issue_178382_torch_compile_data_dependent_guard_fails.py",
+      "title": "[torch.compile] Data-dependent guard fails when printing a boolean value derived from tensor",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/178382"
+    },
+    {
+      "number": 177252,
+      "file": "issue_177252_inductor_assertionerror_wrong_number_of.py",
+      "title": "[Inductor] AssertionError: wrong number of dimensions1 in backward() with dynamic shape involving nonzero() and item()",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/177252"
+    },
+    {
+      "number": 195969,
+      "file": "issue_195969_torch_compile_isinstance_x_protoa_protob.py",
+      "title": "torch.compile: isinstance(x, ProtoA | ProtoB) silently returns False for runtime_checkable Protocols with non-method members",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195969"
+    },
+    {
+      "number": 195675,
+      "file": "issue_195675_torch_clamp_with_a_bound_unrepresentable.py",
+      "title": "torch.clamp with a bound unrepresentable in the tensor dtype: eager raises, torch.compile ignores the bound",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195675"
+    },
+    {
+      "number": 195674,
+      "file": "issue_195674_torch_compile_evaluates_subtraction_on_a.py",
+      "title": "torch.compile evaluates subtraction on a bool tensor that eager deliberately rejects (1 - mask)",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195674"
+    },
+    {
+      "number": 195579,
+      "file": "issue_195579_meta_decomps_torch_compile_skips_addmm_s.py",
+      "title": "[meta / decomps] torch.compile skips addmm's broadcast check: eager raises, compiled returns the broadcast result",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195579"
+    },
+    {
+      "number": 195418,
+      "file": "issue_195418_dynamo_canonicalize_output_graph_node_or.py",
+      "title": "[dynamo] canonicalize_output_graph_node_order silently drops torch.inference_mode()'s effect from the compiled graph",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/195418"
+    },
+    {
+      "number": 195402,
+      "file": "issue_195402_inductor_out_of_bounds_index_aborts_the.py",
+      "title": "[inductor] Out-of-bounds index aborts the process (SIGABRT) instead of raising, when the generated kernel is parallelised",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/195402"
+    },
+    {
+      "number": 194501,
+      "file": "issue_194501_torch_compile_inductor_smooth_l1_loss_wi.py",
+      "title": "[torch.compile][Inductor] smooth_l1_loss with negative beta bypasses eager validation",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194501"
+    },
+    {
+      "number": 194005,
+      "file": "issue_194005_graphs_containing_linalg_cholesky_inv_so.py",
+      "title": "Graphs containing `linalg.cholesky` / `inv` / `solve` / `lu_factor` are never cached",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/194005"
+    },
+    {
+      "number": 193811,
+      "file": "issue_193811_torch_compile_silently_accepts_int32_inp.py",
+      "title": "torch.compile silently accepts int32 input to upsample_bilinear2d that eager correctly rejects",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/193811"
+    },
+    {
+      "number": 193757,
+      "file": "issue_193757_inductor_cpu_torch_compile_silently_acce.py",
+      "title": "[inductor][cpu] torch.compile silently accepts `binary_cross_entropy` targets outside `[0, 1]` that eager rejects",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/193757"
+    },
+    {
+      "number": 193490,
+      "file": "issue_193490_inductor_batch_linear_lhs_fusion_leaks_w.py",
+      "title": "Inductor batch_linear_lhs fusion leaks widened row strides to layout-sensitive users (XPU, torch 2.14)",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/193490"
+    },
+    {
+      "number": 192872,
+      "file": "issue_192872_dynamo_mutation_to_a_load_build_class_cr.py",
+      "title": "dynamo: mutation to a LOAD_BUILD_CLASS-created class's sourceless attribute is lost across a graph break",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/192872"
+    },
+    {
+      "number": 189925,
+      "file": "issue_189925_dynamo_io_text_encoding_causes_a_graph_b.py",
+      "title": "[dynamo] _io.text_encoding causes a graph break (no polyfill)",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/189925"
+    },
+    {
+      "number": 185481,
+      "file": "issue_185481_inductor_argmax_over_comparison_mask_is.py",
+      "title": "[inductor] argmax over comparison mask is accepted and used for indexing while eager raises",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/185481"
+    },
+    {
+      "number": 185330,
+      "file": "issue_185330_inductor_torch_index_select_on_uint16_in.py",
+      "title": "[inductor] torch.index_select on uint16 input silently succeeds while eager/aot_eager raise NotImplementedError",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/185330"
+    },
+    {
+      "number": 185248,
+      "file": "issue_185248_torch_compile_silently_accepts_negative.py",
+      "title": "`torch.compile` silently accepts negative standard deviations in `torch.normal` that eager mode rejects",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/185248"
+    },
+    {
+      "number": 185246,
+      "file": "issue_185246_torch_compile_silently_accepts_invalid_b.py",
+      "title": "torch.compile silently accepts invalid Bernoulli probabilities that eager mode rejects",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/185246"
+    },
+    {
+      "number": 182965,
+      "file": "issue_182965_torch_compile_silently_returns_a_result.py",
+      "title": "`torch.compile` silently returns a result for `torch.linalg.cholesky` on non-positive-definite input",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/182965"
+    },
+    {
+      "number": 182318,
+      "file": "issue_182318_dynamo_codegen_leaks_torch_function_enab.py",
+      "title": "Dynamo codegen leaks torch function enabled state via _EnableTorchFunction destructor",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/182318"
+    },
+    {
+      "number": 182317,
+      "file": "issue_182317_dynamo_leaks_torchfunctionmode_onto_stac.py",
+      "title": "Dynamo leaks TorchFunctionMode onto stack across graph breaks",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/182317"
+    },
+    {
+      "number": 181851,
+      "file": "issue_181851_register_fake_to_throw_error_if_signatur.py",
+      "title": "register_fake to throw error if signature doesn't match op's schema",
+      "state": "open",
+      "url": "https://github.com/pytorch/pytorch/issues/181851"
+    },
+    {
+      "number": 181688,
+      "file": "issue_181688_heap_corruption_sigabrt_when_compiling_c.py",
+      "title": "Heap corruption / SIGABRT when compiling `ConvTranspose2d` + normalization layers with `torch.compile(backend='inductor')`",
+      "state": "closed",
+      "url": "https://github.com/pytorch/pytorch/issues/181688"
+    }
+  ],
+  "rejected": {
+    "no torch.compile call": 107,
+    "no python block with torch": 42,
+    "cuda": 78,
+    "too long": 3,
+    "does not parse": 7,
+    "external dependency or weights": 4
+  }
+}

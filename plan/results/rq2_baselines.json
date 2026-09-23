@@ -1,0 +1,275 @@
+{
+  "B1_random": {
+    "faults": 19,
+    "detected": 11.33,
+    "recall": 0.596,
+    "tests_executed": 464.7,
+    "tests_invalid": 112.3,
+    "valid_rate": 0.805,
+    "mean_ttf_s": 0.38,
+    "unique_failures": 11.7,
+    "false_positives_on_fixed": 0,
+    "per_category": {
+      "codegen": {
+        "total": 4,
+        "detected": 3
+      },
+      "shape": {
+        "total": 4,
+        "detected": 2
+      },
+      "dtype": {
+        "total": 1,
+        "detected": 1
+      },
+      "control_flow": {
+        "total": 2,
+        "detected": 0
+      },
+      "alias_mutation": {
+        "total": 2,
+        "detected": 0
+      },
+      "specialization": {
+        "total": 4,
+        "detected": 3
+      },
+      "cache": {
+        "total": 2,
+        "detected": 2
+      }
+    },
+    "runs": 3,
+    "BugDetectionRate": 0.596,
+    "TestEfficiency": 0.0252,
+    "TTF": 0.38
+  },
+  "B1_random_full_oracle": {
+    "faults": 19,
+    "detected": 14.0,
+    "recall": 0.737,
+    "tests_executed": 355.0,
+    "tests_invalid": 109.0,
+    "valid_rate": 0.765,
+    "mean_ttf_s": 0.32,
+    "unique_failures": 18.0,
+    "false_positives_on_fixed": 0,
+    "per_category": {
+      "codegen": {
+        "total": 4,
+        "detected": 4
+      },
+      "shape": {
+        "total": 4,
+        "detected": 2
+      },
+      "dtype": {
+        "total": 1,
+        "detected": 1
+      },
+      "control_flow": {
+        "total": 2,
+        "detected": 0
+      },
+      "alias_mutation": {
+        "total": 2,
+        "detected": 2
+      },
+      "specialization": {
+        "total": 4,
+        "detected": 3
+      },
+      "cache": {
+        "total": 2,
+        "detected": 2
+      }
+    },
+    "runs": 1,
+    "BugDetectionRate": 0.737,
+    "TestEfficiency": 0.0507,
+    "TTF": 0.32
+  },
+  "B5_ours": {
+    "faults": 19,
+    "detected": 19.0,
+    "recall": 1.0,
+    "tests_executed": 235.0,
+    "tests_invalid": 16.0,
+    "valid_rate": 0.936,
+    "mean_ttf_s": 0.34,
+    "unique_failures": 23.0,
+    "false_positives_on_fixed": 0,
+    "per_category": {
+      "codegen": {
+        "total": 4,
+        "detected": 4
+      },
+      "shape": {
+        "total": 4,
+        "detected": 4
+      },
+      "dtype": {
+        "total": 1,
+        "detected": 1
+      },
+      "control_flow": {
+        "total": 2,
+        "detected": 2
+      },
+      "alias_mutation": {
+        "total": 2,
+        "detected": 2
+      },
+      "specialization": {
+        "total": 4,
+        "detected": 4
+      },
+      "cache": {
+        "total": 2,
+        "detected": 2
+      }
+    },
+    "runs": 1,
+    "BugDetectionRate": 1.0,
+    "TestEfficiency": 0.0979,
+    "TTF": 0.34
+  },
+  "external_tools": [
+    {
+      "tool": "FreeFuzz",
+      "venue": "ICSE 2022",
+      "available": false,
+      "hint": "clone https://github.com/ise-uiuc/FreeFuzz and export generated API calls as f/args files"
+    },
+    {
+      "tool": "NNSmith",
+      "venue": "ASPLOS 2023",
+      "available": true,
+      "hint": "pip install nnsmith; run `nnsmith.model_gen backend.type=torchjit` and export models as f/args files"
+    },
+    {
+      "tool": "TorchProbe",
+      "venue": "APLAS 2023",
+      "available": false,
+      "hint": "clone the TorchProbe artifact (arXiv 2310.20078) and export transformed programs as f/args files"
+    },
+    {
+      "tool": "TitanFuzz",
+      "venue": "ISSTA 2023",
+      "available": false,
+      "hint": "clone https://github.com/ise-uiuc/TitanFuzz and export generated programs as f/args files"
+    },
+    {
+      "tool": "DeepREL",
+      "venue": "ESEC/FSE 2022",
+      "available": false,
+      "hint": "clone https://github.com/ise-uiuc/DeepREL (supplemental baseline)"
+    }
+  ],
+  "B3_nnsmith_native": {
+    "faults": 19,
+    "detected": 6.0,
+    "recall": 0.316,
+    "tests_executed": 152.0,
+    "tests_invalid": 0.0,
+    "valid_rate": 1.0,
+    "mean_ttf_s": 1.01,
+    "unique_failures": 6.0,
+    "false_positives_on_fixed": 0,
+    "per_category": {
+      "codegen": {
+        "total": 4,
+        "detected": 1
+      },
+      "shape": {
+        "total": 4,
+        "detected": 2
+      },
+      "dtype": {
+        "total": 1,
+        "detected": 0
+      },
+      "control_flow": {
+        "total": 2,
+        "detected": 1
+      },
+      "alias_mutation": {
+        "total": 2,
+        "detected": 2
+      },
+      "specialization": {
+        "total": 4,
+        "detected": 0
+      },
+      "cache": {
+        "total": 2,
+        "detected": 0
+      }
+    },
+    "runs": 1,
+    "programs": [
+      "nnsmith_0",
+      "nnsmith_1",
+      "nnsmith_2",
+      "nnsmith_3",
+      "nnsmith_4",
+      "nnsmith_5",
+      "nnsmith_6",
+      "nnsmith_7"
+    ],
+    "BugDetectionRate": 0.316,
+    "TestEfficiency": 0.0395,
+    "TTF": 1.01
+  },
+  "B3_nnsmith_plus_our_contexts": {
+    "faults": 19,
+    "detected": 9.0,
+    "recall": 0.474,
+    "tests_executed": 496.0,
+    "tests_invalid": 0.0,
+    "valid_rate": 1.0,
+    "mean_ttf_s": 2.53,
+    "unique_failures": 9.0,
+    "false_positives_on_fixed": 0,
+    "per_category": {
+      "codegen": {
+        "total": 4,
+        "detected": 2
+      },
+      "shape": {
+        "total": 4,
+        "detected": 2
+      },
+      "dtype": {
+        "total": 1,
+        "detected": 0
+      },
+      "control_flow": {
+        "total": 2,
+        "detected": 1
+      },
+      "alias_mutation": {
+        "total": 2,
+        "detected": 0
+      },
+      "specialization": {
+        "total": 4,
+        "detected": 2
+      },
+      "cache": {
+        "total": 2,
+        "detected": 2
+      }
+    },
+    "runs": 1,
+    "programs": [
+      "nnsmith_0",
+      "nnsmith_1",
+      "nnsmith_2",
+      "nnsmith_3"
+    ],
+    "BugDetectionRate": 0.474,
+    "TestEfficiency": 0.0181,
+    "TTF": 2.53
+  }
+}

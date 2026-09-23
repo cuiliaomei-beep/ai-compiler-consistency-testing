@@ -1,0 +1,124 @@
+\section{The \tool Approach}
+\label{sec:approach}
+
+\input{figures/fig-overview}
+
+Figure~\ref{fig:overview} gives an overview. A compiled execution is determined by three things: the program,
+its input, and the path the compiler takes. \tool derives \emph{factors} for the first two from the source and
+from operator metadata, derives factors for the third from the structure of the pipeline, and executes a matrix
+in which each test differs from a reference execution in exactly one factor. A fixed oracle over seven
+observables decides whether the difference is a failure, and layered execution names the stage at which it
+appears.
+
+\subsection{Factor Model}
+\label{sec:factors}
+
+\paragraph{Program-side factors from the source.} \tool locates \emph{compilation sites}, the boundaries at
+which Python code enters the compiler (calls and decorators of \tcompile and project-specific wrappers), and
+lowers every function reachable from a site into a small dependency IR with data, control, alias, and state
+edges (Figure~\ref{fig:factors}). A context attribute becomes a \emph{semantic factor} of the site when a
+backward slice from a \code{Return}, \code{Raise}, \code{Mutation}, or \code{StateWrite} node reaches a read of
+that attribute: the rank, shape, stride, dtype, device, contiguity, and \code{requires\_grad} of a tensor
+parameter; the value of a scalar, flag, string, or container; a global or closure variable. Comparisons and
+modulo tests on integer factors yield boundary values (for \code{x.shape[0] >= 32} the values 32, 31, 33);
+shape--index chains are recovered through constant offsets; writes through views yield alias and mutation facts
+that determine which inputs must be built as views or overlapping buffers. The factors of a
+site, with the backend and compile flags, form its \emph{Semantic Context Signature} (\scs); attributes the
+program never reads are pruned. The analysis is syntactic and takes about 30~ms for our 29-program corpus.
+
+\input{figures/fig-factors}
+
+\paragraph{Program-side factors from operator metadata.} For operator-level testing the source is a single
+call, and the informative factors come from PyTorch's OpInfo database, which lists for about 700 operators the
+supported dtypes, sample inputs, and reference implementations. \tool derives three factor families from it:
+\emph{boundary values}, which replace sample data by infinities, NaN, the dtype extremes, values next to
+singularities (\code{nextafter(1, 0)} for inverse functions, $\pi/2$, $1 \pm \epsilon$) and magnitudes near
+overflow, in tensors long enough to reach vectorized code; \emph{unsupported dtypes}, which cast a sample to a
+dtype the eager kernel rejects; and \emph{dtype pairs} for binary operators. Each family is a change of one
+factor of one call; the operator and the shape stay fixed.
+
+\paragraph{Path-side factors from the pipeline.} The compilation path is determined by choices the pipeline
+exposes and documents as semantics-preserving. \tool treats four of them as factors.
+\begin{itemize}
+  \item \emph{Graph-break position.} A call to \code{torch.\_dynamo.graph\_break()} splits the captured graph
+        and makes Dynamo generate a resume function that carries locals, side effects, exception state, and
+        live objects across the break. Inserting the call after any statement must not change the result.
+  \item \emph{Backend layer.} \code{backend="eager"} executes the captured graph with eager kernels,
+        \code{"aot\_eager"} adds AOTAutograd and decompositions, \code{"inductor"} adds lowering and code
+        generation. Each layer is a semantics-preserving refinement of the previous one.
+  \item \emph{Execution context.} A \code{TorchDispatchMode} that only forwards calls, autocast, \code{dynamic=True},
+        \code{fullgraph}, compile composition (a compiled function calling another, \code{compile(compile(f))}),
+        and CUDA-graph or autotuning modes change which components run without changing what the program
+        means.
+  \item \emph{Artifact route.} \code{torch.export}, its serialization round trip, AOTInductor packaging and
+        loading, and the lifetime of the loaded runner replace the just-in-time runtime by a deployed one.
+\end{itemize}
+Every path factor has a reference execution in which the factor takes its default value, and the expected
+outcome is that the observables do not change. In the terminology of metamorphic testing~\cite{DBLP:journals/csur/ChenKLPTTZ18,DBLP:journals/tse/SeguraFSC16},
+each path factor is a semantics-preserving transformation of the compilation, the eager run is the source
+test case, and observable equality is the relation. Because the relation is the same for all factors, one
+oracle serves the whole matrix. Program-side factors are transformations of the input instead of
+the compilation, but they are tested against the same relation.
+
+\subsection{One-Factor Execution Matrix}
+\label{sec:matrix}
+
+\paragraph{Seeds.} \tool does not invent programs. A seed is a valid call of a compilation site, obtained from
+the function signature, from recorded calls, from reproducer scripts, from OpInfo samples, or from a corpus of
+small Python programs written for the features Dynamo models itself (the \code{random} module, exceptions and
+handlers, generators and their protocol, context managers, containers and their mutation, tensor subclasses;
+274 programs at the time of writing). Programs in the corpus are added by mechanism: when a factor exposes a
+defect in one construct, programs that exercise the same mechanism in other constructs are written before the
+sweep is repeated (Section~\ref{sec:rq1}).
+
+\paragraph{Single-factor variants.} For each obligation derived from the \scs, \tool builds contexts that
+differ from the seed in exactly one program-side factor, drawing values round-robin over obligations so that a
+small budget covers every factor once before any factor twice. For each path factor it builds the variant that
+changes only that factor: the corpus program with a graph break after every statement, the same call under
+another backend layer, inside a dispatch mode, or through the export route. A context in which eager execution
+of the mutated input raises is kept when the exception is the behavior under test; programs that eager
+execution rejects and the compiler accepts are a defect class of their own (Section~\ref{sec:rq3}).
+
+\input{figures/fig-sequence}
+
+\paragraph{Context sequences.} Guards and caches are exercised by the execution matrix of
+Figure~\ref{fig:sequence}: for contexts $A$ and $B$ that differ in one factor, eager and cold-compiled runs of
+both, a warm run of $B$ on the artifact compiled for $A$, and the return trip. The comparison of $E_B$ with
+$C_B^{\mathit{cold}}$ and with $C_B^{\mathit{warm}}$ separates code generation from under-specialization, and
+the return trip exposes incorrect invalidation. Recompilations are counted through Dynamo's frame counters with
+disk caches disabled.
+
+\subsection{Oracle}
+\label{sec:oracle}
+
+\input{tables/tab-oracles}
+
+Table~\ref{tab:oracles} lists the seven observables. Values and gradients are compared against a reference,
+not against a fixed tolerance: every test is also executed in eager mode with floating-point inputs promoted to
+float64, and for elementary functions against a 30-digit multi-precision library, and a compiled result is
+flagged only if its distance to the reference exceeds the distance of the eager result by a dtype-dependent
+factor, or if its NaN/Inf pattern or the sign of a zero differs. This rule accepts compiled results that are
+more accurate than eager execution and rejects one-ULP differences of re-associated reductions. Metadata covers
+dtype, shape, stride, device, and layout. Identity records whether an output \emph{is} an input or shares its
+storage, because a compiler that returns the input object where eager execution returns a copy changes the
+meaning of every later in-place update. The exception observable compares the innermost exception of the
+\code{\_\_cause\_\_} chain and, when the program contains a handler, whether the handler ran. State covers the
+post-state of inputs, module buffers, and Python objects reachable from the program (lists, dictionaries,
+generators), and the count of external effects such as printed lines. The process observable records exit codes
+and signals, since several findings terminate the interpreter.
+
+\subsection{Localization, Confirmation, and Reports}
+\label{sec:phase3}
+
+A failing test is re-executed on the backend layers \EO--\ER (and on the Triton path when a GPU is present).
+The first layer that disagrees with its predecessor names the suspected stage: graph capture, functionalization
+and decomposition, or code generation; a disagreement that appears only in a warm run names specialization or
+cache reuse; a disagreement that also appears without \tcompile, for example under a forwarding dispatch mode
+or in the eager kernel that the compiled path calls, is attributed \emph{outside} the pipeline and reported as
+such. A candidate must survive a deterministic rerun with a fixed seed, a check that eager execution is
+deterministic on the input, and a rerun in a fresh interpreter; every work item of a sweep runs in a child
+process so that native crashes become findings instead of ending the sweep. Inputs are then minimized over
+rank, shape, values, container sizes, flags, and arguments, and the program is minimized by deleting statements
+outside the static slice of the triggering factor. A confirmed failure is emitted with the minimal reproducer, the observations on every layer, the factor that
+triggered it, and, where the generated code allows it, the responsible source location and a candidate patch.
+Likely duplicates are annotated, never filed; submission remains a human decision.

@@ -1,0 +1,52 @@
+{
+  "signature": "b3ffd22a7829",
+  "program": "issue_175919_inductor_out_of_bounds_memory_read_via_r",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "175919",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/175919",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 185585,
+      "title": "Fix mark_unbacked stride recompiles",
+      "url": "https://github.com/pytorch/pytorch/pull/185585",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-29"
+    },
+    {
+      "number": 175919,
+      "title": "[Inductor] Out-of-Bounds Memory Read via `resize` on Overlapping Views",
+      "url": "https://github.com/pytorch/pytorch/issues/175919",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-02-26"
+    },
+    {
+      "number": 176718,
+      "title": "[Eager] Out-of-Bounds Memory Read via resize on Overlapping Views",
+      "url": "https://github.com/pytorch/pytorch/issues/176718",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-03-06"
+    }
+  ]
+}

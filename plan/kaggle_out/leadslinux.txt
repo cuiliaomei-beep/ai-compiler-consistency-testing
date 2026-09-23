@@ -1,0 +1,341 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.9 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] or:
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] to include these operations in the captured graph.
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] 
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] Graph break: from user code at:
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0]   File "/kaggle/working/diag_dynamic_fstring_namedtuple.py", line 17, in <lambda>
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0]     run("fstring .3f on item()", lambda t: f"{t.sum().item():.3f}", x)
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0]                                               ^^^^^^^^^^^^^^^^^^^^^^^^
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] 
+W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] 
+torch 2.14.0+cpu
+[fstring .3f on item()] eager                 : '1.734'
+[fstring .3f on item()] compile(dynamic=True) : '1.734'
+[fstring .3f on item() static] eager                 : '1.734'
+[fstring .3f on item() static] compile(dynamic=False): '1.734'
+[format() on item()] eager                 : '1.73'
+[format() on item()] compile(dynamic=True) : '1.73'
+[fstring :d on int item] eager                 : '3'
+[fstring :d on int item] compile(dynamic=True) : raise InternalTorchDynamoError: ValueError: Unknown format code 'd' for object of type 'str'
+[fstring :d on int(item)] eager                 : '1'
+[fstring :d on int(item)] compile(dynamic=True) : '1'
+[fstring plain on item()] eager                 : '1.734043836593628'
+[fstring plain on item()] compile(dynamic=True) : '1.734043836593628'
+[str() of item()] eager                 : '1.73'
+[str() of item()] compile(dynamic=True) : '1.73'
+[fstring .3f on shape-derived float] eager                 : '1.500'
+[fstring .3f on shape-derived float] compile(dynamic=True) : raise InternalTorchDynamoError: ValueError: Unknown format code 'f' for object of type 'str'
+[namedtuple == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[namedtuple == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[namedtuple == static] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[namedtuple == static] compile(dynamic=False): raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[tuple == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[tuple == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[list == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[list == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[namedtuple == scalar fields] eager                 : True
+[namedtuple == scalar fields] compile(dynamic=True) : True
+[namedtuple == 1-elem tensors] eager                 : True
+[namedtuple == 1-elem tensors] compile(dynamic=True) : True
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4116: UserWarning: bf16 and fp16 are mixed in the scheduler node.
+  warnings.warn("bf16 and fp16 are mixed in the scheduler node.")
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4116: UserWarning: bf16 and fp16 are mixed in the scheduler node.
+  warnings.warn("bf16 and fp16 are mixed in the scheduler node.")
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4116: UserWarning: bf16 and fp16 are mixed in the scheduler node.
+  warnings.warn("bf16 and fp16 are mixed in the scheduler node.")
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp.Tensor
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]              ^^^^^^^^^^^^^^^^^^^
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9049, in lerp
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: expected dtype torch.bool for `weight`, but got dtype torch.float16
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.lerp.Tensor
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     result = fn(*args, **kwargs)
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]              ^^^^^^^^^^^^^^^^^^^
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9049, in lerp
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     torch._check(
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     _check_with(RuntimeError, cond, message)
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     raise error_type(message_evaluated)
+E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] RuntimeError: expected dtype torch.bool for `weight`, but got dtype torch.float16
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1] Error in codegen for ComputedBuffer(name='buf0', layout=FixedLayout('cpu', torch.bool, size=[], stride=[]), data=Reduction(
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   'cpu',
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   torch.bool,
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   def inner_fn(index, rindex):
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]       r0_0, r0_1 = rindex
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]       tmp0 = ops.load(arg0_1, r0_1 + 4 * r0_0)
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]       tmp1 = ops.to_dtype(tmp0, torch.bool, src_dtype=torch.float32, use_compute_types=True)
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]       return tmp1
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   ,
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   ranges=[],
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   reduction_ranges=[3, 4],
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   reduction_type=prod,
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   origin_node=prod,
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   origins=OrderedSet([prod]),
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   stack_traces = {,
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]     File "/kaggle/working/diag_dtype_leads.py", line 52, in <lambda>,
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]       run("prod(fp32, dtype=bool)", lambda a: torch.prod(a, dtype=torch.bool), f32),
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^,
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   ,
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   }
+C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1] ), _split_size=None, _original_inner_fn=None, _original_ranges=None, _original_reduction_ranges=None)
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mean.default
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 2668, in mean
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: mean(): could not infer output dtype. Optional dtype must be either a floating point or complex dtype. Got: torch.bool
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.mean.default
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] Traceback (most recent call last):
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 2668, in mean
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     torch._check(
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     _check_with(RuntimeError, cond, message)
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     raise error_type(message_evaluated)
+E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] RuntimeError: mean(): could not infer output dtype. Optional dtype must be either a floating point or complex dtype. Got: torch.bool
+torch 2.14.0+cpu
+[ldexp(bool, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)
+[ldexp(int64, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)
+[ldexp(int64, bf16)] eager=bfloat16(3, 4) | aot_eager=bfloat16(3, 4) | inductor=float32(3, 4)
+[ldexp(fp16, fp32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float16(3, 4)
+[ldexp(fp16, bf16)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float16(3, 4)
+[ldexp(bf16, fp64)] eager=float64(3, 4) | aot_eager=float64(3, 4) | inductor=bfloat16(3, 4)
+[ldexp(fp16, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float16(3, 4)
+[ldexp(fp32, int64)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)
+[huber_loss(fp16, bf16)] eager=float16() | aot_eager=float16() | inductor=float32()
+[huber_loss(fp16, fp32)] eager=float16() | aot_eager=float16() | inductor=float32()
+[huber_loss(bf16, fp16)] eager=bfloat16() | aot_eager=bfloat16() | inductor=float32()
+[smooth_l1_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()
+[mse_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()
+[l1_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()
+[huber_loss(fp16, fp32, delta=0.5)] eager=float16() | aot_eager=float16() | inductor=float32()
+[huber_loss(fp16, fp32, reduction=none)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)
+[bce(fp16, fp16, weight=fp32)] eager=float16() | aot_eager=float16() | inductor=float32()
+[lerp(bool, bool, w=0-d fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=raise BackendCompilerFailed: backend='inductor' raised:
+[lerp(bool, bool, w=fp16 tensor)] eager=raise RuntimeError: expected dtype bool for `weight` but got dtype c10::Half | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call
+[lerp(int64, int64, w=0-d fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float16(3, 4)
+[lerp(fp32, fp32, w=0-d fp16)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)
+[lerp(bool, bool, w=0-d fp32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=raise BackendCompilerFailed: backend='inductor' raised:
+[sum(fp16, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=raise InductorError: CppCompileError: C++ compile error
+[sum(fp32, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=bool()
+[sum(fp16, dtype=bool, dim=0)] eager=bool(4,) | aot_eager=bool(4,) | inductor=bool(4,)
+[cumsum(fp16, dtype=bool)] eager=raise NotImplementedError: "cumsum_out_cpu" not implemented for 'Bool' | aot_eager=raise NotImplementedError: "cumsum_out_cpu" not implemented for 'Bool' | inductor=raise NotImplementedError: "cumsum_out_cpu" not implemented for 'Bool'
+[prod(fp32, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=raise InductorError: AssertionError: expected reduction_type in ("min", "max", "any", "sum")
+[mean(int64, dtype=bool)] eager=raise RuntimeError: mean(): could not infer output dtype. Optional dtype must be either a floating point or co | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 9.1 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] or:
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] to include these operations in the captured graph.
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] 
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] Graph break: from user code at:
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0]   File "/kaggle/working/diag_dynamic_fstring_namedtuple.py", line 17, in <lambda>
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0]     run("fstring .3f on item()", lambda t: f"{t.sum().item():.3f}", x)
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0]                                               ^^^^^^^^^^^^^^^^^^^^^^^^
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] 
+W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] 
+torch 2.15.0.dev20260912+cpu
+[fstring .3f on item()] eager                 : '3.918'
+[fstring .3f on item()] compile(dynamic=True) : '3.918'
+[fstring .3f on item() static] eager                 : '3.918'
+[fstring .3f on item() static] compile(dynamic=False): '3.918'
+[format() on item()] eager                 : '3.92'
+[format() on item()] compile(dynamic=True) : '3.92'
+[fstring :d on int item] eager                 : '3'
+[fstring :d on int item] compile(dynamic=True) : raise InternalTorchDynamoError: ValueError: Unknown format code 'd' for object of type 'str'
+[fstring :d on int(item)] eager                 : '3'
+[fstring :d on int(item)] compile(dynamic=True) : '3'
+[fstring plain on item()] eager                 : '3.9184582233428955'
+[fstring plain on item()] compile(dynamic=True) : '3.9184582233428955'
+[str() of item()] eager                 : '3.92'
+[str() of item()] compile(dynamic=True) : '3.92'
+[fstring .3f on shape-derived float] eager                 : '1.500'
+[fstring .3f on shape-derived float] compile(dynamic=True) : raise InternalTorchDynamoError: ValueError: Unknown format code 'f' for object of type 'str'
+[namedtuple == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[namedtuple == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[namedtuple == static] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[namedtuple == static] compile(dynamic=False): raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[tuple == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[tuple == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[list == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[list == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[namedtuple == scalar fields] eager                 : True
+[namedtuple == scalar fields] compile(dynamic=True) : True
+[namedtuple == 1-elem tensors] eager                 : True
+[namedtuple == 1-elem tensors] compile(dynamic=True) : True
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4112: UserWarning: bf16 and fp16 are mixed in the scheduler node.
+  warnings.warn("bf16 and fp16 are mixed in the scheduler node.")
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4112: UserWarning: bf16 and fp16 are mixed in the scheduler node.
+  warnings.warn("bf16 and fp16 are mixed in the scheduler node.")
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4112: UserWarning: bf16 and fp16 are mixed in the scheduler node.
+  warnings.warn("bf16 and fp16 are mixed in the scheduler node.")
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp.Tensor
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]              ^^^^^^^^^^^^^^^^^^^
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9248, in lerp
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: expected dtype torch.bool for `weight`, but got dtype torch.float16
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] failed while attempting to run meta for aten.lerp.Tensor
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] Traceback (most recent call last):
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     r = func(*args, **kwargs)
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     return self._op(*args, **kwargs)
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     result = fn(*args, **kwargs)
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]              ^^^^^^^^^^^^^^^^^^^
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9248, in lerp
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     torch._check(
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     _check_with(RuntimeError, cond, message)
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     raise error_type(message_evaluated)
+E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] RuntimeError: expected dtype torch.bool for `weight`, but got dtype torch.float16
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1] Error in codegen for ComputedBuffer(name='buf0', layout=FixedLayout('cpu', torch.bool, size=[], stride=[]), data=Reduction(
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   'cpu',
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   torch.bool,
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   def inner_fn(index, rindex):
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]       r0_0, r0_1 = rindex
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]       tmp0 = ops.load(arg0_1, r0_1 + 4 * r0_0)
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]       tmp1 = ops.to_dtype(tmp0, torch.bool, src_dtype=torch.float32, use_compute_types=True)
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]       return tmp1
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   ,
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   ranges=[],
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   reduction_ranges=[3, 4],
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   reduction_type=prod,
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   origin_node=prod,
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   origins=OrderedSet([prod]),
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   stack_traces = {,
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]     File "/kaggle/working/diag_dtype_leads.py", line 52, in <lambda>,
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]       run("prod(fp32, dtype=bool)", lambda a: torch.prod(a, dtype=torch.bool), f32),
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^,
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   ,
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   }
+C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1] ), _split_size=None, _original_inner_fn=None, _original_ranges=None, _original_reduction_ranges=None)
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.mean.default
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 2707, in mean
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: mean(): could not infer output dtype. Optional dtype must be either a floating point or complex dtype. Got: torch.bool
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] failed while attempting to run meta for aten.mean.default
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] Traceback (most recent call last):
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     r = func(*args, **kwargs)
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     return self._op(*args, **kwargs)
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 2707, in mean
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     torch._check(
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     _check_with(RuntimeError, cond, message)
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     raise error_type(message_evaluated)
+E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] RuntimeError: mean(): could not infer output dtype. Optional dtype must be either a floating point or complex dtype. Got: torch.bool
+torch 2.15.0.dev20260912+cpu
+[ldexp(bool, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)
+[ldexp(int64, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)
+[ldexp(int64, bf16)] eager=bfloat16(3, 4) | aot_eager=bfloat16(3, 4) | inductor=float32(3, 4)
+[ldexp(fp16, fp32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float16(3, 4)
+[ldexp(fp16, bf16)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float16(3, 4)
+[ldexp(bf16, fp64)] eager=float64(3, 4) | aot_eager=float64(3, 4) | inductor=bfloat16(3, 4)
+[ldexp(fp16, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float16(3, 4)
+[ldexp(fp32, int64)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)
+[huber_loss(fp16, bf16)] eager=float16() | aot_eager=float16() | inductor=float32()
+[huber_loss(fp16, fp32)] eager=float16() | aot_eager=float16() | inductor=float32()
+[huber_loss(bf16, fp16)] eager=bfloat16() | aot_eager=bfloat16() | inductor=float32()
+[smooth_l1_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()
+[mse_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()
+[l1_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()
+[huber_loss(fp16, fp32, delta=0.5)] eager=float16() | aot_eager=float16() | inductor=float32()
+[huber_loss(fp16, fp32, reduction=none)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)
+[bce(fp16, fp16, weight=fp32)] eager=float16() | aot_eager=float16() | inductor=float32()
+[lerp(bool, bool, w=0-d fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=raise BackendCompilerFailed: backend='inductor' raised:
+[lerp(bool, bool, w=fp16 tensor)] eager=raise RuntimeError: expected dtype bool for `weight` but got dtype c10::Half | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call
+[lerp(int64, int64, w=0-d fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float16(3, 4)
+[lerp(fp32, fp32, w=0-d fp16)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)
+[lerp(bool, bool, w=0-d fp32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=raise BackendCompilerFailed: backend='inductor' raised:
+[sum(fp16, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=raise InductorError: CppCompileError: C++ compile error
+[sum(fp32, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=bool()
+[sum(fp16, dtype=bool, dim=0)] eager=bool(4,) | aot_eager=bool(4,) | inductor=bool(4,)
+[cumsum(fp16, dtype=bool)] eager=raise NotImplementedError: "cumsum_out_cpu" not implemented for 'Bool' | aot_eager=raise NotImplementedError: "cumsum_out_cpu" not implemented for 'Bool' | inductor=raise NotImplementedError: "cumsum_out_cpu" not implemented for 'Bool'
+[prod(fp32, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=raise InductorError: AssertionError: expected reduction_type in ("min", "max", "any", "sum")
+[mean(int64, dtype=bool)] eager=raise NotImplementedError: mean(): could not infer output dtype. Optional dtype must be either a floating point or co | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 282986 bytes to __results__.html

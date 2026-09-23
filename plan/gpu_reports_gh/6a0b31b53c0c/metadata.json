@@ -1,0 +1,36 @@
+{
+  "signature": "6a0b31b53c0c",
+  "program": "issue_183249_torch_compile_produces_wrong_results_for",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "183249",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/183249",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 183249,
+      "title": "`torch.compile` produces wrong results for `fractional_max_pool2d` when `_random_samples` is not provided",
+      "url": "https://github.com/pytorch/pytorch/issues/183249",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-05-11"
+    }
+  ]
+}

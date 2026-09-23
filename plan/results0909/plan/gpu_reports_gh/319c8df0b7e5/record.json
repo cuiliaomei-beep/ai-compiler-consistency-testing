@@ -1,0 +1,288 @@
+{
+  "signature": "319c8df0b7e5",
+  "program": "issue_186536_inductor_dynamic_shape_searchsorted_deri",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised AcceleratorError, ref returned normally",
+          "evidence": {
+            "exception": "AcceleratorError",
+            "message": "CUDA error: device-side assert triggered\nSearch for `cudaErrorAssert' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be async"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            64,
+            224,
+            32
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            7168,
+            32,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 2,
+      "frames_delta": 4,
+      "wall_s": 0.3292,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            64,
+            224,
+            32
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            7168,
+            32,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 2,
+      "frames_delta": 4,
+      "wall_s": 0.2643,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            64,
+            224,
+            32
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            7168,
+            32,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "AcceleratorError",
+      "exception_inner": "AcceleratorError",
+      "exception_msg": "CUDA error: device-side assert triggered\nSearch for `cudaErrorAssert' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+      "out_struct": "",
+      "compiles": 2,
+      "frames_delta": 3,
+      "wall_s": 3.5,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "0/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_186536_inductor_dynamic_shape_searchsorted_deri.py\n[inductor] Dynamic-shape `searchsorted`-derived index trips a device-side bounds assert on in-bounds CUDA inputs\nhttps://github.com/pytorch/pytorch/issues/186536\ncompile options in the issue: {'fullgraph': True, 'dynamic': True}",
+  "minimized": {
+    "reproduces": false,
+    "steps_tried": 0,
+    "steps_kept": 0,
+    "original_lines": 7,
+    "final_lines": 7,
+    "original_numel": 0,
+    "final_numel": 0,
+    "input_recipe": "",
+    "log": [
+      "the failure did not reproduce before minimizing; nothing changed"
+    ],
+    "source": "def densify(values, offsets):\n    flat = torch.arange(values.size(0), device=values.device)\n    batch_idx = torch.searchsorted(offsets[1:], flat, right=True)   # eager: 0..63\n    local_idx = flat - offsets[batch_idx]\n    out = values.new_zeros(offsets.shape[0] - 1, int(lengths.max()), values.size(1))\n    out[batch_idx, local_idx] = values\n    return out"
+  },
+  "duplicates": {
+    "query": "inductor Dynamic shape searchsorted derived index trips device",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "186536",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/186536",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 186536,
+        "title": "[inductor] Dynamic-shape `searchsorted`-derived index trips a device-side bounds assert on in-bounds CUDA inputs",
+        "url": "https://github.com/pytorch/pytorch/issues/186536",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-06-07"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: AcceleratorError"
+  ],
+  "status": "Generated",
+  "fault": null
+}

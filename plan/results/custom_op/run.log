@@ -1,0 +1,23 @@
+ok    custom_op with fake                                
+DIFF  custom_op without fake (graph break)               {'eager': 'RAISES TorchRuntimeError: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function t', 'aot_eager':
+DIFF  custom_op fake dtype wrong                         {'inductor': 'RAISES RuntimeError: expected dtype torch.float32 but got torch.float64\nError in op: torch.ops.tcc.promote.default\nThis error most often come'}
+ok    custom_op mutating arg                             
+ok    custom_op mutating arg then use                    
+ok    custom_op complex pinv via mH inside op            
+DIFF  custom_op wrapping torch.linalg.pinv (complex)     {'aot_eager': 'OUT value -0.1267828792333603 vs 0.1267828792333603', 'inductor': 'OUT value -0.1267828792333603 vs 0.1267828792333603'}
+ok    custom_op wrapping torch.linalg.pinv (real)        
+ok    custom_op with register_autograd: grad             
+ok    custom_op scalar output + item()                   
+ok    custom_op two outputs (bool second)                
+ok    custom_op on 0-size input                          
+ok    custom_op on non-contiguous input                  
+ok    custom_op on inference tensor                      
+ok    autograd.Function Sq: grad                         
+ok    autograd.Function wrong backward: grad             
+ok    autograd.Function mark_dirty: value and input      
+ok    autograd.Function mark_dirty: grad                 
+ok    autograd.Function saves view: grad                 
+ok    autograd.Function once_differentiable: grad        
+ok    autograd.Function needs_input_grad (y no grad)     
+ok    autograd.Function complex mH in forward            
+ok    autograd.Function returns input (identity)         

@@ -1,0 +1,36 @@
+{
+  "signature": "feba701ff6c2",
+  "program": "issue_185464_torch_compile_produces_wrong_results_for",
+  "project": "pytorch/pytorch",
+  "stage": "aot_functionalization",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "185464",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/185464",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 185464,
+      "title": "torch.compile produces wrong results for F.multilabel_margin_loss when target contains -1",
+      "url": "https://github.com/pytorch/pytorch/issues/185464",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-28"
+    }
+  ]
+}

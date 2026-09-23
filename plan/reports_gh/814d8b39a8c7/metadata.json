@@ -1,0 +1,28 @@
+{
+  "signature": "814d8b39a8c7",
+  "program": "issue_160840_torch_nn_functional_interpolate_generate",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Invalid",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": 138652,
+      "title": "AOT eager accuracy regression in Segformer in 2.5.0 release",
+      "url": "https://github.com/pytorch/pytorch/issues/138652",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2024-10-22"
+    }
+  ]
+}

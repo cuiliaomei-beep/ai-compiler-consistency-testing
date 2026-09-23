@@ -1,0 +1,44 @@
+{
+  "signature": "e93563bcb9bc",
+  "program": "issue_177630_torch_compile_backend_inductor_silently",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "177630",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/177630",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 177630,
+      "title": "`torch.compile(backend=\"inductor\")` silently succeeds on `torch.matmul` (≥3D) with mismatched dtypes (float16 @ float32) where eager raises RuntimeError",
+      "url": "https://github.com/pytorch/pytorch/issues/177630",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-03-17"
+    },
+    {
+      "number": 177480,
+      "title": "`torch.compile` silently succeeds on `bmm`/`matmul` with mixed dtypes (float16 @ float32) where eager raises RuntimeError",
+      "url": "https://github.com/pytorch/pytorch/issues/177480",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-03-15"
+    }
+  ]
+}

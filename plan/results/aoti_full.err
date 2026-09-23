@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\run.py", line 550, in <module>
+    return 0
+    
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\run.py", line 546, in main
+    res = asweep(limit=a.limit, samples_per_op=a.samples, seed=a.seed, dtype=a.dtype,
+       ^^^^^^^^^^^^^^^
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\run.py", line 529, in _aoti
+    s.add_argument("--out", default=RESULTS)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    s.add_argument("--jsonl", default=None)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    s.add_argument("--isolate", action="store_true")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\decomp_diff.py", line 526, in isolated_sweep
+    (report or write_report)(res, out_dir)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\aoti_diff.py", line 200, in write_report
+    L.append(f"| {m.get('path')} | {m['op']} | {m.get('kwargs', '')[:40].replace('|', '/')} | {m['shapes']} | {m['dtypes']} | "
+                                    ~^^^^^^
+KeyError: 'op'

@@ -1,0 +1,57 @@
+{
+  "factor_changed": "substitute",
+  "context": {
+    "name": "n=4",
+    "factors": {
+      "substitute": {
+        "arg": 1,
+        "value": 4
+      }
+    },
+    "warm": true,
+    "origin": "n"
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": {
+    "site": "scalar_compare",
+    "factor": "n",
+    "kind": "scalar",
+    "values": [
+      4,
+      5,
+      3,
+      0,
+      1,
+      -1
+    ],
+    "constraint": "boundary +-1",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "exception"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "parameter compared against a constant / used as index or bound",
+    "param": "n",
+    "dim": null
+  },
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  }
+}

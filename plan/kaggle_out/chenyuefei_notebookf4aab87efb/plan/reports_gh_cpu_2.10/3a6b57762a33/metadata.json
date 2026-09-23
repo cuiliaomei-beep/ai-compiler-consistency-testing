@@ -1,0 +1,28 @@
+{
+  "signature": "3a6b57762a33",
+  "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "195320",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/195320",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

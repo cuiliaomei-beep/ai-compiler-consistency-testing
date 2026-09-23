@@ -1,0 +1,52 @@
+{
+  "signature": "5ffb5476b45d",
+  "program": "issue_183120_torch_compile_inductor_produces_wrong_ou",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "183120",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/183120",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 183120,
+      "title": "torch.compile Inductor produces wrong output for BatchNorm2d + ELU + GroupNorm + log clamp chain",
+      "url": "https://github.com/pytorch/pytorch/issues/183120",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-05-10"
+    },
+    {
+      "number": 183654,
+      "title": "Fix Inductor CPU group norm affine precision",
+      "url": "https://github.com/pytorch/pytorch/pull/183654",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-05-14"
+    },
+    {
+      "number": 181696,
+      "title": "Eval-mode `BatchNorm`/`GroupNorm` produces wrong output under `torch.compile(backend='inductor')`",
+      "url": "https://github.com/pytorch/pytorch/issues/181696",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-04-28"
+    }
+  ]
+}

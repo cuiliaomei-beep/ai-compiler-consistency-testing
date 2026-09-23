@@ -1,0 +1,365 @@
+{
+  "signature": "23701500fc91",
+  "program": "issue_183601_torch_compile_inductor_produces_wrong_ou",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.969e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 1.9685073494911194,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              4,
+              3,
+              10,
+              12
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 1.9685073494911194,
+            "max_rel_error": 22.76919700562685,
+            "n_mismatch": 1440,
+            "n_total": 1440,
+            "first_mismatch_index": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "first_mismatch_expected": "0.1012243479",
+            "first_mismatch_actual": "0.7390706539",
+            "expected_preview": "[0.1012243479, 0.08999078721, 0.143691361, -0.2148492485, 0.07391178608, -0.1360140741, -0.01481270324, -0.07842895389, ... (1432 more)]",
+            "actual_preview": "[0.7390706539, 0.7212181091, 0.5091967583, -0.2809357047, 0.4562880099, -0.7096866965, -0.1335708648, -0.7508696318, ... (1432 more)]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 1.9685073494911194,
+            "budget": 4.76837158203125e-07,
+            "noise_floor": 4.76837158203125e-07
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0003,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            3,
+            10,
+            12
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            360,
+            120,
+            12,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1246,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            3,
+            10,
+            12
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            360,
+            120,
+            12,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1554,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            3,
+            10,
+            12
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            360,
+            120,
+            12,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 3.2826,
+      "alias_pairs": [],
+      "n_inputs": 0,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            3,
+            10,
+            12
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            360,
+            120,
+            12,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "os": "Windows 11",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "rocm": null,
+    "device_name": "cpu",
+    "triton": null,
+    "tilelang": null,
+    "cxx_compiler": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.EXE"
+  },
+  "notes": "loaded from reproducers_gh\\issue_183601_torch_compile_inductor_produces_wrong_ou.py\ntorch.compile Inductor produces wrong output for InstanceNorm2d + normalize + hardswish chain\nhttps://github.com/pytorch/pytorch/issues/183601\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 4,
+    "steps_kept": 2,
+    "original_lines": 7,
+    "final_lines": 5,
+    "original_numel": 0,
+    "final_numel": 0,
+    "input_recipe": "",
+    "log": [
+      "removed 2 statement(s): t = F.hardswish(t); return F.normalize(t, dim=0)",
+      "removed 2 statement(s): t = t * x; return t"
+    ],
+    "source": "def m():\n    t = inst_norm(x)\n    t = pool(t)\n    t = F.normalize(t, dim=0)\n    return t"
+  },
+  "duplicates": {
+    "query": "torch.compile _dynamo.reset",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": 194770,
+        "title": "[PrivateUse1][dynamo] torch._dynamo.reset() should support external reset callbacks for OOT backend caches",
+        "url": "https://github.com/pytorch/pytorch/issues/194770",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-25"
+      },
+      {
+        "number": 194234,
+        "title": "[dynamo] `torch.compile` raises `NameError: name 'stream1' is not defined` when a compiled function calls `torch.cuda.Stream.wait_stream` and returns a single-element list constant",
+        "url": "https://github.com/pytorch/pytorch/issues/194234",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-20"
+      },
+      {
+        "number": 193760,
+        "title": "[inductor][cuda] `view(torch.bool).copy_(y.view(torch.bool)).view(torch.float32)` silently corrupts data under `torch.compile`",
+        "url": "https://github.com/pytorch/pytorch/issues/193760",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-17"
+      },
+      {
+        "number": 194347,
+        "title": "[inductor][cpu] `torch.minimum` with signed zeros returns +0.0 under `torch.compile` on CPU while eager returns -0.0",
+        "url": "https://github.com/pytorch/pytorch/issues/194347",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-21"
+      },
+      {
+        "number": 194345,
+        "title": "[inductor][cuda] `torch.remainder` / `torch.fmod` wrong results under `torch.compile` on CUDA for large |a/b| ratios",
+        "url": "https://github.com/pytorch/pytorch/issues/194345",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-08-21"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

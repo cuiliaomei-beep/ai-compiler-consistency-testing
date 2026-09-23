@@ -1,0 +1,55 @@
+{
+  "factor_changed": "resize",
+  "context": {
+    "name": "x.dim0=33",
+    "factors": {
+      "resize": {
+        "arg": 0,
+        "dim": 0,
+        "value": 33
+      }
+    },
+    "warm": false,
+    "origin": "x.shape[0]"
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": {
+    "site": "shape_boundary",
+    "factor": "x.shape[0]",
+    "kind": "shape",
+    "values": [
+      32,
+      31,
+      33
+    ],
+    "constraint": "x.shape[0] GtE 32 (line 2)",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "exception"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "branch/index predicate: x.shape[0] GtE 32 (line 2)",
+    "param": "x",
+    "dim": 0
+  },
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  }
+}

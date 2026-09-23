@@ -1,0 +1,234 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 554.6/554.6 MB 3.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 553.1/553.1 MB 3.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 170.1/170.1 MB 8.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.0/216.0 MB 5.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.4/60.4 MB 27.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 423.1/423.1 MB 3.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/10.7 MB 5.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.2/90.2 MB 16.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 38.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 214.1/214.1 MB 8.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 35.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.5/59.5 MB 24.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.9/200.9 MB 5.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.9/145.9 MB 3.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 148.0/148.0 kB 10.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 47.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 248.0/248.0 MB 6.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.5/42.5 MB 29.7 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+libcuml-cu12 26.2.0 requires cuda-toolkit[cublas,cufft,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+cuml-cu12 26.2.0 requires cuda-toolkit[cublas,cufft,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+cuda-python 12.9.4 requires cuda-bindings~=12.9.4, but you have cuda-bindings 13.4.2 which is incompatible.
+torchaudio 2.10.0+cu128 requires torch==2.10.0, but you have torch 2.14.0 which is incompatible.
+torchvision 0.25.0+cu128 requires torch==2.10.0, but you have torch 2.14.0 which is incompatible.
+cudf-cu12 26.2.1 requires cuda-toolkit[nvcc,nvrtc]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+libcuvs-cu12 26.2.0 requires cuda-toolkit[cublas,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+libraft-cu12 26.2.0 requires cuda-toolkit[cublas,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+===== deterministic_mode_parity.py
+torch 2.14.0+cu130 cuda True
+!! cpu  put_(accumulate=False)               eager: raises       aot_eager: raises       inductor: runs
+   cpu  kthvalue                             eager: runs         aot_eager: runs         inductor: runs
+   cpu  median(dim) indices                  eager: runs         aot_eager: runs         inductor: runs
+   cpu  bincount                             eager: runs         aot_eager: runs         inductor: runs
+   cpu  histc                                eager: runs         aot_eager: runs         inductor: runs
+   cpu  cumsum                               eager: runs         aot_eager: runs         inductor: runs
+   cpu  scatter_(src tensor, dup idx)        eager: runs         aot_eager: runs         inductor: runs
+   cpu  scatter_reduce prod                  eager: runs         aot_eager: runs         inductor: runs
+   cpu  index_put_(accumulate=False, dup)    eager: runs         aot_eager: runs         inductor: runs
+   cpu  index_copy                           eager: runs         aot_eager: runs         inductor: runs
+   cpu  resize_ quantized-free               eager: runs         aot_eager: runs         inductor: runs
+   cpu  interpolate bilinear backward        eager: runs         aot_eager: runs         inductor: runs
+   cpu  interpolate bicubic backward         eager: runs         aot_eager: runs         inductor: runs
+   cpu  interpolate linear backward          eager: runs         aot_eager: runs         inductor: runs
+   cpu  interpolate trilinear backward       eager: runs         aot_eager: runs         inductor: runs
+   cpu  grid_sample backward                 eager: runs         aot_eager: runs         inductor: runs
+   cpu  max_pool3d backward                  eager: runs         aot_eager: runs         inductor: runs
+   cpu  adaptive_max_pool2d backward         eager: runs         aot_eager: runs         inductor: runs
+   cpu  adaptive_avg_pool2d backward         eager: runs         aot_eager: runs         inductor: runs
+   cpu  adaptive_avg_pool3d backward         eager: runs         aot_eager: runs         inductor: runs
+   cpu  avg_pool3d backward                  eager: runs         aot_eager: runs         inductor: runs
+   cpu  fractional_max_pool2d backward       eager: runs         aot_eager: runs         inductor: runs
+   cpu  reflection_pad1d backward            eager: runs         aot_eager: runs         inductor: runs
+   cpu  reflection_pad2d backward            eager: runs         aot_eager: runs         inductor: runs
+   cpu  replication_pad1d backward           eager: runs         aot_eager: runs         inductor: runs
+   cpu  replication_pad2d backward           eager: runs         aot_eager: runs         inductor: runs
+   cpu  nll_loss 2d backward                 eager: runs         aot_eager: runs         inductor: runs
+   cpu  ctc_loss backward                    eager: runs         aot_eager: runs         inductor: runs
+   cpu  embedding_bag max backward           eager: runs         aot_eager: runs         inductor: runs
+   cpu  index_add backward-free fwd          eager: runs         aot_eager: runs         inductor: runs
+   cpu  scatter_add fwd                      eager: runs         aot_eager: runs         inductor: runs
+   cpu  gather backward (dup idx)            eager: runs         aot_eager: runs         inductor: runs
+   cpu  take_along_dim backward              eager: runs         aot_eager: runs         inductor: runs
+   cpu  index_select backward                eager: runs         aot_eager: runs         inductor: runs
+   cpu  repeat_interleave backward           eager: runs         aot_eager: runs         inductor: runs
+   cpu  cumsum backward                      eager: runs         aot_eager: runs         inductor: runs
+--- fill_uninitialized_memory on cpu
+!! cpu  empty(5)                             eager: filled       aot_eager: filled       inductor: NOT filled
+!! cpu  empty_like(x)                        eager: filled       aot_eager: filled       inductor: NOT filled
+!! cpu  x.new_empty(4)                       eager: filled       aot_eager: filled       inductor: NOT filled
+!! cpu  empty(3, int32)                      eager: filled       aot_eager: filled       inductor: NOT filled
+!! cpu  empty_strided                        eager: filled       aot_eager: filled       inductor: NOT filled
+!! cpu  empty_permuted                       eager: filled       aot_eager: filled       inductor: NOT filled
+!! cpu  x.new_empty_strided                  eager: filled       aot_eager: filled       inductor: NOT filled
+!! cuda put_(accumulate=False)               eager: raises       aot_eager: raises       inductor: runs
+   cuda kthvalue                             eager: runs         aot_eager: runs         inductor: runs
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.median.dim
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_decomp/__init__.py", line 132, in _fn
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     return f(*args, **kwargs, out=None if is_none else out_kwargs)
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]              ^^^^^^^^^^^^^^^^^^^
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 4647, in meta_median_mode_dim
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     utils.alert_not_deterministic("median CUDA with indices output")
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/__init__.py", line 2213, in alert_not_deterministic
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0921 11:48:03.997000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: median CUDA with indices output does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.median.dim
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_decomp/__init__.py", line 132, in _fn
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     return f(*args, **kwargs, out=None if is_none else out_kwargs)
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]              ^^^^^^^^^^^^^^^^^^^
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 4647, in meta_median_mode_dim
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     utils.alert_not_deterministic("median CUDA with indices output")
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/__init__.py", line 2213, in alert_not_deterministic
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0921 11:48:04.013000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: median CUDA with indices output does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+   cuda median(dim) indices                  eager: raises       aot_eager: raises       inductor: raises
+   cuda bincount                             eager: runs         aot_eager: runs         inductor: runs
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.histc.default
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]              ^^^^^^^^^^^^^^^^^^^
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 8031, in meta_histc
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     utils.alert_not_deterministic("_histc_cuda with floating point input")
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/__init__.py", line 2213, in alert_not_deterministic
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0921 11:48:04.146000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: _histc_cuda with floating point input does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.histc.default
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]              ^^^^^^^^^^^^^^^^^^^
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 8031, in meta_histc
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     utils.alert_not_deterministic("_histc_cuda with floating point input")
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/__init__.py", line 2213, in alert_not_deterministic
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0921 11:48:04.159000 39 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: _histc_cuda with floating point input does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+   cuda histc                                eager: raises       aot_eager: raises       inductor: raises
+   cuda cumsum                               eager: runs         aot_eager: runs         inductor: runs
+   cuda scatter_(src tensor, dup idx)        eager: runs         aot_eager: runs         inductor: runs
+   cuda scatter_reduce prod                  eager: raises       aot_eager: raises       inductor: raises
+   cuda index_put_(accumulate=False, dup)    eager: runs         aot_eager: runs         inductor: runs
+   cuda index_copy                           eager: runs         aot_eager: runs         inductor: runs
+   cuda resize_ quantized-free               eager: runs         aot_eager: runs         inductor: runs
+   cuda interpolate bilinear backward        eager: runs         aot_eager: runs         inductor: runs
+!! cuda interpolate bicubic backward         eager: raises       aot_eager: runs         inductor: runs
+!! cuda interpolate linear backward          eager: raises       aot_eager: runs         inductor: runs
+   cuda interpolate trilinear backward       eager: runs         aot_eager: runs         inductor: runs
+   cuda grid_sample backward                 eager: raises       aot_eager: raises       inductor: raises
+   cuda max_pool3d backward                  eager: raises       aot_eager: raises       inductor: raises
+   cuda adaptive_max_pool2d backward         eager: raises       aot_eager: raises       inductor: raises
+   cuda adaptive_avg_pool2d backward         eager: raises       aot_eager: raises       inductor: raises
+   cuda adaptive_avg_pool3d backward         eager: raises       aot_eager: raises       inductor: raises
+!! cuda avg_pool3d backward                  eager: raises       aot_eager: raises       inductor: runs
+   cuda fractional_max_pool2d backward       eager: raises       aot_eager: raises       inductor: raises
+!! cuda reflection_pad1d backward            eager: raises       aot_eager: raises       inductor: runs
+   cuda reflection_pad2d backward            eager: runs         aot_eager: runs         inductor: runs
+   cuda replication_pad1d backward           eager: runs         aot_eager: runs         inductor: runs
+   cuda replication_pad2d backward           eager: runs         aot_eager: runs         inductor: runs
+!! cuda nll_loss 2d backward                 eager: raises       aot_eager: raises       inductor: runs
+   cuda ctc_loss backward                    eager: raises       aot_eager: raises       inductor: raises
+   cuda embedding_bag max backward           eager: raises       aot_eager: raises       inductor: raises
+   cuda index_add backward-free fwd          eager: runs         aot_eager: runs         inductor: runs
+   cuda scatter_add fwd                      eager: runs         aot_eager: runs         inductor: runs
+   cuda gather backward (dup idx)            eager: runs         aot_eager: runs         inductor: runs
+   cuda take_along_dim backward              eager: runs         aot_eager: runs         inductor: runs
+   cuda index_select backward                eager: runs         aot_eager: runs         inductor: runs
+   cuda repeat_interleave backward           eager: runs         aot_eager: runs         inductor: runs
+   cuda cumsum backward                      eager: runs         aot_eager: runs         inductor: runs
+--- fill_uninitialized_memory on cuda
+   cuda empty(5)                             eager: filled       aot_eager: filled       inductor: filled
+   cuda empty_like(x)                        eager: filled       aot_eager: filled       inductor: filled
+   cuda x.new_empty(4)                       eager: filled       aot_eager: filled       inductor: filled
+!! cuda empty(3, int32)                      eager: filled       aot_eager: filled       inductor: NOT filled
+   cuda empty_strided                        eager: filled       aot_eager: filled       inductor: filled
+   cuda empty_permuted                       eager: filled       aot_eager: filled       inductor: filled
+   cuda x.new_empty_strided                  eager: filled       aot_eager: filled       inductor: filled
+===== safety_mechanisms_lost.py
+torch 2.14.0+cu130
+in-place on inference tensor outside InferenceMode   eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [2.0, 2.0, 2.0]
+in-place mul_ on inference tensor (+ reduction)      eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [2.0, 2.0, 2.0]
+deterministic: put_(accumulate=False)                eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [0.0, 2.0, 0.0, 0.0]
+deterministic: torch.put (functional)                eager: raises RuntimeError              aot_eager: raises RuntimeError              inductor: returns [0.0, 2.0, 0.0, 0.0]
+deterministic: empty() is NaN-filled                 eager: returns True                     aot_eager: returns True                     inductor: returns True
+deterministic: empty_like() is NaN-filled            eager: returns True                     aot_eager: returns True                     inductor: returns False
+deterministic: new_empty() is NaN-filled             eager: returns True                     aot_eager: returns True                     inductor: returns False
+deterministic: empty(int32) is MAX-filled            eager: returns True                     aot_eager: returns True                     inductor: returns False
+deterministic: resize_ tail is NaN-filled            eager: returns True                     aot_eager: returns True                     inductor: returns True
+deterministic: empty_strided is NaN-filled           eager: returns True                     aot_eager: returns True                     inductor: returns True
+===== float_arg_cache_matrix.py
+2.14.0+cu130 FX_GRAPH_CACHE=default AUTOGRAD_CACHE=default
+    d=0.9: ok
+    d=0.5: ok
+    d=0.25: WRONG got [0.75, 1.25, 1.75] want [1.0, 1.75, 2.5]
+    d=0.75: WRONG got [1.25, 1.75, 2.25] want [1.0, 1.25, 1.5]
+    d=0.5: ok
+    d=0.1: WRONG got [0.6, 1.1, 1.6] want [1.0, 1.9, 2.8]
+===== draft19.py
+floor      raised RuntimeError, ZeroDivisionError in message: True
+remainder  raised RuntimeError, ZeroDivisionError in message: True
+trunc      process died, return code 0xfffffff8
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 291034 bytes to __results__.html

@@ -1,0 +1,27 @@
+{
+  "factor_changed": "",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": null,
+  "triage": {
+    "stage": "aot_functionalization",
+    "stage_label": "AOTAutograd / functionalization",
+    "priority": "high",
+    "rationale": "eager and backend='eager' agree but aot_eager differs: AOTAutograd / functionalization (alias and in-place handling)",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E2_aot_eager",
+    "submittable": true
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "signature": "1bab95a74251",
+  "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": 191499,
+      "title": "[Inductor][CPU] torch.compile returns 0 for short positive uint8/int8 amin reductions on Apple Silicon",
+      "url": "https://github.com/pytorch/pytorch/issues/191499",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-07-29"
+    },
+    {
+      "number": 185163,
+      "title": "[aot_autograd] Handle None in saved tensors for LSTM/RNN backward; enable allow_rnn by default",
+      "url": "https://github.com/pytorch/pytorch/pull/185163",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-05-25"
+    },
+    {
+      "number": 185891,
+      "title": "[dynamo] Guard AOTAutograd input mutation overlap changes",
+      "url": "https://github.com/pytorch/pytorch/pull/185891",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-06-02"
+    },
+    {
+      "number": 133734,
+      "title": "PyTorch `torch.compile` inductor backend shows enormous compile-time regressions.",
+      "url": "https://github.com/pytorch/pytorch/issues/133734",
+      "state": "open",
+      "is_pr": false,
+      "created": "2024-08-16"
+    },
+    {
+      "number": 195432,
+      "title": "[Dynamo] route PrivateUse1 tensor classes in graph",
+      "url": "https://github.com/pytorch/pytorch/pull/195432",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-31"
+    }
+  ]
+}

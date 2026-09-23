@@ -1,0 +1,216 @@
+\section{Evaluation}
+\label{sec:eval}
+
+The evaluation answers six research questions.
+\textbf{RQ1 (Varying the compilation):} what does varying the compilation find that varying the program does not?
+\textbf{RQ2 (Program dimension):} what do metadata-derived program-side factors find?
+\textbf{RQ3 (Oracle):} which findings require an observable other than the output value?
+\textbf{RQ4 (Attribution):} does layered execution name the stage that the developers eventually fix?
+\textbf{RQ5 (Comparison):} how does the one-factor matrix compare with existing generators and with a cold-only
+comparison on a controlled benchmark?
+\textbf{RQ6 (Real-world defects):} what did the approach find in current PyTorch builds, and how did the
+maintainers respond?
+
+\subsection{Experimental Setup}
+\label{sec:setup}
+
+\paragraph{Implementation.} \tool is implemented in about 25{,}000 lines of Python on top of the standard
+\code{ast} module and PyTorch's public and testing interfaces (\code{backend=}, Dynamo counters, OpInfo,
+\code{TorchDispatchMode}, fake tensors, \code{torch.export}, AOTInductor). Every work item runs in a child
+process with resumable per-item records. Disk caches are disabled unless they are the object of the test.
+
+\paragraph{Subjects and environments.} The subject is PyTorch~2.14.0, released during the study, and nightly
+builds of the development branch (2.15.0.dev, September 2026). Experiments ran on Windows~11 with MSVC and
+Python~3.14 (CPU), on Linux with GCC and Python~3.11/3.12 (CPU), and on Linux with a Tesla~T4 GPU (CUDA~13,
+Triton). PyTorch~2.10.0 on the same Linux image serves as the older version for the historical benchmark.
+
+\paragraph{Benchmarks and seeds.} (i)~A \emph{controlled fault benchmark} of 19 faults injected through
+compiler backends that wrap the real pipeline and corrupt one decision (a generated value, a shape boundary or
+vectorization tail, a dtype, a branch, a dropped mutation or a view turned into a copy, an under-specialized
+guard, a stale or memoized cache entry), each attached to one of 29 corpus programs; the unmodified compiler on
+the same programs is the fixed version. (ii)~A \emph{historical benchmark} of 193 reproducers mined from the
+PyTorch issue tracker, run on PyTorch~2.10 and~2.14. (iii)~\emph{Seeds}: the 29-program corpus, the
+274-program Python corpus, OpInfo samples for 703 operator entries, NNSmith-generated models, the mined
+reproducers, and 73 programs built from 14 torchvision architectures.
+
+\paragraph{Baselines.} Random context generation (B1) draws values for every factor family without consulting
+the program; NNSmith~\cite{DBLP:conf/asplos/LiuLRTLPZ23} (B3) is the generator closest to our setting that supports
+PyTorch~2. Both run inside our harness with the same budget, compiler, and machine, with and without our
+oracles. TorchProbe~\cite{DBLP:conf/aplas/SuGPS23}, FreeFuzz~\cite{DBLP:conf/icse/WeiDYZ22}, and TitanFuzz~\cite{DBLP:conf/issta/DengXPY023} could not be
+executed against PyTorch~2.14 in our environment (Section~\ref{sec:threats}).
+
+\subsection{RQ1: Varying the Compilation}
+\label{sec:rq1}
+
+\paragraph{One factor on a covered corpus.} The Python corpus allows the program set, the inputs, and the
+oracle to be held fixed while only the path changes. Program-only
+differential testing had run the 185 programs of the corpus at that time under three configurations,
+\code{backend="eager"}, \code{dynamic=True}, and \code{aot\_eager}: 19 divergences, all of them known. Adding one path factor, a graph break after every
+statement, raised the count from 19 to 25 in the same process with the same oracle: eight new divergences (four
+programs, two calls each) and two that disappeared. The new ones belong to two defects, both silent: an \code{OrderedDict.move\_to\_end} on a dictionary that enters
+the compiled function is dropped by the side-effect replay (C41 in Table~\ref{tab:bugs}), and a generator
+that is alive across the break is reconstructed as an exhausted tuple iterator, so that \code{.send()} and
+\code{.throw()} raise \code{AttributeError} and \code{StopIteration.value} is \code{None} (C42). Both
+reproduce on Linux with Python~3.12 and on the nightly build. Neither needs the break once the mechanism is
+known: the first needs only a dictionary passed as an argument, the second only a
+generator that is returned. The break exposed them because it turns a local object created inside the frame into an input of the
+resume function. Replacing the break by a \code{disable}-wrapped call or by a
+\code{print} produced the same eight divergences; a pure Python side effect without a break produced none;
+breaks inside loop, conditional, and \code{try} bodies (816 insertion points) added nothing to the top-level
+variant (660). Under the Inductor backend the same factor additionally exposed the identity family of C8
+(\code{x * 1} after a break returns the input object), which had been found earlier through a program-side
+factor.
+
+\paragraph{Programs added after the findings.} After C41 and C42, 57 programs were added. Most exercise the
+mechanisms involved (context managers, the generator protocol driven by the consumer, ordered containers passed as
+inputs, lazy built-ins with side effects); a smaller group covers exception flow around tensor work. Under the
+break factor this batch added eight divergences, all members of C41 and C42, and two on a
+\code{functools.lru\_cache} wrapper whose inlining is documented behavior. On the unmodified path it exposed
+C44, an \code{IndexError} raised by a tensor operator that bypasses the program's own \code{except} clause, a
+mechanism unrelated to the break. The 33 programs added after C44 were written for that mechanism: they showed
+that every handler shape (\code{except Exception}, \code{contextlib.suppress}, a swallowing
+\code{\_\_exit\_\_}, nested calls, loops, generators) is bypassed and that \code{NotImplementedError} takes the
+same route (C45), while \code{TypeError}, \code{ZeroDivisionError}, assertions, and \code{except*} groups reach
+their handlers. Twenty-two of the 33 programs diverged, which delimits the scope of C44 without adding a defect.
+
+\paragraph{Other path factors.} The forwarding dispatch mode compared 955 differentiable operator--dtype pairs
+and their gradients; three operators differed (\code{linalg.pinv}, \code{matrix\_sqrth}, \code{linalg.lstsq},
+all complex), and confirmation without \tcompile attributed them to conjugate views that are not materialized
+under any dispatch mode (C32, C39), which also corrected the attribution of B1 from AOTAutograd to the dispatch
+machinery (C33). The artifact route compared 520 operators through export, serialization, and AOTInductor: the
+values agreed with \tcompile for every operator; the one route-specific finding is a process crash when the
+loaded runner is destroyed immediately after a run on Windows (C46). Compile composition, autocast, higher-order operators, custom operators, and CUDA-graph output reuse found
+nothing beyond documented behavior (Table~\ref{tab:negative}).
+
+\rqanswer{RQ1}{Of the 58 findings attributable to the compile pipeline, 20 came from a path-side factor. On a
+185-program corpus that program-only testing under three configurations had already covered, one path factor
+exposed two new defects and one attribution correction; the 90 programs added afterwards found a third on the
+unmodified path and delimited it; the dispatch-mode
+and artifact-route factors each contributed a family that program-side variation does not reach.}
+
+\input{tables/tab-negative}
+
+\subsection{RQ2: The Program Dimension}
+\label{sec:rq2}
+
+Metadata-derived factors keep the operator call fixed, so a sweep costs one compilation per pair. The unsupported-dtype analyzer ran
+1{,}345 operator--dtype pairs on CPU: in 418 pairs of 134 operators the compiled program returned a value where
+the eager kernel raises \code{NotImplementedError} (C37), in five mechanisms (integer operators promoted to
+float, Boolean inputs, bitwise operators on floating-point bit patterns, half-precision special functions,
+complex normalizations); on the T4 the same factor gave 383 pairs, 73 of them CUDA-specific (C38). The
+boundary-value analyzer found nothing at the extreme values of the first version of its table and four
+functions after values next to singularities were added (\code{nextafter(1, 0)}, $1 \pm \epsilon$,
+$\sqrt{\mathit{max}}$): \code{erfinv} loses four digits near $\pm 1$ (C35), the vectorized float64
+\code{acosh} overflows above $1.3\times10^{154}$ (C36), and the vectorized float32 \code{erf} returns 0 for
+$|x| \le 10^{-7}$ (C40). Comparing 44 unary functions against a 30-digit reference flagged six function--dtype
+pairs, of which \code{erf} and \code{atanh} were new; the same comparison for 23 binary functions and 18
+reductions flagged nine, all of them families already reported (three by us); the analyzer thus re-finds known
+defects. Two lessons shaped the analyzer: probe tensors must be at least the vector width long, since a
+shorter probe tests only the scalar tail of the generated loop, and eager execution is not a sufficient
+accuracy reference, since eager and compiled \code{erf} agree to $10^{-7}$ absolutely while the compiled
+result has no correct digit below $10^{-7}$.
+
+\rqanswer{RQ2}{Program-side factors derived from operator metadata account for 38 of the 58 pipeline findings;
+one factor, casting to a dtype the eager kernel rejects, exposed 134 operators, and a multi-precision reference
+exposed accuracy losses that an eager-versus-compiled comparison cannot see.}
+
+\subsection{RQ3: Contribution of the Oracle}
+\label{sec:rq3}
+
+Table~\ref{tab:bugs} names the observable that detected each issue. Of the 58
+findings attributable to the pipeline, 19 are wrong values that a comparison of outputs against eager execution
+detects. The remaining 39 need another observable: 13 are failures of programs that eager execution accepts
+(internal assertions, C++ compilation errors, lowering exceptions), 9 are lost validations in which the compiled
+program returns where eager execution raises, 4 are dtype changes, 3 are identity changes (an output that
+\emph{is} the input), 2 are wrong gradients with a correct forward value, 2 are dropped side effects, 2 are
+accuracy losses visible only against a multi-precision reference, 2 are process crashes, and 1 each are a
+memory-layout and a device change. The consequences are not local to the reported value: the identity change of C8 turns a later in-place
+update into corruption of the input, the dropped \code{move\_to\_end} of C41 makes an LRU cache evict the
+wrong entry, and the bypassed handler of C44 disables a fallback that works in eager mode.
+
+\rqanswer{RQ3}{Thirty-nine of the 58 pipeline findings are invisible to an output-value comparison; exception
+parity in both directions accounts for 22 of them, and identity, state, gradient, precision, process, layout,
+and device observables for the rest.}
+
+\subsection{RQ4: Attribution}
+\label{sec:rq4}
+
+On the controlled benchmark, the layer reported by localization matches the layer of the injected fault in all
+19 cases. For real defects the ground truth is the fix. Thirteen PyTorch findings have a fix landed or under
+review; in all 13 the files changed by the fix lie in the layer that localization named (TorchDynamo for B2,
+B17, B26, C11; Inductor lowerings and decompositions for B8, B21, B23, B24; the reference layer for B14;
+AOTAutograd for C1; export packaging for B20; the shared eager kernel for B16). Ten findings were attributed outside the pipeline: three eager kernels reached through the compiled
+path (B16, C2, C4), three in \code{torch.fx} code generation and serialization (C9, C24, C27), and four in the
+dispatch machinery (B1 after correction, C32, C33, C39). They are reported and counted separately, because a
+differential oracle detects a divergence between two executions and cannot by itself decide which side is
+wrong.
+
+\rqanswer{RQ4}{Localization named the layer of all 19 injected faults and the layer of all 13 fixed real
+defects; the same procedure attributed 10 findings to components outside the compile pipeline, which the paper
+counts apart.}
+
+\subsection{RQ5: Comparison on the Controlled Benchmark}
+\label{sec:rq5}
+
+\input{figures/fig-rq2}
+
+Figure~\ref{fig:rq2} plots, for a budget of 12 tests per program, the injected faults found against the tests
+executed. Random generation with the output-only oracle that is customary in differential testing finds 11.3 of
+19 faults (mean of three seeds) in 465 tests, 19\% of which are invalid; giving it all seven observables raises
+it to 14, so one third of the gap is due to the oracle and two thirds to the choice of factors. NNSmith's
+models expose no Python-level factors, so even with our contexts added detection stays at 9. \tool finds all 19 faults in 235 tests, with 16 invalid
+contexts, and raises no alarm on the unmodified compiler. An ablation that enables the analysis layers
+cumulatively (Figure~\ref{fig:rq3}) raises detection from 7 to 19 while the number of invalid tests falls from
+109 to 16; alias facts and context sequences account for 9 of the 12 additional detections. Six faults require
+a warm artifact: a cold-only comparison finds none of them in 148 tests, random sequences find 5, and
+\scs-guided sequences find all 6 with 40\% fewer tests (Figure~\ref{fig:rq4}). Against the real compiler the
+same sequences and 29 cross-process cache cases revealed no stale artifact. On the 193 mined reproducers
+(Figure~\ref{fig:rq1-history}), detection of open issues stays at 41\% across PyTorch~2.10 and~2.14 while
+detection of closed issues drops from 41\% to 13\%, which yields 35 verified buggy/fixed pairs.
+
+\input{figures/fig-rq4}
+\input{figures/fig-rq3}
+\input{figures/fig-rq1-history}
+
+\rqanswer{RQ5}{Under identical oracles and budget, the one-factor matrix finds 19 faults against 14 for random
+generation and 9 for NNSmith with half the tests; on the real compiler, guards and caches were consistent, and
+the defects of RQ6 were reached through the paths behind them.}
+
+\subsection{RQ6: Defects in Current PyTorch Builds}
+\label{sec:rq6}
+
+\paragraph{Reports.} The sweeps on PyTorch~2.14 and nightly builds have produced 73 items to date
+(Table~\ref{tab:bugs} lists the issues): 55 new issues, 15 comments that add members, platforms, or a
+corrected root cause to existing issues, and 3 reports to the vendor of the C++ compiler that TorchInductor
+uses on Windows, whose optimizer folds vector intrinsics that PyTorch's own vectorized kernels emit. Every
+candidate passed the confirmation steps of Section~\ref{sec:phase3}, was reproduced on PyTorch~2.14 and on a
+nightly build, on Windows and Linux (and on CUDA where applicable), and was searched in the issue tracker by
+root-cause keywords before filing. By maintainer response, 14 are fixed or have a fix under review, 10 are
+confirmed by a maintainer or reproduced by another contributor, 48 await a human response, and 1 was judged
+expected behavior (a mutated captured constant that export accepts and AOTInductor rejects). By root cause, 58
+lie in the compile pipeline, 10 outside it, and 5 in other compilers (JAX, Numba, and the three MSVC reports). Of the 58,
+42 are silent, 14 are failures of programs that eager execution accepts, and 2 terminate the process; they
+span TorchDynamo (18), TorchInductor (29), AOTAutograd (4), decompositions and meta kernels (5), and export and
+AOTInductor (3). Every change to \tcompile passes a continuous-integration suite that already runs OpInfo-based compiler
+tests, and the tracker is triaged daily by dedicated teams.
+
+\input{tables/tab-bugs}
+
+\paragraph{Findings over time.} The first 27 issues (B1--B27) were found with default paths; 14 of them are
+failures of programs that eager execution accepts. The issues found after the path factors and the
+metadata-derived factors were added (C1--C46) are silent in 26 of 28 cases and include the four Dynamo defects
+of RQ1, the identity defect C8, the 134-operator family C37, and the three accuracy defects. The maintainers'
+own umbrella issue on lost validation, opened during the study, lists several of our reports as members.
+
+\input{figures/fig-rq5}
+
+\paragraph{Cost and negative results.} The compile-based campaigns on default paths were the most expensive and the least productive:
+about 2{,}800 programs and 45{,}000 differential tests on default paths produced one new defect, the
+fabricated mean of Figure~\ref{fig:motivation}b. The path-side and metadata-derived analyzers produced the
+remaining defects at a fraction of the cost. Table~\ref{tab:negative} lists the factor families that found
+nothing new; they bound the claim of this paper and tell developers where consistency already holds.
+
+
+\rqanswer{RQ6}{\tool led to 73 reports against PyTorch~2.14 and nightly builds and two other compilers; 14
+are fixed or have a fix under review and 10 are confirmed. Of the 58 pipeline findings 42 are silent, and none
+appears with a contiguous float32 tensor on the default path.}

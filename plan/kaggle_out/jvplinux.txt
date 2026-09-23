@@ -1,0 +1,51 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 9.1 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torch 2.14.0+cpu
+[eager jvp] exit=0 (ok) last: ok
+[compile(eager) jvp] exit=0 (ok) last: ok
+[compile(aot_eager) jvp] exit=-11 (0xfffffff5) last: 
+[compile(inductor) jvp] exit=0 (ok) last: ok
+[compile(aot_eager) forward only] exit=0 (ok) last: ok
+[compile(aot_eager) backward] exit=0 (ok) last: ok
+/usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+torch 2.14.0+cpu
+[addr] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[addr_beta_alpha] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[addmm] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[addcmul] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[baddbmm] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[addbmm] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[addmv] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[outer_plus] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 9.1 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torch 2.15.0.dev20260912+cpu
+[eager jvp] exit=0 (ok) last: ok
+[compile(eager) jvp] exit=0 (ok) last: ok
+[compile(aot_eager) jvp] exit=-11 (0xfffffff5) last: 
+[compile(inductor) jvp] exit=0 (ok) last: ok
+[compile(aot_eager) forward only] exit=0 (ok) last: ok
+[compile(aot_eager) backward] exit=0 (ok) last: ok
+/usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+torch 2.15.0.dev20260912+cpu
+[addr] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[addr_beta_alpha] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[addmm] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[addcmul] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[baddbmm] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[addbmm] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[addmv] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[outer_plus] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 279722 bytes to __results__.html

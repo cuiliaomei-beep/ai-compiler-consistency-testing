@@ -1,0 +1,44 @@
+{
+  "signature": "08ffaf94c6c3",
+  "program": "issue_176854_torch_compile_does_not_correctly_propaga",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "value"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "176854",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/176854",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 176854,
+      "title": "torch.compile does not correctly propagate detach_() in-place autograd semantics",
+      "url": "https://github.com/pytorch/pytorch/issues/176854",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-03-09"
+    },
+    {
+      "number": 59049,
+      "title": "Dispatch to Python",
+      "url": "https://github.com/pytorch/pytorch/issues/59049",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2021-05-26"
+    }
+  ]
+}

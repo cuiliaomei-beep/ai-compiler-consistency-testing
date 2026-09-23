@@ -1,0 +1,23 @@
+{
+  "stats": {
+    "ops": 4,
+    "samples": 4,
+    "export_ok": 1,
+    "export_fail": 0,
+    "aoti_ok": 0,
+    "aoti_fail": 1,
+    "findings": 0,
+    "export_only": 0,
+    "aoti_only": 0,
+    "shared_with_inductor": 0,
+    "wall_s": 195.4,
+    "crashes": 0
+  },
+  "mismatches": [
+    {
+      "aoti_fail": "linspace",
+      "why": "CUDA error: no kernel image is available for execution on the device\nSearch for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more in"
+    }
+  ],
+  "crashes": []
+}

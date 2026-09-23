@@ -1,0 +1,188 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 554.6/554.6 MB 3.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 553.1/553.1 MB 3.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 170.1/170.1 MB 10.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.0/216.0 MB 8.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.4/60.4 MB 32.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 423.1/423.1 MB 4.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/10.7 MB 106.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.2/90.2 MB 20.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 2.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 214.1/214.1 MB 5.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 54.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.5/59.5 MB 32.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.9/200.9 MB 8.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.9/145.9 MB 3.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 148.0/148.0 kB 9.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 119.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 248.0/248.0 MB 6.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.5/42.5 MB 11.7 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+libcuml-cu12 26.2.0 requires cuda-toolkit[cublas,cufft,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+cuml-cu12 26.2.0 requires cuda-toolkit[cublas,cufft,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+cuda-python 12.9.4 requires cuda-bindings~=12.9.4, but you have cuda-bindings 13.4.2 which is incompatible.
+torchaudio 2.10.0+cu128 requires torch==2.10.0, but you have torch 2.14.0 which is incompatible.
+torchvision 0.25.0+cu128 requires torch==2.10.0, but you have torch 2.14.0 which is incompatible.
+cudf-cu12 26.2.1 requires cuda-toolkit[nvcc,nvrtc]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+libcuvs-cu12 26.2.0 requires cuda-toolkit[cublas,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+libraft-cu12 26.2.0 requires cuda-toolkit[cublas,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+torch 2.14.0+cu130 cuda True
+big buffer ready 2147549248 elements
+   ok   tail view big[2**31:] + 1
+   ok   tail view, reduction sum
+   ok   tail view, in-place mul_ on a clone of the view's base slice
+   ok   window straddling 2**31
+   ok   strided view big[::2**20] * 2
+   ok   strided view big[5::2**24] cumsum
+   ok   as_strided (2, 3) at offset 2**31 - 2
+   ok   flip of tail view
+   ok   tail view fed to where / argmax
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.add.Tensor
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]              ^^^^^^^^^^^^^^^^^^^
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_compile.py", line 54, in inner
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     return disable_fn(*args, **kwargs)
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_dynamo/eval_frame.py", line 1548, in _fn
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     return fn(*args, **kwargs)
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 151, in _fn
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     result = fn(**bound.arguments)
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]              ^^^^^^^^^^^^^^^^^^^^^
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 1238, in add
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     a, b = _maybe_broadcast(a, b)
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 479, in _maybe_broadcast
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     common_shape = _broadcast_shapes(
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 467, in _broadcast_shapes
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0921 13:08:19.156000 40 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Attempting to broadcast a dimension of length 65600 at -1! Mismatching argument at index 1 had torch.Size([65600]); but expected shape should be broadcastable to [64]
+   ERR  two far-apart views combined  TorchRuntimeError: RuntimeError when making fake tensor call
+   ok   tail view matmul-free dot
+   ok   tail view sort / topk
+   ok   2-D view, last column
+   ok   2-D view, row reduction of the last rows
+   ok   index_select beyond 2**31
+   ok   advanced indexing x[i] + 1
+   ok   gather beyond 2**31
+   ok   take beyond 2**31
+   ok   negative python index x[-3]
+   ok   slice with negative bounds x[-40:-8] + 1
+   ok   narrow at 2**31 - 4
+   ok   roll of the tail window
+[W921 13:08:24.255260467 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 17181966336 bytes (free: 13357613056, total: 15636037632).
+[W921 13:08:24.257230054 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 17181966336 bytes (free: 13357613056, total: 15636037632).
+   ERR  reduction over > 2**31 elements  OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 14.56 GiB of which 12.44 GiB is free. Including non-PyTorch m
+[W921 13:08:24.861608297 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 17181966336 bytes (free: 11208032256, total: 15636037632).
+[W921 13:08:24.862247208 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 17181966336 bytes (free: 11208032256, total: 15636037632).
+   ERR  max / argmax over > 2**31 elements  OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 14.56 GiB of which 10.44 GiB is free. Including non-PyTorch m
+[W921 13:08:25.298222827 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 34359738368 bytes (free: 13357613056, total: 15636037632).
+[W921 13:08:25.298873791 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 34359738368 bytes (free: 13357613056, total: 15636037632).
+   ERR  expanded scalar, reduction over 2**32 elements  OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 GiB. GPU 0 has a total capacity of 14.56 GiB of which 12.44 GiB is free. Including non-PyTorch m
+   ok   dynamic=True: small call then > 2**31 tail view
+[W921 13:08:26.377773783 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 17181966336 bytes (free: 13357613056, total: 15636037632).
+[W921 13:08:26.378438293 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 17181966336 bytes (free: 13357613056, total: 15636037632).
+   ERR  automatic dynamic: 1000 then 2000 then > 2**31 elements (reduction)  OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 14.56 GiB of which 12.44 GiB is free. Including non-PyTorch m
+[W921 13:08:27.131742668 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 17181966336 bytes (free: 13357613056, total: 15636037632).
+[W921 13:08:27.132470619 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 17181966336 bytes (free: 13357613056, total: 15636037632).
+   ERR  dynamic=True: reduction, small then > 2**31  OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 14.56 GiB of which 12.44 GiB is free. Including non-PyTorch m
+   ok   pointwise over > 2**31 elements (x + 1)
+   ok   pointwise, last 8 of > 2**31 elements of (x * 3 - x)
+   ok   dynamic=True: pointwise small then > 2**31 elements
+   ok   scatter into > 2**31 buffer
+DONE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 519.2/519.2 MB 60.2 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.4/135.4 MB 121.0 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 175.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 629.3/629.3 MB 3.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 246.8/246.8 MB 7.8 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cu128 requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cu130 which is incompatible.
+torchvision 0.25.0+cu128 requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cu130 which is incompatible.
+torch 2.15.0.dev20260921+cu130 cuda True
+big buffer ready 2147549248 elements
+   ok   tail view big[2**31:] + 1
+   ok   tail view, reduction sum
+   ok   tail view, in-place mul_ on a clone of the view's base slice
+   ok   window straddling 2**31
+   ok   strided view big[::2**20] * 2
+   ok   strided view big[5::2**24] cumsum
+   ok   as_strided (2, 3) at offset 2**31 - 2
+   ok   flip of tail view
+   ok   tail view fed to where / argmax
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0] failed while attempting to run meta for aten.add.Tensor
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0] Traceback (most recent call last):
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3251, in _dispatch_impl
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     r = func(*args, **kwargs)
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     return self._op(*args, **kwargs)
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     result = fn(*args, **kwargs)
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]              ^^^^^^^^^^^^^^^^^^^
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_compile.py", line 54, in inner
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     return disable_fn(*args, **kwargs)
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_dynamo/eval_frame.py", line 1548, in _fn
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     return fn(*args, **kwargs)
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]            ^^^^^^^^^^^^^^^^^^^
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 151, in _fn
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     result = fn(**bound.arguments)
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]              ^^^^^^^^^^^^^^^^^^^^^
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 1240, in add
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     a, b = _maybe_broadcast(a, b)
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 480, in _maybe_broadcast
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     common_shape = _broadcast_shapes(
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]                    ^^^^^^^^^^^^^^^^^^
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 468, in _broadcast_shapes
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     torch._check(
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     _check_with(RuntimeError, cond, message)
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0]     raise error_type(message_evaluated)
+E0921 13:09:55.586000 147 torch/_subclasses/fake_tensor.py:3255] [0/0] RuntimeError: Attempting to broadcast a dimension of length 65600 at -1! Mismatching argument at index 1 had torch.Size([65600]); but expected shape should be broadcastable to [64]
+   ERR  two far-apart views combined  TorchRuntimeError: RuntimeError when making fake tensor call
+   ok   tail view matmul-free dot
+   ok   tail view sort / topk
+   ok   2-D view, last column
+   ok   2-D view, row reduction of the last rows
+   ok   index_select beyond 2**31
+   ok   advanced indexing x[i] + 1
+   ok   gather beyond 2**31
+   ok   take beyond 2**31
+   ok   negative python index x[-3]
+   ok   slice with negative bounds x[-40:-8] + 1
+   ok   narrow at 2**31 - 4
+   ok   roll of the tail window
+   ERR  reduction over > 2**31 elements  OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 14.56 GiB of which 12.44 GiB is free. Including non-PyTorch m
+   ERR  max / argmax over > 2**31 elements  OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 14.56 GiB of which 10.44 GiB is free. Including non-PyTorch m
+   ERR  expanded scalar, reduction over 2**32 elements  OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 GiB. GPU 0 has a total capacity of 14.56 GiB of which 12.44 GiB is free. Including non-PyTorch m
+   ok   dynamic=True: small call then > 2**31 tail view
+   ERR  automatic dynamic: 1000 then 2000 then > 2**31 elements (reduction)  OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 14.56 GiB of which 12.44 GiB is free. Including non-PyTorch m
+   ERR  dynamic=True: reduction, small then > 2**31  OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 GiB. GPU 0 has a total capacity of 14.56 GiB of which 12.44 GiB is free. Including non-PyTorch m
+   ok   pointwise over > 2**31 elements (x + 1)
+   ok   pointwise, last 8 of > 2**31 elements of (x * 3 - x)
+   ok   dynamic=True: pointwise small then > 2**31 elements
+   ok   scatter into > 2**31 buffer
+DONE
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 283037 bytes to __results__.html

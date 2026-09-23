@@ -1,0 +1,28 @@
+{
+  "signature": "af0e1cdc17d8",
+  "program": "issue_113641_compiling_double_inplace_clamp_on_stride",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "dtype",
+  "probe": "layered",
+  "status": "Pending",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "113641",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/113641",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

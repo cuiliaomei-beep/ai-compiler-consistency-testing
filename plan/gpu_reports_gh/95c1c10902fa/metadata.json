@@ -1,0 +1,36 @@
+{
+  "signature": "95c1c10902fa",
+  "program": "issue_172183_torch_compile_silently_bypasses_dtype_mi",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "172183",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/172183",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 172183,
+      "title": "🐛 torch.compile silently bypasses dtype mismatch checks in SFDP attention patterns",
+      "url": "https://github.com/pytorch/pytorch/issues/172183",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-01-11"
+    }
+  ]
+}

@@ -1,0 +1,975 @@
+[
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 165,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "promote_to_tensor",
+    "arguments": [
+      "x"
+    ],
+    "options": {},
+    "reachable": [
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 171,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "fp8e4m3fn_to_float32",
+    "arguments": [
+      "x"
+    ],
+    "options": {},
+    "reachable": [
+      "fp8e4m3fn_to_float32"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 190,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "div_floor_integer",
+    "arguments": [
+      "a",
+      "b"
+    ],
+    "options": {},
+    "reachable": [
+      "div_floor_integer"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 200,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "remainder_integer",
+    "arguments": [
+      "a",
+      "b"
+    ],
+    "options": {},
+    "reachable": [
+      "remainder_integer"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 207,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "pow_integer",
+    "arguments": [
+      "base",
+      "exponent"
+    ],
+    "options": {},
+    "reachable": [
+      "pow_integer"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 224,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "is_floating",
+    "arguments": [
+      "x"
+    ],
+    "options": {},
+    "reachable": [
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 229,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "_prod_accumulate",
+    "arguments": [
+      "a",
+      "b"
+    ],
+    "options": {},
+    "reachable": [
+      "_prod_accumulate"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 234,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "prod",
+    "arguments": [
+      "input",
+      "axis"
+    ],
+    "options": {},
+    "reachable": [
+      "prod"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 239,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "minimum",
+    "arguments": [
+      "a",
+      "b"
+    ],
+    "options": {},
+    "reachable": [
+      "minimum"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 244,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "maximum",
+    "arguments": [
+      "a",
+      "b"
+    ],
+    "options": {},
+    "reachable": [
+      "maximum"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 249,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "_minimum_reduce",
+    "arguments": [
+      "a",
+      "b"
+    ],
+    "options": {},
+    "reachable": [
+      "_minimum_reduce",
+      "minimum",
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 257,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "_maximum_reduce",
+    "arguments": [
+      "a",
+      "b"
+    ],
+    "options": {},
+    "reachable": [
+      "_maximum_reduce",
+      "maximum",
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 265,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "fmaximum",
+    "arguments": [
+      "a",
+      "b"
+    ],
+    "options": {},
+    "reachable": [
+      "fmaximum"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 270,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "min2",
+    "arguments": [
+      "a",
+      "dim"
+    ],
+    "options": {},
+    "reachable": [
+      "min2"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 275,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "max2",
+    "arguments": [
+      "a",
+      "dim"
+    ],
+    "options": {},
+    "reachable": [
+      "max2"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 280,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "min2_strict",
+    "arguments": [
+      "a",
+      "dim"
+    ],
+    "options": {},
+    "reachable": [
+      "min2_strict"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 285,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "max2_strict",
+    "arguments": [
+      "a",
+      "dim"
+    ],
+    "options": {},
+    "reachable": [
+      "max2_strict"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 290,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "fmax2",
+    "arguments": [
+      "a",
+      "dim"
+    ],
+    "options": {},
+    "reachable": [
+      "fmax2"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 295,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "minimum_with_index",
+    "arguments": [
+      "a_value",
+      "a_index",
+      "b_value",
+      "b_index"
+    ],
+    "options": {},
+    "reachable": [
+      "minimum_with_index",
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 311,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "maximum_with_index",
+    "arguments": [
+      "a_value",
+      "a_index",
+      "b_value",
+      "b_index"
+    ],
+    "options": {},
+    "reachable": [
+      "maximum_with_index",
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 327,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "min_with_index",
+    "arguments": [
+      "value",
+      "index",
+      "dim"
+    ],
+    "options": {},
+    "reachable": [
+      "min_with_index"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 332,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "max_with_index",
+    "arguments": [
+      "value",
+      "index",
+      "dim"
+    ],
+    "options": {},
+    "reachable": [
+      "max_with_index"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 337,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "exp",
+    "arguments": [
+      "x",
+      "use_fast_math"
+    ],
+    "options": {},
+    "reachable": [
+      "exp"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 345,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "online_softmax_reduce",
+    "arguments": [
+      "lhs_max",
+      "lhs_sum",
+      "dim",
+      "use_fast_math",
+      "strict_signed_zero"
+    ],
+    "options": {},
+    "reachable": [
+      "online_softmax_reduce",
+      "max2_strict",
+      "max2",
+      "exp"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 363,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "online_softmax_combine",
+    "arguments": [
+      "lhs_max",
+      "lhs_sum",
+      "rhs_max",
+      "use_fast_math",
+      "strict_signed_zero"
+    ],
+    "options": {},
+    "reachable": [
+      "online_softmax_combine",
+      "maximum",
+      "exp",
+      "_maximum_reduce",
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 396,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "online_softmax_combine_with_sum",
+    "arguments": [
+      "lhs_max",
+      "lhs_sum",
+      "rhs_max",
+      "rhs_sum",
+      "use_fast_math",
+      "strict_signed_zero"
+    ],
+    "options": {},
+    "reachable": [
+      "online_softmax_combine_with_sum",
+      "maximum",
+      "exp",
+      "_maximum_reduce",
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 421,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "welford_reduce",
+    "arguments": [
+      "value",
+      "mean",
+      "m2",
+      "weight",
+      "first_iteration"
+    ],
+    "options": {},
+    "reachable": [
+      "welford_reduce"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 435,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "welford_combine",
+    "arguments": [
+      "mean_1",
+      "m2_1",
+      "weight_1",
+      "mean_2",
+      "m2_2",
+      "weight_2"
+    ],
+    "options": {},
+    "reachable": [
+      "welford_combine"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 449,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "welford",
+    "arguments": [
+      "mean",
+      "m2",
+      "weight",
+      "dim"
+    ],
+    "options": {},
+    "reachable": [
+      "welford"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 454,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "device_assert_then",
+    "arguments": [
+      "cond",
+      "msg",
+      "r"
+    ],
+    "options": {},
+    "reachable": [
+      "device_assert_then"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 460,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "rand_eager_kernel",
+    "arguments": [
+      "seed",
+      "offset_blocks",
+      "tid",
+      "VEC"
+    ],
+    "options": {},
+    "reachable": [
+      "rand_eager_kernel"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 488,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "_random_4x_to_block",
+    "arguments": [
+      "r0",
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "options": {},
+    "reachable": [
+      "_random_4x_to_block"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 495,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "rand4x",
+    "arguments": [
+      "seed",
+      "offsets",
+      "BLOCK"
+    ],
+    "options": {},
+    "reachable": [
+      "rand4x",
+      "_random_4x_to_block"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 507,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "randn4x",
+    "arguments": [
+      "seed",
+      "offsets",
+      "BLOCK"
+    ],
+    "options": {},
+    "reachable": [
+      "randn4x",
+      "_random_4x_to_block"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 519,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "randint64",
+    "arguments": [
+      "seed",
+      "offset",
+      "low",
+      "high"
+    ],
+    "options": {},
+    "reachable": [
+      "randint64"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 531,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "_any_combine",
+    "arguments": [
+      "a",
+      "b"
+    ],
+    "options": {},
+    "reachable": [
+      "_any_combine"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 536,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "any",
+    "arguments": [
+      "a",
+      "dim"
+    ],
+    "options": {},
+    "reachable": [
+      "any"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 541,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "bucketize_binary_search",
+    "arguments": [
+      "values",
+      "boundaries_ptr",
+      "BOUNDARIES_SIZE",
+      "BOUNDARIES_UNDERLYING_NUMEL",
+      "BOUNDARIES_STRIDE",
+      "boundary_indices",
+      "indexing_dtype",
+      "right",
+      "sorter_ptr",
+      "SORTER_STRIDE",
+      "sorter_indices"
+    ],
+    "options": {},
+    "reachable": [
+      "bucketize_binary_search",
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 623,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "pack_value_flag",
+    "arguments": [
+      "value",
+      "flag",
+      "DTYPE_VALUE_AS_UINT",
+      "DTYPE_PACK"
+    ],
+    "options": {},
+    "reachable": [
+      "pack_value_flag"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 637,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "unpack_value",
+    "arguments": [
+      "pack",
+      "DTYPE_VALUE",
+      "DTYPE_VALUE_AS_UINT"
+    ],
+    "options": {},
+    "reachable": [
+      "unpack_value"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 651,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "unpack_flag",
+    "arguments": [
+      "pack",
+      "DTYPE_FLAG"
+    ],
+    "options": {},
+    "reachable": [
+      "unpack_flag"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 656,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "exclusive_scan_decoupled_lookback",
+    "arguments": [
+      "scratch_base",
+      "block_value",
+      "index",
+      "combine_fn",
+      "DTYPE_VALUE_AS_UINT",
+      "DTYPE_PACK"
+    ],
+    "options": {},
+    "reachable": [
+      "exclusive_scan_decoupled_lookback",
+      "unpack_value",
+      "unpack_flag",
+      "pack_value_flag"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 728,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "exclusive_scan_decoupled_lookback_64",
+    "arguments": [
+      "scratch_base",
+      "block_value",
+      "index",
+      "combine_fn"
+    ],
+    "options": {},
+    "reachable": [
+      "exclusive_scan_decoupled_lookback_64"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 784,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "frexp",
+    "arguments": [
+      "x"
+    ],
+    "options": {},
+    "reachable": [
+      "frexp"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 797,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "_compare_and_swap_with_index",
+    "arguments": [
+      "x",
+      "idxs",
+      "rnumel",
+      "flip",
+      "i",
+      "n_dims",
+      "stable",
+      "descending"
+    ],
+    "options": {},
+    "reachable": [
+      "_compare_and_swap_with_index",
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 886,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "_bitonic_merge_with_index",
+    "arguments": [
+      "x",
+      "idxs",
+      "rnumel",
+      "stage",
+      "alternating",
+      "n_dims",
+      "stable",
+      "descending"
+    ],
+    "options": {},
+    "reachable": [
+      "_bitonic_merge_with_index",
+      "_compare_and_swap_with_index",
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 919,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "sort_with_index",
+    "arguments": [
+      "x",
+      "idxs",
+      "rnumel",
+      "dim",
+      "stable",
+      "descending"
+    ],
+    "options": {},
+    "reachable": [
+      "sort_with_index",
+      "_bitonic_merge_with_index",
+      "_compare_and_swap_with_index",
+      "is_floating",
+      "promote_to_tensor"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 951,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "select_one",
+    "arguments": [
+      "x",
+      "mask",
+      "dim",
+      "keep_dims"
+    ],
+    "options": {},
+    "reachable": [
+      "select_one"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 959,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "x_grid_barrier",
+    "arguments": [
+      "sem"
+    ],
+    "options": {},
+    "reachable": [
+      "x_grid_barrier"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 1039,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "inline_asm_pack",
+    "arguments": [
+      "x",
+      "pack"
+    ],
+    "options": {},
+    "reachable": [
+      "inline_asm_pack"
+    ],
+    "external_state": [],
+    "wrapper": null
+  },
+  {
+    "file": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\runtime\\triton_helpers.py",
+    "line": 1053,
+    "compiler": "triton.jit",
+    "form": "decorator",
+    "target": "inline_asm_unpack",
+    "arguments": [
+      "x",
+      "orig",
+      "pack"
+    ],
+    "options": {},
+    "reachable": [
+      "inline_asm_unpack"
+    ],
+    "external_state": [],
+    "wrapper": null
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "signature": "d7540d909e40",
+  "program": "issue_195675_torch_clamp_with_a_bound_unrepresentable",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "195675",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/195675",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

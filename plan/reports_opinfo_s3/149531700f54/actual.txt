@@ -1,0 +1,2 @@
+exception TorchRuntimeError: RuntimeError when making fake tensor call
+  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function binary_cross_entropy_with_logits at 0x000001ED06590CA0>(*(FakeTensor(..., size=(5, 5)), FakeTensor(..., size=(1, 5))), **{'reduction': 'mean', 'pos_weight': FakeTensor(..., size=(5,))}): got ValueError('Target size (torch.Size([1, 5])) must be the same as input size (tor

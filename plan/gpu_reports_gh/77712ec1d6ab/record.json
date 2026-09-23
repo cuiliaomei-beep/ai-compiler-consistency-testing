@@ -1,0 +1,381 @@
+{
+  "signature": "77712ec1d6ab",
+  "program": "issue_190755_some_dynamo_descriptors_tp_descr_get_imp",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "dtype=float16",
+    "factors": {
+      "dtype": "float16"
+    },
+    "warm": true,
+    "origin": "x.dtype"
+  },
+  "context_b": null,
+  "factor_changed": "dtype",
+  "controlled": {},
+  "obligation": {
+    "site": "fn",
+    "factor": "x.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "numerics depend on precision regardless of source",
+    "param": "x",
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 9.766e-04",
+          "magnitude": 1.000244140625,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              4
+            ],
+            "dtype": "torch.float16",
+            "max_abs_error": 1.0009765625,
+            "max_rel_error": 0.6365049751243781,
+            "n_mismatch": 4,
+            "n_total": 4,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "3.48046875",
+            "first_mismatch_actual": "2.48046875",
+            "expected_preview": "[3.48046875, 1.5703125, 2.41015625, 2.154296875]",
+            "actual_preview": "[2.48046875, 0.5708007812, 1.409179688, 1.154296875]",
+            "eager_err_vs_fp64": 0.0009765625,
+            "compiled_err_vs_fp64": 1.000244140625,
+            "budget": 0.0135955810546875,
+            "noise_floor": 0.0135955810546875
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 9.766e-04",
+          "magnitude": 1.000244140625,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              4
+            ],
+            "dtype": "torch.float16",
+            "max_abs_error": 1.0009765625,
+            "max_rel_error": 0.6365049751243781,
+            "n_mismatch": 4,
+            "n_total": 4,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "3.48046875",
+            "first_mismatch_actual": "2.48046875",
+            "expected_preview": "[3.48046875, 1.5703125, 2.41015625, 2.154296875]",
+            "actual_preview": "[2.48046875, 0.5708007812, 1.409179688, 1.154296875]",
+            "eager_err_vs_fp64": 0.0009765625,
+            "compiled_err_vs_fp64": 1.000244140625,
+            "budget": 0.0135955810546875,
+            "noise_floor": 0.0135955810546875
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 9.766e-04",
+          "magnitude": 1.000244140625,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              4
+            ],
+            "dtype": "torch.float16",
+            "max_abs_error": 1.0009765625,
+            "max_rel_error": 0.6365049751243781,
+            "n_mismatch": 4,
+            "n_total": 4,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "3.48046875",
+            "first_mismatch_actual": "2.48046875",
+            "expected_preview": "[3.48046875, 1.5703125, 2.41015625, 2.154296875]",
+            "actual_preview": "[2.48046875, 0.5708007812, 1.409179688, 1.154296875]",
+            "eager_err_vs_fp64": 0.0009765625,
+            "compiled_err_vs_fp64": 1.000244140625,
+            "budget": 0.0135955810546875,
+            "noise_floor": 0.0135955810546875
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0433,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0513,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.133,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_190755_some_dynamo_descriptors_tp_descr_get_imp.py\nSome Dynamo descriptors (`tp_descr_get_impl`) are missing a `descr_check` equivalent\nhttps://github.com/pytorch/pytorch/issues/190755\ncompile options in the issue: {'backend': 'eager', 'fullgraph': True}",
+  "minimized": null,
+  "duplicates": {
+    "query": "Some Dynamo descriptors tp_descr_get_impl are missing descr_check equivalent",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "190755",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/190755",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 190755,
+        "title": "Some Dynamo descriptors (`tp_descr_get_impl`) are missing a `descr_check` equivalent",
+        "url": "https://github.com/pytorch/pytorch/issues/190755",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-07-22"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

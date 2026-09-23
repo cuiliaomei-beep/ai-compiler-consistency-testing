@@ -1,0 +1,36 @@
+{
+  "signature": "66903ed30514",
+  "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "194547",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/194547",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 194547,
+      "title": "torch.compile silently promotes dtype for torch.distributions.Normal.sample() where eager preserves it",
+      "url": "https://github.com/pytorch/pytorch/issues/194547",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-23"
+    }
+  ]
+}

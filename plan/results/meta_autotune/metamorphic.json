@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "ops": 15,
+    "samples": 39,
+    "compiles": 78,
+    "relation_checks": 39,
+    "not_applicable": 0,
+    "violations": 4,
+    "standard_differs": 0,
+    "infra": 0,
+    "wall_s": 63.3
+  },
+  "mismatches": [
+    {
+      "op": "addmm",
+      "relation": "config",
+      "variant": "max_autotune",
+      "detail": "[exception] test raised InductorError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "addmm",
+      "relation": "config",
+      "variant": "max_autotune",
+      "detail": "[exception] test raised InductorError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32",
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "bmm",
+      "relation": "config",
+      "variant": "max_autotune",
+      "detail": "[exception] test raised InductorError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          10,
+          5,
+          10
+        ],
+        [
+          10,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "matmul",
+      "relation": "config",
+      "variant": "max_autotune",
+      "detail": "[exception] test raised InductorError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          5,
+          10
+        ],
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    }
+  ]
+}

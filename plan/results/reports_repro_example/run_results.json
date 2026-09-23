@@ -1,0 +1,522 @@
+[
+  {
+    "program": "issue_144699_full_like_stride",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 21,
+    "tests_invalid": 0,
+    "contexts_pruned": 1,
+    "compile_count": 77,
+    "wall_s": 19.847,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [
+      "x.grad=False (identical to base)"
+    ],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "issue_144699_full_like_stride",
+      "level": "FULL",
+      "scs": {
+        "site": "f",
+        "params": [
+          "x"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [],
+        "entries": [
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "f",
+          "factor": "x.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "x",
+          "dim": null
+        },
+        {
+          "site": "f",
+          "factor": "x.requires_grad",
+          "kind": "requires_grad",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "grad on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "gradient"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "requires_grad changes the traced graph regardless of source",
+          "param": "x",
+          "dim": null
+        },
+        {
+          "site": "f",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {},
+          "warm": true,
+          "origin": ""
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          },
+          "warm": true,
+          "origin": "x.dtype"
+        },
+        {
+          "name": "x.grad=True",
+          "factors": {
+            "requires_grad": {
+              "arg": 0,
+              "value": true
+            }
+          },
+          "warm": true,
+          "origin": "x.requires_grad"
+        },
+        {
+          "name": "compile.dynamic=True",
+          "factors": {
+            "compile": {
+              "dynamic": true
+            }
+          },
+          "warm": false,
+          "origin": "compile.dynamic"
+        },
+        {
+          "name": "dtype=float64",
+          "factors": {
+            "dtype": "float64"
+          },
+          "warm": true,
+          "origin": "x.dtype"
+        },
+        {
+          "name": "x.grad=False",
+          "factors": {
+            "requires_grad": {
+              "arg": 0,
+              "value": false
+            }
+          },
+          "warm": true,
+          "origin": "x.requires_grad"
+        },
+        {
+          "name": "compile.dynamic=False",
+          "factors": {
+            "compile": {
+              "dynamic": false
+            }
+          },
+          "warm": false,
+          "origin": "compile.dynamic"
+        },
+        {
+          "name": "dtype=bfloat16",
+          "factors": {
+            "dtype": "bfloat16"
+          },
+          "warm": true,
+          "origin": "x.dtype"
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "base",
+          "x.grad=True"
+        ],
+        [
+          "base",
+          "compile.dynamic=True"
+        ],
+        [
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "base",
+          "x.grad=False"
+        ],
+        [
+          "base",
+          "compile.dynamic=False"
+        ],
+        [
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "x.grad=True",
+          "base"
+        ],
+        [
+          "x.grad=True",
+          "x.grad=False"
+        ],
+        [
+          "compile.dynamic=True",
+          "base"
+        ],
+        [
+          "compile.dynamic=True",
+          "compile.dynamic=False"
+        ],
+        [
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "x.grad=False",
+          "base"
+        ],
+        [
+          "x.grad=False",
+          "x.grad=True"
+        ],
+        [
+          "compile.dynamic=False",
+          "base"
+        ],
+        [
+          "compile.dynamic=False",
+          "compile.dynamic=True"
+        ],
+        [
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "x.grad=True"
+        ],
+        [
+          "x.grad=True",
+          "base"
+        ],
+        [
+          "base",
+          "x.grad=True",
+          "base"
+        ],
+        [
+          "base",
+          "compile.dynamic=True"
+        ],
+        [
+          "compile.dynamic=True",
+          "base"
+        ],
+        [
+          "base",
+          "compile.dynamic=True",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "base",
+          "x.grad=False"
+        ],
+        [
+          "x.grad=False",
+          "base"
+        ],
+        [
+          "base",
+          "x.grad=False",
+          "base"
+        ],
+        [
+          "base",
+          "compile.dynamic=False"
+        ],
+        [
+          "compile.dynamic=False",
+          "base"
+        ],
+        [
+          "base",
+          "compile.dynamic=False",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "x.grad=True",
+          "base",
+          "x.grad=True"
+        ],
+        [
+          "x.grad=True",
+          "x.grad=False"
+        ],
+        [
+          "x.grad=False",
+          "x.grad=True"
+        ],
+        [
+          "x.grad=True",
+          "x.grad=False",
+          "x.grad=True"
+        ],
+        [
+          "compile.dynamic=True",
+          "base",
+          "compile.dynamic=True"
+        ],
+        [
+          "compile.dynamic=True",
+          "compile.dynamic=False"
+        ],
+        [
+          "compile.dynamic=False",
+          "compile.dynamic=True"
+        ],
+        [
+          "compile.dynamic=True",
+          "compile.dynamic=False",
+          "compile.dynamic=True"
+        ],
+        [
+          "dtype=float64",
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "x.grad=False",
+          "base",
+          "x.grad=False"
+        ],
+        [
+          "x.grad=False",
+          "x.grad=True",
+          "x.grad=False"
+        ],
+        [
+          "compile.dynamic=False",
+          "base",
+          "compile.dynamic=False"
+        ],
+        [
+          "compile.dynamic=False",
+          "compile.dynamic=True",
+          "compile.dynamic=False"
+        ],
+        [
+          "dtype=bfloat16",
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64",
+          "dtype=bfloat16"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "gradient",
+        "mutation",
+        "alias",
+        "exception"
+      ],
+      "n_tests": 56,
+      "generation_ms": 0.548,
+      "analysis_ms": 0.353
+    }
+  }
+]

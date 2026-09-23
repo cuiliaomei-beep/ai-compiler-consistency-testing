@@ -1,0 +1,359 @@
+{
+ "mode": "eager",
+ "programs": 33,
+ "divergences": [
+  {
+   "program": "exc_index_caught_as_Exception",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', ['IndexError', ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.706571102142334, -1.1787893772125244, 1.5684312582015991, -0.08452236652374268, -0.3985954523086548, 1.4033467769622803, 1.8380262851715088, 0.2807424068450928, 0.5966564416885376, 0.4033646583557129, 1.1820365190505981],",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_caught_as_Exception",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', ['IndexError', ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.706571102142334, -1.1787893772125244, 1.5684312582015991, -0.08452236652374268, -0.3985954523086548, 1.4033467769622803, 1.8380262851715088, 0.2807424068450928, 0.5966564416885376, 0.4033646583557129, 1.1820365190505981],",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_caught_as_LookupError",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', ['IndexError', 'select(): index 10 o'])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_caught_as_LookupError",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', ['IndexError', 'select(): index 10 o'])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_caught_by_tuple",
+   "call": 0,
+   "what": "raise",
+   "eager": "'IndexError'",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_caught_by_tuple",
+   "call": 1,
+   "what": "raise",
+   "eager": "'IndexError'",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_in_nested_call",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', ['caught in caller', ('T', 'torch.float32', (3, 4), [3.0819921493530273, -0.586857795715332, -4.357578754425049, 1.1368625164031982, -2.1690447330474854, -2.7971909046173096, 0.8066936731338501, 1.6760526895523071, -1.4385151863098145, -0.80668705701828, -1.1932706832885742, 0.364072978496",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_in_nested_call",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', ['caught in caller', ('T', 'torch.float32', (3, 4), [3.0819921493530273, -0.586857795715332, -4.357578754425049, 1.1368625164031982, -2.1690447330474854, -2.7971909046173096, 0.8066936731338501, 1.6760526895523071, -1.4385151863098145, -0.80668705701828, -1.1932706832885742, 0.364072978496",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_in_loop_continue",
+   "call": 0,
+   "what": "raise",
+   "eager": "('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float32', (), [-3.141735553741455], False, ()), 'bad dim', ('T', 'torch.float32', (), [-3.141735553741455], False, ())])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_in_loop_continue",
+   "call": 1,
+   "what": "raise",
+   "eager": "('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float32', (), [-3.141735553741455], False, ()), 'bad dim', ('T', 'torch.float32', (), [-3.141735553741455], False, ())])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_in_comprehension",
+   "call": 0,
+   "what": "raise",
+   "eager": "('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float32', (), [-3.141735553741455], False, ()), None])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_in_comprehension",
+   "call": 1,
+   "what": "raise",
+   "eager": "('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float32', (), [-3.141735553741455], False, ()), None])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_in_generator_consumer",
+   "call": 0,
+   "what": "raise",
+   "eager": "('list', [('T', 'torch.float32', (), [-1.0472452640533447], False, ()), 'gen raised'])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_in_generator_consumer",
+   "call": 1,
+   "what": "raise",
+   "eager": "('list', [('T', 'torch.float32', (), [-1.0472452640533447], False, ()), 'gen raised'])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_then_finally_order",
+   "call": 0,
+   "what": "raise",
+   "eager": "('list', ['finally', 'except'])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_then_finally_order",
+   "call": 1,
+   "what": "raise",
+   "eager": "('list', ['finally', 'except', 'finally', 'except'])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_reraise_as_custom",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', ['custom', 'IndexError'])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_reraise_as_custom",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', ['custom', 'IndexError'])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_reraise_bare",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', ['outer', 1])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_reraise_bare",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', ['outer', 2])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_suppress",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', ['suppressed', ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.706571102142334, -1.1787893772125244, 1.5684312582015991, -0.08452236652374268, -0.3985954523086548, 1.4033467769622803, 1.8380262851715088, 0.2807424068450928, 0.5966564416885376, 0.4033646583557129, 1.1820365190505981],",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_suppress",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', ['suppressed', ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.706571102142334, -1.1787893772125244, 1.5684312582015991, -0.08452236652374268, -0.3985954523086548, 1.4033467769622803, 1.8380262851715088, 0.2807424068450928, 0.5966564416885376, 0.4033646583557129, 1.1820365190505981],",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_exit_swallows",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', ['swallowed', ('list', ['IndexError'])])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_exit_swallows",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', ['swallowed', ('list', ['IndexError', 'IndexError'])])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_else_branch",
+   "call": 0,
+   "what": "raise",
+   "eager": "('Size', (1, 3, 4))",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_else_branch",
+   "call": 1,
+   "what": "raise",
+   "eager": "('Size', (1, 3, 4))",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_sys_exc_info",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', ['IndexError', True])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_sys_exc_info",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', ['IndexError', True])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_message_kept",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', [True, 'Dimension out of range ('])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_message_kept",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', [True, 'Dimension out of range ('])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_not_implemented_bitwise_float",
+   "call": 0,
+   "what": "raise",
+   "eager": "'NotImplementedError'",
+   "compiled": "'raise:NotImplementedError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_not_implemented_bitwise_float",
+   "call": 1,
+   "what": "raise",
+   "eager": "'NotImplementedError'",
+   "compiled": "'raise:NotImplementedError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_runtime_shape_mismatch_handler_then_index",
+   "call": 0,
+   "what": "raise",
+   "eager": "'inner index caught'",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_runtime_shape_mismatch_handler_then_index",
+   "call": 1,
+   "what": "raise",
+   "eager": "'inner index caught'",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_from_python_list_vs_tensor",
+   "call": 0,
+   "what": "raise",
+   "eager": "('list', ['list IndexError', 'Tensor IndexError'])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_from_python_list_vs_tensor",
+   "call": 1,
+   "what": "raise",
+   "eager": "('list', ['list IndexError', 'Tensor IndexError'])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_key_error_dict_vs_index_tensor",
+   "call": 0,
+   "what": "raise",
+   "eager": "'both caught'",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_key_error_dict_vs_index_tensor",
+   "call": 1,
+   "what": "raise",
+   "eager": "'both caught'",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_lambda_in_map",
+   "call": 0,
+   "what": "raise",
+   "eager": "('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float32', (), [-3.141735553741455], False, ()), -1])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_lambda_in_map",
+   "call": 1,
+   "what": "raise",
+   "eager": "('list', [('T', 'torch.float32', (), [-3.141735553741455], False, ()), ('T', 'torch.float32', (), [-3.141735553741455], False, ()), -1])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_after_graph_break_pattern",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', ['caught after effect', ('list', ['mid'])])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_after_graph_break_pattern",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', ['caught after effect', ('list', ['mid', 'mid'])])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_in_with_no_grad",
+   "call": 0,
+   "what": "raise",
+   "eager": "('tuple', ['caught in no_grad', False])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  },
+  {
+   "program": "exc_index_in_with_no_grad",
+   "call": 1,
+   "what": "raise",
+   "eager": "('tuple', ['caught in no_grad', False])",
+   "compiled": "'raise:IndexError'",
+   "mode": "eager"
+  }
+ ],
+ "wall_s": 1.8
+}

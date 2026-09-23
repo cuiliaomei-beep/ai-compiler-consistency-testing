@@ -1,0 +1,168 @@
+{
+  "stats": {
+    "ops": 509,
+    "samples": 509,
+    "export_ok": 497,
+    "export_fail": 7,
+    "aoti_ok": 464,
+    "aoti_fail": 33,
+    "findings": 7,
+    "export_only": 2,
+    "aoti_only": 3,
+    "shared_with_inductor": 2,
+    "wall_s": 3327.9,
+    "crashes": 3
+  },
+  "mismatches": [
+    {
+      "op": "item",
+      "path": "aoti",
+      "detail": "[structure] output structure differs: float vs T",
+      "also_inductor": false,
+      "shapes": [
+        [
+          1
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kwargs": "{}"
+    },
+    {
+      "op": "var_mean",
+      "path": "aoti",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "also_inductor": true,
+      "shapes": [
+        [
+          0,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kwargs": "{}"
+    },
+    {
+      "op": "std_mean",
+      "path": "aoti",
+      "detail": "[value] output[1]: NaN/Inf pattern differs from the float64 truth",
+      "also_inductor": true,
+      "shapes": [
+        [
+          0
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kwargs": "{}"
+    },
+    {
+      "op": "nn.functional.dropout2d",
+      "path": "export",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.795e+01 exceeds 4.0x eager err 0.000e+00",
+      "also_inductor": false,
+      "shapes": [
+        [
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kwargs": "{'p': 0.5, 'training': True}"
+    },
+    {
+      "op": "nn.functional.dropout2d",
+      "path": "aoti",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.795e+01 exceeds 4.0x eager err 0.000e+00",
+      "also_inductor": false,
+      "shapes": [
+        [
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kwargs": "{'p': 0.5, 'training': True}"
+    },
+    {
+      "op": "nn.functional.dropout3d",
+      "path": "export",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.798e+01 exceeds 4.0x eager err 0.000e+00",
+      "also_inductor": false,
+      "shapes": [
+        [
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kwargs": "{'p': 0.5, 'training': True}"
+    },
+    {
+      "op": "nn.functional.dropout3d",
+      "path": "aoti",
+      "detail": "[value] output[0]: compiled err vs fp64 = 1.795e+01 exceeds 4.0x eager err 0.000e+00",
+      "also_inductor": false,
+      "shapes": [
+        [
+          5,
+          5,
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kwargs": "{'p': 0.5, 'training': True}"
+    },
+    {
+      "op": "hash_tensor",
+      "path": "aoti",
+      "detail": "[exception] test raised RuntimeError, ref returned normally",
+      "also_inductor": false,
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kwargs": "{'dim': (0, 1, 2, 3), 'keepdim': False}"
+    }
+  ],
+  "crashes": [
+    {
+      "crash": "slice_scatter",
+      "rc": 3221225477
+    },
+    {
+      "crash": "kron",
+      "rc": 3221225477
+    },
+    {
+      "crash": "repeat_interleave",
+      "rc": 3221225477
+    }
+  ]
+}

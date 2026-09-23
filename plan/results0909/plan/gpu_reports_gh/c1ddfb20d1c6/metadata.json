@@ -1,0 +1,68 @@
+{
+  "signature": "c1ddfb20d1c6",
+  "program": "issue_171259_torch_acceleratorerror_cuda_error_device",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "171259",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/171259",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 195656,
+      "title": "DISABLED test_cudnn_rnn_cuda_float16 (__main__.TestNNDeviceTypeCUDA)",
+      "url": "https://github.com/pytorch/pytorch/issues/195656",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-09-02"
+    },
+    {
+      "number": 187368,
+      "title": "[inductor] add input validation to normal and bernoulli decompositions",
+      "url": "https://github.com/pytorch/pytorch/pull/187368",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-06-15"
+    },
+    {
+      "number": 189972,
+      "title": "[MPS] Bounds-check indices in index_copy_, index_fill_, and index_reduce_",
+      "url": "https://github.com/pytorch/pytorch/pull/189972",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-07-15"
+    },
+    {
+      "number": 120902,
+      "title": "RuntimeError: cuFFT error: CUFFT_INTERNAL_ERROR",
+      "url": "https://github.com/pytorch/pytorch/issues/120902",
+      "state": "open",
+      "is_pr": false,
+      "created": "2024-02-29"
+    },
+    {
+      "number": 170350,
+      "title": "[feature request] Checked version of indexing/embedding ops",
+      "url": "https://github.com/pytorch/pytorch/issues/170350",
+      "state": "open",
+      "is_pr": false,
+      "created": "2025-12-13"
+    }
+  ]
+}

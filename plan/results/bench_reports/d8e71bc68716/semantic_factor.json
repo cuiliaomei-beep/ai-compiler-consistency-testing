@@ -1,0 +1,56 @@
+{
+  "factor_changed": "dtype",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "dtype=float16",
+    "factors": {
+      "dtype": "float16"
+    },
+    "warm": true,
+    "origin": "x.dtype"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "shape_boundary",
+    "factor": "x.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "numerics depend on precision regardless of source",
+    "param": "x",
+    "dim": null
+  },
+  "triage": {
+    "stage": "cache_invalidation",
+    "stage_label": "cache invalidation (A -> B -> A)",
+    "priority": "high",
+    "rationale": "after switching 'dtype' A -> B -> A, A no longer yields its original result (no recompile on return)",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": false,
+    "guard_suspicious": false,
+    "warm_only": true,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": true
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "signature": "093d6127d075",
+  "program": "issue_193661_inductor_wrong_argmax_after_fused_traili",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "193661",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/193661",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 193121,
+      "title": "[inductor] Avoid materializing Domino CE logits",
+      "url": "https://github.com/pytorch/pytorch/pull/193121",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-12"
+    },
+    {
+      "number": 195063,
+      "title": "[inductor] Fix argmax/argmin logical index for non-row-major fused inputs",
+      "url": "https://github.com/pytorch/pytorch/pull/195063",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-08-27"
+    },
+    {
+      "number": 193661,
+      "title": "[inductor] Wrong argmax after fused trailing-dim reduction on non-contiguous inputs (incl. non-unit-stride reduction window) — generic reduction fusion ignores input strides, CPU and CUDA",
+      "url": "https://github.com/pytorch/pytorch/issues/193661",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-08-15"
+    }
+  ]
+}

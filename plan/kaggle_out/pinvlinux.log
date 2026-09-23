@@ -1,0 +1,148 @@
+[{"stream_name":"stdout","time":9.250959635,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 9.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":54.14618844,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":54.146308103,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":54.146321422,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":80.016845908,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.\n"}
+,{"stream_name":"stderr","time":80.016896846,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":92.104813025,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.\n"}
+,{"stream_name":"stderr","time":92.104871586,"data":"  check(\n"}
+,{"stream_name":"stderr","time":93.601905674,"data":"/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:1072: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:\n"}
+,{"stream_name":"stderr","time":93.601952915,"data":"  File \"/kaggle/working/diag_complex_linalg_grad.py\", line 16, in \u003clambda\u003e\n"}
+,{"stream_name":"stderr","time":93.601961888,"data":"    \"svd_U_abs\": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),\n"}
+,{"stream_name":"stderr","time":93.601976461,"data":"                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":93.601984499,"data":" (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_anomaly_mode.cpp:130.)\n"}
+,{"stream_name":"stderr","time":93.601996175,"data":"  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n"}
+,{"stream_name":"stderr","time":93.618560922,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0] Backend compiler exception\n"}
+,{"stream_name":"stderr","time":93.618596204,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]   Explanation: Backend compiler `aot_eager` failed with aten.allclose.default. Adding a graph break.\n"}
+,{"stream_name":"stderr","time":93.618602078,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.\n"}
+,{"stream_name":"stderr","time":93.618624059,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0] \n"}
+,{"stream_name":"stderr","time":93.618630641,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]   Developer debug context: Backend: aot_eager\n"}
+,{"stream_name":"stderr","time":93.61863743,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]     Exception:aten.allclose.default\n"}
+,{"stream_name":"stderr","time":93.618643999,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]     Traceback:\n"}
+,{"stream_name":"stderr","time":93.618649731,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]       File \"/kaggle/working/diag_complex_linalg_grad.py\", line 16, in \u003clambda\u003e\n"}
+,{"stream_name":"stderr","time":93.618662082,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]         \"svd_U_abs\": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),\n"}
+,{"stream_name":"stderr","time":93.618685776,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":93.618689326,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0] \n"}
+,{"stream_name":"stderr","time":93.618692007,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0] \n"}
+,{"stream_name":"stderr","time":93.618695017,"data":"W0912 13:47:36.334000 15 torch/_dynamo/exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html\n"}
+,{"stream_name":"stderr","time":93.740583949,"data":"/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:1072: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:\n"}
+,{"stream_name":"stderr","time":93.740651023,"data":"  File \"/kaggle/working/diag_complex_linalg_grad.py\", line 16, in \u003clambda\u003e\n"}
+,{"stream_name":"stderr","time":93.740659866,"data":"    \"svd_U_abs\": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),\n"}
+,{"stream_name":"stderr","time":93.740665976,"data":"                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":93.74067099,"data":" (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_anomaly_mode.cpp:130.)\n"}
+,{"stream_name":"stderr","time":93.740676676,"data":"  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n"}
+,{"stream_name":"stderr","time":93.7515841,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0] Backend compiler exception\n"}
+,{"stream_name":"stderr","time":93.751625165,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]   Explanation: Backend compiler `inductor` failed with aten.allclose.default. Adding a graph break.\n"}
+,{"stream_name":"stderr","time":93.751649607,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]   Hint: Report an issue to the backend compiler repo.\n"}
+,{"stream_name":"stderr","time":93.75165518,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0] \n"}
+,{"stream_name":"stderr","time":93.751660328,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]   Developer debug context: Backend: inductor\n"}
+,{"stream_name":"stderr","time":93.751665208,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]     Exception:aten.allclose.default\n"}
+,{"stream_name":"stderr","time":93.7516702,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]     Traceback:\n"}
+,{"stream_name":"stderr","time":93.751675416,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]       File \"/kaggle/working/diag_complex_linalg_grad.py\", line 16, in \u003clambda\u003e\n"}
+,{"stream_name":"stderr","time":93.75168036,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]         \"svd_U_abs\": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),\n"}
+,{"stream_name":"stderr","time":93.751684756,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":93.75168919,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0] \n"}
+,{"stream_name":"stderr","time":93.751693514,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0] \n"}
+,{"stream_name":"stderr","time":93.751699865,"data":"W0912 13:47:36.467000 15 torch/_dynamo/exc.py:761] [0/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html\n"}
+,{"stream_name":"stderr","time":94.165203933,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.\n"}
+,{"stream_name":"stderr","time":94.165252211,"data":"  check(\n"}
+,{"stream_name":"stderr","time":105.456537014,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.\n"}
+,{"stream_name":"stderr","time":105.456591281,"data":"  check(\n"}
+,{"stream_name":"stdout","time":122.602887672,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":122.602925777,"data":"[pinv float32] eager err 3.4e-05 | aot_eager: err 3.4e-05 | inductor: err 3.4e-05\n"}
+,{"stream_name":"stdout","time":122.602933046,"data":"[pinv complex64] eager err 5.8e-07 | aot_eager: err 1.4e-01  \u003c-- DIFF | inductor: err 1.4e-01  \u003c-- DIFF\n"}
+,{"stream_name":"stdout","time":122.602938517,"data":"[pinv_hermitian float32] eager err 9.9e-04 | aot_eager: err 9.9e-04 | inductor: err 9.9e-04\n"}
+,{"stream_name":"stdout","time":122.602943015,"data":"[pinv_hermitian complex64] eager err 1.5e-06 | aot_eager: err 1.5e-06 | inductor: err 1.5e-06\n"}
+,{"stream_name":"stdout","time":122.602947263,"data":"[inv float32] eager err 2.0e-07 | aot_eager: err 2.0e-07 | inductor: err 2.0e-07\n"}
+,{"stream_name":"stdout","time":122.60295174,"data":"[inv complex64] eager err 3.7e-07 | aot_eager: err 3.7e-07 | inductor: err 3.7e-07\n"}
+,{"stream_name":"stdout","time":122.602956732,"data":"[solve float32] eager err 6.5e-08 | aot_eager: err 6.5e-08 | inductor: err 6.5e-08\n"}
+,{"stream_name":"stdout","time":122.602964526,"data":"[solve complex64] eager err 3.0e-08 | aot_eager: err 3.0e-08 | inductor: err 3.0e-08\n"}
+,{"stream_name":"stdout","time":122.602969069,"data":"[svdvals float32] eager err 9.5e-07 | aot_eager: err 9.5e-07 | inductor: err 9.5e-07\n"}
+,{"stream_name":"stdout","time":122.60297362,"data":"[svdvals complex64] eager err 1.5e-06 | aot_eager: err 1.5e-06 | inductor: err 1.5e-06\n"}
+,{"stream_name":"stdout","time":122.602978405,"data":"[svd_U_abs float32] eager err 3.5e-07 | aot_eager: err 3.5e-07 | inductor: err 3.5e-07\n"}
+,{"stream_name":"stdout","time":122.60298294,"data":"[svd_U_abs complex64] eager err 1.3e-07 | aot_eager: err 1.3e-07 | inductor: err 1.3e-07\n"}
+,{"stream_name":"stdout","time":122.602987819,"data":"[qr_R float32] eager err 1.9e-06 | aot_eager: err 1.9e-06 | inductor: err 1.9e-06\n"}
+,{"stream_name":"stdout","time":122.602992203,"data":"[qr_R complex64] eager err 1.3e-06 | aot_eager: err 1.3e-06 | inductor: err 1.3e-06\n"}
+,{"stream_name":"stdout","time":122.602996563,"data":"[eigvalsh float32] eager err 3.8e-05 | aot_eager: err 3.8e-05 | inductor: err 3.8e-05\n"}
+,{"stream_name":"stdout","time":122.603000299,"data":"[eigvalsh complex64] eager err 1.3e-04 | aot_eager: err 1.3e-04 | inductor: err 1.3e-04\n"}
+,{"stream_name":"stdout","time":122.603004503,"data":"[matrix_norm_fro float32] eager err 0.0e+00 | aot_eager: err 0.0e+00 | inductor: err 1.2e-07\n"}
+,{"stream_name":"stdout","time":122.603015369,"data":"[matrix_norm_fro complex64] eager err 1.3e-07 | aot_eager: err 1.3e-07 | inductor: err 1.3e-07\n"}
+,{"stream_name":"stdout","time":122.60301854,"data":"[matrix_norm_nuc float32] eager err 1.6e-06 | aot_eager: err 1.6e-06 | inductor: err 1.6e-06\n"}
+,{"stream_name":"stdout","time":122.603021338,"data":"[matrix_norm_nuc complex64] eager err 5.1e-06 | aot_eager: err 5.1e-06 | inductor: err 5.1e-06\n"}
+,{"stream_name":"stdout","time":122.603024286,"data":"[det float32] eager err 1.3e-04 | aot_eager: err 1.3e-04 | inductor: err 1.3e-04\n"}
+,{"stream_name":"stdout","time":122.603040531,"data":"[det complex64] eager err 2.4e-01 | aot_eager: err 2.4e-01 | inductor: err 2.4e-01\n"}
+,{"stream_name":"stdout","time":122.603044723,"data":"[lstsq float32] eager err 8.3e-07 | aot_eager: err 8.3e-07 | inductor: err 8.3e-07\n"}
+,{"stream_name":"stdout","time":122.603049018,"data":"[lstsq complex64] eager err 7.0e-07 | aot_eager: err 7.0e-07 | inductor: err 7.0e-07\n"}
+,{"stream_name":"stdout","time":122.603076277,"data":"[matrix_exp float32] eager err 6.3e-08 | aot_eager: err 6.3e-08 | inductor: err 6.3e-08\n"}
+,{"stream_name":"stdout","time":122.603081063,"data":"[matrix_exp complex64] eager err 2.3e-08 | aot_eager: err 2.3e-08 | inductor: err 2.3e-08\n"}
+,{"stream_name":"stdout","time":122.603085811,"data":"[cholesky float32] eager err 4.8e-07 | aot_eager: err 4.8e-07 | inductor: err 4.8e-07\n"}
+,{"stream_name":"stdout","time":122.603090438,"data":"[cholesky complex64] eager err 3.0e-07 | aot_eager: err 3.0e-07 | inductor: err 3.0e-07\n"}
+,{"stream_name":"stdout","time":122.603094127,"data":"[mm_conj float32] eager err 3.5e-06 | aot_eager: err 3.5e-06 | inductor: err 3.5e-06\n"}
+,{"stream_name":"stdout","time":122.603098092,"data":"[mm_conj complex64] eager err 1.9e-05 | aot_eager: err 1.9e-05 | inductor: err 1.9e-05\n"}
+,{"stream_name":"stdout","time":122.603102204,"data":"[abs_sum float32] eager err 3.8e-07 | aot_eager: err 3.8e-07 | inductor: err 3.8e-07\n"}
+,{"stream_name":"stdout","time":122.603106063,"data":"[abs_sum complex64] eager err 4.5e-06 | aot_eager: err 4.5e-06 | inductor: err 4.5e-06\n"}
+,{"stream_name":"stdout","time":128.757150594,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 8.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":153.197496129,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":153.197536692,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":153.197550968,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":172.565701723,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2826: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.\n"}
+,{"stream_name":"stderr","time":172.565761034,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":184.325558093,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2539: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.\n"}
+,{"stream_name":"stderr","time":184.325638957,"data":"  check(\n"}
+,{"stream_name":"stderr","time":185.830465305,"data":"/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:1095: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:\n"}
+,{"stream_name":"stderr","time":185.830513919,"data":"  File \"/kaggle/working/diag_complex_linalg_grad.py\", line 16, in \u003clambda\u003e\n"}
+,{"stream_name":"stderr","time":185.830520305,"data":"    \"svd_U_abs\": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),\n"}
+,{"stream_name":"stderr","time":185.830524542,"data":"                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":185.830528486,"data":" (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_anomaly_mode.cpp:108.)\n"}
+,{"stream_name":"stderr","time":185.830548776,"data":"  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n"}
+,{"stream_name":"stderr","time":185.972255215,"data":"/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:1095: UserWarning: Error detected in LinalgSvdBackward0. Traceback of forward call that caused the error:\n"}
+,{"stream_name":"stderr","time":185.972321572,"data":"  File \"/kaggle/working/diag_complex_linalg_grad.py\", line 16, in \u003clambda\u003e\n"}
+,{"stream_name":"stderr","time":185.972330518,"data":"    \"svd_U_abs\": lambda a: torch.linalg.svd(a, full_matrices=False)[0].abs(),\n"}
+,{"stream_name":"stderr","time":185.972336097,"data":"                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":185.972340963,"data":" (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/python_anomaly_mode.cpp:108.)\n"}
+,{"stream_name":"stderr","time":185.972345711,"data":"  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n"}
+,{"stream_name":"stderr","time":186.43013812,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2539: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.\n"}
+,{"stream_name":"stderr","time":186.430185935,"data":"  check(\n"}
+,{"stream_name":"stderr","time":197.535384594,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2539: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.\n"}
+,{"stream_name":"stderr","time":197.535431126,"data":"  check(\n"}
+,{"stream_name":"stdout","time":214.520251065,"data":"torch 2.15.0.dev20260912+cpu\n"}
+,{"stream_name":"stdout","time":214.520318181,"data":"[pinv float32] eager err 3.4e-05 | aot_eager: err 3.4e-05 | inductor: err 3.4e-05\n"}
+,{"stream_name":"stdout","time":214.520327077,"data":"[pinv complex64] eager err 5.8e-07 | aot_eager: err 1.4e-01  \u003c-- DIFF | inductor: err 1.4e-01  \u003c-- DIFF\n"}
+,{"stream_name":"stdout","time":214.520334628,"data":"[pinv_hermitian float32] eager err 9.9e-04 | aot_eager: err 9.9e-04 | inductor: err 9.9e-04\n"}
+,{"stream_name":"stdout","time":214.520340558,"data":"[pinv_hermitian complex64] eager err 1.5e-06 | aot_eager: err 1.5e-06 | inductor: err 1.5e-06\n"}
+,{"stream_name":"stdout","time":214.520346007,"data":"[inv float32] eager err 2.0e-07 | aot_eager: err 2.0e-07 | inductor: err 2.0e-07\n"}
+,{"stream_name":"stdout","time":214.520351675,"data":"[inv complex64] eager err 3.7e-07 | aot_eager: err 3.7e-07 | inductor: err 3.7e-07\n"}
+,{"stream_name":"stdout","time":214.520356985,"data":"[solve float32] eager err 6.5e-08 | aot_eager: err 6.5e-08 | inductor: err 6.5e-08\n"}
+,{"stream_name":"stdout","time":214.520362344,"data":"[solve complex64] eager err 3.0e-08 | aot_eager: err 3.0e-08 | inductor: err 3.0e-08\n"}
+,{"stream_name":"stdout","time":214.520367736,"data":"[svdvals float32] eager err 9.5e-07 | aot_eager: err 9.5e-07 | inductor: err 9.5e-07\n"}
+,{"stream_name":"stdout","time":214.520372975,"data":"[svdvals complex64] eager err 1.5e-06 | aot_eager: err 1.5e-06 | inductor: err 1.5e-06\n"}
+,{"stream_name":"stdout","time":214.520378195,"data":"[svd_U_abs float32] eager err 3.5e-07 | aot_eager: err 3.5e-07 | inductor: err 3.5e-07\n"}
+,{"stream_name":"stdout","time":214.520383269,"data":"[svd_U_abs complex64] eager err 1.3e-07 | aot_eager: err 1.3e-07 | inductor: err 1.3e-07\n"}
+,{"stream_name":"stdout","time":214.520388433,"data":"[qr_R float32] eager err 1.9e-06 | aot_eager: err 1.9e-06 | inductor: err 1.9e-06\n"}
+,{"stream_name":"stdout","time":214.520409248,"data":"[qr_R complex64] eager err 1.3e-06 | aot_eager: err 1.3e-06 | inductor: err 1.3e-06\n"}
+,{"stream_name":"stdout","time":214.520413769,"data":"[eigvalsh float32] eager err 3.8e-05 | aot_eager: err 3.8e-05 | inductor: err 3.8e-05\n"}
+,{"stream_name":"stdout","time":214.520417775,"data":"[eigvalsh complex64] eager err 1.3e-04 | aot_eager: err 1.3e-04 | inductor: err 1.3e-04\n"}
+,{"stream_name":"stdout","time":214.520421776,"data":"[matrix_norm_fro float32] eager err 0.0e+00 | aot_eager: err 0.0e+00 | inductor: err 1.2e-07\n"}
+,{"stream_name":"stdout","time":214.520425577,"data":"[matrix_norm_fro complex64] eager err 1.3e-07 | aot_eager: err 1.3e-07 | inductor: err 1.3e-07\n"}
+,{"stream_name":"stdout","time":214.520429457,"data":"[matrix_norm_nuc float32] eager err 1.6e-06 | aot_eager: err 1.6e-06 | inductor: err 1.6e-06\n"}
+,{"stream_name":"stdout","time":214.520433221,"data":"[matrix_norm_nuc complex64] eager err 5.1e-06 | aot_eager: err 5.1e-06 | inductor: err 5.1e-06\n"}
+,{"stream_name":"stdout","time":214.520437252,"data":"[det float32] eager err 1.3e-04 | aot_eager: err 1.3e-04 | inductor: err 1.3e-04\n"}
+,{"stream_name":"stdout","time":214.520441147,"data":"[det complex64] eager err 2.4e-01 | aot_eager: err 2.4e-01 | inductor: err 2.4e-01\n"}
+,{"stream_name":"stdout","time":214.520445041,"data":"[lstsq float32] eager err 8.3e-07 | aot_eager: err 8.3e-07 | inductor: err 8.3e-07\n"}
+,{"stream_name":"stdout","time":214.520450866,"data":"[lstsq complex64] eager err 7.0e-07 | aot_eager: err 7.0e-07 | inductor: err 7.0e-07\n"}
+,{"stream_name":"stdout","time":214.520454761,"data":"[matrix_exp float32] eager err 2.6e-08 | aot_eager: err 2.6e-08 | inductor: err 2.6e-08\n"}
+,{"stream_name":"stdout","time":214.520458798,"data":"[matrix_exp complex64] eager err 1.3e-08 | aot_eager: err 1.3e-08 | inductor: err 1.3e-08\n"}
+,{"stream_name":"stdout","time":214.520462567,"data":"[cholesky float32] eager err 4.8e-07 | aot_eager: err 4.8e-07 | inductor: err 4.8e-07\n"}
+,{"stream_name":"stdout","time":214.520466751,"data":"[cholesky complex64] eager err 3.0e-07 | aot_eager: err 3.0e-07 | inductor: err 3.0e-07\n"}
+,{"stream_name":"stdout","time":214.520471286,"data":"[mm_conj float32] eager err 3.5e-06 | aot_eager: err 3.5e-06 | inductor: err 3.5e-06\n"}
+,{"stream_name":"stdout","time":214.520475989,"data":"[mm_conj complex64] eager err 1.9e-05 | aot_eager: err 1.9e-05 | inductor: err 1.9e-05\n"}
+,{"stream_name":"stdout","time":214.520480911,"data":"[abs_sum float32] eager err 3.8e-07 | aot_eager: err 3.8e-07 | inductor: err 3.8e-07\n"}
+,{"stream_name":"stdout","time":214.520485331,"data":"[abs_sum complex64] eager err 4.5e-06 | aot_eager: err 4.5e-06 | inductor: err 4.5e-06\n"}
+,{"stream_name":"stdout","time":216.37073344,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":219.286451538,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":219.286498431,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":219.728550761,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":219.728593821,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":220.588688285,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":222.52279308,"data":"[NbConvertApp] Writing 278636 bytes to __results__.html\n"}
+]

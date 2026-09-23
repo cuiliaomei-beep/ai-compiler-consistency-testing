@@ -1,0 +1,28 @@
+{
+  "signature": "daba1be0d104",
+  "program": "issue_95161_aotautograd_based_torch_compile_doesn_t",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "95161",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/95161",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

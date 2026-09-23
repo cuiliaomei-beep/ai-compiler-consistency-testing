@@ -1,0 +1,53 @@
+{
+  "factor_changed": "rank",
+  "context": {
+    "name": "input.ndim+1",
+    "factors": {
+      "rank": {
+        "arg": 0,
+        "delta": 1
+      }
+    },
+    "warm": false,
+    "origin": "input.ndim"
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": {
+    "site": "interpolate",
+    "factor": "input.ndim",
+    "kind": "rank",
+    "values": [
+      "+1",
+      "-1"
+    ],
+    "constraint": "rank read in a predicate",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "exception"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "rank steers control flow",
+    "param": "input",
+    "dim": null
+  },
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  }
+}

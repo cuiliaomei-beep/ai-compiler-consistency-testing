@@ -1,0 +1,44 @@
+{
+  "signature": "5eaac3595429",
+  "program": "issue_181694_torch_addcdiv_produces_wrong_output_unde",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "181694",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/181694",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 181694,
+      "title": "`torch.addcdiv` produces wrong output under `torch.compile(backend='inductor')`",
+      "url": "https://github.com/pytorch/pytorch/issues/181694",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-04-28"
+    },
+    {
+      "number": 181692,
+      "title": "`nn.RReLU().eval()` produces wrong output under `torch.compile(backend='inductor')`",
+      "url": "https://github.com/pytorch/pytorch/issues/181692",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-04-28"
+    }
+  ]
+}

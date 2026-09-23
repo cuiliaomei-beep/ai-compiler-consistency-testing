@@ -1,0 +1,350 @@
+[{"stream_name":"stdout","time":0.869733281,"data":"cpu widths: 128,256\n"}
+,{"stream_name":"stdout","time":0.891714666,"data":"g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\n"}
+,{"stream_name":"stderr","time":0.899612921,"data":"/bin/sh: 1: clang++: not found\n"}
+,{"stream_name":"stderr","time":7.335511735,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu jammy InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
+,{"stream_name":"stdout","time":37.204131935,"data":"Ubuntu clang version 14.0.0-1ubuntu1.1\n"}
+,{"stream_name":"stdout","time":37.209460337,"data":"===== gcc\n"}
+,{"stream_name":"stdout","time":37.858272644,"data":"104332 functions in 87 translation units\n"}
+,{"stream_name":"stdout","time":227.819445739,"data":"built algebra_O0 (-O0) in 190s\n"}
+,{"stream_name":"stdout","time":481.482954768,"data":"built algebra_O1 (-O1) in 213s\n"}
+,{"stream_name":"stdout","time":766.750407564,"data":"built algebra_O2 (-O2) in 268s\n"}
+,{"stream_name":"stdout","time":1054.688092984,"data":"built algebra_O3 (-O3) in 276s\n"}
+,{"stream_name":"stdout","time":1135.017422716,"data":"104332 functions; differing vs O0: {('O1', 'nan-bits'): 1316, ('O1', 'value'): 48, ('O2', 'nan-bits'): 1316, ('O2', 'value'): 48, ('O3', 'nan-bits'): 1316, ('O3', 'value'): 48}\n"}
+,{"stream_name":"stdout","time":1135.043493586,"data":"===== clang\n"}
+,{"stream_name":"stdout","time":1135.73702415,"data":"104332 functions in 87 translation units\n"}
+,{"stream_name":"stdout","time":1302.048859146,"data":"built algebra_O0 (-O0) in 166s\n"}
+,{"stream_name":"stdout","time":1557.399986636,"data":"built algebra_O1 (-O1) in 202s\n"}
+,{"stream_name":"stdout","time":1780.980297209,"data":"built algebra_O2 (-O2) in 207s\n"}
+,{"stream_name":"stdout","time":2001.349122383,"data":"built algebra_O3 (-O3) in 204s\n"}
+,{"stream_name":"stdout","time":2161.268067985,"data":"104332 functions; differing vs O0: {('O1', 'nan-bits'): 2468, ('O1', 'value'): 128, ('O2', 'nan-bits'): 2468, ('O2', 'value'): 128, ('O3', 'nan-bits'): 2468, ('O3', 'value'): 128}\n"}
+,{"stream_name":"stdout","time":2161.293427381,"data":"===== report\n"}
+,{"stream_name":"stdout","time":2161.468648717,"data":"== gcc: 4092 differing (function, config) pairs\n"}
+,{"stream_name":"stdout","time":2161.468686171,"data":"[nan-bits] O1: 128:_mm_mul_ps(x, _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468694926,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468708573,"data":"[nan-bits] O1: 128:_mm_sqrt_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.46871263,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000c0ff0000807f0000c07f', 'opt': '0000803f0000c0ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468716762,"data":"[nan-bits] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_set1_ps(-0.0f))\n"}
+,{"stream_name":"stdout","time":2161.468720389,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.468724425,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_sqrt_ps(x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468728672,"data":"      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': '0000008000000000000080bf0000c0ff', 'opt': '0000008000000000000080bf0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.468755623,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468760554,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.468765567,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_andnot_ps(_mm_set1_ps(-0.0f), x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468769608,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468774252,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_sub_ps(_mm_setzero_ps(), x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468777217,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468781841,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_floor_ps(x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468784722,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468787831,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_ceil_ps(x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468790604,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468793694,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_round_ps(x, _MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468796631,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.46879965,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x1b), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468802508,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000807f000080ff0000803f', 'opt': '0000c0ff0000807f000080ff0000803f'}\n"}
+,{"stream_name":"stdout","time":2161.468805542,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x39), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468808331,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff0000807f0000c07f0000803f', 'opt': '000080ff0000807f0000c0ff0000803f'}\n"}
+,{"stream_name":"stdout","time":2161.468811344,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x93), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.46881413,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000803f000080ff0000807f', 'opt': '0000c0ff0000803f000080ff0000807f'}\n"}
+,{"stream_name":"stdout","time":2161.4688172,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x4e), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468823599,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000c07f0000803f000080ff', 'opt': '0000807f0000c0ff0000803f000080ff'}\n"}
+,{"stream_name":"stdout","time":2161.468826789,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_movehdup_ps(x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468829978,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff000080ff0000c07f0000c07f', 'opt': '000080ff000080ff0000c0ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468833042,"data":"[nan-bits] O1: 128:_mm_floor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.468835885,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468838939,"data":"[nan-bits] O1: 128:_mm_ceil_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.468841764,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468844848,"data":"[nan-bits] O1: 128:_mm_round_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC)\n"}
+,{"stream_name":"stdout","time":2161.468847696,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.46885087,"data":"[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x1b)\n"}
+,{"stream_name":"stdout","time":2161.468853615,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000807f000080ff0000803f', 'opt': '0000c0ff0000807f000080ff0000803f'}\n"}
+,{"stream_name":"stdout","time":2161.468856619,"data":"[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x39)\n"}
+,{"stream_name":"stdout","time":2161.468859359,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff0000807f0000c07f0000803f', 'opt': '000080ff0000807f0000c0ff0000803f'}\n"}
+,{"stream_name":"stdout","time":2161.468862387,"data":"[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x93)\n"}
+,{"stream_name":"stdout","time":2161.468882732,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000803f000080ff0000807f', 'opt': '0000c0ff0000803f000080ff0000807f'}\n"}
+,{"stream_name":"stdout","time":2161.468888096,"data":"[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x4e)\n"}
+,{"stream_name":"stdout","time":2161.468892037,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000c07f0000803f000080ff', 'opt': '0000807f0000c0ff0000803f000080ff'}\n"}
+,{"stream_name":"stdout","time":2161.468920063,"data":"[nan-bits] O1: 128:_mm_movehdup_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.468924801,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff000080ff0000c07f0000c07f', 'opt': '000080ff000080ff0000c0ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468934468,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_set1_ps(-1.0f)), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.468940999,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468945607,"data":"[nan-bits] O1: 128:_mm_add_ps(x, _mm_sqrt_ps(y))\n"}
+,{"stream_name":"stdout","time":2161.468951571,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468960886,"data":"[nan-bits] O1: 128:_mm_add_ps(_mm_sqrt_ps(x), _mm_sqrt_ps(y))\n"}
+,{"stream_name":"stdout","time":2161.468964113,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000c0ff0000807f0000c0ff0000c0ff', 'opt': '0000c0ff0000807f0000c0ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.468967219,"data":"[nan-bits] O1: 128:_mm_mul_ps(x, _mm_sqrt_ps(y))\n"}
+,{"stream_name":"stdout","time":2161.46896993,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000800000c0ff000080ff0000c07f', 'opt': '000000800000c0ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.46897291,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_sqrt_ps(x), _mm_sqrt_ps(y))\n"}
+,{"stream_name":"stdout","time":2161.46897811,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000c0ff0000c0ff0000c0ff0000c0ff', 'opt': '0000c0ff0000c0ff0000c0ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.4689812,"data":"[nan-bits] O1: 128:_mm_add_ps(x, _mm_xor_ps(y, _mm_set1_ps(-0.0f)))\n"}
+,{"stream_name":"stdout","time":2161.468984296,"data":"      {'input': 'in lane=0 r1=3 r2=3', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000000000000c0ff0000c0ff0000c07f', 'opt': '000000000000c0ff0000c0ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468987448,"data":"[nan-bits] O1: 128:_mm_add_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.468990276,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000000000c0ff0000c0ff0000c0ff', 'opt': '000000000000c0ff0000c0ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.468993507,"data":"[nan-bits] O1: 128:_mm_mul_ps(x, _mm_xor_ps(y, _mm_set1_ps(-0.0f)))\n"}
+,{"stream_name":"stdout","time":2161.468996216,"data":"      {'input': 'in lane=0 r1=3 r2=3', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.468999302,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.469002016,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c0ff', 'opt': '000080bf000080ff000080ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.469005352,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_add_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.469008151,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469014424,"data":"[nan-bits] O1: 128:_mm_add_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469017396,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.4690204,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_sub_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.469023125,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469026197,"data":"[nan-bits] O1: 128:_mm_sub_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.46902893,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469032209,"data":"[nan-bits] O1: 128:_mm_sub_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.469034982,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000040000080ff0000807f0000c07f', 'opt': '00000040000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469038089,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.469040835,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c07f0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469043836,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.469046648,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c0ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469049636,"data":"[nan-bits] O1: 128:_mm_mul_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469052453,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c0ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469055447,"data":"[nan-bits] O1: 128:_mm_mul_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469058178,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469061194,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.469063925,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469067769,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_div_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.469070579,"data":"      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': '0000c0ff0000c0ff000080bf000080bf', 'opt': '0000c07f0000c07f000080bf000080bf'}\n"}
+,{"stream_name":"stdout","time":2161.469075865,"data":"[nan-bits] O1: 128:_mm_div_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.469079247,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000807f0000807f0000c07f', 'opt': '0000807f0000807f0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469082905,"data":"[nan-bits] O1: 128:_mm_div_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469085708,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000807f0000807f0000c07f', 'opt': '0000807f0000807f0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469088809,"data":"[nan-bits] O1: 128:_mm_div_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469091666,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000c0ff0000c0ff0000c07f', 'opt': '000080bf0000c0ff0000c0ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469094739,"data":"[nan-bits] O1: 128:_mm_div_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.46909755,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000c0ff0000c0ff0000c07f', 'opt': '000080bf0000c0ff0000c0ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469100736,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_min_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.469103523,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000000000807f0000c07f', 'opt': '0000803f000000000000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469106642,"data":"[nan-bits] O1: 128:_mm_min_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469109437,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000000000080ff0000803f0000c07f', 'opt': '00000000000080ff0000803f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469112598,"data":"[nan-bits] O1: 128:_mm_min_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469115498,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000080000080ff000080bf0000c07f', 'opt': '00000080000080ff000080bf0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469118487,"data":"[nan-bits] O1: 128:_mm_min_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469121225,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469125094,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_max_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.46912793,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000080000080ff000080bf0000c07f', 'opt': '00000080000080ff000080bf0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469130942,"data":"[nan-bits] O1: 128:_mm_max_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.46913365,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000800000807f0000c07f', 'opt': '0000803f000000800000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469138911,"data":"[nan-bits] O1: 128:_mm_max_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469142001,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000000000807f0000c07f', 'opt': '0000803f000000000000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469144999,"data":"[nan-bits] O1: 128:_mm_max_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469147747,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000807f0000807f0000c07f', 'opt': '0000803f0000807f0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.46915082,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_and_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.469153531,"data":"      {'input': 'in lane=0 r1=3 r2=3', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.469156586,"data":"[value] O1: 128:_mm_and_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.469160274,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000800000803f0000803f', 'opt': '00000000000000800000803f000080bf'}\n"}
+,{"stream_name":"stdout","time":2161.46916327,"data":"[value] O1: 128:_mm_and_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.469166001,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000000000000800000803f0000803f', 'opt': '00000000000000800000803f000080bf'}\n"}
+,{"stream_name":"stdout","time":2161.469169013,"data":"[value] O1: 128:_mm_and_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526601664,"data":"      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '00000080000000000000803f00000000', 'opt': '0000008000000000000080bf00000000'}\n"}
+,{"stream_name":"stdout","time":2161.526659067,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_or_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.526665625,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f0000807f0000807f0000c0ff', 'opt': '0000803f0000807f0000807f0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.526670634,"data":"[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.526677271,"data":"      {'input': 'in lane=0 r1=3 r2=1', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000000800000803f000080bf0000807f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.526686317,"data":"[nan-bits] O1: 128:_mm_or_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526689489,"data":"      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '000080ff000080ff0000c07f010080bf', 'opt': '000080ff000080ff0000c0ff010080bf'}\n"}
+,{"stream_name":"stdout","time":2161.526692746,"data":"[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.52672657,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.526732054,"data":"[nan-bits] O1: 128:_mm_or_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526736271,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.526740932,"data":"[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.526745306,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.526749878,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.526753978,"data":"      {'input': 'in lane=0 r1=0 r2=5', 'x': '00000000000000800000803f000080bf', 'y': '000080ff0000c07f0100000001000080', 'ref': '0000807f0000c0ff010080bf010080bf', 'opt': '0000807f0000c07f010080bf010080bf'}\n"}
+,{"stream_name":"stdout","time":2161.52675837,"data":"[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.526764158,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000807f00000040000040c0', 'opt': '0000803f0000807f0000004000004040'}\n"}
+,{"stream_name":"stdout","time":2161.526768883,"data":"[value] O1: 128:_mm_xor_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526772802,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f0000807f00000040000040c0', 'opt': '0000803f0000807f0000004000004040'}\n"}
+,{"stream_name":"stdout","time":2161.526778292,"data":"[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526782077,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000000c000004040', 'opt': '000080bf000080ff000000c0000040c0'}\n"}
+,{"stream_name":"stdout","time":2161.526786765,"data":"[value] O1: 128:_mm_xor_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526791275,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000080000000800000008000000000', 'opt': '00000080000000800000008000000080'}\n"}
+,{"stream_name":"stdout","time":2161.526796281,"data":"[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.526800861,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000080000000800000008000000000', 'opt': '00000080000000800000008000000080'}\n"}
+,{"stream_name":"stdout","time":2161.526805989,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_andnot_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.526820446,"data":"      {'input': 'in lane=0 r1=0 r2=5', 'x': '00000000000000800000803f000080bf', 'y': '000080ff0000c07f0100000001000080', 'ref': '0000807f0000c07f0100008001000080', 'opt': '0000807f0000c0ff0100008001000080'}\n"}
+,{"stream_name":"stdout","time":2161.526838071,"data":"[value] O1: 128:_mm_andnot_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.526843629,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000000000000000000080', 'opt': '00000000000000000000000000000000'}\n"}
+,{"stream_name":"stdout","time":2161.526848559,"data":"[value] O1: 128:_mm_andnot_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526854043,"data":"      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '000080ff0000807f0000404001000000', 'opt': '000080ff0000807f000040c001000000'}\n"}
+,{"stream_name":"stdout","time":2161.52685912,"data":"[value] O1: 128:_mm_andnot_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526863533,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000004000004040', 'opt': '0000803f000080ff00000040000040c0'}\n"}
+,{"stream_name":"stdout","time":2161.526895564,"data":"[value] O1: 128:_mm_andnot_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526900672,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000800000000000000000', 'opt': '00000000000000800000000000000080'}\n"}
+,{"stream_name":"stdout","time":2161.526905283,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_EQ_OQ), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.526909525,"data":"      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': 'ffffffffffffffffffffffffffffffff', 'opt': 'ffffff7fffffff7fffffff7fffffff7f'}\n"}
+,{"stream_name":"stdout","time":2161.526914142,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_LT_OS), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.526918308,"data":"      {'input': 'in lane=0 r1=0 r2=1', 'x': '00000000000000800000803f000080bf', 'y': '000000800000803f000080bf0000807f', 'ref': '00000080ffffffff00000080ffffffff', 'opt': '00000080ffffff7f00000080ffffff7f'}\n"}
+,{"stream_name":"stdout","time":2161.526922984,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_LE_OS), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.52692878,"data":"      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': 'ffffffffffffffffffffffffffffffff', 'opt': 'ffffff7fffffff7fffffff7fffffff7f'}\n"}
+,{"stream_name":"stdout","time":2161.526937538,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_NEQ_UQ), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.526940885,"data":"      {'input': 'in lane=0 r1=0 r2=1', 'x': '00000000000000800000803f000080bf', 'y': '000000800000803f000080bf0000807f', 'ref': '00000080ffffffffffffffffffffffff', 'opt': '00000080ffffff7fffffff7fffffff7f'}\n"}
+,{"stream_name":"stdout","time":2161.526944012,"data":"== clang: 7788 differing (function, config) pairs\n"}
+,{"stream_name":"stdout","time":2161.526946775,"data":"[nan-bits] O1: 128:_mm_mul_ps(x, _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.526950703,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.526953785,"data":"[nan-bits] O1: 128:_mm_sqrt_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526956689,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000c0ff0000807f0000c07f', 'opt': '0000803f0000c0ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.526983352,"data":"[nan-bits] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_set1_ps(-0.0f))\n"}
+,{"stream_name":"stdout","time":2161.52698872,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.526994393,"data":"[nan-bits] O1: 128:_mm_sub_ps(_mm_setzero_ps(), _mm_xor_ps(x, _mm_set1_ps(-0.0f)))\n"}
+,{"stream_name":"stdout","time":2161.526998651,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527004021,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_sqrt_ps(x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527008885,"data":"      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': '0000008000000000000080bf0000c0ff', 'opt': '0000008000000000000080bf0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527013524,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527018103,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527022729,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_andnot_ps(_mm_set1_ps(-0.0f), x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527026866,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527031415,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_sub_ps(_mm_setzero_ps(), x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527035947,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527040555,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_floor_ps(x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527044556,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527049136,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_ceil_ps(x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527055284,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527063695,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_round_ps(x, _MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527066875,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527091083,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x1b), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527096601,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000807f000080ff0000803f', 'opt': '0000c0ff0000807f000080ff0000803f'}\n"}
+,{"stream_name":"stdout","time":2161.527102023,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x39), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.52710668,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff0000807f0000c07f0000803f', 'opt': '000080ff0000807f0000c0ff0000803f'}\n"}
+,{"stream_name":"stdout","time":2161.527111696,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x93), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527115816,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000803f000080ff0000807f', 'opt': '0000c0ff0000803f000080ff0000807f'}\n"}
+,{"stream_name":"stdout","time":2161.527120397,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_permute_ps(x, 0x4e), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527124427,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000c07f0000803f000080ff', 'opt': '0000807f0000c0ff0000803f000080ff'}\n"}
+,{"stream_name":"stdout","time":2161.527129329,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_movehdup_ps(x), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527133403,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff000080ff0000c07f0000c07f', 'opt': '000080ff000080ff0000c0ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527138052,"data":"[nan-bits] O1: 128:_mm_floor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527141996,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527146412,"data":"[nan-bits] O1: 128:_mm_ceil_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527150398,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.52715498,"data":"[nan-bits] O1: 128:_mm_round_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC)\n"}
+,{"stream_name":"stdout","time":2161.527159121,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527163711,"data":"[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x1b)\n"}
+,{"stream_name":"stdout","time":2161.527169753,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000807f000080ff0000803f', 'opt': '0000c0ff0000807f000080ff0000803f'}\n"}
+,{"stream_name":"stdout","time":2161.527191423,"data":"[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x39)\n"}
+,{"stream_name":"stdout","time":2161.527196488,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff0000807f0000c07f0000803f', 'opt': '000080ff0000807f0000c0ff0000803f'}\n"}
+,{"stream_name":"stdout","time":2161.52720568,"data":"[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x93)\n"}
+,{"stream_name":"stdout","time":2161.527210312,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000c07f0000803f000080ff0000807f', 'opt': '0000c0ff0000803f000080ff0000807f'}\n"}
+,{"stream_name":"stdout","time":2161.527214577,"data":"[nan-bits] O1: 128:_mm_permute_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), 0x4e)\n"}
+,{"stream_name":"stdout","time":2161.527218995,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000c07f0000803f000080ff', 'opt': '0000807f0000c0ff0000803f000080ff'}\n"}
+,{"stream_name":"stdout","time":2161.527223692,"data":"[nan-bits] O1: 128:_mm_movehdup_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527236014,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080ff000080ff0000c07f0000c07f', 'opt': '000080ff000080ff0000c0ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527240868,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_set1_ps(-1.0f)), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527245022,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527249653,"data":"[nan-bits] O1: 128:_mm_add_ps(x, _mm_sqrt_ps(y))\n"}
+,{"stream_name":"stdout","time":2161.527253648,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527258136,"data":"[nan-bits] O1: 128:_mm_mul_ps(x, _mm_sqrt_ps(y))\n"}
+,{"stream_name":"stdout","time":2161.527262138,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000800000c0ff000080ff0000c07f', 'opt': '000000800000c0ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527268692,"data":"[nan-bits] O1: 128:_mm_add_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.52728774,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c0ff', 'opt': '0000803f000080ff0000807f0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527294246,"data":"[nan-bits] O1: 128:_mm_add_ps(x, _mm_xor_ps(y, _mm_set1_ps(-0.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527299245,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c0ff', 'opt': '0000803f000080ff0000807f0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527304416,"data":"[nan-bits] O1: 128:_mm_add_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_xor_ps(y, _mm_set1_ps(-0.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527310038,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c0ff', 'opt': '0000803f000080ff0000807f0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527314747,"data":"[nan-bits] O1: 128:_mm_add_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.52731882,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000000000c0ff0000c0ff0000c0ff', 'opt': '000000000000c0ff0000c0ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527327343,"data":"[nan-bits] O1: 128:_mm_sub_ps(x, _mm_xor_ps(y, _mm_set1_ps(-0.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527331457,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527336056,"data":"[nan-bits] O1: 128:_mm_sub_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_xor_ps(y, _mm_set1_ps(-0.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527340138,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf0000807f000080ff0000c0ff', 'opt': '000080bf0000807f000080ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527344591,"data":"[nan-bits] O1: 128:_mm_mul_ps(x, _mm_xor_ps(y, _mm_set1_ps(-0.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527348646,"data":"      {'input': 'in lane=0 r1=3 r2=3', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527352979,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_xor_ps(y, _mm_set1_ps(-0.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527357313,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000000800000c0ff000080ff0000c0ff', 'opt': '000000800000c0ff000080ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.52736188,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.527367889,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c0ff', 'opt': '000080bf000080ff000080ff0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.52738878,"data":"[nan-bits] O1: 128:_mm_div_ps(_mm_xor_ps(x, _mm_set1_ps(-0.0f)), _mm_xor_ps(y, _mm_set1_ps(-0.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527394704,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000008000000080000000800000c0ff', 'opt': '0000008000000080000000800000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527399789,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_add_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527404594,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527409757,"data":"[nan-bits] O1: 128:_mm_add_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527413942,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527418775,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_sub_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527422765,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf0000807f000080ff0000c07f', 'opt': '000080bf0000807f000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527430973,"data":"[nan-bits] O1: 128:_mm_sub_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.527434821,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527439353,"data":"[nan-bits] O1: 128:_mm_sub_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.527443595,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000040000080ff0000807f0000c07f', 'opt': '00000040000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527448181,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527452479,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c0ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527456995,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.527461579,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c0ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527490887,"data":"[nan-bits] O1: 128:_mm_mul_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527495963,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000000000000c0ff0000807f0000c07f', 'opt': '000000000000c0ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527501738,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_div_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527506506,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000807f0000807f0000c07f', 'opt': '0000807f0000807f0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527512083,"data":"[nan-bits] O1: 128:_mm_div_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.527517024,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000807f0000807f0000807f0000c07f', 'opt': '0000807f0000807f0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527521614,"data":"[nan-bits] O1: 128:_mm_div_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527525583,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000000000000000000000000000c07f', 'opt': '0000000000000000000000000000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527530577,"data":"[nan-bits] O1: 128:_mm_div_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.527534588,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf0000c0ff0000c0ff0000c07f', 'opt': '000080bf0000c0ff0000c0ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.52753921,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_min_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527543285,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000000000807f0000c07f', 'opt': '0000803f000000000000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527552086,"data":"[nan-bits] O1: 128:_mm_min_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527556173,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000000000080ff0000803f0000c07f', 'opt': '00000000000080ff0000803f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527560718,"data":"[nan-bits] O1: 128:_mm_min_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527565345,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000080000080ff000080bf0000c07f', 'opt': '00000080000080ff000080bf0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527569977,"data":"[nan-bits] O1: 128:_mm_min_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527574019,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527580543,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_max_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527584678,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000080000080ff000080bf0000c07f', 'opt': '00000080000080ff000080bf0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527591172,"data":"[nan-bits] O1: 128:_mm_max_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527595212,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000800000807f0000c07f', 'opt': '0000803f000000800000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527600666,"data":"[nan-bits] O1: 128:_mm_max_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527605607,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000000000000807f0000c07f', 'opt': '0000803f000000000000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527611305,"data":"[nan-bits] O1: 128:_mm_max_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527616283,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000807f0000807f0000c07f', 'opt': '0000803f0000807f0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527620919,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_and_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527625012,"data":"      {'input': 'in lane=0 r1=3 r2=3', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000807f0000c07f', 'opt': '0000803f000080ff0000807f0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527629727,"data":"[value] O1: 128:_mm_and_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.52763418,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000800000803f0000803f', 'opt': '00000000000000800000803f000080bf'}\n"}
+,{"stream_name":"stdout","time":2161.527638755,"data":"[value] O1: 128:_mm_and_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527643519,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '00000000000000800000803f0000803f', 'opt': '00000000000000800000803f000080bf'}\n"}
+,{"stream_name":"stdout","time":2161.5276531,"data":"[value] O1: 128:_mm_and_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527657783,"data":"      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '00000080000000000000803f00000000', 'opt': '0000008000000000000080bf00000000'}\n"}
+,{"stream_name":"stdout","time":2161.527662773,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_or_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.527667089,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f0000807f0000807f0000c0ff', 'opt': '0000803f0000807f0000807f0000c07f'}\n"}
+,{"stream_name":"stdout","time":2161.527671791,"data":"[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.527676046,"data":"      {'input': 'in lane=0 r1=3 r2=1', 'x': '000080bf0000807f000080ff0000c07f', 'y': '000000800000803f000080bf0000807f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527680559,"data":"[nan-bits] O1: 128:_mm_or_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527685603,"data":"      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '000080ff000080ff0000c07f010080bf', 'opt': '000080ff000080ff0000c0ff010080bf'}\n"}
+,{"stream_name":"stdout","time":2161.527691379,"data":"[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527696378,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.527702023,"data":"[nan-bits] O1: 128:_mm_or_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.527707399,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.52771206,"data":"[nan-bits] O1: 128:_mm_or_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.532500223,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '000080bf000080ff000080ff0000c07f', 'opt': '000080bf000080ff000080ff0000c0ff'}\n"}
+,{"stream_name":"stdout","time":2161.532539807,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_xor_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.532552799,"data":"      {'input': 'in lane=0 r1=0 r2=5', 'x': '00000000000000800000803f000080bf', 'y': '000080ff0000c07f0100000001000080', 'ref': '0000807f0000c0ff010080bf010080bf', 'opt': '0000807f0000c07f010080bf010080bf'}\n"}
+,{"stream_name":"stdout","time":2161.53258013,"data":"[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.532585925,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '0000803f0000807f00000040000040c0', 'opt': '0000803f0000807f0000004000004040'}\n"}
+,{"stream_name":"stdout","time":2161.532592191,"data":"[value] O1: 128:_mm_xor_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.532611738,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f0000807f00000040000040c0', 'opt': '0000803f0000807f0000004000004040'}\n"}
+,{"stream_name":"stdout","time":2161.532617265,"data":"[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.532622035,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '000080bf000080ff000000c000004040', 'opt': '000080bf000080ff000000c0000040c0'}\n"}
+,{"stream_name":"stdout","time":2161.532627049,"data":"[value] O1: 128:_mm_xor_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.532631703,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000080000000800000008000000000', 'opt': '00000080000000800000008000000080'}\n"}
+,{"stream_name":"stdout","time":2161.532636739,"data":"[value] O1: 128:_mm_xor_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), x)\n"}
+,{"stream_name":"stdout","time":2161.532641331,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000080000000800000008000000000', 'opt': '00000080000000800000008000000080'}\n"}
+,{"stream_name":"stdout","time":2161.532646625,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_andnot_ps(x, y), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.532653509,"data":"      {'input': 'in lane=0 r1=0 r2=5', 'x': '00000000000000800000803f000080bf', 'y': '000080ff0000c07f0100000001000080', 'ref': '0000807f0000c07f0100008001000080', 'opt': '0000807f0000c0ff0100008001000080'}\n"}
+,{"stream_name":"stdout","time":2161.532662961,"data":"[value] O1: 128:_mm_andnot_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), y)\n"}
+,{"stream_name":"stdout","time":2161.5326848,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000000000000000000080', 'opt': '00000000000000000000000000000000'}\n"}
+,{"stream_name":"stdout","time":2161.532691113,"data":"[value] O1: 128:_mm_andnot_ps(x, _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.532696603,"data":"      {'input': 'in lane=0 r1=0 r2=4', 'x': '00000000000000800000803f000080bf', 'y': '0000807f000080ff0000c07f01000000', 'ref': '000080ff0000807f0000404001000000', 'opt': '000080ff0000807f000040c001000000'}\n"}
+,{"stream_name":"stdout","time":2161.532702532,"data":"[value] O1: 128:_mm_andnot_ps(_mm_mul_ps(x, _mm_set1_ps(-1.0f)), _mm_mul_ps(y, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.532708055,"data":"      {'input': 'in lane=0 r1=0 r2=3', 'x': '00000000000000800000803f000080bf', 'y': '000080bf0000807f000080ff0000c07f', 'ref': '0000803f000080ff0000004000004040', 'opt': '0000803f000080ff00000040000040c0'}\n"}
+,{"stream_name":"stdout","time":2161.532713808,"data":"[value] O1: 128:_mm_andnot_ps(x, _mm_mul_ps(x, _mm_set1_ps(-1.0f)))\n"}
+,{"stream_name":"stdout","time":2161.532718429,"data":"      {'input': 'in lane=0 r1=3 r2=0', 'x': '000080bf0000807f000080ff0000c07f', 'y': '00000000000000800000803f000080bf', 'ref': '00000000000000800000000000000000', 'opt': '00000000000000800000000000000080'}\n"}
+,{"stream_name":"stdout","time":2161.532723614,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_EQ_OQ), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.532750242,"data":"      {'input': 'in lane=0 r1=0 r2=0', 'x': '00000000000000800000803f000080bf', 'y': '00000000000000800000803f000080bf', 'ref': 'ffffffffffffffffffffffffffffffff', 'opt': 'ffffff7fffffff7fffffff7fffffff7f'}\n"}
+,{"stream_name":"stdout","time":2161.532755768,"data":"[nan-bits] O1: 128:_mm_mul_ps(_mm_cmp_ps(x, y, _CMP_LT_OS), _mm_set1_ps(-1.0f))\n"}
+,{"stream_name":"stdout","time":2161.532766639,"data":"      {'input': 'in lane=0 r1=0 r2=1', 'x': '00000000000000800000803f000080bf', 'y': '000000800000803f000080bf0000807f', 'ref': '00000080ffffffff00000080ffffffff', 'opt': '00000080ffffff7f00000080ffffff7f'}\n"}
+,{"stream_name":"stdout","time":2161.63506486,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":2164.572824667,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2164.572898089,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2164.970597822,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2164.970647656,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2166.607142164,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2168.247022302,"data":"[NbConvertApp] Writing 311753 bytes to __results__.html\n"}
+]

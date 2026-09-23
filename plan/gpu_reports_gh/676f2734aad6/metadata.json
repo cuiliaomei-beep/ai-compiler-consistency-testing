@@ -1,0 +1,36 @@
+{
+  "signature": "676f2734aad6",
+  "program": "issue_170684_bug_inductor_numerical_inconsistency_wit",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "170684",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/170684",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 170684,
+      "title": "[Bug][Inductor] Numerical inconsistency with eager for aten.cosine_similarity",
+      "url": "https://github.com/pytorch/pytorch/issues/170684",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2025-12-17"
+    }
+  ]
+}

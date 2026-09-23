@@ -1,0 +1,60 @@
+{
+  "signature": "29a72882c400",
+  "program": "issue_177821_inductor_torch_compile_ignores_a_complex",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Pending",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": 194234,
+      "title": "[dynamo] `torch.compile` raises `NameError: name 'stream1' is not defined` when a compiled function calls `torch.cuda.Stream.wait_stream` and returns a single-element list constant",
+      "url": "https://github.com/pytorch/pytorch/issues/194234",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-20"
+    },
+    {
+      "number": 195442,
+      "title": "[TorchInductor] `batch_aten_sub` miscompilation drops `alpha`",
+      "url": "https://github.com/pytorch/pytorch/issues/195442",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-31"
+    },
+    {
+      "number": 194898,
+      "title": "[TorchInductor] normalization_pass misses torch.concatenate",
+      "url": "https://github.com/pytorch/pytorch/issues/194898",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-26"
+    },
+    {
+      "number": 190855,
+      "title": "[inductor] Wrong Hessian: `torch.compile(torch.func.hessian(f))` miscompiles the derivative of `torch.trace` — a constant is added to every Hessian entry",
+      "url": "https://github.com/pytorch/pytorch/issues/190855",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-07-23"
+    },
+    {
+      "number": 181696,
+      "title": "Eval-mode `BatchNorm`/`GroupNorm` produces wrong output under `torch.compile(backend='inductor')`",
+      "url": "https://github.com/pytorch/pytorch/issues/181696",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-04-28"
+    }
+  ]
+}

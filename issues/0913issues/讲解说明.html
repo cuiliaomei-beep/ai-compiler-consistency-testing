@@ -1,0 +1,414 @@
+<title>torch.compile 缺陷研究讲解</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F2F4F6; --surface:#FFFFFF; --ink:#1A2330; --ink-2:#465262; --ink-3:#768292; --line:#D7DDE4; --line-2:#E7EBEF;
+  --accent:#1F6F8B; --accent-soft:#E2EFF3; --warm:#8A5A12; --warm-soft:#F5ECDD;
+  --high:#B03F2B; --high-soft:#F6E3DF; --mid:#A87414; --mid-soft:#F6EDDA; --low:#4D6A8C; --low-soft:#E3E9F0; --eg:#3D7757; --eg-soft:#E1EFE7;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace; --serif:"Noto Serif SC","Songti SC","SimSun",serif; --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11161D; --surface:#19202A; --ink:#E6EAEF; --ink-2:#B2BBC6; --ink-3:#848F9E; --line:#2B3441; --line-2:#232B36;
+  --accent:#62B4CC; --accent-soft:#1B2F39; --warm:#D8A95B; --warm-soft:#33291C;
+  --high:#E27D69; --high-soft:#3A2420; --mid:#DAA64B; --mid-soft:#382F1F; --low:#90B1D4; --low-soft:#212B37; --eg:#7EC49C; --eg-soft:#1E3228;
+}}
+:root[data-theme="dark"]{
+  --bg:#11161D; --surface:#19202A; --ink:#E6EAEF; --ink-2:#B2BBC6; --ink-3:#848F9E; --line:#2B3441; --line-2:#232B36;
+  --accent:#62B4CC; --accent-soft:#1B2F39; --warm:#D8A95B; --warm-soft:#33291C;
+  --high:#E27D69; --high-soft:#3A2420; --mid:#DAA64B; --mid-soft:#382F1F; --low:#90B1D4; --low-soft:#212B37; --eg:#7EC49C; --eg-soft:#1E3228;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.8;padding-block:40px 72px;padding-inline:20px}
+.wrap{max-width:900px;margin:0 auto}
+a{color:var(--accent)}
+header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:8px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(26px,4.4vw,38px);line-height:1.25;margin:8px 0 12px;text-wrap:balance}
+.lede{color:var(--ink-2);max-width:66ch;margin:0}
+nav.toc{margin:22px 0 8px;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
+nav.toc a{text-decoration:none;border-bottom:1px solid var(--line)}
+h2{font-family:var(--serif);font-weight:600;font-size:24px;margin:52px 0 12px;text-wrap:balance;scroll-margin-top:16px}
+h2 .no{font-family:var(--mono);font-size:14px;color:var(--ink-3);margin-right:10px;font-weight:500}
+h3{font-size:16.5px;font-weight:700;margin:26px 0 8px}
+p{max-width:68ch;margin:0 0 14px}
+ul,ol{padding-left:1.3em;margin:0 0 14px} li{margin:5px 0;max-width:68ch}
+code{font-family:var(--mono);font-size:13px;background:var(--accent-soft);padding:1px 5px;border-radius:3px;word-break:break-word}
+strong{font-weight:700}
+.analogy{background:var(--warm-soft);border-left:3px solid var(--warm);padding:12px 16px;margin:14px 0 18px;max-width:72ch}
+.analogy b{color:var(--warm)}
+.note{background:var(--surface);border:1px solid var(--line);padding:14px 18px;margin:14px 0 18px}
+.tw{overflow-x:auto;border:1px solid var(--line);background:var(--surface);margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+th{text-align:left;font-weight:500;font-size:12.5px;color:var(--ink-3);padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.k{white-space:nowrap;font-weight:500}
+.pipe{background:var(--surface);border:1px solid var(--line);padding:14px;margin:12px 0 20px;overflow-x:auto}
+.pipe svg{display:block;min-width:640px;width:100%;height:auto}
+.pipe text{font-family:var(--sans);fill:var(--ink)}
+.pipe .sub{fill:var(--ink-3);font-size:11px}
+.pipe .box{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}
+.pipe .box2{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}
+.pipe .arrow{stroke:var(--ink-3);stroke-width:1.5;fill:none}
+.pipe .ah{fill:var(--ink-3)}
+.timeline{list-style:none;padding:0;margin:10px 0 18px;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 14px 20px;margin:0;max-width:none}
+.timeline li::before{content:"";position:absolute;left:-6px;top:9px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.timeline .d{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);display:block}
+.issues{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+.iss{background:var(--surface);border:1px solid var(--line);padding:16px 18px 6px}
+.iss-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin-bottom:8px}
+.iss-h .n{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--ink-3)}
+.iss-h .t{font-weight:700;font-size:16px;flex:1 1 320px}
+.pill{display:inline-block;font-size:12px;padding:1px 9px;border-radius:999px;white-space:nowrap;font-weight:500}
+.p-high{background:var(--high-soft);color:var(--high)} .p-mid{background:var(--mid-soft);color:var(--mid)} .p-low{background:var(--low-soft);color:var(--low)} .p-layer{background:var(--accent-soft);color:var(--accent)} .p-done{background:var(--eg-soft);color:var(--eg)}
+.iss dl{display:grid;grid-template-columns:5.5em 1fr;gap:4px 14px;margin:0 0 10px}
+.iss dt{color:var(--ink-3);font-size:13.5px;padding-top:2px}
+.iss dd{margin:0;max-width:66ch}
+.glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:10px 0 18px}
+.g{background:var(--surface);border:1px solid var(--line);padding:12px 14px}
+.g b{display:block;margin-bottom:2px}
+.g span{color:var(--ink-2);font-size:14.5px}
+footer{margin-top:52px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13px}
+@media (max-width:520px){.iss dl{grid-template-columns:1fr}.iss dt{padding-top:6px}}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">给非专业读者的完整讲解 · 2026-09-07 → 09-15</div>
+  <h1>torch.compile 缺陷研究讲解</h1>
+  <p class="lede">这份说明假设你不懂 Python、也不懂编译器。它从"这件事到底在研究什么"讲起，接着讲计划怎么定、实际怎么做、怎么保证找到的问题是真的，最后把 27 条 issue 逐条用大白话解释：出了什么错、打个比方像什么、为什么值得报告。</p>
+  <nav class="toc">
+    <a href="#s1">1 背景：研究的是什么</a><a href="#s2">2 几个必须懂的词</a><a href="#s3">3 计划</a><a href="#s4">4 执行过程</a><a href="#s5">5 怎么保证不是误报</a><a href="#s6">6 27 条 issue 逐条讲解</a><a href="#s7">7 没发现问题的方向</a><a href="#s8">8 接下来你要做什么</a>
+  </nav>
+</header>
+
+<h2 id="s1"><span class="no">1</span>背景：研究的是什么</h2>
+<p><strong>PyTorch</strong> 是全世界用得最多的深度学习软件之一。研究者用 Python 写几行代码描述一个神经网络，PyTorch 负责真正去做海量的数字计算（矩阵乘法、求和、求导等）。</p>
+<p>PyTorch 有两种运行方式：</p>
+<ul>
+<li><strong>普通模式（叫 eager）</strong>：代码写一行、执行一行，每一步都立刻算出结果。简单、可靠，但慢。</li>
+<li><strong>编译模式（叫 <code>torch.compile</code>）</strong>：先把整段代码"读懂"，整体优化，生成专门的机器代码再运行。通常快很多，所以大公司训练大模型都会打开它。</li>
+</ul>
+<div class="analogy"><b>打个比方：</b>普通模式像同声传译，说一句翻一句；编译模式像先把整篇演讲稿拿去精译、排版、印刷成册再发给听众。印刷版读起来快，但如果精译时译错了一个词，所有听众拿到的都是错的，而且谁也不会注意到——因为印刷版看起来非常正式。</div>
+<p><strong>核心原则：</strong>编译只应该让程序变快，<strong>不应该改变结果</strong>。同样的输入，eager 算出来是 3.14，编译后也必须是 3.14。</p>
+<p>你的论文（ICSE 2027 在审的 paper749）研究的是"<strong>有毒编译</strong>"：编译悄悄改变了程序的行为。这次会话做的是论文的后续工作——做一个自动工具，<strong>系统地去找 torch.compile 和 eager 结果不一致的地方</strong>，找到后整理成规范的 bug 报告（issue）交给 PyTorch 官方修复。每一条被确认的 issue，都是这个检测方法有效的实证。</p>
+
+<h3>编译器内部分几层（理解每条 issue "错在哪一层"要用到）</h3>
+<p>torch.compile 不是一个整体，而是一条流水线，每一层都可能出错：</p>
+<div class="pipe">
+<svg viewBox="0 0 860 210" role="img" aria-label="torch.compile 流水线：Python 代码经 Dynamo、AOTAutograd、Inductor 变成机器码；旁支有 export/AOTInductor 与 compiled autograd">
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+  <rect x="10" y="30" width="130" height="64" rx="6" class="box"/><text x="75" y="58" text-anchor="middle" font-size="15" font-weight="700">你的 Python 代码</text><text x="75" y="79" text-anchor="middle" class="sub">写了什么算什么</text>
+  <line x1="140" y1="62" x2="180" y2="62" class="arrow" marker-end="url(#ah)"/>
+  <rect x="182" y="30" width="150" height="64" rx="6" class="box2"/><text x="257" y="58" text-anchor="middle" font-size="15" font-weight="700">Dynamo</text><text x="257" y="79" text-anchor="middle" class="sub">读懂代码，抓出"计算图"</text>
+  <line x1="332" y1="62" x2="372" y2="62" class="arrow" marker-end="url(#ah)"/>
+  <rect x="374" y="30" width="160" height="64" rx="6" class="box2"/><text x="454" y="58" text-anchor="middle" font-size="15" font-weight="700">AOTAutograd</text><text x="454" y="79" text-anchor="middle" class="sub">提前推导出"求导"的步骤</text>
+  <line x1="534" y1="62" x2="574" y2="62" class="arrow" marker-end="url(#ah)"/>
+  <rect x="576" y="30" width="150" height="64" rx="6" class="box2"/><text x="651" y="58" text-anchor="middle" font-size="15" font-weight="700">Inductor</text><text x="651" y="79" text-anchor="middle" class="sub">生成 C++ / GPU 代码</text>
+  <line x1="726" y1="62" x2="766" y2="62" class="arrow" marker-end="url(#ah)"/>
+  <rect x="768" y="30" width="84" height="64" rx="6" class="box"/><text x="810" y="58" text-anchor="middle" font-size="15" font-weight="700">机器码</text><text x="810" y="79" text-anchor="middle" class="sub">真正运行</text>
+  <rect x="182" y="132" width="220" height="56" rx="6" class="box"/><text x="292" y="156" text-anchor="middle" font-size="14" font-weight="700">export / AOTInductor</text><text x="292" y="175" text-anchor="middle" class="sub">把模型打包带去别处部署</text>
+  <rect x="440" y="132" width="220" height="56" rx="6" class="box"/><text x="550" y="156" text-anchor="middle" font-size="14" font-weight="700">compiled autograd</text><text x="550" y="175" text-anchor="middle" class="sub">连"求导过程"也编译（可选）</text>
+  <line x1="257" y1="94" x2="274" y2="130" class="arrow" marker-end="url(#ah)"/>
+  <line x1="454" y1="94" x2="520" y2="130" class="arrow" marker-end="url(#ah)"/>
+</svg>
+</div>
+<ul>
+<li><strong>Dynamo</strong>：读 Python 代码，把其中的数学计算"抄"成一张计算图。它必须理解 Python 的各种语法细节（随机数、字符串、异常……），这里出错属于"读错了代码"。</li>
+<li><strong>AOTAutograd</strong>：训练模型需要"求导"（算梯度，告诉模型往哪个方向改）。这一层提前把求导步骤也推出来。这里出错就是"导数算错"。</li>
+<li><strong>Inductor</strong>：把计算图翻译成真正的 C++ 代码（CPU 用）或 Triton 代码（GPU 用），再交给编译器变成机器码。这里出错属于"翻译成机器语言时译错"。</li>
+<li><strong>分解（decomposition）</strong>：Inductor 会把复杂运算拆成简单运算再生成代码，就像把"求平均"拆成"先求和、再除以个数"。拆法和原版不完全等价时就会出错。</li>
+<li><strong>meta / FakeTensor</strong>：编译前先"空跑"一遍，只推算形状和类型、不做真实计算，用来提前规划内存。空跑的规则和真实计算不一致也会出错。</li>
+</ul>
+
+<h2 id="s2"><span class="no">2</span>几个必须懂的词</h2>
+<div class="glossary">
+<div class="g"><b>张量（tensor）</b><span>一大块排成表格的数字。一张图片就是一个"高×宽×颜色通道"的张量。</span></div>
+<div class="g"><b>算子（operator）</b><span>对张量做的一种运算，比如加法、求平均、求逆矩阵。PyTorch 有上千个。</span></div>
+<div class="g"><b>精度 / dtype</b><span>每个数字用多少位存。float64 很精确；float32 常用；float16 / bfloat16 省内存但精度低。类型搞错会导致精度丢失或内存浪费。</span></div>
+<div class="g"><b>复数（complex）</b><span>带虚部的数，信号处理、量子物理里常用。复数的求导规则比实数更复杂，容易写错。</span></div>
+<div class="g"><b>梯度 / 反向传播</b><span>训练时告诉每个参数"往哪边改、改多少"的数字。梯度错了，模型会朝错误方向学，而且不报错。</span></div>
+<div class="g"><b>前向模式求导（jvp）</b><span>另一种求导方式，科学计算里常用。和普通的反向传播走不同的代码路径。</span></div>
+<div class="g"><b>动态形状（dynamic=True）</b><span>编译时不把"数组有多大"写死，好让同一份编译结果能处理不同大小的输入。代码里会出现 s0、ks1 这样的符号代替具体数字。</span></div>
+<div class="g"><b>NaN / inf</b><span>NaN 是"不是一个数"（比如 0/0 的结果），inf 是无穷大。它们一旦出现，后面的计算基本都坏了。</span></div>
+<div class="g"><b>INTERNAL ASSERT</b><span>PyTorch 内部的自检失败，报错信息里写着"请向 PyTorch 报告 bug"。它本身就说明是框架的错，不是用户的错。</span></div>
+<div class="g"><b>进程崩溃</b><span>程序直接消失，没有任何错误提示（Windows 显示 0xC0000005，Linux 显示 SIGSEGV）。比报错更糟，因为很难知道原因。</span></div>
+<div class="g"><b>nightly</b><span>PyTorch 每天自动发布的最新开发版。在 nightly 上还能复现，说明官方还没修。</span></div>
+<div class="g"><b>issue</b><span>在 GitHub 上给项目提交的问题报告。PyTorch 的 issue 有固定模板：问题描述、错误日志、版本信息。</span></div>
+</div>
+
+<h2 id="s3"><span class="no">3</span>计划</h2>
+<p>起点是研究计划文档 <code>Toxic_Compilation_Consistency_Detection_Research_Plan_Updated.md</code>，核心思想叫<strong>差分测试</strong>：</p>
+<div class="analogy"><b>打个比方：</b>不知道标准答案时，就让几个人独立做同一道题，再对答案。如果大家答案都一样，大概率是对的；如果有人答得不一样，就重点检查他。这里"几个人"就是同一个程序的不同运行方式。</div>
+<p>计划规定了几种"做题的人"，从最简单到最复杂：</p>
+<div class="tw"><table>
+<thead><tr><th>代号</th><th>运行方式</th><th>作用</th></tr></thead>
+<tbody>
+<tr><td class="k">E0 eager</td><td>不编译，直接算</td><td>基准答案</td></tr>
+<tr><td class="k">E1 backend=eager</td><td>只经过 Dynamo，不做后面的优化</td><td>若这里就错，是 Dynamo 读错了代码</td></tr>
+<tr><td class="k">E2 aot_eager</td><td>经过 Dynamo + AOTAutograd</td><td>若 E1 对 E2 错，是求导那层的问题</td></tr>
+<tr><td class="k">E3 inductor（CPU）</td><td>完整编译，生成 C++</td><td>若 E2 对 E3 错，是生成代码那层的问题</td></tr>
+<tr><td class="k">E4 inductor（GPU）</td><td>完整编译，生成 GPU 代码</td><td>GPU 特有的问题</td></tr>
+</tbody></table></div>
+<p>逐层对比的好处是：<strong>不仅知道"错了"，还能指出"错在哪一层"</strong>，这对维护者修 bug 非常有用。计划还定义了几种判断"不一致"的标准（结果数值、形状、数据类型、是否报错、是否崩溃等），以及找到后怎么缩小复现代码、查重、写报告。</p>
+
+<h2 id="s4"><span class="no">4</span>执行过程</h2>
+<ol class="timeline">
+<li><span class="d">9 月 7–8 日</span><strong>搭工具。</strong>按计划写了差分测试工具（目录 <code>plan/tcc</code>），会自动生成测试程序、按 E0–E4 逐层运行、对比结果、自动整理报告；还从 GitHub 上历史 issue 里收集了现成的复现程序当测试素材。</li>
+<li><span class="d">9 月 9 日</span><strong>第一轮发现问题很少，换思路。</strong>你判断发现太少，让我重新想角度。我写了 <code>NEXT_DIRECTIONS.md</code>，结论是：随机生成"更多程序"意义不大，缺陷藏在<strong>冷门但合法的输入</strong>和<strong>冷门的编译路径</strong>的交叉处。于是转向几个新方法：分解对比（第 1 节讲的"拆算子"是否等价）、配置对比（打开不同编译选项结果是否一致）、export 部署路径对比等。</li>
+<li><span class="d">9 月 10 日</span><strong>借用 Kaggle 的机器。</strong>你的电脑是 Windows、没有显卡，但很多问题要在 Linux 和 GPU 上确认。于是用 Kaggle（免费的在线计算平台）：我从本机自动上传代码、在 Kaggle 的 Linux 和 Tesla T4 显卡上运行、再把结果拉回来。此时整理出 13 条候选，查重后按 PyTorch 模板写成草稿。</li>
+<li><span class="d">9 月 11–12 日</span><strong>在最新版上复核。</strong>在 nightly（每日开发版）上把 13 条全部重跑，Windows、Linux、GPU 三个环境都还在，说明官方没修。顺带发现两条是已有 issue 的重复，排除。</li>
+<li><span class="d">9 月 12–13 日</span><strong>第二轮换角度：13 → 25 条。</strong>新方法包括：用 185 个小 Python 程序测 Dynamo 是否读对了代码（最高产，找到 5 条）；系统地试各种数字类型组合（4 条）；专门测复数的求导（找到最严重的第 01 条）；测优化器、测 compiled autograd 等。</li>
+<li><span class="d">9 月 13 日</span><strong>第三轮：25 → 30 条。</strong>测前向模式求导、一元算子、批处理变换等。其中两条查重后是已有 issue 的重复，最终独立的 28 条，按优先级整理为 27 条可提交的 issue（<code>0913issues</code> 目录）。</li>
+<li><span class="d">9 月 15 日</span><strong>误报复核 + 提交第一条。</strong>应你要求把 27 条全部重新写复现、各自在全新进程里重跑，发现两处说法不准确并改正（见第 5 节）。随后提交了第 01 条：<a href="https://github.com/pytorch/pytorch/issues/197084">pytorch/pytorch#197084</a>，官方机器人已自动打上"静默正确性错误""复数""线性代数""AOTAutograd"等标签，并排入人工分诊会议。</li>
+</ol>
+
+<h2 id="s5"><span class="no">5</span>怎么保证不是误报</h2>
+<p>每条 issue 在写进目录之前都过了下面几道关：</p>
+<ol>
+<li><strong>有"标准答案"。</strong>数值类问题用更高精度（float64 或 complex128）重新算一遍当真值，看到底是 eager 对还是编译后对。这样避免把"两边都有正常的舍入误差"误当成 bug。</li>
+<li><strong>逐层定位。</strong>同一段代码在 E1/E2/E3 各跑一遍，确认错在哪一层，报告里写清楚。</li>
+<li><strong>缩到最小。</strong>把触发问题的代码缩到几行，任何人复制粘贴就能看到。</li>
+<li><strong>跨环境、跨版本。</strong>Windows 与 Linux、正式版 2.14.0 与 nightly 都跑过；GPU 相关的在 Kaggle 的 T4 显卡上跑。</li>
+<li><strong>查重。</strong>每条用多组关键词搜 PyTorch 的 issue 和修复记录。发现已有人报过的就不再报（最终排除了 2 条）。</li>
+<li><strong>独立复核。</strong>9 月 15 日把 27 条的复现代码<strong>重新写一遍</strong>，每条在全新的进程里跑，避免前一个测试残留的状态影响后一个。结果 25 条重现、1 条需要 GPU（引用 Kaggle 结果）。</li>
+</ol>
+<div class="note"><strong>复核时发现并改正的两处：</strong><br>
+① 第 07 条：之前表格里有几格写着"正常"，其实是同一个程序里前面的测试留下的状态让后面的测试侥幸通过；改成每格单独运行后，全部是出错。问题比原来写的更严重，已改正并在报告里提醒维护者。<br>
+② 第 13 条：原来写"导出时静默丢掉了更新"，单独验证后发现不对——导出后的模型其实照常更新了。这句话删掉，报告只保留确实成立的两点。<br>
+这正是复核的意义：把不准确的地方在提交前找出来。</div>
+
+<h2 id="s6"><span class="no">6</span>27 条 issue 逐条讲解</h2>
+<p>编号就是建议提交顺序。<span class="pill p-high">高</span> 表示算错了却不报错、或者程序直接崩溃；<span class="pill p-mid">中</span> 表示编译失败或内部自检报错；<span class="pill p-low">低</span> 表示只在很少见的用法下出现。"层"指错在第 1 节图里的哪一层。</p>
+
+<div class="issues">
+
+<div class="iss"><div class="iss-h"><span class="n">01</span><span class="t">复数的伪逆矩阵，编译后梯度算错</span><span class="pill p-high">高</span><span class="pill p-layer">AOTAutograd</span><span class="pill p-done">已提交 #197084</span></div><dl>
+<dt>发生了什么</dt><dd><code>torch.linalg.pinv</code>（伪逆矩阵，线性代数常用运算）和 <code>matrix_sqrth</code>（矩阵平方根）作用在复数上时，编译后算出的梯度是错的，误差高达 17（正确值只在 1 左右），而且完全不报错。实数输入没问题。</dd>
+<dt>打个比方</dt><dd>导航软件在普通模式下指路正确，切到"加速模式"后，只要走的是某一类路（复数），就会把"向东"说成"向西"，语气还一样肯定。</dd>
+<dt>为什么要紧</dt><dd>梯度决定模型怎么学。梯度错了，训练会朝错误方向走，用户很可能只觉得"模型效果差"，根本想不到是框架算错。PyTorch 专门有"静默正确性错误"这个最高关注类别，机器人已经给它打上了。</dd>
+<dt>怎么确认的</dt><dd>用 gradcheck（PyTorch 官方的梯度检查工具）验证：普通模式通过、编译后不通过。只经过 Dynamo 是对的，一经过 AOTAutograd 就错，所以定位到 AOTAutograd。扫描了所有支持复数求导的算子，只有这两个有问题。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">02</span><span class="t">编译后"随机打乱"每次都打成同一个顺序</span><span class="pill p-high">高</span><span class="pill p-layer">Dynamo</span></div><dl>
+<dt>发生了什么</dt><dd>Python 自带的 <code>random.shuffle</code>（随机打乱列表）和 <code>random.sample</code>（随机抽样），放进编译后的函数里，第一次调用是随机的，之后每一次都返回和第一次一模一样的结果。</dd>
+<dt>打个比方</dt><dd>请人每天给你随机抽一张扑克牌，结果他第一天抽完就把那张牌拍照了，之后每天给你看同一张照片。</dd>
+<dt>为什么要紧</dt><dd>训练中常用随机打乱数据、随机抽样。被"冻结"后训练就不再随机，效果变差且毫无提示。</dd>
+<dt>怎么确认的</dt><dd>在 Dynamo 源码里找到原因：它在"读代码"时就把打乱结果算好当成固定值写死了，而同类的 <code>random.random</code> 等函数是每次运行时重新算的。Windows、Linux、正式版和 nightly 都复现。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">03</span><span class="t">对 ldexp 做前向求导并编译，程序直接崩溃</span><span class="pill p-high">高</span><span class="pill p-layer">AOTAutograd</span></div><dl>
+<dt>发生了什么</dt><dd><code>torch.ldexp(x, e)</code> 计算 x×2<sup>e</sup>。用前向模式求导（jvp）并以 <code>aot_eager</code> 方式编译时，程序没有任何报错直接消失（Windows 内存访问违规、Linux 段错误）。</dd>
+<dt>打个比方</dt><dd>不是算错，而是计算器直接黑屏关机，也不告诉你为什么。</dd>
+<dt>为什么要紧</dt><dd>进程崩溃是最难排查的一类问题：没有错误信息、没有出错位置。一次跑几个小时的任务会整个丢失。</dd>
+<dt>怎么确认的</dt><dd>每种情况放在单独的进程里跑并记录退出码：普通模式、只 Dynamo、完整编译都正常，唯独 aot_eager 崩溃。在 507 个支持前向求导的算子里只有它会让进程消失。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">04</span><span class="t">生成的 C++ 代码里混进了 Python 语法，编译失败</span><span class="pill p-high">高</span><span class="pill p-layer">Inductor（CPU）</span></div><dl>
+<dt>发生了什么</dt><dd>在动态形状下对某种形状的数据求最小值位置（<code>argmin</code>），Inductor 生成的 C++ 代码里出现了 <code>ks1**2</code>。<code>**</code> 是 Python 的"乘方"写法，C++ 不认识，于是 C++ 编译器报错。</dd>
+<dt>打个比方</dt><dd>把中文稿翻成英文时，中间夹了一句没翻译的中文，英文读者读到那里就卡住了。</dd>
+<dt>为什么要紧</dt><dd>只在两个维度大小恰好相同时出现，形状稍微一变又好了，用户会觉得"时好时坏"。</dd>
+<dt>怎么确认的</dt><dd>在源码 <code>cpp.py</code> 里找到两处用了 Python 的打印函数而不是 C++ 的打印函数，是两行代码的疏漏。Windows（MSVC 编译器）和 Linux（GCC 编译器）都失败，GPU 版正常。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">05</span><span class="t">要求放在 CPU 上的数据，被放到了显卡上</span><span class="pill p-high">高</span><span class="pill p-layer">Inductor（GPU 加速模式）</span></div><dl>
+<dt>发生了什么</dt><dd>在 GPU 上打开 cudagraphs（一种常用的加速模式，<code>mode="reduce-overhead"</code> 默认打开），代码明确写 <code>device="cpu"</code> 创建数据，编译后却返回了一个在显卡上的张量。</dd>
+<dt>打个比方</dt><dd>你让快递寄到家里，快递员却自作主张寄到了公司。</dd>
+<dt>为什么要紧</dt><dd>后续代码会因为"数据不在同一个设备上"而报错，但报错位置离真正出问题的那一行很远，很难查。</dd>
+<dt>怎么确认的</dt><dd>在 Kaggle 的 Tesla T4 显卡上，PyTorch 2.10 和 2.14 都复现；不开 cudagraphs 时正常。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">06</span><span class="t">算方差/标准差时，编译后精度下降</span><span class="pill p-high">高</span><span class="pill p-layer">Inductor（CPU）</span></div><dl>
+<dt>发生了什么</dt><dd>CPU 上普通模式计算方差时用高精度（double）累加，编译后改用低精度（float32）累加。结果：非常小的数（1e-30 量级）方差变成 0、梯度全变 0；非常大的数（1e30）变成无穷大；更常见的情况——数据都在 10 万左右时，方差误差从千万分之五变成千分之三。</dd>
+<dt>打个比方</dt><dd>用精度到毫米的尺子和精度到厘米的尺子量头发丝的粗细差异，厘米尺会告诉你"没有差异"。</dd>
+<dt>为什么要紧</dt><dd>梯度变成 0 意味着训练悄悄停止；统计值偏差会影响归一化等后续步骤。都不报错。</dd>
+<dt>怎么确认的</dt><dd>和 float64 真值对比，普通模式误差很小、编译后误差大几个数量级；在 PyTorch 已有 issue 里找到同根因的 LayerNorm 例子（只修了那一处）。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">07</span><span class="t">在编译里做前向求导，分位数等运算触发内部自检失败</span><span class="pill p-mid">中</span><span class="pill p-layer">Dynamo</span></div><dl>
+<dt>发生了什么</dt><dd>对 <code>quantile</code>（分位数，比如中位数）、<code>nanquantile</code>、<code>addr</code> 做前向求导并编译，报 INTERNAL ASSERT（"请向 PyTorch 报告 bug"）。三种编译方式都失败，普通模式正常。</dd>
+<dt>打个比方</dt><dd>机器自检时发现"不该出现的状态"，直接停机并亮红灯。</dd>
+<dt>为什么要紧</dt><dd>没有任何绕过办法（所有编译方式都失败），而且报错本身就说明是框架内部问题。</dd>
+<dt>怎么确认的</dt><dd>复核时发现：多个测试连着在同一程序里跑时，后面的偶尔会侥幸通过。改为每个单独运行后全部失败，报告里专门提醒了维护者这一点。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">08</span><span class="t">ldexp 编译后结果的数字类型变了</span><span class="pill p-mid">中</span><span class="pill p-layer">Inductor</span></div><dl>
+<dt>发生了什么</dt><dd>普通模式下，两个输入的类型会按规则"就高"合并（比如半精度×单精度→单精度）。编译后规则变了：有时类型变高、有时变低，只看第一个输入。</dd>
+<dt>打个比方</dt><dd>两个人合伙，规定"按出钱多的那个人的意见"，编译后却变成"永远听先开口的那个人"。</dd>
+<dt>为什么要紧</dt><dd>类型变低会丢精度，变高会多占内存，后面代码可能因类型不符报错。</dd>
+<dt>怎么确认的</dt><dd>只经过 AOTAutograd 的版本和普通模式一致，只有 Inductor 不同；找到了今年 1 月引入这个问题的改动（PR #171721）。CPU 和 GPU 都复现。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">09</span><span class="t">打开 compiled autograd 后，图像插值的求导报内部错误</span><span class="pill p-mid">中</span><span class="pill p-layer">compiled autograd</span></div><dl>
+<dt>发生了什么</dt><dd><code>F.interpolate</code>（图像缩放）用双线性、双三次等方式时，打开"连求导也编译"的选项，求导阶段报 INTERNAL ASSERT。最近邻方式正常。</dd>
+<dt>打个比方</dt><dd>把参数装进信封时把顺序装错了，收件人拆开发现"应该是一串数字的地方放的是一个开关"。</dd>
+<dt>为什么要紧</dt><dd>图像缩放是分割、超分辨率等模型的常规组件，打开这个优化选项就无法训练。</dd>
+<dt>怎么确认的</dt><dd>对所有支持求导的算子开这个选项扫描，只有插值这一族失败。Windows、Linux、正式版、nightly 都复现。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">10</span><span class="t">动态形状下，格式化字符串让编译器内部出错</span><span class="pill p-mid">中</span><span class="pill p-layer">Dynamo</span></div><dl>
+<dt>发生了什么</dt><dd>代码里写 <code>f"{x.shape[0]:d}"</code>（把数组大小按整数格式写进字符串，常用于打印日志），动态形状下编译器报内部错误：它把"数组大小"当成了文字去套整数格式。</dd>
+<dt>打个比方</dt><dd>表格要求填"年龄（数字）"，系统却把"年龄"两个字本身填了进去，然后说格式不对。</dd>
+<dt>为什么要紧</dt><dd>打印日志、写报错信息是再普通不过的写法；用户自己的报错信息反而被替换成框架的内部错误。</dd>
+<dt>怎么确认的</dt><dd>不用格式说明符、或关闭动态形状都正常。两个操作系统、两个版本复现。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">11</span><span class="t">编译优化器时，复数参数 + 默认实现报错</span><span class="pill p-mid">中</span><span class="pill p-layer">Inductor</span></div><dl>
+<dt>发生了什么</dt><dd>把 SGD 优化器的更新步骤编译起来，参数是复数、使用默认的"批量更新"实现时，Inductor 报断言错误。Adam 等其他优化器正常。</dd>
+<dt>打个比方</dt><dd>五家店都能处理外币付款，只有一家店的收银机遇到外币就卡死。</dd>
+<dt>为什么要紧</dt><dd>编译优化器步骤是官方推荐的提速手段，复数参数的用户会直接失败。</dd>
+<dt>怎么确认的</dt><dd>扫描了 11 种优化器、各种选项和参数类型（1584 种组合），只有这一种失败。查到一个未合并的旧修复尝试（PR #178192）处理过同一个断言。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">12</span><span class="t">空数据做图像缩放，编译后读到了越界内存，返回一堆 NaN</span><span class="pill p-mid">中</span><span class="pill p-layer">Inductor</span></div><dl>
+<dt>发生了什么</dt><dd>宽度为 0 的数据做 <code>F.interpolate</code>，普通模式会正确报错"尺寸必须大于 0"，编译后却返回一个 2×3×3 全是 NaN 的结果——生成的代码去读一块根本不存在的数据。</dd>
+<dt>打个比方</dt><dd>让人从空盒子里数苹果，正常人说"盒子是空的"，他却伸手到盒子外面摸出一些不知道是什么的东西报数。</dd>
+<dt>为什么要紧</dt><dd>偶尔出现空批次的流水线，会把 NaN 悄悄传下去；在 GPU 上同样的越界读取可能直接非法访问内存。</dd>
+<dt>怎么确认的</dt><dd>CPU 和 GPU 都复现；和已有的"编译缺少输入检查"类 issue 同族但不重复。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">13</span><span class="t">导出部署时，同一个模型在三个步骤里得到三种不同对待</span><span class="pill p-mid">中</span><span class="pill p-layer">export / AOTInductor</span></div><dl>
+<dt>发生了什么</dt><dd>模型里的统计量（running mean）不是登记在模型里，而是直接引用外面的一个张量并原地更新。导出（export）顺利通过、运行正常；下一步"分解"时报错说"这种写法不允许"；再下一步"打包"时报 INTERNAL ASSERT。</dd>
+<dt>打个比方</dt><dd>办证时第一个窗口说"材料齐全"，第二个窗口说"材料不合规"，第三个窗口直接系统崩溃。</dd>
+<dt>为什么要紧</dt><dd>用户在第一步得到"没问题"的信号，到部署最后一步才撞墙，还被要求去报 bug。</dd>
+<dt>怎么确认的</dt><dd>复核时发现原稿"导出时丢掉更新"的说法不成立，已删除；保留的两点在两个系统、两个版本都复现。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">14</span><span class="t">求向量范数时，维度写成 -1 就编译失败，写成 1 就正常</span><span class="pill p-mid">中</span><span class="pill p-layer">分解（_refs）</span></div><dl>
+<dt>发生了什么</dt><dd>对 0 行 5 列的数据求每行的最大绝对值，普通模式返回空结果；编译时写 <code>dim=-1</code>（倒数第一个维度）报错说"这个维度是空的"，而写 <code>dim=1</code>（同一个维度）却正常。</dd>
+<dt>打个比方</dt><dd>问"最后一排有人吗"系统说没人，问"第二排有人吗"（其实就是最后一排）系统说有人。</dd>
+<dt>为什么要紧</dt><dd>负数下标是非常常见的写法；报错信息还指错了维度，误导用户。</dd>
+<dt>怎么确认的</dt><dd>定位到源码一行检查只处理了正数下标，没把负数换算过来。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">15</span><span class="t">两个损失函数在半精度训练时，编译后结果类型变成单精度</span><span class="pill p-mid">中</span><span class="pill p-layer">Inductor（CPU）</span></div><dl>
+<dt>发生了什么</dt><dd><code>binary_cross_entropy</code>（带权重）和 <code>huber_loss</code> 输入是半精度时，普通模式返回半精度，编译后返回单精度。其他几个同类损失函数没问题。</dd>
+<dt>打个比方</dt><dd>全班都交 A4 纸作业，只有两个同学编译后交成了 A3。</dd>
+<dt>为什么要紧</dt><dd>半精度训练本来是为了省内存，结果类型被悄悄改变，后续可能报错或多占内存。</dd>
+<dt>怎么确认的</dt><dd>只经过 AOTAutograd 的版本和普通模式一致；PyTorch 以前修过这个函数的另一个变体（with_logits），这个没修到。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">16</span><span class="t">空数据求距离的导数，普通模式就会让程序崩溃</span><span class="pill p-mid">中</span><span class="pill p-layer">普通模式本身</span></div><dl>
+<dt>发生了什么</dt><dd><code>F.pdist</code>（两两之间的距离）输入 0 行时，前向返回空结果，但求导时程序直接崩溃（Windows 报整数除以零，Linux 段错误）。这条不是编译的问题，是普通模式本身的缺陷，所以用普通 bug 模板。</dd>
+<dt>打个比方</dt><dd>计算"平均每人分几个苹果"时，人数是 0，计算器没有检查就去除，直接死机。</dd>
+<dt>为什么要紧</dt><dd>批次偶尔为空时整个进程丢失，没有报错信息；编译模式也调用同一段代码，同样崩溃。</dd>
+<dt>怎么确认的</dt><dd>在子进程里跑，1 行、2 行都正常，只有 0 行崩溃；GPU 版本正常。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">17</span><span class="t">编译函数里设置随机种子，第一次调用不生效</span><span class="pill p-mid">中</span><span class="pill p-layer">Dynamo</span></div><dl>
+<dt>发生了什么</dt><dd>在函数里写 <code>random.seed(0)</code> 后取随机数，普通模式每次都得到同样的数；编译后第一次调用得到别的数，从第二次开始才正确。</dd>
+<dt>打个比方</dt><dd>闹钟设好了时间，但只有第一天不响，之后每天都准。</dd>
+<dt>为什么要紧</dt><dd>设置种子就是为了结果可复现；只有第一次不一致，很容易被误以为是偶发的不稳定。</dd>
+<dt>怎么确认的</dt><dd>和第 02 条同一段源码，但症状不同，单独报告。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">18</span><span class="t">Python 3.14 + 动态形状下，比较两个"具名元组"导致无限递归</span><span class="pill p-mid">中</span><span class="pill p-layer">Dynamo</span></div><dl>
+<dt>发生了什么</dt><dd>比较两个装着张量的 namedtuple 是否相等，普通模式正常返回；编译（动态形状、Python 3.14）后栈溢出崩溃。Python 3.11 正常。</dd>
+<dt>打个比方</dt><dd>两面镜子对着照，影像无限套下去，最后系统放弃。</dd>
+<dt>为什么要紧</dt><dd>只在新版 Python 上出现，随着用户升级 Python 会越来越多人碰到。</dd>
+<dt>怎么确认的</dt><dd>在 Windows Python 3.14 复现，Linux Python 3.11 不复现，报告里明确写了是 3.14 专属。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">19</span><span class="t">Windows 上开最大自动调优，批量矩阵乘法必然失败</span><span class="pill p-mid">中</span><span class="pill p-layer">Inductor（Windows）</span></div><dl>
+<dt>发生了什么</dt><dd>Windows 上打开 <code>max_autotune</code>，<code>torch.bmm</code>（批量矩阵乘法）编译失败，提示找不到某个函数。普通矩阵乘法正常，Linux 正常。</dd>
+<dt>打个比方</dt><dd>店里新到的商品忘了贴价签，收银员扫不到就无法结账。</dd>
+<dt>为什么要紧</dt><dd>矩阵乘法是最核心的运算之一，Windows 用户开这个选项就用不了。</dd>
+<dt>怎么确认的</dt><dd>找到原因：批量乘法的代码模板少了 Windows 需要的"导出声明"，而同类模板都有，一行就能修。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">20</span><span class="t">打包部署时，不支持返回"带名字的结果"</span><span class="pill p-low">低</span><span class="pill p-layer">AOTInductor</span></div><dl>
+<dt>发生了什么</dt><dd><code>torch.max(x, dim)</code>、<code>topk</code> 等返回"值 + 位置"的带名字结果。普通运行和编译都没问题，打包部署时报错说不会保存这种类型。</dd>
+<dt>打个比方</dt><dd>快递公司能送普通包裹，但不接受"贴了标签的包裹"，拆掉标签就能寄。</dd>
+<dt>为什么要紧</dt><dd>报错指向一个用户无法操作的内部函数；在所有打包失败的算子里 35 个中有 33 个是这个原因。</dd>
+<dt>怎么确认的</dt><dd>查到一个 2023 年起就挂着未合并的相关修复（PR #113258）。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">21</span><span class="t">布尔值做线性插值，普通模式可以、编译失败</span><span class="pill p-low">低</span><span class="pill p-layer">Inductor</span></div><dl>
+<dt>发生了什么</dt><dd><code>torch.lerp</code>（在两个值之间按比例取中间值）的两端是真/假值、比例是小数时，普通模式先转成小数再算，编译时先做"真减假"再转换，布尔值不能相减，报错。</dd>
+<dt>打个比方</dt><dd>先换算单位再加减就没事，编译后变成先加减再换算，于是"米减秒"算不下去。</dd>
+<dt>为什么要紧</dt><dd>用法少见，但属于普通模式接受、编译拒绝的不一致。</dd>
+<dt>怎么确认的</dt><dd>整数输入正常，只经过 AOTAutograd 也正常，CPU 和 GPU 都复现。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">22</span><span class="t">求和/求积时指定结果为真假值，编译失败</span><span class="pill p-low">低</span><span class="pill p-layer">Inductor（CPU）</span></div><dl>
+<dt>发生了什么</dt><dd><code>torch.sum(半精度数据, dtype=bool)</code> 生成的 C++ 编译不过；<code>torch.prod(..., dtype=bool)</code> 触发断言。普通模式返回一个真假值。</dd>
+<dt>打个比方</dt><dd>模板库里没有"用是/否来累加"这种表格，只能报错。</dd>
+<dt>为什么要紧</dt><dd>少见，但普通模式支持、编译不支持；单精度输入却又能过，行为不统一。</dd>
+<dt>怎么确认的</dt><dd>Windows 和 Linux 两种 C++ 编译器都失败。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">23</span><span class="t">偏置是单个数时，开最大自动调优后矩阵运算编译失败</span><span class="pill p-low">低</span><span class="pill p-layer">Inductor</span></div><dl>
+<dt>发生了什么</dt><dd><code>torch.addmm(偏置, x, y)</code> 的偏置是一个单独的数时，默认编译正常，打开 <code>max_autotune</code> 后报"下标越界"。</dd>
+<dt>打个比方</dt><dd>程序默认"偏置至少是一行数"，直接去取第一格，没料到它只是一个数。</dd>
+<dt>为什么要紧</dt><dd>报错看不出原因；已有一个针对相邻情况的修复（PR #185578），但没覆盖这种情况。</dd>
+<dt>怎么确认的</dt><dd>CPU、GPU 都复现，定位到源码里"先取下标、后检查维度"的顺序问题。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">24</span><span class="t">空数据求平均，编译后返回 0 而不是 NaN</span><span class="pill p-low">低</span><span class="pill p-layer">Inductor</span></div><dl>
+<dt>发生了什么</dt><dd><code>torch.var_mean</code> 对空数据，普通模式平均值是 NaN（没有数据就没有平均值），编译后是 0。</dd>
+<dt>打个比方</dt><dd>一个人都没来考试，平均分本应是"无法计算"，却被登记成了 0 分。</dd>
+<dt>为什么要紧</dt><dd>0 看起来像个正常数，会掩盖"输入是空的"这一事实。</dd>
+<dt>怎么确认的</dt><dd>各种精度、形状、选项组合都复现，CPU 和 GPU 都有。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">25</span><span class="t">通道重排后，编译结果丢失了数据的内存排列方式</span><span class="pill p-low">低</span><span class="pill p-layer">Inductor</span></div><dl>
+<dt>发生了什么</dt><dd>图像数据有两种内存排列方式（按通道分块，或按像素把通道挨着放，后者叫 channels_last，卷积更快）。<code>channel_shuffle</code> 在普通模式下保持 channels_last，编译后变回了另一种。</dd>
+<dt>打个比方</dt><dd>书按"作者"排好了架，整理一遍后又被按"出版年份"排了回去，书没丢，但找起来慢了。</dd>
+<dt>为什么要紧</dt><dd>数值不错，但后续卷积可能多一次复制、变慢。PyTorch 已经修过好几个同类问题。</dd>
+<dt>怎么确认的</dt><dd>对比输出的内存步长，普通模式与只 AOTAutograd 的版本一致，Inductor 不同。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">26</span><span class="t">编译后，"键不存在"错误的文字少了引号</span><span class="pill p-low">低</span><span class="pill p-layer">Dynamo</span></div><dl>
+<dt>发生了什么</dt><dd>Python 里 <code>str(KeyError("k"))</code> 的结果是带引号的 <code>'k'</code>；编译后变成不带引号的 <code>k</code>。</dd>
+<dt>打个比方</dt><dd>抄写别人的话时漏掉了引号，意思没变，但严格对照原文时对不上。</dd>
+<dt>为什么要紧</dt><dd>影响小，但如果代码按错误文字做判断或写日志，结果会不同。说明 Dynamo 模拟 Python 行为不完全。</dd>
+<dt>怎么确认的</dt><dd>其他异常类型正常，只有 KeyError 这个特例（它的文字规则本来就特殊）。</dd>
+</dl></div>
+
+<div class="iss"><div class="iss-h"><span class="n">27</span><span class="t">复数取绝对值写入另一种精度的结果变量，编译拒绝</span><span class="pill p-low">低</span><span class="pill p-layer">meta（空跑检查）</span></div><dl>
+<dt>发生了什么</dt><dd><code>torch.abs(复数, out=双精度变量)</code>：普通模式把结果转换后写进去；编译时的"空跑检查"要求类型必须完全一致，于是拒绝。同类的 <code>torch.angle</code> 两边都允许。</dd>
+<dt>打个比方</dt><dd>前台登记处比实际办事窗口要求更严，窗口能办的事，登记处先不让进。</dd>
+<dt>为什么要紧</dt><dd>用法少见。维护者也可能认为应该让普通模式也拒绝，所以放在最后。</dd>
+<dt>怎么确认的</dt><dd>两个系统、两个版本都复现，查重无同报告。</dd>
+</dl></div>
+
+</div>
+
+<h2 id="s7"><span class="no">7</span>没发现问题的方向</h2>
+<p>研究里"没找到问题"同样有价值，它说明那部分实现得可靠，也避免以后重复白费功夫。下面这些方向都系统地试过，结果一致：</p>
+<ul>
+<li>20 种冷门编译选项，覆盖 593 个单算子和 68 个多算子程序，共一万多次编译，没有一处结果不同。</li>
+<li>编译结果重复使用时改变运行环境（精度设置、训练/推理模式、线程数等 20 种）、以及输入大小变成 0 或 1。</li>
+<li>跨进程的编译缓存、真实的图像识别模型（CPU 与 GPU）、参数"以何种写法传进来"。</li>
+<li>批处理变换（vmap）经过编译：678 个算子无分歧。</li>
+<li>二阶导数：PyTorch 明确说明编译不支持，所以不算缺陷。</li>
+</ul>
+
+<h2 id="s8"><span class="no">8</span>接下来你要做什么</h2>
+<h3>提交</h3>
+<ol>
+<li>打开 <code>0913issues</code> 目录里对应编号的文件。文件开头的表格是给你看的提交信息，<strong>不要复制</strong>。</li>
+<li><code>## Title</code> 下面一行是标题；<code>## Body</code> 下面按 <code>###</code> 分段，分别贴进网页表单里同名的输入框（问题描述、错误日志、版本）。</li>
+<li>入口：编译类问题用 <a href="https://github.com/pytorch/pytorch/issues/new?template=pt2-bug-report.yml">pt2-bug-report 模板</a>；第 16 条用 <a href="https://github.com/pytorch/pytorch/issues/new?template=bug-report.yml">普通 bug 模板</a>。</li>
+<li>节奏上，一天几条、按编号顺序，比一口气全发更容易被认真对待。</li>
+</ol>
+<h3>提交后网页上会发生什么</h3>
+<ul>
+<li>机器人自动打标签（如"静默正确性""复数"），并 cc 相关模块负责人——这是所有 issue 的正常流程。</li>
+<li>带 <code>triage review</code> 的会进每周人工分诊会议，之后会换成 <code>triaged</code> 并指派负责人。</li>
+<li>有人回复时 GitHub 会发邮件给你。</li>
+</ul>
+<h3>维护者可能问什么、怎么答</h3>
+<div class="tw"><table>
+<thead><tr><th>可能的问题</th><th>怎么应对</th></tr></thead>
+<tbody>
+<tr><td>"最新 nightly 上还能复现吗？"</td><td>可以回答能，报告里已经写了 nightly 的版本号。如果时间过去很久，让我在新 nightly 上重跑一遍。</td></tr>
+<tr><td>"能提供 tlparse 日志吗？"</td><td>这是编译过程的详细日志，让我生成，你上传附件即可。</td></tr>
+<tr><td>"这是怎么发现的？"</td><td>可以说是自己搭建的差分测试工具自动对比 eager 和编译结果发现的。</td></tr>
+<tr><td>"是否用了 AI？"</td><td>PyTorch 的政策要求 AI 起草的内容需要声明，并由人负责。建议如实说明报告借助 AI 起草、复现结果本人核实过。</td></tr>
+<tr><td>看不懂的技术追问</td><td>把问题贴给我，我解释并起草回复，你看懂后再发。</td></tr>
+</tbody></table></div>
+<div class="note">账号安全提醒：会话中出现过一次密码，已从本机的会话记录、临时文件和记忆里擦除，但仍建议你修改该密码。</div>
+
+<footer>对应文件：研究计划 <code>Toxic_Compilation_Consistency_Detection_Research_Plan_Updated.md</code> · 执行记录 <code>plan/EXECUTION_REPORT.md</code> · 候选台账 <code>plan/TO_SUBMIT.md</code> · 提交稿 <code>toxic_compile/0913issues/</code>。数字截至 2026-09-15。</footer>
+</div>

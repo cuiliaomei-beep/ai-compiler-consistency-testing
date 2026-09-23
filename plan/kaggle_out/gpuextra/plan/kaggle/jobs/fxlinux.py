@@ -1,0 +1,8 @@
+# Kaggle script kernel: Linux re-check of 0920 draft 23.
+import base64, subprocess, sys
+open("draft23.py", "wb").write(base64.b64decode("aW1wb3J0IHRvcmNoLCB0b3JjaC5meAoKZGVmIG1hc2tfaW52YWxpZCh4LCBuYW4pOiAgICAgICAgICAgICAgICAgIyBgbmFuYDogYSBib29sZWFuIG1hc2sgb2YgaW52YWxpZCBlbnRyaWVzCiAgICByZXR1cm4gdG9yY2gud2hlcmUobmFuLCBmbG9hdCgibmFuIiksIHgpCgpkZWYgY2xpcF9zY29yZXMoc2NvcmVzLCBpbmYpOiAgICAgICAgICAgICAjIGBpbmZgOiBhIHBlci1lbGVtZW50IG9mZnNldDsgdGhlIGNsYW1wIGJvdW5kIGlzIHRoZSBjb25zdGFudCBmbG9hdCgiaW5mIikKICAgIHJldHVybiB0b3JjaC5jbGFtcChzY29yZXMsIG1heD1mbG9hdCgiaW5mIikpICsgaW5mCgp4ID0gdG9yY2gudGVuc29yKFsxLjAsIDUwLjAsIDMuMF0pCmZvciBmLCBhcmdzIGluICgobWFza19pbnZhbGlkLCAoeCwgdG9yY2gudGVuc29yKFtGYWxzZSwgVHJ1ZSwgRmFsc2VdKSkpLCAoY2xpcF9zY29yZXMsICh4LCB0b3JjaC50ZW5zb3IoWzEwLjAsIDIwLjAsIDMwLjBdKSkpKToKICAgIGdtID0gdG9yY2guZnguc3ltYm9saWNfdHJhY2UoZikKICAgIHByaW50KGYuX19uYW1lX18pCiAgICBwcmludCgiICAgIGVhZ2VyICAgICAgICAgICAgICAiLCBmKCphcmdzKS50b2xpc3QoKSkKICAgIHByaW50KCIgICAgZnguSW50ZXJwcmV0ZXIgICAgICIsIHRvcmNoLmZ4LkludGVycHJldGVyKGdtKS5ydW4oKmFyZ3MpLnRvbGlzdCgpKQogICAgcHJpbnQoIiAgICBHcmFwaE1vZHVsZS5mb3J3YXJkIiwgZ20oKmFyZ3MpLnRvbGlzdCgpKQogICAgcHJpbnQoIiAgICAiICsgZ20uY29kZS5zdHJpcCgpLnJlcGxhY2UoIlxuIiwgIlxuICAgICIpKQo="))
+for spec in [["torch==2.14.0", "--index-url", "https://download.pytorch.org/whl/cpu"], ["--pre", "--upgrade", "torch", "--index-url", "https://download.pytorch.org/whl/nightly/cpu"]]:
+    subprocess.run(["pip", "-q", "install", *spec])
+    subprocess.run([sys.executable, '-c', 'import torch; print("torch", torch.__version__, flush=True)'])
+    subprocess.run([sys.executable, "draft23.py"])
+print("JOB DONE", flush=True)

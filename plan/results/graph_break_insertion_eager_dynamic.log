@@ -1,0 +1,209 @@
+torch 2.14.0+cpu; 241 programs; backend eager
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] or:
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] to include these operations in the captured graph.
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] 
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] Graph break: from user code at:
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics.py", line 318, in _
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]     lst = [(i, x[i].sum().item()) for i in range(x.shape[0])]
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]                ~~~~~~~~~~~~~~~^^
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] 
+W0922 21:46:45.713000 5204 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] 
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `<unknown module>.Random.getrandbits.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'dynamo_semantics_more.py:312'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_more.py", line 312, in torch_dynamo_resume_in___at_308
+    return total, sq(3) + sq(3) + sq(4), STATE["count"]
+                  ~~^^^
+
+  torch._dynamo.utils.warn_once(msg)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'dynamo_semantics_more.py:312'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_more.py", line 312, in torch_dynamo_resume_in___at_308
+    return total, sq(3) + sq(3) + sq(4), STATE["count"]
+                          ~~^^^
+
+  torch._dynamo.utils.warn_once(msg)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'dynamo_semantics_more.py:312'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_more.py", line 312, in torch_dynamo_resume_in___at_308
+    return total, sq(3) + sq(3) + sq(4), STATE["count"]
+                                  ~~^^^
+
+  torch._dynamo.utils.warn_once(msg)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `_pickle.dumps.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `_pickle.loads.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `_heapq.heappush.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `_heapq.heapify.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'dynamo_semantics_batch4.py:488'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_batch4.py", line 488, in torch_dynamo_resume_in___at_484
+    r = [f(1), f(2), f(1), f(2)]
+         ~^^^
+
+  torch._dynamo.utils.warn_once(msg)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'dynamo_semantics_batch4.py:488'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_batch4.py", line 488, in torch_dynamo_resume_in___at_484
+    r = [f(1), f(2), f(1), f(2)]
+               ~^^^
+
+  torch._dynamo.utils.warn_once(msg)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'dynamo_semantics_batch4.py:488'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_batch4.py", line 488, in torch_dynamo_resume_in___at_484
+    r = [f(1), f(2), f(1), f(2)]
+                     ~^^^
+
+  torch._dynamo.utils.warn_once(msg)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'dynamo_semantics_batch4.py:488'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_batch4.py", line 488, in torch_dynamo_resume_in___at_484
+    r = [f(1), f(2), f(1), f(2)]
+                           ~^^^
+
+  torch._dynamo.utils.warn_once(msg)
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+baseline divergences: 29
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `<unknown module>.Random.getrandbits.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '<rw:_>:8'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "<rw:_>", line 8, in torch_dynamo_resume_in__rw_at_1
+
+  torch._dynamo.utils.warn_once(msg)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `_pickle.dumps.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `_pickle.loads.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `_heapq.heappush.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `_heapq.heapify.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '<rw:_>:7'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "<rw:_>", line 7, in torch_dynamo_resume_in__rw_at_1
+
+  torch._dynamo.utils.warn_once(msg)
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+[top] rewritten 241 (breaks inserted: 615), rewrite failed 0; divergences 45: new 18, gone 2, changed 4
+  NEW  gen_send                             call0 raise  eager=('list', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.178789377212524  compiled='raise:AttributeError'
+  NEW  gen_send                             call1 raise  eager=('list', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.178789377212524  compiled='raise:AttributeError'
+  NEW  collections_types                    call0 return eager=('tuple', [('list', ['a', 'z']), ('dict', [('k', ('list', [('T', 'torch.float32', (), [-3.1417355537  compiled=('tuple', [('list', ['z', 'a']), ('dict', [('k', ('list', [('T', 'torch.float32', (), [-3.1417355537
+  NEW  collections_types                    call1 return eager=('tuple', [('list', ['a', 'z']), ('dict', [('k', ('list', [('T', 'torch.float32', (), [-3.1417355537  compiled=('tuple', [('list', ['z', 'a']), ('dict', [('k', ('list', [('T', 'torch.float32', (), [-3.1417355537
+  NEW  gen_return_value_stopiteration       call0 return eager=('tuple', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.17878937721252  compiled=('tuple', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.17878937721252
+  NEW  gen_return_value_stopiteration       call1 return eager=('tuple', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.17878937721252  compiled=('tuple', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.17878937721252
+  NEW  gen_throw                            call0 raise  eager=('T', 'torch.float32', (3, 4), [154.099609375, -29.3428897857666, -217.87893676757812, 56.8431243896  compiled='raise:AttributeError'
+  NEW  gen_throw                            call1 raise  eager=('T', 'torch.float32', (3, 4), [154.099609375, -29.3428897857666, -217.87893676757812, 56.8431243896  compiled='raise:AttributeError'
+  NEW  gen_send_running_mean                call0 raise  eager=('list', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.178789377212524  compiled='raise:AttributeError'
+  NEW  gen_send_running_mean                call1 raise  eager=('list', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.178789377212524  compiled='raise:AttributeError'
+  NEW  gen_throw_handled_inside             call0 raise  eager=('tuple', [('T', 'torch.float32', (3, 4), [154.099609375, -29.3428897857666, -217.87893676757812, 56  compiled='raise:AttributeError'
+  NEW  gen_throw_handled_inside             call1 raise  eager=('tuple', [('T', 'torch.float32', (3, 4), [154.099609375, -29.3428897857666, -217.87893676757812, 56  compiled='raise:AttributeError'
+  NEW  od_move_to_end_on_state              call0 return eager=('tuple', [('list', ['a', 'z']), ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.7065711021423  compiled=('tuple', [('list', ['z', 'a']), ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.7065711021423
+  NEW  od_move_to_end_on_state              call1 return eager=('tuple', [('list', ['a', 'z']), ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.7065711021423  compiled=('tuple', [('list', ['z', 'a']), ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.7065711021423
+  NEW  od_move_to_end_then_iterate_later    call0 state  eager=('dict', [('count', 0), ('log', ('list', [('list', ['a', 'z'])])), ('d', ('dict', [('od2', ('dict',   compiled=('dict', [('count', 0), ('log', ('list', [('list', ['z', 'a'])])), ('d', ('dict', [('od2', ('dict', 
+  NEW  od_move_to_end_then_iterate_later    call1 state  eager=('dict', [('count', 0), ('log', ('list', [('list', ['a', 'z']), ('list', ['a', 'z'])])), ('d', ('dic  compiled=('dict', [('count', 0), ('log', ('list', [('list', ['z', 'a']), ('list', ['z', 'a'])])), ('d', ('dic
+  NEW  lru_cache_hits_and_info              call0 return eager=('tuple', [('list', [2, 4, 2, 4]), 2, 2, ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657  compiled=('tuple', [('list', [2, 4, 2, 4]), 4, 0, ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657
+  NEW  lru_cache_hits_and_info              call1 return eager=('tuple', [('list', [2, 4, 2, 4]), 4, 2, ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657  compiled=('tuple', [('list', [2, 4, 2, 4]), 8, 0, ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657
+  CHG  tensor_subclass_torch_function       call0 state  base=('dict', [('count', 0), ('log', ('list', ['mul', 'add', 'sum', '__get__', '__get  now=('dict', [('count', 0), ('log', ('list', ['__get__', '__get__', '__get__', '__ge
+  CHG  tensor_subclass_torch_function       call1 state  base=('dict', [('count', 0), ('log', ('list', ['mul', 'add', 'sum', '__get__', '__get  now=('dict', [('count', 0), ('log', ('list', ['__get__', '__get__', '__get__', '__ge
+  CHG  threading_local_state                call0 state  base=('dict', [('count', 0), ('log', ('list', [])), ('d', ('dict', [])), ('s', ('set'  now=('dict', [('count', 0), ('log', ('list', [])), ('d', ('dict', [])), ('s', ('set'
+  CHG  threading_local_state                call1 state  base=('dict', [('count', 0), ('log', ('list', [])), ('d', ('dict', [])), ('s', ('set'  now=('dict', [('count', 0), ('log', ('list', [])), ('d', ('dict', [])), ('s', ('set'
+  GONE python_random                        call0 (baseline diverged, rewritten does not)
+  GONE python_random                        call1 (baseline diverged, rewritten does not)
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+[deep] rewritten 241 (breaks inserted: 741), rewrite failed 0; divergences 45: new 18, gone 2, changed 4
+  NEW  gen_send                             call0 raise  eager=('list', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.178789377212524  compiled='raise:AttributeError'
+  NEW  gen_send                             call1 raise  eager=('list', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.178789377212524  compiled='raise:AttributeError'
+  NEW  collections_types                    call0 return eager=('tuple', [('list', ['a', 'z']), ('dict', [('k', ('list', [('T', 'torch.float32', (), [-3.1417355537  compiled=('tuple', [('list', ['z', 'a']), ('dict', [('k', ('list', [('T', 'torch.float32', (), [-3.1417355537
+  NEW  collections_types                    call1 return eager=('tuple', [('list', ['a', 'z']), ('dict', [('k', ('list', [('T', 'torch.float32', (), [-3.1417355537  compiled=('tuple', [('list', ['z', 'a']), ('dict', [('k', ('list', [('T', 'torch.float32', (), [-3.1417355537
+  NEW  gen_return_value_stopiteration       call0 return eager=('tuple', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.17878937721252  compiled=('tuple', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.17878937721252
+  NEW  gen_return_value_stopiteration       call1 return eager=('tuple', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.17878937721252  compiled=('tuple', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.17878937721252
+  NEW  gen_throw                            call0 raise  eager=('T', 'torch.float32', (3, 4), [154.099609375, -29.3428897857666, -217.87893676757812, 56.8431243896  compiled='raise:AttributeError'
+  NEW  gen_throw                            call1 raise  eager=('T', 'torch.float32', (3, 4), [154.099609375, -29.3428897857666, -217.87893676757812, 56.8431243896  compiled='raise:AttributeError'
+  NEW  gen_send_running_mean                call0 raise  eager=('list', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.178789377212524  compiled='raise:AttributeError'
+  NEW  gen_send_running_mean                call1 raise  eager=('list', [('T', 'torch.float32', (3, 4), [1.5409960746765137, -0.293428897857666, -2.178789377212524  compiled='raise:AttributeError'
+  NEW  gen_throw_handled_inside             call0 raise  eager=('tuple', [('T', 'torch.float32', (3, 4), [154.099609375, -29.3428897857666, -217.87893676757812, 56  compiled='raise:AttributeError'
+  NEW  gen_throw_handled_inside             call1 raise  eager=('tuple', [('T', 'torch.float32', (3, 4), [154.099609375, -29.3428897857666, -217.87893676757812, 56  compiled='raise:AttributeError'
+  NEW  od_move_to_end_on_state              call0 return eager=('tuple', [('list', ['a', 'z']), ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.7065711021423  compiled=('tuple', [('list', ['z', 'a']), ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.7065711021423
+  NEW  od_move_to_end_on_state              call1 return eager=('tuple', [('list', ['a', 'z']), ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.7065711021423  compiled=('tuple', [('list', ['z', 'a']), ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.7065711021423
+  NEW  od_move_to_end_then_iterate_later    call0 state  eager=('dict', [('count', 0), ('log', ('list', [('list', ['a', 'z'])])), ('d', ('dict', [('od2', ('dict',   compiled=('dict', [('count', 0), ('log', ('list', [('list', ['z', 'a'])])), ('d', ('dict', [('od2', ('dict', 
+  NEW  od_move_to_end_then_iterate_later    call1 state  eager=('dict', [('count', 0), ('log', ('list', [('list', ['a', 'z']), ('list', ['a', 'z'])])), ('d', ('dic  compiled=('dict', [('count', 0), ('log', ('list', [('list', ['z', 'a']), ('list', ['z', 'a'])])), ('d', ('dic
+  NEW  lru_cache_hits_and_info              call0 return eager=('tuple', [('list', [2, 4, 2, 4]), 2, 2, ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657  compiled=('tuple', [('list', [2, 4, 2, 4]), 4, 0, ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657
+  NEW  lru_cache_hits_and_info              call1 return eager=('tuple', [('list', [2, 4, 2, 4]), 4, 2, ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657  compiled=('tuple', [('list', [2, 4, 2, 4]), 8, 0, ('T', 'torch.float32', (3, 4), [2.5409960746765137, 0.70657
+  CHG  tensor_subclass_torch_function       call0 state  base=('dict', [('count', 0), ('log', ('list', ['mul', 'add', 'sum', '__get__', '__get  now=('dict', [('count', 0), ('log', ('list', ['__get__', '__get__', '__get__', '__ge
+  CHG  tensor_subclass_torch_function       call1 state  base=('dict', [('count', 0), ('log', ('list', ['mul', 'add', 'sum', '__get__', '__get  now=('dict', [('count', 0), ('log', ('list', ['__get__', '__get__', '__get__', '__ge
+  CHG  threading_local_state                call0 state  base=('dict', [('count', 0), ('log', ('list', [])), ('d', ('dict', [])), ('s', ('set'  now=('dict', [('count', 0), ('log', ('list', [])), ('d', ('dict', [])), ('s', ('set'
+  CHG  threading_local_state                call1 state  base=('dict', [('count', 0), ('log', ('list', [])), ('d', ('dict', [])), ('s', ('set'  now=('dict', [('count', 0), ('log', ('list', [])), ('d', ('dict', [])), ('s', ('set'
+  GONE python_random                        call0 (baseline diverged, rewritten does not)
+  GONE python_random                        call1 (baseline diverged, rewritten does not)
+DONE

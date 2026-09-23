@@ -1,0 +1,36 @@
+{
+  "signature": "4a33347a73a5",
+  "program": "issue_193710_inductor_fallback_node_due_to_unsupporte",
+  "project": "pytorch/pytorch",
+  "stage": "aot_functionalization",
+  "priority": "high",
+  "kinds": [
+    "gradient"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "193710",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/193710",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 193710,
+      "title": "[inductor] `fallback_node_due_to_unsupported_type` blocks pattern matching on extern-kernel ops with `float8_e8m0fnu` inputs, with no way to opt in",
+      "url": "https://github.com/pytorch/pytorch/issues/193710",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-16"
+    }
+  ]
+}

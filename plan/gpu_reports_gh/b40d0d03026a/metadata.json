@@ -1,0 +1,68 @@
+{
+  "signature": "b40d0d03026a",
+  "program": "issue_181175_aot_autograd_runtimeerror_cannot_call_nu",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "181175",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/181175",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 181175,
+      "title": "[aot_autograd] RuntimeError: Cannot call numel() on tensor with symbolic sizes/strides in _convolution_double_backward when using torch.compile(dynamic=True) with torch.func.grad over ConvTranspose2d",
+      "url": "https://github.com/pytorch/pytorch/issues/181175",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-04-22"
+    },
+    {
+      "number": 115307,
+      "title": "torch._inductor.config.save_args=True and dynamic shapes do not work together",
+      "url": "https://github.com/pytorch/pytorch/issues/115307",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2023-12-06"
+    },
+    {
+      "number": 104301,
+      "title": "Attempt to use minifier on sam model fails",
+      "url": "https://github.com/pytorch/pytorch/issues/104301",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2023-06-27"
+    },
+    {
+      "number": 128141,
+      "title": "SymIntify cross_entropy_loss_prob_target numel call",
+      "url": "https://github.com/pytorch/pytorch/pull/128141",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2024-06-06"
+    },
+    {
+      "number": 94640,
+      "title": "torch.compile (torch dynamo specifically) failing for simple GNNs trained with Neighbor Sampling (dynamic batches)",
+      "url": "https://github.com/pytorch/pytorch/issues/94640",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2023-02-10"
+    }
+  ]
+}

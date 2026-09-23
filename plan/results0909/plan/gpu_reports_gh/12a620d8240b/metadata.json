@@ -1,0 +1,44 @@
+{
+  "signature": "12a620d8240b",
+  "program": "issue_182217_torch_compile_crashes_on_f_layer_norm_ne",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "182217",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/182217",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 182217,
+      "title": "`torch.compile` crashes on `F.layer_norm(NestedTensor)` — `InternalTorchDynamoError` in guard building",
+      "url": "https://github.com/pytorch/pytorch/issues/182217",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-05-02"
+    },
+    {
+      "number": 182266,
+      "title": "[Bug] torch.onnx.export(dynamo=True): InternalTorchDynamoError \"'One' object has no attribute 'name'\" in EqualityConstraint shape rewrite (Gemma-style decoder with list[Tensor] past_key_values)",
+      "url": "https://github.com/pytorch/pytorch/issues/182266",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-04"
+    }
+  ]
+}

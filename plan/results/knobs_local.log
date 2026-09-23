@@ -1,0 +1,5 @@
+markers present, running: python run.py metamorphic --isolate --source both --models 40 --configs base,coordinate_descent,padding,no_layout_opt,decompose_mm,simd8,simd16,cpp_dynamic_threads,cpp_no_tiling,cpp_min_chunk1,scatter_no_fallback,aggressive_fusion,no_reorder,no_caches,no_size_asserts --relations config --out results/knobs_local
+note: --isolate only chunks OpInfo operators; --source both runs in-process
+NNSmith: 40 model(s), 0 rejected
+{"ops": 68, "samples": 68, "compiles": 1020, "relation_checks": 952, "not_applicable": 0, "violations": 0, "standard_differs": 0, "infra": 0, "wall_s": 2515.1}
+written results/knobs_local\METAMORPHIC.md

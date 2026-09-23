@@ -1,0 +1,36 @@
+{
+  "signature": "59a9e5d82fb1",
+  "program": "issue_191571_torch_compile_silently_returns_stale_zer",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "191571",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/191571",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 191571,
+      "title": "`torch.compile` silently returns stale zeros when a size-1 `scatter_add_` is gathered from in the same graph (read-before-write in a fused Triton kernel)",
+      "url": "https://github.com/pytorch/pytorch/issues/191571",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-07-30"
+    }
+  ]
+}

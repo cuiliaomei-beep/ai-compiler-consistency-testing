@@ -1,0 +1,386 @@
+{
+  "signature": "798e66d7ed9c",
+  "program": "issue_174069_inductor_argmax_max_returns_incorrect_in",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "compile.dynamic=False",
+    "factors": {
+      "compile": {
+        "dynamic": false
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "factor_changed": "compile",
+  "controlled": {},
+  "obligation": {
+    "site": "fn",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: non-float values differ exactly",
+          "index": 0,
+          "evidence": {
+            "shape": [
+              4,
+              1,
+              32
+            ],
+            "dtype": "torch.int64",
+            "n_mismatch": 128,
+            "n_total": 128,
+            "first_mismatch_index": [
+              0,
+              0,
+              0
+            ],
+            "first_mismatch_expected": "4",
+            "first_mismatch_actual": "1",
+            "expected_preview": "[4, 4, 4, 4, 4, 4, 4, 4, ... (120 more)]",
+            "actual_preview": "[1, 1, 1, 1, 1, 1, 1, 1, ... (120 more)]"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            1,
+            32
+          ],
+          "dtype": "torch.int64",
+          "device": "cuda",
+          "stride": [
+            32,
+            32,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0368,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            1,
+            32
+          ],
+          "dtype": "torch.int64",
+          "device": "cuda",
+          "stride": [
+            32,
+            32,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0505,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            1,
+            32
+          ],
+          "dtype": "torch.int64",
+          "device": "cuda",
+          "stride": [
+            32,
+            32,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1147,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            4,
+            1,
+            32
+          ],
+          "dtype": "torch.int64",
+          "device": "cuda",
+          "stride": [
+            32,
+            32,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_174069_inductor_argmax_max_returns_incorrect_in.py\n[Inductor] argmax/max returns incorrect indices for boolean tensors on CUDA\nhttps://github.com/pytorch/pytorch/issues/174069\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 16,
+    "steps_kept": 8,
+    "original_lines": 2,
+    "final_lines": 2,
+    "original_numel": 1024,
+    "final_numel": 32,
+    "input_recipe": "torch.randint(0, 4, (1, 8, 4,)).to(torch.bool),",
+    "log": [
+      "kept: halve dim 0",
+      "kept: halve dim 2",
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags",
+      "kept: halve dim 0",
+      "kept: halve dim 2",
+      "kept: halve dim 2"
+    ],
+    "source": "def fn(x):\n    return x.max(1, keepdim=True)[1]"
+  },
+  "duplicates": {
+    "query": "Inductor argmax max returns incorrect indices boolean tensors",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "174069",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/174069",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 184893,
+        "title": "[Inductor] argmin/min returns incorrect indices for boolean tensors",
+        "url": "https://github.com/pytorch/pytorch/issues/184893",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-05-22"
+      },
+      {
+        "number": 185765,
+        "title": "[Inductor] Fix correctness discrepancy in torch.minimum and torch.maximum with signed zeros (-0.0 vs 0.0)",
+        "url": "https://github.com/pytorch/pytorch/pull/185765",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-05-31"
+      },
+      {
+        "number": 184149,
+        "title": "Deduplicate Triton max dim reductions",
+        "url": "https://github.com/pytorch/pytorch/pull/184149",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-05-18"
+      },
+      {
+        "number": 174069,
+        "title": "[Inductor] argmax/max returns incorrect indices for boolean tensors on CUDA",
+        "url": "https://github.com/pytorch/pytorch/issues/174069",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-02-02"
+      },
+      {
+        "number": 174076,
+        "title": "[Inductor] Fix argmax/argmin returning incorrect indices for boolean tensors on CUDA",
+        "url": "https://github.com/pytorch/pytorch/pull/174076",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-02-02"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

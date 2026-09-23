@@ -1,0 +1,311 @@
+{
+  "signature": "dfc95bc3db02",
+  "case": "op_unsafe_chunk_0__IntroduceAliasWrite_1",
+  "probe": "layered",
+  "triage": {
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "rationale": "eager and backend='eager' agree but aot_eager differs: implicates AOTAutograd / functionalization (alias and in-place handling) - alias/mutation oracle fired, the highest-value class",
+    "kinds": [
+      "alias"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "layers_unavailable": [],
+    "submittable": true
+  },
+  "context": {
+    "name": "noncontig",
+    "factors": {
+      "variant": "noncontig"
+    }
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "alias"
+      ],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": [
+        {
+          "kind": "alias",
+          "detail": "storage-sharing relation changed: lost [(0, 2), (0, 3)] (indices < 2 are inputs, >= 2 are outputs)"
+        }
+      ]
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": []
+    }
+  },
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "P[T,T]",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "out_meta": [
+        {
+          "shape": [
+            3,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            50,
+            10,
+            2
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            50,
+            10,
+            2
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 150,
+          "is_view": false
+        }
+      ]
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "P[T,T]",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0269,
+      "alias_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "out_meta": [
+        {
+          "shape": [
+            3,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            50,
+            10,
+            2
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            50,
+            10,
+            2
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 150,
+          "is_view": false
+        }
+      ]
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "P[T,T]",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0492,
+      "alias_pairs": [
+        [
+          2,
+          3
+        ]
+      ],
+      "out_meta": [
+        {
+          "shape": [
+            3,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            50,
+            10,
+            2
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            50,
+            10,
+            2
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 150,
+          "is_view": false
+        }
+      ]
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "P[T,T]",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1041,
+      "alias_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "out_meta": [
+        {
+          "shape": [
+            3,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            50,
+            10,
+            2
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        },
+        {
+          "shape": [
+            2,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            50,
+            10,
+            2
+          ],
+          "contiguous": false,
+          "requires_grad": false,
+          "storage_offset": 150,
+          "is_view": false
+        }
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "torch OpInfo `unsafe_chunk` sample #0 (float32)\n[mutant: an identity in-place write is performed through a view of `a0`]"
+}

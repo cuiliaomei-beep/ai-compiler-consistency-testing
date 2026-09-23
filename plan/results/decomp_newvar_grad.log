@@ -1,0 +1,10 @@
+isolated decomp sweep: 595 operators, 443 already done, 101 to go
+[25/101] diagflat .. fft.fftshift
+  CRASH  diagflat                             process exit -999 (timeout if -999)
+[50/101] fft.ifftshift .. linalg.qr
+[75/101] linalg.polar .. signal.windows.bartlett
+  DECOMP linalg.pinv                          dtype_complex64 [value] output[0]: compiled err vs fp64 = 1.002e-01 exceeds 4.0x eager err 0.000  confirmed=True
+[100/101] signal.windows.blackman .. masked.logaddexp
+[125/101] masked.logsumexp .. masked.logsumexp
+{"ops": 552, "samples": 552, "variants": 1890, "decomp_covered": 1507, "decomp_mismatch": 24, "meta_mismatch": 0, "data_dependent": 31, "errors": 0, "wall_s": 2620.5, "crashes": 2}
+written results/decomp_newvar_grad\DECOMP_DIFF.md

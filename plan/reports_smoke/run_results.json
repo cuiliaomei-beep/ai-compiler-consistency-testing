@@ -1,0 +1,1621 @@
+[
+  {
+    "program": "shape_boundary",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 24,
+    "tests_invalid": 0,
+    "compile_count": 88,
+    "wall_s": 33.814,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "shape_boundary",
+      "level": "FULL",
+      "scs": {
+        "site": "shape_boundary",
+        "params": [
+          "x"
+        ],
+        "shape_dims": [
+          [
+            "x",
+            0
+          ]
+        ],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [],
+        "entries": [
+          "x.shape[0]",
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "shape_boundary",
+          "factor": "x.shape[0]",
+          "kind": "shape",
+          "values": [
+            31,
+            32,
+            33
+          ],
+          "constraint": "x.shape[0] GtE 32 (line 2)",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "exception"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "branch/index predicate: x.shape[0] GtE 32 (line 2)",
+          "param": "x",
+          "dim": 0
+        },
+        {
+          "site": "shape_boundary",
+          "factor": "x.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "x",
+          "dim": null
+        },
+        {
+          "site": "shape_boundary",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {}
+        },
+        {
+          "name": "x.dim0=31",
+          "factors": {
+            "resize": {
+              "arg": 0,
+              "dim": 0,
+              "value": 31
+            }
+          }
+        },
+        {
+          "name": "x.dim0=32",
+          "factors": {
+            "resize": {
+              "arg": 0,
+              "dim": 0,
+              "value": 32
+            }
+          }
+        },
+        {
+          "name": "x.dim0=33",
+          "factors": {
+            "resize": {
+              "arg": 0,
+              "dim": 0,
+              "value": 33
+            }
+          }
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          }
+        },
+        {
+          "name": "dtype=float64",
+          "factors": {
+            "dtype": "float64"
+          }
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "x.dim0=31"
+        ],
+        [
+          "base",
+          "x.dim0=32"
+        ],
+        [
+          "base",
+          "x.dim0=33"
+        ],
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "x.dim0=31",
+          "base"
+        ],
+        [
+          "x.dim0=31",
+          "x.dim0=32"
+        ],
+        [
+          "x.dim0=31",
+          "x.dim0=33"
+        ],
+        [
+          "x.dim0=32",
+          "base"
+        ],
+        [
+          "x.dim0=32",
+          "x.dim0=31"
+        ],
+        [
+          "x.dim0=32",
+          "x.dim0=33"
+        ],
+        [
+          "x.dim0=33",
+          "base"
+        ],
+        [
+          "x.dim0=33",
+          "x.dim0=31"
+        ],
+        [
+          "x.dim0=33",
+          "x.dim0=32"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "x.dim0=31"
+        ],
+        [
+          "x.dim0=31",
+          "base"
+        ],
+        [
+          "base",
+          "x.dim0=31",
+          "base"
+        ],
+        [
+          "base",
+          "x.dim0=32"
+        ],
+        [
+          "x.dim0=32",
+          "base"
+        ],
+        [
+          "base",
+          "x.dim0=32",
+          "base"
+        ],
+        [
+          "base",
+          "x.dim0=33"
+        ],
+        [
+          "x.dim0=33",
+          "base"
+        ],
+        [
+          "base",
+          "x.dim0=33",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "x.dim0=31",
+          "base",
+          "x.dim0=31"
+        ],
+        [
+          "x.dim0=31",
+          "x.dim0=32"
+        ],
+        [
+          "x.dim0=32",
+          "x.dim0=31"
+        ],
+        [
+          "x.dim0=31",
+          "x.dim0=32",
+          "x.dim0=31"
+        ],
+        [
+          "x.dim0=31",
+          "x.dim0=33"
+        ],
+        [
+          "x.dim0=33",
+          "x.dim0=31"
+        ],
+        [
+          "x.dim0=31",
+          "x.dim0=33",
+          "x.dim0=31"
+        ],
+        [
+          "x.dim0=32",
+          "base",
+          "x.dim0=32"
+        ],
+        [
+          "x.dim0=32",
+          "x.dim0=31",
+          "x.dim0=32"
+        ],
+        [
+          "x.dim0=32",
+          "x.dim0=33"
+        ],
+        [
+          "x.dim0=33",
+          "x.dim0=32"
+        ],
+        [
+          "x.dim0=32",
+          "x.dim0=33",
+          "x.dim0=32"
+        ],
+        [
+          "x.dim0=33",
+          "base",
+          "x.dim0=33"
+        ],
+        [
+          "x.dim0=33",
+          "x.dim0=31",
+          "x.dim0=33"
+        ],
+        [
+          "x.dim0=33",
+          "x.dim0=32",
+          "x.dim0=33"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float64",
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16",
+          "dtype=float64"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "exception"
+      ],
+      "n_tests": 42,
+      "generation_ms": 5.43,
+      "analysis_ms": 4.753
+    }
+  },
+  {
+    "program": "view_inplace",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 19,
+    "tests_invalid": 1,
+    "compile_count": 71,
+    "wall_s": 29.028,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [
+      "layout=transposed"
+    ],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "view_inplace",
+      "level": "FULL",
+      "scs": {
+        "site": "view_inplace",
+        "params": [
+          "x"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [
+          "x"
+        ],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [
+          "FACT-1:mutation_visible",
+          "FACT-2:partial_write"
+        ],
+        "entries": [
+          "x.is_contiguous()",
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "view_inplace",
+          "factor": "x.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "mutation",
+            "alias"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "x",
+          "dim": null
+        },
+        {
+          "site": "view_inplace",
+          "factor": "x.is_contiguous()",
+          "kind": "contiguous",
+          "values": [
+            "noncontig",
+            "transposed"
+          ],
+          "constraint": "layout variants with identical values",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "alias",
+            "mutation"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "layout read, or alias structure is written through",
+          "param": "x",
+          "dim": null
+        },
+        {
+          "site": "view_inplace",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {}
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          }
+        },
+        {
+          "name": "dtype=float64",
+          "factors": {
+            "dtype": "float64"
+          }
+        },
+        {
+          "name": "dtype=bfloat16",
+          "factors": {
+            "dtype": "bfloat16"
+          }
+        },
+        {
+          "name": "layout=noncontig",
+          "factors": {
+            "layout": "noncontig"
+          }
+        },
+        {
+          "name": "layout=transposed",
+          "factors": {
+            "layout": "transposed"
+          }
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "base",
+          "layout=noncontig"
+        ],
+        [
+          "base",
+          "layout=transposed"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "layout=noncontig",
+          "base"
+        ],
+        [
+          "layout=noncontig",
+          "layout=transposed"
+        ],
+        [
+          "layout=transposed",
+          "base"
+        ],
+        [
+          "layout=transposed",
+          "layout=noncontig"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "base",
+          "layout=noncontig"
+        ],
+        [
+          "layout=noncontig",
+          "base"
+        ],
+        [
+          "base",
+          "layout=noncontig",
+          "base"
+        ],
+        [
+          "base",
+          "layout=transposed"
+        ],
+        [
+          "layout=transposed",
+          "base"
+        ],
+        [
+          "base",
+          "layout=transposed",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float64",
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=bfloat16",
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "layout=noncontig",
+          "base",
+          "layout=noncontig"
+        ],
+        [
+          "layout=noncontig",
+          "layout=transposed"
+        ],
+        [
+          "layout=transposed",
+          "layout=noncontig"
+        ],
+        [
+          "layout=noncontig",
+          "layout=transposed",
+          "layout=noncontig"
+        ],
+        [
+          "layout=transposed",
+          "base",
+          "layout=transposed"
+        ],
+        [
+          "layout=transposed",
+          "layout=noncontig",
+          "layout=transposed"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "mutation",
+        "alias",
+        "exception"
+      ],
+      "n_tests": 42,
+      "generation_ms": 1.623,
+      "analysis_ms": 1.036
+    }
+  },
+  {
+    "program": "dtype_reduce",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 24,
+    "tests_invalid": 0,
+    "compile_count": 84,
+    "wall_s": 32.462,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "dtype_reduce",
+      "level": "FULL",
+      "scs": {
+        "site": "dtype_reduce",
+        "params": [
+          "x"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [],
+        "entries": [
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "dtype_reduce",
+          "factor": "x.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "x",
+          "dim": null
+        },
+        {
+          "site": "dtype_reduce",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {}
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          }
+        },
+        {
+          "name": "dtype=float64",
+          "factors": {
+            "dtype": "float64"
+          }
+        },
+        {
+          "name": "dtype=bfloat16",
+          "factors": {
+            "dtype": "bfloat16"
+          }
+        },
+        {
+          "name": "compile.dynamic=True",
+          "factors": {
+            "compile": {
+              "dynamic": true
+            }
+          }
+        },
+        {
+          "name": "compile.dynamic=False",
+          "factors": {
+            "compile": {
+              "dynamic": false
+            }
+          }
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "base",
+          "compile.dynamic=True"
+        ],
+        [
+          "base",
+          "compile.dynamic=False"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "compile.dynamic=True",
+          "base"
+        ],
+        [
+          "compile.dynamic=True",
+          "compile.dynamic=False"
+        ],
+        [
+          "compile.dynamic=False",
+          "base"
+        ],
+        [
+          "compile.dynamic=False",
+          "compile.dynamic=True"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "base",
+          "compile.dynamic=True"
+        ],
+        [
+          "compile.dynamic=True",
+          "base"
+        ],
+        [
+          "base",
+          "compile.dynamic=True",
+          "base"
+        ],
+        [
+          "base",
+          "compile.dynamic=False"
+        ],
+        [
+          "compile.dynamic=False",
+          "base"
+        ],
+        [
+          "base",
+          "compile.dynamic=False",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float64",
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=bfloat16",
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "compile.dynamic=True",
+          "base",
+          "compile.dynamic=True"
+        ],
+        [
+          "compile.dynamic=True",
+          "compile.dynamic=False"
+        ],
+        [
+          "compile.dynamic=False",
+          "compile.dynamic=True"
+        ],
+        [
+          "compile.dynamic=True",
+          "compile.dynamic=False",
+          "compile.dynamic=True"
+        ],
+        [
+          "compile.dynamic=False",
+          "base",
+          "compile.dynamic=False"
+        ],
+        [
+          "compile.dynamic=False",
+          "compile.dynamic=True",
+          "compile.dynamic=False"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "exception"
+      ],
+      "n_tests": 42,
+      "generation_ms": 1.538,
+      "analysis_ms": 1.161
+    }
+  },
+  {
+    "program": "overlapping_views",
+    "n_records": 0,
+    "n_failures": 0,
+    "stages": [],
+    "tests_executed": 24,
+    "tests_invalid": 0,
+    "compile_count": 88,
+    "wall_s": 34.537,
+    "first_failure_test": null,
+    "ttf_s": null,
+    "contexts_dropped": [],
+    "error": null,
+    "layers_unavailable": [],
+    "plan": {
+      "program": "overlapping_views",
+      "level": "FULL",
+      "scs": {
+        "site": "overlapping_views",
+        "params": [
+          "x"
+        ],
+        "shape_dims": [],
+        "ranks": [],
+        "dtypes": [],
+        "devices": [],
+        "strides": [],
+        "contiguity": [
+          "x"
+        ],
+        "requires_grad": [],
+        "scalars": {},
+        "flags": {},
+        "compile_flags": [
+          "dynamic"
+        ],
+        "backends": [
+          "aot_eager",
+          "inductor"
+        ],
+        "structural": [
+          "FACT-1:mutation_visible",
+          "FACT-2:mutation_visible",
+          "FACT-3:write_order",
+          "FACT-4:alias_returned",
+          "FACT-5:alias_returned"
+        ],
+        "entries": [
+          "x.is_contiguous()",
+          "dynamic",
+          "aot_eager",
+          "inductor"
+        ]
+      },
+      "obligations": [
+        {
+          "site": "overlapping_views",
+          "factor": "x.dtype",
+          "kind": "dtype",
+          "values": [
+            "float16",
+            "float64",
+            "bfloat16"
+          ],
+          "constraint": "float dtype ladder",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "mutation",
+            "alias"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "numerics depend on precision regardless of source",
+          "param": "x",
+          "dim": null
+        },
+        {
+          "site": "overlapping_views",
+          "factor": "x.is_contiguous()",
+          "kind": "contiguous",
+          "values": [
+            "noncontig",
+            "transposed"
+          ],
+          "constraint": "layout variants with identical values",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata",
+            "alias",
+            "mutation"
+          ],
+          "execution": [
+            "cold",
+            "warm_sequence"
+          ],
+          "origin": "layout read, or alias structure is written through",
+          "param": "x",
+          "dim": null
+        },
+        {
+          "site": "overlapping_views",
+          "factor": "compile.dynamic",
+          "kind": "compile_flag",
+          "values": [
+            true,
+            false
+          ],
+          "constraint": "dynamic shapes on/off",
+          "relation": "change_only_one_factor",
+          "oracles": [
+            "value",
+            "metadata"
+          ],
+          "execution": [
+            "cold"
+          ],
+          "origin": "compile flag changes specialization",
+          "param": null,
+          "dim": null
+        }
+      ],
+      "contexts": [
+        {
+          "name": "base",
+          "factors": {}
+        },
+        {
+          "name": "dtype=float16",
+          "factors": {
+            "dtype": "float16"
+          }
+        },
+        {
+          "name": "dtype=float64",
+          "factors": {
+            "dtype": "float64"
+          }
+        },
+        {
+          "name": "dtype=bfloat16",
+          "factors": {
+            "dtype": "bfloat16"
+          }
+        },
+        {
+          "name": "layout=noncontig",
+          "factors": {
+            "layout": "noncontig"
+          }
+        },
+        {
+          "name": "layout=transposed",
+          "factors": {
+            "layout": "transposed"
+          }
+        }
+      ],
+      "pairs": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "base",
+          "layout=noncontig"
+        ],
+        [
+          "base",
+          "layout=transposed"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "layout=noncontig",
+          "base"
+        ],
+        [
+          "layout=noncontig",
+          "layout=transposed"
+        ],
+        [
+          "layout=transposed",
+          "base"
+        ],
+        [
+          "layout=transposed",
+          "layout=noncontig"
+        ]
+      ],
+      "sequences": [
+        [
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=float64",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "base",
+          "dtype=bfloat16",
+          "base"
+        ],
+        [
+          "base",
+          "layout=noncontig"
+        ],
+        [
+          "layout=noncontig",
+          "base"
+        ],
+        [
+          "base",
+          "layout=noncontig",
+          "base"
+        ],
+        [
+          "base",
+          "layout=transposed"
+        ],
+        [
+          "layout=transposed",
+          "base"
+        ],
+        [
+          "base",
+          "layout=transposed",
+          "base"
+        ],
+        [
+          "dtype=float16",
+          "base",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=float64",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float16",
+          "dtype=bfloat16",
+          "dtype=float16"
+        ],
+        [
+          "dtype=float64",
+          "base",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=float16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=float64",
+          "dtype=bfloat16",
+          "dtype=float64"
+        ],
+        [
+          "dtype=bfloat16",
+          "base",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float16",
+          "dtype=bfloat16"
+        ],
+        [
+          "dtype=bfloat16",
+          "dtype=float64",
+          "dtype=bfloat16"
+        ],
+        [
+          "layout=noncontig",
+          "base",
+          "layout=noncontig"
+        ],
+        [
+          "layout=noncontig",
+          "layout=transposed"
+        ],
+        [
+          "layout=transposed",
+          "layout=noncontig"
+        ],
+        [
+          "layout=noncontig",
+          "layout=transposed",
+          "layout=noncontig"
+        ],
+        [
+          "layout=transposed",
+          "base",
+          "layout=transposed"
+        ],
+        [
+          "layout=transposed",
+          "layout=noncontig",
+          "layout=transposed"
+        ]
+      ],
+      "oracles": [
+        "value",
+        "metadata",
+        "mutation",
+        "alias",
+        "exception"
+      ],
+      "n_tests": 42,
+      "generation_ms": 2.022,
+      "analysis_ms": 1.126
+    }
+  }
+]

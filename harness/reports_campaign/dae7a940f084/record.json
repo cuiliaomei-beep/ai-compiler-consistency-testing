@@ -1,0 +1,202 @@
+{
+  "signature": "dae7a940f084",
+  "case": "op__softmax_backward_data_0__IntroduceView_0",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation against an already-accepted IR",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "layers_unavailable": [],
+    "submittable": true
+  },
+  "context": {
+    "name": "dtype_float64",
+    "factors": {
+      "variant": "base",
+      "dtype": "float64"
+    }
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.961e-08 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 2.961055400874102e-08,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              5
+            ],
+            "dtype": "torch.float64",
+            "max_abs_error": 2.961055400874102e-08,
+            "max_rel_error": 3.26884368889032e-08,
+            "n_mismatch": 2,
+            "n_total": 5,
+            "first_mismatch_index": [
+              1
+            ],
+            "first_mismatch_expected": "-2.520508319",
+            "first_mismatch_actual": "-2.520508289",
+            "expected_preview": "[0.005748912802, -2.520508319, 0.165274451, 2.348239434, 0.001245297998]",
+            "actual_preview": "[0.005748912692, -2.520508289, 0.1652744561, 2.348239422, 0.001245297957]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 2.961055400874102e-08,
+            "budget": 1e-08
+          }
+        }
+      ]
+    }
+  },
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0003,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1124,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1886,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.3738,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            5
+          ],
+          "dtype": "torch.float64",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "torch OpInfo `_softmax_backward_data` sample #0 (float32)\n[mutant: parameter `a0` is rebound to a full-slice view of itself]"
+}

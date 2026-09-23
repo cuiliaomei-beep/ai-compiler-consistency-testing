@@ -1,0 +1,142 @@
+[{"stream_name":"stdout","time":8.233664244,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 196.3/196.3 MB 8.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":55.9550827,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":55.955165216,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":55.955173729,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":58.69995786,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":59.215531572,"data":"--- block 0\n"}
+,{"stream_name":"stderr","time":66.095994778,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":66.096047037,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/fx/graph_module.py\", line 500, in __call__\n"}
+,{"stream_name":"stderr","time":66.096056797,"data":"    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]\n"}
+,{"stream_name":"stderr","time":66.096064159,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.096070475,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1783, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":66.096077775,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":66.096084041,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.096091492,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1794, in _call_impl\n"}
+,{"stream_name":"stderr","time":66.096104743,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":66.096112648,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.096116444,"data":"  File \"\u003ceval_with_key\u003e.11\", line 5, in forward\n"}
+,{"stream_name":"stderr","time":66.09612061199999,"data":"    x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stderr","time":66.09612429,"data":"    ^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.096127932,"data":"RuntimeError: result type Float can't be cast to the desired output type Long\n"}
+,{"stream_name":"stderr","time":66.096131568,"data":"\n"}
+,{"stream_name":"stderr","time":66.096135421,"data":"Call using an FX-traced Module, line 5 of the traced Module's generated forward function:\n"}
+,{"stream_name":"stderr","time":66.096139176,"data":"def forward(self, x):\n"}
+,{"stream_name":"stderr","time":66.096142761,"data":"    x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stderr","time":66.096146459,"data":"\n"}
+,{"stream_name":"stderr","time":66.096150055,"data":"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \u003c--- HERE\n"}
+,{"stream_name":"stderr","time":66.096153702,"data":"    return imul\n"}
+,{"stream_name":"stderr","time":66.096157338,"data":"\n"}
+,{"stream_name":"stderr","time":66.096160736,"data":"    \n"}
+,{"stream_name":"stderr","time":66.096164225,"data":"\n"}
+,{"stream_name":"stderr","time":66.096999049,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":66.097030678,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/fx/graph_module.py\", line 500, in __call__\n"}
+,{"stream_name":"stderr","time":66.097039207,"data":"    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]\n"}
+,{"stream_name":"stderr","time":66.09707107,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.097075155,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1783, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":66.097078133,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":66.097080805,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.09708357,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1794, in _call_impl\n"}
+,{"stream_name":"stderr","time":66.097086398,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":66.097089346,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.097092172,"data":"  File \"\u003ceval_with_key\u003e.10\", line 5, in forward\n"}
+,{"stream_name":"stderr","time":66.097095381,"data":"    x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stderr","time":66.09709807,"data":"    ^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.097100842,"data":"RuntimeError: result type Float can't be cast to the desired output type Long\n"}
+,{"stream_name":"stderr","time":66.097103587,"data":"\n"}
+,{"stream_name":"stderr","time":66.097106205,"data":"Call using an FX-traced Module, line 5 of the traced Module's generated forward function:\n"}
+,{"stream_name":"stderr","time":66.097109163,"data":"def forward(self, x):\n"}
+,{"stream_name":"stderr","time":66.097111925,"data":"    x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stderr","time":66.097114581,"data":"\n"}
+,{"stream_name":"stderr","time":66.097117125,"data":"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \u003c--- HERE\n"}
+,{"stream_name":"stderr","time":66.097119954,"data":"    return imul\n"}
+,{"stream_name":"stderr","time":66.097122614,"data":"\n"}
+,{"stream_name":"stderr","time":66.097125225,"data":"    \n"}
+,{"stream_name":"stderr","time":66.097127986,"data":"\n"}
+,{"stream_name":"stdout","time":66.097633266,"data":"operator.iadd(x, 1)\n"}
+,{"stream_name":"stdout","time":66.097658598,"data":"    original                 returns [1.0, 1.0, 1.0], input afterwards [1.0, 1.0, 1.0]    | x += 1;  iadd = x;  x = None\n"}
+,{"stream_name":"stdout","time":66.097665012,"data":"    copy.deepcopy            returns [1.0, 1.0, 1.0], input afterwards [1.0, 1.0, 1.0]    | x += 1;  iadd = x;  x = None\n"}
+,{"stream_name":"stdout","time":66.097669527,"data":"    pickle round trip        returns [1.0, 1.0, 1.0], input afterwards [0.0, 0.0, 0.0]    | add = x + 1;  x = None\n"}
+,{"stream_name":"stdout","time":66.097673828,"data":"    torch.save / torch.load  returns [1.0, 1.0, 1.0], input afterwards [0.0, 0.0, 0.0]    | add = x + 1;  x = None\n"}
+,{"stream_name":"stdout","time":66.097678244,"data":"operator.imul(x, 2.5), int64 x\n"}
+,{"stream_name":"stdout","time":66.09768218,"data":"    original                 raises RuntimeError                                          | x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stdout","time":66.097686367,"data":"    copy.deepcopy            raises RuntimeError                                          | x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stdout","time":66.097691157,"data":"    pickle round trip        returns [2.5, 2.5, 2.5], input afterwards [1, 1, 1]          | mul = x * 2.5;  x = None\n"}
+,{"stream_name":"stdout","time":66.097695578,"data":"    torch.save / torch.load  returns [2.5, 2.5, 2.5], input afterwards [1, 1, 1]          | mul = x * 2.5;  x = None\n"}
+,{"stream_name":"stdout","time":67.025977445,"data":"--- block 1\n"}
+,{"stream_name":"stdout","time":72.294093233,"data":"captured graph           buffer afterwards [0.5, 0.5, 0.5]\n"}
+,{"stream_name":"stdout","time":72.294147699,"data":"after pickle round trip  buffer afterwards [0.0, 0.0, 0.0]\n"}
+,{"stream_name":"stdout","time":78.02237594,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 199.4/199.4 MB 9.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":102.552744612,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":102.552789519,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":102.552804816,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":104.718186402,"data":"torch 2.15.0.dev20260921+cpu\n"}
+,{"stream_name":"stdout","time":105.298247523,"data":"--- block 0\n"}
+,{"stream_name":"stderr","time":109.566153048,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":109.566214371,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/fx/graph_module.py\", line 501, in __call__\n"}
+,{"stream_name":"stderr","time":109.566222472,"data":"    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]\n"}
+,{"stream_name":"stderr","time":109.56622814,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":109.566244647,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":109.566255313,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":109.566259294,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":109.566263082,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1798, in _call_impl\n"}
+,{"stream_name":"stderr","time":109.566267346,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":109.566271143,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":109.566274796,"data":"  File \"\u003ceval_with_key\u003e.11\", line 5, in forward\n"}
+,{"stream_name":"stderr","time":109.566279029,"data":"    x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stderr","time":109.566284303,"data":"    ^^^^^^^^\n"}
+,{"stream_name":"stderr","time":109.566288128,"data":"RuntimeError: result type Float can't be cast to the desired output type Long\n"}
+,{"stream_name":"stderr","time":109.566291887,"data":"\n"}
+,{"stream_name":"stderr","time":109.566295342,"data":"Call using an FX-traced Module, line 5 of the traced Module's generated forward function:\n"}
+,{"stream_name":"stderr","time":109.56629897,"data":"def forward(self, x):\n"}
+,{"stream_name":"stderr","time":109.566302567,"data":"    x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stderr","time":109.566306098,"data":"\n"}
+,{"stream_name":"stderr","time":109.5663096,"data":"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \u003c--- HERE\n"}
+,{"stream_name":"stderr","time":109.566313476,"data":"    return imul\n"}
+,{"stream_name":"stderr","time":109.566317072,"data":"\n"}
+,{"stream_name":"stderr","time":109.566320511,"data":"    \n"}
+,{"stream_name":"stderr","time":109.566323955,"data":"\n"}
+,{"stream_name":"stderr","time":109.567090611,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":109.567185908,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/fx/graph_module.py\", line 501, in __call__\n"}
+,{"stream_name":"stderr","time":109.567198614,"data":"    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]\n"}
+,{"stream_name":"stderr","time":109.567202637,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":109.567205714,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":109.567209143,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":109.567211926,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":109.567214738,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1798, in _call_impl\n"}
+,{"stream_name":"stderr","time":109.567217734,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":109.567220415,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":109.567223035,"data":"  File \"\u003ceval_with_key\u003e.10\", line 5, in forward\n"}
+,{"stream_name":"stderr","time":109.567226477,"data":"    x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stderr","time":109.567229276,"data":"    ^^^^^^^^\n"}
+,{"stream_name":"stderr","time":109.567232011,"data":"RuntimeError: result type Float can't be cast to the desired output type Long\n"}
+,{"stream_name":"stderr","time":109.567234923,"data":"\n"}
+,{"stream_name":"stderr","time":109.5672376,"data":"Call using an FX-traced Module, line 5 of the traced Module's generated forward function:\n"}
+,{"stream_name":"stderr","time":109.567240448,"data":"def forward(self, x):\n"}
+,{"stream_name":"stderr","time":109.567243089,"data":"    x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stderr","time":109.567245709,"data":"\n"}
+,{"stream_name":"stderr","time":109.56724828,"data":"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \u003c--- HERE\n"}
+,{"stream_name":"stderr","time":109.567251097,"data":"    return imul\n"}
+,{"stream_name":"stderr","time":109.5672538,"data":"\n"}
+,{"stream_name":"stderr","time":109.567256354,"data":"    \n"}
+,{"stream_name":"stderr","time":109.567258944,"data":"\n"}
+,{"stream_name":"stdout","time":109.567653599,"data":"operator.iadd(x, 1)\n"}
+,{"stream_name":"stdout","time":109.567678928,"data":"    original                 returns [1.0, 1.0, 1.0], input afterwards [1.0, 1.0, 1.0]    | x += 1;  iadd = x;  x = None\n"}
+,{"stream_name":"stdout","time":109.567686451,"data":"    copy.deepcopy            returns [1.0, 1.0, 1.0], input afterwards [1.0, 1.0, 1.0]    | x += 1;  iadd = x;  x = None\n"}
+,{"stream_name":"stdout","time":109.567692748,"data":"    pickle round trip        returns [1.0, 1.0, 1.0], input afterwards [0.0, 0.0, 0.0]    | add = x + 1;  x = None\n"}
+,{"stream_name":"stdout","time":109.567698694,"data":"    torch.save / torch.load  returns [1.0, 1.0, 1.0], input afterwards [0.0, 0.0, 0.0]    | add = x + 1;  x = None\n"}
+,{"stream_name":"stdout","time":109.567704037,"data":"operator.imul(x, 2.5), int64 x\n"}
+,{"stream_name":"stdout","time":109.567708996,"data":"    original                 raises RuntimeError                                          | x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stdout","time":109.567714105,"data":"    copy.deepcopy            raises RuntimeError                                          | x *= 2.5;  imul = x;  x = None\n"}
+,{"stream_name":"stdout","time":109.567719425,"data":"    pickle round trip        returns [2.5, 2.5, 2.5], input afterwards [1, 1, 1]          | mul = x * 2.5;  x = None\n"}
+,{"stream_name":"stdout","time":109.567736875,"data":"    torch.save / torch.load  returns [2.5, 2.5, 2.5], input afterwards [1, 1, 1]          | mul = x * 2.5;  x = None\n"}
+,{"stream_name":"stdout","time":110.44201087,"data":"--- block 1\n"}
+,{"stream_name":"stdout","time":114.660837104,"data":"captured graph           buffer afterwards [0.5, 0.5, 0.5]\n"}
+,{"stream_name":"stdout","time":114.660914879,"data":"after pickle round trip  buffer afterwards [0.0, 0.0, 0.0]\n"}
+,{"stream_name":"stdout","time":115.640062074,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":118.54707945,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":118.54712172,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":118.960649921,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":118.960688039,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":119.801878491,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":121.75250916,"data":"[NbConvertApp] Writing 278509 bytes to __results__.html\n"}
+]

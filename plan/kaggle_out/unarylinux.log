@@ -1,0 +1,240 @@
+[{"stream_name":"stdout","time":9.907830415,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":55.739801987,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":55.739873844,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":55.739879582,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.012307176,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":65.012376221,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":65.012385446,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3208, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":65.012391922,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":65.012397351,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":65.012402643,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":65.012408217,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":65.012413439,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":65.012419023,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":65.012424719,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":65.012430046,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":65.012435803,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":65.012441691,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2140, in _check\n"}
+,{"stream_name":"stderr","time":65.012465539,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":65.012472308,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2118, in _check_with\n"}
+,{"stream_name":"stderr","time":65.012479813,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":65.012486215,"data":"E0913 05:30:22.245000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead\n"}
+,{"stream_name":"stderr","time":66.118315927,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":66.11838974,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":66.118398796,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3208, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":66.118409023,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":66.118412117,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.118415401,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":66.118418977,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":66.118421872,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.118424819,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":66.118427953,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":66.118430736,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":66.118433795,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":66.118437286,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2140, in _check\n"}
+,{"stream_name":"stderr","time":66.118441655,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":66.118446228,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2118, in _check_with\n"}
+,{"stream_name":"stderr","time":66.118451714,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":66.118455007,"data":"E0913 05:30:23.353000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead\n"}
+,{"stream_name":"stderr","time":66.136796795,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":66.136836432,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":66.136844356,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3208, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":66.136879407,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":66.13688329,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.136886128,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":66.136889402,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":66.136892185,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.136894985,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":66.136897992,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":66.136900834,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":66.136903822,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":66.136906639,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2140, in _check\n"}
+,{"stream_name":"stderr","time":66.136909728,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":66.136912963,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2118, in _check_with\n"}
+,{"stream_name":"stderr","time":66.136916626,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":66.136919469,"data":"E0913 05:30:23.371000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.bfloat16 instead\n"}
+,{"stream_name":"stderr","time":66.154892165,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":66.154935878,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":66.154943066,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3208, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":66.154948743,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":66.154953576,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.154960676,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":66.154970666,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":66.154989408,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":66.154993082,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":66.154996537,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":66.15499986,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":66.155003331,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":66.155006587,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2140, in _check\n"}
+,{"stream_name":"stderr","time":66.155009989,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":66.155013256,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2118, in _check_with\n"}
+,{"stream_name":"stderr","time":66.155017607,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":66.155021115,"data":"E0913 05:30:23.389000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.bfloat16 instead\n"}
+,{"stream_name":"stderr","time":67.148317545,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":67.148368094,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":67.148372894,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3208, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":67.148376396,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":67.148379275,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":67.148382409,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":67.148385594,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":67.148388456,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":67.148391466,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":67.148394537,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":67.148414454,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":67.14841779,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":67.148420585,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2140, in _check\n"}
+,{"stream_name":"stderr","time":67.148423632,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":67.148426485,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2118, in _check_with\n"}
+,{"stream_name":"stderr","time":67.148430539,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":67.14843345,"data":"E0913 05:30:24.383000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead\n"}
+,{"stream_name":"stderr","time":67.165563051,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":67.165604397,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":67.165610547,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3208, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":67.165682394,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":67.165693029,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":67.165696887,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":67.16570071,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":67.165703859,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":67.165706938,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":67.165710066,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":67.165713071,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":67.165716184,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":67.165719014,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2140, in _check\n"}
+,{"stream_name":"stderr","time":67.165745492,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":67.165749235,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2118, in _check_with\n"}
+,{"stream_name":"stderr","time":67.165754957,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":67.165758035,"data":"E0913 05:30:24.400000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead\n"}
+,{"stream_name":"stdout","time":80.837520197,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":80.837573572,"data":"[abs(complex64, out=float64)] eager=float64(3, 4) | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call\n"}
+,{"stream_name":"stdout","time":80.837590043,"data":"[abs(complex64, out=bfloat16)] eager=bfloat16(3, 4) | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call\n"}
+,{"stream_name":"stdout","time":80.83759652,"data":"[abs(complex64, out=float32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":80.837712909,"data":"[abs(float32, out=float64)] eager=raise RuntimeError | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call\n"}
+,{"stream_name":"stdout","time":80.837723182,"data":"[angle(complex64, out=float64)] eager=float64(3, 4) | aot_eager=float64(3, 4) | inductor=float64(3, 4)\n"}
+,{"stream_name":"stdout","time":80.837729805,"data":"[nan_to_num(complex64)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: RuntimeError: Complex dtype is not supported for isneginf, got dtype torch.complex64\n"}
+,{"stream_name":"stdout","time":80.83773584,"data":"[nan_to_num(complex64, nan=0.5)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: RuntimeError: Complex dtype is not supported for isneginf, got dtype torch.complex64\n"}
+,{"stream_name":"stdout","time":80.83774205899999,"data":"[nan_to_num(complex64 no nan)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: RuntimeError: Complex dtype is not supported for isneginf, got dtype torch.complex64\n"}
+,{"stream_name":"stdout","time":80.837748085,"data":"[nan_to_num(float32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":89.090962501,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 8.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":113.625257126,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":113.625293491,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":113.625300435,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":118.591286374,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":118.59136461,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":118.591374166,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":118.59137994,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":118.591385054,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":118.591389869,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":118.591394999,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":118.591399574,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":118.59141215,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":118.591416951,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":118.591420104,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":118.591423462,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":118.591426601,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":118.591430012,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":118.591433135,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":118.591437727,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":118.591441131,"data":"E0913 05:31:15.824000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead\n"}
+,{"stream_name":"stderr","time":119.752771246,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":119.752819478,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":119.75282525,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":119.752829648,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":119.752834372,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":119.75287637,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":119.752882723,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":119.752887075,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":119.752891431,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":119.752900219,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":119.75290364,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":119.752906743,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":119.752909509,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":119.75291482,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":119.752918413,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":119.752922635,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":119.752925647,"data":"E0913 05:31:16.987000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead\n"}
+,{"stream_name":"stderr","time":119.772829641,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":119.772871153,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":119.772884133,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":119.772892704,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":119.77289598,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":119.772899058,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":119.772902233,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":119.772905126,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":119.772925686,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":119.772929124,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":119.772931966,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":119.772934972,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":119.77293809,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":119.772941051,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":119.77294391,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":119.772947647,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":119.772950553,"data":"E0913 05:31:17.007000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.bfloat16 instead\n"}
+,{"stream_name":"stderr","time":119.79135809,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":119.79139078,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":119.791395864,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":119.791401152,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":119.791426632,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":119.79143257,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":119.791438289,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":119.791443965,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":119.791449305,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":119.791455133,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":119.791459748,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":119.791464911,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":119.791491925,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":119.791495854,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":119.79149919,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":119.791503512,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":119.791506703,"data":"E0913 05:31:17.026000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.bfloat16 instead\n"}
+,{"stream_name":"stderr","time":120.813610476,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":120.813652736,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":120.813665358,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":120.813671856,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":120.813676791,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":120.813681219,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":120.813686099,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":120.813692269,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":120.813701432,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":120.813704739,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":120.813707724,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":120.813710915,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":120.813713818,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":120.813716904,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":120.813719813,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":120.813740839,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":120.813744053,"data":"E0913 05:31:18.048000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead\n"}
+,{"stream_name":"stderr","time":120.83220455,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.abs.out\n"}
+,{"stream_name":"stderr","time":120.832267527,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":120.832277262,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":120.832284613,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":120.832293134,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":120.832296193,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":120.832299703,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":120.832302646,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":120.832305581,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 359, in _fn\n"}
+,{"stream_name":"stderr","time":120.832308664,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _safe_copy_out(\n"}
+,{"stream_name":"stderr","time":120.832311566,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 220, in _safe_copy_out\n"}
+,{"stream_name":"stderr","time":120.832314606,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":120.8323175,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":120.832320455,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":120.832323276,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":120.832327128,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":120.832330054,"data":"E0913 05:31:18.067000 46 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: Expected out tensor to have dtype torch.float32 but got torch.float64 instead\n"}
+,{"stream_name":"stdout","time":133.086459166,"data":"torch 2.15.0.dev20260912+cpu\n"}
+,{"stream_name":"stdout","time":133.086602876,"data":"[abs(complex64, out=float64)] eager=float64(3, 4) | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call\n"}
+,{"stream_name":"stdout","time":133.086635679,"data":"[abs(complex64, out=bfloat16)] eager=bfloat16(3, 4) | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call\n"}
+,{"stream_name":"stdout","time":133.086641214,"data":"[abs(complex64, out=float32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":133.086645541,"data":"[abs(float32, out=float64)] eager=raise RuntimeError | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call\n"}
+,{"stream_name":"stdout","time":133.086650158,"data":"[angle(complex64, out=float64)] eager=float64(3, 4) | aot_eager=float64(3, 4) | inductor=float64(3, 4)\n"}
+,{"stream_name":"stdout","time":133.086654371,"data":"[nan_to_num(complex64)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: TypeError: Complex dtype is not supported for isneginf, got dtype torch.complex64\n"}
+,{"stream_name":"stdout","time":133.086658828,"data":"[nan_to_num(complex64, nan=0.5)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: TypeError: Complex dtype is not supported for isneginf, got dtype torch.complex64\n"}
+,{"stream_name":"stdout","time":133.086674342,"data":"[nan_to_num(complex64 no nan)] eager=complex64(3, 4) | aot_eager=complex64(3, 4) | inductor=raise BackendCompilerFailed: TypeError: Complex dtype is not supported for isneginf, got dtype torch.complex64\n"}
+,{"stream_name":"stdout","time":133.086679244,"data":"[nan_to_num(float32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":134.532620902,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":137.342536732,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":137.342588075,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":137.769031799,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":137.769065396,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":138.596881575,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":140.489708849,"data":"[NbConvertApp] Writing 277983 bytes to __results__.html\n"}
+]

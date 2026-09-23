@@ -1,0 +1,101 @@
+{
+  "0211b330cc67": {
+    "status": "Pending",
+    "program": "opinfo_var_mean",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "0f1b7b8f1dc6": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty",
+    "stage": "compile_nondeterminism",
+    "priority": "medium",
+    "factor": "dtype",
+    "probe": "matrix",
+    "reproducibility": "1/2"
+  },
+  "13828b145f92": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty_strided",
+    "stage": "cache_invalidation",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "matrix",
+    "reproducibility": "1/2"
+  },
+  "282f0b8cd0fa": {
+    "status": "Duplicate",
+    "program": "opinfo_var_mean",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "2c4aa34a458c": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty",
+    "stage": "cache_invalidation",
+    "priority": "high",
+    "factor": "requires_grad",
+    "probe": "matrix",
+    "reproducibility": "0/2"
+  },
+  "3b6a5083ff89": {
+    "status": "Duplicate",
+    "program": "opinfo_var_mean",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "3c313d55c8e2": {
+    "status": "Duplicate",
+    "program": "opinfo_var_mean",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "6468272fac80": {
+    "status": "Duplicate",
+    "program": "opinfo_max_pool2d_with_indices_backward",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "64e82aeff101": {
+    "status": "Invalid",
+    "program": "opinfo_new_empty",
+    "stage": "cache_invalidation",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "matrix",
+    "reproducibility": "1/2"
+  },
+  "7161f764494b": {
+    "status": "Duplicate",
+    "program": "opinfo_cov",
+    "stage": "dynamo_capture",
+    "priority": "low",
+    "factor": "compile",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  },
+  "94da24655a6e": {
+    "status": "Invalid",
+    "program": "opinfo_nn_functional_soft_margin_loss",
+    "stage": "inductor_codegen",
+    "priority": "high",
+    "factor": "dtype",
+    "probe": "layered",
+    "reproducibility": "2/2"
+  }
+}

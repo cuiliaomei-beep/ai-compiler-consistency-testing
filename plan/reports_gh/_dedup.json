@@ -1,0 +1,422 @@
+{
+  "01e7d7ff690e": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181693_nn_hardswish_produces_wrong_output_under",
+    "stage": "inductor_codegen"
+  },
+  "087f1e8abb9e": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_194103_torch_compile_dynamic_true_fails_for_sca",
+    "stage": "dynamo_capture"
+  },
+  "0aa4b5592adc": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_172711_torch_compile_produces_wrong_output_chan",
+    "stage": "inductor_codegen"
+  },
+  "0ae5b597660d": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu",
+    "stage": "dynamo_capture"
+  },
+  "16f619d5caa2": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181568_torch_compile_mismatch_for_matmul_follow",
+    "stage": "inductor_codegen"
+  },
+  "19d4074d336e": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+    "stage": "inductor_codegen"
+  },
+  "1b19cd3eb780": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture"
+  },
+  "1bab95a74251": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen"
+  },
+  "23701500fc91": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_183601_torch_compile_inductor_produces_wrong_ou",
+    "stage": "inductor_codegen"
+  },
+  "297eb0e49aa6": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_194062_inductor_silent_incorrectness_torch_full",
+    "stage": "inductor_codegen"
+  },
+  "29a72882c400": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_177821_inductor_torch_compile_ignores_a_complex",
+    "stage": "inductor_codegen"
+  },
+  "2ed38ba24729": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu",
+    "stage": "dynamo_capture"
+  },
+  "33d6ea524997": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_177821_inductor_torch_compile_ignores_a_complex",
+    "stage": "inductor_codegen"
+  },
+  "3c79a52a92f2": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture"
+  },
+  "3cf2966cd879": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "matrix",
+    "program": "issue_192872_dynamo_mutation_to_a_load_build_class_cr",
+    "stage": "cache_invalidation"
+  },
+  "44a7b3ebf5a5": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture"
+  },
+  "455f85ff6f45": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_172711_torch_compile_produces_wrong_output_chan",
+    "stage": "inductor_codegen"
+  },
+  "46c241b62b30": {
+    "count": 4,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_176679_torch_compile_produces_incorrect_results",
+    "stage": "aot_functionalization"
+  },
+  "48bc41f22c8a": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+    "stage": "dynamo_capture"
+  },
+  "546b2345fbad": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+    "stage": "dynamo_capture"
+  },
+  "54d84b9d07cb": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen"
+  },
+  "54f05e4ce33c": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_194062_inductor_silent_incorrectness_torch_full",
+    "stage": "inductor_codegen"
+  },
+  "55710877a073": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_184405_torch_compile_backend_inductor_returns_s",
+    "stage": "inductor_codegen"
+  },
+  "5606657d1d94": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_196285_torch_compile_dynamic_true_fails_to_hand",
+    "stage": "dynamo_capture"
+  },
+  "642a2fac6e2d": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_192872_dynamo_mutation_to_a_load_build_class_cr",
+    "stage": "dynamo_capture"
+  },
+  "66903ed30514": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+    "stage": "inductor_codegen"
+  },
+  "6f5e106b1e3a": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_192905_nested_nested_compile_region_silently_re",
+    "stage": "dynamo_capture"
+  },
+  "73272a44e230": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+    "stage": "inductor_codegen"
+  },
+  "735009ab83bf": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen"
+  },
+  "77b2ff947cf2": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181695_torch_where_with_broadcast_shapes_produc",
+    "stage": "inductor_codegen"
+  },
+  "7814f2bdefd6": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture"
+  },
+  "787386a59a0e": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_183601_torch_compile_inductor_produces_wrong_ou",
+    "stage": "inductor_codegen"
+  },
+  "78e98fd2378d": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_192905_nested_nested_compile_region_silently_re",
+    "stage": "dynamo_capture"
+  },
+  "7bdd3ea240a8": {
+    "count": 2,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_176679_torch_compile_produces_incorrect_results",
+    "stage": "aot_functionalization"
+  },
+  "7cc71067c738": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu",
+    "stage": "dynamo_capture"
+  },
+  "7fbdcd800863": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181695_torch_where_with_broadcast_shapes_produc",
+    "stage": "inductor_codegen"
+  },
+  "814d8b39a8c7": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_160840_torch_nn_functional_interpolate_generate",
+    "stage": "inductor_codegen"
+  },
+  "8f3381e7f0d4": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture"
+  },
+  "929255de0d82": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_174386_torch_compile_ignores_torch_use_determin",
+    "stage": "inductor_codegen"
+  },
+  "974eac1c1602": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen"
+  },
+  "9b051c26b4a5": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_174386_torch_compile_ignores_torch_use_determin",
+    "stage": "inductor_codegen"
+  },
+  "9d71358d2c58": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture"
+  },
+  "9fbf8d021588": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen"
+  },
+  "a0f1c0dabe46": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_192905_nested_nested_compile_region_silently_re",
+    "stage": "dynamo_capture"
+  },
+  "a137aebe2584": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_181568_torch_compile_mismatch_for_matmul_follow",
+    "stage": "inductor_codegen"
+  },
+  "a767d9a17774": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+    "stage": "inductor_codegen"
+  },
+  "aa92cf17a769": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_192905_nested_nested_compile_region_silently_re",
+    "stage": "dynamo_capture"
+  },
+  "c30c811c31cf": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_192872_dynamo_mutation_to_a_load_build_class_cr",
+    "stage": "dynamo_capture"
+  },
+  "c6eeac238c56": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen"
+  },
+  "cc621b6eb9c8": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+    "stage": "dynamo_capture"
+  },
+  "d2f7fb6e942a": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_194547_torch_compile_silently_promotes_dtype_fo",
+    "stage": "inductor_codegen"
+  },
+  "d4ba77da5bc4": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_114415_aotautograd_should_detect_aliasing_of_in",
+    "stage": "dynamo_capture"
+  },
+  "daac7f1bbabc": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_195320_inductor_sdpa_fusion_matches_a_permuted",
+    "stage": "inductor_codegen"
+  },
+  "de67951c9994": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_182131_torch_compile_inductor_produces_differen",
+    "stage": "inductor_codegen"
+  },
+  "e362df449001": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+    "stage": "inductor_codegen"
+  },
+  "e8b8bacce1f2": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_192906_reuse_hash_fn_leaves_a_subscripted_captu",
+    "stage": "dynamo_capture"
+  },
+  "efc45343c177": {
+    "count": 2,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_193279_dynamo_silently_drops_custom_backward_of",
+    "stage": "dynamo_capture"
+  },
+  "f76f742463ff": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "issue_181568_torch_compile_mismatch_for_matmul_follow",
+    "stage": "inductor_codegen"
+  },
+  "fe1f0d83bc76": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "issue_181693_nn_hardswish_produces_wrong_output_under",
+    "stage": "inductor_codegen"
+  },
+  "ff6b6c3f13b6": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "issue_189787_inductor_constant_folds_sum_softmax_to_e",
+    "stage": "inductor_codegen"
+  }
+}

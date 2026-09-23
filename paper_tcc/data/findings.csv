@@ -1,0 +1,74 @@
+id,round,draft,target,kind,ref,short,layer,symptom,axis,oracle,attribution,status
+B1,1,0913/01,pytorch,issue,197084,linalg.pinv / matrix_sqrth wrong complex gradient (root cause later traced to dispatch-mode conj handling),AOT,S,P-dtype,GRAD,B,pending
+B2,1,0913/02,pytorch,issue,197085,random.shuffle / sample return the same permutation on every call,Dy,S,Q-seq,VALUE,A,fixed
+B3,1,0913/03,pytorch,issue,197086,jvp over ldexp terminates the interpreter under aot_eager,AOT,C,Q-context,CRASH,A,pending
+B4,1,0913/04,pytorch,issue,197087,argmin/argmax under dynamic=True emit Python ** into C++,In,F,Q-context,TRACEERR,A,confirmed
+B5,1,0913/05,pytorch,issue,197088,new_zeros(device=cpu) returns a CUDA tensor under cudagraphs,In,S,Q-context,META,A,confirmed
+B6,1,0913/06,pytorch,issue,197089,std/var accumulate in float32: inf/NaN and zero gradient at extreme magnitudes,In,S,P-edge,VALUE,A,pending
+B7,1,0913/07,pytorch,issue,197090,jvp of quantile / addr: internal assertion on every backend,Dy,F,Q-context,TRACEERR,A,pending
+B8,1,0913/08,pytorch,issue,197091,ldexp output dtype wrong in both directions,In,S,P-dtype,DTYPE,A,fixed
+B9,1,0913/09,pytorch,issue,197092,compiled autograd: interpolate backward hits an internal assertion,AOT,F,Q-context,TRACEERR,A,pending
+B10,1,0913/10,pytorch,issue,197093,f-string format spec on a symbolic size: internal Dynamo error,Dy,F,Q-context,TRACEERR,A,confirmed
+B11,1,0913/11,pytorch,issue,197094,compiled SGD.step with foreach=True and complex parameters: lowering assertion,In,F,P-dtype,TRACEERR,A,confirmed
+B12,1,0913/12,pytorch,issue,197095,interpolate on an empty spatial dim returns uninitialised data instead of raising,De,S,P-edge,EXC,A,confirmed
+B13,1,0913/13,pytorch,issue,197096,mutated captured tensor: export accepts and AOTInductor asserts,Ex,F,Q-artifact,TRACEERR,A,rejected
+B14,1,0913/14,pytorch,issue,197097,vector_norm(ord=inf) on an empty batch fails for negative dim,De,F,P-edge,TRACEERR,A,fixed
+B15,1,0913/15,pytorch,issue,197098,binary_cross_entropy / huber_loss return float32 for half-precision inputs,In,S,P-dtype,DTYPE,A,pending
+B16,1,0913/16,pytorch,issue,197099,pdist backward on zero rows: integer division by zero kills the process,Eg,C,P-edge,CRASH,B,fixed
+B17,1,0913/17,pytorch,issue,197101,random.seed inside the function is ignored on the first call,Dy,S,Q-seq,VALUE,A,fixed
+B18,1,0913/18,pytorch,issue,197102,namedtuple == with tensor fields overflows the stack (Python 3.14 + dynamic),Dy,F,Q-context,EXC,A,pending
+B19,1,0913/19,pytorch,issue,197103,bmm under max_autotune: missing symbol export in a C++ template (Windows),In,F,Q-context,TRACEERR,A,pending
+B20,1,0913/20,pytorch,issue,197104,AOTInductor cannot package models returning torch.return_types.*,Ex,F,Q-artifact,TRACEERR,A,fixed
+B21,1,0913/21,pytorch,issue,197105,lerp of Boolean tensors with a 0-d weight fails to compile,De,F,P-dtype,TRACEERR,A,fixed
+B22,1,0913/22,pytorch,issue,197106,sum / prod with dtype=torch.bool: C++ error / assertion,In,F,P-dtype,TRACEERR,A,pending
+B23,1,0913/23,pytorch,issue,197107,addmm with a 0-d bias under max_autotune: IndexError in lowering,In,F,Q-context,TRACEERR,A,fixed
+B24,1,0913/24,pytorch,issue,197108,var_mean / std_mean of an empty tensor: mean is 0 instead of NaN,In,S,P-edge,VALUE,A,fixed
+B25,1,0913/25,pytorch,issue,197109,channel_shuffle loses the channels_last layout,In,S,P-scs,LAYOUT,A,confirmed
+B26,1,0913/26,pytorch,issue,197110,str(KeyError(k)) loses the quotes CPython adds,Dy,S,P-corpus,VALUE,A,fixed
+B27,1,0913/27,pytorch,issue,197112,abs(complex out=float64) rejected by the meta kernel,De,F,P-dtype,TRACEERR,A,confirmed
+C1,2,0920/01,pytorch,issue,197887,autograd's in-place-modification check lost when a view of an input is saved for backward: silent wrong gradients,AOT,S,P-scs,GRAD,A,fixed
+C2,2,0920/02,pytorch,issue,197888,adaptive_max_pool3d backward wrong for channels_last_3d input (eager C++ kernel reads indices as contiguous),Eg,S,P-scs,GRAD,B,confirmed
+C3,2,0920/02b,pytorch,issue,197889,changing Python float argument baked into the cached graph,Dy,S,Q-seq,VALUE,A,pending
+C4,2,0920/03,pytorch,comment,143649,integer trunc division by zero kills the process (eager kernel),Eg,C,P-edge,CRASH,B,pending
+C5,2,0920/04,pytorch,comment,197554,ten new members for the maintainers' 'validation lost' umbrella (OpInfo error inputs through the compiled path),De,S,P-edge,EXC,A,pending
+C6,2,0920/05,msvc,feedback,11155532,MSVC folds two consecutive _mm_abs_epi* into nothing,Ext,S,X-cross,VALUE,C,pending
+C7,2,0920/06,numba,issue,10845,np.remainder / divmod on MIN_INT % -1 kill the process,Ext,C,X-cross,CRASH,C,pending
+C8,2,0920/07,pytorch,issue,197893,x*1 / x+0 / x/1.0 as a graph output return the input tensor itself,In,S,P-edge,ALIAS,A,confirmed
+C9,2,0920/08,pytorch,issue,197894,torch.fx codegen precedence: operator.pow(-2 x) emitted as -2**x,Fx,S,P-corpus,VALUE,B,fixed
+C10,2,0920/09,pytorch,issue,197895,floating-point floor division off by one under compile,In,S,P-edge,VALUE,A,confirmed
+C11,2,0920/10,pytorch,issue,197896,Dynamo silently drops closure mutations made in methods of locally defined classes,Dy,S,P-corpus,STATE,A,fixed
+C12,2,0920/11,jax,issue,40840,jnp.gcd / lcm hang on the integer minimum,Ext,C,X-cross,CRASH,C,fixed
+C13,2,0920/12,pytorch,issue,198052,compiled NumPy code returns wrong values (np.fix / cbrt / clip / sign),Dy,S,P-edge,VALUE,A,pending
+C14,2,0920/13,pytorch,issue,198057,vectorized remainder: NaN for infinite divisor and 0 for large quotients; result depends on tensor length,In,S,P-edge,VALUE,A,pending
+C15,2,0920/14,pytorch,comment,191499,int8/uint8 min/max/argmin/argmax wrong for >=16 elements on x86,In,S,P-edge,VALUE,A,pending
+C16,2,0920/15,pytorch,issue,198064,round(SymInt -1) is the identity; round disappears from the graph,Dy,S,P-scs,VALUE,A,pending
+C17,2,0920/16,pytorch,issue,198070,NaN self-comparison of an .item() value folded to a constant under capture_scalar_outputs,Dy,S,P-scs,VALUE,A,pending
+C18,2,0920/17,msvc,feedback,11155535,MSVC removes _mm_add_ps(x 0.0): -0.0 + 0.0 gives -0.0,Ext,S,X-cross,VALUE,C,pending
+C19,2,0920/18,msvc,feedback,11155537,MSVC folds compare-and-blend with LE/GE predicates,Ext,S,X-cross,VALUE,C,pending
+C20,2,0920/19,pytorch,issue,198056,compiled NumPy code: different dtype / shape rules (cumsum int8 overflow square->float64 median shape),Dy,S,P-dtype,DTYPE,A,pending
+C21,2,0920/20,pytorch,comment,185337,explicit half().float() round trip removed by Inductor (still reproduces on 2.14 and nightly),In,S,P-dtype,VALUE,A,pending
+C22,2,0920/21,pytorch,issue,198071,clamp(int8 -1000 1000) returns -24 everywhere: bounds wrapped into int8,In,S,P-edge,VALUE,A,pending
+C23,2,0920/22,pytorch,comment,197554,three protections lost under Inductor (inference tensors deterministic fill etc.),In,S,P-edge,EXC,A,pending
+C24,2,0920/23,pytorch,issue,198072,torch.fx: forward parameters named nan / inf shadow float constants in generated code,Fx,S,P-corpus,VALUE,B,pending
+C25,2,0920/24,pytorch,comment,174386,deterministic mode: empty* not filled with NaN / max on Inductor CPU,In,S,Q-context,VALUE,A,pending
+C26,2,0920/25,pytorch,comment,197889,second entry point of the same root cause: float-derived integer arguments baked in,Dy,S,Q-seq,VALUE,A,pending
+C27,2,0920/26,pytorch,issue,198077,GraphModule pickle / torch.save round trip turns in-place operator nodes into out-of-place ones,Fx,S,Q-artifact,STATE,B,pending
+C28,2,0920/27,pytorch,comment,183607,float16 fused chains: intermediates not rounded to float16; isinf(y) False while y is inf,In,S,P-dtype,VALUE,A,pending
+C29,2,0920/28,pytorch,issue,198081,torch.any(uint8) returns bool instead of uint8 under Inductor,In,S,P-dtype,DTYPE,A,pending
+C30,2,0920/29,pytorch,comment,197554,'dtype not implemented in eager' family: round(int8 decimals) glu(int8) adaptive pools ...,In,S,P-dtype,EXC,A,pending
+C31,2,0920/30,pytorch,comment,198071,F.pad fill value wraps into the integer dtype,In,S,P-edge,VALUE,A,pending
+C32,2,0920/31,pytorch,issue,198118,complex pinv / polar / matrix_sqrth wrong under any TorchDispatchMode (conj views not materialised),DM,S,Q-context,VALUE,B,pending
+C33,2,0920/32,pytorch,comment,197084,correction: the wrong gradient of B1 comes from the forward under the dispatch mode,DM,S,Q-context,GRAD,B,pending
+C34,2,0920/33,pytorch,issue,198119,avg_pool backward with ceil_mode uses the full kernel size as divisor for the last window,In,S,P-edge,GRAD,A,pending
+C35,2,0920/34,pytorch,issue,198133,erfinv loses accuracy near +-1 on Inductor CPU,In,S,P-edge,PRECISION,A,pending
+C36,2,0920/35,pytorch,issue,198134,vectorized float64 acosh overflows for x > 1.34e154,In,S,P-edge,VALUE,A,pending
+C37,2,0920/36,pytorch,issue,198155,134 operators run under compile on dtypes their eager kernels reject (418 pairs),In,S,P-dtype,EXC,A,pending
+C38,2,0920/37,pytorch,comment,198155,the same family on CUDA: 383 silent pairs of which 73 CUDA-specific,In,S,P-dtype,EXC,A,pending
+C39,2,0920/38,pytorch,comment,198118,the dispatch-mode mechanism also breaks linalg.lstsq backward; FlopCounterMode triggers it,DM,S,Q-context,GRAD,B,pending
+C40,2,0920/39,pytorch,issue,198183,vectorized float32 erf loses all relative accuracy near 0; vector atanh returns 0 below eps,In,S,P-edge,PRECISION,A,pending
+C41,2,0920/40,pytorch,issue,198189,OrderedDict.move_to_end on an input dict is silently dropped,Dy,S,Q-gbreak,STATE,A,pending
+C42,2,0920/41,pytorch,issue,198190,a generator that escapes the compiled region comes back as an exhausted tuple_iterator,Dy,S,Q-gbreak,ALIAS,A,pending
+C43,2,0920/41b,pytorch,comment,198190,trigger condition (tensor work in the body) and the iterator family,Dy,S,Q-gbreak,ALIAS,A,pending
+C44,2,0920/42,pytorch,issue,198192,IndexError raised by a tensor op skips the user's except handler,Dy,S,P-corpus,EXC,A,pending
+C45,2,0920/42b,pytorch,comment,198192,every handler shape is skipped (except Exception suppress __exit__ ...); NotImplementedError too,Dy,S,P-corpus,EXC,A,pending
+C46,2,0920/43,pytorch,issue,198205,destroying an AOTI runner right after a run crashes the process on Windows (OpenMP workers still spinning),Ex,C,Q-artifact,CRASH,A,pending

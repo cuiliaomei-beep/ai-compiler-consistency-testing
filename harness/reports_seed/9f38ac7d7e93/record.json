@@ -1,0 +1,95 @@
+{
+  "signature": "9f38ac7d7e93",
+  "case": "seed_2026_01170",
+  "probe": "warm",
+  "triage": {
+    "stage": "specialization_cache",
+    "priority": "high",
+    "rationale": "changing 'dtype' did not trigger a recompile, yet the warm result differs from a cold compile of the same context: the cached artifact was reused under assumptions that no longer hold",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": false,
+    "guard_suspicious": false,
+    "layers_unavailable": [],
+    "submittable": true
+  },
+  "context": {
+    "name": "dtype_float16",
+    "factors": {
+      "variant": "base",
+      "dtype": "float16"
+    }
+  },
+  "context_b": {
+    "name": "base",
+    "factors": {
+      "variant": "base"
+    }
+  },
+  "factor_changed": "dtype",
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "cold_vs_warm": {
+      "ref": "cold_inductor",
+      "test": "warm_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "test raised WarmupFailed, ref returned normally"
+        }
+      ]
+    }
+  },
+  "observations": {
+    "cold_B": {
+      "mode": "cold_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1238,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "warm_A_to_B": {
+      "mode": "warm_inductor",
+      "ok": false,
+      "exception": "WarmupFailed",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "out_meta": []
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "`torch.compile` and complex numbers\nhttps://github.com/pytorch/pytorch/issues/125718"
+}

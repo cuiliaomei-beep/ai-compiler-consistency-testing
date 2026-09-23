@@ -1,0 +1,261 @@
+{
+  "sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0438,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0994,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.2569,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            8,
+            4
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            4,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": true,
+      "grad_error": null
+    }
+  },
+  "cache": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value",
+        "gradient"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.322e+00 exceeds 4.0x eager err 7.451e-08",
+          "magnitude": 1.3216611945535988,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              8,
+              4
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 1.3216612339019775,
+            "max_rel_error": 1.0,
+            "n_mismatch": 32,
+            "n_total": 32,
+            "first_mismatch_index": [
+              0,
+              0
+            ],
+            "first_mismatch_expected": "-1.321661234",
+            "first_mismatch_actual": "0",
+            "expected_preview": "[-1.321661234, -1.311121464, -0.4889325202, -0.8959231377, -1.321661234, -1.311121464, -0.4889325202, -0.8959231377, ... (24 more)]",
+            "actual_preview": "[0, 0, 0, 0, 0, 0, 0, 0, ... (24 more)]",
+            "eager_err_vs_fp64": 7.450580596923828e-08,
+            "compiled_err_vs_fp64": 1.3216611945535988,
+            "budget": 6.302171868810547e-07,
+            "noise_floor": 6.302171868810547e-07
+          }
+        },
+        {
+          "kind": "gradient",
+          "detail": "grad[0]: compiled err vs fp64 = 8.000e+00 exceeds 8.0x eager err 0.000e+00",
+          "magnitude": 8.0,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              8,
+              4
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 8.0,
+            "max_rel_error": 1.0,
+            "n_mismatch": 32,
+            "n_total": 32,
+            "first_mismatch_index": [
+              0,
+              0
+            ],
+            "first_mismatch_expected": "8",
+            "first_mismatch_actual": "0",
+            "expected_preview": "[8, 8, 8, 8, 8, 8, 8, 8, ... (24 more)]",
+            "actual_preview": "[0, 0, 0, 0, 0, 0, 0, 0, ... (24 more)]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 8.0,
+            "budget": 3.814697265625e-06,
+            "noise_floor": 3.814697265625e-06
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  }
+}

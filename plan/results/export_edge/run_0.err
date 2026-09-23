@@ -1,0 +1,198 @@
+Exception ignored while closing generator <generator object sample_inputs_cov at 0x000002146A16D6D0>:
+Traceback (most recent call last):
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\utils\_contextlib.py", line 49, in generator_context
+    with ctx_factory():
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 83, in __enter__
+    torch.set_grad_enabled(False)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 188, in __init__
+    torch._C._set_grad_enabled(mode)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2014, in __torch_function__
+    return func(*args, **kwargs)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2049, in __torch_function__
+    node = self.tracer.create_node("call_function", func, args, {})  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2808, in create_node
+    node = super().create_node(*args, **kwargs)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 1736, in create_node
+    node = super().create_node(kind, target, args, kwargs, name, type_expr)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\proxy.py", line 236, in create_node
+    node = self.graph.create_node(kind, target, args, kwargs, name, type_expr)
+AttributeError: '_ModuleStackTracer' object has no attribute 'graph'
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\export_edge_diff.py:39: UserWarning: Using torch.cross without specifying the dim arg is deprecated.
+Please either pass the dim explicitly or simply use torch.linalg.cross.
+The default value of dim will change to agree with that of linalg.cross in a future release. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\Cross.cpp:67.)
+  eager = fn(inp, *args, **kwargs); eager_err = None
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:1251: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:51.)
+  .to_sparse_csr()
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\export_edge_diff.py:39: UserWarning: linear_cross_entropy: ``options`` ignored; chunked path needs reduction in {'mean','sum','none'}, label_smoothing == 0, target.dtype == int64 (or a probability target with reduction in {'mean','sum'}, dtype matching input, and requires_grad == False), out_features == (). Got reduction='mean', label_smoothing=0.0, target.dtype=torch.int64, out_features=(3,), tracing=False, target.requires_grad=False, linear_bias.shape=None.
+  eager = fn(inp, *args, **kwargs); eager_err = None
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_export\non_strict_utils.py:1377: UserWarning: linear_cross_entropy: ``options`` ignored; chunked path needs reduction in {'mean','sum','none'}, label_smoothing == 0, target.dtype == int64 (or a probability target with reduction in {'mean','sum'}, dtype matching input, and requires_grad == False), out_features == (). Got reduction='mean', label_smoothing=0.0, target.dtype=torch.int64, out_features=(3,), tracing=False, target.requires_grad=False, linear_bias.shape=None.
+  return func(*args, **kwargs)
+Exception ignored while closing generator <generator object sample_inputs_adaptive_avg_pool2d at 0x000002146A6AB810>:
+Traceback (most recent call last):
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\utils\_contextlib.py", line 49, in generator_context
+    with ctx_factory():
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 83, in __enter__
+    torch.set_grad_enabled(False)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 188, in __init__
+    torch._C._set_grad_enabled(mode)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2014, in __torch_function__
+    return func(*args, **kwargs)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2049, in __torch_function__
+    node = self.tracer.create_node("call_function", func, args, {})  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2808, in create_node
+    node = super().create_node(*args, **kwargs)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 1736, in create_node
+    node = super().create_node(kind, target, args, kwargs, name, type_expr)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\proxy.py", line 236, in create_node
+    node = self.graph.create_node(kind, target, args, kwargs, name, type_expr)
+AttributeError: '_ModuleStackTracer' object has no attribute 'graph'
+Exception ignored while closing generator <generator object sample_inputs_adaptive_max_pool1d at 0x000002146A6C5F20>:
+Traceback (most recent call last):
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\utils\_contextlib.py", line 49, in generator_context
+    with ctx_factory():
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 83, in __enter__
+    torch.set_grad_enabled(False)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 188, in __init__
+    torch._C._set_grad_enabled(mode)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2014, in __torch_function__
+    return func(*args, **kwargs)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2049, in __torch_function__
+    node = self.tracer.create_node("call_function", func, args, {})  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2808, in create_node
+    node = super().create_node(*args, **kwargs)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 1736, in create_node
+    node = super().create_node(kind, target, args, kwargs, name, type_expr)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\proxy.py", line 236, in create_node
+    node = self.graph.create_node(kind, target, args, kwargs, name, type_expr)
+AttributeError: '_ModuleStackTracer' object has no attribute 'graph'
+Exception ignored while closing generator <generator object sample_inputs_adaptive_max_pool3d at 0x000002146A6C5A60>:
+Traceback (most recent call last):
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\utils\_contextlib.py", line 49, in generator_context
+    with ctx_factory():
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 83, in __enter__
+    torch.set_grad_enabled(False)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 188, in __init__
+    torch._C._set_grad_enabled(mode)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2014, in __torch_function__
+    return func(*args, **kwargs)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2049, in __torch_function__
+    node = self.tracer.create_node("call_function", func, args, {})  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2808, in create_node
+    node = super().create_node(*args, **kwargs)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 1736, in create_node
+    node = super().create_node(kind, target, args, kwargs, name, type_expr)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\proxy.py", line 236, in create_node
+    node = self.graph.create_node(kind, target, args, kwargs, name, type_expr)
+AttributeError: '_ModuleStackTracer' object has no attribute 'graph'
+Exception ignored while closing generator <generator object sample_inputs_avgpool1d at 0x000002146A6C56D0>:
+Traceback (most recent call last):
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\utils\_contextlib.py", line 49, in generator_context
+    with ctx_factory():
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 83, in __enter__
+    torch.set_grad_enabled(False)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 188, in __init__
+    torch._C._set_grad_enabled(mode)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2014, in __torch_function__
+    return func(*args, **kwargs)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2049, in __torch_function__
+    node = self.tracer.create_node("call_function", func, args, {})  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2808, in create_node
+    node = super().create_node(*args, **kwargs)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 1736, in create_node
+    node = super().create_node(kind, target, args, kwargs, name, type_expr)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\proxy.py", line 236, in create_node
+    node = self.graph.create_node(kind, target, args, kwargs, name, type_expr)
+AttributeError: '_ModuleStackTracer' object has no attribute 'graph'
+Exception ignored while closing generator <generator object sample_inputs_avgpool3d at 0x000002146A6C5930>:
+Traceback (most recent call last):
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\utils\_contextlib.py", line 49, in generator_context
+    with ctx_factory():
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 83, in __enter__
+    torch.set_grad_enabled(False)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 188, in __init__
+    torch._C._set_grad_enabled(mode)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2014, in __torch_function__
+    return func(*args, **kwargs)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2049, in __torch_function__
+    node = self.tracer.create_node("call_function", func, args, {})  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2808, in create_node
+    node = super().create_node(*args, **kwargs)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 1736, in create_node
+    node = super().create_node(kind, target, args, kwargs, name, type_expr)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\proxy.py", line 236, in create_node
+    node = self.graph.create_node(kind, target, args, kwargs, name, type_expr)
+AttributeError: '_ModuleStackTracer' object has no attribute 'graph'
+Exception ignored while closing generator <generator object sample_inputs_conv_transpose1d at 0x000002146A6C4500>:
+Traceback (most recent call last):
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\utils\_contextlib.py", line 49, in generator_context
+    with ctx_factory():
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 83, in __enter__
+    torch.set_grad_enabled(False)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 188, in __init__
+    torch._C._set_grad_enabled(mode)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2014, in __torch_function__
+    return func(*args, **kwargs)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2049, in __torch_function__
+    node = self.tracer.create_node("call_function", func, args, {})  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2808, in create_node
+    node = super().create_node(*args, **kwargs)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 1736, in create_node
+    node = super().create_node(kind, target, args, kwargs, name, type_expr)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\proxy.py", line 236, in create_node
+    node = self.graph.create_node(kind, target, args, kwargs, name, type_expr)
+AttributeError: '_ModuleStackTracer' object has no attribute 'graph'
+W0922 15:13:41.830000 26264 site-packages\torch\fx\experimental\symbolic_shapes.py:9273] Unable to find user code corresponding to {u0}
+
+
+
+def forward(self, arg0_1: "i64[5, 5, 5]", arg1_1: "i64[]"):
+    # File: D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\export_edge_diff.py:20 in forward, code: return self.fn(*args, **self.kw)
+    tensor_split = torch.ops.aten.tensor_split.tensor_indices_or_sections(arg0_1, arg1_1);  arg0_1 = arg1_1 = tensor_split = None
+    
+
+
+
+def forward(self, arg0_1: "i64[5, 5, 5]", arg1_1: "i64[]"):
+    # File: D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\export_edge_diff.py:20 in forward, code: return self.fn(*args, **self.kw)
+    tensor_split = torch.ops.aten.tensor_split.tensor_indices_or_sections(arg0_1, arg1_1);  arg0_1 = arg1_1 = tensor_split = None
+    
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:19760: UserWarning: ComplexHalf support is experimental and many operators don't support it yet. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\EmptyTensor.cpp:55.)
+  op=lambda x, *args, **kwargs: x.chalf(*args, **kwargs),
+Exception ignored while closing generator <generator object sample_inputs_elementwise_unary at 0x000002146C3D69D0>:
+Traceback (most recent call last):
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\utils\_contextlib.py", line 49, in generator_context
+    with ctx_factory():
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 83, in __enter__
+    torch.set_grad_enabled(False)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 188, in __init__
+    torch._C._set_grad_enabled(mode)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2014, in __torch_function__
+    return func(*args, **kwargs)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2049, in __torch_function__
+    node = self.tracer.create_node("call_function", func, args, {})  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2808, in create_node
+    node = super().create_node(*args, **kwargs)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 1736, in create_node
+    node = super().create_node(kind, target, args, kwargs, name, type_expr)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\proxy.py", line 236, in create_node
+    node = self.graph.create_node(kind, target, args, kwargs, name, type_expr)
+AttributeError: '_ModuleStackTracer' object has no attribute 'graph'
+Exception ignored while closing generator <generator object _wrap_generator.<locals>.generator_context at 0x000002146C7C50E0>:
+Traceback (most recent call last):
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\utils\_contextlib.py", line 49, in generator_context
+    with ctx_factory():
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 83, in __enter__
+    torch.set_grad_enabled(False)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\grad_mode.py", line 188, in __init__
+    torch._C._set_grad_enabled(mode)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2014, in __torch_function__
+    return func(*args, **kwargs)
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2049, in __torch_function__
+    node = self.tracer.create_node("call_function", func, args, {})  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 2808, in create_node
+    node = super().create_node(*args, **kwargs)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py", line 1736, in create_node
+    node = super().create_node(kind, target, args, kwargs, name, type_expr)  # type: ignore[arg-type]
+  File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\proxy.py", line 236, in create_node
+    node = self.graph.create_node(kind, target, args, kwargs, name, type_expr)
+AttributeError: '_ModuleStackTracer' object has no attribute 'graph'

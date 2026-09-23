@@ -1,0 +1,68 @@
+{
+  "signature": "798e66d7ed9c",
+  "program": "issue_174069_inductor_argmax_max_returns_incorrect_in",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "174069",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/174069",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 184893,
+      "title": "[Inductor] argmin/min returns incorrect indices for boolean tensors",
+      "url": "https://github.com/pytorch/pytorch/issues/184893",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-22"
+    },
+    {
+      "number": 185765,
+      "title": "[Inductor] Fix correctness discrepancy in torch.minimum and torch.maximum with signed zeros (-0.0 vs 0.0)",
+      "url": "https://github.com/pytorch/pytorch/pull/185765",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-31"
+    },
+    {
+      "number": 184149,
+      "title": "Deduplicate Triton max dim reductions",
+      "url": "https://github.com/pytorch/pytorch/pull/184149",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-18"
+    },
+    {
+      "number": 174069,
+      "title": "[Inductor] argmax/max returns incorrect indices for boolean tensors on CUDA",
+      "url": "https://github.com/pytorch/pytorch/issues/174069",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-02-02"
+    },
+    {
+      "number": 174076,
+      "title": "[Inductor] Fix argmax/argmin returning incorrect indices for boolean tensors on CUDA",
+      "url": "https://github.com/pytorch/pytorch/pull/174076",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-02-02"
+    }
+  ]
+}

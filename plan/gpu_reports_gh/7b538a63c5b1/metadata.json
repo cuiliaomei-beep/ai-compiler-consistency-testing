@@ -1,0 +1,68 @@
+{
+  "signature": "7b538a63c5b1",
+  "program": "issue_191445_inductor_generated_aotautograd_forward_w",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "gradient"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "191445",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/191445",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 191445,
+      "title": "[Inductor] Generated AOTAutograd forward wrapper uses unbacked SymInt before assignment for `cat` output",
+      "url": "https://github.com/pytorch/pytorch/issues/191445",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-07-29"
+    },
+    {
+      "number": 190091,
+      "title": "[inductor] Enable per-region cudagraphs for invoke_subgraph via auto graph partition",
+      "url": "https://github.com/pytorch/pytorch/pull/190091",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-07-15"
+    },
+    {
+      "number": 185624,
+      "title": "Fix subclass static input remapping for SymInt args",
+      "url": "https://github.com/pytorch/pytorch/pull/185624",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-29"
+    },
+    {
+      "number": 185473,
+      "title": "Fix partitioner SymInt bindings for backward",
+      "url": "https://github.com/pytorch/pytorch/pull/185473",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-28"
+    },
+    {
+      "number": 187859,
+      "title": "[functorch] Add torch._functorch.aot_autograd.compile_to_python",
+      "url": "https://github.com/pytorch/pytorch/pull/187859",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-06-22"
+    }
+  ]
+}

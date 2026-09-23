@@ -1,0 +1,68 @@
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:151: UserWarning: ComplexHalf support is experimental and many operators don't support it yet. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\EmptyTensor.cpp:55.)
+  eager = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:151: UserWarning: Using torch.cross without specifying the dim arg is deprecated.
+Please either pass the dim explicitly or simply use torch.linalg.cross.
+The default value of dim will change to agree with that of linalg.cross in a future release. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\Cross.cpp:67.)
+  eager = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:1267: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:51.)
+  .to_sparse_csr()
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:151: UserWarning: var_mean(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1913.)
+  eager = fn(inp, *args, **kwargs)
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:151: UserWarning: std_mean(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1913.)
+  eager = fn(inp, *args, **kwargs)
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:151: UserWarning: linear_cross_entropy: ``options`` ignored; chunked path needs reduction in {'mean','sum','none'}, label_smoothing == 0, target.dtype == int64 (or a probability target with reduction in {'mean','sum'}, dtype matching input, and requires_grad == False), out_features == (). Got reduction='mean', label_smoothing=0.0, target.dtype=torch.int64, out_features=(3,), tracing=False, target.requires_grad=False, linear_bias.shape=None.
+  eager = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py:69: UserWarning: linear_cross_entropy: ``options`` ignored; chunked path needs reduction in {'mean','sum','none'}, label_smoothing == 0, target.dtype == int64 (or a probability target with reduction in {'mean','sum'}, dtype matching input, and requires_grad == False), out_features == (). Got reduction='mean', label_smoothing=0.0, target.dtype=torch.int64, out_features=(3,), tracing=False, target.requires_grad=False, linear_bias.shape=None.
+  return fn(*args, **kwargs)
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:151: UserWarning: linear_cross_entropy: ``options`` ignored; chunked path needs reduction in {'mean','sum','none'}, label_smoothing == 0, target.dtype == int64 (or a probability target with reduction in {'mean','sum'}, dtype matching input, and requires_grad == False), out_features == (). Got reduction='none', label_smoothing=0.0, target.dtype=torch.int64, out_features=(3,), tracing=False, target.requires_grad=False, linear_bias.shape=None.
+  eager = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\external_utils.py:69: UserWarning: linear_cross_entropy: ``options`` ignored; chunked path needs reduction in {'mean','sum','none'}, label_smoothing == 0, target.dtype == int64 (or a probability target with reduction in {'mean','sum'}, dtype matching input, and requires_grad == False), out_features == (). Got reduction='none', label_smoothing=0.0, target.dtype=torch.int64, out_features=(3,), tracing=False, target.requires_grad=False, linear_bias.shape=None.
+  return fn(*args, **kwargs)
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:151: UserWarning: The reduce argument of torch.scatter with Tensor src is deprecated and will be removed in a future PyTorch release. Use torch.scatter_reduce instead for more reduction options. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\TensorAdvancedIndexing.cpp:227.)
+  eager = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\codegen\cpp.py:4116: UserWarning: bf16 and fp16 are mixed in the scheduler node.
+  warnings.warn("bf16 and fp16 are mixed in the scheduler node.")
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\codegen\cpp.py:4116: UserWarning: bf16 and fp16 are mixed in the scheduler node.
+  warnings.warn("bf16 and fp16 are mixed in the scheduler node.")
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:151: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1913.)
+  eager = fn(inp, *args, **kwargs)
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:151: UserWarning: var(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1913.)
+  eager = fn(inp, *args, **kwargs)
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\opinfo_edge_sweep.py:151: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  eager = fn(inp, *args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\utils.py:4415: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  return node.target(*args, **kwargs)  # type: ignore[operator]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\interpreter.py:377: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  return target(*args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\fx\experimental\proxy_tensor.py:2014: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  return func(*args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(

@@ -1,0 +1,31 @@
+%% Figure: scatter of faults found vs tests executed; marker area encodes test efficiency.
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    tccaxis, width=0.78\linewidth, height=4.3cm,
+    xmin=100, xmax=560, ymin=0, ymax=21,
+    xlabel={tests executed (budget: 12 per program)}, ylabel={injected faults found (of 19)},
+    ytick={0,5,10,15,19},
+    xmajorgrids,
+    clip=false,
+]
+  %% x = tests, y = faults, radius ~ sqrt(test efficiency)
+  \addplot[only marks, mark=*, mark size=6.3pt, draw=tolred!80!black, fill=tolred!35] coordinates {(235,19)};
+  \addplot[only marks, mark=*, mark size=4.5pt, draw=tolblue!80!black, fill=tolblue!30] coordinates {(355,14)};
+  \addplot[only marks, mark=*, mark size=3.2pt, draw=tolblue!80!black, fill=tolblue!12] coordinates {(464.7,11.33)};
+  \addplot[only marks, mark=*, mark size=4.0pt, draw=tolteal!80!black, fill=tolteal!12] coordinates {(152,6)};
+  \addplot[only marks, mark=*, mark size=2.7pt, draw=tolteal!80!black, fill=tolteal!35] coordinates {(496,9)};
+  \node[anchor=west, font=\scriptsize] at (axis cs:250,19.3) {\tool (0.098)};
+  \node[anchor=west, font=\scriptsize] at (axis cs:367,14.4) {B1 random, all oracles (0.051)};
+  \node[anchor=east, font=\scriptsize] at (axis cs:455,11.0) {B1 random, output oracle (0.025)};
+  \node[anchor=west, font=\scriptsize] at (axis cs:163,5.6) {B3 NNSmith, native inputs (0.040)};
+  \node[anchor=east, font=\scriptsize] at (axis cs:488,8.4) {B3 NNSmith + \tool contexts (0.018)};
+  \draw[black!40, densely dashed] (axis cs:100,19) -- (axis cs:560,19);
+\end{axis}
+\end{tikzpicture}
+\caption{RQ2: faults found against tests executed under the same harness, oracles, and budget. Marker area is
+proportional to test efficiency (unique failure clusters per executed test, in parentheses). B1 values are means
+over three seeds.}
+\label{fig:rq2}
+\end{figure}

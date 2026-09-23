@@ -1,0 +1,50 @@
+[{"stream_name":"stdout","time":6.834626813,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 7.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":41.840583029,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":41.840621222,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":41.840629004,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":44.202801936,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":44.653344066,"data":"===== draft21.py\n"}
+,{"stream_name":"stdout","time":52.377162622,"data":"def forward(self, x):\n"}
+,{"stream_name":"stdout","time":52.377209725,"data":"    pow_1 = -2 ** x;  x = None\n"}
+,{"stream_name":"stdout","time":52.377217305,"data":"    return pow_1\n"}
+,{"stream_name":"stdout","time":52.377222366,"data":"Interpreter: 4  GraphModule.forward: -4  Python (-2) ** 2: 4\n"}
+,{"stream_name":"stdout","time":52.377227271,"data":"eager [(2, 1.0, -1.0), (3, -1.0, -1.0), (4, 1.0, -1.0)]   # (n, eager, compiled)\n"}
+,{"stream_name":"stdout","time":52.377232128,"data":"aot_eager [(2, 1.0, -1.0), (3, -1.0, -1.0), (4, 1.0, -1.0)]   # (n, eager, compiled)\n"}
+,{"stream_name":"stdout","time":53.297022342,"data":"===== draft22.py\n"}
+,{"stream_name":"stdout","time":57.062274861,"data":"n=14  round(n, -1): python  10 compiled  14   x * round(5n, -1): eager    70 compiled    70\n"}
+,{"stream_name":"stdout","time":57.062320462,"data":"n=15  round(n, -1): python  20 compiled  15   x * round(5n, -1): eager    80 compiled    75\n"}
+,{"stream_name":"stdout","time":57.062327406,"data":"n=16  round(n, -1): python  20 compiled  16   x * round(5n, -1): eager    80 compiled    80\n"}
+,{"stream_name":"stdout","time":57.062332663,"data":"n=25  round(n, -1): python  20 compiled  25   x * round(5n, -1): eager   120 compiled   125\n"}
+,{"stream_name":"stdout","time":57.898728888,"data":"===== draft23.py\n"}
+,{"stream_name":"stdout","time":77.12656351,"data":"v != v         eager [1.0, 1.0]   eager [nan, nan]   aot_eager [nan, nan]   inductor [nan, nan]\n"}
+,{"stream_name":"stdout","time":77.12661566,"data":"math.isnan(v)  eager [1.0, 1.0]   eager [1.0, 1.0]   aot_eager [1.0, 1.0]   inductor [1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":77.126623024,"data":"v - v for v = inf:  eager nan   inductor 0.0\n"}
+,{"stream_name":"stdout","time":83.377894946,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.4/199.4 MB 9.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":105.273367825,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":105.27340439,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":105.273410082,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":107.322358262,"data":"torch 2.15.0.dev20260921+cpu\n"}
+,{"stream_name":"stdout","time":107.802829852,"data":"===== draft21.py\n"}
+,{"stream_name":"stdout","time":111.966820661,"data":"def forward(self, x):\n"}
+,{"stream_name":"stdout","time":111.966868613,"data":"    pow_1 = -2 ** x;  x = None\n"}
+,{"stream_name":"stdout","time":111.966902949,"data":"    return pow_1\n"}
+,{"stream_name":"stdout","time":111.966908345,"data":"Interpreter: 4  GraphModule.forward: -4  Python (-2) ** 2: 4\n"}
+,{"stream_name":"stdout","time":111.96691236,"data":"eager [(2, 1.0, -1.0), (3, -1.0, -1.0), (4, 1.0, -1.0)]   # (n, eager, compiled)\n"}
+,{"stream_name":"stdout","time":111.966916417,"data":"aot_eager [(2, 1.0, -1.0), (3, -1.0, -1.0), (4, 1.0, -1.0)]   # (n, eager, compiled)\n"}
+,{"stream_name":"stdout","time":112.917356314,"data":"===== draft22.py\n"}
+,{"stream_name":"stdout","time":117.020068758,"data":"n=14  round(n, -1): python  10 compiled  14   x * round(5n, -1): eager    70 compiled    70\n"}
+,{"stream_name":"stdout","time":117.020108929,"data":"n=15  round(n, -1): python  20 compiled  15   x * round(5n, -1): eager    80 compiled    75\n"}
+,{"stream_name":"stdout","time":117.020115313,"data":"n=16  round(n, -1): python  20 compiled  16   x * round(5n, -1): eager    80 compiled    80\n"}
+,{"stream_name":"stdout","time":117.020119956,"data":"n=25  round(n, -1): python  20 compiled  25   x * round(5n, -1): eager   120 compiled   125\n"}
+,{"stream_name":"stdout","time":117.923889585,"data":"===== draft23.py\n"}
+,{"stream_name":"stdout","time":136.53615739399999,"data":"v != v         eager [1.0, 1.0]   eager [nan, nan]   aot_eager [nan, nan]   inductor [nan, nan]\n"}
+,{"stream_name":"stdout","time":136.53620507,"data":"math.isnan(v)  eager [1.0, 1.0]   eager [1.0, 1.0]   aot_eager [1.0, 1.0]   inductor [1.0, 1.0]\n"}
+,{"stream_name":"stdout","time":136.536212591,"data":"v - v for v = inf:  eager nan   inductor 0.0\n"}
+,{"stream_name":"stdout","time":137.936669824,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":140.559494361,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":140.559533995,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":140.886425572,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":140.886459726,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":141.661335547,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":143.29156028,"data":"[NbConvertApp] Writing 279068 bytes to __results__.html\n"}
+]

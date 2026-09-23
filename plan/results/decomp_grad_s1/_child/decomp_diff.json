@@ -1,0 +1,169 @@
+{
+  "stats": {
+    "ops": 21,
+    "samples": 21,
+    "variants": 321,
+    "decomp_covered": 292,
+    "decomp_mismatch": 5,
+    "meta_mismatch": 0,
+    "data_dependent": 2,
+    "errors": 0,
+    "wall_s": 12.3
+  },
+  "mismatches": [
+    {
+      "op": "bmm",
+      "variant": "zero_dim",
+      "kind": "decomp",
+      "detail": "[exception] exception type differs: RuntimeError vs IndexError :: tuple index out of range",
+      "decomps_hit": [
+        "aten.detach.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [],
+        [
+          10,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.median",
+      "variant": "dtype_int64",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.median",
+      "variant": "dtype_bool",
+      "kind": "data_dependent",
+      "detail": "fake-tensor path raised DataDependentOutputException: aten._local_scalar_dense.default",
+      "decomps_hit": [],
+      "confirmed": null,
+      "confirm_detail": "",
+      "shapes": [
+        [
+          5,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.bool"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.softmax",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten._softmax.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.log_softmax",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten._log_softmax.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5,
+          10,
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "masked.logaddexp",
+      "variant": "dtype_int64",
+      "kind": "decomp",
+      "detail": "[exception] ref raised NotImplementedError, test returned normally",
+      "decomps_hit": [
+        "aten.logaddexp.default"
+      ],
+      "confirmed": true,
+      "confirm_detail": "ref raised NotImplementedError, test returned normally",
+      "shapes": [
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ],
+      "recipe": ""
+    },
+    {
+      "op": "bmm",
+      "variant": "zero_dim",
+      "kind": "decomp",
+      "detail": "[exception] exception type differs: RuntimeError vs IndexError :: tuple index out of range",
+      "decomps_hit": [
+        "aten.detach.default"
+      ],
+      "confirmed": false,
+      "confirm_detail": "compiled matches eager",
+      "shapes": [
+        [],
+        [
+          16,
+          1,
+          64
+        ]
+      ],
+      "dtypes": [
+        "torch.float32",
+        "torch.float32"
+      ],
+      "recipe": ""
+    }
+  ]
+}

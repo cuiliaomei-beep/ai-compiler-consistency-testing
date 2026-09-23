@@ -1,0 +1,61 @@
+{
+  "factor_changed": "substitute",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "n=0",
+    "factors": {
+      "substitute": {
+        "arg": 1,
+        "value": 0
+      }
+    },
+    "warm": true,
+    "origin": "n"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "loop_bound",
+    "factor": "n",
+    "kind": "scalar",
+    "values": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "constraint": "boundary +-1",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "exception"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "parameter compared against a constant / used as index or bound",
+    "param": "n",
+    "dim": null
+  },
+  "triage": {
+    "stage": "specialization_cache",
+    "stage_label": "cache specialization (guard / stale artifact reuse)",
+    "priority": "high",
+    "rationale": "changing 'substitute' did not trigger a recompile, yet the warm result differs from a cold compile of the same context: a cached artifact was reused under assumptions that no longer hold",
+    "kinds": [
+      "value",
+      "alias"
+    ],
+    "recompiled": false,
+    "guard_suspicious": false,
+    "warm_only": true,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": true
+  }
+}

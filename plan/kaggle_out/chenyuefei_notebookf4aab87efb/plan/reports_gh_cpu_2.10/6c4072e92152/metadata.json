@@ -1,0 +1,28 @@
+{
+  "signature": "6c4072e92152",
+  "program": "issue_179534_torch_compile_fails_on_aten_sparse_csr_t",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cpu",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "179534",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/179534",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

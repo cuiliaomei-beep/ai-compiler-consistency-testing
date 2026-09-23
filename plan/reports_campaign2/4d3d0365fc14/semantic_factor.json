@@ -1,0 +1,55 @@
+{
+  "factor_changed": "layout",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "layout=transposed",
+    "factors": {
+      "layout": "transposed"
+    },
+    "warm": true,
+    "origin": "self.is_contiguous()"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "forward",
+    "factor": "self.is_contiguous()",
+    "kind": "contiguous",
+    "values": [
+      "noncontig",
+      "transposed"
+    ],
+    "constraint": "layout variants with identical values",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "alias",
+      "mutation"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "layout read, or alias structure is written through",
+    "param": "self",
+    "dim": null
+  },
+  "triage": {
+    "stage": "none",
+    "stage_label": "no divergence",
+    "priority": "info",
+    "rationale": "'layout' changed without a recompile and the result matched; guards may be under-specified (informational)",
+    "kinds": [],
+    "recompiled": false,
+    "guard_suspicious": true,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": false
+  }
+}

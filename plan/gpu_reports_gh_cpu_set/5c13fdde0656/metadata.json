@@ -1,0 +1,28 @@
+{
+  "signature": "5c13fdde0656",
+  "program": "issue_179383_torch_quantile_and_torch_nanquantile_fai",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "179383",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/179383",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

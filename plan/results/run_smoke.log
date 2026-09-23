@@ -1,0 +1,10 @@
+
+torch 2.14.0+cpu  device cpu  backend=inductor  reruns=1
+4 program(s) -> reports_smoke
+
+  shape_boundary           0 candidate(s), 0 submittable, 24 tests, 88 compiles  [33.8s]
+  view_inplace             0 candidate(s), 0 submittable, 19 tests, 71 compiles  [29.0s]
+  dtype_reduce             0 candidate(s), 0 submittable, 24 tests, 84 compiles  [32.5s]
+  overlapping_views        0 candidate(s), 0 submittable, 24 tests, 88 compiles  [34.5s]
+
+0 candidate(s); summary at reports_smoke\SUMMARY.md

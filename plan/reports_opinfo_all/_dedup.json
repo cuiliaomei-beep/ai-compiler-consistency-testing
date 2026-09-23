@@ -1,0 +1,79 @@
+{
+  "0211b330cc67": {
+    "count": 1,
+    "factor": "",
+    "probe": "layered",
+    "program": "opinfo_var_mean",
+    "stage": "inductor_codegen"
+  },
+  "0f1b7b8f1dc6": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "matrix",
+    "program": "opinfo_new_empty",
+    "stage": "compile_nondeterminism"
+  },
+  "13828b145f92": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "matrix",
+    "program": "opinfo_new_empty_strided",
+    "stage": "cache_invalidation"
+  },
+  "282f0b8cd0fa": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "layered",
+    "program": "opinfo_var_mean",
+    "stage": "inductor_codegen"
+  },
+  "2c4aa34a458c": {
+    "count": 1,
+    "factor": "requires_grad",
+    "probe": "matrix",
+    "program": "opinfo_new_empty",
+    "stage": "cache_invalidation"
+  },
+  "3b6a5083ff89": {
+    "count": 2,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "opinfo_var_mean",
+    "stage": "inductor_codegen"
+  },
+  "3c313d55c8e2": {
+    "count": 3,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "opinfo_var_mean",
+    "stage": "inductor_codegen"
+  },
+  "6468272fac80": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "opinfo_max_pool2d_with_indices_backward",
+    "stage": "dynamo_capture"
+  },
+  "64e82aeff101": {
+    "count": 6,
+    "factor": "dtype",
+    "probe": "matrix",
+    "program": "opinfo_new_empty",
+    "stage": "cache_invalidation"
+  },
+  "7161f764494b": {
+    "count": 1,
+    "factor": "compile",
+    "probe": "layered",
+    "program": "opinfo_cov",
+    "stage": "dynamo_capture"
+  },
+  "94da24655a6e": {
+    "count": 1,
+    "factor": "dtype",
+    "probe": "layered",
+    "program": "opinfo_nn_functional_soft_margin_loss",
+    "stage": "inductor_codegen"
+  }
+}

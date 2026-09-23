@@ -1,0 +1,60 @@
+{
+  "signature": "71b953dfc7ab",
+  "program": "issue_95161_aotautograd_based_torch_compile_doesn_t",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "95161",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/95161",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 194658,
+      "title": "add aot autograd cache tests and fix over-caching",
+      "url": "https://github.com/pytorch/pytorch/pull/194658",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-24"
+    },
+    {
+      "number": 186476,
+      "title": "Fix Dynamo resume tensor lifetimes across graph breaks",
+      "url": "https://github.com/pytorch/pytorch/pull/186476",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-06-06"
+    },
+    {
+      "number": 95161,
+      "title": "AOTAutograd based torch.compile doesn't capture manual seed setting in the graph",
+      "url": "https://github.com/pytorch/pytorch/issues/95161",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2023-02-20"
+    },
+    {
+      "number": 118155,
+      "title": "[Dyanmo Single Step Graph]Inline NNModule's fwd in dynamo instead of leave it allow_in_graph",
+      "url": "https://github.com/pytorch/pytorch/pull/118155",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2024-01-24"
+    }
+  ]
+}

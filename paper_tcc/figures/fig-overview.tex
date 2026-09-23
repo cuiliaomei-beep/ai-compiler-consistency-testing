@@ -1,0 +1,48 @@
+%% Figure: overview of the approach (four phases + factor-family analyzers).
+\begin{figure}[t]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+    font=\scriptsize,
+    phase/.style={draw=black!55, rounded corners=2pt, fill=#1, align=center, minimum height=1.55cm,
+                  text width=2.95cm, inner sep=3pt},
+    art/.style={draw=black!45, fill=white, align=center, font=\scriptsize\itshape, inner sep=2pt,
+                rounded corners=1pt},
+    flow/.style={-{Stealth[length=4pt]}, thick, black!65},
+    side/.style={-{Stealth[length=3pt]}, black!55, densely dashed},
+]
+  %% phases
+  \node[phase=tolblue!12] (p1) {\textbf{Phase 1}\\Semantic analysis\\[1pt]
+        sites $\rightarrow$ IR $\rightarrow$ factors\\alias / mutation facts};
+  \node[phase=tolteal!14, right=0.75cm of p1] (p2) {\textbf{Phase 2}\\Guided generation\\[1pt]
+        pairwise $\cdot$ boundary\\$A{\rightarrow}B$, $A{\rightarrow}B{\rightarrow}A$};
+  \node[phase=tolorange!16, right=0.75cm of p2] (p3) {\textbf{Phase 3}\\Validation\\[1pt]
+        $E_0$--$E_3$, cold / warm\\oracles O1--O7, minimize};
+  \node[phase=tolmagenta!12, right=0.75cm of p3] (p4) {\textbf{Phase 4}\\Report\\[1pt]
+        de-duplicate, explain\\root-cause hypothesis};
+  %% artifacts between phases
+  \node[art, above=0.42cm of $(p1.north)!0.5!(p2.north)$] (scs) {SCS + test obligations};
+  \node[art, above=0.42cm of $(p2.north)!0.5!(p3.north)$] (tests) {contexts + sequences};
+  \node[art, above=0.42cm of $(p3.north)!0.5!(p4.north)$] (fail) {confirmed failure};
+  \draw[flow] (p1) -- (p2); \draw[flow] (p2) -- (p3); \draw[flow] (p3) -- (p4);
+  \draw[side] (p1.north) |- (scs.west); \draw[side] (scs.east) -| (p2.north);
+  \draw[side] ([xshift=3pt]p2.north) |- (tests.west); \draw[side] (tests.east) -| (p3.north);
+  \draw[side] ([xshift=3pt]p3.north) |- (fail.west); \draw[side] (fail.east) -| (p4.north);
+  %% inputs / outputs
+  \node[art, left=0.45cm of p1, text width=1.55cm, font=\scriptsize] (in) {Python program\\+ seed input};
+  \node[art, right=0.45cm of p4, text width=1.75cm, font=\scriptsize] (out) {issue draft\\+ reproducer};
+  \draw[flow] (in) -- (p1); \draw[flow] (p4) -- (out);
+  %% analyzers lane
+  \node[draw=black!50, rounded corners=2pt, fill=black!4, below=0.55cm of $(p2.south)!0.5!(p3.south)$,
+        text width=12.4cm, align=center, inner sep=4pt] (an)
+        {\textbf{Factor-family analyzers} (OpInfo seeds, one factor family at a time, same oracles)\\[1pt]
+         decomposition / meta $\cdot$ configuration relations $\cdot$ binding form $\cdot$ dtype promotion $\cdot$
+         Python semantics\\ differentiation modes $\cdot$ optimizer step $\cdot$ export / AOTInductor $\cdot$ disk cache};
+  \draw[flow] (an.north -| p3.south) -- (p3.south);
+  \draw[side] (p2.south) -- (an.north -| p2.south);
+\end{tikzpicture}}
+\caption{Overview of \tool. Phase~1 derives the context factors a compilation site reads; Phase~2 changes one
+factor at a time; Phase~3 compares eager and layered compiled executions, cold and warm; Phase~4 packages
+confirmed failures. The analyzers reuse Phases~3 and~4 for factor families that are not visible in user code.}
+\label{fig:overview}
+\end{figure}

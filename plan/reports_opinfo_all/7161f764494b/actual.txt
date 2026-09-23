@@ -1,0 +1,2 @@
+exception TorchRuntimeError: RuntimeError when making fake tensor call
+  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in method cov of type object at 0x00007FFDA3309C40>(*(FakeTensor(..., size=(2, 3)),), **{'correction': 1, 'fweights': None, 'aweights': FakeTensor(..., size=(3,))}): got RuntimeError('Cannot call numel() on tensor with symbolic sizes/strides\nException raised from throw_can

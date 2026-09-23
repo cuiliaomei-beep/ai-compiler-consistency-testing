@@ -1,0 +1,1170 @@
+{
+  "stats": {
+    "ops": 3,
+    "samples": 3,
+    "slots": 3,
+    "variants": 33,
+    "compiles": 84,
+    "checks": 84,
+    "findings": 64,
+    "form_specific": 0,
+    "infra": 0,
+    "wall_s": 266.1,
+    "crashes": 0
+  },
+  "mismatches": [
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "literal",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "def f(x0):\n    return torch.combinations(x0, r=1, with_replacement=False)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "pos_param",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "def f(x0, k):\n    return torch.combinations(x0, r=k, with_replacement=False)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "default_param",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "def f(x0, k=1):\n    return torch.combinations(x0, r=k, with_replacement=False)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "kwargs_param",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "def f(x0, **kw):\n    return torch.combinations(x0, r=kw['k'], with_replacement=False)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "closure",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0):\n        return torch.combinations(x0, r=k, with_replacement=False)\n    return f\nf = make(1)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "global",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "K = 1\ndef f(x0):\n    return torch.combinations(x0, r=K, with_replacement=False)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "attribute",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 1\ndef f(x0):\n    return torch.combinations(x0, r=cfg.k, with_replacement=False)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "list_elem",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "ks = [1]\ndef f(x0):\n    return torch.combinations(x0, r=ks[0], with_replacement=False)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "dict_elem",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "d = {'k': 1}\ndef f(x0):\n    return torch.combinations(x0, r=d['k'], with_replacement=False)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "kwargs_expand",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "opts = {'r': 1}\ndef f(x0):\n    return torch.combinations(x0, **opts, with_replacement=False)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "combinations",
+      "slot": "r",
+      "value": 1,
+      "form": "tensor_item",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs TorchRuntimeError :: Dynamo failed to run FX node with fake tensors: call_function <built-in method combinations of type object at 0x7f9bd52e",
+      "literal_same": false,
+      "source": "def f(x0, kt):\n    return torch.combinations(x0, r=kt.item(), with_replacement=False)\n",
+      "shapes": [
+        [
+          4
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "literal",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def f(x0, x1):\n    return torch.linspace(x0, x1, 0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "literal",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def f(x0, x1):\n    return torch.linspace(x0, x1, 0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "pos_param",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def f(x0, x1, k):\n    return torch.linspace(x0, x1, k, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "pos_param",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def f(x0, x1, k):\n    return torch.linspace(x0, x1, k, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "default_param",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def f(x0, x1, k=0):\n    return torch.linspace(x0, x1, k, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "default_param",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def f(x0, x1, k=0):\n    return torch.linspace(x0, x1, k, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "kwargs_param",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def f(x0, x1, **kw):\n    return torch.linspace(x0, x1, kw['k'], dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "kwargs_param",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def f(x0, x1, **kw):\n    return torch.linspace(x0, x1, kw['k'], dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "closure",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0, x1):\n        return torch.linspace(x0, x1, k, dtype=torch.float32, device='cuda')\n    return f\nf = make(0)\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "closure",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0, x1):\n        return torch.linspace(x0, x1, k, dtype=torch.float32, device='cuda')\n    return f\nf = make(0)\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "global",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "K = 0\ndef f(x0, x1):\n    return torch.linspace(x0, x1, K, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "global",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "K = 0\ndef f(x0, x1):\n    return torch.linspace(x0, x1, K, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "attribute",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 0\ndef f(x0, x1):\n    return torch.linspace(x0, x1, cfg.k, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "attribute",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 0\ndef f(x0, x1):\n    return torch.linspace(x0, x1, cfg.k, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "list_elem",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "ks = [0]\ndef f(x0, x1):\n    return torch.linspace(x0, x1, ks[0], dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "list_elem",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "ks = [0]\ndef f(x0, x1):\n    return torch.linspace(x0, x1, ks[0], dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "dict_elem",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "d = {'k': 0}\ndef f(x0, x1):\n    return torch.linspace(x0, x1, d['k'], dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "dict_elem",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "d = {'k': 0}\ndef f(x0, x1):\n    return torch.linspace(x0, x1, d['k'], dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "kwargs_expand",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "extra = [0]\ndef f(x0, x1):\n    return torch.linspace(x0, x1, *extra, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "kwargs_expand",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "extra = [0]\ndef f(x0, x1):\n    return torch.linspace(x0, x1, *extra, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "tensor_item",
+      "mode": "static",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def f(x0, x1, kt):\n    return torch.linspace(x0, x1, kt.item(), dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "linspace",
+      "slot": "arg2",
+      "value": 0,
+      "form": "tensor_item",
+      "mode": "dynamic",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": false,
+      "source": "def f(x0, x1, kt):\n    return torch.linspace(x0, x1, kt.item(), dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "literal",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def f(x0, x1):\n    return torch.logspace(x0, x1, 4, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "literal",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def f(x0, x1):\n    return torch.logspace(x0, x1, 4, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "pos_param",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def f(x0, x1, k):\n    return torch.logspace(x0, x1, k, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "pos_param",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def f(x0, x1, k):\n    return torch.logspace(x0, x1, k, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "pos_param",
+      "mode": "rebind",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": null,
+      "source": "def f(x0, x1, k):\n    return torch.logspace(x0, x1, k, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "default_param",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def f(x0, x1, k=4):\n    return torch.logspace(x0, x1, k, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "default_param",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def f(x0, x1, k=4):\n    return torch.logspace(x0, x1, k, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "kwargs_param",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def f(x0, x1, **kw):\n    return torch.logspace(x0, x1, kw['k'], 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "kwargs_param",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def f(x0, x1, **kw):\n    return torch.logspace(x0, x1, kw['k'], 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "kwargs_param",
+      "mode": "rebind",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": null,
+      "source": "def f(x0, x1, **kw):\n    return torch.logspace(x0, x1, kw['k'], 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "closure",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0, x1):\n        return torch.logspace(x0, x1, k, 3.0, dtype=torch.float32, device='cuda')\n    return f\nf = make(4)\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "closure",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def make(k):\n    def f(x0, x1):\n        return torch.logspace(x0, x1, k, 3.0, dtype=torch.float32, device='cuda')\n    return f\nf = make(4)\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "closure",
+      "mode": "rebind",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": null,
+      "source": "def make(k):\n    def f(x0, x1):\n        return torch.logspace(x0, x1, k, 3.0, dtype=torch.float32, device='cuda')\n    return f\nf = make(4)\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "global",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "K = 4\ndef f(x0, x1):\n    return torch.logspace(x0, x1, K, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "global",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "K = 4\ndef f(x0, x1):\n    return torch.logspace(x0, x1, K, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "global",
+      "mode": "rebind",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": null,
+      "source": "K = 4\ndef f(x0, x1):\n    return torch.logspace(x0, x1, K, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "attribute",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 4\ndef f(x0, x1):\n    return torch.logspace(x0, x1, cfg.k, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "attribute",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 4\ndef f(x0, x1):\n    return torch.logspace(x0, x1, cfg.k, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "attribute",
+      "mode": "rebind",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": null,
+      "source": "class Cfg:\n    pass\ncfg = Cfg()\ncfg.k = 4\ndef f(x0, x1):\n    return torch.logspace(x0, x1, cfg.k, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "list_elem",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "ks = [4]\ndef f(x0, x1):\n    return torch.logspace(x0, x1, ks[0], 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "list_elem",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "ks = [4]\ndef f(x0, x1):\n    return torch.logspace(x0, x1, ks[0], 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "list_elem",
+      "mode": "rebind",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": null,
+      "source": "ks = [4]\ndef f(x0, x1):\n    return torch.logspace(x0, x1, ks[0], 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "dict_elem",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "d = {'k': 4}\ndef f(x0, x1):\n    return torch.logspace(x0, x1, d['k'], 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "dict_elem",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "d = {'k': 4}\ndef f(x0, x1):\n    return torch.logspace(x0, x1, d['k'], 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "dict_elem",
+      "mode": "rebind",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": null,
+      "source": "d = {'k': 4}\ndef f(x0, x1):\n    return torch.logspace(x0, x1, d['k'], 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "kwargs_expand",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "extra = [4]\ndef f(x0, x1):\n    return torch.logspace(x0, x1, *extra, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "kwargs_expand",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "extra = [4]\ndef f(x0, x1):\n    return torch.logspace(x0, x1, *extra, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "kwargs_expand",
+      "mode": "rebind",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": null,
+      "source": "extra = [4]\ndef f(x0, x1):\n    return torch.logspace(x0, x1, *extra, 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "tensor_item",
+      "mode": "static",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def f(x0, x1, kt):\n    return torch.logspace(x0, x1, kt.item(), 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "tensor_item",
+      "mode": "dynamic",
+      "detail": "[exception] exception type differs: AcceleratorError vs GPUTooOldForTriton :: Found Tesla P100-PCIE-16GB which is too old to be supported by the triton GPU compiler, which is used as the backend. Tr",
+      "literal_same": false,
+      "source": "def f(x0, x1, kt):\n    return torch.logspace(x0, x1, kt.item(), 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    },
+    {
+      "op": "logspace",
+      "slot": "arg2",
+      "value": 4,
+      "form": "tensor_item",
+      "mode": "rebind",
+      "detail": "[exception] test raised BackendCompilerFailed, ref returned normally :: backend='inductor' raised:\nAcceleratorError: CUDA error: no kernel image is available for execution on the device\nSearch",
+      "literal_same": null,
+      "source": "def f(x0, x1, kt):\n    return torch.logspace(x0, x1, kt.item(), 3.0, dtype=torch.float32, device='cuda')\n",
+      "shapes": [
+        [],
+        []
+      ],
+      "dtypes": [
+        "torch.int64",
+        "torch.int64"
+      ]
+    }
+  ],
+  "crashes": []
+}

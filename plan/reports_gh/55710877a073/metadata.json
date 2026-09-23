@@ -1,0 +1,60 @@
+{
+  "signature": "55710877a073",
+  "program": "issue_184405_torch_compile_backend_inductor_returns_s",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Pending",
+  "reproducibility": "1/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": 185891,
+      "title": "[dynamo] Guard AOTAutograd input mutation overlap changes",
+      "url": "https://github.com/pytorch/pytorch/pull/185891",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-06-02"
+    },
+    {
+      "number": 176178,
+      "title": "[CuTeDSL] grouped_mm illegal address from TMA descriptor init/update shape mismatch",
+      "url": "https://github.com/pytorch/pytorch/issues/176178",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-03-02"
+    },
+    {
+      "number": 192025,
+      "title": "[Inductor] Keep padded tail divisors non-zero in vectorized integer remainder",
+      "url": "https://github.com/pytorch/pytorch/pull/192025",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-08-04"
+    },
+    {
+      "number": 165280,
+      "title": "[inductor] avoid triton kernel when creating zero tensor",
+      "url": "https://github.com/pytorch/pytorch/issues/165280",
+      "state": "open",
+      "is_pr": false,
+      "created": "2025-10-13"
+    },
+    {
+      "number": 161609,
+      "title": "Bucketize lowering crash when using a sliced computed tensor as boundaries",
+      "url": "https://github.com/pytorch/pytorch/issues/161609",
+      "state": "open",
+      "is_pr": false,
+      "created": "2025-08-27"
+    }
+  ]
+}

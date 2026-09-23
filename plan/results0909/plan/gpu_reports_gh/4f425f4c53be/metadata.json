@@ -1,0 +1,52 @@
+{
+  "signature": "4f425f4c53be",
+  "program": "issue_180771_inductor_torch_compile_produces_wrong_gr",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "gradient"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "180771",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/180771",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 180771,
+      "title": "[inductor] `torch.compile` produces wrong gradients for `torch.slice_scatter` backward",
+      "url": "https://github.com/pytorch/pytorch/issues/180771",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-04-19"
+    },
+    {
+      "number": 180772,
+      "title": "[inductor] torch.compile produces wrong gradients for torch.slice_scatter backward",
+      "url": "https://github.com/pytorch/pytorch/issues/180772",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-04-19"
+    },
+    {
+      "number": 183898,
+      "title": "torch.compile produces wrong gradient for slice_scatter backward on CUDA",
+      "url": "https://github.com/pytorch/pytorch/issues/183898",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-15"
+    }
+  ]
+}

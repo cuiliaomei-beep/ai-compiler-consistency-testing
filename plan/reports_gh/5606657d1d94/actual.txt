@@ -1,0 +1,5 @@
+exception InternalTorchDynamoError: AsPythonConstantNotImplementedError: SymNodeVariable() is not a constant
+
+from user code:
+   File "reproducers_gh\issue_196285_torch_compile_dynamic_true_fails_to_hand.py", line 10, in fn
+    selected = values.pop(x.shape[0] - 2)

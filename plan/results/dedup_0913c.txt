@@ -1,0 +1,19 @@
+
+## bitwise_not float tensor inductor | error: None
+   144247 open [inductor][cpu] torch.bitwise_and/or/xor incorrectly accepts float32 tensors
+   186016 closed Reject invalid bitwise dtypes in Inductor lowering
+   158376 closed torch 2.8 RC regression - part 3
+   139424 closed `torch.compile` error on `scaled_dot_product_attention` in `transformers.LlamaForCausalLM` when providing `att
+
+## torch.compile bitwise float garbage | error: None
+   192786 open Inductor: fuse CUDA FNUZ FP8 conversions into Triton kernels
+   191447 closed [Eager] Add FlyDSL native RMSNorm forward override
+
+## inductor bitwise_and float32 not implemented eager | error: None
+   144247 open [inductor][cpu] torch.bitwise_and/or/xor incorrectly accepts float32 tensors
+   193554 closed [inductor] Add software fallback for cvt_e8m0_rceil on non-SM100 devices
+
+## inductor accepts bitwise op on floating point | error: None
+   192786 open Inductor: fuse CUDA FNUZ FP8 conversions into Triton kernels
+   192313 open Feat/divmod
+   194787 open grid_sample: support mode='bicubic' with 5-D input, including its double backward

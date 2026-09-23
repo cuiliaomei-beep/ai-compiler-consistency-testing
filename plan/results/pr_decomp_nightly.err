@@ -1,0 +1,213 @@
+D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\decomp_diff.py:365: UserWarning: Casting complex values to real discards the imaginary part (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\Copy.cpp:308.)
+  return _op(*a, **kw)
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.reflection_pad1d.default
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3223, in _dispatch_impl
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2218, in meta_reflection_pad1d
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return _pad1d_common(input, padding, is_reflection=True)
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2187, in _pad1d_common
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _padding_check_valid_input(input, padding, dim=1)
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2166, in _padding_check_valid_input
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     torch._check(
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~^
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         sym_or(valid_batch_mode, valid_non_batch_mode),
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ...<3 lines>...
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ),
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     )
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ^
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2161, in _check
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2139, in _check_with
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 21:34:05.046000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] RuntimeError: Expected 2D or 3D (batch mode) tensor with possibly 0 batch size and other non-zero dimensions for input, but got: torch.Size([0, 3])
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.reflection_pad1d.default
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3223, in _dispatch_impl
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2218, in meta_reflection_pad1d
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return _pad1d_common(input, padding, is_reflection=True)
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2187, in _pad1d_common
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _padding_check_valid_input(input, padding, dim=1)
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2166, in _padding_check_valid_input
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     torch._check(
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~^
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         sym_or(valid_batch_mode, valid_non_batch_mode),
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ...<3 lines>...
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ),
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     )
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ^
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2161, in _check
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2139, in _check_with
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 21:34:05.355000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] RuntimeError: Expected 2D or 3D (batch mode) tensor with possibly 0 batch size and other non-zero dimensions for input, but got: torch.Size([1, 0])
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.reflection_pad1d.default
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3223, in _dispatch_impl
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2218, in meta_reflection_pad1d
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return _pad1d_common(input, padding, is_reflection=True)
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2196, in _pad1d_common
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     torch._check(
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~^
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         sym_and(pad_l < input_w, pad_r < input_w),
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ...<3 lines>...
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ),
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     )
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ^
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2161, in _check
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2139, in _check_with
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 21:34:05.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] RuntimeError: Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (0, 1) at dimension 1 of input torch.Size([1, 1])
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.replication_pad1d.default
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3223, in _dispatch_impl
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2228, in meta_replication_pad1d
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return _pad1d_common(input, padding, is_reflection=False)
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2187, in _pad1d_common
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _padding_check_valid_input(input, padding, dim=1)
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2166, in _padding_check_valid_input
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     torch._check(
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~^
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         sym_or(valid_batch_mode, valid_non_batch_mode),
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ...<3 lines>...
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ),
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     )
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ^
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2161, in _check
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2139, in _check_with
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 21:34:14.394000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] RuntimeError: Expected 2D or 3D (batch mode) tensor with possibly 0 batch size and other non-zero dimensions for input, but got: torch.Size([1, 3, 0])
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.replication_pad1d.default
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3223, in _dispatch_impl
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2224, in meta_replication_pad1d
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     torch._check(
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~^
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         input.dtype != torch.bool,
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         lambda: f""""replication_pad1d" not implemented for '{input.dtype.__str__()}'""",
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     )
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ^
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2161, in _check
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2139, in _check_with
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 21:34:14.518000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] RuntimeError: "replication_pad1d" not implemented for 'torch.bool'
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.replication_pad2d.default
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3223, in _dispatch_impl
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2352, in meta_replication_pad2d
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     torch._check(
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~^
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         input.dtype != torch.bool,
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         lambda: f""""replication_pad2d" not implemented for '{input.dtype.__str__()}'""",
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     )
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ^
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2161, in _check
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2139, in _check_with
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 21:34:16.847000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] RuntimeError: "replication_pad2d" not implemented for 'torch.bool'
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.replication_pad2d.default
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3223, in _dispatch_impl
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2356, in meta_replication_pad2d
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     return _pad2d_common(input, padding, is_reflection=False)
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2288, in _pad2d_common
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _padding_check_valid_input(input, padding, dim=2)
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_meta_registrations.py", line 2166, in _padding_check_valid_input
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     torch._check(
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~~^
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         sym_or(valid_batch_mode, valid_non_batch_mode),
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ...<3 lines>...
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ),
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]         ^^
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     )
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ^
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2161, in _check
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\__init__.py", line 2139, in _check_with
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)
+E0912 21:34:17.845000 13500 Lib\site-packages\torch\_subclasses\fake_tensor.py:3227] [0/0] RuntimeError: Expected 3D or 4D (batch mode) tensor with possibly 0 batch size and other non-zero dimensions for input, but got: torch.Size([2, 6, 5, 0])
+D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\decomp_diff.py:365: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  return _op(*a, **kw)
+D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_refs\__init__.py:2676: UserWarning: var(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  a_var = torch.var(a, dim, correction=correction, keepdim=keepdim)
+D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\decomp_diff.py:365: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  return _op(*a, **kw)
+D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_refs\__init__.py:2676: UserWarning: var(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  a_var = torch.var(a, dim, correction=correction, keepdim=keepdim)
+D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\decomp_diff.py:365: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  return _op(*a, **kw)
+D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_refs\__init__.py:2676: UserWarning: var(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  a_var = torch.var(a, dim, correction=correction, keepdim=keepdim)
+D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\decomp_diff.py:365: UserWarning: var(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  return _op(*a, **kw)
+D:\wsl\personal\dr\paper\toxic_compile\venv_nightly\Lib\site-packages\torch\_ops.py:916: UserWarning: var(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\ReduceOps.cpp:1914.)
+  return self._op(*args, **kwargs)

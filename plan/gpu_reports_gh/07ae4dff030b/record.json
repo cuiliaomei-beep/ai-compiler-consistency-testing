@@ -1,0 +1,336 @@
+{
+  "signature": "07ae4dff030b",
+  "program": "issue_122381_torch_compile_a_potential_oob_access_in",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 1.111e+00 exceeds 4.0x eager err 5.298e-08",
+          "magnitude": 1.1111111640930176,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              1,
+              5,
+              5
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 1.1111111640930176,
+            "max_rel_error": 1111111164093.0176,
+            "n_mismatch": 1,
+            "n_total": 25,
+            "first_mismatch_index": [
+              0,
+              0,
+              3
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "1.111111164",
+            "expected_preview": "[0, 0, 0, 0, 0, 0, 0, 1.111111164, ... (17 more)]",
+            "actual_preview": "[0, 0, 0, 1.111111164, 0, 0, 0, 1.111111164, ... (17 more)]",
+            "eager_err_vs_fp64": 5.2981906417670643e-08,
+            "compiled_err_vs_fp64": 1.1111111640930176,
+            "budget": 5.298190899338806e-07,
+            "noise_floor": 5.298190899338806e-07
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            25,
+            5,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.2523,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            25,
+            5,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.173,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            25,
+            5,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 3.0894,
+      "alias_pairs": [],
+      "n_inputs": 3,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            5,
+            5
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            25,
+            5,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_122381_torch_compile_a_potential_oob_access_in.py\n[torch.compile] A potential OOB access in CUDA for attention model\nhttps://github.com/pytorch/pytorch/issues/122381",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 14,
+    "steps_kept": 7,
+    "original_lines": 6,
+    "final_lines": 6,
+    "original_numel": 150,
+    "final_numel": 15,
+    "input_recipe": "torch.randn(5, 1), torch.randn(5, 1), torch.randn(5, 1)",
+    "log": [
+      "kept: drop rank",
+      "kept: halve dim 1",
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags",
+      "kept: halve dim 1",
+      "kept: halve dim 1"
+    ],
+    "source": "def forward(self, query, key, value):\n        qk = torch.matmul(query, key.transpose(-2, -1))\n        scaled_qk = qk.div(self.inv_scale_factor)\n        softmax_qk = scaled_qk.softmax(dim=-1)\n        dropout_qk = self.dropout(softmax_qk)\n        return dropout_qk"
+  },
+  "duplicates": {
+    "query": "potential OOB access CUDA attention model",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "122381",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/122381",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 122381,
+        "title": "[torch.compile] A potential OOB access in CUDA for attention model",
+        "url": "https://github.com/pytorch/pytorch/issues/122381",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2024-03-21"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

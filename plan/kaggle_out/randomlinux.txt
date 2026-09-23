@@ -1,0 +1,207 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.7 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torch 2.14.0+cpu
+[shuffle eager] eager   : [[5, 1, 4, 2, 3], [3, 4, 2, 5, 1], [4, 3, 1, 2, 5]]
+                compiled: [[5, 1, 4, 2, 3], [5, 1, 4, 2, 3], [5, 1, 4, 2, 3]]   DIFF
+[shuffle inductor] eager   : [[5, 1, 4, 2, 3], [3, 4, 2, 5, 1], [4, 3, 1, 2, 5]]
+                   compiled: [[5, 1, 4, 2, 3], [5, 1, 4, 2, 3], [5, 1, 4, 2, 3]]   DIFF
+[sample eager] eager   : [[41, 19], [50, 83], [6, 9]]
+               compiled: [[41, 19], [41, 19], [41, 19]]   DIFF
+[sample inductor] eager   : [[41, 19], [50, 83], [6, 9]]
+                  compiled: [[41, 19], [41, 19], [41, 19]]   DIFF
+[seed-inside eager] eager   : [(0.7579544029403025, 53), (0.7579544029403025, 53), (0.7579544029403025, 53)]
+                   compiled: [(0.9654648863619172, 62), (0.7579544029403025, 53), (0.7579544029403025, 53)]   DIFF
+[seed-inside inductor] eager   : [(0.7579544029403025, 53), (0.7579544029403025, 53), (0.7579544029403025, 53)]
+                      compiled: [(0.9654648863619172, 62), (0.7579544029403025, 53), (0.7579544029403025, 53)]   DIFF
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0] failed while attempting to run meta for aten.masked_fill.Scalar
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0] Traceback (most recent call last):
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     r = func(*args, **kwargs)
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     return self._op(*args, **kwargs)
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     result = fn(*args, **kwargs)
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]              ^^^^^^^^^^^^^^^^^^^
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 6222, in masked_fill
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     torch._check(
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     _check_with(RuntimeError, cond, message)
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     raise error_type(message_evaluated)
+E0912 10:56:03.661000 50 torch/_subclasses/fake_tensor.py:3212] [1/0] RuntimeError: could not convert to type <class 'bool'> without overflow
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0] failed while attempting to run meta for aten.masked_fill.Scalar
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0] Traceback (most recent call last):
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     r = func(*args, **kwargs)
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     return self._op(*args, **kwargs)
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     result = fn(*args, **kwargs)
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]              ^^^^^^^^^^^^^^^^^^^
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 6222, in masked_fill
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     torch._check(
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     _check_with(RuntimeError, cond, message)
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     raise error_type(message_evaluated)
+E0912 10:56:03.872000 50 torch/_subclasses/fake_tensor.py:3212] [1/0] RuntimeError: could not convert to type <class 'bool'> without overflow
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0] failed while attempting to run meta for aten.masked_fill.Scalar
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0] Traceback (most recent call last):
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     r = func(*args, **kwargs)
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     return self._op(*args, **kwargs)
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     result = fn(*args, **kwargs)
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]              ^^^^^^^^^^^^^^^^^^^
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 6222, in masked_fill
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     torch._check(
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2140, in _check
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     _check_with(RuntimeError, cond, message)
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2118, in _check_with
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0]     raise error_type(message_evaluated)
+E0912 10:56:05.687000 50 torch/_subclasses/fake_tensor.py:3212] [1/0] RuntimeError: could not convert to type <class 'bool'> without overflow
+torch 2.14.0+cpu
+[seed inside] random               eager=[0.8444218515250481, 0.8444218515250481]  compiled=[0.7579544029403025, 0.8444218515250481]   <-- DIFF
+[seed inside] randint              eager=[864, 864]  compiled=[394, 864]   <-- DIFF
+[seed inside] randrange            eager=[864, 864]  compiled=[394, 864]   <-- DIFF
+[seed inside] uniform              eager=[8.444218515250482, 8.444218515250482]  compiled=[7.579544029403024, 8.444218515250482]   <-- DIFF
+[seed inside] gauss                eager=[0.9417154046806644, 0.9417154046806644]  compiled=[0.9417154046806644, 0.9417154046806644]
+[seed inside] choice               eager=[40, 40]  compiled=[40, 40]
+[seed inside] choices              eager=[[3, 3], [3, 3]]  compiled=[[3, 3], [3, 3]]
+[seed inside] sample               eager=[[49, 97], [49, 97]]  compiled=[[49, 97], [49, 97]]
+[seed inside] shuffle              eager=[[3, 2, 1, 5, 4], [3, 2, 1, 5, 4]]  compiled=[[3, 2, 1, 5, 4], [3, 2, 1, 5, 4]]
+[seed inside] random_x3            eager=[(0.8444218515250481, 0.7579544029403025, 0.420571580830845), (0.8444218515250481, 0.7579544029403025, 0.420571580830845)]  compiled=[(0.25891675029296335, 0.5112747213686085, 0.4049341374504143), (0.8444218515250481, 0.7579544029403025, 0.420571580830845)]   <-- DIFF
+[seed inside] random_then_randint  eager=[(0.8444218515250481, 97), (0.8444218515250481, 97)]  compiled=[(0.890243920837131, 5), (0.8444218515250481, 97)]   <-- DIFF
+[seed outside] random               eager=[0.32383276483316237, 0.15084917392450192, 0.6509344730398537]  compiled=[0.32383276483316237, 0.15084917392450192, 0.6509344730398537]
+[seed outside] randint              eager=[331, 970, 154]  compiled=[331, 970, 154]
+[seed outside] randrange            eager=[331, 970, 154]  compiled=[331, 970, 154]
+[seed outside] uniform              eager=[3.238327648331624, 1.5084917392450192, 6.509344730398538]  compiled=[3.238327648331624, 1.5084917392450192, 6.509344730398538]
+[seed outside] gauss                eager=[-0.2558802884476004, 0.511431512516514, -0.2260961647831047]  compiled=[-0.2558802884476004, 0.511431512516514, -0.2260961647831047]
+[seed outside] choice               eager=[30, 20, 40]  compiled=[30, 20, 40]
+[seed outside] choices              eager=[[1, 1], [2, 1], [2, 2]]  compiled=[[1, 1], [2, 1], [2, 2]]
+[seed outside] sample               eager=[[41, 19], [50, 83], [6, 9]]  compiled=[[41, 19], [41, 19], [41, 19]]   <-- DIFF
+[seed outside] shuffle              eager=[[5, 1, 4, 2, 3], [3, 4, 2, 5, 1], [4, 3, 1, 2, 5]]  compiled=[[5, 1, 4, 2, 3], [5, 1, 4, 2, 3], [5, 1, 4, 2, 3]]   <-- DIFF
+[seed outside] random_x3            eager=[(0.32383276483316237, 0.15084917392450192, 0.6509344730398537), (0.07243628666754276, 0.5358820043066892, 0.36568891691258554), (0.057998924774706806, 0.5074357331894203, 0.03749565844198488)]  compiled=[(0.32383276483316237, 0.15084917392450192, 0.6509344730398537), (0.07243628666754276, 0.5358820043066892, 0.36568891691258554), (0.057998924774706806, 0.5074357331894203, 0.03749565844198488)]
+[seed outside] random_then_randint  eager=[(0.32383276483316237, 19), (0.3948234964231735, 6), (0.07243628666754276, 68)]  compiled=[(0.32383276483316237, 19), (0.3948234964231735, 6), (0.07243628666754276, 68)]
+[full_like int32 complex] eager=raise RuntimeError  eager=raise RuntimeError
+[masked_fill bool complex] eager=torch.bool [True, False]  eager=raise TorchRuntimeError
+[full_like int32 complex] eager=raise RuntimeError  aot_eager=raise RuntimeError
+[masked_fill bool complex] eager=torch.bool [True, False]  aot_eager=raise TorchRuntimeError
+[full_like int32 complex] eager=raise RuntimeError  inductor=raise BackendCompilerFailed
+[masked_fill bool complex] eager=torch.bool [True, False]  inductor=raise TorchRuntimeError
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 8.1 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torch 2.15.0.dev20260912+cpu
+[shuffle eager] eager   : [[5, 1, 4, 2, 3], [3, 4, 2, 5, 1], [4, 3, 1, 2, 5]]
+                compiled: [[5, 1, 4, 2, 3], [5, 1, 4, 2, 3], [5, 1, 4, 2, 3]]   DIFF
+[shuffle inductor] eager   : [[5, 1, 4, 2, 3], [3, 4, 2, 5, 1], [4, 3, 1, 2, 5]]
+                   compiled: [[5, 1, 4, 2, 3], [5, 1, 4, 2, 3], [5, 1, 4, 2, 3]]   DIFF
+[sample eager] eager   : [[41, 19], [50, 83], [6, 9]]
+               compiled: [[41, 19], [41, 19], [41, 19]]   DIFF
+[sample inductor] eager   : [[41, 19], [50, 83], [6, 9]]
+                  compiled: [[41, 19], [41, 19], [41, 19]]   DIFF
+[seed-inside eager] eager   : [(0.7579544029403025, 53), (0.7579544029403025, 53), (0.7579544029403025, 53)]
+                   compiled: [(0.9654648863619172, 62), (0.7579544029403025, 53), (0.7579544029403025, 53)]   DIFF
+[seed-inside inductor] eager   : [(0.7579544029403025, 53), (0.7579544029403025, 53), (0.7579544029403025, 53)]
+                      compiled: [(0.9654648863619172, 62), (0.7579544029403025, 53), (0.7579544029403025, 53)]   DIFF
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0] failed while attempting to run meta for aten.masked_fill.Scalar
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0] Traceback (most recent call last):
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     r = func(*args, **kwargs)
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     return self._op(*args, **kwargs)
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     result = fn(*args, **kwargs)
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]              ^^^^^^^^^^^^^^^^^^^
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 6274, in masked_fill
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     torch._check(
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     _check_with(RuntimeError, cond, message)
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     raise error_type(message_evaluated)
+E0912 10:57:00.001000 96 torch/_subclasses/fake_tensor.py:3227] [1/0] RuntimeError: could not convert to type <class 'bool'> without overflow
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0] failed while attempting to run meta for aten.masked_fill.Scalar
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0] Traceback (most recent call last):
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     r = func(*args, **kwargs)
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     return self._op(*args, **kwargs)
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     result = fn(*args, **kwargs)
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]              ^^^^^^^^^^^^^^^^^^^
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 6274, in masked_fill
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     torch._check(
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     _check_with(RuntimeError, cond, message)
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     raise error_type(message_evaluated)
+E0912 10:57:00.219000 96 torch/_subclasses/fake_tensor.py:3227] [1/0] RuntimeError: could not convert to type <class 'bool'> without overflow
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0] failed while attempting to run meta for aten.masked_fill.Scalar
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0] Traceback (most recent call last):
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     r = func(*args, **kwargs)
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     return self._op(*args, **kwargs)
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py", line 313, in _fn
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     result = fn(*args, **kwargs)
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]              ^^^^^^^^^^^^^^^^^^^
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py", line 6274, in masked_fill
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     torch._check(
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2161, in _check
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     _check_with(RuntimeError, cond, message)
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]   File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 2139, in _check_with
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0]     raise error_type(message_evaluated)
+E0912 10:57:01.904000 96 torch/_subclasses/fake_tensor.py:3227] [1/0] RuntimeError: could not convert to type <class 'bool'> without overflow
+torch 2.15.0.dev20260912+cpu
+[seed inside] random               eager=[0.8444218515250481, 0.8444218515250481]  compiled=[0.7579544029403025, 0.8444218515250481]   <-- DIFF
+[seed inside] randint              eager=[864, 864]  compiled=[394, 864]   <-- DIFF
+[seed inside] randrange            eager=[864, 864]  compiled=[394, 864]   <-- DIFF
+[seed inside] uniform              eager=[8.444218515250482, 8.444218515250482]  compiled=[7.579544029403024, 8.444218515250482]   <-- DIFF
+[seed inside] gauss                eager=[0.9417154046806644, 0.9417154046806644]  compiled=[0.9417154046806644, 0.9417154046806644]
+[seed inside] choice               eager=[40, 40]  compiled=[40, 40]
+[seed inside] choices              eager=[[3, 3], [3, 3]]  compiled=[[3, 3], [3, 3]]
+[seed inside] sample               eager=[[49, 97], [49, 97]]  compiled=[[49, 97], [49, 97]]
+[seed inside] shuffle              eager=[[3, 2, 1, 5, 4], [3, 2, 1, 5, 4]]  compiled=[[3, 2, 1, 5, 4], [3, 2, 1, 5, 4]]
+[seed inside] random_x3            eager=[(0.8444218515250481, 0.7579544029403025, 0.420571580830845), (0.8444218515250481, 0.7579544029403025, 0.420571580830845)]  compiled=[(0.25891675029296335, 0.5112747213686085, 0.4049341374504143), (0.8444218515250481, 0.7579544029403025, 0.420571580830845)]   <-- DIFF
+[seed inside] random_then_randint  eager=[(0.8444218515250481, 97), (0.8444218515250481, 97)]  compiled=[(0.890243920837131, 5), (0.8444218515250481, 97)]   <-- DIFF
+[seed outside] random               eager=[0.32383276483316237, 0.15084917392450192, 0.6509344730398537]  compiled=[0.32383276483316237, 0.15084917392450192, 0.6509344730398537]
+[seed outside] randint              eager=[331, 970, 154]  compiled=[331, 970, 154]
+[seed outside] randrange            eager=[331, 970, 154]  compiled=[331, 970, 154]
+[seed outside] uniform              eager=[3.238327648331624, 1.5084917392450192, 6.509344730398538]  compiled=[3.238327648331624, 1.5084917392450192, 6.509344730398538]
+[seed outside] gauss                eager=[-0.2558802884476004, 0.511431512516514, -0.2260961647831047]  compiled=[-0.2558802884476004, 0.511431512516514, -0.2260961647831047]
+[seed outside] choice               eager=[30, 20, 40]  compiled=[30, 20, 40]
+[seed outside] choices              eager=[[1, 1], [2, 1], [2, 2]]  compiled=[[1, 1], [2, 1], [2, 2]]
+[seed outside] sample               eager=[[41, 19], [50, 83], [6, 9]]  compiled=[[41, 19], [41, 19], [41, 19]]   <-- DIFF
+[seed outside] shuffle              eager=[[5, 1, 4, 2, 3], [3, 4, 2, 5, 1], [4, 3, 1, 2, 5]]  compiled=[[5, 1, 4, 2, 3], [5, 1, 4, 2, 3], [5, 1, 4, 2, 3]]   <-- DIFF
+[seed outside] random_x3            eager=[(0.32383276483316237, 0.15084917392450192, 0.6509344730398537), (0.07243628666754276, 0.5358820043066892, 0.36568891691258554), (0.057998924774706806, 0.5074357331894203, 0.03749565844198488)]  compiled=[(0.32383276483316237, 0.15084917392450192, 0.6509344730398537), (0.07243628666754276, 0.5358820043066892, 0.36568891691258554), (0.057998924774706806, 0.5074357331894203, 0.03749565844198488)]
+[seed outside] random_then_randint  eager=[(0.32383276483316237, 19), (0.3948234964231735, 6), (0.07243628666754276, 68)]  compiled=[(0.32383276483316237, 19), (0.3948234964231735, 6), (0.07243628666754276, 68)]
+[full_like int32 complex] eager=raise RuntimeError  eager=raise RuntimeError
+[masked_fill bool complex] eager=torch.bool [True, False]  eager=raise TorchRuntimeError
+[full_like int32 complex] eager=raise RuntimeError  aot_eager=raise RuntimeError
+[masked_fill bool complex] eager=torch.bool [True, False]  aot_eager=raise TorchRuntimeError
+[full_like int32 complex] eager=raise RuntimeError  inductor=raise BackendCompilerFailed
+[masked_fill bool complex] eager=torch.bool [True, False]  inductor=raise TorchRuntimeError
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 282322 bytes to __results__.html

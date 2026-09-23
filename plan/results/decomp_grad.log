@@ -1,0 +1,473 @@
+isolated decomp sweep: 595 operators, 0 already done, 595 to go
+[25/595] abs .. atan
+  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False
+  DECOMP mv                                   zero_dim       [exception] exception type differs: IndexError vs RuntimeError :: matrix @ vecto  confirmed=True
+  DECOMP mv                                   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False
+[50/595] atan2 .. view_as_complex
+  DECOMP broadcast_tensors                    base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP broadcast_tensors                    empty_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP broadcast_tensors                    size1_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP broadcast_tensors                    noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP broadcast_tensors                    zero_dim       [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP broadcast_tensors                    dtype_bool     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP broadcast_tensors                    nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP broadcast_tensors                    huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP broadcast_tensors                    tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP broadcast_tensors                    dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP broadcast_tensors                    dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                empty_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                size1_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                empty_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                size1_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                prime_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                prime_all      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP chunk                                dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         empty_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         empty_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         size1_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         prime_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         prime_all      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP unsafe_chunk                         dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+[75/595] complex .. diagonal
+  DECOMP cross                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[100/595] diagonal_copy .. le
+  DECOMP frac                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP stft                                 empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP stft                                 size1_last     [exception] exception type differs: RuntimeError vs IndexError :: index -8 is ou  confirmed=False
+  DECOMP stft                                 zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: index -8 is ou  confirmed=False
+  DECOMP geqrf                                base           [exception] exception type differs: NotImplementedError vs TypeError :: unsuppor  confirmed=False
+  DECOMP geqrf                                empty_last     [exception] exception type differs: NotImplementedError vs TypeError :: unsuppor  confirmed=False
+  DECOMP geqrf                                size1_last     [exception] exception type differs: NotImplementedError vs TypeError :: unsuppor  confirmed=False
+  DECOMP geqrf                                prime_dim0     [exception] exception type differs: NotImplementedError vs TypeError :: unsuppor  confirmed=False
+  DECOMP geqrf                                noncontig      [exception] exception type differs: NotImplementedError vs TypeError :: unsuppor  confirmed=False
+  DECOMP geqrf                                nan_inf        [exception] exception type differs: NotImplementedError vs TypeError :: unsuppor  confirmed=False
+  DECOMP geqrf                                huge           [exception] exception type differs: NotImplementedError vs TypeError :: unsuppor  confirmed=False
+  DECOMP geqrf                                tiny           [exception] exception type differs: NotImplementedError vs TypeError :: unsuppor  confirmed=False
+  DECOMP isin                                 dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=False
+[125/595] linspace .. var_mean
+  DECOMP logaddexp                            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP logaddexp2                           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP lu_unpack                            base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP lu_unpack                            noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP lu_unpack                            channels_last  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP lu_unpack                            nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP lu_unpack                            huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP lu_unpack                            tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP lu_unpack                            dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP lu_unpack                            dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             empty_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             size1_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             empty_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             size1_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             prime_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             prime_all      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+[150/595] var_mean .. nn.functional.linear_cross_entropy
+  DECOMP var_mean                             base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             empty_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             size1_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             empty_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             size1_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             prime_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             prime_all      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP var_mean                             base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP var_mean                             dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP std_mean                             empty_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP std_mean                             size1_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             prime_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP std_mean                             noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP std_mean                             nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP std_mean                             huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP std_mean                             tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP std_mean                             dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP std_mean                             dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP std_mean                             base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             empty_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             size1_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             prime_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP std_mean                             dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=True
+  DECOMP meshgrid                             base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP meshgrid                             empty_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP meshgrid                             size1_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP meshgrid                             noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP meshgrid                             zero_dim       [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP meshgrid                             nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP meshgrid                             huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP meshgrid                             tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP meshgrid                             dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP meshgrid                             dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP softmax                              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.softmin                dtype_int64    [exception] test raised RuntimeError, ref returned normally :: value cannot be c  confirmed=True
+  DECOMP nn.functional.cross_entropy          empty_last     [exception] exception type differs: IndexError vs RuntimeError :: index 0 is out  confirmed=True
+  DECOMP nn.functional.cross_entropy          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.linear_cross_entropy   base           [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  META   nn.functional.linear_cross_entropy   base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.linear_cross_entropy   noncontig      [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  META   nn.functional.linear_cross_entropy   noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.linear_cross_entropy   nan_inf        [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  META   nn.functional.linear_cross_entropy   nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.linear_cross_entropy   huge           [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  META   nn.functional.linear_cross_entropy   huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.linear_cross_entropy   tiny           [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  META   nn.functional.linear_cross_entropy   tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.linear_cross_entropy   dtype_float16  [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  META   nn.functional.linear_cross_entropy   dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.linear_cross_entropy   dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: mm() got an unexpect  confirmed=False
+  META   nn.functional.linear_cross_entropy   dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+[175/595] nn.functional.linear_cross_entropy .. nn.functional.conv1d
+  META   nn.functional.linear_cross_entropy   base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.linear_cross_entropy   dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.linear_cross_entropy   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  META   nn.functional.linear_cross_entropy   nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.linear_cross_entropy   tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.binary_cross_entropy_with_logits base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.binary_cross_entropy_with_logits noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.binary_cross_entropy_with_logits nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.binary_cross_entropy_with_logits huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.binary_cross_entropy_with_logits tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.binary_cross_entropy_with_logits dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.binary_cross_entropy_with_logits dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+[200/595] nn.functional.conv2d .. nn.functional.upsample_nearest
+  META   nn.functional.instance_norm          base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          size1_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          empty_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          size1_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          prime_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          channels_last  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.instance_norm          dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP nn.functional.pad                    size1_last     [exception] exception type differs: RuntimeError vs IndexError :: index -2 is ou  confirmed=False
+  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  META   nn.functional.pad                    channels_last  output[1] stride (96, 16, 4, 1) vs real (96, 1, 24, 6)
+  DECOMP nn.functional.pad                    dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardswish              dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardswish              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardswish              nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP nn.functional.unfold                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got <class 'int'>
+  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: divisio  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got <class 'int'>
+  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: divisio  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.soft_margin_loss       dtype_int64    [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  META   nn.functional.upsample_nearest       empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got <class 'int'>
+  DECOMP nn.functional.upsample_nearest       empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: divisio  confirmed=True
+  DECOMP nn.functional.upsample_nearest       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.upsample_nearest       dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[225/595] nn.functional.margin_ranking_loss .. nn.functional.scaled_dot_product_attention
+  META   nn.functional.multi_margin_loss      base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multi_margin_loss      noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.multi_margin_loss      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   nn.functional.multi_margin_loss      nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multi_margin_loss      huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multi_margin_loss      tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.multilabel_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   nn.functional.multilabel_soft_margin_loss base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multilabel_soft_margin_loss size1_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multilabel_soft_margin_loss size1_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multilabel_soft_margin_loss noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.multilabel_soft_margin_loss dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   nn.functional.multilabel_soft_margin_loss nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multilabel_soft_margin_loss huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multilabel_soft_margin_loss tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multilabel_soft_margin_loss dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multilabel_soft_margin_loss dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP max_pool2d_with_indices_backward     dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool1d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool1d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool2d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool2d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool3d           dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.max_unpool3d           dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.prelu                  dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.celu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.celu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[250/595] torch.ops.aten._scaled_dot_product_flash_attention_for_cpu .. mvlgamma
+  DECOMP nn.functional.silu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardsigmoid            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardsigmoid            dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.logsigmoid             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.threshold              dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.binary_cross_entropy   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.binary_cross_entropy   dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.binary_cross_entropy   nan_inf        [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.binary_cross_entropy   huge           [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.hardshrink             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.gelu                   dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.gelu                   dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP mm                                   zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: Dimension spec  confirmed=False
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+[275/595] mvlgamma .. sinh
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP mvlgamma                             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP round                                dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP round                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[300/595] sign .. reciprocal
+[325/595] rsqrt .. view
+  DECOMP lerp                                 dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP lerp                                 dtype_bool     [exception] exception type differs: RuntimeError vs NotImplementedError :: Subtr  confirmed=False
+[350/595] view_as .. bfloat16
+  DECOMP index_copy                           empty_dim0     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP index_add                            zero_dim       [exception] ref raised RuntimeError, test returned normally  confirmed=True
+[375/595] bool .. stack
+[400/595] hstack .. take_along_dim
+[425/595] tile .. digamma
+  DECOMP trace                                dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[450/595] erf .. native_dropout_backward
+  DECOMP nn.functional.smooth_l1_loss         dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.smooth_l1_loss         nan_inf        [value] output[1]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP log_softmax                          dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[475/595] nn.functional.dropout2d .. prod
+  META   nn.functional.embedding_bag          base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.embedding_bag          empty_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.embedding_bag          size1_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.embedding_bag          noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.embedding_bag          nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.embedding_bag          huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.embedding_bag          tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multi_head_attention_forward base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multi_head_attention_forward noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multi_head_attention_forward nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multi_head_attention_forward huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.multi_head_attention_forward tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP nn.functional.softplus               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.mse_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.grid_sample            empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True
+  DECOMP nn.functional.grid_sample            dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP grid_sampler_2d                      empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True
+  DECOMP grid_sampler_2d                      zero_dim       [exception] exception type differs: IndexError vs ValueError :: not enough value  confirmed=True
+  DECOMP grid_sampler_2d                      dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP std                                  tiny           [value] output[1]: compiled err vs fp64 = 1.162e-02 exceeds 4.0x eager err 1.118  confirmed=True
+[500/595] sum .. fft.fft
+  DECOMP nn.functional.ctc_loss               size1_last     [value] output[1]: compiled err vs fp64 = 2.440e+18 exceeds 4.0x eager err 3.706  confirmed=False
+  DECOMP nn.functional.nll_loss               empty_dim0     [exception] exception type differs: IndexError vs RuntimeError :: index 0 is out  confirmed=True
+  DECOMP nn.functional.nll_loss               dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.huber_loss             dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.huber_loss             dtype_bool     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  child exit 3221225620: sl\personal\dr\paper\toxic_compile\plan\tcc\decomp_diff.py:355: UserWarning: Using a target size (torch.Size([5, 5, 5])) that is different to the input size (torch.Size([])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return _op(*a, **kw)
+  child exit 3221225620: 
+  CRASH  nn.functional.pdist                  process exit 3221225620 (timeout if -999)
+  META   repeat_interleave                    base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    empty_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    size1_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    empty_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    size1_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    prime_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    dtype_int64    fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    dtype_bool     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   repeat_interleave                    dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   nn.functional.channel_shuffle        channels_last  output[0] stride (384, 64, 8, 1) vs real (384, 1, 48, 6)
+[525/595] fft.fft2 .. linalg.cholesky_ex
+  DECOMP linalg.cross                         dtype_bool     [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+[550/595] linalg.vecdot .. linalg.lu
+[575/595] linalg.lu_solve .. signal.windows.nuttall
+  META   linalg.matrix_rank                   base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   linalg.matrix_rank                   empty_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   linalg.matrix_rank                   size1_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   linalg.matrix_rank                   prime_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   linalg.matrix_rank                   noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   linalg.matrix_rank                   nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   linalg.matrix_rank                   huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   linalg.matrix_rank                   tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   linalg.pinv                          dtype_bool     fake-tensor path raised RuntimeError: expected scalar type torch.bool but found 
+[600/595] masked.sum .. bmm
+  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False
+  META   masked.sum                           base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           empty_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           size1_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           prime_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           channels_last  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           dtype_int64    fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           dtype_bool     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.sum                           dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.prod                          base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.prod                          dtype_int64    fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.prod                          dtype_bool     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.prod                          nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.prod                          huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.prod                          tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.prod                          dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.prod                          dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        empty_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        size1_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        prime_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        dtype_int64    fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumsum                        dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumprod                       base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumprod                       dtype_int64    fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumprod                       dtype_bool     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumprod                       nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumprod                       huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumprod                       tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumprod                       dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.cumprod                       dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.amin                          base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.amin                          noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.amin                          channels_last  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.amin                          dtype_int64    fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.amin                          nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.amin                          huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.amin                          tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.amin                          dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.amin                          dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        empty_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        size1_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        channels_last  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        dtype_int64    fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmax                        dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        empty_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        size1_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        prime_dim0     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        channels_last  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        dtype_int64    fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.argmin                        dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.mean                          base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.mean                          noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.mean                          nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.mean                          huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.mean                          tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.mean                          dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.mean                          dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.norm                          base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.norm                          nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.norm                          huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.norm                          tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.norm                          dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.norm                          dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.var                           base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.var                           noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.var                           dtype_int64    fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.var                           nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.var                           huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.var                           tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.var                           dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.var                           dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP masked.softmax                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  META   masked.log_softmax                   base           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.log_softmax                   empty_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.log_softmax                   size1_last     fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.log_softmax                   noncontig      fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.log_softmax                   dtype_int64    fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.log_softmax                   nan_inf        fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.log_softmax                   huge           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.log_softmax                   tiny           fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.log_softmax                   dtype_float16  fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  META   masked.log_softmax                   dtype_bfloat16 fake-tensor path raised AssertionError: Please convert all Tensors to FakeTensor
+  DECOMP masked.softmin                       dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP masked.logaddexp                     dtype_int64    [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP bmm                                  zero_dim       [exception] exception type differs: RuntimeError vs IndexError :: tuple index ou  confirmed=False
+{"ops": 570, "samples": 570, "variants": 7979, "decomp_covered": 7383, "decomp_mismatch": 237, "meta_mismatch": 200, "data_dependent": 85, "errors": 0, "wall_s": 814.3, "crashes": 1}
+written results\decomp_grad\DECOMP_DIFF.md

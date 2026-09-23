@@ -1,0 +1,28 @@
+{
+  "signature": "b40d0d03026a",
+  "program": "issue_181175_aot_autograd_runtimeerror_cannot_call_nu",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "181175",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/181175",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

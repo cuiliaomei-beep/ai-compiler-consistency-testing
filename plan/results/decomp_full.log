@@ -1,0 +1,139 @@
+isolated decomp sweep: 595 operators, 0 already done, 595 to go
+[25/595] abs .. atan
+  DECOMP bmm                                  empty_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=False
+  DECOMP bmm                                  prime_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=False
+  DECOMP bmm                                  size1_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=False
+[50/595] atan2 .. view_as_complex
+[75/595] complex .. diagonal
+[100/595] diagonal_copy .. le
+  DECOMP stft                                 empty_dim0     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP stft                                 size1_dim0     [exception] exception type differs: RuntimeError vs IndexError :: index -3 is ou  confirmed=False
+[125/595] linspace .. var_mean
+[150/595] var_mean .. nn.functional.linear_cross_entropy
+  DECOMP std_mean                             huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP std_mean                             huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP nn.functional.cross_entropy          empty_last     [exception] exception type differs: RuntimeError vs AssertionError :: weight ten  confirmed=True
+  DECOMP nn.functional.cross_entropy          size1_last     [exception] exception type differs: RuntimeError vs AssertionError :: weight ten  confirmed=True
+  DECOMP nn.functional.cross_entropy          dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.cross_entropy          dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True
+[175/595] nn.functional.linear_cross_entropy .. nn.functional.conv1d
+  DECOMP nn.functional.linear_cross_entropy   dtype_float16  [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.linear_cross_entropy   dtype_bfloat16 [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP native_batch_norm                    empty_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP native_batch_norm                    size1_dim0     [exception] test raised ZeroDivisionError, ref returned normally :: division by   confirmed=True
+  META   native_batch_norm                    size1_dim0     fake-tensor path raised ZeroDivisionError: division by zero
+[200/595] nn.functional.conv2d .. nn.functional.upsample_nearest
+  DECOMP nn.functional.group_norm             huge           [value] output[0]: NaN/Inf present on one side only  confirmed=False
+  DECOMP nn.functional.pad                    empty_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=False
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP nn.functional.pad                    size1_last     [exception] ref raised RuntimeError, test returned normally  confirmed=False
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP nn.functional.pad                    empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got <class 'int'>
+  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True
+  META   nn.functional.interpolate            empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got <class 'int'>
+  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: divisio  confirmed=True
+  DECOMP nn.functional.interpolate            size1_last     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True
+  DECOMP nn.functional.interpolate            empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: divisio  confirmed=True
+  DECOMP nn.functional.soft_margin_loss       size1_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.soft_margin_loss       size1_last     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  META   nn.functional.upsample_nearest       empty_dim0     fake-tensor path raised TypeError: cond must be a bool, but got <class 'int'>
+  DECOMP nn.functional.upsample_nearest       empty_last     [exception] exception type differs: RuntimeError vs ZeroDivisionError :: divisio  confirmed=True
+  DECOMP nn.functional.upsample_nearest       size1_last     [exception] ref raised RuntimeError, test returned normally  confirmed=True
+[225/595] nn.functional.margin_ranking_loss .. nn.functional.scaled_dot_product_attention
+  DECOMP nn.functional.multi_margin_loss      dtype_float16  [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.multi_margin_loss      dtype_bfloat16 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.multilabel_margin_loss nan_inf        [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP nn.functional.multilabel_margin_loss dtype_float16  [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.multilabel_margin_loss dtype_bfloat16 [exception] ref raised NotImplementedError, test returned normally  confirmed=True
+  DECOMP nn.functional.multilabel_soft_margin_loss base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.multilabel_soft_margin_loss size1_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.multilabel_soft_margin_loss size1_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.multilabel_soft_margin_loss noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.multilabel_soft_margin_loss nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.multilabel_soft_margin_loss huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.multilabel_soft_margin_loss tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.multilabel_soft_margin_loss dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.multilabel_soft_margin_loss dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.max_pool2d             size1_last     [value] output[1]: non-float values differ exactly  confirmed=True
+  DECOMP max_pool2d_with_indices_backward     size1_last     [value] output[0]: compiled err vs fp64 = 1.000e+00 exceeds 4.0x eager err 0.000  confirmed=True
+[250/595] torch.ops.aten._scaled_dot_product_flash_attention_for_cpu .. mvlgamma
+  DECOMP nn.functional.softsign               base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.softsign               nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.softsign               huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.softsign               tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.softsign               dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.softsign               dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.softsign               empty_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.softsign               size1_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.softsign               noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.binary_cross_entropy   nan_inf        [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.binary_cross_entropy   huge           [exception] ref raised RuntimeError, test returned normally  confirmed=True
+  DECOMP nn.functional.binary_cross_entropy   dtype_float16  [metadata] output[0].dtype: torch.float16 vs torch.float32  confirmed=True
+  META   nn.functional.binary_cross_entropy   dtype_float16  output[0] dtype torch.float32 vs real torch.float16
+  DECOMP nn.functional.binary_cross_entropy   dtype_bfloat16 [metadata] output[0].dtype: torch.bfloat16 vs torch.float32  confirmed=True
+  META   nn.functional.binary_cross_entropy   dtype_bfloat16 output[0] dtype torch.float32 vs real torch.bfloat16
+[275/595] mvlgamma .. sinh
+[300/595] sign .. reciprocal
+[325/595] rsqrt .. view
+  DECOMP svd_lowrank                          base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP svd_lowrank                          size1_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP svd_lowrank                          empty_last     [exception] exception type differs: RuntimeError vs TypeError :: unsupported ope  confirmed=False
+  DECOMP svd_lowrank                          size1_last     [exception] exception type differs: RuntimeError vs TypeError :: unsupported ope  confirmed=False
+  DECOMP svd_lowrank                          noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP svd_lowrank                          nan_inf        [exception] exception type differs: _LinAlgError vs TypeError :: unsupported ope  confirmed=False
+  DECOMP svd_lowrank                          huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP svd_lowrank                          tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP svd_lowrank                          dtype_float16  [exception] exception type differs: NotImplementedError vs TypeError :: unsuppor  confirmed=False
+  DECOMP svd_lowrank                          dtype_bfloat16 [exception] exception type differs: RuntimeError vs TypeError :: unsupported ope  confirmed=False
+  DECOMP svd_lowrank                          dtype_float16  [exception] exception type differs: RuntimeError vs TypeError :: unsupported ope  confirmed=False
+  DECOMP pca_lowrank                          base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP pca_lowrank                          empty_dim0     [exception] exception type differs: ValueError vs TypeError :: unsupported opera  confirmed=False
+  DECOMP pca_lowrank                          size1_dim0     [exception] exception type differs: ValueError vs TypeError :: unsupported opera  confirmed=False
+  DECOMP pca_lowrank                          empty_last     [exception] exception type differs: RuntimeError vs TypeError :: unsupported ope  confirmed=False
+  DECOMP pca_lowrank                          size1_last     [exception] exception type differs: RuntimeError vs TypeError :: unsupported ope  confirmed=False
+  DECOMP pca_lowrank                          prime_dim0     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP pca_lowrank                          noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP pca_lowrank                          nan_inf        [exception] exception type differs: _LinAlgError vs TypeError :: unsupported ope  confirmed=False
+  DECOMP pca_lowrank                          huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP pca_lowrank                          tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP pca_lowrank                          dtype_float16  [exception] exception type differs: NotImplementedError vs TypeError :: unsuppor  confirmed=False
+  DECOMP pca_lowrank                          dtype_bfloat16 [exception] exception type differs: RuntimeError vs TypeError :: unsupported ope  confirmed=False
+[350/595] view_as .. bfloat16
+  DECOMP index_copy                           empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=False
+  DECOMP index_reduce                         empty_last     [exception] ref raised IndexError, test returned normally  confirmed=True
+  DECOMP index_reduce                         size1_last     [exception] exception type differs: IndexError vs RuntimeError :: index 1 is out  confirmed=True
+[375/595] bool .. stack
+[400/595] hstack .. take_along_dim
+[425/595] tile .. digamma
+[450/595] erf .. native_dropout_backward
+[475/595] nn.functional.dropout2d .. prod
+  DECOMP nn.functional.grid_sample            empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True
+  DECOMP grid_sampler_2d                      empty_last     [exception] exception type differs: RuntimeError vs IndexError :: index is out o  confirmed=True
+  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+  DECOMP std                                  huge           [value] output[0]: NaN/Inf pattern differs from the float64 truth  confirmed=True
+[500/595] sum .. fft.fft
+  DECOMP nn.functional.gaussian_nll_loss      base           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.gaussian_nll_loss      noncontig      [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.gaussian_nll_loss      nan_inf        [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.gaussian_nll_loss      huge           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.gaussian_nll_loss      tiny           [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.gaussian_nll_loss      dtype_float16  [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.gaussian_nll_loss      dtype_bfloat16 [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+  DECOMP nn.functional.gaussian_nll_loss      size1_last     [exception] test raised TypeError, ref returned normally :: unsupported operand   confirmed=False
+[525/595] fft.fft2 .. linalg.cholesky_ex
+[550/595] linalg.vecdot .. linalg.lu
+  child exit 3221225477: return _op(*a, **kw)
+D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\decomp_diff.py:298: UserWarning: BComplex32 support is experimental and many operators don't support it yet. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\EmptyTensor.cpp:58.)
+  return _op(*a, **kw)
+  child exit 3221225477: 
+  CRASH  linalg.eigvals                       process exit 3221225477 (timeout if -999)
+  DECOMP linalg.vector_norm                   empty_dim0     [exception] test raised RuntimeError, ref returned normally :: linalg.vector_nor  confirmed=True
+  META   linalg.vector_norm                   empty_dim0     fake-tensor path raised RuntimeError: linalg.vector_norm cannot compute the -inf
+[575/595] linalg.lu_solve .. signal.windows.nuttall
+  DECOMP linalg.pinv                          empty_last     [exception] exception type differs: RuntimeError vs TypeError :: unsupported ope  confirmed=False
+[600/595] masked.sum .. bmm
+  DECOMP bmm                                  size1_dim0     [exception] ref raised RuntimeError, test returned normally  confirmed=False
+{"ops": 576, "samples": 1110, "variants": 11911, "decomp_covered": 5506, "decomp_mismatch": 100, "meta_mismatch": 7, "data_dependent": 128, "errors": 0, "wall_s": 384.3, "crashes": 1}
+written results\decomp_full\DECOMP_DIFF.md

@@ -1,0 +1,353 @@
+{
+  "signature": "d6540d2ceaf8",
+  "program": "issue_189895_inductor_silent_wrong_results_constant_p",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "compile.dynamic=True",
+    "factors": {
+      "compile": {
+        "dynamic": true
+      }
+    },
+    "warm": false,
+    "origin": "compile.dynamic"
+  },
+  "context_b": null,
+  "factor_changed": "compile",
+  "controlled": {},
+  "obligation": {
+    "site": "cu_seqlens",
+    "factor": "compile.dynamic",
+    "kind": "compile_flag",
+    "values": [
+      true,
+      false
+    ],
+    "constraint": "dynamic shapes on/off",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold"
+    ],
+    "origin": "compile flag changes specialization",
+    "param": null,
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: non-float values differ exactly",
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2
+            ],
+            "dtype": "torch.int32",
+            "n_mismatch": 1,
+            "n_total": 2,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "16384",
+            "expected_preview": "[0, 16384]",
+            "actual_preview": "[16384, 16384]"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.int32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0637,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.int32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0715,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.int32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.4684,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2
+          ],
+          "dtype": "torch.int32",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_189895_inductor_silent_wrong_results_constant_p.py\n[inductor] Silent wrong results: constant_pad_nd fused into a split reduction drops the pad's boundary select (corrupts flash-attn cu_seqlens)\nhttps://github.com/pytorch/pytorch/issues/189895\ncompile options in the issue: {'fullgraph': True}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 7,
+    "steps_kept": 3,
+    "original_lines": 3,
+    "final_lines": 3,
+    "original_numel": 16384,
+    "final_numel": 16384,
+    "input_recipe": "torch.randint(0, 4, (1, 16384,)).to(torch.bool),",
+    "log": [
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags"
+    ],
+    "source": "def cu_seqlens(mask):\n    lengths = mask.sum(dim=-1, dtype=torch.int32)\n    return F.pad(torch.cumsum(lengths, dim=0, dtype=torch.int32), (1, 0))"
+  },
+  "duplicates": {
+    "query": "inductor Silent wrong results constant_pad_nd fused into split",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "189895",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/189895",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 195582,
+        "title": "[inductor] Silent wrong and non-reproducible results: BatchNorm2d followed by a shrinking F.pad",
+        "url": "https://github.com/pytorch/pytorch/issues/195582",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-09-01"
+      },
+      {
+        "number": 195465,
+        "title": "[inductor] Fix ValueRangeError crash on negative padding in inplace_constant_pad_nd",
+        "url": "https://github.com/pytorch/pytorch/pull/195465",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-08-31"
+      },
+      {
+        "number": 189895,
+        "title": "[inductor] Silent wrong results: constant_pad_nd fused into a split reduction drops the pad's boundary select (corrupts flash-attn cu_seqlens)",
+        "url": "https://github.com/pytorch/pytorch/issues/189895",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-07-14"
+      },
+      {
+        "number": 77764,
+        "title": "General MPS op coverage tracking issue",
+        "url": "https://github.com/pytorch/pytorch/issues/77764",
+        "state": "open",
+        "is_pr": false,
+        "created": "2022-05-18"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

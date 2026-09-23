@@ -1,0 +1,72 @@
+{
+  "stats": {
+    "ops": 583,
+    "samples": 1640,
+    "compiles": 3264,
+    "relation_checks": 1624,
+    "not_applicable": 0,
+    "violations": 3,
+    "standard_differs": 0,
+    "infra": 0,
+    "wall_s": 3092.3,
+    "crashes": 0
+  },
+  "mismatches": [
+    {
+      "op": "cov",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          3,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "max_pool2d_with_indices_backward",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised TorchRuntimeError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          2,
+          2,
+          3,
+          6
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    },
+    {
+      "op": "masked.argmax",
+      "relation": "config",
+      "variant": "dynamic",
+      "detail": "[exception] test raised InductorError, ref returned normally (config-side wrong)",
+      "standard_differs": false,
+      "shapes": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "kind": "metamorphic"
+    }
+  ],
+  "crashes": []
+}

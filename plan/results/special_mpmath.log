@@ -1,0 +1,8 @@
+torch 2.14.0+cpu
+!! erfinv     float32  12/64  worst x=-0.9999998807907104: eager -3.7439212799072266 compiled -3.7439467906951904 ref -3.7439211627767994 [accuracy]
+!! erfinv     float64  32/64  worst x=-0.9999999999999998: eager -5.805018683193453 compiled -5.805365688510648 ref -5.805018683193453 [accuracy]
+!! atanh      float32   2/64  worst x=-1.1754943508222875e-38: eager -1.1754943508222875e-38 compiled 0.0 ref -1.1754943508222875e-38 [accuracy]
+!! atanh      float64   2/64  worst x=-2.2250738585072014e-308: eager -2.2250738585072014e-308 compiled 0.0 ref -2.2250738585072014e-308 [accuracy]
+!! acosh      float64  43/64  worst x=1.354188600924202e+154: eager 355.59445395810513 compiled inf ref 355.59445395810513 [nan/inf pattern]
+!! erf        float32  44/64  worst x=-1.1920928955078125e-07: eager -1.3451327163238602e-07 compiled -0.0 ref -1.345132788533577e-07 [accuracy]
+DONE: 6 (fn, dtype) flagged

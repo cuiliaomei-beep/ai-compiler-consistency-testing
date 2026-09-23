@@ -1,0 +1,94 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 554.6/554.6 MB 3.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 553.1/553.1 MB 3.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 170.1/170.1 MB 11.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.0/216.0 MB 8.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.4/60.4 MB 33.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 423.1/423.1 MB 4.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/10.7 MB 55.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.2/90.2 MB 3.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 7.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 214.1/214.1 MB 8.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 45.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.5/59.5 MB 29.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.9/200.9 MB 3.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.9/145.9 MB 12.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 148.0/148.0 kB 10.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 90.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 248.0/248.0 MB 7.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.5/42.5 MB 44.4 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+libcuml-cu12 26.2.0 requires cuda-toolkit[cublas,cufft,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+cuml-cu12 26.2.0 requires cuda-toolkit[cublas,cufft,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+cuda-python 12.9.4 requires cuda-bindings~=12.9.4, but you have cuda-bindings 13.4.2 which is incompatible.
+torchaudio 2.10.0+cu128 requires torch==2.10.0, but you have torch 2.14.0 which is incompatible.
+torchvision 0.25.0+cu128 requires torch==2.10.0, but you have torch 2.14.0 which is incompatible.
+cudf-cu12 26.2.1 requires cuda-toolkit[nvcc,nvrtc]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+libcuvs-cu12 26.2.0 requires cuda-toolkit[cublas,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+libraft-cu12 26.2.0 requires cuda-toolkit[cublas,curand,cusolver,cusparse]==12.*, but you have cuda-toolkit 13.0.3.0 which is incompatible.
+===== norm_eps_stale_min.py
+torch 2.14.0+cu130 cuda | FX_GRAPH_CACHE = default | AUTOGRAD_CACHE = default
+   s=0.9   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.9
+   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5
+   s=0.25  max |eager - compiled| = 0.2420   compiled result matches eps computed from s=0.5
+   s=0.75  max |eager - compiled| = 0.1093   compiled result matches eps computed from s=0.5
+   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5
+   s=2.0   max |eager - compiled| = 0.3349   compiled result matches eps computed from s=0.5
+===== layer_norm_eps_stale2.py
+torch 2.14.0+cu130 FX_GRAPH_CACHE default AUTOGRAD_CACHE default
+   layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  aot_eager 
+!! layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  inductor  s=0.25: max err 0.159; s=0.75: max err 0.091; s=2.0: max err 0.258
+   layer_norm(x, eps=abs(s) + 1e-3)                           aot_eager 
+   layer_norm(x, eps=abs(s) + 1e-3)                           inductor  
+   layer_norm(x, eps=s + 1e-3)                                aot_eager 
+   layer_norm(x, eps=s + 1e-3)                                inductor  
+   layer_norm(x * s, eps=s)                                   aot_eager 
+   layer_norm(x * s, eps=s)                                   inductor  
+   layer_norm(x * (1 + s), eps=1e-3)                          aot_eager 
+   layer_norm(x * (1 + s), eps=1e-3)                          inductor  
+   group_norm(x * s, 2, eps=s + 1e-3)                         aot_eager 
+!! group_norm(x * s, 2, eps=s + 1e-3)                         inductor  s=0.25: max err 0.107; s=0.75: max err 0.077; s=2.0: max err 0.225
+   rms_norm(x * s, eps=s + 1e-3)                              aot_eager 
+!! rms_norm(x * s, eps=s + 1e-3)                              inductor  s=0.25: max err 0.218; s=0.75: max err 0.141; s=2.0: max err 0.348
+   batch_norm(x * s, train, eps=s + 1e-3)                     aot_eager 
+!! batch_norm(x * s, train, eps=s + 1e-3)                     inductor  s=0.25: max err 0.177; s=0.75: max err 0.125; s=2.0: max err 0.341
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 519.2/519.2 MB 55.6 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.4/135.4 MB 131.5 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 223.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 629.3/629.3 MB 2.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 246.8/246.8 MB 4.7 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cu128 requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cu130 which is incompatible.
+torchvision 0.25.0+cu128 requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cu130 which is incompatible.
+===== norm_eps_stale_min.py
+torch 2.15.0.dev20260921+cu130 cuda | FX_GRAPH_CACHE = default | AUTOGRAD_CACHE = default
+   s=0.9   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.9
+   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5
+   s=0.25  max |eager - compiled| = 0.2420   compiled result matches eps computed from s=0.5
+   s=0.75  max |eager - compiled| = 0.1093   compiled result matches eps computed from s=0.5
+   s=0.5   max |eager - compiled| = 0.0000   compiled result matches eps computed from s=0.5
+   s=2.0   max |eager - compiled| = 0.3349   compiled result matches eps computed from s=0.5
+===== layer_norm_eps_stale2.py
+torch 2.15.0.dev20260921+cu130 FX_GRAPH_CACHE default AUTOGRAD_CACHE default
+   layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  aot_eager 
+!! layer_norm(x * (1 + s), eps=abs(s) + 1e-3)   [sweep case]  inductor  s=0.25: max err 0.159; s=0.75: max err 0.091; s=2.0: max err 0.258
+   layer_norm(x, eps=abs(s) + 1e-3)                           aot_eager 
+   layer_norm(x, eps=abs(s) + 1e-3)                           inductor  
+   layer_norm(x, eps=s + 1e-3)                                aot_eager 
+   layer_norm(x, eps=s + 1e-3)                                inductor  
+   layer_norm(x * s, eps=s)                                   aot_eager 
+   layer_norm(x * s, eps=s)                                   inductor  
+   layer_norm(x * (1 + s), eps=1e-3)                          aot_eager 
+   layer_norm(x * (1 + s), eps=1e-3)                          inductor  
+   group_norm(x * s, 2, eps=s + 1e-3)                         aot_eager 
+!! group_norm(x * s, 2, eps=s + 1e-3)                         inductor  s=0.25: max err 0.107; s=0.75: max err 0.077; s=2.0: max err 0.225
+   rms_norm(x * s, eps=s + 1e-3)                              aot_eager 
+!! rms_norm(x * s, eps=s + 1e-3)                              inductor  s=0.25: max err 0.218; s=0.75: max err 0.141; s=2.0: max err 0.348
+   batch_norm(x * s, train, eps=s + 1e-3)                     aot_eager 
+!! batch_norm(x * s, train, eps=s + 1e-3)                     inductor  s=0.25: max err 0.177; s=0.75: max err 0.125; s=2.0: max err 0.341
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 279950 bytes to __results__.html

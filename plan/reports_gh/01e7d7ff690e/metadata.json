@@ -1,0 +1,60 @@
+{
+  "signature": "01e7d7ff690e",
+  "program": "issue_181693_nn_hardswish_produces_wrong_output_under",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Invalid",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": 194770,
+      "title": "[PrivateUse1][dynamo] torch._dynamo.reset() should support external reset callbacks for OOT backend caches",
+      "url": "https://github.com/pytorch/pytorch/issues/194770",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-25"
+    },
+    {
+      "number": 194234,
+      "title": "[dynamo] `torch.compile` raises `NameError: name 'stream1' is not defined` when a compiled function calls `torch.cuda.Stream.wait_stream` and returns a single-element list constant",
+      "url": "https://github.com/pytorch/pytorch/issues/194234",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-20"
+    },
+    {
+      "number": 193760,
+      "title": "[inductor][cuda] `view(torch.bool).copy_(y.view(torch.bool)).view(torch.float32)` silently corrupts data under `torch.compile`",
+      "url": "https://github.com/pytorch/pytorch/issues/193760",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-17"
+    },
+    {
+      "number": 194347,
+      "title": "[inductor][cpu] `torch.minimum` with signed zeros returns +0.0 under `torch.compile` on CPU while eager returns -0.0",
+      "url": "https://github.com/pytorch/pytorch/issues/194347",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-21"
+    },
+    {
+      "number": 194345,
+      "title": "[inductor][cuda] `torch.remainder` / `torch.fmod` wrong results under `torch.compile` on CUDA for large |a/b| ratios",
+      "url": "https://github.com/pytorch/pytorch/issues/194345",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-21"
+    }
+  ]
+}

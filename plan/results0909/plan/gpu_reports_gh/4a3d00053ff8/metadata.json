@@ -1,0 +1,36 @@
+{
+  "signature": "4a3d00053ff8",
+  "program": "issue_182200_torch_compile_crashes_on_stft_fftn_rfftn",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "gradient"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "182200",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/182200",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 182200,
+      "title": "`torch.compile` crashes on `stft`/`fftn`/`rfftn`/`ifftn` backward — meta kernel stride mismatch",
+      "url": "https://github.com/pytorch/pytorch/issues/182200",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-05-02"
+    }
+  ]
+}

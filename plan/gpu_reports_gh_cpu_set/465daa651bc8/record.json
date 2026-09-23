@@ -1,0 +1,372 @@
+{
+  "signature": "465daa651bc8",
+  "program": "issue_192985_dynamo_silently_drops_custom_jvp_of_auto",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "dtype=float16",
+    "factors": {
+      "dtype": "float16"
+    },
+    "warm": true,
+    "origin": "x.dtype"
+  },
+  "context_b": null,
+  "factor_changed": "dtype",
+  "controlled": {},
+  "obligation": {
+    "site": "f",
+    "factor": "x.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "numerics depend on precision regardless of source",
+    "param": "x",
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.131e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 2.130859375,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              4
+            ],
+            "dtype": "torch.float16",
+            "max_abs_error": 2.130859375,
+            "max_rel_error": 2130859375000.0,
+            "n_mismatch": 4,
+            "n_total": 4,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "1.043945312",
+            "expected_preview": "[0, 0, 0, 0]",
+            "actual_preview": "[1.043945312, 2.130859375, 0.125, -0.5366210938]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 2.130859375,
+            "budget": 0.00390625,
+            "noise_floor": 0.00390625
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.131e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 2.130859375,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              4
+            ],
+            "dtype": "torch.float16",
+            "max_abs_error": 2.130859375,
+            "max_rel_error": 2130859375000.0,
+            "n_mismatch": 4,
+            "n_total": 4,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "1.043945312",
+            "expected_preview": "[0, 0, 0, 0]",
+            "actual_preview": "[1.043945312, 2.130859375, 0.125, -0.5366210938]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 2.130859375,
+            "budget": 0.00390625,
+            "noise_floor": 0.00390625
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.131e+00 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 2.130859375,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              4
+            ],
+            "dtype": "torch.float16",
+            "max_abs_error": 2.130859375,
+            "max_rel_error": 2130859375000.0,
+            "n_mismatch": 4,
+            "n_total": 4,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "0",
+            "first_mismatch_actual": "1.04296875",
+            "expected_preview": "[0, 0, 0, 0]",
+            "actual_preview": "[1.04296875, 2.130859375, 0.125, -0.5366210938]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 2.130859375,
+            "budget": 0.00390625,
+            "noise_floor": 0.00390625
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0007,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.119,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1433,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1876,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [
+        {
+          "shape": [
+            4
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh/issue_192985_dynamo_silently_drops_custom_jvp_of_auto.py\nDynamo silently drops custom `jvp` of `autograd.Function` under `torch.func.jvp`, producing wrong tangents\nhttps://github.com/pytorch/pytorch/issues/192985",
+  "minimized": null,
+  "duplicates": {
+    "query": "",
+    "searched": false,
+    "error": null,
+    "candidates": [
+      {
+        "number": "192985",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/192985",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      }
+    ]
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

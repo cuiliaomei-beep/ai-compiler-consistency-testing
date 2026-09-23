@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\kaggle\drive.py", line 199, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\kaggle\drive.py", line 189, in main
+    cmd_pull(j)
+    ~~~~~~~~^^^
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\kaggle\drive.py", line 149, in cmd_pull
+    print(f"pull {job}: attempt {i + 1} failed ({(r.stderr or r.stdout or '').strip().splitlines()[-1][:120]}); retrying")
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range

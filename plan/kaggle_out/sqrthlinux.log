@@ -1,0 +1,32 @@
+[{"stream_name":"stdout","time":7.491079955,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 9.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":42.062112115,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":42.062170666,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":42.062175364,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.387539593,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.\n"}
+,{"stream_name":"stderr","time":67.387592852,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":70.002038568,"data":"/usr/local/lib/python3.12/dist-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py:3613: UserWarning: Your compiler for AOTAutograd is returning a function that doesn't take boxed arguments. Please wrap it with functorch.compile.make_boxed_func or handle the boxed arguments yourself. See https://github.com/pytorch/pytorch/pull/83137#issuecomment-1211320670 for rationale.\n"}
+,{"stream_name":"stderr","time":70.002082275,"data":"  return call_func_at_runtime_with_args(\n"}
+,{"stream_name":"stdout","time":70.005084653,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":70.005114646,"data":"[matrix_sqrth float32] eager 1.7e-06 | compile(eager) 1.7e-06 | compile(aot_eager) 1.7e-06 | compile(inductor) 1.7e-06\n"}
+,{"stream_name":"stdout","time":70.00512202,"data":"[matrix_sqrth complex64] eager 2.7e-06 | compile(eager) 2.7e-06 | compile(aot_eager) 9.6e-01 | compile(inductor) 9.6e-01\n"}
+,{"stream_name":"stdout","time":70.005127885,"data":"backward ops: ['\u003cbuilt-in function getitem\u003e', 'aten._conj.default', 'aten._linalg_eigh.default', 'aten.add.Tensor', 'aten.clamp_min.default', 'aten.clone.default', 'aten.div.Tensor', 'aten.expand.default', 'aten.mm.default', 'aten.mul.Scalar', 'aten.mul.Tensor', 'aten.pow.Tensor_Scalar', 'aten.sgn.default', 'aten.sqrt.default', 'aten.t.default', 'aten.transpose.int', 'aten.unsqueeze.default']\n"}
+,{"stream_name":"stdout","time":75.111882661,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 9.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":96.075421134,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":96.07546159,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":96.075469072,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":113.837086877,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2826: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.\n"}
+,{"stream_name":"stderr","time":113.837140506,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.598256406,"data":"/usr/local/lib/python3.12/dist-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py:3631: UserWarning: Your compiler for AOTAutograd is returning a function that doesn't take boxed arguments. Please wrap it with functorch.compile.make_boxed_func or handle the boxed arguments yourself. See https://github.com/pytorch/pytorch/pull/83137#issuecomment-1211320670 for rationale.\n"}
+,{"stream_name":"stderr","time":116.598312682,"data":"  return call_func_at_runtime_with_args(\n"}
+,{"stream_name":"stdout","time":116.601123908,"data":"torch 2.15.0.dev20260912+cpu\n"}
+,{"stream_name":"stdout","time":116.601140599,"data":"[matrix_sqrth float32] eager 1.7e-06 | compile(eager) 1.7e-06 | compile(aot_eager) 1.7e-06 | compile(inductor) 1.7e-06\n"}
+,{"stream_name":"stdout","time":116.601144829,"data":"[matrix_sqrth complex64] eager 2.7e-06 | compile(eager) 2.7e-06 | compile(aot_eager) 9.6e-01 | compile(inductor) 9.6e-01\n"}
+,{"stream_name":"stdout","time":116.601148868,"data":"backward ops: ['\u003cbuilt-in function getitem\u003e', 'aten._conj.default', 'aten._linalg_eigh.default', 'aten.add.Tensor', 'aten.clamp_min.default', 'aten.clone.default', 'aten.div.Tensor', 'aten.expand.default', 'aten.mm.default', 'aten.mul.Scalar', 'aten.mul.Tensor', 'aten.pow.Tensor_Scalar', 'aten.sgn.default', 'aten.sqrt.default', 'aten.t.default', 'aten.transpose.int', 'aten.unsqueeze.default']\n"}
+,{"stream_name":"stdout","time":117.893943095,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":120.410194018,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":120.410244786,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":120.695781656,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":120.695807866,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":121.790316076,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":123.241231811,"data":"[NbConvertApp] Writing 276936 bytes to __results__.html\n"}
+]

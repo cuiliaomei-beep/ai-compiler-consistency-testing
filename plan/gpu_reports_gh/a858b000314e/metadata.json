@@ -1,0 +1,68 @@
+{
+  "signature": "a858b000314e",
+  "program": "issue_194103_torch_compile_dynamic_true_fails_for_sca",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "194103",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/194103",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 194103,
+      "title": "torch.compile(dynamic=True) fails for scatter out variants with symbolic shapes",
+      "url": "https://github.com/pytorch/pytorch/issues/194103",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-19"
+    },
+    {
+      "number": 186485,
+      "title": "Fix export dynamic dims with size-one examples",
+      "url": "https://github.com/pytorch/pytorch/pull/186485",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-06-06"
+    },
+    {
+      "number": 186150,
+      "title": "Fix compile storage semantics for as_strided scatter",
+      "url": "https://github.com/pytorch/pytorch/pull/186150",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-06-03"
+    },
+    {
+      "number": 183652,
+      "title": "Fix dynamic slice lowering for generic views",
+      "url": "https://github.com/pytorch/pytorch/pull/183652",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-14"
+    },
+    {
+      "number": 191166,
+      "title": "[ROCm][inductor] gfx1250 TDM support for dense mm/addmm",
+      "url": "https://github.com/pytorch/pytorch/pull/191166",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-07-27"
+    }
+  ]
+}

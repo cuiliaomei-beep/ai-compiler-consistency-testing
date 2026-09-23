@@ -1,0 +1,41 @@
+isolated metamorphic sweep: 595 operators, 0 already done, 595 to go
+[15/595] abs .. baddbmm
+[30/595] dot .. broadcast_shapes
+[45/595] broadcast_tensors .. positive
+[60/595] conj .. cummax
+[75/595] cummin .. diagonal
+[90/595] diagonal_copy .. i0
+[105/595] floor_divide .. log
+[120/595] log10 .. matmul
+[135/595] max .. max
+[150/595] maximum .. nn.functional.linear_cross_entropy
+[165/595] nn.functional.linear_cross_entropy .. nn.functional.adaptive_max_pool1d
+[180/595] nn.functional.adaptive_max_pool2d .. nn.functional.layer_norm
+[195/595] nn.functional.rms_norm .. nn.functional.interpolate
+[210/595] nn.functional.interpolate .. nn.functional.max_pool3d
+[225/595] nn.functional.max_unpool1d .. nn.functional.scaled_dot_product_attention
+[240/595] torch.ops.aten._scaled_dot_product_flash_attention_for_cpu .. nn.functional.binary_cross_entropy
+[255/595] igamma .. narrow_copy
+[270/595] view_copy .. round
+[285/595] round .. select_scatter
+  child exit 1:   File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\metamorphic.py", line 134, in _cat_outputs
+    if a == b:
+       ^^^^^^
+RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+[300/595] slice .. reciprocal
+[315/595] rsqrt .. pca_lowrank
+[330/595] polar .. flatten
+[345/595] unflatten .. unique
+[360/595] unique_consecutive .. cdouble
+[375/595] cfloat .. stack
+[390/595] hstack .. msort
+[405/595] movedim .. unsqueeze
+[420/595] unsqueeze_copy .. inner
+[435/595] tensordot .. logit
+[450/595] where .. native_dropout_backward
+[465/595] nn.functional.dropout2d .. amin
+[480/595] argmax .. nn.functional.cosine_embedding_loss
+[495/595] nn.functional.nll_loss .. scatter_reduce
+[510/595] scatter_reduce .. fft.ifft2
+[525/595] fft.ifftn .. linalg.cholesky_ex
+[540/595] linalg.vecdot .. linalg.norm

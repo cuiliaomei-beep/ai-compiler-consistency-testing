@@ -1,0 +1,759 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.9 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+/usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.695000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.820000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:21.940000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.061000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.181000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.299000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.431000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.560000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.708000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.832000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:22.952000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3208, in _dispatch_impl
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9028, in _fn
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 218, in _unpack_dual
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:19:23.077000 15 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+torch 2.14.0+cpu
+[addr] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[addr(beta=0.5, alpha=2)] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[quantile q=0.5] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[quantile q=0.3 dim=1] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[quantile q tensor] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[nanquantile q=0.5] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[median dim] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[kthvalue] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[sort values] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 8.3 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+/usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.275000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.409000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.533000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.660000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.788000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:19.916000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.076000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.247000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.408000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.549000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.674000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp_.Tensor
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py", line 3223, in _dispatch_impl
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 916, in __call__
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py", line 9227, in _fn
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     out = fn(self, *args, **kwargs)
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_ops.py", line 1350, in __call__
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor.py", line 564, in __repr__
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return torch._tensor_str._str(self, tensor_contents=tensor_contents)
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 715, in _str
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_tensor_str.py", line 427, in _str_intern
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/forward_ad.py", line 180, in unpack_dual
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]   File "/usr/local/lib/python3.12/dist-packages/torch/_functorch/predispatch.py", line 212, in _unpack_dual
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]     return _unpack_dual_impl(tensor, level=level)
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0913 05:20:20.803000 51 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at "/__w/pytorch/pytorch/aten/src/ATen/native/VariableMethodStubs.cpp":66, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.
+torch 2.15.0.dev20260912+cpu
+[addr] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[addr(beta=0.5, alpha=2)] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[quantile q=0.5] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[quantile q=0.3 dim=1] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[quantile q tensor] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[nanquantile q=0.5] eager=raise INTERNAL ASSERT _make_dual | aot_eager=raise INTERNAL ASSERT _make_dual | inductor=raise INTERNAL ASSERT _make_dual
+[median dim] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[kthvalue] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+[sort values] eager=ok(0e+00) | aot_eager=ok(0e+00) | inductor=ok(0e+00)
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 277107 bytes to __results__.html

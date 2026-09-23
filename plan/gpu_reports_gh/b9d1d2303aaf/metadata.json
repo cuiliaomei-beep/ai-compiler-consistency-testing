@@ -1,0 +1,36 @@
+{
+  "signature": "b9d1d2303aaf",
+  "program": "issue_171366_inconsistency_aten_view_copy_produces_in",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "171366",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/171366",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 171366,
+      "title": "[Inconsistency] aten.view_copy produces inconsistent output shapes between eager and inductor",
+      "url": "https://github.com/pytorch/pytorch/issues/171366",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2025-12-27"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "signature": "297eb0e49aa6",
+  "program": "issue_194062_inductor_silent_incorrectness_torch_full",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "194062",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/194062",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 194062,
+      "title": "[inductor] [silent incorrectness] torch.full ignores dtype when fill_value is symbolic",
+      "url": "https://github.com/pytorch/pytorch/issues/194062",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-08-19"
+    }
+  ]
+}

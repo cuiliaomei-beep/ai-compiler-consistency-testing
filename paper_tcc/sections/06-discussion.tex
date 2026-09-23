@@ -1,0 +1,55 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Lessons}
+
+\paragraph{Varying the compilation.} None of the 58 pipeline findings occurs with a contiguous
+float32 tensor on the default path, and 20 of them occur only when the path changes. RQ1 isolates this
+effect: with program set, inputs, and oracle held fixed on a corpus already run under three configurations, one
+additional path factor produced two defects within minutes. The explanation lies in the code
+that each factor reaches. A graph break makes every live local an input of a resume function, so the machinery
+that reconstructs Python objects and replays side effects is exercised for objects that a single-graph run
+never reconstructs. A dispatch mode routes composite operators through a path on which conjugate views are
+materialized lazily. A packaged runtime has a lifetime that the just-in-time runtime does not have. Program
+diversity does not reach this code because the program cannot select the path.
+
+\paragraph{Seeds written after a finding.} Both corpus additions of RQ1 followed a finding. The first, written
+for the mechanisms behind C41 and C42, re-found those two under the break factor and exposed C44 through its
+exception-flow programs on the unmodified path; the second, written for C44, delimited it without adding a defect. A batch of 34 generic programs written before any finding produced nothing new.
+
+\paragraph{Lost validation.} Nine findings return a value where eager execution raises, and 13 raise where
+eager execution returns. The first group is not harmless: C37 computes convolutions on Boolean inputs and
+softmax on integers with results that no eager kernel defines, and the maintainers opened an umbrella issue on
+lost validation during the study. An oracle that ignores exceptions, or a harness that discards every context in
+which eager execution raises, misses this class. In the historical benchmark, fourteen open issues ran
+zero tests until the harness stopped discarding such seeds.
+
+\paragraph{Reference strength.} Three accuracy findings (C35, C36, C40) are invisible in an
+eager-versus-compiled comparison at ordinary inputs and appeared only against a multi-precision reference next to
+singularities. A float64 reference separates rounding noise from wrong results for
+well-conditioned computations but not for ill-conditioned ones: five closed historical issues that \tool still
+flags had been judged intended behavior because a legal re-association is amplified by a later operator.
+Such findings are annotated for manual review; condition-aware suppression is future work.
+
+\subsection{Threats to Validity}
+\label{sec:threats}
+
+\paragraph{Internal validity.} Harness defects can appear as compiler defects. Two occurred during the study: a
+wrapper that compiled the wrong callee, and a sample generator whose \code{no\_grad} finalizer ran inside a
+later trace and inserted a grad-mode node into exported graphs. Every candidate is therefore confirmed with a stand-alone script that does not
+import \tool, in a fresh interpreter, on two PyTorch versions and two operating systems, and every report is
+re-verified from its text before filing. Injected faults may not represent real defects, so the evaluation
+also uses mined issues and defects found in current builds.
+
+\paragraph{Construct validity.} A differential oracle detects a divergence and does not decide which side is wrong; ten findings had their root cause outside the pipeline and are counted
+separately. Layer attribution was validated against the location of 13 fixes, which biases the check
+toward defects that were easy to fix. The maintainer-response counts reflect the tracker at the time of writing;
+most path-factor items were filed in the last days before submission. The comparison in RQ5 covers random
+generation and NNSmith; TorchProbe, the closest tool, could not be run against our subject.
+
+\paragraph{External validity.} The implementation targets \tcompile; the factor model needs only an eager
+reference, pipeline switches, and selectable layers, which other AI compiler stacks also offer but which we have
+not evaluated. Most experiments ran on CPUs; the T4 runs confirmed the platform-independent
+defects and found CUDA-specific members of C37, but Triton code generation is covered less densely than C++
+code generation, and C46 is specific to Windows.
+\clearpage

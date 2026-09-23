@@ -1,0 +1,1712 @@
+==== --file issue_108432_wrong_result_of_first_run_with_torch_com.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+  issue_108432_wrong_result_of_first_run_with_torch_com 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [4.0s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_109105_inductor_compiled_modules_produce_incorr.py exit 2 [5s]
+    reject issue_109105_inductor_compiled_modules_produce_incorr.py: forbidden pattern 'open('
+no programs selected
+
+==== --file issue_113641_compiling_double_inplace_clamp_on_stride.py exit 0 [10s]
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 2 done, 1 remaining
+  issue_113641_compiling_double_inplace_clamp_on_stride 5 candidate(s), 0 submittable, 16 tests, 0 compiles  [2.2s]
+      low    dynamo_capture         -                    9f2778cffcff
+      low    dynamo_capture         dtype                af0e1cdc17d8
+      low    dynamo_capture         requires_grad        c104dbaa9664
+      low    dynamo_capture         device               015e900d1dd8
+      low    dynamo_capture         compile              9287cdd0377a
+
+5 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_114415_aotautograd_should_detect_aliasing_of_in.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 3 done, 1 remaining
+  issue_114415_aotautograd_should_detect_aliasing_of_in 3 candidate(s), 0 submittable, 16 tests, 6 compiles  [5.4s]
+      low    dynamo_capture         -                    2af77973fefe
+      low    dynamo_capture         dtype                cf2f28ba0709
+      low    dynamo_capture         compile              7ab06356e264
+
+3 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_124357_torch_compile_produces_wrong_result_for.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 4 done, 1 remaining
+  issue_124357_torch_compile_produces_wrong_result_for 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [8.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_126848_torch_compile_generates_wrong_code_on_cp.py exit 0 [20s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 5 done, 1 remaining
+  issue_126848_torch_compile_generates_wrong_code_on_cp 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [11.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_128202_wrong_result_for_inplace_tensor_update_o.py exit 2 [6s]
+    reject issue_128202_wrong_result_for_inplace_tensor_update_o.py: does not run: ModuleNotFoundError: No module named 'habana_frameworks'
+no programs selected
+
+==== --file issue_135432_torch_compile_cannot_handle_torch_tensor.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 7 done, 1 remaining
+  issue_135432_torch_compile_cannot_handle_torch_tensor 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [8.2s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_136662_composition_of_torch_compile_and_torch_f.py exit 0 [8s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 8 done, 1 remaining
+  issue_136662_composition_of_torch_compile_and_torch_f 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.9s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_139257_error_compiling_the_torch_library_custom.py exit 0 [15s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 9 done, 1 remaining
+  issue_139257_error_compiling_the_torch_library_custom 0 candidate(s), 0 submittable, 6 tests, 20 compiles  [5.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_145372_xpu_torch_nn_functional_pad_brings_wrong.py exit 2 [6s]
+    reject issue_145372_xpu_torch_nn_functional_pad_brings_wrong.py: does not run: AssertionError: Torch not compiled with XPU enabled
+no programs selected
+
+==== --file issue_145466_torch_sin_cos_tan_torch_floor_round_may.py exit 0 [16s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 11 done, 1 remaining
+  issue_145466_torch_sin_cos_tan_torch_floor_round_may 0 candidate(s), 0 submittable, 14 tests, 48 compiles  [8.0s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_158561_torch_compile_in_place_operation_raises.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 12 done, 1 remaining
+  issue_158561_torch_compile_in_place_operation_raises 0 candidate(s), 0 submittable, 6 tests, 18 compiles  [2.9s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_158626_freezing_layers_for_fine_tuning_leaves_t.py exit 2 [6s]
+    reject issue_158626_freezing_layers_for_fine_tuning_leaves_t.py: does not run: AttributeError: 'function' object has no attribute 'param'
+no programs selected
+
+==== --file issue_159408_int64_mps_repeat_interleave_is_incorrect.py exit 2 [6s]
+    reject issue_159408_int64_mps_repeat_interleave_is_incorrect.py: does not run: RuntimeError: PyTorch is not linked with support for mps devices
+no programs selected
+
+==== --file issue_160840_torch_nn_functional_interpolate_generate.py exit 0 [219s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 15 done, 1 remaining
+  issue_160840_torch_nn_functional_interpolate_generate 4 candidate(s), 4 submittable, 9 tests, 31 compiles  [210.5s]
+    * high   aot_functionalization  -                    b082e0f17097
+    * high   inductor_codegen       dtype                7238fca2848c
+    * high   aot_functionalization  requires_grad        bbfc461be8a7
+    * high   aot_functionalization  compile              6be6054cf276
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_160873_torch_compile_inductor_fails_on_mkl_dnn.py exit 2 [6s]
+    reject issue_160873_torch_compile_inductor_fails_on_mkl_dnn.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_161150_multiplication_and_softmax_throws_incorr.py exit 0 [8s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 17 done, 1 remaining
+  issue_161150_multiplication_and_softmax_throws_incorr 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_161763_neg_add_computation_including_uint_tenso.py exit 0 [24s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 18 done, 1 remaining
+  issue_161763_neg_add_computation_including_uint_tenso 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [15.2s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_161905_mps_torch_compile_resnet_18_model_fails.py exit 2 [7s]
+    reject issue_161905_mps_torch_compile_resnet_18_model_fails.py: does not run: RuntimeError: PyTorch is not linked with support for mps devices
+no programs selected
+
+==== --file issue_166514_inductor_fails_with_stride_mismatch_for.py exit 0 [25s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 20 done, 1 remaining
+  issue_166514_inductor_fails_with_stride_mismatch_for 0 candidate(s), 0 submittable, 14 tests, 50 compiles  [16.2s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_167629_compile_error_torchdynamo_fails_to_compi.py exit 2 [6s]
+    reject issue_167629_compile_error_torchdynamo_fails_to_compi.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_167636_torchdynamo_compilation_error_invalid_st.py exit 2 [6s]
+    reject issue_167636_torchdynamo_compilation_error_invalid_st.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_167641_torch_compile_fails_with_stride_mismatch.py exit 2 [6s]
+    reject issue_167641_torch_compile_fails_with_stride_mismatch.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_167780_inductor_combo_kernel_fails_with_cppsche.py exit 0 [35s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 24 done, 1 remaining
+  issue_167780_inductor_combo_kernel_fails_with_cppsche 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [26.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_170666_inductor_fails_to_compile_models_contain.py exit 0 [19s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 25 done, 1 remaining
+  issue_170666_inductor_fails_to_compile_models_contain 0 candidate(s), 0 submittable, 6 tests, 22 compiles  [10.3s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove.py exit 0 [15s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 26 done, 1 remaining
+  issue_170937_inductor_f_lp_pool_1_2_3_d_fail_with_ove 0 candidate(s), 0 submittable, 16 tests, 48 compiles  [6.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_170939_inductor_f_pdist_fails_with_runtimeerror.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 27 done, 1 remaining
+  issue_170939_inductor_f_pdist_fails_with_runtimeerror 0 candidate(s), 0 submittable, 9 tests, 28 compiles  [5.7s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_171979_inductor_fails_to_compile_models_using_t.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 28 done, 1 remaining
+  issue_171979_inductor_fails_to_compile_models_using_t 0 candidate(s), 0 submittable, 16 tests, 48 compiles  [3.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_172207_torch_compile_changes_random_mask_genera.py exit 2 [6s]
+    reject issue_172207_torch_compile_changes_random_mask_genera.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_172711_torch_compile_produces_wrong_output_chan.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 30 done, 1 remaining
+  issue_172711_torch_compile_produces_wrong_output_chan 0 candidate(s), 0 submittable, 1 tests, 3 compiles  [2.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_174386_torch_compile_ignores_torch_use_determin.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 31 done, 1 remaining
+  issue_174386_torch_compile_ignores_torch_use_determin 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [5.4s]
+    * high   inductor_codegen       -                    138a850da12b
+    * high   inductor_codegen       compile              c8e3da048a2f
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_174549_inconsistency_torch_nn_fractionalmaxpool.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 32 done, 1 remaining
+  issue_174549_inconsistency_torch_nn_fractionalmaxpool 0 candidate(s), 0 submittable, 14 tests, 48 compiles  [9.2s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_174719_pallas_argmax_with_keepdim_true_on_middl.py exit 0 [20s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 33 done, 1 remaining
+  issue_174719_pallas_argmax_with_keepdim_true_on_middl 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [11.8s]
+    * high   inductor_codegen       -                    b737f71fffcb
+    * high   inductor_codegen       compile              f79e81acc67b
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_174969_torch_compile_outputs_incorrect_results.py exit 0 [20s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 34 done, 1 remaining
+  issue_174969_torch_compile_outputs_incorrect_results 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [11.2s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_175156_inductor_multiple_randint_calls_cause_in.py exit 0 [16s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 35 done, 1 remaining
+  issue_175156_inductor_multiple_randint_calls_cause_in 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [7.1s]
+    * high   inductor_codegen       -                    645182fe9713
+    * high   inductor_codegen       compile              a6d67c365760
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_175496_inductor_model_with_torch_compile_output.py exit 0 [27s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 36 done, 1 remaining
+  issue_175496_inductor_model_with_torch_compile_output 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [18.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_175604_torch_compile_produces_stale_read_with_g.py exit 2 [6s]
+    reject issue_175604_torch_compile_produces_stale_read_with_g.py: does not run: NameError: name 'nn' is not defined
+no programs selected
+
+==== --file issue_175632_inductor_torch_compile_produces_inconsis.py exit 0 [57s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 38 done, 1 remaining
+  issue_175632_inductor_torch_compile_produces_inconsis 3 candidate(s), 3 submittable, 16 tests, 56 compiles  [47.6s]
+    * high   inductor_codegen       -                    c6585a76c04d
+    * high   inductor_codegen       dtype                bec282093f70
+    * high   inductor_codegen       compile              315368b35d1b
+
+3 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_175791_inductor_incorrect_output_when_compiling.py exit 0 [23s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 39 done, 1 remaining
+  issue_175791_inductor_incorrect_output_when_compiling 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [14.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_175903_inductor_incorrect_results_in_index_put.py exit 0 [14s]
+    layered dtype=bfloat16: ERROR AcceleratorError: CUDA error: device-side assert triggered
+Search for `cudaErrorAssert' in https:/
+    matrix base->dtype=bfloat16: ERROR AcceleratorError: CUDA error: device-side assert triggered
+Search for `cudaErrorAssert' in https:/
+    matrix dtype=bfloat16->base: ERROR AcceleratorError: CUDA error: device-side assert triggered
+Search for `cudaErrorAssert' in https:/
+    matrix dtype=float16->dtype=float64: ERROR AcceleratorError: CUDA error: device-side assert triggered
+Search for `cudaErrorAssert' in https:/
+  issue_175903_inductor_incorrect_results_in_index_put 1 candidate(s), 1 submittable, 16 tests, 3 compiles  [4.6s]
+    * high   inductor_codegen       -                    a80d240e8eeb
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_175919_inductor_out_of_bounds_memory_read_via_r.py exit 0 [27s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 41 done, 1 remaining
+  issue_175919_inductor_out_of_bounds_memory_read_via_r 3 candidate(s), 3 submittable, 16 tests, 55 compiles  [18.5s]
+    * high   inductor_codegen       -                    b3ffd22a7829
+    * high   inductor_codegen       dtype                8d9767847a77
+    * high   inductor_codegen       compile              1c6361e3fda0
+
+3 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_176596_torch_compile_does_not_correctly_invoke.py exit 0 [22s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 42 done, 1 remaining
+  issue_176596_torch_compile_does_not_correctly_invoke 0 candidate(s), 0 submittable, 16 tests, 50 compiles  [13.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_176599_torch_compile_bypasses_property_setter_a.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 43 done, 1 remaining
+  issue_176599_torch_compile_bypasses_property_setter_a 0 candidate(s), 0 submittable, 3 tests, 0 compiles  [1.1s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_176679_torch_compile_produces_incorrect_results.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 44 done, 1 remaining
+  issue_176679_torch_compile_produces_incorrect_results 2 candidate(s), 0 submittable, 3 tests, 0 compiles  [1.8s]
+      low    dynamo_capture         -                    dd20f71ed3d1
+      low    dynamo_capture         compile              32b1c63feaab
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_176686_tensor_subclass_using_torch_function_pro.py exit 0 [10s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 45 done, 1 remaining
+  issue_176686_tensor_subclass_using_torch_function_pro 0 candidate(s), 0 submittable, 3 tests, 0 compiles  [1.9s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_176854_torch_compile_does_not_correctly_propaga.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 46 done, 1 remaining
+  issue_176854_torch_compile_does_not_correctly_propaga 1 candidate(s), 0 submittable, 16 tests, 56 compiles  [8.7s]
+      low    dynamo_capture         requires_grad        08ffaf94c6c3
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_177252_inductor_assertionerror_wrong_number_of.py exit 0 [66s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 47 done, 1 remaining
+  issue_177252_inductor_assertionerror_wrong_number_of 4 candidate(s), 4 submittable, 16 tests, 107 compiles  [56.7s]
+    * high   aot_functionalization  -                    e088e5445458
+    * high   aot_functionalization  dtype                9b560cc9c2f8
+    * high   aot_functionalization  requires_grad        31ffbabcc81b
+    * high   aot_functionalization  compile              4a05b43de793
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_177372_add_torch_narrow_scatter_operator_to_com.py exit 2 [6s]
+    reject issue_177372_add_torch_narrow_scatter_operator_to_com.py: does not run: AttributeError: module 'torch' has no attribute 'narrow_scatter'
+no programs selected
+
+==== --file issue_177451_torch_compile_fails_on_conv2d_with_kerne.py exit 0 [8s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 49 done, 1 remaining
+  issue_177451_torch_compile_fails_on_conv2d_with_kerne 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_177629_torch_compile_backend_inductor_silently.py exit 0 [19s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 50 done, 1 remaining
+  issue_177629_torch_compile_backend_inductor_silently 1 candidate(s), 1 submittable, 16 tests, 57 compiles  [10.5s]
+    * high   inductor_codegen       -                    419c745be494
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_177631_inductor_torch_compile_produces_incorrec.py exit 0 [21s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 51 done, 1 remaining
+  issue_177631_inductor_torch_compile_produces_incorrec 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [12.1s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_177652_inductor_torch_compile_s_rng_state_is_in.py exit 0 [19s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 52 done, 1 remaining
+  issue_177652_inductor_torch_compile_s_rng_state_is_in 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [9.7s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_177821_inductor_torch_compile_ignores_a_complex.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 53 done, 1 remaining
+  issue_177821_inductor_torch_compile_ignores_a_complex 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [4.7s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_177839_inductor_torch_compile_on_cpu_produces_i.py exit 0 [19s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 54 done, 1 remaining
+  issue_177839_inductor_torch_compile_on_cpu_produces_i 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [10.3s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_178125_conv_transpose1d_meta_implementation_all.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 55 done, 1 remaining
+  issue_178125_conv_transpose1d_meta_implementation_all 2 candidate(s), 0 submittable, 3 tests, 0 compiles  [1.3s]
+      low    dynamo_capture         -                    cb87c86c653a
+      low    dynamo_capture         compile              7495eef02f9e
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_178128_conv_transpose3d_meta_execution_produces.py exit 0 [10s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 56 done, 1 remaining
+  issue_178128_conv_transpose3d_meta_execution_produces 2 candidate(s), 0 submittable, 3 tests, 0 compiles  [2.8s]
+      low    dynamo_capture         -                    005073e88f34
+      low    dynamo_capture         compile              27e3f8bed866
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_178259_inductor_c_compilation_error_when_conver.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 57 done, 1 remaining
+  issue_178259_inductor_c_compilation_error_when_conver 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [4.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_178262_inductor_incorrect_stride_calculation_in.py exit 0 [21s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 58 done, 1 remaining
+  issue_178262_inductor_incorrect_stride_calculation_in 0 candidate(s), 0 submittable, 6 tests, 38 compiles  [12.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_178382_torch_compile_data_dependent_guard_fails.py exit 0 [21s]
+
+  Developer debug context: builtin bool [<class 'torch._dynamo.variables.tensor.TensorVariable'>] False
+
+ For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0059.html
+
+from user code:
+   File "reproducers_gh/issue_178382_torch_compile_data_dependent_guard_fails.py", line 15, in forward
+    make_causal = bool((mask == 0).all())
+
+  issue_178382_torch_compile_data_dependent_guard_fails 0 candidate(s), 0 submittable, 3 tests, 27 compiles  [12.2s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_178482_torch_compile_dynamic_true_ignores_incom.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 60 done, 1 remaining
+  issue_178482_torch_compile_dynamic_true_ignores_incom 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [2.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_178869_eager_then_compile_crashes_with_indexerr.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 61 done, 1 remaining
+  issue_178869_eager_then_compile_crashes_with_indexerr 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [8.2s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_178964_inductor_max_returns_incorrect_indices_w.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 62 done, 1 remaining
+  issue_178964_inductor_max_returns_incorrect_indices_w 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [9.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_179026_torch_compile_guard_evaluation_crash_eva.py exit 0 [19s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 63 done, 1 remaining
+  issue_179026_torch_compile_guard_evaluation_crash_eva 0 candidate(s), 0 submittable, 16 tests, 49 compiles  [10.7s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_179383_torch_quantile_and_torch_nanquantile_fai.py exit 0 [19s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 64 done, 1 remaining
+  issue_179383_torch_quantile_and_torch_nanquantile_fai 1 candidate(s), 0 submittable, 9 tests, 28 compiles  [10.1s]
+      low    dynamo_capture         compile              5c13fdde0656
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_179534_torch_compile_fails_on_aten_sparse_csr_t.py exit 0 [8s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 65 done, 1 remaining
+  issue_179534_torch_compile_fails_on_aten_sparse_csr_t 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_179807_torch_compile_inductor_crash_f_pad_follo.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 66 done, 1 remaining
+  issue_179807_torch_compile_inductor_crash_f_pad_follo 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.9s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_180841_inductor_importerror_file_too_short_when.py exit 2 [6s]
+    reject issue_180841_inductor_importerror_file_too_short_when.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_180848_torch_compile_produces_wrong_results_whe.py exit 2 [6s]
+    reject issue_180848_torch_compile_produces_wrong_results_whe.py: does not run: NameError: name 'torch' is not defined
+no programs selected
+
+==== --file issue_181115_inductor_torch_compile_dynamic_true_cras.py exit 0 [34s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 69 done, 1 remaining
+  issue_181115_inductor_torch_compile_dynamic_true_cras 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [25.3s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181175_aot_autograd_runtimeerror_cannot_call_nu.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 70 done, 1 remaining
+  issue_181175_aot_autograd_runtimeerror_cannot_call_nu 1 candidate(s), 0 submittable, 1 tests, 0 compiles  [1.1s]
+      low    dynamo_capture         -                    b40d0d03026a
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181384_aot_autograd_runtimeerror_pytorch_build.py exit 0 [27s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 71 done, 1 remaining
+  issue_181384_aot_autograd_runtimeerror_pytorch_build 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [18.3s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181428_torch_compile_torch_func_grad_superlinea.py exit 0 [12s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 72 done, 1 remaining
+  issue_181428_torch_compile_torch_func_grad_superlinea 4 candidate(s), 0 submittable, 16 tests, 0 compiles  [4.6s]
+      low    dynamo_capture         -                    deacc361fead
+      low    dynamo_capture         dtype                33a570b3d793
+      low    dynamo_capture         requires_grad        74b6f5ae2795
+      low    dynamo_capture         compile              f748589093f8
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181568_torch_compile_mismatch_for_matmul_follow.py exit 0 [38s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 73 done, 1 remaining
+  issue_181568_torch_compile_mismatch_for_matmul_follow 4 candidate(s), 4 submittable, 16 tests, 56 compiles  [29.3s]
+    * high   inductor_codegen       -                    dfce1bcf7769
+    * high   inductor_codegen       requires_grad        1b36156538f8
+    * high   inductor_codegen       compile              2141064c29a5
+    * high   inductor_codegen       dtype                bd0e5e06be92
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181625_assertionerror_expected_size_stride_mism.py exit 0 [66s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 74 done, 1 remaining
+  issue_181625_assertionerror_expected_size_stride_mism 3 candidate(s), 3 submittable, 3 tests, 11 compiles  [57.1s]
+    * high   inductor_codegen       -                    5830d06a5f70
+    * high   inductor_codegen       compile              013c4ae3e934
+    * high   inductor_codegen       compile              277c49ca719d
+
+3 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181653_torch_compile_torch_func_grad_fn_hangs_i.py exit 0 [12s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 75 done, 1 remaining
+  issue_181653_torch_compile_torch_func_grad_fn_hangs_i 4 candidate(s), 0 submittable, 16 tests, 0 compiles  [4.5s]
+      low    dynamo_capture         -                    8a443851507d
+      low    dynamo_capture         dtype                77980ec8237d
+      low    dynamo_capture         requires_grad        e12844eef0cb
+      low    dynamo_capture         compile              aafd62a347fe
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181688_heap_corruption_sigabrt_when_compiling_c.py exit -6 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 76 done, 1 remaining
+free(): invalid pointer
+==== --file issue_181693_nn_hardswish_produces_wrong_output_under.py exit 0 [37s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 77 done, 1 remaining
+  issue_181693_nn_hardswish_produces_wrong_output_under 2 candidate(s), 2 submittable, 3 tests, 11 compiles  [28.3s]
+    * high   inductor_codegen       -                    644c6e8989e2
+    * high   inductor_codegen       compile              02a53bfe419d
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181694_torch_addcdiv_produces_wrong_output_unde.py exit 0 [34s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 78 done, 1 remaining
+  issue_181694_torch_addcdiv_produces_wrong_output_unde 2 candidate(s), 2 submittable, 3 tests, 11 compiles  [25.4s]
+    * high   inductor_codegen       -                    2d6a9ef101c3
+    * high   inductor_codegen       compile              5eaac3595429
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181695_torch_where_with_broadcast_shapes_produc.py exit 0 [26s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 79 done, 1 remaining
+  issue_181695_torch_where_with_broadcast_shapes_produc 2 candidate(s), 2 submittable, 3 tests, 11 compiles  [17.4s]
+    * high   inductor_codegen       -                    450b71f4c193
+    * high   inductor_codegen       compile              6d957df4ef4e
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181851_register_fake_to_throw_error_if_signatur.py exit 0 [11s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 80 done, 1 remaining
+  issue_181851_register_fake_to_throw_error_if_signatur 0 candidate(s), 0 submittable, 16 tests, 0 compiles  [3.6s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_181870_torch_compile_dynamic_true_fails_on_f_cr.py exit 0 [23s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 81 done, 1 remaining
+  issue_181870_torch_compile_dynamic_true_fails_on_f_cr 1 candidate(s), 0 submittable, 16 tests, 53 compiles  [14.6s]
+      low    dynamo_capture         compile              656533664503
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_182131_torch_compile_inductor_produces_differen.py exit 0 [41s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 82 done, 1 remaining
+  issue_182131_torch_compile_inductor_produces_differen 4 candidate(s), 4 submittable, 16 tests, 56 compiles  [32.6s]
+    * high   inductor_codegen       -                    edb2ef25b17e
+    * high   inductor_codegen       requires_grad        d2f60327ea7c
+    * high   inductor_codegen       compile              7d78158b9809
+    * high   inductor_codegen       dtype                26cc08f9e08f
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_182217_torch_compile_crashes_on_f_layer_norm_ne.py exit 2 [6s]
+    reject issue_182217_torch_compile_crashes_on_f_layer_norm_ne.py: does not run: NameError: name 'torch' is not defined
+no programs selected
+
+==== --file issue_182225_torch_compile_mismatch_for_bfloat16_rope.py exit 0 [26s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 84 done, 1 remaining
+  issue_182225_torch_compile_mismatch_for_bfloat16_rope 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [17.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_182317_dynamo_leaks_torchfunctionmode_onto_stac.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 85 done, 1 remaining
+  issue_182317_dynamo_leaks_torchfunctionmode_onto_stac 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [2.9s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_182318_dynamo_codegen_leaks_torch_function_enab.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 86 done, 1 remaining
+  issue_182318_dynamo_codegen_leaks_torch_function_enab 0 candidate(s), 0 submittable, 3 tests, 0 compiles  [1.1s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_182399_torch_compile_dynamic_true_fails_on_f_cr.py exit 0 [24s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 87 done, 1 remaining
+  issue_182399_torch_compile_dynamic_true_fails_on_f_cr 1 candidate(s), 0 submittable, 16 tests, 53 compiles  [15.4s]
+      low    dynamo_capture         compile              b75670df639b
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_182965_torch_compile_silently_returns_a_result.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 88 done, 1 remaining
+  issue_182965_torch_compile_silently_returns_a_result 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [4.9s]
+    * high   aot_functionalization  -                    4fdc112db257
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183082_inductor_cpu_returns_wrong_argmax_after.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 89 done, 1 remaining
+  issue_183082_inductor_cpu_returns_wrong_argmax_after 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [9.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183120_torch_compile_inductor_produces_wrong_ou.py exit 0 [31s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 90 done, 1 remaining
+  issue_183120_torch_compile_inductor_produces_wrong_ou 2 candidate(s), 2 submittable, 3 tests, 11 compiles  [22.2s]
+    * high   inductor_codegen       -                    c5c29791d04a
+    * high   inductor_codegen       compile              5ffb5476b45d
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183121_torch_compile_returns_wrong_shape_for_to.py exit 0 [26s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 91 done, 1 remaining
+  issue_183121_torch_compile_returns_wrong_shape_for_to 3 candidate(s), 3 submittable, 16 tests, 55 compiles  [17.5s]
+    * high   inductor_codegen       -                    2cdd2a7076b6
+    * high   inductor_codegen       dtype                c13830db798e
+    * high   inductor_codegen       compile              e6a678ddfbd9
+
+3 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183601_torch_compile_inductor_produces_wrong_ou.py exit 0 [36s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 92 done, 1 remaining
+  issue_183601_torch_compile_inductor_produces_wrong_ou 2 candidate(s), 2 submittable, 3 tests, 11 compiles  [27.7s]
+    * high   inductor_codegen       -                    b7260f42d43d
+    * high   inductor_codegen       compile              33e02cf82893
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183605_torch_compile_changes_fp16_nan_behavior.py exit 0 [19s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 93 done, 1 remaining
+  issue_183605_torch_compile_changes_fp16_nan_behavior 0 candidate(s), 0 submittable, 14 tests, 48 compiles  [10.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183606_torch_compile_changes_signed_zero_behavi.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 94 done, 1 remaining
+  issue_183606_torch_compile_changes_signed_zero_behavi 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [4.2s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183607_torch_compile_changes_fp16_overflow_beha.py exit 0 [25s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 95 done, 1 remaining
+  issue_183607_torch_compile_changes_fp16_overflow_beha 4 candidate(s), 4 submittable, 16 tests, 56 compiles  [16.6s]
+    * high   inductor_codegen       -                    eacb6b88db9c
+    * high   inductor_codegen       dtype                bb4d985139a3
+    * high   inductor_codegen       requires_grad        a1927317a81d
+    * high   inductor_codegen       compile              b610f2aee5d6
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183761_torch_compile_produces_different_fp16_re.py exit 2 [5s]
+    reject issue_183761_torch_compile_produces_different_fp16_re.py: forbidden pattern 'sys.exit'
+no programs selected
+
+==== --file issue_183763_torch_compile_overflows_torch_sinh_near.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 97 done, 1 remaining
+  issue_183763_torch_compile_overflows_torch_sinh_near 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [8.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183765_torch_compile_overflows_torch_cosh_near.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 98 done, 1 remaining
+  issue_183765_torch_compile_overflows_torch_cosh_near 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [8.3s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183767_torch_compile_returns_inf_for_torch_asin.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 99 done, 1 remaining
+  issue_183767_torch_compile_returns_inf_for_torch_asin 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [8.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183768_torch_compile_returns_inf_for_torch_acos.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 100 done, 1 remaining
+  issue_183768_torch_compile_returns_inf_for_torch_acos 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [8.3s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_183889_torch_compile_fails_with_pendingunbacked.py exit 2 [6s]
+    reject issue_183889_torch_compile_fails_with_pendingunbacked.py: crashed in isolation (exit 1)
+no programs selected
+
+==== --file issue_183894_torch_compile_returns_wrong_argmin_after.py exit 2 [6s]
+    reject issue_183894_torch_compile_returns_wrong_argmin_after.py: crashed in isolation (exit 1)
+no programs selected
+
+==== --file issue_184405_torch_compile_backend_inductor_returns_s.py exit 0 [8s]
+
+torch 2.10.0+cu128  device None  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 103 done, 1 remaining
+  issue_184405_torch_compile_backend_inductor_returns_s 2 candidate(s), 0 submittable, 3 tests, 0 compiles  [1.0s]
+      low    dynamo_capture         -                    6d650bf30f35
+      low    dynamo_capture         compile              90551be8cf06
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185246_torch_compile_silently_accepts_invalid_b.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 104 done, 1 remaining
+  issue_185246_torch_compile_silently_accepts_invalid_b 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [8.6s]
+    * high   inductor_codegen       -                    ddc30b59b7f0
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185248_torch_compile_silently_accepts_negative.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 105 done, 1 remaining
+  issue_185248_torch_compile_silently_accepts_negative 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [8.4s]
+    * high   inductor_codegen       -                    0b19429353f5
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185330_inductor_torch_index_select_on_uint16_in.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 106 done, 1 remaining
+  issue_185330_inductor_torch_index_select_on_uint16_in 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [4.1s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185405_inductor_assertionerror_len_index_len_st.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 107 done, 1 remaining
+  issue_185405_inductor_assertionerror_len_index_len_st 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [1.0s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185481_inductor_argmax_over_comparison_mask_is.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 108 done, 1 remaining
+  issue_185481_inductor_argmax_over_comparison_mask_is 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [5.0s]
+    * high   inductor_codegen       -                    4b073e5a902f
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185488_dynamo_lazybatchnorm2d_fails_under_torch.py exit 0 [25s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 109 done, 1 remaining
+  issue_185488_dynamo_lazybatchnorm2d_fails_under_torch 0 candidate(s), 0 submittable, 14 tests, 50 compiles  [16.6s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185494_dynamo_lazybatchnorm2d_fails_under_torch.py exit 0 [25s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 110 done, 1 remaining
+  issue_185494_dynamo_lazybatchnorm2d_fails_under_torch 0 candidate(s), 0 submittable, 14 tests, 50 compiles  [16.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185515_inductor_tensor_view_dtype_after_transpo.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 111 done, 1 remaining
+  issue_185515_inductor_tensor_view_dtype_after_transpo 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [2.7s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185575_inductor_upsample_mode_area_fails_under.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 112 done, 1 remaining
+  issue_185575_inductor_upsample_mode_area_fails_under 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [4.7s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185587_inductor_numerical_inconsistency_polygam.py exit 0 [43s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 113 done, 1 remaining
+  issue_185587_inductor_numerical_inconsistency_polygam 3 candidate(s), 3 submittable, 6 tests, 22 compiles  [33.7s]
+    * high   inductor_codegen       -                    51c49eddc26e
+    * high   inductor_codegen       requires_grad        cc4d9affb449
+    * high   inductor_codegen       compile              d134e53413bd
+
+3 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_185589_inductor_severe_numerical_inconsistency.py exit 0 [25s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 114 done, 1 remaining
+  issue_185589_inductor_severe_numerical_inconsistency 0 candidate(s), 0 submittable, 6 tests, 22 compiles  [15.7s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_186671_dynamo_set_subclass_overriding_iter_give.py exit 0 [8s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 115 done, 1 remaining
+  issue_186671_dynamo_set_subclass_overriding_iter_give 0 candidate(s), 0 submittable, 3 tests, 0 compiles  [0.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_186799_torch_compile_silently_produces_wrong_gr.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 116 done, 1 remaining
+  issue_186799_torch_compile_silently_produces_wrong_gr 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [10.0s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_186875_inductor_fmod_remainder_with_python_floa.py exit 0 [15s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 117 done, 1 remaining
+  issue_186875_inductor_fmod_remainder_with_python_floa 0 candidate(s), 0 submittable, 11 tests, 37 compiles  [6.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_187018_abs_on_uint8_silently_miscompiled_via_st.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 118 done, 1 remaining
+  issue_187018_abs_on_uint8_silently_miscompiled_via_st 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [4.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_187027_flip_after_repeat_interleave_generates_n.py exit 0 [20s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 119 done, 1 remaining
+  issue_187027_flip_after_repeat_interleave_generates_n 1 candidate(s), 1 submittable, 3 tests, 9 compiles  [11.9s]
+    * high   inductor_codegen       compile              7d73c2553d18
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_187953_torch_compile_out_variants_of_compositei.py exit 0 [19s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 120 done, 1 remaining
+  issue_187953_torch_compile_out_variants_of_compositei 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [10.1s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_188074_torch_compile_produces_inconsistent_outp.py exit 2 [6s]
+    reject issue_188074_torch_compile_produces_inconsistent_outp.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_188084_bug_inductor_reinplaces_index_put_on_exp.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 122 done, 1 remaining
+  issue_188084_bug_inductor_reinplaces_index_put_on_exp 1 candidate(s), 0 submittable, 1 tests, 0 compiles  [1.5s]
+      low    dynamo_capture         -                    9f9f17163842
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_188420_torch_compile_produces_inconsistent_outp.py exit 2 [6s]
+    reject issue_188420_torch_compile_produces_inconsistent_outp.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_188425_torch_compile_produces_drastically_incor.py exit 2 [6s]
+    reject issue_188425_torch_compile_produces_drastically_incor.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_188430_torch_compile_produces_large_absolute_er.py exit 2 [6s]
+    reject issue_188430_torch_compile_produces_large_absolute_er.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_188432_torch_compile_produces_inconsistent_outp.py exit 2 [6s]
+    reject issue_188432_torch_compile_produces_inconsistent_outp.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_188536_graph_break_reconstruction_loses_identit.py exit 2 [6s]
+    reject issue_188536_graph_break_reconstruction_loses_identit.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_188680_test_opinfo_gap_allclose_based_compile_v.py exit 2 [6s]
+    reject issue_188680_test_opinfo_gap_allclose_based_compile_v.py: does not run: NameError: name 'ops' is not defined
+no programs selected
+
+==== --file issue_189271_inductor_keyerror_in_scheduler_compute_a.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 129 done, 1 remaining
+  issue_189271_inductor_keyerror_in_scheduler_compute_a 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.9s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_189341_torch_compile_causes_segmentation_fault.py exit 2 [6s]
+    reject issue_189341_torch_compile_causes_segmentation_fault.py: does not run: AssertionError: Torch not compiled with XPU enabled
+no programs selected
+
+==== --file issue_189518_inductor_s_pointless_cumsum_replacement.py exit 0 [19s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 131 done, 1 remaining
+  issue_189518_inductor_s_pointless_cumsum_replacement 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [10.5s]
+    * high   inductor_codegen       -                    549bae5e5b87
+    * high   inductor_codegen       compile              df1a52a1416e
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_189528_cond_inductor_nameerror_on_inner_dim_bra.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 132 done, 1 remaining
+  issue_189528_cond_inductor_nameerror_on_inner_dim_bra 1 candidate(s), 0 submittable, 1 tests, 3 compiles  [9.2s]
+      low    dynamo_capture         -                    f254bb88c24f
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_189787_inductor_constant_folds_sum_softmax_to_e.py exit 0 [25s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 133 done, 1 remaining
+  issue_189787_inductor_constant_folds_sum_softmax_to_e 1 candidate(s), 1 submittable, 16 tests, 56 compiles  [15.7s]
+    * high   inductor_codegen       dtype                a6e334da4975
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_189808_inductor_sqrt_produces_negative_nan_0xff.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 134 done, 1 remaining
+  issue_189808_inductor_sqrt_produces_negative_nan_0xff 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [8.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_189925_dynamo_io_text_encoding_causes_a_graph_b.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 135 done, 1 remaining
+  issue_189925_dynamo_io_text_encoding_causes_a_graph_b 0 candidate(s), 0 submittable, 3 tests, 0 compiles  [1.0s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_190274_inductor_runtimeerror_self_stride_0_must.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 136 done, 1 remaining
+  issue_190274_inductor_runtimeerror_self_stride_0_must 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [2.7s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_190755_some_dynamo_descriptors_tp_descr_get_imp.py exit 0 [20s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 137 done, 1 remaining
+  issue_190755_some_dynamo_descriptors_tp_descr_get_imp 4 candidate(s), 0 submittable, 16 tests, 56 compiles  [11.0s]
+      low    dynamo_capture         -                    65cdb9cbf304
+      low    dynamo_capture         dtype                77712ec1d6ab
+      low    dynamo_capture         requires_grad        f95ad207a5a8
+      low    dynamo_capture         compile              5760a6f4149a
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_190758_memory_budget_partitioner_recomputes_rng.py exit 0 [8s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 138 done, 1 remaining
+  issue_190758_memory_budget_partitioner_recomputes_rng 0 candidate(s), 0 submittable, 1 tests, 0 compiles  [0.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_190855_inductor_wrong_hessian_torch_compile_tor.py exit 0 [11s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 139 done, 1 remaining
+  issue_190855_inductor_wrong_hessian_torch_compile_tor 1 candidate(s), 0 submittable, 1 tests, 0 compiles  [2.6s]
+      low    dynamo_capture         -                    c11e3d242a45
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_191136_inductor_torch_view_copy_fails_on_expand.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 140 done, 1 remaining
+  issue_191136_inductor_torch_view_copy_fails_on_expand 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [8.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_191499_inductor_cpu_torch_compile_returns_0_for.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 141 done, 1 remaining
+  issue_191499_inductor_cpu_torch_compile_returns_0_for 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [4.1s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_191833_constraintviolationerror_is_not_raised_w.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 142 done, 1 remaining
+  issue_191833_constraintviolationerror_is_not_raised_w 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [8.3s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_192872_dynamo_mutation_to_a_load_build_class_cr.py exit 2 [6s]
+    reject issue_192872_dynamo_mutation_to_a_load_build_class_cr.py: does not run: AttributeError: torch._dynamo.config.enable_trace_load_build_class does not exist
+no programs selected
+
+==== --file issue_192905_nested_nested_compile_region_silently_re.py exit 0 [35s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 144 done, 1 remaining
+  issue_192905_nested_nested_compile_region_silently_re 1 candidate(s), 0 submittable, 16 tests, 56 compiles  [26.5s]
+      low    dynamo_capture         requires_grad        e6235471dcc8
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_192906_reuse_hash_fn_leaves_a_subscripted_captu.py exit 2 [6s]
+    reject issue_192906_reuse_hash_fn_leaves_a_subscripted_captu.py: does not run: TypeError: nested_compile_region() got an unexpected keyword argument 'reuse_hash_fn'
+no programs selected
+
+==== --file issue_192985_dynamo_silently_drops_custom_jvp_of_auto.py exit 0 [30s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 146 done, 1 remaining
+  issue_192985_dynamo_silently_drops_custom_jvp_of_auto 4 candidate(s), 0 submittable, 16 tests, 56 compiles  [20.7s]
+      low    dynamo_capture         -                    0943fd907367
+      low    dynamo_capture         dtype                465daa651bc8
+      low    dynamo_capture         requires_grad        6218c276f95d
+      low    dynamo_capture         compile              c5a6f7958c59
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_193279_dynamo_silently_drops_custom_backward_of.py exit 0 [12s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 147 done, 1 remaining
+  issue_193279_dynamo_silently_drops_custom_backward_of 4 candidate(s), 0 submittable, 16 tests, 0 compiles  [4.5s]
+      low    dynamo_capture         -                    1e1f7eb0f7aa
+      low    dynamo_capture         dtype                32ae1243eda5
+      low    dynamo_capture         requires_grad        de9f07323b0a
+      low    dynamo_capture         compile              661c68135450
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_193490_inductor_batch_linear_lhs_fusion_leaks_w.py exit 2 [6s]
+    reject issue_193490_inductor_batch_linear_lhs_fusion_leaks_w.py: no compiled function found (define `f`, or call torch.compile(fn)(...) in the script)
+no programs selected
+
+==== --file issue_193661_inductor_wrong_argmax_after_fused_traili.py exit 0 [40s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 149 done, 1 remaining
+  issue_193661_inductor_wrong_argmax_after_fused_traili 4 candidate(s), 4 submittable, 16 tests, 56 compiles  [31.7s]
+    * high   inductor_codegen       -                    3b8951712f43
+    * high   inductor_codegen       dtype                0ef98537b363
+    * high   inductor_codegen       requires_grad        093d6127d075
+    * high   inductor_codegen       compile              5bb974e08155
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_193710_inductor_fallback_node_due_to_unsupporte.py exit 0 [23s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 150 done, 1 remaining
+  issue_193710_inductor_fallback_node_due_to_unsupporte 1 candidate(s), 1 submittable, 16 tests, 56 compiles  [11.6s]
+    * high   aot_functionalization  requires_grad        4a33347a73a5
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_193757_inductor_cpu_torch_compile_silently_acce.py exit 0 [8s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 151 done, 1 remaining
+  issue_193757_inductor_cpu_torch_compile_silently_acce 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.2s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_193809_torch_compile_torch_func_vjp_raises_inte.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 152 done, 1 remaining
+  issue_193809_torch_compile_torch_func_vjp_raises_inte 0 candidate(s), 0 submittable, 16 tests, 48 compiles  [5.2s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_193811_torch_compile_silently_accepts_int32_inp.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 153 done, 1 remaining
+  issue_193811_torch_compile_silently_accepts_int32_inp 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [9.5s]
+    * high   aot_functionalization  -                    af4f302cca46
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_193876_inductor_compiling_two_torch_full_cumsum.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 154 done, 1 remaining
+  issue_193876_inductor_compiling_two_torch_full_cumsum 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [8.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194001_aotautogradcache_stale_guards_expr_from.py exit 2 [6s]
+    reject issue_194001_aotautogradcache_stale_guards_expr_from.py: does not run: NameError: name 'torch' is not defined
+no programs selected
+
+==== --file issue_194005_graphs_containing_linalg_cholesky_inv_so.py exit 0 [15s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 156 done, 1 remaining
+  issue_194005_graphs_containing_linalg_cholesky_inv_so 0 candidate(s), 0 submittable, 9 tests, 31 compiles  [6.7s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194062_inductor_silent_incorrectness_torch_full.py exit 0 [21s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 157 done, 1 remaining
+  issue_194062_inductor_silent_incorrectness_torch_full 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [12.3s]
+    * high   inductor_codegen       -                    0ec09af1e3ee
+    * high   inductor_codegen       compile              40170d036777
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194103_torch_compile_dynamic_true_fails_for_sca.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 158 done, 1 remaining
+  issue_194103_torch_compile_dynamic_true_fails_for_sca 1 candidate(s), 0 submittable, 16 tests, 54 compiles  [9.7s]
+      low    dynamo_capture         compile              a858b000314e
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194444_inductor_sdpa_fusion_silently_lost_when.py exit 0 [28s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 159 done, 1 remaining
+  issue_194444_inductor_sdpa_fusion_silently_lost_when 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [19.1s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194501_torch_compile_inductor_smooth_l1_loss_wi.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 160 done, 1 remaining
+  issue_194501_torch_compile_inductor_smooth_l1_loss_wi 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [4.9s]
+    * high   inductor_codegen       -                    c2e79ca22ff0
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194503_torch_compile_gaussian_nll_loss_fails_wi.py exit 0 [12s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 161 done, 1 remaining
+  issue_194503_torch_compile_gaussian_nll_loss_fails_wi 0 candidate(s), 0 submittable, 16 tests, 0 compiles  [3.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194504_torch_compile_batchnorm1d_momentum_none.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 162 done, 1 remaining
+  issue_194504_torch_compile_batchnorm1d_momentum_none 0 candidate(s), 0 submittable, 3 tests, 0 compiles  [1.3s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194547_torch_compile_silently_promotes_dtype_fo.py exit 0 [32s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 163 done, 1 remaining
+  issue_194547_torch_compile_silently_promotes_dtype_fo 3 candidate(s), 3 submittable, 16 tests, 56 compiles  [22.7s]
+    * high   inductor_codegen       -                    d769053952ec
+    * high   inductor_codegen       requires_grad        fec14e8e686c
+    * high   inductor_codegen       compile              aedb91e190c6
+
+3 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194548_torch_compile_silently_accepts_zero_batc.py exit 2 [6s]
+    reject issue_194548_torch_compile_silently_accepts_zero_batc.py: does not run: RuntimeError: cannot reshape tensor of 0 elements into shape [0, -1] because the unspecified d
+no programs selected
+
+==== --file issue_194558_inductor_in_place_padding_optimization_m.py exit 0 [16s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 165 done, 1 remaining
+  issue_194558_inductor_in_place_padding_optimization_m 0 candidate(s), 0 submittable, 6 tests, 20 compiles  [7.0s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194593_torch_compile_kl_divergence_binomial_bin.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 166 done, 1 remaining
+  issue_194593_torch_compile_kl_divergence_binomial_bin 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.0s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194596_torch_compile_wishart_mean_with_tensor_v.py exit 0 [11s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 167 done, 1 remaining
+  issue_194596_torch_compile_wishart_mean_with_tensor_v 0 candidate(s), 0 submittable, 9 tests, 0 compiles  [2.9s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194765_torch_compile_adaptivelogsoftmaxwithloss.py exit 0 [10s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 168 done, 1 remaining
+  issue_194765_torch_compile_adaptivelogsoftmaxwithloss 0 candidate(s), 0 submittable, 3 tests, 0 compiles  [1.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_194766_torch_compile_torch_masked_median_fails.py exit 0 [9s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 169 done, 1 remaining
+  issue_194766_torch_compile_torch_masked_median_fails 0 candidate(s), 0 submittable, 3 tests, 0 compiles  [1.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195282_inductor_dynamo_fake_tensor_tracing_reje.py exit 0 [21s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 170 done, 1 remaining
+  issue_195282_inductor_dynamo_fake_tensor_tracing_reje 0 candidate(s), 0 submittable, 16 tests, 49 compiles  [11.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195320_inductor_sdpa_fusion_matches_a_permuted.py exit 0 [65s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 171 done, 1 remaining
+  issue_195320_inductor_sdpa_fusion_matches_a_permuted 3 candidate(s), 3 submittable, 6 tests, 20 compiles  [55.5s]
+    * high   inductor_codegen       -                    2ad86ba19172
+    * high   inductor_codegen       requires_grad        3a6b57762a33
+    * high   inductor_codegen       compile              e9ca0c44112a
+
+3 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195418_dynamo_canonicalize_output_graph_node_or.py exit 2 [6s]
+    reject issue_195418_dynamo_canonicalize_output_graph_node_or.py: does not run: AttributeError: torch._dynamo.config.canonicalize_output_graph_node_order does not exist
+no programs selected
+
+==== --file issue_195422_inductor_torch_compile_silently_drops_an.py exit 0 [27s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 173 done, 1 remaining
+  issue_195422_inductor_torch_compile_silently_drops_an 3 candidate(s), 3 submittable, 16 tests, 57 compiles  [18.5s]
+    * high   aot_functionalization  -                    653c84c285b9
+    * high   aot_functionalization  dtype                8fa2747fe54b
+    * high   aot_functionalization  compile              278a68befe59
+
+3 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195488_dynamo_autocast_context_manager_is_lower.py exit 0 [8s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 174 done, 1 remaining
+  issue_195488_dynamo_autocast_context_manager_is_lower 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.3s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195579_meta_decomps_torch_compile_skips_addmm_s.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 175 done, 1 remaining
+  issue_195579_meta_decomps_torch_compile_skips_addmm_s 0 candidate(s), 0 submittable, 1 tests, 3 compiles  [2.3s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195582_inductor_silent_wrong_and_non_reproducib.py exit 0 [23s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 176 done, 1 remaining
+  issue_195582_inductor_silent_wrong_and_non_reproducib 0 candidate(s), 0 submittable, 6 tests, 22 compiles  [14.0s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195665_inductor_torch_compile_skips_as_strided.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 177 done, 1 remaining
+  issue_195665_inductor_torch_compile_skips_as_strided 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [9.3s]
+    * high   inductor_codegen       -                    23aea4ad6e5f
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195673_torch_compile_accepts_rand_like_on_an_in.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 178 done, 1 remaining
+  issue_195673_torch_compile_accepts_rand_like_on_an_in 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [5.2s]
+    * high   inductor_codegen       -                    b3f89a009fcc
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195674_torch_compile_evaluates_subtraction_on_a.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 179 done, 1 remaining
+  issue_195674_torch_compile_evaluates_subtraction_on_a 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [5.1s]
+    * high   inductor_codegen       -                    063be0ee1994
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195675_torch_clamp_with_a_bound_unrepresentable.py exit 0 [15s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 180 done, 1 remaining
+  issue_195675_torch_clamp_with_a_bound_unrepresentable 1 candidate(s), 1 submittable, 4 tests, 14 compiles  [6.4s]
+    * high   inductor_codegen       -                    d7540d909e40
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195969_torch_compile_isinstance_x_protoa_protob.py exit 0 [8s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 181 done, 1 remaining
+  issue_195969_torch_compile_isinstance_x_protoa_protob 0 candidate(s), 0 submittable, 3 tests, 0 compiles  [0.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py exit 0 [10s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 182 done, 1 remaining
+  issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec 1 candidate(s), 0 submittable, 1 tests, 0 compiles  [1.9s]
+      low    dynamo_capture         -                    9956d139f5a5
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_196173_torch_compile_produces_incorrect_results.py exit 0 [8s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 183 done, 1 remaining
+  issue_196173_torch_compile_produces_incorrect_results 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.4s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_196198_fullgraph_true_does_not_enforce_graph_br.py exit 0 [22s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 184 done, 1 remaining
+  issue_196198_fullgraph_true_does_not_enforce_graph_br 0 candidate(s), 0 submittable, 16 tests, 107 compiles  [13.1s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_196221_torch_compile_crashes_with_an_internal_f.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 185 done, 1 remaining
+  issue_196221_torch_compile_crashes_with_an_internal_f 4 candidate(s), 0 submittable, 16 tests, 0 compiles  [10.6s]
+      low    dynamo_capture         -                    74a043c71b8d
+      low    dynamo_capture         dtype                62917c405e50
+      low    dynamo_capture         requires_grad        e822c4aa9d24
+      low    dynamo_capture         compile              20940ca4f2ca
+
+4 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_196285_torch_compile_dynamic_true_fails_to_hand.py exit 0 [18s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 186 done, 1 remaining
+  issue_196285_torch_compile_dynamic_true_fails_to_hand 1 candidate(s), 0 submittable, 16 tests, 53 compiles  [9.1s]
+      low    dynamo_capture         compile              0040e8a6753e
+
+1 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_93357_pt2_compiled_model_with_cat_and_expand_g.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 187 done, 1 remaining
+  issue_93357_pt2_compiled_model_with_cat_and_expand_g 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [8.5s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_93363_aotautograd_returns_wrong_result_for_in.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 188 done, 1 remaining
+  issue_93363_aotautograd_returns_wrong_result_for_in 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [7.9s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_93365_pt2_compiled_function_with_cat_and_mul_g.py exit 0 [17s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 189 done, 1 remaining
+  issue_93365_pt2_compiled_function_with_cat_and_mul_g 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [8.8s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_95161_aotautograd_based_torch_compile_doesn_t.py exit 0 [20s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 190 done, 1 remaining
+  issue_95161_aotautograd_based_torch_compile_doesn_t 2 candidate(s), 2 submittable, 3 tests, 9 compiles  [11.3s]
+    * high   inductor_codegen       -                    71b953dfc7ab
+    * high   inductor_codegen       compile              daba1be0d104
+
+2 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_95695_torch_ge_produces_wrong_results_in_compi.py exit 0 [14s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 191 done, 1 remaining
+  issue_95695_torch_ge_produces_wrong_results_in_compi 0 candidate(s), 0 submittable, 3 tests, 9 compiles  [3.9s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md
+==== --file issue_96728_redundant_statement_leads_to_wrong_outpu.py exit 0 [19s]
+
+torch 2.10.0+cu128  device Tesla T4  backend=inductor  reruns=2
+1 program(s) -> gpu_reports_gh_cpu_set
+
+resuming: 192 done, 1 remaining
+  issue_96728_redundant_statement_leads_to_wrong_outpu 0 candidate(s), 0 submittable, 16 tests, 56 compiles  [9.9s]
+
+0 candidate(s); summary at gpu_reports_gh_cpu_set/SUMMARY.md

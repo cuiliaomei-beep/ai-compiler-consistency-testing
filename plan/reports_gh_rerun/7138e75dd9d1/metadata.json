@@ -1,0 +1,28 @@
+{
+  "signature": "7138e75dd9d1",
+  "program": "issue_193757_inductor_cpu_torch_compile_silently_acce",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "193757",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/193757",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

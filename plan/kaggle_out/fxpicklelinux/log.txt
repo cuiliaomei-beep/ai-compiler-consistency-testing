@@ -1,0 +1,115 @@
+   �������������������������������������������������������������������������������� 196.3/196.3 MB 8.4 MB/s eta 0:00:00
+torch 2.14.0+cpu
+--- block 0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/torch/fx/graph_module.py", line 500, in __call__
+    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<eval_with_key>.11", line 5, in forward
+    x *= 2.5;  imul = x;  x = None
+    ^^^^^^^^
+RuntimeError: result type Float can't be cast to the desired output type Long
+Call using an FX-traced Module, line 5 of the traced Module's generated forward function:
+def forward(self, x):
+    x *= 2.5;  imul = x;  x = None
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ <--- HERE
+    return imul
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/torch/fx/graph_module.py", line 500, in __call__
+    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<eval_with_key>.10", line 5, in forward
+    x *= 2.5;  imul = x;  x = None
+    ^^^^^^^^
+RuntimeError: result type Float can't be cast to the desired output type Long
+Call using an FX-traced Module, line 5 of the traced Module's generated forward function:
+def forward(self, x):
+    x *= 2.5;  imul = x;  x = None
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ <--- HERE
+    return imul
+operator.iadd(x, 1)
+    original                 returns [1.0, 1.0, 1.0], input afterwards [1.0, 1.0, 1.0]    | x += 1;  iadd = x;  x = None
+    copy.deepcopy            returns [1.0, 1.0, 1.0], input afterwards [1.0, 1.0, 1.0]    | x += 1;  iadd = x;  x = None
+    pickle round trip        returns [1.0, 1.0, 1.0], input afterwards [0.0, 0.0, 0.0]    | add = x + 1;  x = None
+    torch.save / torch.load  returns [1.0, 1.0, 1.0], input afterwards [0.0, 0.0, 0.0]    | add = x + 1;  x = None
+operator.imul(x, 2.5), int64 x
+    original                 raises RuntimeError                                          | x *= 2.5;  imul = x;  x = None
+    copy.deepcopy            raises RuntimeError                                          | x *= 2.5;  imul = x;  x = None
+    pickle round trip        returns [2.5, 2.5, 2.5], input afterwards [1, 1, 1]          | mul = x * 2.5;  x = None
+    torch.save / torch.load  returns [2.5, 2.5, 2.5], input afterwards [1, 1, 1]          | mul = x * 2.5;  x = None
+--- block 1
+captured graph           buffer afterwards [0.5, 0.5, 0.5]
+after pickle round trip  buffer afterwards [0.0, 0.0, 0.0]
+   �������������������������������������������������������������������������������� 199.4/199.4 MB 9.3 MB/s eta 0:00:00
+torch 2.15.0.dev20260921+cpu
+--- block 0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/torch/fx/graph_module.py", line 501, in __call__
+    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1787, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1798, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<eval_with_key>.11", line 5, in forward
+    x *= 2.5;  imul = x;  x = None
+    ^^^^^^^^
+RuntimeError: result type Float can't be cast to the desired output type Long
+Call using an FX-traced Module, line 5 of the traced Module's generated forward function:
+def forward(self, x):
+    x *= 2.5;  imul = x;  x = None
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ <--- HERE
+    return imul
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/torch/fx/graph_module.py", line 501, in __call__
+    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1787, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1798, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<eval_with_key>.10", line 5, in forward
+    x *= 2.5;  imul = x;  x = None
+    ^^^^^^^^
+RuntimeError: result type Float can't be cast to the desired output type Long
+Call using an FX-traced Module, line 5 of the traced Module's generated forward function:
+def forward(self, x):
+    x *= 2.5;  imul = x;  x = None
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ <--- HERE
+    return imul
+operator.iadd(x, 1)
+    original                 returns [1.0, 1.0, 1.0], input afterwards [1.0, 1.0, 1.0]    | x += 1;  iadd = x;  x = None
+    copy.deepcopy            returns [1.0, 1.0, 1.0], input afterwards [1.0, 1.0, 1.0]    | x += 1;  iadd = x;  x = None
+    pickle round trip        returns [1.0, 1.0, 1.0], input afterwards [0.0, 0.0, 0.0]    | add = x + 1;  x = None
+    torch.save / torch.load  returns [1.0, 1.0, 1.0], input afterwards [0.0, 0.0, 0.0]    | add = x + 1;  x = None
+operator.imul(x, 2.5), int64 x
+    original                 raises RuntimeError                                          | x *= 2.5;  imul = x;  x = None
+    copy.deepcopy            raises RuntimeError                                          | x *= 2.5;  imul = x;  x = None
+    pickle round trip        returns [2.5, 2.5, 2.5], input afterwards [1, 1, 1]          | mul = x * 2.5;  x = None
+    torch.save / torch.load  returns [2.5, 2.5, 2.5], input afterwards [1, 1, 1]          | mul = x * 2.5;  x = None
+--- block 1
+captured graph           buffer afterwards [0.5, 0.5, 0.5]
+after pickle round trip  buffer afterwards [0.0, 0.0, 0.0]
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 278509 bytes to __results__.html

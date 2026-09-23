@@ -1,0 +1,260 @@
+D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\seeds.py:246: UserWarning: torch.triangular_solve is deprecated in favor of torch.linalg.solve_triangularand will be removed in a future PyTorch release.
+torch.linalg.solve_triangular has its arguments reversed and does not return a copy of one of the inputs.
+X = torch.triangular_solve(B, A).solution
+should be replaced with
+X = torch.linalg.solve_triangular(A, B). (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\BatchLinearAlgebra.cpp:2262.)
+  return _op(*args[:_n], *_extra, **_kw)
+OpInfo: 120 operator sample(s) as programs, 2 rejected
+
+torch 2.14.0+cpu  device cpu  backend=inductor  reruns=2
+120 program(s) -> reports_opinfo
+
+  opinfo_broadcast_to      0 candidate(s), 0 submittable, 16 tests, 57 compiles  [4.6s]
+  opinfo_chunk             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.7s]
+  opinfo_contiguous        0 candidate(s), 0 submittable, 16 tests, 57 compiles  [2.4s]
+  opinfo_positive          0 candidate(s), 0 submittable, 16 tests, 57 compiles  [1.7s]
+  opinfo_conj              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [2.0s]
+  opinfo_resolve_conj      0 candidate(s), 0 submittable, 16 tests, 57 compiles  [1.9s]
+  opinfo_resolve_neg       0 candidate(s), 0 submittable, 16 tests, 57 compiles  [1.9s]
+D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\observe.py:122: UserWarning: ComplexHalf support is experimental and many operators don't support it yet. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\EmptyTensor.cpp:55.)
+  return obj.detach().clone()
+  opinfo_view_as_complex   0 candidate(s), 0 submittable, 14 tests, 50 compiles  [2.8s]
+  opinfo_expand            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.1s]
+  opinfo_expand_as         0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.3s]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2487: FutureWarning: `torch._prims_common.check` is deprecated and will be removed in the future. Please use `torch._check*` functions instead.
+  check(
+  opinfo_diagonal          0 candidate(s), 0 submittable, 16 tests, 57 compiles  [2.9s]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in GeqrfBackward0. Traceback of forward call that caused the error:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\seeds.py", line 246, in fn
+    return _op(*args[:_n], *_extra, **_kw)
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in GeqrfBackward0. Traceback of forward call that caused the error:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\seeds.py", line 246, in fn
+    return _op(*args[:_n], *_extra, **_kw)
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in GeqrfBackward0. Traceback of forward call that caused the error:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\seeds.py", line 246, in fn
+    return _op(*args[:_n], *_extra, **_kw)
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in GeqrfBackward0. Traceback of forward call that caused the error:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\seeds.py", line 246, in fn
+    return _op(*args[:_n], *_extra, **_kw)
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in GeqrfBackward0. Traceback of forward call that caused the error:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\seeds.py", line 246, in fn
+    return _op(*args[:_n], *_extra, **_kw)
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\autograd\graph.py:1072: UserWarning: Error detected in GeqrfBackward0. Traceback of forward call that caused the error:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\seeds.py", line 246, in fn
+    return _op(*args[:_n], *_extra, **_kw)
+ (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\python_anomaly_mode.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  opinfo_geqrf             0 candidate(s), 0 submittable, 9 tests, 30 compiles  [1.5s]
+  opinfo_kthvalue          0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.6s]
+  opinfo_max_reduction_with_dim 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [17.3s]
+  opinfo_max_reduction_no_dim 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.4s]
+  opinfo_median            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.4s]
+  opinfo_nanmedian         0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.5s]
+  opinfo_min_reduction_with_dim 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [16.9s]
+  opinfo_min_reduction_no_dim 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.2s]
+  opinfo_max_binary        0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.1s]
+  opinfo_min_binary        0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.1s]
+  opinfo_as_strided        0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.3s]
+  opinfo_as_strided_partial_views 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.0s]
+  opinfo_max_pool2d_with_indices_backward 1 candidate(s), 0 submittable, 16 tests, 54 compiles  [39.2s]
+      low    dynamo_capture         compile              64d93f63e0c1
+  opinfo_to                0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.9s]
+  opinfo_topk              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.5s]
+  opinfo_mode              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.5s]
+  opinfo_permute           0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.1s]
+  opinfo_real              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [1.9s]
+  opinfo_split             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.4s]
+  opinfo_split_list_args   0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.6s]
+  opinfo_split_with_sizes  0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.7s]
+  opinfo_select            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.3s]
+  opinfo_slice             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [2.9s]
+  opinfo_tensor_split      0 candidate(s), 0 submittable, 16 tests, 57 compiles  [2.3s]
+  opinfo_hsplit            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [4.3s]
+  opinfo_vsplit            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.3s]
+  opinfo_dsplit            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.3s]
+  opinfo_triangular_solve  0 candidate(s), 0 submittable, 9 tests, 31 compiles  [2.2s]
+  opinfo_svd               0 candidate(s), 0 submittable, 9 tests, 31 compiles  [2.5s]
+  opinfo_ravel             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.0s]
+  opinfo_reshape           0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.2s]
+  opinfo_reshape_as        0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.6s]
+  opinfo_view              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [2.1s]
+  opinfo_view_as           0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.3s]
+  opinfo_flatten           0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.5s]
+  opinfo_unflatten         0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.5s]
+  opinfo_sort              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.4s]
+  opinfo_unbind            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [4.0s]
+  opinfo_unfold            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.0s]
+  opinfo_movedim           0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.2s]
+  opinfo_squeeze           0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.3s]
+  opinfo_squeeze_multiple  0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.0s]
+  opinfo_resize_           0 candidate(s), 0 submittable, 16 tests, 0 compiles  [2.0s]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `torch._VariableFunctionsClass.resize_as_.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+  opinfo_resize_as_        0 candidate(s), 0 submittable, 16 tests, 0 compiles  [2.1s]
+  opinfo_unsqueeze         0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.3s]
+  opinfo_zero_             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.2s]
+  opinfo_transpose         0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.0s]
+  opinfo_mT                0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.0s]
+  opinfo_mH                0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.1s]
+  opinfo_t                 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [2.4s]
+  opinfo_abs               0 candidate(s), 0 submittable, 16 tests, 57 compiles  [7.6s]
+  opinfo_acos              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.1s]
+  opinfo_acosh             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.5s]
+  opinfo_add               0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.4s]
+  opinfo_item              0 candidate(s), 0 submittable, 16 tests, 0 compiles  [2.3s]
+  opinfo_cauchy            0 candidate(s), 0 submittable, 16 tests, 0 compiles  [2.4s]
+  opinfo_exponential       0 candidate(s), 0 submittable, 16 tests, 0 compiles  [2.4s]
+  opinfo_geometric         0 candidate(s), 0 submittable, 16 tests, 0 compiles  [2.5s]
+  opinfo_log_normal        0 candidate(s), 0 submittable, 16 tests, 0 compiles  [3.0s]
+  opinfo_normal_in_place   0 candidate(s), 0 submittable, 16 tests, 0 compiles  [2.5s]
+  opinfo_uniform           0 candidate(s), 0 submittable, 16 tests, 0 compiles  [2.5s]
+  opinfo_clamp_max         0 candidate(s), 0 submittable, 16 tests, 65 compiles  [14.6s]
+  opinfo_clamp_min         0 candidate(s), 0 submittable, 16 tests, 65 compiles  [11.9s]
+  opinfo_mul               0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.1s]
+  opinfo_sub               0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.2s]
+  opinfo_addmm             0 candidate(s), 0 submittable, 16 tests, 59 compiles  [3.9s]
+  opinfo_addmm_decomposed  0 candidate(s), 0 submittable, 16 tests, 57 compiles  [4.2s]
+  opinfo_addmv             0 candidate(s), 0 submittable, 16 tests, 58 compiles  [9.8s]
+  opinfo_addbmm            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.7s]
+  opinfo_baddbmm           0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.4s]
+  opinfo_dot               0 candidate(s), 0 submittable, 16 tests, 57 compiles  [8.6s]
+  opinfo_vdot              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.8s]
+  opinfo_bmm               0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.4s]
+  opinfo_mv                0 candidate(s), 0 submittable, 16 tests, 57 compiles  [9.2s]
+  opinfo_addr              0 candidate(s), 0 submittable, 16 tests, 58 compiles  [11.9s]
+  opinfo_addcmul           0 candidate(s), 0 submittable, 16 tests, 65 compiles  [10.4s]
+  opinfo_addcdiv           0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.4s]
+  opinfo_asin              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [8.1s]
+  opinfo_asinh             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [7.9s]
+  opinfo_atan              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [7.7s]
+  opinfo_atan2             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.1s]
+  opinfo_atanh             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [8.2s]
+  opinfo_allclose          0 candidate(s), 0 submittable, 16 tests, 5 compiles  [2.0s]
+  opinfo_broadcast_tensors 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [4.2s]
+  opinfo_block_diag        0 candidate(s), 0 submittable, 16 tests, 57 compiles  [12.6s]
+  opinfo_combinations      0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.7s]
+  opinfo_cartesian_prod    0 candidate(s), 0 submittable, 16 tests, 57 compiles  [2.4s]
+  opinfo_ceil              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [7.6s]
+  opinfo_cholesky_inverse  0 candidate(s), 0 submittable, 9 tests, 31 compiles  [1.7s]
+  opinfo_cholesky_solve    0 candidate(s), 0 submittable, 9 tests, 31 compiles  [1.8s]
+  opinfo_unsafe_chunk      0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.4s]
+  opinfo_clone             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [8.0s]
+  opinfo_sum_to_size       0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.7s]
+  opinfo_clamp             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [11.7s]
+  opinfo_conj_physical     0 candidate(s), 0 submittable, 16 tests, 57 compiles  [1.9s]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_inductor\lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+  opinfo_complex           0 candidate(s), 0 submittable, 14 tests, 50 compiles  [3.0s]
+  opinfo_copysign          0 candidate(s), 0 submittable, 16 tests, 65 compiles  [10.8s]
+  opinfo_corrcoef          0 candidate(s), 0 submittable, 16 tests, 0 compiles  [1.9s]
+  opinfo_cos               0 candidate(s), 0 submittable, 16 tests, 57 compiles  [7.9s]
+  opinfo_cosh              0 candidate(s), 0 submittable, 16 tests, 57 compiles  [7.6s]
+  opinfo_cov               1 candidate(s), 0 submittable, 16 tests, 0 compiles  [2.4s]
+      low    dynamo_capture         compile              7972f93b54ff
+  opinfo_cross             0 candidate(s), 0 submittable, 16 tests, 57 compiles  [13.3s]
+  opinfo_cumsum            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.4s]
+  opinfo_cumprod           0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.8s]
+  opinfo_cummax            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.4s]
+  opinfo_cummin            0 candidate(s), 0 submittable, 16 tests, 57 compiles  [3.9s]
+  opinfo_deg2rad           0 candidate(s), 0 submittable, 16 tests, 57 compiles  [7.9s]
+  opinfo_div_no_rounding_mode 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.0s]
+  opinfo_div_trunc_rounding 0 candidate(s), 0 submittable, 16 tests, 57 compiles  [10.5s]
+
+2 candidate(s); summary at reports_opinfo\SUMMARY.md
+reports_opinfo\CAMPAIGN.md

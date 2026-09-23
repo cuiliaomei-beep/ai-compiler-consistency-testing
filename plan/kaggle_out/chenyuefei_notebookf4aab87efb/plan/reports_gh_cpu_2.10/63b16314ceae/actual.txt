@@ -1,0 +1,5 @@
+exception AssertionError: expected size 4==4, stride 8192==3072 at dim=0; expected size 8==3, stride 1==1 at dim=1; expected size 32==32, stride 256==96 at dim=2; expected size 32==32, stride 8==3 at dim=3
+Error in op: torch._inductor.fx_passes.functools.partial(<function _register_unary_fusion_lowering.<locals>.fn at 0x79a8901584a0>, Match(..., [primals_3, primals_1, primals_2, [1, 1], [1, 1], [2, 2], [1, 1], 1, 'none', [], ''], {}))
+This error most often comes from a incorrect fake (aka meta) kernel for a custom op.
+Use torch.library.opcheck to test your custom op.
+See https://pytorch.org/docs/stable/library.html#torch.library.opcheck

@@ -1,0 +1,2 @@
+exception TorchRuntimeError: RuntimeError when making fake tensor call
+  Explanation: Dynamo failed to run FX node with fake tensors: call_function <function interpolate at 0x000001ED06593B60>(*(FakeTensor(..., size=(1, 2, 3, 4, 5)), (3, 4)), **{'scale_factor': None, 'mode': 'bicubic', 'align_corners': None}): got ValueError('Input and output must have the same number of spatial dimensions, but got input with spatial dimensio

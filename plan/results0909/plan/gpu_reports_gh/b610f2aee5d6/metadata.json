@@ -1,0 +1,52 @@
+{
+  "signature": "b610f2aee5d6",
+  "program": "issue_183607_torch_compile_changes_fp16_overflow_beha",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "183607",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/183607",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 183607,
+      "title": "torch.compile changes fp16 overflow behavior for cast-to-float16 multiplication",
+      "url": "https://github.com/pytorch/pytorch/issues/183607",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-05-13"
+    },
+    {
+      "number": 194787,
+      "title": "grid_sample: support mode='bicubic' with 5-D input, including its double backward",
+      "url": "https://github.com/pytorch/pytorch/pull/194787",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-25"
+    },
+    {
+      "number": 77764,
+      "title": "General MPS op coverage tracking issue",
+      "url": "https://github.com/pytorch/pytorch/issues/77764",
+      "state": "open",
+      "is_pr": false,
+      "created": "2022-05-18"
+    }
+  ]
+}

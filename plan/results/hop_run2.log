@@ -1,0 +1,55 @@
+ok    cond: pred from data, both branches elementwise      
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\higher_order_ops.py:2416: UserWarning: Pred is a Python constant. When used with torch.cond, it specializes on one of the branches. If you want torch.cond to preserve two branches, please make the predicate a boolean tensor or a SymBool.
+  warnings.warn(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\higher_order_ops.py:2416: UserWarning: Pred is a Python constant. When used with torch.cond, it specializes on one of the branches. If you want torch.cond to preserve two branches, please make the predicate a boolean tensor or a SymBool.
+  warnings.warn(
+ok    cond: pred false, true branch sqrt                   
+ok    cond: branches return different dtype (int vs float) 
+ok    cond: branch returns view of input                   
+ok    cond: branch returns input itself                    
+ok    cond: closure over outer tensor                      
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\higher_order_ops.py:2416: UserWarning: Pred is a Python constant. When used with torch.cond, it specializes on one of the branches. If you want torch.cond to preserve two branches, please make the predicate a boolean tensor or a SymBool.
+  warnings.warn(
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\higher_order_ops.py:2416: UserWarning: Pred is a Python constant. When used with torch.cond, it specializes on one of the branches. If you want torch.cond to preserve two branches, please make the predicate a boolean tensor or a SymBool.
+  warnings.warn(
+ok    cond: python bool pred                               
+ok    cond: pred is 0-d int tensor 0                       
+DIFF  cond: pred NaN tensor                                {'inductor': 'RAISES ValueError: cannot convert float NaN to integer'}
+ok    cond: nested cond                                    
+ok    cond: branches reduce to 0-d                         
+ok    cond: int floor_divide / mod in branches             
+ok    cond: in-place inside branch on clone                
+ok    cond: grad through both branches                     
+ok    cond: pred from inf comparison                       
+ok    cond: bool tensor operands                           
+ok    cond: float16 branch overflow                        
+ok    cond: branch with 0-size slice                       
+ok    while_loop: count to 5                               
+ok    while_loop: zero iterations                          
+ok    while_loop: stop cond with NaN sum                   
+ok    while_loop: int8 overflow wrap                       
+ok    while_loop: body returns carried input unchanged     
+ok    while_loop: float counter 0.1 steps                  
+ok    while_loop: grad through loop                        
+ok    scan: running sum                                    
+ok    scan: running sum reverse                            
+ok    scan: running max with nan                           
+ok    scan: int8 product wraps                             
+ok    scan: float carry, int xs                            
+ok    scan: length 1                                       
+ok    scan: 2-D along dim=1                                
+ok    scan: grad                                           
+DIFF  assoc_scan: add pointwise                            {'inductor': "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}
+ok    assoc_scan: add generic                              
+DIFF  assoc_scan: mul with 0 and inf                       {'inductor': "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}
+DIFF  assoc_scan: max with nan                             {'inductor': "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}
+DIFF  assoc_scan: reverse                                  {'inductor': "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}
+DIFF  assoc_scan: int64 add                                {'inductor': "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}
+DIFF  assoc_scan: 2-D dim=1                                {'inductor': "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}
+DIFF  assoc_scan: cancellation vs cumsum                   {'inductor': "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}
+DIFF  assoc_scan: grad                                     {'inductor': "RAISES InductorError: LoweringException: RuntimeError: associative_scan with combine_mode='pointwise' is not supported on cpu. Try to use comb"}
+ok    checkpoint: values                                   
+ok    checkpoint: grad                                     
+DIFF  checkpoint: dropout inside, rng preserved            {'aot_eager': "RAISES BackendCompilerFailed: backend='aot_eager' raised:\nRuntimeError: Activation checkpoint rematerialization in `forward-loss-backward` graph 
+ok    checkpoint: returns input view                       
+ok    checkpoint: in-place on clone inside                 

@@ -1,0 +1,36 @@
+{
+  "signature": "20940ca4f2ca",
+  "program": "issue_196221_torch_compile_crashes_with_an_internal_f",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "196221",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/196221",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 196221,
+      "title": "torch.compile crashes with an internal FakeTensor assertion for torch.func.grad with masked_select",
+      "url": "https://github.com/pytorch/pytorch/issues/196221",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-09-07"
+    }
+  ]
+}

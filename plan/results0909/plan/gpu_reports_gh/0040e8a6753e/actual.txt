@@ -1,0 +1,7 @@
+exception InternalTorchDynamoError: AsPythonConstantNotImplementedError: SymNodeVariable() is not a constant
+
+from user code:
+   File "reproducers_gh_cuda/issue_196285_torch_compile_dynamic_true_fails_to_hand.py", line 10, in fn
+    selected = values.pop(x.shape[0] - 2)
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"

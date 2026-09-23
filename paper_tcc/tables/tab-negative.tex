@@ -1,0 +1,26 @@
+\begin{table}[t]
+\caption{Factor families that found no new inconsistency on PyTorch~2.14 (P = program side, Q = path side).}
+\label{tab:negative}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lp{5.4cm}p{3.5cm}p{3.4cm}@{}}
+\toprule
+Side & Factor family & Scale & Outcome \\
+\midrule
+Q & in-memory guards (dtype, layout, \code{requires\_grad}, flags) & 26 single-factor switches & always recompiled; cold = warm \\
+Q & on-disk caches across processes & 29 baked-in values and global switches & 27 misses, 2 correct hits, 0 stale \\
+Q & Inductor code-generation switches & 593 ops $\times$ 20 configurations; 68 fused programs $\times$ 15 & 0 violations \\
+Q & compile composition (\code{compile(compile(f))}, nested calls, \code{disable}, warm-up in \code{no\_grad}, two backends) & 14 programs $\times$ 25 compositions & 21 differences, all documented behavior \\
+Q & autocast, bfloat16 and float16 & 530 ops $\times$ 2 dtypes & 0 dtype or value differences \\
+Q & higher-order operators (\code{cond}, \code{while\_loop}, \code{scan}, checkpoint) & 47 programs $\times$ 3 backends & every difference is a raised error \\
+Q & custom operators and \code{autograd.Function} & 23 programs $\times$ 3 backends & 0 silent (one dispatch-mode member of C32) \\
+Q & export serialization and AOTInductor values & 520 ops & values identical to \tcompile \\
+Q & CUDA-graph output reuse (\code{reduce-overhead}) & 19 access patterns (T4) & 13 protected by the documented error, 6 unchanged, 0 stale \\
+Q & graph breaks inside loop / conditional / \code{try} bodies; side-effect replay without a break & 816 insertion points; 471 markers & nothing beyond the top-level variant; effects replayed once \\
+P & \code{vmap} inside the compiled region; forward-mode AD with complex inputs & 678 ops; 506 ops & 0 \\
+P & binding form of scalar arguments & 386 ops, 10{,}651 compilations & 0 new \\
+P & small real models (torchvision), CPU and GPU & 131 programs & 0 \\
+P & binary functions and reductions against a 30-digit reference & 23 functions, 18 reductions & 9 flagged, all previously reported \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,32 @@
+torch 2.14.0+cpu | compiled_autograd backend aot_eager
+  ... 50/541 (9s, 0 flagged)
+  FLAG sparse.sampled_addmm                 RuntimeError: unsupported tensor layout: SparseCsr
+  FLAG sparse.mm                            IndexError: tuple index out of range
+  ... 100/541 (19s, 2 flagged)
+  FLAG meshgrid                             RuntimeError: `inputs` argument to `grad()` cannot be empty.
+  ... 150/541 (30s, 3 flagged)
+  FLAG nn.functional.interpolate            TorchRuntimeError: RuntimeError when making fake tensor call
+  FLAG nn.functional.interpolate            TorchRuntimeError: RuntimeError when making fake tensor call
+  FLAG nn.functional.interpolate            TorchRuntimeError: RuntimeError when making fake tensor call
+  FLAG nn.functional.interpolate            TorchRuntimeError: RuntimeError when making fake tensor call
+  FLAG nn.functional.interpolate            TorchRuntimeError: RuntimeError when making fake tensor call
+  FLAG nn.functional.interpolate            TorchRuntimeError: RuntimeError when making fake tensor call
+  FLAG nn.functional.upsample_bilinear      TorchRuntimeError: RuntimeError when making fake tensor call
+  FLAG nn.functional.upsample_nearest       TorchRuntimeError: RuntimeError when making fake tensor call
+  ... 200/541 (45s, 11 flagged)
+  ... 250/541 (56s, 11 flagged)
+  FLAG einsum                               RuntimeError: `inputs` argument to `grad()` cannot be empty.
+  ... 300/541 (69s, 12 flagged)
+  FLAG column_stack                         RuntimeError: `inputs` argument to `grad()` cannot be empty.
+  FLAG stack                                RuntimeError: `inputs` argument to `grad()` cannot be empty.
+  FLAG hstack                               RuntimeError: `inputs` argument to `grad()` cannot be empty.
+  FLAG cat                                  RuntimeError: `inputs` argument to `grad()` cannot be empty.
+  ... 350/541 (76s, 16 flagged)
+  FLAG vstack                               RuntimeError: `inputs` argument to `grad()` cannot be empty.
+  FLAG dstack                               RuntimeError: `inputs` argument to `grad()` cannot be empty.
+  FLAG to_sparse                            IndexError: tuple index out of range
+  ... 400/541 (85s, 19 flagged)
+  ... 450/541 (104s, 19 flagged)
+  FLAG linalg.multi_dot                     RuntimeError: `inputs` argument to `grad()` cannot be empty.
+  ... 500/541 (119s, 20 flagged)
+{"operators": 541, "flagged": 20, "wall_s": 126.6}

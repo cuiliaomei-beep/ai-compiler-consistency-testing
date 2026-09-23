@@ -1,0 +1,62 @@
+
+## Unknown format code for object of type 'str' dynamo | error: None
+   195912 open [dynamo] Prune guard state by the guard tree and diagnose the offending value
+   196135 closed [dynamo][inductor] Type diagnostic payloads as object
+   167224 open [FlopCounter] Add skip_unsupported parameter for graceful handling of unsupported HOPs
+   195354 open [aot_compile] Fix global guards on reloaded nn.Module artifacts
+   174970 open [RFC] Hooks to trigger recompilation
+   185206 open Make minifier_tests more device agnostic
+   171656 open torch.distributed.pipelining fails on models having DynamicCache (esp. Llama)
+   114188 open Unsupported operator error: `aten::to_mkldnn` export to ONNX not supported
+
+## dynamo f-string format spec symint | error: None
+   146152 open [torch.export] Cannot export TorchVision fasterrcnn_mobilenet_v3_large_fpn
+
+## namedtuple RecursionError dynamo | error: None
+   189042 open [dynamo] Add specialize_args option to assume_constant_result
+   195346 closed [guards] Make serialized guards rebuild correctly in a fresh process
+   148166 closed DISABLED test_nonstrict_trace_pre_existing_custom_class (__main__.DecoratorTests)
+   102934 closed [activation checkpointing] Higher order functional rng op wrappers
+
+## dynamo namedtuple equality tensor recursion | error: None
+   189042 open [dynamo] Add specialize_args option to assume_constant_result
+   191817 closed [dynamo] Fix slow invoke_subgraph reuse lookup for pytree args (dataclasses, namedtuples, etc.)
+   185150 closed Preserve OrderedDict outputs in FX tracing
+
+## ldexp dtype inductor | error: None
+   195041 closed [inductor] Fix frexp returning mantissa 0 for float32 subnormals on CUDA
+   195007 closed [torch.compile][Inductor] frexp returns a mantissa of 0 for float32 subnormals on CUDA
+   190593 closed [inductor] Lower E8M0-to-float conversions
+   171721 closed [Inductor] Add native ldexp lowering with libdevice/std::ldexp codegen
+   150121 open torch.compile on MPS  progress tracker
+   186566 closed Fix ldexp gradient for negative integer exponents
+   185540 closed fix(core): support ldexp on custom backends by falling back to decomposition
+   185168 closed [inductor] fix remainder for fp16/bf16 tensors and scalar inputs
+
+## torch.ldexp torch.compile dtype | error: None
+   178988 open Cannot build documentation (`RecursionError`)
+
+## huber_loss inductor float32 dtype | error: None
+   77764 open General MPS op coverage tracking issue
+
+## huber_loss torch.compile dtype float16 | error: None
+   77764 open General MPS op coverage tracking issue
+
+## lerp bool BackendCompilerFailed | error: None
+   77764 open General MPS op coverage tracking issue
+
+## torch.lerp bool tensor inductor | error: None
+   178988 open Cannot build documentation (`RecursionError`)
+
+## sum dtype bool inductor compile error | error: None
+   191324 open [Inductor] Preserve input dtype in the CPU bmm mul+sum decomposition
+   194062 open [inductor] [silent incorrectness] torch.full ignores dtype when fill_value is symbolic
+   196652 open [dynamo] Trace factory requires_grad=True as requires_grad_() on the intermediate
+   193204 open [inductor] Extend strict_numerics INNER_TREE ordering to nanmean
+   194706 open Inductor CPU backend emits error when calculating gradients
+   185481 open [inductor] argmax over comparison mask is accepted and used for indexing while eager raises
+   191543 open [Inductor][CPU] Fix int8/uint8 min/max vectorized reductions polluted by inactive lanes
+   176929 open Addcmul CPU bitwise numerics not matching eager w/ torch.compile
+
+## prod dtype bool inductor reduction_type | error: None
+   191543 open [Inductor][CPU] Fix int8/uint8 min/max vectorized reductions polluted by inactive lanes

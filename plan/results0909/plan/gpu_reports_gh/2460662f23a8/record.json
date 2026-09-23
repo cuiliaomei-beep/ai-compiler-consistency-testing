@@ -1,0 +1,313 @@
+{
+  "signature": "2460662f23a8",
+  "program": "issue_178046_torch_compile_silently_accepts_nn_parame",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "ref raised TypeError, test returned normally",
+          "evidence": {
+            "exception": "TypeError",
+            "message": "full() received an invalid combination of arguments - got (tuple, device=torch.device, dtype=torch.dtype, fill_value=Parameter), but expected one of:\n * (tuple of ints size, Number fill_value, *, tupl"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "ref raised TypeError, test returned normally",
+          "evidence": {
+            "exception": "TypeError",
+            "message": "full() received an invalid combination of arguments - got (tuple, device=torch.device, dtype=torch.dtype, fill_value=Parameter), but expected one of:\n * (tuple of ints size, Number fill_value, *, tupl"
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "ref raised TypeError, test returned normally",
+          "evidence": {
+            "exception": "TypeError",
+            "message": "full() received an invalid combination of arguments - got (tuple, device=torch.device, dtype=torch.dtype, fill_value=Parameter), but expected one of:\n * (tuple of ints size, Number fill_value, *, tupl"
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "TypeError",
+      "exception_inner": "TypeError",
+      "exception_msg": "full() received an invalid combination of arguments - got (tuple, device=torch.device, dtype=torch.dtype, fill_value=Parameter), but expected one of:\n * (tuple of ints size, Number fill_value, *, tuple of names names, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)\n * (tuple of ints size, Number fill_value, *, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)\n",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.229,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            64,
+            8,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.7508,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            64,
+            8,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 2.315,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cuda",
+          "stride": [
+            64,
+            8,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": true,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": false,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_178046_torch_compile_silently_accepts_nn_parame.py\n`torch.compile` silently accepts `nn.Parameter` as `fill_value` in `torch.full()` where eager raises TypeError\nhttps://github.com/pytorch/pytorch/issues/178046\ncompile options in the issue: {'fullgraph': True}",
+  "minimized": null,
+  "duplicates": {
+    "query": "silently accepts nn.Parameter fill_value torch.full where eager raises",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "178046",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/178046",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 183915,
+        "title": "dynamo: Preserve eager torch.full validation for nn.Parameter fill values in Dynamo",
+        "url": "https://github.com/pytorch/pytorch/pull/183915",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-05-15"
+      },
+      {
+        "number": 183912,
+        "title": "Preserve eager `torch.full` validation for `nn.Parameter` fill values in Dynamo",
+        "url": "https://github.com/pytorch/pytorch/pull/183912",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-05-15"
+      },
+      {
+        "number": 178046,
+        "title": "`torch.compile` silently accepts `nn.Parameter` as `fill_value` in `torch.full()` where eager raises TypeError",
+        "url": "https://github.com/pytorch/pytorch/issues/178046",
+        "state": "closed",
+        "is_pr": false,
+        "created": "2026-03-21"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: TypeError",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

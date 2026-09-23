@@ -1,0 +1,261 @@
+{"op": "int_binary:add", "verdict": "ok", "findings": []}
+{"op": "int_binary:sub", "verdict": "ok", "findings": []}
+{"op": "int_binary:mul", "verdict": "ok", "findings": []}
+{"op": "int_binary:floor_divide", "verdict": "ok", "findings": []}
+{"op": "int_binary:div_trunc", "verdict": "CRASH", "returncode": 3221225621, "tail": "torch 2.14.0+cpu | 1 cases | ['aot_eager', 'inductor']\n"}
+{"op": "int_binary:div_floor", "verdict": "ok", "findings": []}
+{"op": "int_binary:true_divide", "verdict": "ok", "findings": []}
+{"op": "int_binary:remainder", "verdict": "ok", "findings": []}
+{"op": "int_binary:fmod", "verdict": "ok", "findings": []}
+{"op": "int_binary:pow", "verdict": "ok", "findings": []}
+{"op": "int_binary:lshift", "verdict": "ok", "findings": []}
+{"op": "int_binary:rshift", "verdict": "ok", "findings": []}
+{"op": "int_binary:and", "verdict": "ok", "findings": []}
+{"op": "int_binary:or", "verdict": "ok", "findings": []}
+{"op": "int_binary:xor", "verdict": "ok", "findings": []}
+{"op": "int_binary:maximum", "verdict": "ok", "findings": []}
+{"op": "int_binary:minimum", "verdict": "ok", "findings": []}
+{"op": "int_binary:gcd", "verdict": "ok", "findings": []}
+{"op": "int_binary:lcm", "verdict": "CRASH", "returncode": 3221225621, "tail": "torch 2.14.0+cpu | 1 cases | ['aot_eager', 'inductor']\n"}
+{"op": "int_binary:lt", "verdict": "ok", "findings": []}
+{"op": "int_binary:eq", "verdict": "ok", "findings": []}
+{"op": "int_binary:where_lt", "verdict": "ok", "findings": []}
+{"op": "int_binary:abs_diff", "verdict": "ok", "findings": []}
+{"op": "int_binary:mul_add", "verdict": "ok", "findings": []}
+{"op": "int_binary:floor_divide_zero", "verdict": "ok", "findings": []}
+{"op": "int_binary:remainder_zero", "verdict": "ok", "findings": []}
+{"op": "int_unary:neg", "verdict": "ok", "findings": []}
+{"op": "int_unary:abs", "verdict": "ok", "findings": []}
+{"op": "int_unary:sign", "verdict": "ok", "findings": []}
+{"op": "int_unary:sgn", "verdict": "ok", "findings": []}
+{"op": "int_unary:bitwise_not", "verdict": "ok", "findings": []}
+{"op": "int_unary:square", "verdict": "ok", "findings": []}
+{"op": "int_unary:mul_self", "verdict": "ok", "findings": []}
+{"op": "int_unary:add_scalar", "verdict": "ok", "findings": []}
+{"op": "int_unary:sub_scalar", "verdict": "ok", "findings": []}
+{"op": "int_unary:mul_scalar", "verdict": "ok", "findings": []}
+{"op": "int_unary:mul_neg1", "verdict": "ok", "findings": []}
+{"op": "int_unary:floordiv_neg1", "verdict": "ok", "findings": []}
+{"op": "int_unary:floordiv_3", "verdict": "ok", "findings": []}
+{"op": "int_unary:floordiv_neg3", "verdict": "ok", "findings": []}
+{"op": "int_unary:mod_3", "verdict": "ok", "findings": []}
+{"op": "int_unary:mod_neg3", "verdict": "ok", "findings": []}
+{"op": "int_unary:fmod_neg3", "verdict": "ok", "findings": []}
+{"op": "int_unary:lshift_1", "verdict": "ok", "findings": []}
+{"op": "int_unary:rshift_1", "verdict": "ok", "findings": []}
+{"op": "int_unary:lshift_bits", "verdict": "ok", "findings": []}
+{"op": "int_unary:rshift_bits", "verdict": "ok", "findings": []}
+{"op": "int_unary:pow_2", "verdict": "ok", "findings": []}
+{"op": "int_unary:pow_3", "verdict": "ok", "findings": []}
+{"op": "int_unary:pow_0", "verdict": "ok", "findings": []}
+{"op": "int_unary:to_float_back", "verdict": "ok", "findings": []}
+{"op": "int_unary:to_double_back", "verdict": "ok", "findings": []}
+{"op": "int_unary:to_int8", "verdict": "ok", "findings": []}
+{"op": "int_unary:to_uint8", "verdict": "ok", "findings": []}
+{"op": "int_unary:to_int16", "verdict": "ok", "findings": []}
+{"op": "int_unary:to_bool", "verdict": "ok", "findings": []}
+{"op": "int_unary:to_half", "verdict": "ok", "findings": []}
+{"op": "int_unary:sum", "verdict": "ok", "findings": []}
+{"op": "int_unary:prod", "verdict": "ok", "findings": []}
+{"op": "int_unary:cumsum", "verdict": "ok", "findings": []}
+{"op": "int_unary:cumprod", "verdict": "ok", "findings": []}
+{"op": "int_unary:sum_same_dtype", "verdict": "ok", "findings": []}
+{"op": "int_unary:cumsum_same_dtype", "verdict": "ok", "findings": []}
+{"op": "int_unary:max", "verdict": "ok", "findings": []}
+{"op": "int_unary:min", "verdict": "ok", "findings": []}
+{"op": "int_unary:argmax", "verdict": "ok", "findings": []}
+{"op": "int_unary:argmin", "verdict": "value", "findings": [{"category": "value", "where": "int_unary:argmin uint8 n=33 inductor", "detail": "1/1 differ: in=reduction eager=0 comp=-1"}]}
+{"op": "int_unary:clamp_wide", "verdict": "raise", "findings": [{"category": "raise", "where": "int_unary:clamp_wide int8 n=60 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int8_t without overflow", "compiled": "returned [-24, -24, -24, -24, -24, -24]"}, {"category": "raise", "where": "int_unary:clamp_wide int8 n=1 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int8_t without overflow", "compiled": "returned [-24]"}, {"category": "raise", "where": "int_unary:clamp_wide int8 n=7 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int8_t without overflow", "compiled": "returned [-24, -24, -24, -24, -24, -24]"}, {"category": "raise", "where": "int_unary:clamp_wide uint8 n=33 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type uint8_t without overflow", "compiled": "returned [24, 24, 24, 24, 24, 24]"}, {"category": "raise", "where": "int_unary:clamp_wide uint8 n=1 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type uint8_t without overflow", "compiled": "returned [24]"}, {"category": "raise", "where": "int_unary:clamp_wide uint8 n=7 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type uint8_t without overflow", "compiled": "returned [24, 24, 24, 24, 24, 24]"}]}
+{"op": "int_unary:clamp_narrow", "verdict": "ok", "findings": []}
+{"op": "int_unary:clamp_min_big", "verdict": "raise", "findings": [{"category": "raise", "where": "int_unary:clamp_min_big int8 n=60 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int8_t without overflow", "compiled": "returned [0, 0, 0, 0, 0, 0]"}, {"category": "raise", "where": "int_unary:clamp_min_big int8 n=1 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int8_t without overflow", "compiled": "returned [0]"}, {"category": "raise", "where": "int_unary:clamp_min_big int8 n=7 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int8_t without overflow", "compiled": "returned [0, 0, 0, 0, 0, 0]"}, {"category": "raise", "where": "int_unary:clamp_min_big int16 n=66 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int16_t without overflow", "compiled": "returned [0, 0, 0, 0, 0, 0]"}, {"category": "raise", "where": "int_unary:clamp_min_big int16 n=1 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int16_t without overflow", "compiled": "returned [0]"}, {"category": "raise", "where": "int_unary:clamp_min_big int16 n=7 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int16_t without overflow", "compiled": "returned [0, 0, 0, 0, 0, 0]"}, {"category": "raise", "where": "int_unary:clamp_min_big int32 n=66 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int without overflow", "compiled": "returned [0, 0, 0, 0, 0, 0]"}, {"category": "raise", "where": "int_unary:clamp_min_big int32 n=1 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int without overflow", "compiled": "returned [0]"}, {"category": "raise", "where": "int_unary:clamp_min_big int32 n=7 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type int without overflow", "compiled": "returned [0, 0, 0, 0, 0, 0]"}, {"category": "raise", "where": "int_unary:clamp_min_big uint8 n=33 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type uint8_t without overflow", "compiled": "returned [0, 1, 2, 3, 7, 8]"}, {"category": "raise", "where": "int_unary:clamp_min_big uint8 n=1 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type uint8_t without overflow", "compiled": "returned [0]"}, {"category": "raise", "where": "int_unary:clamp_min_big uint8 n=7 inductor", "eager": "builtins.RuntimeError: value cannot be converted to type uint8_t without overflow", "compiled": "returned [0, 1, 2, 3, 7, 8]"}]}
+{"op": "int_unary:clamp_float_bound", "verdict": "ok", "findings": []}
+{"op": "int_unary:sqrt", "verdict": "ok", "findings": []}
+{"op": "int_unary:reciprocal", "verdict": "ok", "findings": []}
+{"op": "int_unary:exp2", "verdict": "ok", "findings": []}
+{"op": "int_unary:rsqrt", "verdict": "ok", "findings": []}
+{"op": "int_unary:eq_float", "verdict": "ok", "findings": []}
+{"op": "int_unary:lt_float", "verdict": "ok", "findings": []}
+{"op": "int_unary:cmp_big_float", "verdict": "ok", "findings": []}
+{"op": "int_unary:mean_error", "verdict": "value", "findings": [{"category": "value", "where": "int_unary:mean_error int32 n=66 inductor", "detail": "1/1 differ: in=reduction eager=1.9393939971923828 comp=0.27272728085517883"}, {"category": "value", "where": "int_unary:mean_error int64 n=66 inductor", "detail": "1/1 differ: in=reduction eager=0.0 comp=0.27272728085517883"}]}
+{"op": "int_unary:true_div_scalar", "verdict": "ok", "findings": []}
+{"op": "int_unary:div_scalar_zero", "verdict": "ok", "findings": []}
+{"op": "int_unary:count_nonzero", "verdict": "ok", "findings": []}
+{"op": "int_unary:bincount_like", "verdict": "ok", "findings": []}
+{"op": "int_unary:add_bool", "verdict": "ok", "findings": []}
+{"op": "int_unary:sum_bool", "verdict": "ok", "findings": []}
+{"op": "int_unary:neg_bool_cast", "verdict": "ok", "findings": []}
+{"op": "int_unary:sign_mul", "verdict": "ok", "findings": []}
+{"op": "int_unary:abs_neg", "verdict": "ok", "findings": []}
+{"op": "int_unary:heaviside", "verdict": "ok", "findings": []}
+{"op": "float_binary:div", "verdict": "ok", "findings": []}
+{"op": "float_binary:floor_divide", "verdict": "value", "findings": [{"category": "value", "where": "float_binary:floor_divide float32 n=1600 inductor", "detail": "40/1600 differ: in=[1.0, 0.10000000149011612] eager=9.0 comp=10.0; in=[1.0, 0.3333333432674408] eager=2.0 comp=3.0; in=[-1.0, -0.10000000149011612] eager=9.0 comp=10.0; in=[0.5, 0.10000000149011612] eager=4.0 comp=5.0"}, {"category": "value", "where": "float_binary:floor_divide float64 n=1600 inductor", "detail": "47/1600 differ: in=[1.0, 0.1] eager=9.0 comp=10.0; in=[1.0, 0.001] eager=999.0 comp=1000.0; in=[-1.0, -0.1] eager=9.0 comp=10.0; in=[-1.0, 0.3333333333333333] eager=-4.0 comp=-3.0"}]}
+{"op": "float_binary:div_trunc", "verdict": "ok", "findings": []}
+{"op": "float_binary:div_floor", "verdict": "value", "findings": [{"category": "value", "where": "float_binary:div_floor float32 n=1600 inductor", "detail": "40/1600 differ: in=[1.0, 0.10000000149011612] eager=9.0 comp=10.0; in=[1.0, 0.3333333432674408] eager=2.0 comp=3.0; in=[-1.0, -0.10000000149011612] eager=9.0 comp=10.0; in=[0.5, 0.10000000149011612] eager=4.0 comp=5.0"}, {"category": "value", "where": "float_binary:div_floor float64 n=1600 inductor", "detail": "47/1600 differ: in=[1.0, 0.1] eager=9.0 comp=10.0; in=[1.0, 0.001] eager=999.0 comp=1000.0; in=[-1.0, -0.1] eager=9.0 comp=10.0; in=[-1.0, 0.3333333333333333] eager=-4.0 comp=-3.0"}]}
+{"op": "float_binary:remainder", "verdict": "signed_zero,value", "findings": [{"category": "value", "where": "float_binary:remainder float32 n=1600 inductor", "detail": "NaN pattern 125/1600 differ: in=[0.0, inf] eager=0.0 comp=nan; in=[0.0, -inf] eager=0.0 comp=nan; in=[-0.0, inf] eager=-0.0 comp=nan; in=[-0.0, -inf] eager=-0.0 comp=nan"}, {"category": "value", "where": "float_binary:remainder float32 n=1600 inductor", "detail": "154/1600 differ: in=[1.0, -0.10000000149011612] eager=-1.4901161193847656e-08 comp=0.0; in=[1.0, 0.0010000000474974513] eager=0.000999952550046146 comp=0.0009999275207519531; in=[1.0, 2.938735877055719e-39] eager=0.0 comp=-inf; in=[1.0, -2.938735877055719e-39] eager=0.0 comp=-inf"}, {"category": "signed_zero", "where": "float_binary:remainder float32 n=1600 inductor", "detail": "138/1600 differ: in=[-0.0, 1.0] eager=-0.0 comp=0.0; in=[-0.0, -1.0] eager=-0.0 comp=0.0; in=[-0.0, 0.5] eager=-0.0 comp=0.0; in=[-0.0, -0.5] eager=-0.0 comp=0.0"}, {"category": "value", "where": "float_binary:remainder float64 n=1600 inductor", "detail": "NaN pattern 125/1600 differ: in=[0.0, inf] eager=0.0 comp=nan; in=[0.0, -inf] eager=0.0 comp=nan; in=[-0.0, inf] eager=-0.0 comp=nan; in=[-0.0, -inf] eager=-0.0 comp=nan"}, {"category": "value", "where": "float_binary:remainder float64 n=1600 inductor", "detail": "145/1600 differ: in=[1.0, -0.1] eager=-5.551115123125783e-17 comp=0.0; in=[1.0, 5.562684646268003e-309] eager=0.0 comp=-inf; in=[1.0, -5.562684646268003e-309] eager=0.0 comp=-inf; in=[1.0, 0.3333333333333333] eager=5.551115123125783e-17 comp=0.0"}, {"category": "signed_zero", "where": "float_binary:remainder float64 n=1600 inductor", "detail": "124/1600 differ: in=[-0.0, 1.0] eager=-0.0 comp=0.0; in=[-0.0, -1.0] eager=-0.0 comp=0.0; in=[-0.0, 0.5] eager=-0.0 comp=0.0; in=[-0.0, -0.5] eager=-0.0 comp=0.0"}]}
+{"op": "float_binary:fmod", "verdict": "ok", "findings": []}
+{"op": "float_binary:pow", "verdict": "ok", "findings": []}
+{"op": "float_binary:float_power", "verdict": "ok", "findings": []}
+{"op": "float_binary:atan2", "verdict": "ok", "findings": []}
+{"op": "float_binary:hypot", "verdict": "ok", "findings": []}
+{"op": "float_binary:copysign", "verdict": "ok", "findings": []}
+{"op": "float_binary:nextafter", "verdict": "ok", "findings": []}
+{"op": "float_binary:maximum", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_binary:maximum float32 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_binary:maximum float64 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}]}
+{"op": "float_binary:minimum", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_binary:minimum float32 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_binary:minimum float64 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}]}
+{"op": "float_binary:fmax", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_binary:fmax float32 n=1600 inductor", "detail": "1/1600 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_binary:fmax float32 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_binary:fmax float64 n=1600 inductor", "detail": "1/1600 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_binary:fmax float64 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}]}
+{"op": "float_binary:fmin", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_binary:fmin float32 n=1600 inductor", "detail": "1/1600 differ: in=[-0.0, 0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_binary:fmin float64 n=1600 inductor", "detail": "1/1600 differ: in=[-0.0, 0.0] eager=-0.0 comp=0.0"}]}
+{"op": "float_binary:logaddexp", "verdict": "ok", "findings": []}
+{"op": "float_binary:logaddexp2", "verdict": "ok", "findings": []}
+{"op": "float_binary:xlogy", "verdict": "ok", "findings": []}
+{"op": "float_binary:xlog1py", "verdict": "ok", "findings": []}
+{"op": "float_binary:heaviside", "verdict": "ok", "findings": []}
+{"op": "float_binary:mul", "verdict": "ok", "findings": []}
+{"op": "float_binary:add", "verdict": "ok", "findings": []}
+{"op": "float_binary:sub", "verdict": "ok", "findings": []}
+{"op": "float_binary:lt", "verdict": "ok", "findings": []}
+{"op": "float_binary:le", "verdict": "ok", "findings": []}
+{"op": "float_binary:eq", "verdict": "ok", "findings": []}
+{"op": "float_binary:ne", "verdict": "ok", "findings": []}
+{"op": "float_binary:where_lt", "verdict": "ok", "findings": []}
+{"op": "float_binary:clamp_tensor", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_binary:clamp_tensor float32 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_binary:clamp_tensor float64 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}]}
+{"op": "float_binary:clamp_max_tensor", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_binary:clamp_max_tensor float32 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_binary:clamp_max_tensor float64 n=7 inductor", "detail": "1/7 differ: in=[0.0, -0.0] eager=0.0 comp=-0.0"}]}
+{"op": "float_binary:lerp_half", "verdict": "ok", "findings": []}
+{"op": "float_binary:ldexp", "verdict": "ok", "findings": []}
+{"op": "float_binary:isclose", "verdict": "ok", "findings": []}
+{"op": "float_binary:dist_like", "verdict": "ok", "findings": []}
+{"op": "float_binary:addcmul", "verdict": "ok", "findings": []}
+{"op": "float_binary:addcdiv", "verdict": "ok", "findings": []}
+{"op": "float_unary:round", "verdict": "ok", "findings": []}
+{"op": "float_unary:round_dec1", "verdict": "ok", "findings": []}
+{"op": "float_unary:round_decm1", "verdict": "ok", "findings": []}
+{"op": "float_unary:trunc", "verdict": "ok", "findings": []}
+{"op": "float_unary:floor", "verdict": "ok", "findings": []}
+{"op": "float_unary:ceil", "verdict": "ok", "findings": []}
+{"op": "float_unary:frac", "verdict": "ok", "findings": []}
+{"op": "float_unary:sign", "verdict": "ok", "findings": []}
+{"op": "float_unary:sgn", "verdict": "ok", "findings": []}
+{"op": "float_unary:signbit", "verdict": "ok", "findings": []}
+{"op": "float_unary:abs", "verdict": "ok", "findings": []}
+{"op": "float_unary:neg", "verdict": "ok", "findings": []}
+{"op": "float_unary:sqrt", "verdict": "ok", "findings": []}
+{"op": "float_unary:rsqrt", "verdict": "ok", "findings": []}
+{"op": "float_unary:reciprocal", "verdict": "ok", "findings": []}
+{"op": "float_unary:square", "verdict": "ok", "findings": []}
+{"op": "float_unary:exp", "verdict": "ok", "findings": []}
+{"op": "float_unary:expm1", "verdict": "ok", "findings": []}
+{"op": "float_unary:exp2", "verdict": "ok", "findings": []}
+{"op": "float_unary:log", "verdict": "ok", "findings": []}
+{"op": "float_unary:log1p", "verdict": "ok", "findings": []}
+{"op": "float_unary:log2", "verdict": "ok", "findings": []}
+{"op": "float_unary:log10", "verdict": "ok", "findings": []}
+{"op": "float_unary:sigmoid", "verdict": "ok", "findings": []}
+{"op": "float_unary:tanh", "verdict": "ok", "findings": []}
+{"op": "float_unary:atan", "verdict": "ok", "findings": []}
+{"op": "float_unary:asin", "verdict": "ok", "findings": []}
+{"op": "float_unary:acos", "verdict": "ok", "findings": []}
+{"op": "float_unary:sinh", "verdict": "ok", "findings": []}
+{"op": "float_unary:cosh", "verdict": "ok", "findings": []}
+{"op": "float_unary:asinh", "verdict": "ok", "findings": []}
+{"op": "float_unary:acosh", "verdict": "value", "findings": [{"category": "value", "where": "float_unary:acosh float64 n=120 inductor", "detail": "3/120 differ: in=[1.7976931348623157e+308] eager=710.4758600739439 comp=inf; in=[1.7976931348623157e+308] eager=710.4758600739439 comp=inf; in=[1.7976931348623157e+308] eager=710.4758600739439 comp=inf"}]}
+{"op": "float_unary:atanh", "verdict": "signed_zero,value", "findings": [{"category": "value", "where": "float_unary:atanh float32 n=120 inductor", "detail": "12/120 differ: in=[1.1754943508222875e-38] eager=1.1754943508222875e-38 comp=0.0; in=[-1.1754943508222875e-38] eager=-1.1754943508222875e-38 comp=0.0; in=[2.938735877055719e-39] eager=2.938735877055719e-39 comp=0.0; in=[-2.938735877055719e-39] eager=-2.938735877055719e-39 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:atanh float32 n=120 inductor", "detail": "3/120 differ: in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:atanh float32 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "value", "where": "float_unary:atanh float64 n=120 inductor", "detail": "12/120 differ: in=[2.2250738585072014e-308] eager=2.2250738585072014e-308 comp=0.0; in=[-2.2250738585072014e-308] eager=-2.2250738585072014e-308 comp=0.0; in=[5.562684646268003e-309] eager=5.562684646268003e-309 comp=0.0; in=[-5.562684646268003e-309] eager=-5.562684646268003e-309 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:atanh float64 n=120 inductor", "detail": "3/120 differ: in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:atanh float64 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}]}
+{"op": "float_unary:erf", "verdict": "value", "findings": [{"category": "value", "where": "float_unary:erf float32 n=120 inductor", "detail": "18/120 differ: in=[0.0010000000474974513] eager=0.001128378789871931 comp=0.0011284106876701117; in=[1.1754943508222875e-38] eager=1.3264032653020486e-38 comp=0.0; in=[-1.1754943508222875e-38] eager=-1.3264032653020486e-38 comp=-0.0; in=[2.938735877055719e-39] eager=3.3160088639043536e-39 comp=0.0"}]}
+{"op": "float_unary:erfc", "verdict": "ok", "findings": []}
+{"op": "float_unary:erfinv", "verdict": "ok", "findings": []}
+{"op": "float_unary:lgamma", "verdict": "ok", "findings": []}
+{"op": "float_unary:digamma", "verdict": "ok", "findings": []}
+{"op": "float_unary:sinc", "verdict": "ok", "findings": []}
+{"op": "float_unary:logit", "verdict": "ok", "findings": []}
+{"op": "float_unary:i0", "verdict": "ok", "findings": []}
+{"op": "float_unary:relu", "verdict": "ok", "findings": []}
+{"op": "float_unary:nan_to_num", "verdict": "ok", "findings": []}
+{"op": "float_unary:isnan", "verdict": "ok", "findings": []}
+{"op": "float_unary:isinf", "verdict": "ok", "findings": []}
+{"op": "float_unary:isfinite", "verdict": "ok", "findings": []}
+{"op": "float_unary:isposinf", "verdict": "ok", "findings": []}
+{"op": "float_unary:isneginf", "verdict": "ok", "findings": []}
+{"op": "float_unary:to_bool", "verdict": "ok", "findings": []}
+{"op": "float_unary:clamp", "verdict": "ok", "findings": []}
+{"op": "float_unary:clamp_nan_bound", "verdict": "ok", "findings": []}
+{"op": "float_unary:clamp_inverted", "verdict": "ok", "findings": []}
+{"op": "float_unary:hardtanh", "verdict": "ok", "findings": []}
+{"op": "float_unary:relu6", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_unary:relu6 float32 n=120 inductor", "detail": "3/120 differ: in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:relu6 float32 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:relu6 float64 n=120 inductor", "detail": "3/120 differ: in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:relu6 float64 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}]}
+{"op": "float_unary:softplus", "verdict": "ok", "findings": []}
+{"op": "float_unary:gelu", "verdict": "value", "findings": [{"category": "value", "where": "float_unary:gelu float32 n=120 inductor", "detail": "NaN pattern 3/120 differ: in=[inf] eager=nan comp=inf; in=[inf] eager=nan comp=inf; in=[inf] eager=nan comp=inf"}, {"category": "value", "where": "float_unary:gelu float32 n=120 inductor", "detail": "6/120 differ: in=[-3.0] eager=-0.004050225019454956 comp=-0.004049867391586304; in=[3.4028234663852886e+38] eager=inf comp=3.4028234663852886e+38; in=[-3.0] eager=-0.004050225019454956 comp=-0.004049867391586304; in=[3.4028234663852886e+38] eager=inf comp=3.4028234663852886e+38"}]}
+{"op": "float_unary:silu", "verdict": "ok", "findings": []}
+{"op": "float_unary:mish", "verdict": "ok", "findings": []}
+{"op": "float_unary:hardswish", "verdict": "ok", "findings": []}
+{"op": "float_unary:hardsigmoid", "verdict": "ok", "findings": []}
+{"op": "float_unary:elu", "verdict": "ok", "findings": []}
+{"op": "float_unary:selu", "verdict": "ok", "findings": []}
+{"op": "float_unary:logsigmoid", "verdict": "ok", "findings": []}
+{"op": "float_unary:softsign", "verdict": "ok", "findings": []}
+{"op": "float_unary:threshold", "verdict": "ok", "findings": []}
+{"op": "float_unary:leaky_relu", "verdict": "ok", "findings": []}
+{"op": "float_unary:pow_half", "verdict": "ok", "findings": []}
+{"op": "float_unary:pow_neg1", "verdict": "ok", "findings": []}
+{"op": "float_unary:pow_2", "verdict": "ok", "findings": []}
+{"op": "float_unary:pow_0", "verdict": "ok", "findings": []}
+{"op": "float_unary:pow_third", "verdict": "ok", "findings": []}
+{"op": "float_unary:pow_3", "verdict": "ok", "findings": []}
+{"op": "float_unary:pow_neg2", "verdict": "value", "findings": [{"category": "value", "where": "float_unary:pow_neg2 float32 n=120 inductor", "detail": "6/120 differ: in=[1.0000000200408773e+20] eager=0.0 comp=9.99994610111476e-41; in=[-1.0000000200408773e+20] eager=0.0 comp=9.99994610111476e-41; in=[1.0000000200408773e+20] eager=0.0 comp=9.99994610111476e-41; in=[-1.0000000200408773e+20] eager=0.0 comp=9.99994610111476e-41"}]}
+{"op": "float_unary:rpow_2", "verdict": "ok", "findings": []}
+{"op": "float_unary:rpow_0", "verdict": "ok", "findings": []}
+{"op": "float_unary:rpow_neg", "verdict": "ok", "findings": []}
+{"op": "float_unary:rpow_1", "verdict": "ok", "findings": []}
+{"op": "float_unary:mod_scalar", "verdict": "signed_zero,value", "findings": [{"category": "value", "where": "float_unary:mod_scalar float32 n=120 inductor", "detail": "15/120 differ: in=[1.0000000200408773e+20] eager=2.0 comp=0.0; in=[-1.0000000200408773e+20] eager=1.0 comp=0.0; in=[2147483648.0] eager=2.0 comp=0.0; in=[-2147483648.0] eager=1.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:mod_scalar float32 n=120 inductor", "detail": "9/120 differ: in=[-0.0] eager=-0.0 comp=0.0; in=[-3.0] eager=-0.0 comp=0.0; in=[-3.4028234663852886e+38] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:mod_scalar float32 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "value", "where": "float_unary:mod_scalar float64 n=120 inductor", "detail": "15/120 differ: in=[1e+20] eager=1.0 comp=0.0; in=[-1e+20] eager=2.0 comp=0.0; in=[1.7976931348623157e+308] eager=2.0 comp=-inf; in=[-1.7976931348623157e+308] eager=1.0 comp=inf"}, {"category": "signed_zero", "where": "float_unary:mod_scalar float64 n=120 inductor", "detail": "9/120 differ: in=[-0.0] eager=-0.0 comp=0.0; in=[-3.0] eager=-0.0 comp=0.0; in=[-2147483649.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:mod_scalar float64 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}]}
+{"op": "float_unary:mod_neg_scalar", "verdict": "signed_zero,value", "findings": [{"category": "value", "where": "float_unary:mod_neg_scalar float32 n=120 inductor", "detail": "15/120 differ: in=[1.0000000200408773e+20] eager=-1.0 comp=0.0; in=[-1.0000000200408773e+20] eager=-2.0 comp=0.0; in=[2147483648.0] eager=-1.0 comp=0.0; in=[-2147483648.0] eager=-2.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:mod_neg_scalar float32 n=120 inductor", "detail": "9/120 differ: in=[-0.0] eager=-0.0 comp=0.0; in=[-3.0] eager=-0.0 comp=0.0; in=[-3.4028234663852886e+38] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:mod_neg_scalar float32 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "value", "where": "float_unary:mod_neg_scalar float64 n=120 inductor", "detail": "15/120 differ: in=[1e+20] eager=-2.0 comp=0.0; in=[-1e+20] eager=-1.0 comp=0.0; in=[1.7976931348623157e+308] eager=-1.0 comp=-inf; in=[-1.7976931348623157e+308] eager=-2.0 comp=inf"}, {"category": "signed_zero", "where": "float_unary:mod_neg_scalar float64 n=120 inductor", "detail": "9/120 differ: in=[-0.0] eager=-0.0 comp=0.0; in=[-3.0] eager=-0.0 comp=0.0; in=[-2147483649.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:mod_neg_scalar float64 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}]}
+{"op": "float_unary:mod_zero", "verdict": "ok", "findings": []}
+{"op": "float_unary:fmod_scalar", "verdict": "ok", "findings": []}
+{"op": "float_unary:floordiv_scalar", "verdict": "ok", "findings": []}
+{"op": "float_unary:floordiv_neg", "verdict": "ok", "findings": []}
+{"op": "float_unary:floordiv_zero", "verdict": "ok", "findings": []}
+{"op": "float_unary:div_zero", "verdict": "ok", "findings": []}
+{"op": "float_unary:div_negzero", "verdict": "ok", "findings": []}
+{"op": "float_unary:mul_zero", "verdict": "ok", "findings": []}
+{"op": "float_unary:mul_negzero", "verdict": "ok", "findings": []}
+{"op": "float_unary:add_negzero", "verdict": "ok", "findings": []}
+{"op": "float_unary:sub_self", "verdict": "ok", "findings": []}
+{"op": "float_unary:max_scalar_zero", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_unary:max_scalar_zero float32 n=120 inductor", "detail": "3/120 differ: in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:max_scalar_zero float32 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:max_scalar_zero float64 n=120 inductor", "detail": "3/120 differ: in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0; in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:max_scalar_zero float64 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}]}
+{"op": "float_unary:min_scalar_negzero", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_unary:min_scalar_negzero float32 n=120 inductor", "detail": "3/120 differ: in=[0.0] eager=0.0 comp=-0.0; in=[0.0] eager=0.0 comp=-0.0; in=[0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_unary:min_scalar_negzero float32 n=1 inductor", "detail": "1/1 differ: in=[0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_unary:min_scalar_negzero float32 n=7 inductor", "detail": "1/7 differ: in=[0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_unary:min_scalar_negzero float64 n=120 inductor", "detail": "3/120 differ: in=[0.0] eager=0.0 comp=-0.0; in=[0.0] eager=0.0 comp=-0.0; in=[0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_unary:min_scalar_negzero float64 n=1 inductor", "detail": "1/1 differ: in=[0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_unary:min_scalar_negzero float64 n=7 inductor", "detail": "1/7 differ: in=[0.0] eager=0.0 comp=-0.0"}]}
+{"op": "float_unary:maximum_negzero", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_unary:maximum_negzero float32 n=1 inductor", "detail": "1/1 differ: in=[0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_unary:maximum_negzero float32 n=7 inductor", "detail": "1/7 differ: in=[0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_unary:maximum_negzero float64 n=1 inductor", "detail": "1/1 differ: in=[0.0] eager=0.0 comp=-0.0"}, {"category": "signed_zero", "where": "float_unary:maximum_negzero float64 n=7 inductor", "detail": "1/7 differ: in=[0.0] eager=0.0 comp=-0.0"}]}
+{"op": "float_unary:minimum_zero", "verdict": "signed_zero", "findings": [{"category": "signed_zero", "where": "float_unary:minimum_zero float32 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}, {"category": "signed_zero", "where": "float_unary:minimum_zero float64 n=7 inductor", "detail": "1/7 differ: in=[-0.0] eager=-0.0 comp=0.0"}]}
+{"op": "float_unary:sum", "verdict": "ok", "findings": []}
+{"op": "float_unary:prod", "verdict": "ok", "findings": []}
+{"op": "float_unary:max", "verdict": "ok", "findings": []}
+{"op": "float_unary:min", "verdict": "ok", "findings": []}
+{"op": "float_unary:argmax", "verdict": "ok", "findings": []}
+{"op": "float_unary:argmin", "verdict": "ok", "findings": []}
+{"op": "float_unary:amax", "verdict": "ok", "findings": []}
+{"op": "float_unary:nansum", "verdict": "ok", "findings": []}
+{"op": "float_unary:nanmean", "verdict": "ok", "findings": []}
+{"op": "float_unary:cummax", "verdict": "ok", "findings": []}
+{"op": "float_unary:cummin_idx", "verdict": "ok", "findings": []}
+{"op": "float_unary:cumsum", "verdict": "ok", "findings": []}
+{"op": "float_unary:logcumsumexp", "verdict": "ok", "findings": []}
+{"op": "float_unary:logsumexp", "verdict": "ok", "findings": []}
+{"op": "float_unary:softmax", "verdict": "ok", "findings": []}
+{"op": "float_unary:log_softmax", "verdict": "ok", "findings": []}
+{"op": "float_unary:sort_vals", "verdict": "ok", "findings": []}
+{"op": "float_unary:sort_desc", "verdict": "ok", "findings": []}
+{"op": "float_unary:topk", "verdict": "ok", "findings": []}
+{"op": "float_unary:median", "verdict": "ok", "findings": []}
+{"op": "float_unary:nanmedian", "verdict": "ok", "findings": []}
+{"op": "float_unary:unique_sorted_like", "verdict": "ok", "findings": []}
+{"op": "float_unary:std", "verdict": "ok", "findings": []}
+{"op": "float_unary:var", "verdict": "ok", "findings": []}
+{"op": "float_unary:norm", "verdict": "ok", "findings": []}
+{"op": "float_unary:norm_inf", "verdict": "ok", "findings": []}
+{"op": "float_unary:cast_half", "verdict": "ok", "findings": []}
+{"op": "float_unary:cast_bf16", "verdict": "ok", "findings": []}
+{"op": "float_unary:cast_f32", "verdict": "ok", "findings": []}
+{"op": "float_unary:cast_half_back", "verdict": "value", "findings": [{"category": "value", "where": "float_unary:cast_half_back float32 n=120 inductor", "detail": "54/120 differ: in=[0.10000000149011612] eager=0.0999755859375 comp=0.10000000149011612; in=[-0.10000000149011612] eager=-0.0999755859375 comp=-0.10000000149011612; in=[0.0010000000474974513] eager=0.0010004043579101562 comp=0.0010000000474974513; in=[1.0000000200408773e+20] eager=inf comp=1.0000000200408773e+20"}]}
+{"op": "cast:to_int8", "verdict": "ok", "findings": []}
+{"op": "cast:to_int16", "verdict": "ok", "findings": []}
+{"op": "cast:to_int32", "verdict": "ok", "findings": []}
+{"op": "cast:to_int64", "verdict": "ok", "findings": []}
+{"op": "cast:to_uint8", "verdict": "ub_or_value", "findings": [{"category": "ub_or_value", "where": "cast:to_uint8 float64 n=120 inductor", "detail": "3/120 differ: in=[-2147483649.0] eager=255 comp=0; in=[-2147483649.0] eager=255 comp=0; in=[-2147483649.0] eager=255 comp=0"}]}
+{"op": "cast:trunc_to_int32", "verdict": "ok", "findings": []}
+{"op": "cast:round_to_int64", "verdict": "ok", "findings": []}
+{"op": "cast:clamp_to_int8", "verdict": "ok", "findings": []}
+{"op": "cast:floor_to_uint8", "verdict": "ub_or_value", "findings": [{"category": "ub_or_value", "where": "cast:floor_to_uint8 float64 n=120 inductor", "detail": "3/120 differ: in=[-2147483649.0] eager=255 comp=0; in=[-2147483649.0] eager=255 comp=0; in=[-2147483649.0] eager=255 comp=0"}]}
+{"op": "cast:int_roundtrip", "verdict": "ok", "findings": []}
+{"op": "cast:long_mul", "verdict": "ok", "findings": []}

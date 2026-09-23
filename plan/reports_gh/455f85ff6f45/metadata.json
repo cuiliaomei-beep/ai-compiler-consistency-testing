@@ -1,0 +1,36 @@
+{
+  "signature": "455f85ff6f45",
+  "program": "issue_172711_torch_compile_produces_wrong_output_chan",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.14.0+cpu",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "172711",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/172711",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 172711,
+      "title": "torch.compile produces wrong output channels for mkldnn._convolution_transpose_pointwise (FakeTensor shape inference bug) ",
+      "url": "https://github.com/pytorch/pytorch/issues/172711",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-01-17"
+    }
+  ]
+}

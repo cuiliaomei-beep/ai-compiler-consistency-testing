@@ -1,0 +1,398 @@
+{
+  "signature": "bec282093f70",
+  "program": "issue_175632_inductor_torch_compile_produces_inconsis",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "inductor_codegen",
+    "stage_label": "TorchInductor (lowering / codegen)",
+    "priority": "high",
+    "rationale": "all pre-Inductor layers agree and only Inductor differs: lowering / code generation",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E3_inductor",
+    "submittable": true
+  },
+  "context": {
+    "name": "dtype=float16",
+    "factors": {
+      "dtype": "float16"
+    },
+    "warm": true,
+    "origin": "q.dtype"
+  },
+  "context_b": null,
+  "factor_changed": "dtype",
+  "controlled": {},
+  "obligation": {
+    "site": "foo",
+    "factor": "q.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "numerics depend on precision regardless of source",
+    "param": "q",
+    "dim": null
+  },
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 3.205e+00 exceeds 4.0x eager err 1.095e-02",
+          "magnitude": 3.2050198465822684,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              1,
+              1,
+              64,
+              64
+            ],
+            "dtype": "torch.float16",
+            "max_abs_error": 3.206298828125,
+            "max_rel_error": 170.88154111558367,
+            "n_mismatch": 3891,
+            "n_total": 4096,
+            "first_mismatch_index": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "first_mismatch_expected": "-1.137695312",
+            "first_mismatch_actual": "-0.4291992188",
+            "expected_preview": "[-1.137695312, 0.3820800781, -0.1608886719, -0.112487793, -0.419921875, -0.916015625, -0.3747558594, 0.4291992188, ... (4088 more)]",
+            "actual_preview": "[-0.4291992188, 0.3481445312, -0.07775878906, 0.2395019531, -0.1696777344, -0.3068847656, -0.1315917969, 0.427734375, ... (4088 more)]",
+            "eager_err_vs_fp64": 0.010947700407759609,
+            "compiled_err_vs_fp64": 3.2050198465822684,
+            "budget": 0.043790801631038434,
+            "noise_floor": 0.01403045654296875
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 4,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            1,
+            64,
+            64
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            4096,
+            4096,
+            64,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0613,
+      "alias_pairs": [],
+      "n_inputs": 4,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            1,
+            64,
+            64
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            4096,
+            4096,
+            64,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0892,
+      "alias_pairs": [],
+      "n_inputs": 4,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            1,
+            64,
+            64
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            4096,
+            4096,
+            64,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": true
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "exception_inner": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1817,
+      "alias_pairs": [],
+      "n_inputs": 4,
+      "out_meta": [
+        {
+          "shape": [
+            1,
+            1,
+            64,
+            64
+          ],
+          "dtype": "torch.float16",
+          "device": "cuda",
+          "stride": [
+            4096,
+            64,
+            64,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": true,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_175632_inductor_torch_compile_produces_inconsis.py\n[inductor] torch.compile produces inconsistent output for attention-like computation when only returning the final output tensor\nhttps://github.com/pytorch/pytorch/issues/175632\ncompile options in the issue: {'backend': 'inductor'}",
+  "minimized": {
+    "reproduces": true,
+    "steps_tried": 14,
+    "steps_kept": 3,
+    "original_lines": 6,
+    "final_lines": 6,
+    "original_numel": 16384,
+    "final_numel": 16384,
+    "input_recipe": "torch.randn(1, 1, 64, 64).to(torch.float16), torch.randn(1, 1, 64, 64).to(torch.float16), torch.randn(1, 1, 64, 64).to(torch.float16), torch.randn(64, 64).to(torch.float16)",
+    "log": [
+      "kept: simplify values",
+      "kept: shrink containers",
+      "kept: default flags"
+    ],
+    "source": "def foo(q, k, v, a):\n    qk = q @ k.transpose(-2, -1) / 1.0\n    qk = qk + a\n    attn = torch.softmax(qk, dim=-1)\n    output = attn @ v\n    return output"
+  },
+  "duplicates": {
+    "query": "inductor produces inconsistent output attention like computation only",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "175632",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/175632",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 194309,
+        "title": "[Inductor] Add gfx950 FlyDSL FlexAttention forward",
+        "url": "https://github.com/pytorch/pytorch/pull/194309",
+        "state": "open",
+        "is_pr": true,
+        "created": "2026-08-21"
+      },
+      {
+        "number": 185816,
+        "title": "Enable CPU FlexAttention on AArch64",
+        "url": "https://github.com/pytorch/pytorch/pull/185816",
+        "state": "open",
+        "is_pr": true,
+        "created": "2026-06-01"
+      },
+      {
+        "number": 183328,
+        "title": "[special] Add arbitrary-order modified Bessel functions",
+        "url": "https://github.com/pytorch/pytorch/pull/183328",
+        "state": "open",
+        "is_pr": true,
+        "created": "2026-05-11"
+      },
+      {
+        "number": 192085,
+        "title": "[Inductor] Fix invalid attn_mask + is_causal combo in qwen2 SDPA repro test",
+        "url": "https://github.com/pytorch/pytorch/pull/192085",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-08-04"
+      },
+      {
+        "number": 190903,
+        "title": "[Inductor] Add gfx950 FlyDSL GEMM and torch.mm autotuning",
+        "url": "https://github.com/pytorch/pytorch/pull/190903",
+        "state": "closed",
+        "is_pr": true,
+        "created": "2026-07-23"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: ok",
+    "E1_dynamo_eager: ok",
+    "E2_aot_eager: ok",
+    "E3_inductor: ok"
+  ],
+  "status": "Generated",
+  "fault": null
+}

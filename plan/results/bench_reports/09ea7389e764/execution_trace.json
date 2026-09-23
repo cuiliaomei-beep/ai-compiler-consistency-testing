@@ -1,0 +1,485 @@
+{
+  "sequence": [
+    "E1 = eager(A)",
+    "C1 = compiled_cold(A)",
+    "E2 = eager(B)",
+    "C2cold = compiled_cold(B)",
+    "reset; compiled(A)",
+    "C2warm = compiled_warm(B)",
+    "C1' = compiled_warm(A)"
+  ],
+  "observations": {
+    "ctx_a": {
+      "name": "dtype=float16",
+      "factors": {
+        "dtype": "float16"
+      },
+      "warm": true,
+      "origin": "x.dtype"
+    },
+    "ctx_b": {
+      "name": "base",
+      "factors": {},
+      "warm": true,
+      "origin": ""
+    },
+    "E1": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C1": {
+      "mode": "C1_cold",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.02,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C2cold": {
+      "mode": "C2_cold",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0202,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C2warm": {
+      "mode": "C2_warm(A->B)",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "C1_return": {
+      "mode": "C1_return(A->B->A)",
+      "ok": true,
+      "exception": null,
+      "exception_msg": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0002,
+      "alias_pairs": [],
+      "n_inputs": 1,
+      "out_meta": [
+        {
+          "shape": [
+            16
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "stride": [
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "recompiled_on_switch": false,
+    "recompiled_on_return": false,
+    "fp64_available": true,
+    "compile_count": 3,
+    "wall_s": 0.079
+  },
+  "cache": {
+    "factor": "dtype",
+    "recompiled_on_switch": false,
+    "recompiled_on_return": false,
+    "cold_vs_warm": {
+      "ref": "C2_cold",
+      "test": "C2_warm(A->B)",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 5.758e-03 exceeds 4.0x eager err 1.639e-06",
+          "magnitude": 0.005757853388786316,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              16
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 0.005756378173828125,
+            "max_rel_error": 0.002576727273935515,
+            "n_mismatch": 16,
+            "n_total": 16,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "-5.029268265",
+            "first_mismatch_actual": "-5.03125",
+            "expected_preview": "[-5.029268265, 5.4249506, 3.729505539, 13.35363388, 21.39139938, -1.740434885, 11.78306675, -2.152656317, ... (8 more)]",
+            "actual_preview": "[-5.03125, 5.421875, 3.73046875, 13.3515625, 21.390625, -1.740234375, 11.78125, -2.158203125, ... (8 more)]",
+            "eager_err_vs_fp64": 1.6391277313232422e-06,
+            "compiled_err_vs_fp64": 0.005757853388786316,
+            "budget": 1.8326929421164095e-05,
+            "noise_floor": 1.8326929421164095e-05
+          }
+        }
+      ]
+    },
+    "eager_vs_cold": {
+      "ref": "E0_eager",
+      "test": "C2_cold",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "eager_vs_warm": {
+      "ref": "E0_eager",
+      "test": "C2_warm(A->B)",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 5.758e-03 exceeds 4.0x eager err 1.639e-06",
+          "magnitude": 0.005757853388786316,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              16
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 0.005756378173828125,
+            "max_rel_error": 0.002576727273935515,
+            "n_mismatch": 16,
+            "n_total": 16,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "-5.029268265",
+            "first_mismatch_actual": "-5.03125",
+            "expected_preview": "[-5.029268265, 5.4249506, 3.729505539, 13.35363388, 21.39139938, -1.740434885, 11.78306675, -2.152656317, ... (8 more)]",
+            "actual_preview": "[-5.03125, 5.421875, 3.73046875, 13.3515625, 21.390625, -1.740234375, 11.78125, -2.158203125, ... (8 more)]",
+            "eager_err_vs_fp64": 1.6391277313232422e-06,
+            "compiled_err_vs_fp64": 0.005757853388786316,
+            "budget": 1.8326929421164095e-05,
+            "noise_floor": 1.8326929421164095e-05
+          }
+        }
+      ]
+    },
+    "return_trip": {
+      "ref": "C1_cold",
+      "test": "C1_return(A->B->A)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "warm_only_failure": true,
+    "stale_reuse": true,
+    "guard_suspicious": false,
+    "invalidation_failure": false,
+    "findings": [
+      {
+        "kind": "cache",
+        "detail": "switching 'dtype' did not recompile, yet the warm result differs from a cold compile: stale artifact reused"
+      }
+    ]
+  },
+  "comparisons": {
+    "cold_vs_warm": {
+      "ref": "C2_cold",
+      "test": "C2_warm(A->B)",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 5.758e-03 exceeds 4.0x eager err 1.639e-06",
+          "magnitude": 0.005757853388786316,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              16
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 0.005756378173828125,
+            "max_rel_error": 0.002576727273935515,
+            "n_mismatch": 16,
+            "n_total": 16,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "-5.029268265",
+            "first_mismatch_actual": "-5.03125",
+            "expected_preview": "[-5.029268265, 5.4249506, 3.729505539, 13.35363388, 21.39139938, -1.740434885, 11.78306675, -2.152656317, ... (8 more)]",
+            "actual_preview": "[-5.03125, 5.421875, 3.73046875, 13.3515625, 21.390625, -1.740234375, 11.78125, -2.158203125, ... (8 more)]",
+            "eager_err_vs_fp64": 1.6391277313232422e-06,
+            "compiled_err_vs_fp64": 0.005757853388786316,
+            "budget": 1.8326929421164095e-05,
+            "noise_floor": 1.8326929421164095e-05
+          }
+        }
+      ]
+    },
+    "eager_vs_cold": {
+      "ref": "E0_eager",
+      "test": "C2_cold",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    },
+    "eager_vs_warm": {
+      "ref": "E0_eager",
+      "test": "C2_warm(A->B)",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": false,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 5.758e-03 exceeds 4.0x eager err 1.639e-06",
+          "magnitude": 0.005757853388786316,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              16
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 0.005756378173828125,
+            "max_rel_error": 0.002576727273935515,
+            "n_mismatch": 16,
+            "n_total": 16,
+            "first_mismatch_index": [
+              0
+            ],
+            "first_mismatch_expected": "-5.029268265",
+            "first_mismatch_actual": "-5.03125",
+            "expected_preview": "[-5.029268265, 5.4249506, 3.729505539, 13.35363388, 21.39139938, -1.740434885, 11.78306675, -2.152656317, ... (8 more)]",
+            "actual_preview": "[-5.03125, 5.421875, 3.73046875, 13.3515625, 21.390625, -1.740234375, 11.78125, -2.158203125, ... (8 more)]",
+            "eager_err_vs_fp64": 1.6391277313232422e-06,
+            "compiled_err_vs_fp64": 0.005757853388786316,
+            "budget": 1.8326929421164095e-05,
+            "noise_floor": 1.8326929421164095e-05
+          }
+        }
+      ]
+    },
+    "A_vs_A_after_B": {
+      "ref": "C1_cold",
+      "test": "C1_return(A->B->A)",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": []
+    }
+  }
+}

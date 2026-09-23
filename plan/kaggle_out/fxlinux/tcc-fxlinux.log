@@ -1,0 +1,52 @@
+[{"stream_name":"stdout","time":7.222009355,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":46.769344901,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":46.769417436,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":46.769422973,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":49.386282578,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":51.845999855,"data":"mask_invalid\n"}
+,{"stream_name":"stdout","time":51.846048246,"data":"    eager               [1.0, nan, 3.0]\n"}
+,{"stream_name":"stdout","time":51.846055075,"data":"    fx.Interpreter      [1.0, nan, 3.0]\n"}
+,{"stream_name":"stdout","time":51.846060732,"data":"    GraphModule.forward [1.0, 1.0, 3.0]\n"}
+,{"stream_name":"stdout","time":51.846066575,"data":"    def forward(self, x, nan):\n"}
+,{"stream_name":"stdout","time":51.84607252,"data":"        nan_1 = nan\n"}
+,{"stream_name":"stdout","time":51.84608481,"data":"        where = torch.where(nan_1, nan, x);  nan_1 = x = None\n"}
+,{"stream_name":"stdout","time":51.846929738,"data":"        return where\n"}
+,{"stream_name":"stdout","time":51.846953364,"data":"clip_scores\n"}
+,{"stream_name":"stdout","time":51.846958893,"data":"    eager               [11.0, 70.0, 33.0]\n"}
+,{"stream_name":"stdout","time":51.846964044,"data":"    fx.Interpreter      [11.0, 70.0, 33.0]\n"}
+,{"stream_name":"stdout","time":51.846969142,"data":"    GraphModule.forward [11.0, 40.0, 33.0]\n"}
+,{"stream_name":"stdout","time":51.84697475,"data":"    def forward(self, scores, inf):\n"}
+,{"stream_name":"stdout","time":51.846979953,"data":"        inf_1 = inf\n"}
+,{"stream_name":"stdout","time":51.846985346,"data":"        clamp = torch.clamp(scores, max = inf);  scores = None\n"}
+,{"stream_name":"stdout","time":51.846991076,"data":"        add = clamp + inf_1;  clamp = inf_1 = None\n"}
+,{"stream_name":"stdout","time":51.846996615,"data":"        return add\n"}
+,{"stream_name":"stdout","time":56.665287817,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.4/199.4 MB 8.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":80.518084282,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":80.518128843,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":80.518137112,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260921+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":82.721251839,"data":"torch 2.15.0.dev20260921+cpu\n"}
+,{"stream_name":"stdout","time":85.149792611,"data":"mask_invalid\n"}
+,{"stream_name":"stdout","time":85.150737648,"data":"    eager               [1.0, nan, 3.0]\n"}
+,{"stream_name":"stdout","time":85.150762111,"data":"    fx.Interpreter      [1.0, nan, 3.0]\n"}
+,{"stream_name":"stdout","time":85.150768757,"data":"    GraphModule.forward [1.0, 1.0, 3.0]\n"}
+,{"stream_name":"stdout","time":85.150774799,"data":"    def forward(self, x, nan):\n"}
+,{"stream_name":"stdout","time":85.150802848,"data":"        nan_1 = nan\n"}
+,{"stream_name":"stdout","time":85.150809113,"data":"        where = torch.where(nan_1, nan, x);  nan_1 = x = None\n"}
+,{"stream_name":"stdout","time":85.15081466,"data":"        return where\n"}
+,{"stream_name":"stdout","time":85.150820451,"data":"clip_scores\n"}
+,{"stream_name":"stdout","time":85.150824967,"data":"    eager               [11.0, 70.0, 33.0]\n"}
+,{"stream_name":"stdout","time":85.150829318,"data":"    fx.Interpreter      [11.0, 70.0, 33.0]\n"}
+,{"stream_name":"stdout","time":85.150834071,"data":"    GraphModule.forward [11.0, 40.0, 33.0]\n"}
+,{"stream_name":"stdout","time":85.150838221,"data":"    def forward(self, scores, inf):\n"}
+,{"stream_name":"stdout","time":85.150861078,"data":"        inf_1 = inf\n"}
+,{"stream_name":"stdout","time":85.150868539,"data":"        clamp = torch.clamp(scores, max = inf);  scores = None\n"}
+,{"stream_name":"stdout","time":85.150873291,"data":"        add = clamp + inf_1;  clamp = inf_1 = None\n"}
+,{"stream_name":"stdout","time":85.150877716,"data":"        return add\n"}
+,{"stream_name":"stdout","time":85.679249557,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":88.427225681,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":88.427279241,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":88.806099393,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":88.8061274,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":89.60650749,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":91.368533571,"data":"[NbConvertApp] Writing 276376 bytes to __results__.html\n"}
+]

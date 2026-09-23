@@ -1,0 +1,3 @@
+exception TorchRuntimeError: RuntimeError when making fake tensor call
+  Explanation: Dynamo failed to run FX node with fake tensors: call_method expand(*(FakeTensor(..., size=(2, 1), dtype=torch.int8), 1, 1), **{}): got RuntimeError('expand: attempting to expand a dimension of length 2 -> 1!')
+  Hint: Your code may result in an error when running in eager. Please double check that your code doesn't contain a similar error wh

@@ -1,0 +1,5 @@
+exception AssertionError: expected size 2==2, stride 257==771 at dim=0; expected size 3==3, stride 514==257 at dim=1
+Error in op: torch.ops.aten._fft_r2c.default
+This error most often comes from a incorrect fake (aka meta) kernel for a custom op.
+Use torch.library.opcheck to test your custom op.
+See https://pytorch.org/docs/stable/library.html#torch.library.opcheck

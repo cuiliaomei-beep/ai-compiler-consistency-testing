@@ -1,0 +1,520 @@
+{
+  "faults": [
+    "underspec_dtype",
+    "underspec_scalar",
+    "underspec_layout",
+    "underspec_requires_grad",
+    "cache_stale_on_return",
+    "cache_result_memo"
+  ],
+  "settings": {
+    "ordinary_eager_vs_compiled": {
+      "detected": 0,
+      "faults": 6,
+      "warm_only_failures": 0,
+      "mean_tests_to_trigger": null,
+      "tests": 148,
+      "per_category": {
+        "specialization": {
+          "total": 4,
+          "detected": 0
+        },
+        "cache": {
+          "total": 2,
+          "detected": 0
+        }
+      },
+      "detected_by_fault": {
+        "underspec_dtype": false,
+        "underspec_scalar": false,
+        "underspec_layout": false,
+        "underspec_requires_grad": false,
+        "cache_stale_on_return": false,
+        "cache_result_memo": false
+      },
+      "detail": {}
+    },
+    "random_sequence": {
+      "detected": 5,
+      "faults": 6,
+      "warm_only_failures": 11,
+      "mean_tests_to_trigger": 6.45,
+      "tests": 155,
+      "per_category": {
+        "specialization": {
+          "total": 4,
+          "detected": 3
+        },
+        "cache": {
+          "total": 2,
+          "detected": 2
+        }
+      },
+      "detected_by_fault": {
+        "underspec_dtype": true,
+        "underspec_scalar": true,
+        "underspec_layout": true,
+        "underspec_requires_grad": false,
+        "cache_stale_on_return": true,
+        "cache_result_memo": true
+      },
+      "detail": {
+        "underspec_dtype/dtype_reduce": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 4
+        },
+        "underspec_dtype/python_flag_semantic": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 10
+        },
+        "underspec_scalar/string_mode": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 12
+        },
+        "underspec_scalar/loop_bound": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "underspec_layout/stride_read": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 9
+        },
+        "underspec_layout/view_inplace": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 6
+        },
+        "underspec_layout/noncontig_copy": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "cache_stale_on_return/dtype_reduce": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "cache_stale_on_return/python_flag_semantic": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 9
+        },
+        "cache_result_memo/dtype_reduce": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "cache_result_memo/python_flag_semantic": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 9
+        }
+      }
+    },
+    "scs_guided_sequence": {
+      "detected": 6,
+      "faults": 6,
+      "warm_only_failures": 17,
+      "mean_tests_to_trigger": 4.76,
+      "tests": 93,
+      "per_category": {
+        "specialization": {
+          "total": 4,
+          "detected": 4
+        },
+        "cache": {
+          "total": 2,
+          "detected": 2
+        }
+      },
+      "detected_by_fault": {
+        "underspec_dtype": true,
+        "underspec_scalar": true,
+        "underspec_layout": true,
+        "underspec_requires_grad": true,
+        "cache_stale_on_return": true,
+        "cache_result_memo": true
+      },
+      "detail": {
+        "underspec_dtype/dtype_reduce": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 4
+        },
+        "underspec_dtype/shape_boundary": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 4
+        },
+        "underspec_dtype/python_flag_semantic": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 4
+        },
+        "underspec_scalar/python_flag_semantic": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 10
+        },
+        "underspec_scalar/scalar_compare": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "underspec_scalar/loop_bound": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "underspec_layout/stride_read": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 6
+        },
+        "underspec_layout/contiguous_read": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 6
+        },
+        "underspec_layout/view_inplace": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 6
+        },
+        "underspec_layout/noncontig_copy": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 6
+        },
+        "underspec_requires_grad/requires_grad_switch": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 11
+        },
+        "cache_stale_on_return/dtype_reduce": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "cache_stale_on_return/shape_boundary": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "cache_stale_on_return/python_flag_semantic": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "cache_result_memo/dtype_reduce": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "cache_result_memo/shape_boundary": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        },
+        "cache_result_memo/python_flag_semantic": {
+          "probe": "matrix",
+          "warm_only": true,
+          "tests_to_trigger": 3
+        }
+      }
+    }
+  },
+  "real_compiler_switch_table": [
+    {
+      "program": "dtype_reduce",
+      "A": "base",
+      "B": "dtype=float16",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "dtype_reduce",
+      "A": "base",
+      "B": "x.grad=True",
+      "factor": "requires_grad",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "dtype_reduce",
+      "A": "base",
+      "B": "dtype=float64",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "dtype_reduce",
+      "A": "base",
+      "B": "x.grad=False",
+      "factor": "requires_grad",
+      "recompiled_A_to_B": false,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "dtype_reduce",
+      "A": "base",
+      "B": "dtype=bfloat16",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "python_flag_semantic",
+      "A": "base",
+      "B": "use_relu=True",
+      "factor": "substitute",
+      "recompiled_A_to_B": false,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "python_flag_semantic",
+      "A": "base",
+      "B": "dtype=float16",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "python_flag_semantic",
+      "A": "base",
+      "B": "x.grad=True",
+      "factor": "requires_grad",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "python_flag_semantic",
+      "A": "base",
+      "B": "use_relu=False",
+      "factor": "substitute",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "python_flag_semantic",
+      "A": "base",
+      "B": "dtype=float64",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "python_flag_semantic",
+      "A": "base",
+      "B": "x.grad=False",
+      "factor": "requires_grad",
+      "recompiled_A_to_B": false,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "requires_grad_switch",
+      "A": "base",
+      "B": "dtype=float16",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "requires_grad_switch",
+      "A": "base",
+      "B": "x.grad=True",
+      "factor": "requires_grad",
+      "recompiled_A_to_B": false,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "requires_grad_switch",
+      "A": "base",
+      "B": "dtype=float64",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "requires_grad_switch",
+      "A": "base",
+      "B": "x.grad=False",
+      "factor": "requires_grad",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "requires_grad_switch",
+      "A": "base",
+      "B": "dtype=bfloat16",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "stride_read",
+      "A": "base",
+      "B": "dtype=float16",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "stride_read",
+      "A": "base",
+      "B": "layout=noncontig",
+      "factor": "layout",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "stride_read",
+      "A": "base",
+      "B": "x.grad=True",
+      "factor": "requires_grad",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "stride_read",
+      "A": "base",
+      "B": "dtype=float64",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "stride_read",
+      "A": "base",
+      "B": "layout=transposed",
+      "factor": "layout",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "stride_read",
+      "A": "base",
+      "B": "x.grad=False",
+      "factor": "requires_grad",
+      "recompiled_A_to_B": false,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "shape_boundary",
+      "A": "base",
+      "B": "dtype=float16",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "shape_boundary",
+      "A": "base",
+      "B": "x.grad=True",
+      "factor": "requires_grad",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "shape_boundary",
+      "A": "base",
+      "B": "dtype=float64",
+      "factor": "dtype",
+      "recompiled_A_to_B": true,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    },
+    {
+      "program": "shape_boundary",
+      "A": "base",
+      "B": "x.grad=False",
+      "factor": "requires_grad",
+      "recompiled_A_to_B": false,
+      "recompiled_B_to_A": false,
+      "cold_vs_warm_differs": false,
+      "return_trip_differs": false,
+      "verdict": "none"
+    }
+  ]
+}

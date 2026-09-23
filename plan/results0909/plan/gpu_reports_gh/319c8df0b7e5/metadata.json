@@ -1,0 +1,36 @@
+{
+  "signature": "319c8df0b7e5",
+  "program": "issue_186536_inductor_dynamic_shape_searchsorted_deri",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "0/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "186536",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/186536",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 186536,
+      "title": "[inductor] Dynamic-shape `searchsorted`-derived index trips a device-side bounds assert on in-bounds CUDA inputs",
+      "url": "https://github.com/pytorch/pytorch/issues/186536",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-06-07"
+    }
+  ]
+}

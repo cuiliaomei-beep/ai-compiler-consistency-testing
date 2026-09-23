@@ -1,0 +1,28 @@
+{
+  "signature": "27e3f8bed866",
+  "program": "issue_178128_conv_transpose3d_meta_execution_produces",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "178128",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/178128",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "signature": "07d1d13245f8",
+  "program": "issue_184415_inductor_torch_foreach_sub_silently_igno",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "184415",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/184415",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 184415,
+      "title": "[Inductor] `torch._foreach_sub` silently ignores `alpha` under `torch.compile`",
+      "url": "https://github.com/pytorch/pytorch/issues/184415",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-19"
+    }
+  ]
+}

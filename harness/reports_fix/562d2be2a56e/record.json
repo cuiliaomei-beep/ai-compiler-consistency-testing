@@ -1,0 +1,266 @@
+{
+  "signature": "562d2be2a56e",
+  "case": "op_nn_functional_upsample_bilinear_0__IntroduceView_0",
+  "probe": "layered",
+  "triage": {
+    "stage": "aot_functionalization",
+    "priority": "high",
+    "rationale": "eager and backend='eager' agree but aot_eager differs: implicates AOTAutograd / functionalization (alias and in-place handling)",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "layers_unavailable": [],
+    "submittable": true
+  },
+  "context": {
+    "name": "base",
+    "factors": {
+      "variant": "base"
+    }
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "fp64_available": true,
+  "reproducibility": "1/1",
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": false,
+      "kinds": [],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.384e-07 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 2.384185791015625e-07,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              3,
+              3,
+              3
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 2.384185791015625e-07,
+            "max_rel_error": 2.647000511665199e-07,
+            "n_mismatch": 5,
+            "n_total": 54,
+            "first_mismatch_index": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "first_mismatch_expected": "-2.41103816",
+            "first_mismatch_actual": "-2.411037922",
+            "expected_preview": "[-8.478373528, -3.0443151, -2.400455952, -2.41103816, -0.5957455635, 0.2808218002, 4.94730854, 0.9007122517, ... (46 more)]",
+            "actual_preview": "[-8.478373528, -3.0443151, -2.400455952, -2.411037922, -0.5957455635, 0.2808218002, 4.94730854, 0.9007120132, ... (46 more)]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 2.384185791015625e-07,
+            "budget": 1e-08
+          }
+        }
+      ]
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "value"
+      ],
+      "dynamo_same": true,
+      "opaque_outputs": [],
+      "findings": [
+        {
+          "kind": "value",
+          "detail": "output[0]: compiled err vs fp64 = 2.384e-07 exceeds 4.0x eager err 0.000e+00",
+          "magnitude": 2.384185791015625e-07,
+          "index": 0,
+          "evidence": {
+            "shape": [
+              2,
+              3,
+              3,
+              3
+            ],
+            "dtype": "torch.float32",
+            "max_abs_error": 2.384185791015625e-07,
+            "max_rel_error": 2.647000511665199e-07,
+            "n_mismatch": 5,
+            "n_total": 54,
+            "first_mismatch_index": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "first_mismatch_expected": "-2.41103816",
+            "first_mismatch_actual": "-2.411037922",
+            "expected_preview": "[-8.478373528, -3.0443151, -2.400455952, -2.41103816, -0.5957455635, 0.2808218002, 4.94730854, 0.9007122517, ... (46 more)]",
+            "actual_preview": "[-8.478373528, -3.0443151, -2.400455952, -2.411037922, -0.5957455635, 0.2808218002, 4.94730854, 0.9007120132, ... (46 more)]",
+            "eager_err_vs_fp64": 0.0,
+            "compiled_err_vs_fp64": 2.384185791015625e-07,
+            "budget": 1e-08
+          }
+        }
+      ]
+    }
+  },
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0001,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            3,
+            3,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            27,
+            9,
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.0577,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            3,
+            3,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            27,
+            9,
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.1893,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            3,
+            3,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            27,
+            9,
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": true,
+      "exception": null,
+      "out_struct": "T",
+      "compiles": 1,
+      "frames_delta": 1,
+      "wall_s": 0.9863,
+      "alias_pairs": [],
+      "out_meta": [
+        {
+          "shape": [
+            2,
+            3,
+            3,
+            3
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "stride": [
+            27,
+            9,
+            3,
+            1
+          ],
+          "contiguous": true,
+          "requires_grad": false,
+          "storage_offset": 0,
+          "is_view": false
+        }
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "torch_git": "08187d9e0fba026dc8217405802ab5381dc88d90",
+    "cuda": null,
+    "device_name": null,
+    "triton": null
+  },
+  "notes": "torch OpInfo `nn.functional.upsample_bilinear` sample #0 (float32)\n[mutant: parameter `a0` is rebound to a full-slice view of itself]"
+}

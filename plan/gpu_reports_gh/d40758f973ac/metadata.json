@@ -1,0 +1,44 @@
+{
+  "signature": "d40758f973ac",
+  "program": "issue_182766_torch_compile_crashes_on_sdpa_backward_w",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "gradient"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "182766",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/182766",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 184305,
+      "title": "Fix zero-bias SDPA flash selection",
+      "url": "https://github.com/pytorch/pytorch/pull/184305",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-19"
+    },
+    {
+      "number": 182766,
+      "title": "`torch.compile` crashes on SDPA backward when head_dim is not a multiple of 16",
+      "url": "https://github.com/pytorch/pytorch/issues/182766",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-07"
+    }
+  ]
+}

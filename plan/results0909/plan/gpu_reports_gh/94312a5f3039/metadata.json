@@ -1,0 +1,68 @@
+{
+  "signature": "94312a5f3039",
+  "program": "issue_175966_silently_incorrect_results_for_torch_ara",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "device",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "175966",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/175966",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 191433,
+      "title": "[Inductor][Triton][CUDA][sm_120] BF16 autocast fusion of embeddings, Linear, and RMSNorm silently produces wrong results",
+      "url": "https://github.com/pytorch/pytorch/issues/191433",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-07-29"
+    },
+    {
+      "number": 189499,
+      "title": "[inductor] Add fuse_or_err HOP requiring a region to compile to one kernel",
+      "url": "https://github.com/pytorch/pytorch/pull/189499",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-07-09"
+    },
+    {
+      "number": 185891,
+      "title": "[dynamo] Guard AOTAutograd input mutation overlap changes",
+      "url": "https://github.com/pytorch/pytorch/pull/185891",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-06-02"
+    },
+    {
+      "number": 193959,
+      "title": "[inductor] Don't match pointless_cumsum_replacement on a symbolic fill",
+      "url": "https://github.com/pytorch/pytorch/pull/193959",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-08-18"
+    },
+    {
+      "number": 185288,
+      "title": "Support symbolic list lengths in Triton grids",
+      "url": "https://github.com/pytorch/pytorch/pull/185288",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-05-26"
+    }
+  ]
+}

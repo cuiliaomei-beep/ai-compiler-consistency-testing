@@ -1,0 +1,51 @@
+{
+  "factor_changed": "dtype",
+  "context": {
+    "name": "dtype=bfloat16",
+    "factors": {
+      "dtype": "bfloat16"
+    },
+    "warm": true,
+    "origin": "args.dtype"
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": {
+    "site": "opinfo_new_empty_strided",
+    "factor": "args.dtype",
+    "kind": "dtype",
+    "values": [
+      "float16",
+      "float64",
+      "bfloat16"
+    ],
+    "constraint": "float dtype ladder",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "numerics depend on precision regardless of source",
+    "param": "args",
+    "dim": null
+  },
+  "triage": {
+    "stage": "aot_functionalization",
+    "stage_label": "AOTAutograd / functionalization",
+    "priority": "high",
+    "rationale": "eager and backend='eager' agree but aot_eager differs: AOTAutograd / functionalization (alias and in-place handling)",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E2_aot_eager",
+    "submittable": true
+  }
+}

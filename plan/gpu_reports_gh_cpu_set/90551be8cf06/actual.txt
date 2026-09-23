@@ -1,0 +1,7 @@
+exception InternalTorchDynamoError: IndexError: list index out of range
+
+from user code:
+   File "reproducers_gh/issue_184405_torch_compile_backend_inductor_returns_s.py", line 17, in test_factory_apis
+    "ones": torch.ones(2),
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"

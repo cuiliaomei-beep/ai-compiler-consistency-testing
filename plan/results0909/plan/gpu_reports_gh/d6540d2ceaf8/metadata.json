@@ -1,0 +1,60 @@
+{
+  "signature": "d6540d2ceaf8",
+  "program": "issue_189895_inductor_silent_wrong_results_constant_p",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "value"
+  ],
+  "factor": "compile",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "189895",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/189895",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 195582,
+      "title": "[inductor] Silent wrong and non-reproducible results: BatchNorm2d followed by a shrinking F.pad",
+      "url": "https://github.com/pytorch/pytorch/issues/195582",
+      "state": "open",
+      "is_pr": false,
+      "created": "2026-09-01"
+    },
+    {
+      "number": 195465,
+      "title": "[inductor] Fix ValueRangeError crash on negative padding in inplace_constant_pad_nd",
+      "url": "https://github.com/pytorch/pytorch/pull/195465",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2026-08-31"
+    },
+    {
+      "number": 189895,
+      "title": "[inductor] Silent wrong results: constant_pad_nd fused into a split reduction drops the pad's boundary select (corrupts flash-attn cu_seqlens)",
+      "url": "https://github.com/pytorch/pytorch/issues/189895",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-07-14"
+    },
+    {
+      "number": 77764,
+      "title": "General MPS op coverage tracking issue",
+      "url": "https://github.com/pytorch/pytorch/issues/77764",
+      "state": "open",
+      "is_pr": false,
+      "created": "2022-05-18"
+    }
+  ]
+}

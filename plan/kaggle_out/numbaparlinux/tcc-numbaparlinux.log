@@ -1,0 +1,20 @@
+[{"stream_name":"stdout","time":5.794965677,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 3.9/3.9 MB 36.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":6.464761124,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 59.9/59.9 MB 27.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":16.540285103,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":16.540343407,"data":"ydata-profiling 4.18.4 requires numba\u003c0.63,\u003e=0.60, but you have numba 0.67.0 which is incompatible.\n"}
+,{"stream_name":"stdout","time":22.82021214,"data":"numba 0.67.0 numpy 2.0.2 python 3.12.13 Linux\n"}
+,{"stream_name":"stdout","time":22.820318341,"data":"a[i] ** -1                                   njit -\u003e raises ZeroDivisionError | njit(parallel=True) -\u003e raises ZeroDivisionError\n"}
+,{"stream_name":"stdout","time":22.820330394,"data":"a[i] ** -2                                   njit -\u003e raises ZeroDivisionError | njit(parallel=True) -\u003e raises ZeroDivisionError\n"}
+,{"stream_name":"stdout","time":22.820338516,"data":"7 // int(a[i])                               njit -\u003e raises ZeroDivisionError | njit(parallel=True) -\u003e [0.0, 3.0, 1.0]\n"}
+,{"stream_name":"stdout","time":22.820346701,"data":"7 % int(a[i])                                njit -\u003e raises ZeroDivisionError | njit(parallel=True) -\u003e [0.0, 1.0, 3.0]\n"}
+,{"stream_name":"stdout","time":22.820354824,"data":"1.0 / a[i]                                   njit -\u003e raises ZeroDivisionError | njit(parallel=True) -\u003e [inf, 0.5, 0.25]\n"}
+,{"stream_name":"stdout","time":22.820363234,"data":"float(7 // int(a[i])) if a[i] != 0 else -1.0 njit -\u003e [-1.0, 3.0, 1.0] | njit(parallel=True) -\u003e [-1.0, 3.0, 1.0]\n"}
+,{"stream_name":"stdout","time":22.820371029,"data":"whole-array raises ZeroDivisionError\n"}
+,{"stream_name":"stdout","time":23.194403913,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":25.978814989,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":25.978873959,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":26.334385979,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":26.334421604,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":27.132603404,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":28.805418051,"data":"[NbConvertApp] Writing 276417 bytes to __results__.html\n"}
+]

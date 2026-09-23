@@ -1,0 +1,106 @@
+[{"stream_name":"stdout","time":2.888393743,"data":"$ pip -q install torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu\n"}
+,{"stream_name":"stdout","time":9.580053896999999,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 196.3/196.3 MB 8.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":46.989318704,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":46.989389214,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":46.989394277,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stdout","time":47.216055257,"data":"$ pip -q install nnsmith expecttest hypothesis\n"}
+,{"stream_name":"stdout","time":52.200612133,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 90.5/90.5 kB 1.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":52.469682369,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 1.2/1.2 MB 7.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":52.65762274,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 163.1/163.1 kB 9.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":53.222987574,"data":"   ©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥ 33.1/33.1 MB 42.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":57.670432654,"data":"$ /usr/bin/python3 -c import torch; print('TORCH', torch.__version__)\n"}
+,{"stream_name":"stdout","time":59.992723089,"data":"TORCH 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":60.607818280000004,"data":"$ /usr/bin/python3 run.py metamorphic --isolate --source opinfo --configs base,coordinate_descent,padding,no_layout_opt,decompose_mm,simd8,simd16,cpp_dynamic_threads,cpp_no_tiling,cpp_min_chunk1,scatter_no_fallback,aggressive_fusion,no_reorder,no_caches,no_size_asserts,cpp_wrapper,no_pattern_matcher,emulate_casts,no_fusion,no_vec --relations config --out knobs_opinfo\n"}
+,{"stream_name":"stdout","time":5672.966829761,"data":"isolated metamorphic sweep: 595 operators, 0 already done, 595 to go\n"}
+,{"stream_name":"stdout","time":5672.96694953,"data":"[15/595] abs .. baddbmm\n"}
+,{"stream_name":"stdout","time":5672.966958555,"data":"[30/595] dot .. broadcast_shapes\n"}
+,{"stream_name":"stdout","time":5672.966965375,"data":"[45/595] broadcast_tensors .. positive\n"}
+,{"stream_name":"stdout","time":5672.966971614,"data":"[60/595] conj .. cummax\n"}
+,{"stream_name":"stdout","time":5672.966976077,"data":"[75/595] cummin .. diagonal\n"}
+,{"stream_name":"stdout","time":5672.96698098,"data":"[90/595] diagonal_copy .. i0\n"}
+,{"stream_name":"stdout","time":5672.966986,"data":"[105/595] floor_divide .. log\n"}
+,{"stream_name":"stdout","time":5672.966990869,"data":"[120/595] log10 .. matmul\n"}
+,{"stream_name":"stdout","time":5672.966995426,"data":"[135/595] max .. max\n"}
+,{"stream_name":"stdout","time":5672.967001894,"data":"[150/595] maximum .. nn.functional.linear_cross_entropy\n"}
+,{"stream_name":"stdout","time":5672.967008866,"data":"[165/595] nn.functional.linear_cross_entropy .. nn.functional.adaptive_max_pool1d\n"}
+,{"stream_name":"stdout","time":5672.967013714,"data":"[180/595] nn.functional.adaptive_max_pool2d .. nn.functional.layer_norm\n"}
+,{"stream_name":"stdout","time":5672.967043436,"data":"[195/595] nn.functional.rms_norm .. nn.functional.interpolate\n"}
+,{"stream_name":"stdout","time":5672.967048807,"data":"[210/595] nn.functional.interpolate .. nn.functional.max_pool3d\n"}
+,{"stream_name":"stdout","time":5672.967052794,"data":"[225/595] nn.functional.max_unpool1d .. nn.functional.scaled_dot_product_attention\n"}
+,{"stream_name":"stdout","time":5672.967057205,"data":"[240/595] torch.ops.aten._scaled_dot_product_flash_attention_for_cpu .. nn.functional.binary_cross_entropy\n"}
+,{"stream_name":"stdout","time":5672.967061716,"data":"[255/595] igamma .. narrow_copy\n"}
+,{"stream_name":"stdout","time":5672.967065472,"data":"[270/595] view_copy .. round\n"}
+,{"stream_name":"stdout","time":5672.967069231,"data":"[285/595] round .. select_scatter\n"}
+,{"stream_name":"stdout","time":5672.967073093,"data":"[300/595] slice .. reciprocal\n"}
+,{"stream_name":"stdout","time":5672.967076787,"data":"[315/595] rsqrt .. pca_lowrank\n"}
+,{"stream_name":"stdout","time":5672.967080604,"data":"[330/595] polar .. flatten\n"}
+,{"stream_name":"stdout","time":5672.967084516,"data":"[345/595] unflatten .. unique\n"}
+,{"stream_name":"stdout","time":5672.967088136,"data":"[360/595] unique_consecutive .. cdouble\n"}
+,{"stream_name":"stdout","time":5672.967093262,"data":"[375/595] cfloat .. stack\n"}
+,{"stream_name":"stdout","time":5672.967098375,"data":"[390/595] hstack .. msort\n"}
+,{"stream_name":"stdout","time":5672.967102157,"data":"[405/595] movedim .. unsqueeze\n"}
+,{"stream_name":"stdout","time":5672.967106208,"data":"[420/595] unsqueeze_copy .. inner\n"}
+,{"stream_name":"stdout","time":5672.967110231,"data":"[435/595] tensordot .. logit\n"}
+,{"stream_name":"stdout","time":5672.967113644,"data":"[450/595] where .. native_dropout_backward\n"}
+,{"stream_name":"stdout","time":5672.967119535,"data":"[465/595] nn.functional.dropout2d .. amin\n"}
+,{"stream_name":"stdout","time":5672.967123942,"data":"[480/595] argmax .. nn.functional.cosine_embedding_loss\n"}
+,{"stream_name":"stdout","time":5672.967128046,"data":"[495/595] nn.functional.nll_loss .. scatter_reduce\n"}
+,{"stream_name":"stdout","time":5672.967132196,"data":"[510/595] scatter_reduce .. fft.ifft2\n"}
+,{"stream_name":"stdout","time":5672.967136577,"data":"[525/595] fft.ifftn .. linalg.cholesky_ex\n"}
+,{"stream_name":"stdout","time":5672.967139896,"data":"[540/595] linalg.vecdot .. linalg.norm\n"}
+,{"stream_name":"stdout","time":5672.967143694,"data":"[555/595] linalg.norm .. linalg.solve_ex\n"}
+,{"stream_name":"stdout","time":5672.967149634,"data":"[570/595] linalg.solve_triangular .. signal.windows.cosine\n"}
+,{"stream_name":"stdout","time":5672.967153495,"data":"[585/595] signal.windows.gaussian .. masked.median\n"}
+,{"stream_name":"stdout","time":5672.967157393,"data":"[600/595] masked.norm .. bmm\n"}
+,{"stream_name":"stdout","time":5672.967161375,"data":"{\"ops\": 593, \"samples\": 593, \"compiles\": 11765, \"relation_checks\": 11172, \"not_applicable\": 0, \"violations\": 0, \"standard_differs\": 0, \"infra\": 0, \"wall_s\": 5600.6, \"crashes\": 0}\n"}
+,{"stream_name":"stdout","time":5675.484117122,"data":"$ /usr/bin/python3 run.py metamorphic --isolate --source both --models 60 --configs base,coordinate_descent,padding,no_layout_opt,decompose_mm,simd8,simd16,cpp_dynamic_threads,cpp_no_tiling,cpp_min_chunk1,scatter_no_fallback,aggressive_fusion,no_reorder,no_caches,no_size_asserts,cpp_wrapper,no_pattern_matcher,emulate_casts,no_fusion,no_vec --relations config --out knobs_programs\n"}
+,{"stream_name":"stdout","time":7518.311517555,"data":"isolated metamorphic sweep: 595 operators, 0 already done, 595 to go\n"}
+,{"stream_name":"stdout","time":7518.311755955,"data":"[15/595] abs .. baddbmm\n"}
+,{"stream_name":"stdout","time":7518.311781124,"data":"[30/595] dot .. broadcast_shapes\n"}
+,{"stream_name":"stdout","time":7518.311784775,"data":"[45/595] broadcast_tensors .. positive\n"}
+,{"stream_name":"stdout","time":7518.311788008,"data":"[60/595] conj .. cummax\n"}
+,{"stream_name":"stdout","time":7518.311790551,"data":"[75/595] cummin .. diagonal\n"}
+,{"stream_name":"stdout","time":7518.311792978,"data":"[90/595] diagonal_copy .. i0\n"}
+,{"stream_name":"stdout","time":7518.311795559,"data":"[105/595] floor_divide .. log\n"}
+,{"stream_name":"stdout","time":7518.311797977,"data":"[120/595] log10 .. matmul\n"}
+,{"stream_name":"stdout","time":7518.311800537,"data":"[135/595] max .. max\n"}
+,{"stream_name":"stdout","time":7518.311802931,"data":"[150/595] maximum .. nn.functional.linear_cross_entropy\n"}
+,{"stream_name":"stdout","time":7518.311805587,"data":"[165/595] nn.functional.linear_cross_entropy .. nn.functional.adaptive_max_pool1d\n"}
+,{"stream_name":"stdout","time":7518.311809137,"data":"[180/595] nn.functional.adaptive_max_pool2d .. nn.functional.layer_norm\n"}
+,{"stream_name":"stdout","time":7518.311811717,"data":"[195/595] nn.functional.rms_norm .. nn.functional.interpolate\n"}
+,{"stream_name":"stdout","time":7518.311814253,"data":"[210/595] nn.functional.interpolate .. nn.functional.max_pool3d\n"}
+,{"stream_name":"stdout","time":7518.311816929,"data":"[225/595] nn.functional.max_unpool1d .. nn.functional.scaled_dot_product_attention\n"}
+,{"stream_name":"stdout","time":7518.311819508,"data":"[240/595] torch.ops.aten._scaled_dot_product_flash_attention_for_cpu .. nn.functional.binary_cross_entropy\n"}
+,{"stream_name":"stdout","time":7518.311822369,"data":"[255/595] igamma .. narrow_copy\n"}
+,{"stream_name":"stdout","time":7518.311824799,"data":"[270/595] view_copy .. round\n"}
+,{"stream_name":"stdout","time":7518.311827296,"data":"[285/595] round .. select_scatter\n"}
+,{"stream_name":"stdout","time":7518.311829754,"data":"[300/595] slice .. reciprocal\n"}
+,{"stream_name":"stdout","time":7518.311832153,"data":"[315/595] rsqrt .. pca_lowrank\n"}
+,{"stream_name":"stdout","time":7518.31183454,"data":"[330/595] polar .. flatten\n"}
+,{"stream_name":"stdout","time":7518.311836917,"data":"[345/595] unflatten .. unique\n"}
+,{"stream_name":"stdout","time":7518.311839299,"data":"[360/595] unique_consecutive .. cdouble\n"}
+,{"stream_name":"stdout","time":7518.31184191,"data":"[375/595] cfloat .. stack\n"}
+,{"stream_name":"stdout","time":7518.31184432,"data":"[390/595] hstack .. msort\n"}
+,{"stream_name":"stdout","time":7518.31184674,"data":"[405/595] movedim .. unsqueeze\n"}
+,{"stream_name":"stdout","time":7518.311849227,"data":"[420/595] unsqueeze_copy .. inner\n"}
+,{"stream_name":"stdout","time":7518.311851615,"data":"[435/595] tensordot .. logit\n"}
+,{"stream_name":"stdout","time":7518.311853998,"data":"[450/595] where .. native_dropout_backward\n"}
+,{"stream_name":"stdout","time":7518.311856435,"data":"[465/595] nn.functional.dropout2d .. amin\n"}
+,{"stream_name":"stdout","time":7518.31185886,"data":"[480/595] argmax .. nn.functional.cosine_embedding_loss\n"}
+,{"stream_name":"stdout","time":7518.311861509,"data":"[495/595] nn.functional.nll_loss .. scatter_reduce\n"}
+,{"stream_name":"stdout","time":7518.311863995,"data":"[510/595] scatter_reduce .. fft.ifft2\n"}
+,{"stream_name":"stdout","time":7518.311866428,"data":"[525/595] fft.ifftn .. linalg.cholesky_ex\n"}
+,{"stream_name":"stdout","time":7518.311868915,"data":"[540/595] linalg.vecdot .. linalg.norm\n"}
+,{"stream_name":"stdout","time":7518.311871305,"data":"[555/595] linalg.norm .. linalg.solve_ex\n"}
+,{"stream_name":"stdout","time":7518.311873695,"data":"[570/595] linalg.solve_triangular .. signal.windows.cosine\n"}
+,{"stream_name":"stdout","time":7518.311879391,"data":"[585/595] signal.windows.gaussian .. masked.median\n"}
+,{"stream_name":"stdout","time":7518.311881909,"data":"[600/595] masked.norm .. bmm\n"}
+,{"stream_name":"stdout","time":7518.311884665,"data":"{\"ops\": 593, \"samples\": 593, \"compiles\": 11765, \"relation_checks\": 11172, \"not_applicable\": 0, \"violations\": 0, \"standard_differs\": 0, \"infra\": 0, \"wall_s\": 1837.0, \"crashes\": 0}\n"}
+,{"stream_name":"stdout","time":7520.200400576,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":7523.064440975,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":7523.064498106,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":7523.431411342,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":7523.431466032,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":7524.245440687,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":7525.899113959,"data":"[NbConvertApp] Writing 281188 bytes to __results__.html\n"}
+]

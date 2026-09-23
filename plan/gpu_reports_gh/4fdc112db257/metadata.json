@@ -1,0 +1,52 @@
+{
+  "signature": "4fdc112db257",
+  "program": "issue_182965_torch_compile_silently_returns_a_result",
+  "project": "pytorch/pytorch",
+  "stage": "aot_functionalization",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "182965",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/182965",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 194499,
+      "title": "Allow caching for graphs containing linalg ops with effects",
+      "url": "https://github.com/pytorch/pytorch/pull/194499",
+      "state": "open",
+      "is_pr": true,
+      "created": "2026-08-23"
+    },
+    {
+      "number": 182965,
+      "title": "`torch.compile` silently returns a result for `torch.linalg.cholesky` on non-positive-definite input",
+      "url": "https://github.com/pytorch/pytorch/issues/182965",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-08"
+    },
+    {
+      "number": 46083,
+      "title": "Added linalg.cholesky",
+      "url": "https://github.com/pytorch/pytorch/pull/46083",
+      "state": "closed",
+      "is_pr": true,
+      "created": "2020-10-09"
+    }
+  ]
+}

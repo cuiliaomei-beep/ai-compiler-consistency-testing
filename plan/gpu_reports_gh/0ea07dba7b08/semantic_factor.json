@@ -1,0 +1,51 @@
+{
+  "factor_changed": "device",
+  "context": {
+    "name": "device=cpu",
+    "factors": {
+      "device": "cpu"
+    },
+    "warm": true,
+    "origin": "src.device"
+  },
+  "context_b": null,
+  "controlled": {},
+  "obligation": {
+    "site": "reduce_max",
+    "factor": "src.device",
+    "kind": "device",
+    "values": [
+      "cpu",
+      "cuda"
+    ],
+    "constraint": "device switch",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata",
+      "exception"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "device read in the source",
+    "param": "src",
+    "dim": null
+  },
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  }
+}

@@ -1,0 +1,63 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 9.1 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.
+torch 2.14.0+cpu
+[f] eager="'k'"  compiled(fullgraph)='k'   <-- DIFF
+[g] eager="'missing'"  compiled(fullgraph)='missing'   <-- DIFF
+[h] eager="key error: 'k'"  compiled(fullgraph)='key error: k'   <-- DIFF
+W0912 13:30:35.018000 19 torch/_logging/_internal.py:1394] [0/0] Profiler record function <class 'torch.autograd.profiler.record_function'> will be ignored
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+torch 2.14.0+cpu
+[SGD {'foreach': True} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=raise InductorError: AssertionError: <built-in function getitem> is not an OpOverload   <-- DIFF
+[SGD {'foreach': True} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410
+[SGD {'foreach': False} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j
+[SGD {'foreach': False} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410
+[SGD {'foreach': True, 'momentum': 0.9} complex64] eager=ok 1.2510+0.4033j | aot_eager=ok 1.2510+0.4033j | inductor=raise InductorError: AssertionError: <built-in function getitem> is not an OpOverload   <-- DIFF
+[SGD {'foreach': True, 'momentum': 0.9} float32] eager=ok 1.2510 | aot_eager=ok 1.2510 | inductor=ok 1.2510
+[Adam {'foreach': True} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j
+[Adam {'foreach': True} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410
+[Adam {'foreach': False} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j
+[Adam {'foreach': False} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410
+[AdamW {'foreach': True} complex64] eager=ok 1.3380+0.4025j | aot_eager=ok 1.3380+0.4025j | inductor=ok 1.3380+0.4025j
+[AdamW {'foreach': True} float32] eager=ok 1.3380 | aot_eager=ok 1.3380 | inductor=ok 1.3380
+[RMSprop {'foreach': True} complex64] eager=ok -0.1679+0.4033j | aot_eager=ok -0.1679+0.4033j | inductor=ok -0.1679+0.4033j
+[RMSprop {'foreach': True} float32] eager=ok -0.1679 | aot_eager=ok -0.1679 | inductor=ok -0.1679
+[Adagrad {'foreach': True} complex64] eager=ok 1.3703+0.4033j | aot_eager=ok 1.3703+0.4033j | inductor=ok 1.3703+0.4033j
+[Adagrad {'foreach': True} float32] eager=ok 1.3703 | aot_eager=ok 1.3703 | inductor=ok 1.3703
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 9.2 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.
+torch 2.15.0.dev20260912+cpu
+[f] eager="'k'"  compiled(fullgraph)='k'   <-- DIFF
+[g] eager="'missing'"  compiled(fullgraph)='missing'   <-- DIFF
+[h] eager="key error: 'k'"  compiled(fullgraph)='key error: k'   <-- DIFF
+W0912 13:31:52.650000 162 torch/_logging/_internal.py:1407] [0/0] Profiler record function <class 'torch.autograd.profiler.record_function'> will be ignored
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:2826: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+torch 2.15.0.dev20260912+cpu
+[SGD {'foreach': True} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=raise InductorError: AssertionError: <built-in function getitem> is not an OpOverload   <-- DIFF
+[SGD {'foreach': True} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410
+[SGD {'foreach': False} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j
+[SGD {'foreach': False} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410
+[SGD {'foreach': True, 'momentum': 0.9} complex64] eager=ok 1.2510+0.4033j | aot_eager=ok 1.2510+0.4033j | inductor=raise InductorError: AssertionError: <built-in function getitem> is not an OpOverload   <-- DIFF
+[SGD {'foreach': True, 'momentum': 0.9} float32] eager=ok 1.2510 | aot_eager=ok 1.2510 | inductor=ok 1.2510
+[Adam {'foreach': True} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j
+[Adam {'foreach': True} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410
+[Adam {'foreach': False} complex64] eager=ok 1.3410+0.4033j | aot_eager=ok 1.3410+0.4033j | inductor=ok 1.3410+0.4033j
+[Adam {'foreach': False} float32] eager=ok 1.3410 | aot_eager=ok 1.3410 | inductor=ok 1.3410
+[AdamW {'foreach': True} complex64] eager=ok 1.3380+0.4025j | aot_eager=ok 1.3380+0.4025j | inductor=ok 1.3380+0.4025j
+[AdamW {'foreach': True} float32] eager=ok 1.3380 | aot_eager=ok 1.3380 | inductor=ok 1.3380
+[RMSprop {'foreach': True} complex64] eager=ok -0.1679+0.4033j | aot_eager=ok -0.1679+0.4033j | inductor=ok -0.1679+0.4033j
+[RMSprop {'foreach': True} float32] eager=ok -0.1679 | aot_eager=ok -0.1679 | inductor=ok -0.1679
+[Adagrad {'foreach': True} complex64] eager=ok 1.3703+0.4033j | aot_eager=ok 1.3703+0.4033j | inductor=ok 1.3703+0.4033j
+[Adagrad {'foreach': True} float32] eager=ok 1.3703 | aot_eager=ok 1.3703 | inductor=ok 1.3703
+JOB DONE
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 279179 bytes to __results__.html

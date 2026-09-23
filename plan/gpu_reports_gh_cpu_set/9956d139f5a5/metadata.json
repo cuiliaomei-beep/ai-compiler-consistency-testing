@@ -1,0 +1,28 @@
+{
+  "signature": "9956d139f5a5",
+  "program": "issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "195977",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/195977",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

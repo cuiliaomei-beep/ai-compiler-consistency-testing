@@ -1,0 +1,240 @@
+{
+  "signature": "9956d139f5a5",
+  "program": "issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec",
+  "project": "pytorch/pytorch",
+  "probe": "layered",
+  "triage": {
+    "stage": "dynamo_capture",
+    "stage_label": "TorchDynamo (graph capture)",
+    "priority": "low",
+    "rationale": "divergence already present at backend='eager': Dynamo graph-capture semantics (often documented-unsupported behaviour)",
+    "kinds": [
+      "exception"
+    ],
+    "recompiled": null,
+    "guard_suspicious": false,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": "E1_dynamo_eager",
+    "submittable": false
+  },
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": null,
+  "factor_changed": "",
+  "controlled": {},
+  "obligation": null,
+  "comparisons": {
+    "E1_dynamo_eager": {
+      "ref": "E0_eager",
+      "test": "E1_dynamo_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: InternalTorchDynamoError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "ModuleNotFoundError: No module named '_repro_issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec'",
+            "test_message": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), "
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E2_aot_eager": {
+      "ref": "E0_eager",
+      "test": "E2_aot_eager",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: InternalTorchDynamoError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "ModuleNotFoundError: No module named '_repro_issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec'",
+            "test_message": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), "
+          }
+        }
+      ],
+      "suppressed": []
+    },
+    "E3_inductor": {
+      "ref": "E0_eager",
+      "test": "E3_inductor",
+      "differs": true,
+      "kinds": [
+        "exception"
+      ],
+      "dynamo_same": null,
+      "opaque_outputs": [],
+      "oracles_run": [
+        "alias",
+        "exception",
+        "gradient",
+        "metadata",
+        "mutation",
+        "value"
+      ],
+      "findings": [
+        {
+          "kind": "exception",
+          "detail": "exception type differs: InternalTorchDynamoError vs TorchRuntimeError",
+          "evidence": {
+            "ref_message": "ModuleNotFoundError: No module named '_repro_issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec'",
+            "test_message": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), "
+          }
+        }
+      ],
+      "suppressed": []
+    }
+  },
+  "cache": null,
+  "observations": {
+    "E0_eager": {
+      "mode": "E0_eager",
+      "ok": false,
+      "exception": "InternalTorchDynamoError",
+      "exception_inner": "ModuleNotFoundError",
+      "exception_msg": "ModuleNotFoundError: No module named '_repro_issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec'",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 0,
+      "wall_s": 0.0468,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E1_dynamo_eager": {
+      "mode": "E1_dynamo_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), **{}): got RuntimeError('Unhandled FakeTensor Device Propagation for aten.mm.default, found two different devices cuda:0, cpu')\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py\", line 18, in rollout\n    _, ys = scan(body, state0, xs)\n  File \"/usr/local/lib/python3.12/dist-packages/torch/_higher_order_ops/scan.py\", line 211, in scan\n    carry, o",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0652,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E2_aot_eager": {
+      "mode": "E2_aot_eager",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), **{}): got RuntimeError('Unhandled FakeTensor Device Propagation for aten.mm.default, found two different devices cuda:0, cpu')\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py\", line 18, in rollout\n    _, ys = scan(body, state0, xs)\n  File \"/usr/local/lib/python3.12/dist-packages/torch/_higher_order_ops/scan.py\", line 211, in scan\n    carry, o",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0524,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    },
+    "E3_inductor": {
+      "mode": "E3_inductor",
+      "ok": false,
+      "exception": "TorchRuntimeError",
+      "exception_inner": "RuntimeError",
+      "exception_msg": "Dynamo failed to run FX node with fake tensors: call_function <built-in function matmul>(*(FakeTensor(..., device='cuda:0', size=(4, 8)), Parameter(FakeTensor(..., size=(8, 8), requires_grad=True))), **{}): got RuntimeError('Unhandled FakeTensor Device Propagation for aten.mm.default, found two different devices cuda:0, cpu')\n\nfrom user code:\n   File \"reproducers_gh_cuda/issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py\", line 18, in rollout\n    _, ys = scan(body, state0, xs)\n  File \"/usr/local/lib/python3.12/dist-packages/torch/_higher_order_ops/scan.py\", line 211, in scan\n    carry, o",
+      "out_struct": "",
+      "compiles": 0,
+      "frames_delta": 1,
+      "wall_s": 0.0528,
+      "alias_pairs": [],
+      "n_inputs": 2,
+      "out_meta": [],
+      "has_grads": false,
+      "grad_error": null
+    }
+  },
+  "fp64_available": false,
+  "reproducibility": "2/2",
+  "seed": 0,
+  "backend": "inductor",
+  "compile_options": {},
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "os": "Linux 6.12.90+",
+    "torch": "2.10.0+cu128",
+    "torch_git": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0",
+    "cuda": "12.8",
+    "rocm": null,
+    "device_name": "Tesla T4",
+    "triton": "3.6.0",
+    "tilelang": null,
+    "cxx_compiler": "/usr/bin/g++"
+  },
+  "notes": "loaded from reproducers_gh_cuda/issue_195977_scan_inductor_refuses_a_tanh_sigmoid_rec.py\n[scan] inductor refuses a tanh/sigmoid recurrence under autograd (\"scan might be aliasing the input or the output!\"): ScanAutogradOp returns the carry twice as a saved intermediate\nhttps://github.com/pytorch/pytorch/issues/195977\ncompile options in the issue: {'backend': 'eager', 'fullgraph': True}",
+  "minimized": null,
+  "duplicates": {
+    "query": "scan inductor refuses tanh sigmoid recurrence under autograd",
+    "searched": true,
+    "error": null,
+    "candidates": [
+      {
+        "number": "195977",
+        "title": "origin issue of this reproducer",
+        "url": "https://github.com/pytorch/pytorch/issues/195977",
+        "state": null,
+        "is_pr": false,
+        "created": ""
+      },
+      {
+        "number": 195977,
+        "title": "[scan] inductor refuses a tanh/sigmoid recurrence under autograd (\"scan might be aliasing the input or the output!\"): ScanAutogradOp returns the carry twice as a saved intermediate",
+        "url": "https://github.com/pytorch/pytorch/issues/195977",
+        "state": "open",
+        "is_pr": false,
+        "created": "2026-09-04"
+      }
+    ],
+    "tls": "certifi"
+  },
+  "sanitize_warnings": [],
+  "execution_sequence": [
+    "E0_eager: InternalTorchDynamoError",
+    "E1_dynamo_eager: TorchRuntimeError",
+    "E2_aot_eager: TorchRuntimeError",
+    "E3_inductor: TorchRuntimeError"
+  ],
+  "status": "Generated",
+  "fault": null
+}

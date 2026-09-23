@@ -1,0 +1,36 @@
+{
+  "signature": "ab535633192b",
+  "program": "issue_182275_inductor_sympifyerror_cannot_sympify_sha",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "gradient"
+  ],
+  "factor": "requires_grad",
+  "probe": "layered",
+  "status": "Generated",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "182275",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/182275",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    },
+    {
+      "number": 182275,
+      "title": "[inductor] SympifyError: cannot sympify ShapeAsConstantBuffer when nested_compile_region returns SymInt consumed by torch.full",
+      "url": "https://github.com/pytorch/pytorch/issues/182275",
+      "state": "closed",
+      "is_pr": false,
+      "created": "2026-05-04"
+    }
+  ]
+}

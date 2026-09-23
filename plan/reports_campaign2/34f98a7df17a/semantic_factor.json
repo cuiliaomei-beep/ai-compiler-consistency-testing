@@ -1,0 +1,58 @@
+{
+  "factor_changed": "substitute",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "n=0",
+    "factors": {
+      "substitute": {
+        "arg": 1,
+        "value": 0
+      }
+    },
+    "warm": true,
+    "origin": "n"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "loop_bound",
+    "factor": "n",
+    "kind": "scalar",
+    "values": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "constraint": "boundary +-1",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "exception"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "parameter compared against a constant / used as index or bound",
+    "param": "n",
+    "dim": null
+  },
+  "triage": {
+    "stage": "none",
+    "stage_label": "no divergence",
+    "priority": "info",
+    "rationale": "'substitute' changed without a recompile and the result matched; guards may be under-specified (informational)",
+    "kinds": [],
+    "recompiled": false,
+    "guard_suspicious": true,
+    "warm_only": false,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": false
+  }
+}

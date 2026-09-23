@@ -1,0 +1,13 @@
+import torch
+torch.manual_seed(0)
+
+def f(x, dx):
+    return torch.func.jvp(SinWithZeroJvp.apply, (x,), (dx,))[1]
+
+args = (torch.randn(4).requires_grad_(True), torch.randn(4))
+
+eager = f(*args)
+torch._dynamo.reset()
+compiled = torch.compile(f, backend='eager')(*args)
+print('eager   :', eager)
+print('compiled:', compiled)

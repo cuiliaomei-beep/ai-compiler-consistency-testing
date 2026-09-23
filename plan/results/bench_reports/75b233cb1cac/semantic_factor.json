@@ -1,0 +1,55 @@
+{
+  "factor_changed": "layout",
+  "context": {
+    "name": "base",
+    "factors": {},
+    "warm": true,
+    "origin": ""
+  },
+  "context_b": {
+    "name": "layout=noncontig",
+    "factors": {
+      "layout": "noncontig"
+    },
+    "warm": true,
+    "origin": "x.stride"
+  },
+  "controlled": {},
+  "obligation": {
+    "site": "stride_read",
+    "factor": "x.stride",
+    "kind": "stride",
+    "values": [
+      "noncontig",
+      "transposed"
+    ],
+    "constraint": "stride variants",
+    "relation": "change_only_one_factor",
+    "oracles": [
+      "value",
+      "metadata"
+    ],
+    "execution": [
+      "cold",
+      "warm_sequence"
+    ],
+    "origin": "stride read in the source",
+    "param": "x",
+    "dim": null
+  },
+  "triage": {
+    "stage": "specialization_cache",
+    "stage_label": "cache specialization (guard / stale artifact reuse)",
+    "priority": "high",
+    "rationale": "changing 'layout' did not trigger a recompile, yet the warm result differs from a cold compile of the same context: a cached artifact was reused under assumptions that no longer hold",
+    "kinds": [
+      "value"
+    ],
+    "recompiled": false,
+    "guard_suspicious": false,
+    "warm_only": true,
+    "layers_unavailable": [],
+    "first_divergent_layer": null,
+    "submittable": true
+  }
+}

@@ -1,0 +1,2 @@
+exception TorchRuntimeError: RuntimeError when making fake tensor call
+  Explanation: Dynamo failed to run FX node with fake tensors: call_function aten.max_pool2d_with_indices_backward.default(*(FakeTensor(..., size=(s33, s33, (((s69 - 1)//2)) + 1, s69)), FakeTensor(..., size=(s33, s33, s69, s69)), (3, 2), (2, 1), 1, (1, 2), False, FakeTensor(..., size=(s33, s33, (((s69 - 1)//2)) + 1, s69), dtype=torch.int64)), **{}): got Ru

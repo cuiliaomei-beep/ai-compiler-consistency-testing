@@ -1,0 +1,111 @@
+torch 2.14.0+cu130
+== device cpu
+acosh  torch.float64  n= 3 eager 461.21  compiled 461.21
+acosh  torch.float64  n= 8 eager 461.21  compiled inf
+acosh  torch.float64  n=16 eager 461.21  compiled inf
+acosh  torch.float64  n=32 eager 461.21  compiled inf
+acosh  torch.float64  n=64 eager 461.21  compiled inf
+acosh  torch.float32  n= 3 eager 89.29  compiled 89.29
+acosh  torch.float32  n= 8 eager 89.29  compiled 89.29
+acosh  torch.float32  n=16 eager 89.29  compiled 89.29
+acosh  torch.float32  n=32 eager 89.29  compiled 89.29
+acosh  torch.float32  n=64 eager 89.29  compiled 89.29
+erfinv torch.float32  x=0.9999999403953552     n= 3 eager 3.8325069  compiled 3.83253694  mpmath 3.83250686  rel err eager 9.96e-09 compiled 7.85e-06
+erfinv torch.float32  x=0.9999999403953552     n=64 eager 3.8325069  compiled 3.83253694  mpmath 3.83250686  rel err eager 9.96e-09 compiled 7.85e-06
+erfinv torch.float32  x=0.9998999834060669     n= 3 eager 2.75103545  compiled 2.75103641  mpmath 2.75103544  rel err eager 5.08e-09 compiled 3.52e-07
+erfinv torch.float32  x=0.9998999834060669     n=64 eager 2.75103545  compiled 2.75103641  mpmath 2.75103544  rel err eager 5.08e-09 compiled 3.52e-07
+erfinv torch.float32  x=0.9990000128746033     n= 3 eager 2.32675624  compiled 2.32675672  mpmath 2.32675633  rel err eager 3.78e-08 compiled 1.67e-07
+erfinv torch.float32  x=0.9990000128746033     n=64 eager 2.32675624  compiled 2.32675672  mpmath 2.32675633  rel err eager 3.78e-08 compiled 1.67e-07
+erfinv torch.float32  x=0.9900000095367432     n= 3 eager 1.82138658  compiled 1.82138693  mpmath 1.8213866  rel err eager 1.38e-08 compiled 1.83e-07
+erfinv torch.float32  x=0.9900000095367432     n=64 eager 1.82138658  compiled 1.82138693  mpmath 1.8213866  rel err eager 1.38e-08 compiled 1.83e-07
+erfinv torch.float64  x=0.9999999999999999     n= 3 eager 5.86358475  compiled 5.86394853  mpmath 5.86358475  rel err eager 0.00e+00 compiled 6.20e-05
+erfinv torch.float64  x=0.9999999999999999     n=64 eager 5.86358475  compiled 5.86394853  mpmath 5.86358475  rel err eager 0.00e+00 compiled 6.20e-05
+erfinv torch.float64  x=0.999999999999         n= 3 eager 5.0420319  compiled 5.04202913  mpmath 5.0420319  rel err eager 0.00e+00 compiled 5.50e-07
+erfinv torch.float64  x=0.999999999999         n=64 eager 5.0420319  compiled 5.04202913  mpmath 5.0420319  rel err eager 0.00e+00 compiled 5.50e-07
+erfinv torch.float64  x=0.9999                 n= 3 eager 2.75106391  compiled 2.75106391  mpmath 2.75106391  rel err eager 0.00e+00 compiled 9.69e-16
+erfinv torch.float64  x=0.9999                 n=64 eager 2.75106391  compiled 2.75106391  mpmath 2.75106391  rel err eager 0.00e+00 compiled 9.69e-16
+erfinv torch.float64  x=0.99                   n= 3 eager 1.82138637  compiled 1.82138637  mpmath 1.82138637  rel err eager 0.00e+00 compiled 4.88e-16
+erfinv torch.float64  x=0.99                   n=64 eager 1.82138637  compiled 1.82138637  mpmath 1.82138637  rel err eager 0.00e+00 compiled 4.88e-16
+== device cuda
+acosh  torch.float64  n= 3 eager 461.21  compiled 461.21
+acosh  torch.float64  n= 8 eager 461.21  compiled 461.21
+acosh  torch.float64  n=16 eager 461.21  compiled 461.21
+acosh  torch.float64  n=32 eager 461.21  compiled 461.21
+acosh  torch.float64  n=64 eager 461.21  compiled 461.21
+acosh  torch.float32  n= 3 eager 89.29  compiled 89.29
+acosh  torch.float32  n= 8 eager 89.29  compiled 89.29
+acosh  torch.float32  n=16 eager 89.29  compiled 89.29
+acosh  torch.float32  n=32 eager 89.29  compiled 89.29
+acosh  torch.float32  n=64 eager 89.29  compiled 89.29
+erfinv torch.float32  x=0.9999999403953552     n= 3 eager 3.83250642  compiled 3.8325069  mpmath 3.83250686  rel err eager 1.14e-07 compiled 9.96e-09
+erfinv torch.float32  x=0.9999999403953552     n=64 eager 3.83250642  compiled 3.8325069  mpmath 3.83250686  rel err eager 1.14e-07 compiled 9.96e-09
+erfinv torch.float32  x=0.9998999834060669     n= 3 eager 2.75103545  compiled 2.75103545  mpmath 2.75103544  rel err eager 5.08e-09 compiled 5.08e-09
+erfinv torch.float32  x=0.9998999834060669     n=64 eager 2.75103545  compiled 2.75103545  mpmath 2.75103544  rel err eager 5.08e-09 compiled 5.08e-09
+erfinv torch.float32  x=0.9990000128746033     n= 3 eager 2.32675648  compiled 2.32675648  mpmath 2.32675633  rel err eager 6.47e-08 compiled 6.47e-08
+erfinv torch.float32  x=0.9990000128746033     n=64 eager 2.32675648  compiled 2.32675648  mpmath 2.32675633  rel err eager 6.47e-08 compiled 6.47e-08
+erfinv torch.float32  x=0.9900000095367432     n= 3 eager 1.82138658  compiled 1.82138658  mpmath 1.8213866  rel err eager 1.38e-08 compiled 1.38e-08
+erfinv torch.float32  x=0.9900000095367432     n=64 eager 1.82138658  compiled 1.82138658  mpmath 1.8213866  rel err eager 1.38e-08 compiled 1.38e-08
+erfinv torch.float64  x=0.9999999999999999     n= 3 eager 5.86358475  compiled 5.86358475  mpmath 5.86358475  rel err eager 1.51e-16 compiled 1.51e-16
+erfinv torch.float64  x=0.9999999999999999     n=64 eager 5.86358475  compiled 5.86358475  mpmath 5.86358475  rel err eager 1.51e-16 compiled 1.51e-16
+erfinv torch.float64  x=0.999999999999         n= 3 eager 5.0420319  compiled 5.0420319  mpmath 5.0420319  rel err eager 0.00e+00 compiled 0.00e+00
+erfinv torch.float64  x=0.999999999999         n=64 eager 5.0420319  compiled 5.0420319  mpmath 5.0420319  rel err eager 0.00e+00 compiled 0.00e+00
+erfinv torch.float64  x=0.9999                 n= 3 eager 2.75106391  compiled 2.75106391  mpmath 2.75106391  rel err eager 0.00e+00 compiled 0.00e+00
+erfinv torch.float64  x=0.9999                 n=64 eager 2.75106391  compiled 2.75106391  mpmath 2.75106391  rel err eager 0.00e+00 compiled 0.00e+00
+erfinv torch.float64  x=0.99                   n= 3 eager 1.82138637  compiled 1.82138637  mpmath 1.82138637  rel err eager 0.00e+00 compiled 0.00e+00
+erfinv torch.float64  x=0.99                   n=64 eager 1.82138637  compiled 1.82138637  mpmath 1.82138637  rel err eager 0.00e+00 compiled 0.00e+00
+torch 2.15.0.dev20260921+cu130
+== device cpu
+acosh  torch.float64  n= 3 eager 461.21  compiled 461.21
+acosh  torch.float64  n= 8 eager 461.21  compiled inf
+acosh  torch.float64  n=16 eager 461.21  compiled inf
+acosh  torch.float64  n=32 eager 461.21  compiled inf
+acosh  torch.float64  n=64 eager 461.21  compiled inf
+acosh  torch.float32  n= 3 eager 89.29  compiled 89.29
+acosh  torch.float32  n= 8 eager 89.29  compiled 89.29
+acosh  torch.float32  n=16 eager 89.29  compiled 89.29
+acosh  torch.float32  n=32 eager 89.29  compiled 89.29
+acosh  torch.float32  n=64 eager 89.29  compiled 89.29
+erfinv torch.float32  x=0.9999999403953552     n= 3 eager 3.8325069  compiled 3.83253694  mpmath 3.83250686  rel err eager 9.96e-09 compiled 7.85e-06
+erfinv torch.float32  x=0.9999999403953552     n=64 eager 3.8325069  compiled 3.83253694  mpmath 3.83250686  rel err eager 9.96e-09 compiled 7.85e-06
+erfinv torch.float32  x=0.9998999834060669     n= 3 eager 2.75103545  compiled 2.75103641  mpmath 2.75103544  rel err eager 5.08e-09 compiled 3.52e-07
+erfinv torch.float32  x=0.9998999834060669     n=64 eager 2.75103545  compiled 2.75103641  mpmath 2.75103544  rel err eager 5.08e-09 compiled 3.52e-07
+erfinv torch.float32  x=0.9990000128746033     n= 3 eager 2.32675624  compiled 2.32675672  mpmath 2.32675633  rel err eager 3.78e-08 compiled 1.67e-07
+erfinv torch.float32  x=0.9990000128746033     n=64 eager 2.32675624  compiled 2.32675672  mpmath 2.32675633  rel err eager 3.78e-08 compiled 1.67e-07
+erfinv torch.float32  x=0.9900000095367432     n= 3 eager 1.82138658  compiled 1.82138693  mpmath 1.8213866  rel err eager 1.38e-08 compiled 1.83e-07
+erfinv torch.float32  x=0.9900000095367432     n=64 eager 1.82138658  compiled 1.82138693  mpmath 1.8213866  rel err eager 1.38e-08 compiled 1.83e-07
+erfinv torch.float64  x=0.9999999999999999     n= 3 eager 5.86358475  compiled 5.86394853  mpmath 5.86358475  rel err eager 0.00e+00 compiled 6.20e-05
+erfinv torch.float64  x=0.9999999999999999     n=64 eager 5.86358475  compiled 5.86394853  mpmath 5.86358475  rel err eager 0.00e+00 compiled 6.20e-05
+erfinv torch.float64  x=0.999999999999         n= 3 eager 5.0420319  compiled 5.04202913  mpmath 5.0420319  rel err eager 0.00e+00 compiled 5.50e-07
+erfinv torch.float64  x=0.999999999999         n=64 eager 5.0420319  compiled 5.04202913  mpmath 5.0420319  rel err eager 0.00e+00 compiled 5.50e-07
+erfinv torch.float64  x=0.9999                 n= 3 eager 2.75106391  compiled 2.75106391  mpmath 2.75106391  rel err eager 0.00e+00 compiled 9.69e-16
+erfinv torch.float64  x=0.9999                 n=64 eager 2.75106391  compiled 2.75106391  mpmath 2.75106391  rel err eager 0.00e+00 compiled 9.69e-16
+erfinv torch.float64  x=0.99                   n= 3 eager 1.82138637  compiled 1.82138637  mpmath 1.82138637  rel err eager 0.00e+00 compiled 4.88e-16
+erfinv torch.float64  x=0.99                   n=64 eager 1.82138637  compiled 1.82138637  mpmath 1.82138637  rel err eager 0.00e+00 compiled 4.88e-16
+== device cuda
+acosh  torch.float64  n= 3 eager 461.21  compiled 461.21
+acosh  torch.float64  n= 8 eager 461.21  compiled 461.21
+acosh  torch.float64  n=16 eager 461.21  compiled 461.21
+acosh  torch.float64  n=32 eager 461.21  compiled 461.21
+acosh  torch.float64  n=64 eager 461.21  compiled 461.21
+acosh  torch.float32  n= 3 eager 89.29  compiled 89.29
+acosh  torch.float32  n= 8 eager 89.29  compiled 89.29
+acosh  torch.float32  n=16 eager 89.29  compiled 89.29
+acosh  torch.float32  n=32 eager 89.29  compiled 89.29
+acosh  torch.float32  n=64 eager 89.29  compiled 89.29
+erfinv torch.float32  x=0.9999999403953552     n= 3 eager 3.83250642  compiled 3.8325069  mpmath 3.83250686  rel err eager 1.14e-07 compiled 9.96e-09
+erfinv torch.float32  x=0.9999999403953552     n=64 eager 3.83250642  compiled 3.8325069  mpmath 3.83250686  rel err eager 1.14e-07 compiled 9.96e-09
+erfinv torch.float32  x=0.9998999834060669     n= 3 eager 2.75103545  compiled 2.75103545  mpmath 2.75103544  rel err eager 5.08e-09 compiled 5.08e-09
+erfinv torch.float32  x=0.9998999834060669     n=64 eager 2.75103545  compiled 2.75103545  mpmath 2.75103544  rel err eager 5.08e-09 compiled 5.08e-09
+erfinv torch.float32  x=0.9990000128746033     n= 3 eager 2.32675648  compiled 2.32675648  mpmath 2.32675633  rel err eager 6.47e-08 compiled 6.47e-08
+erfinv torch.float32  x=0.9990000128746033     n=64 eager 2.32675648  compiled 2.32675648  mpmath 2.32675633  rel err eager 6.47e-08 compiled 6.47e-08
+erfinv torch.float32  x=0.9900000095367432     n= 3 eager 1.82138658  compiled 1.82138658  mpmath 1.8213866  rel err eager 1.38e-08 compiled 1.38e-08
+erfinv torch.float32  x=0.9900000095367432     n=64 eager 1.82138658  compiled 1.82138658  mpmath 1.8213866  rel err eager 1.38e-08 compiled 1.38e-08
+erfinv torch.float64  x=0.9999999999999999     n= 3 eager 5.86358475  compiled 5.86358475  mpmath 5.86358475  rel err eager 1.51e-16 compiled 1.51e-16
+erfinv torch.float64  x=0.9999999999999999     n=64 eager 5.86358475  compiled 5.86358475  mpmath 5.86358475  rel err eager 1.51e-16 compiled 1.51e-16
+erfinv torch.float64  x=0.999999999999         n= 3 eager 5.0420319  compiled 5.0420319  mpmath 5.0420319  rel err eager 0.00e+00 compiled 0.00e+00
+erfinv torch.float64  x=0.999999999999         n=64 eager 5.0420319  compiled 5.0420319  mpmath 5.0420319  rel err eager 0.00e+00 compiled 0.00e+00
+erfinv torch.float64  x=0.9999                 n= 3 eager 2.75106391  compiled 2.75106391  mpmath 2.75106391  rel err eager 0.00e+00 compiled 0.00e+00
+erfinv torch.float64  x=0.9999                 n=64 eager 2.75106391  compiled 2.75106391  mpmath 2.75106391  rel err eager 0.00e+00 compiled 0.00e+00
+erfinv torch.float64  x=0.99                   n= 3 eager 1.82138637  compiled 1.82138637  mpmath 1.82138637  rel err eager 0.00e+00 compiled 0.00e+00
+erfinv torch.float64  x=0.99                   n=64 eager 1.82138637  compiled 1.82138637  mpmath 1.82138637  rel err eager 0.00e+00 compiled 0.00e+00
+JOB DONE

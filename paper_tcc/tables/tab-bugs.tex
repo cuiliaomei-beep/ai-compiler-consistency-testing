@@ -1,0 +1,73 @@
+\begin{table}[t]
+\caption{The 55 issues filed against PyTorch and two other compilers (identifiers anonymized), in order of filing.
+\emph{Layer}: Dy = TorchDynamo, AOT = AOTAutograd / autograd tracing, De = decompositions and meta kernels,
+In = TorchInductor, Ex = export / AOTInductor, Eg = eager kernel shared by the compiled path, Fx = \code{torch.fx},
+DM = dispatch machinery, Ext = another compiler. \emph{Sym.}: S = silent inconsistency, F = failure of a program
+that eager execution accepts, C = process crash. \emph{Fac.}: P = program-side factor, Q = path-side factor.
+\emph{Obs.}: observable that detected it (V value, D metadata, I identity, E exception, S state, G gradient,
+R precision reference, C process). \emph{St.}: F fixed or fix under review, C confirmed, P pending, R rejected.}
+\label{tab:bugs}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}rp{8.2cm}llllll@{}}
+\toprule
+ID & Inconsistency (eager vs.\ compiled) & Layer & Sym. & Fac. & Obs. & St. \\
+\midrule
+B1  & \code{linalg.pinv} / \code{matrix\_sqrth}: wrong gradient for complex inputs & AOT & S & P & G & P \\
+B2  & \code{random.shuffle} / \code{sample} return the same result on every call & Dy & S & Q & V & F \\
+B3  & \code{jvp} of \code{ldexp} terminates the interpreter under \ET & AOT & C & Q & C & P \\
+B4  & arg-reduction index emitted with Python \code{**} in C++; compilation fails & In & F & Q & E & C \\
+B5  & \code{new\_zeros(device="cpu")} returns a CUDA tensor & In & S & Q & D & C \\
+B6  & \code{std} / \code{var}: NaN for $10^{30}$, zero value \emph{and zero gradient} for $10^{-30}$ & In & S & P & V & P \\
+B7  & \code{jvp} of \code{quantile} / \code{addr}: internal assertion on every backend & Dy & F & Q & E & P \\
+B8  & \code{ldexp} result dtype wrong in both directions & In & S & P & D & F \\
+B9  & compiled autograd: \code{interpolate} backward hits an internal assertion & AOT & F & Q & E & P \\
+B10 & f-string format specifier on a symbolic size: internal Dynamo error & Dy & F & Q & E & C \\
+B11 & compiled \code{SGD.step}, \code{foreach=True}, complex parameters: lowering assertion & In & F & P & E & C \\
+B12 & \code{interpolate} on an empty spatial dim returns NaNs (out-of-bounds read); eager raises & De & S & P & E & C \\
+B13 & mutated captured tensor: export accepts, decomposition rejects, AOTInductor asserts & Ex & F & Q & E & R \\
+B14 & \code{vector\_norm(ord=inf)} on an empty batch fails only for negative \code{dim} & De & F & P & E & F \\
+B15 & \code{binary\_cross\_entropy} / \code{huber\_loss}: float32 result for half-precision inputs & In & S & P & D & P \\
+B16 & \code{pdist} backward on zero rows: integer division by zero kills the process & Eg & C & P & C & F \\
+B17 & \code{random.seed} inside the function is ignored on the first call & Dy & S & Q & V & F \\
+B18 & named tuple \code{==} with tensor fields: \code{RecursionError} (Python 3.14 only) & Dy & F & Q & E & P \\
+B19 & \code{bmm} under autotuning: missing symbol export in a C++ template (Windows) & In & F & Q & E & P \\
+B20 & AOTInductor cannot package models returning \code{torch.return\_types.*} & Ex & F & Q & E & F \\
+B21 & \code{lerp} of Boolean tensors with a 0-d weight fails to compile & De & F & P & E & F \\
+B22 & \code{sum} / \code{prod} with \code{dtype=torch.bool}: C++ error / assertion & In & F & P & E & P \\
+B23 & \code{addmm} with a 0-d bias under autotuning: \code{IndexError} in lowering & In & F & Q & E & F \\
+B24 & \code{var\_mean} / \code{std\_mean} of an empty tensor: mean is 0 instead of NaN & In & S & P & V & F \\
+B25 & \code{channel\_shuffle} loses the \code{channels\_last} layout & In & S & P & D & C \\
+B26 & \code{str(KeyError(k))} loses the quotes that CPython adds & Dy & S & P & V & F \\
+B27 & \code{abs(complex, out=float64)} rejected by the meta kernel & De & F & P & E & C \\
+C1  & in-place-modification check lost for a saved input view: silent wrong gradients & AOT & S & P & G & F \\
+C2  & \code{adaptive\_max\_pool3d} backward wrong for \code{channels\_last\_3d} (eager kernel) & Eg & S & P & G & C \\
+C3  & a changing Python float argument is baked into the cached graph & Dy & S & Q & V & P \\
+C7  & Numba: \code{remainder} of \code{MIN\_INT} by $-1$ kills the process & Ext & C & -- & C & P \\
+C8  & \code{x * 1} / \code{x + 0} as a graph output return the input object itself & In & S & P & I & C \\
+C9  & \code{torch.fx} codegen: \code{operator.pow(-2, x)} emitted as \code{-2**x} & Fx & S & P & V & F \\
+C10 & floating-point floor division off by one (\code{1.0 // 0.1} gives 10) & In & S & P & V & C \\
+C11 & closure mutations in methods of a locally defined class are dropped & Dy & S & P & S & F \\
+C12 & JAX: \code{gcd} / \code{lcm} hang on the integer minimum & Ext & C & -- & C & F \\
+C13 & compiled NumPy code: \code{fix}, \code{cbrt}, \code{clip}, \code{sign} return wrong values & Dy & S & P & V & P \\
+C14 & vectorized \code{remainder}: NaN for an infinite divisor, 0 for large quotients & In & S & P & V & P \\
+C16 & \code{round(SymInt, -1)} is the identity & Dy & S & P & V & P \\
+C17 & NaN self-comparison of an \code{.item()} value folded to a constant & Dy & S & P & V & P \\
+C20 & compiled NumPy code: dtype and shape rules differ (\code{cumsum}, \code{square}, \code{median}) & Dy & S & P & D & P \\
+C22 & \code{clamp(int8, -1000, 1000)} returns $-24$: bounds wrapped into int8 & In & S & P & V & P \\
+C24 & \code{torch.fx}: parameters named \code{nan} / \code{inf} shadow float constants & Fx & S & P & V & P \\
+C27 & \code{GraphModule} pickle round trip turns in-place nodes into out-of-place ones & Fx & S & Q & S & P \\
+C29 & \code{any(uint8)} returns \code{bool} instead of \code{uint8} & In & S & P & D & P \\
+C32 & complex \code{pinv} / \code{polar} / \code{matrix\_sqrth} wrong under any dispatch mode & DM & S & Q & V & P \\
+C34 & \code{avg\_pool} backward with \code{ceil\_mode}: full kernel size as divisor for the last window & In & S & P & G & P \\
+C35 & \code{erfinv} loses four digits near $\pm 1$ & In & S & P & R & P \\
+C36 & vectorized float64 \code{acosh} overflows above $1.3\times10^{154}$ & In & S & P & V & P \\
+C37 & 134 operators compute on dtypes the eager kernel rejects (418 pairs) & In & S & P & E & P \\
+C40 & vectorized float32 \code{erf} returns 0 below $10^{-7}$; \code{atanh} returns 0 below $\epsilon$ & In & S & P & R & P \\
+C41 & \code{OrderedDict.move\_to\_end} on an input dictionary is dropped & Dy & S & Q & S & P \\
+C42 & a generator that leaves the compiled region returns as an exhausted tuple iterator & Dy & S & Q & I & P \\
+C44 & \code{IndexError} from a tensor operator bypasses the program's \code{except} clause & Dy & S & P & E & P \\
+C46 & AOTInductor runner destroyed after a run: access violation (Windows, OpenMP workers still spinning) & Ex & C & Q & C & P \\
+\bottomrule
+\end{tabular}
+\end{table}

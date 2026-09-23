@@ -1,0 +1,49 @@
+\section{Realizing the Factors on \tcompile}
+\label{sec:analyzers}
+
+Each factor family of Section~\ref{sec:factors} is realized as an \emph{analyzer}: a sweep that takes seeds
+from one source, changes one factor, and reuses the oracle, confirmation, and reporting of
+Section~\ref{sec:phase3}. Table~\ref{tab:analyzers} lists them with the scale of one sweep on PyTorch~2.14.
+The path-side analyzers are new; the program-side ones extend the metadata-driven sweeps of earlier
+differential testers with boundary values and unsupported dtypes.
+
+\input{tables/tab-analyzers}
+
+\paragraph{Graph-break position.} The corpus programs are rewritten at the syntax-tree level so that
+\code{torch.\_dynamo.graph\_break()} follows every statement, either at the top level of the function or also
+inside loop, conditional, \code{with}, and \code{try} bodies; nested function definitions are left intact and
+closures are re-bound to the original cells so that the rewritten function sees the same state. The rewritten
+program is compared with eager execution and with the un-rewritten compiled program in the same process, so
+that the report lists the divergences the break \emph{added}. Three variants replace the break by a statement
+with the same effect through a different mechanism: a call to a function wrapped in Dynamo's \code{disable}
+decorator, a \code{print}, and a Python side effect on external state; the first two force a break with and without an
+observable effect, the third produces no break and tests side-effect replay alone.
+
+\paragraph{Backend layer and execution context.} The same seed is executed with \code{backend} set to each layer,
+with \code{dynamic=True}, under a \code{TorchDispatchMode} whose \code{\_\_torch\_dispatch\_\_} only forwards
+the call (the mode is entered by the compile runtime itself, so a difference here means that the compiled
+program computes under a mode the user never wrote), under autocast, and under compositions of
+\tcompile that occur in application code (a compiled function calling another, \code{compile(compile(f))},
+\code{fullgraph}, a warm-up in \code{no\_grad} before a call with gradients, two backends on one function).
+For differentiable operators the sweep also compares input gradients. Every difference is confirmed without
+\tcompile where possible, which is how three findings were attributed to the dispatch machinery rather than to
+the compiler.
+
+\paragraph{Artifact route.} Each OpInfo sample is exported, serialized and deserialized, and executed; packaged
+with AOTInductor, loaded, and executed; and the loaded runner is destroyed while its outputs are alive and
+before the OpenMP worker threads of its last kernel have parked. Outputs are compared with eager execution and
+with \tcompile so that the report states whether a difference belongs to the route or to the shared lowering.
+
+\paragraph{Program-side sweeps.} The boundary-value analyzer replaces the data of every OpInfo sample by the
+edge values of Section~\ref{sec:factors} in tensors of at least the vector width, on CPU and CUDA; a variant
+compares elementary functions against a 30-digit reference near singularities and near overflow. The
+unsupported-dtype analyzer casts each sample to every dtype the eager kernel rejects and records whether the
+compiled program raises the same error, another, or none. The corpus analyzer runs the 274 Python programs twice
+each and compares return values, state, and exceptions with CPython; the differentiation analyzers compare
+backward, complex, forward-mode, and \code{vmap} traversals; the decomposition analyzer executes Inductor's
+decompositions eagerly under a dispatch mode, without a C++ compiler in the loop.
+
+\paragraph{Cost.} Path-side analyzers reuse seeds, so their cost is low: a graph-break sweep over the corpus takes
+six minutes per backend, the dispatch-mode sweep covers 955 operator--dtype pairs in under an hour, and the artifact
+route covers 520 operators in 45 minutes. Resumable per-operator records make a native crash cost one operator,
+not the sweep.

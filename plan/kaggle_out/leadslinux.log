@@ -1,0 +1,342 @@
+[{"stream_name":"stdout","time":6.533095548,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.3/196.3 MB 8.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":43.696381181,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":43.696443538,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":43.696451673,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.14.0+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":52.201587403,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] Graph break from `Tensor.item()`, consider setting:\n"}
+,{"stream_name":"stderr","time":52.201637266,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0]     torch._dynamo.config.capture_scalar_outputs = True\n"}
+,{"stream_name":"stderr","time":52.201646213,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] or:\n"}
+,{"stream_name":"stderr","time":52.201653876,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1\n"}
+,{"stream_name":"stderr","time":52.201660215,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] to include these operations in the captured graph.\n"}
+,{"stream_name":"stderr","time":52.201667895,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] \n"}
+,{"stream_name":"stderr","time":52.201673281,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] Graph break: from user code at:\n"}
+,{"stream_name":"stderr","time":52.201679036,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0]   File \"/kaggle/working/diag_dynamic_fstring_namedtuple.py\", line 17, in \u003clambda\u003e\n"}
+,{"stream_name":"stderr","time":52.201685976,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0]     run(\"fstring .3f on item()\", lambda t: f\"{t.sum().item():.3f}\", x)\n"}
+,{"stream_name":"stderr","time":52.201692815,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0]                                               ^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":52.201699379,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] \n"}
+,{"stream_name":"stderr","time":52.201705458,"data":"W0912 11:33:40.557000 15 torch/_dynamo/variables/tensor.py:1841] [0/0] \n"}
+,{"stream_name":"stdout","time":53.21965877,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":53.219698135,"data":"[fstring .3f on item()] eager                 : '1.734'\n"}
+,{"stream_name":"stdout","time":53.219705126,"data":"[fstring .3f on item()] compile(dynamic=True) : '1.734'\n"}
+,{"stream_name":"stdout","time":53.219710854,"data":"[fstring .3f on item() static] eager                 : '1.734'\n"}
+,{"stream_name":"stdout","time":53.21971604,"data":"[fstring .3f on item() static] compile(dynamic=False): '1.734'\n"}
+,{"stream_name":"stdout","time":53.219719937,"data":"[format() on item()] eager                 : '1.73'\n"}
+,{"stream_name":"stdout","time":53.219731907,"data":"[format() on item()] compile(dynamic=True) : '1.73'\n"}
+,{"stream_name":"stdout","time":53.219735964,"data":"[fstring :d on int item] eager                 : '3'\n"}
+,{"stream_name":"stdout","time":53.21973997,"data":"[fstring :d on int item] compile(dynamic=True) : raise InternalTorchDynamoError: ValueError: Unknown format code 'd' for object of type 'str'\n"}
+,{"stream_name":"stdout","time":53.219760439,"data":"[fstring :d on int(item)] eager                 : '1'\n"}
+,{"stream_name":"stdout","time":53.219763992,"data":"[fstring :d on int(item)] compile(dynamic=True) : '1'\n"}
+,{"stream_name":"stdout","time":53.219767141,"data":"[fstring plain on item()] eager                 : '1.734043836593628'\n"}
+,{"stream_name":"stdout","time":53.219770321,"data":"[fstring plain on item()] compile(dynamic=True) : '1.734043836593628'\n"}
+,{"stream_name":"stdout","time":53.21977334,"data":"[str() of item()] eager                 : '1.73'\n"}
+,{"stream_name":"stdout","time":53.219776369,"data":"[str() of item()] compile(dynamic=True) : '1.73'\n"}
+,{"stream_name":"stdout","time":53.219779383,"data":"[fstring .3f on shape-derived float] eager                 : '1.500'\n"}
+,{"stream_name":"stdout","time":53.219782574,"data":"[fstring .3f on shape-derived float] compile(dynamic=True) : raise InternalTorchDynamoError: ValueError: Unknown format code 'f' for object of type 'str'\n"}
+,{"stream_name":"stdout","time":53.219785909,"data":"[namedtuple == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":53.219789162,"data":"[namedtuple == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":53.219792327,"data":"[namedtuple == static] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":53.219795705,"data":"[namedtuple == static] compile(dynamic=False): raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":53.219798872,"data":"[tuple == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":53.2198021,"data":"[tuple == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":53.219805321,"data":"[list == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":53.219809569,"data":"[list == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":53.219812825,"data":"[namedtuple == scalar fields] eager                 : True\n"}
+,{"stream_name":"stdout","time":53.219815999,"data":"[namedtuple == scalar fields] compile(dynamic=True) : True\n"}
+,{"stream_name":"stdout","time":53.219819044,"data":"[namedtuple == 1-elem tensors] eager                 : True\n"}
+,{"stream_name":"stdout","time":53.219822072,"data":"[namedtuple == 1-elem tensors] compile(dynamic=True) : True\n"}
+,{"stream_name":"stderr","time":77.040698669,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4116: UserWarning: bf16 and fp16 are mixed in the scheduler node.\n"}
+,{"stream_name":"stderr","time":77.040758113,"data":"  warnings.warn(\"bf16 and fp16 are mixed in the scheduler node.\")\n"}
+,{"stream_name":"stderr","time":82.408151558,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4116: UserWarning: bf16 and fp16 are mixed in the scheduler node.\n"}
+,{"stream_name":"stderr","time":82.408200748,"data":"  warnings.warn(\"bf16 and fp16 are mixed in the scheduler node.\")\n"}
+,{"stream_name":"stderr","time":84.7155297,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4116: UserWarning: bf16 and fp16 are mixed in the scheduler node.\n"}
+,{"stream_name":"stderr","time":84.715589006,"data":"  warnings.warn(\"bf16 and fp16 are mixed in the scheduler node.\")\n"}
+,{"stream_name":"stderr","time":92.926573135,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.lerp.Tensor\n"}
+,{"stream_name":"stderr","time":92.926619562,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":92.926627535,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3208, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":92.926634555,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":92.926640593,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":92.926646224,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":92.926652163,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":92.926658582,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":92.926664805,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 313, in _fn\n"}
+,{"stream_name":"stderr","time":92.926671343,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":92.926678175,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]              ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":92.926684486,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py\", line 9049, in lerp\n"}
+,{"stream_name":"stderr","time":92.926689671,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":92.926693707,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2140, in _check\n"}
+,{"stream_name":"stderr","time":92.926697867,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":92.926703031,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2118, in _check_with\n"}
+,{"stream_name":"stderr","time":92.92670722,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":92.926711377,"data":"E0912 11:34:21.279000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: expected dtype torch.bool for `weight`, but got dtype torch.float16\n"}
+,{"stream_name":"stderr","time":92.948097569,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.lerp.Tensor\n"}
+,{"stream_name":"stderr","time":92.948145887,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":92.948178002,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3208, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":92.948184452,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":92.948190166,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":92.948195237,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":92.948200751,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":92.948205772,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":92.94821079,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 313, in _fn\n"}
+,{"stream_name":"stderr","time":92.948216297,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     result = fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":92.948221249,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]              ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":92.94822631,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py\", line 9049, in lerp\n"}
+,{"stream_name":"stderr","time":92.948231819,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     torch._check(\n"}
+,{"stream_name":"stderr","time":92.948236942,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2140, in _check\n"}
+,{"stream_name":"stderr","time":92.948242644,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":92.948247554,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2118, in _check_with\n"}
+,{"stream_name":"stderr","time":92.948251096,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":92.948254456,"data":"E0912 11:34:21.303000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] RuntimeError: expected dtype torch.bool for `weight`, but got dtype torch.float16\n"}
+,{"stream_name":"stderr","time":98.87749827,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1] Error in codegen for ComputedBuffer(name='buf0', layout=FixedLayout('cpu', torch.bool, size=[], stride=[]), data=Reduction(\n"}
+,{"stream_name":"stderr","time":98.877544938,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   'cpu',\n"}
+,{"stream_name":"stderr","time":98.877552673,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   torch.bool,\n"}
+,{"stream_name":"stderr","time":98.877558992,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   def inner_fn(index, rindex):\n"}
+,{"stream_name":"stderr","time":98.877565109,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]       r0_0, r0_1 = rindex\n"}
+,{"stream_name":"stderr","time":98.877587594,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]       tmp0 = ops.load(arg0_1, r0_1 + 4 * r0_0)\n"}
+,{"stream_name":"stderr","time":98.877591527,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]       tmp1 = ops.to_dtype(tmp0, torch.bool, src_dtype=torch.float32, use_compute_types=True)\n"}
+,{"stream_name":"stderr","time":98.87759498,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]       return tmp1\n"}
+,{"stream_name":"stderr","time":98.87759814,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   ,\n"}
+,{"stream_name":"stderr","time":98.877601279,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   ranges=[],\n"}
+,{"stream_name":"stderr","time":98.877604512,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   reduction_ranges=[3, 4],\n"}
+,{"stream_name":"stderr","time":98.877607684,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   reduction_type=prod,\n"}
+,{"stream_name":"stderr","time":98.877610778,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   origin_node=prod,\n"}
+,{"stream_name":"stderr","time":98.877613832,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   origins=OrderedSet([prod]),\n"}
+,{"stream_name":"stderr","time":98.877617524,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   stack_traces = {,\n"}
+,{"stream_name":"stderr","time":98.877622362,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]     File \"/kaggle/working/diag_dtype_leads.py\", line 52, in \u003clambda\u003e,\n"}
+,{"stream_name":"stderr","time":98.877628345,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]       run(\"prod(fp32, dtype=bool)\", lambda a: torch.prod(a, dtype=torch.bool), f32),\n"}
+,{"stream_name":"stderr","time":98.877633849,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^,\n"}
+,{"stream_name":"stderr","time":98.877639096,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   ,\n"}
+,{"stream_name":"stderr","time":98.877645107,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1]   }\n"}
+,{"stream_name":"stderr","time":98.877649607,"data":"C0912 11:34:27.232000 19 torch/_inductor/scheduler.py:2608] [0/1] ), _split_size=None, _original_inner_fn=None, _original_ranges=None, _original_reduction_ranges=None)\n"}
+,{"stream_name":"stderr","time":98.905071774,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mean.default\n"}
+,{"stream_name":"stderr","time":98.905110255,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":98.90511664,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3208, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":98.905123402,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":98.90512835,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":98.905133041,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":98.905153233,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":98.905158617,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":98.905163617,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py\", line 2668, in mean\n"}
+,{"stream_name":"stderr","time":98.905168845,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":98.905234038,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2140, in _check\n"}
+,{"stream_name":"stderr","time":98.905239553,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":98.905244601,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2118, in _check_with\n"}
+,{"stream_name":"stderr","time":98.905249764,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":98.905254724,"data":"E0912 11:34:27.259000 19 torch/_subclasses/fake_tensor.py:3212] [0/0] RuntimeError: mean(): could not infer output dtype. Optional dtype must be either a floating point or complex dtype. Got: torch.bool\n"}
+,{"stream_name":"stderr","time":98.918361617,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] failed while attempting to run meta for aten.mean.default\n"}
+,{"stream_name":"stderr","time":98.918399143,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":98.918405356,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3208, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":98.918411701,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":98.918415096,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":98.918418361,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":98.918423153,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":98.918427803,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":98.918432609,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py\", line 2668, in mean\n"}
+,{"stream_name":"stderr","time":98.918437834,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     torch._check(\n"}
+,{"stream_name":"stderr","time":98.91844286,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2140, in _check\n"}
+,{"stream_name":"stderr","time":98.918448054,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":98.91846882,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2118, in _check_with\n"}
+,{"stream_name":"stderr","time":98.918483553,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":98.918488687,"data":"E0912 11:34:27.273000 19 torch/_subclasses/fake_tensor.py:3212] [0/1] RuntimeError: mean(): could not infer output dtype. Optional dtype must be either a floating point or complex dtype. Got: torch.bool\n"}
+,{"stream_name":"stdout","time":98.924266387,"data":"torch 2.14.0+cpu\n"}
+,{"stream_name":"stdout","time":98.924313511,"data":"[ldexp(bool, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":98.924320741,"data":"[ldexp(int64, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":98.924325927,"data":"[ldexp(int64, bf16)] eager=bfloat16(3, 4) | aot_eager=bfloat16(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":98.924330346,"data":"[ldexp(fp16, fp32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float16(3, 4)\n"}
+,{"stream_name":"stdout","time":98.924333787,"data":"[ldexp(fp16, bf16)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float16(3, 4)\n"}
+,{"stream_name":"stdout","time":98.92433699,"data":"[ldexp(bf16, fp64)] eager=float64(3, 4) | aot_eager=float64(3, 4) | inductor=bfloat16(3, 4)\n"}
+,{"stream_name":"stdout","time":98.924340063,"data":"[ldexp(fp16, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float16(3, 4)\n"}
+,{"stream_name":"stdout","time":98.924343184,"data":"[ldexp(fp32, int64)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":98.924346368,"data":"[huber_loss(fp16, bf16)] eager=float16() | aot_eager=float16() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":98.924349808,"data":"[huber_loss(fp16, fp32)] eager=float16() | aot_eager=float16() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":98.924354731,"data":"[huber_loss(bf16, fp16)] eager=bfloat16() | aot_eager=bfloat16() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":98.924359591,"data":"[smooth_l1_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":98.924364086,"data":"[mse_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":98.924368808,"data":"[l1_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":98.924373604,"data":"[huber_loss(fp16, fp32, delta=0.5)] eager=float16() | aot_eager=float16() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":98.924378286,"data":"[huber_loss(fp16, fp32, reduction=none)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":98.924382739,"data":"[bce(fp16, fp16, weight=fp32)] eager=float16() | aot_eager=float16() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":98.924387461,"data":"[lerp(bool, bool, w=0-d fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=raise BackendCompilerFailed: backend='inductor' raised:\n"}
+,{"stream_name":"stdout","time":98.924394667,"data":"[lerp(bool, bool, w=fp16 tensor)] eager=raise RuntimeError: expected dtype bool for `weight` but got dtype c10::Half | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call\n"}
+,{"stream_name":"stdout","time":98.924418003,"data":"[lerp(int64, int64, w=0-d fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float16(3, 4)\n"}
+,{"stream_name":"stdout","time":98.924422853,"data":"[lerp(fp32, fp32, w=0-d fp16)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":98.924427256,"data":"[lerp(bool, bool, w=0-d fp32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=raise BackendCompilerFailed: backend='inductor' raised:\n"}
+,{"stream_name":"stdout","time":98.92443181,"data":"[sum(fp16, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=raise InductorError: CppCompileError: C++ compile error\n"}
+,{"stream_name":"stdout","time":98.924436352,"data":"[sum(fp32, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=bool()\n"}
+,{"stream_name":"stdout","time":98.924440958,"data":"[sum(fp16, dtype=bool, dim=0)] eager=bool(4,) | aot_eager=bool(4,) | inductor=bool(4,)\n"}
+,{"stream_name":"stdout","time":98.924445279,"data":"[cumsum(fp16, dtype=bool)] eager=raise NotImplementedError: \"cumsum_out_cpu\" not implemented for 'Bool' | aot_eager=raise NotImplementedError: \"cumsum_out_cpu\" not implemented for 'Bool' | inductor=raise NotImplementedError: \"cumsum_out_cpu\" not implemented for 'Bool'\n"}
+,{"stream_name":"stdout","time":98.924450976,"data":"[prod(fp32, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=raise InductorError: AssertionError: expected reduction_type in (\"min\", \"max\", \"any\", \"sum\")\n"}
+,{"stream_name":"stdout","time":98.924457027,"data":"[mean(int64, dtype=bool)] eager=raise RuntimeError: mean(): could not infer output dtype. Optional dtype must be either a floating point or co | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call\n"}
+,{"stream_name":"stdout","time":106.271999243,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.2/198.2 MB 9.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":131.054969198,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":131.055004834,"data":"torchaudio 2.10.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":131.055011634,"data":"torchvision 0.25.0+cpu requires torch==2.10.0, but you have torch 2.15.0.dev20260912+cpu which is incompatible.\n"}
+,{"stream_name":"stderr","time":135.355571791,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] Graph break from `Tensor.item()`, consider setting:\n"}
+,{"stream_name":"stderr","time":135.355615771,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0]     torch._dynamo.config.capture_scalar_outputs = True\n"}
+,{"stream_name":"stderr","time":135.355622336,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] or:\n"}
+,{"stream_name":"stderr","time":135.355626836,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1\n"}
+,{"stream_name":"stderr","time":135.355630911,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] to include these operations in the captured graph.\n"}
+,{"stream_name":"stderr","time":135.355634821,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] \n"}
+,{"stream_name":"stderr","time":135.355638576,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] Graph break: from user code at:\n"}
+,{"stream_name":"stderr","time":135.355659741,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0]   File \"/kaggle/working/diag_dynamic_fstring_namedtuple.py\", line 17, in \u003clambda\u003e\n"}
+,{"stream_name":"stderr","time":135.355664284,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0]     run(\"fstring .3f on item()\", lambda t: f\"{t.sum().item():.3f}\", x)\n"}
+,{"stream_name":"stderr","time":135.35566794,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0]                                               ^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":135.355671253,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] \n"}
+,{"stream_name":"stderr","time":135.355674454,"data":"W0912 11:35:03.711000 152 torch/_dynamo/variables/tensor.py:1880] [0/0] \n"}
+,{"stream_name":"stdout","time":136.402629137,"data":"torch 2.15.0.dev20260912+cpu\n"}
+,{"stream_name":"stdout","time":136.402681115,"data":"[fstring .3f on item()] eager                 : '3.918'\n"}
+,{"stream_name":"stdout","time":136.402686573,"data":"[fstring .3f on item()] compile(dynamic=True) : '3.918'\n"}
+,{"stream_name":"stdout","time":136.402691321,"data":"[fstring .3f on item() static] eager                 : '3.918'\n"}
+,{"stream_name":"stdout","time":136.402695371,"data":"[fstring .3f on item() static] compile(dynamic=False): '3.918'\n"}
+,{"stream_name":"stdout","time":136.402701073,"data":"[format() on item()] eager                 : '3.92'\n"}
+,{"stream_name":"stdout","time":136.402706575,"data":"[format() on item()] compile(dynamic=True) : '3.92'\n"}
+,{"stream_name":"stdout","time":136.402711783,"data":"[fstring :d on int item] eager                 : '3'\n"}
+,{"stream_name":"stdout","time":136.40271714,"data":"[fstring :d on int item] compile(dynamic=True) : raise InternalTorchDynamoError: ValueError: Unknown format code 'd' for object of type 'str'\n"}
+,{"stream_name":"stdout","time":136.40272315,"data":"[fstring :d on int(item)] eager                 : '3'\n"}
+,{"stream_name":"stdout","time":136.40272869,"data":"[fstring :d on int(item)] compile(dynamic=True) : '3'\n"}
+,{"stream_name":"stdout","time":136.402732721,"data":"[fstring plain on item()] eager                 : '3.9184582233428955'\n"}
+,{"stream_name":"stdout","time":136.402736713,"data":"[fstring plain on item()] compile(dynamic=True) : '3.9184582233428955'\n"}
+,{"stream_name":"stdout","time":136.402740523,"data":"[str() of item()] eager                 : '3.92'\n"}
+,{"stream_name":"stdout","time":136.402744171,"data":"[str() of item()] compile(dynamic=True) : '3.92'\n"}
+,{"stream_name":"stdout","time":136.402747917,"data":"[fstring .3f on shape-derived float] eager                 : '1.500'\n"}
+,{"stream_name":"stdout","time":136.402751817,"data":"[fstring .3f on shape-derived float] compile(dynamic=True) : raise InternalTorchDynamoError: ValueError: Unknown format code 'f' for object of type 'str'\n"}
+,{"stream_name":"stdout","time":136.402755881,"data":"[namedtuple == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":136.402759825,"data":"[namedtuple == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":136.402763765,"data":"[namedtuple == static] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":136.40276765,"data":"[namedtuple == static] compile(dynamic=False): raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":136.402785988,"data":"[tuple == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":136.402789427,"data":"[tuple == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":136.40279267,"data":"[list == (tensors)] eager                 : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":136.4027972,"data":"[list == (tensors)] compile(dynamic=True) : raise RuntimeError: Boolean value of Tensor with more than one value is ambiguous\n"}
+,{"stream_name":"stdout","time":136.402804731,"data":"[namedtuple == scalar fields] eager                 : True\n"}
+,{"stream_name":"stdout","time":136.402807898,"data":"[namedtuple == scalar fields] compile(dynamic=True) : True\n"}
+,{"stream_name":"stdout","time":136.402810895,"data":"[namedtuple == 1-elem tensors] eager                 : True\n"}
+,{"stream_name":"stdout","time":136.402813943,"data":"[namedtuple == 1-elem tensors] compile(dynamic=True) : True\n"}
+,{"stream_name":"stderr","time":158.507805781,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4112: UserWarning: bf16 and fp16 are mixed in the scheduler node.\n"}
+,{"stream_name":"stderr","time":158.507855297,"data":"  warnings.warn(\"bf16 and fp16 are mixed in the scheduler node.\")\n"}
+,{"stream_name":"stderr","time":163.679822518,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4112: UserWarning: bf16 and fp16 are mixed in the scheduler node.\n"}
+,{"stream_name":"stderr","time":163.679863974,"data":"  warnings.warn(\"bf16 and fp16 are mixed in the scheduler node.\")\n"}
+,{"stream_name":"stderr","time":165.999845984,"data":"/usr/local/lib/python3.12/dist-packages/torch/_inductor/codegen/cpp.py:4112: UserWarning: bf16 and fp16 are mixed in the scheduler node.\n"}
+,{"stream_name":"stderr","time":165.999932575,"data":"  warnings.warn(\"bf16 and fp16 are mixed in the scheduler node.\")\n"}
+,{"stream_name":"stderr","time":174.238591756,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.lerp.Tensor\n"}
+,{"stream_name":"stderr","time":174.238641284,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":174.238649247,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":174.238656101,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":174.238661509,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":174.238667357,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":174.238673324,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":174.238678955,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":174.238684417,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 313, in _fn\n"}
+,{"stream_name":"stderr","time":174.238714455,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     result = fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":174.238720284,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]              ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":174.238724444,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py\", line 9248, in lerp\n"}
+,{"stream_name":"stderr","time":174.238742215,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":174.238746904,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":174.238752121,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":174.238758767,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":174.238764242,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":174.238769415,"data":"E0912 11:35:42.591000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: expected dtype torch.bool for `weight`, but got dtype torch.float16\n"}
+,{"stream_name":"stderr","time":174.260682887,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] failed while attempting to run meta for aten.lerp.Tensor\n"}
+,{"stream_name":"stderr","time":174.260718209,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":174.260724151,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":174.260742821,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":174.260747846,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":174.260753272,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":174.260758782,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":174.260763841,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":174.260768739,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_prims_common/wrappers.py\", line 313, in _fn\n"}
+,{"stream_name":"stderr","time":174.260773917,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     result = fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":174.260779171,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]              ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":174.260784479,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_meta_registrations.py\", line 9248, in lerp\n"}
+,{"stream_name":"stderr","time":174.260806336,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     torch._check(\n"}
+,{"stream_name":"stderr","time":174.26081213,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":174.260817866,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":174.260824941,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":174.260830851,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":174.260836247,"data":"E0912 11:35:42.616000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] RuntimeError: expected dtype torch.bool for `weight`, but got dtype torch.float16\n"}
+,{"stream_name":"stderr","time":180.211640214,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1] Error in codegen for ComputedBuffer(name='buf0', layout=FixedLayout('cpu', torch.bool, size=[], stride=[]), data=Reduction(\n"}
+,{"stream_name":"stderr","time":180.211679811,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   'cpu',\n"}
+,{"stream_name":"stderr","time":180.211687755,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   torch.bool,\n"}
+,{"stream_name":"stderr","time":180.211692444,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   def inner_fn(index, rindex):\n"}
+,{"stream_name":"stderr","time":180.211696809,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]       r0_0, r0_1 = rindex\n"}
+,{"stream_name":"stderr","time":180.211702771,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]       tmp0 = ops.load(arg0_1, r0_1 + 4 * r0_0)\n"}
+,{"stream_name":"stderr","time":180.21170917,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]       tmp1 = ops.to_dtype(tmp0, torch.bool, src_dtype=torch.float32, use_compute_types=True)\n"}
+,{"stream_name":"stderr","time":180.211715114,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]       return tmp1\n"}
+,{"stream_name":"stderr","time":180.211721144,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   ,\n"}
+,{"stream_name":"stderr","time":180.211726947,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   ranges=[],\n"}
+,{"stream_name":"stderr","time":180.211732443,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   reduction_ranges=[3, 4],\n"}
+,{"stream_name":"stderr","time":180.211738111,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   reduction_type=prod,\n"}
+,{"stream_name":"stderr","time":180.211744004,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   origin_node=prod,\n"}
+,{"stream_name":"stderr","time":180.211750098,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   origins=OrderedSet([prod]),\n"}
+,{"stream_name":"stderr","time":180.211756086,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   stack_traces = {,\n"}
+,{"stream_name":"stderr","time":180.21176201,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]     File \"/kaggle/working/diag_dtype_leads.py\", line 52, in \u003clambda\u003e,\n"}
+,{"stream_name":"stderr","time":180.212153405,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]       run(\"prod(fp32, dtype=bool)\", lambda a: torch.prod(a, dtype=torch.bool), f32),\n"}
+,{"stream_name":"stderr","time":180.212164467,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^,\n"}
+,{"stream_name":"stderr","time":180.212170905,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   ,\n"}
+,{"stream_name":"stderr","time":180.212177324,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1]   }\n"}
+,{"stream_name":"stderr","time":180.212182502,"data":"C0912 11:35:48.565000 156 torch/_inductor/scheduler.py:4042] [0/1] ), _split_size=None, _original_inner_fn=None, _original_ranges=None, _original_reduction_ranges=None)\n"}
+,{"stream_name":"stderr","time":180.244266306,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] failed while attempting to run meta for aten.mean.default\n"}
+,{"stream_name":"stderr","time":180.244306444,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":180.244312619,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":180.24431781,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":180.244322612,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":180.244327829,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":180.24433303,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":180.24433779,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":180.244342681,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py\", line 2707, in mean\n"}
+,{"stream_name":"stderr","time":180.244347862,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     torch._check(\n"}
+,{"stream_name":"stderr","time":180.244352551,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":180.244357623,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":180.244362479,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":180.244368337,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":180.244373097,"data":"E0912 11:35:48.598000 156 torch/_subclasses/fake_tensor.py:3227] [0/0] RuntimeError: mean(): could not infer output dtype. Optional dtype must be either a floating point or complex dtype. Got: torch.bool\n"}
+,{"stream_name":"stderr","time":180.257896772,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] failed while attempting to run meta for aten.mean.default\n"}
+,{"stream_name":"stderr","time":180.257962988,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":180.257970405,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_subclasses/fake_tensor.py\", line 3223, in _dispatch_impl\n"}
+,{"stream_name":"stderr","time":180.257976,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     r = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":180.257980845,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":180.257985762,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_ops.py\", line 916, in __call__\n"}
+,{"stream_name":"stderr","time":180.25799135,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     return self._op(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":180.257996277,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]            ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":180.258001418,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/_refs/__init__.py\", line 2707, in mean\n"}
+,{"stream_name":"stderr","time":180.258006758,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     torch._check(\n"}
+,{"stream_name":"stderr","time":180.258011692,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2161, in _check\n"}
+,{"stream_name":"stderr","time":180.258016825,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     _check_with(RuntimeError, cond, message)\n"}
+,{"stream_name":"stderr","time":180.258022098,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]   File \"/usr/local/lib/python3.12/dist-packages/torch/__init__.py\", line 2139, in _check_with\n"}
+,{"stream_name":"stderr","time":180.258027395,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1]     raise error_type(message_evaluated)\n"}
+,{"stream_name":"stderr","time":180.258032415,"data":"E0912 11:35:48.613000 156 torch/_subclasses/fake_tensor.py:3227] [0/1] RuntimeError: mean(): could not infer output dtype. Optional dtype must be either a floating point or complex dtype. Got: torch.bool\n"}
+,{"stream_name":"stdout","time":180.264178636,"data":"torch 2.15.0.dev20260912+cpu\n"}
+,{"stream_name":"stdout","time":180.264215772,"data":"[ldexp(bool, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264222294,"data":"[ldexp(int64, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264227159,"data":"[ldexp(int64, bf16)] eager=bfloat16(3, 4) | aot_eager=bfloat16(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264232174,"data":"[ldexp(fp16, fp32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float16(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264237109,"data":"[ldexp(fp16, bf16)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float16(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264242121,"data":"[ldexp(bf16, fp64)] eager=float64(3, 4) | aot_eager=float64(3, 4) | inductor=bfloat16(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264262276,"data":"[ldexp(fp16, fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float16(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264266041,"data":"[ldexp(fp32, int64)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264269244,"data":"[huber_loss(fp16, bf16)] eager=float16() | aot_eager=float16() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":180.264272441,"data":"[huber_loss(fp16, fp32)] eager=float16() | aot_eager=float16() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":180.264277367,"data":"[huber_loss(bf16, fp16)] eager=bfloat16() | aot_eager=bfloat16() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":180.264281717,"data":"[smooth_l1_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":180.264286539,"data":"[mse_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":180.264291349,"data":"[l1_loss(fp16, fp32)] eager=float32() | aot_eager=float32() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":180.26430584,"data":"[huber_loss(fp16, fp32, delta=0.5)] eager=float16() | aot_eager=float16() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":180.264310908,"data":"[huber_loss(fp16, fp32, reduction=none)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264315619,"data":"[bce(fp16, fp16, weight=fp32)] eager=float16() | aot_eager=float16() | inductor=float32()\n"}
+,{"stream_name":"stdout","time":180.264320686,"data":"[lerp(bool, bool, w=0-d fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=raise BackendCompilerFailed: backend='inductor' raised:\n"}
+,{"stream_name":"stdout","time":180.264326256,"data":"[lerp(bool, bool, w=fp16 tensor)] eager=raise RuntimeError: expected dtype bool for `weight` but got dtype c10::Half | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call\n"}
+,{"stream_name":"stdout","time":180.264333894,"data":"[lerp(int64, int64, w=0-d fp16)] eager=float16(3, 4) | aot_eager=float16(3, 4) | inductor=float16(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264339151,"data":"[lerp(fp32, fp32, w=0-d fp16)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=float32(3, 4)\n"}
+,{"stream_name":"stdout","time":180.264344436,"data":"[lerp(bool, bool, w=0-d fp32)] eager=float32(3, 4) | aot_eager=float32(3, 4) | inductor=raise BackendCompilerFailed: backend='inductor' raised:\n"}
+,{"stream_name":"stdout","time":180.264348258,"data":"[sum(fp16, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=raise InductorError: CppCompileError: C++ compile error\n"}
+,{"stream_name":"stdout","time":180.264351471,"data":"[sum(fp32, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=bool()\n"}
+,{"stream_name":"stdout","time":180.264354498,"data":"[sum(fp16, dtype=bool, dim=0)] eager=bool(4,) | aot_eager=bool(4,) | inductor=bool(4,)\n"}
+,{"stream_name":"stdout","time":180.264357681,"data":"[cumsum(fp16, dtype=bool)] eager=raise NotImplementedError: \"cumsum_out_cpu\" not implemented for 'Bool' | aot_eager=raise NotImplementedError: \"cumsum_out_cpu\" not implemented for 'Bool' | inductor=raise NotImplementedError: \"cumsum_out_cpu\" not implemented for 'Bool'\n"}
+,{"stream_name":"stdout","time":180.26436184,"data":"[prod(fp32, dtype=bool)] eager=bool() | aot_eager=bool() | inductor=raise InductorError: AssertionError: expected reduction_type in (\"min\", \"max\", \"any\", \"sum\")\n"}
+,{"stream_name":"stdout","time":180.264366403,"data":"[mean(int64, dtype=bool)] eager=raise NotImplementedError: mean(): could not infer output dtype. Optional dtype must be either a floating point or co | aot_eager=raise TorchRuntimeError: RuntimeError when making fake tensor call | inductor=raise TorchRuntimeError: RuntimeError when making fake tensor call\n"}
+,{"stream_name":"stdout","time":181.567986262,"data":"JOB DONE\n"}
+,{"stream_name":"stderr","time":184.414609681,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":184.414654766,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":184.754756413,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":184.75478853,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":185.532005212,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":187.158533191,"data":"[NbConvertApp] Writing 282986 bytes to __results__.html\n"}
+]

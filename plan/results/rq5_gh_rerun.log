@@ -1,0 +1,570 @@
+loaded 14 reproducer(s) from reproducers_gh_rerun, 0 rejected
+
+torch 2.14.0+cpu  device cpu  backend=inductor  reruns=2
+14 program(s) -> reports_gh_rerun
+
+  issue_183120_torch_compile_inductor_produces_wrong_ou 0 candidate(s), 0 submittable, 3 tests, 11 compiles  [11.3s]
+  issue_185246_torch_compile_silently_accepts_invalid_b 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [3.1s]
+    * high   inductor_codegen       -                    55cb254fdc31
+  issue_185248_torch_compile_silently_accepts_negative 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [6.2s]
+    * high   inductor_codegen       -                    ccc1b7d85737
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.argmax.default
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7790, in argmax_argmin_meta
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     check_argmax_argmin("argmax", self, dim)
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7779, in check_argmax_argmin
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dim = maybe_wrap_dim(dim, self.dim())
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 6083, in maybe_wrap_dim
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"Dimension out of range (expected to be in range of [{min}, {max}], but got {dim})"
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0909 08:30:56.258000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.argmax.default
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7790, in argmax_argmin_meta
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     check_argmax_argmin("argmax", self, dim)
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7779, in check_argmax_argmin
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dim = maybe_wrap_dim(dim, self.dim())
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 6083, in maybe_wrap_dim
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"Dimension out of range (expected to be in range of [{min}, {max}], but got {dim})"
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0909 08:30:56.281000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.argmax.default
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7790, in argmax_argmin_meta
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     check_argmax_argmin("argmax", self, dim)
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7779, in check_argmax_argmin
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dim = maybe_wrap_dim(dim, self.dim())
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 6083, in maybe_wrap_dim
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"Dimension out of range (expected to be in range of [{min}, {max}], but got {dim})"
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0909 08:30:56.299000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.argmax.default
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7790, in argmax_argmin_meta
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     check_argmax_argmin("argmax", self, dim)
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7779, in check_argmax_argmin
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dim = maybe_wrap_dim(dim, self.dim())
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 6083, in maybe_wrap_dim
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"Dimension out of range (expected to be in range of [{min}, {max}], but got {dim})"
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0909 08:31:02.143000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.argmax.default
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7790, in argmax_argmin_meta
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     check_argmax_argmin("argmax", self, dim)
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7779, in check_argmax_argmin
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dim = maybe_wrap_dim(dim, self.dim())
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 6083, in maybe_wrap_dim
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"Dimension out of range (expected to be in range of [{min}, {max}], but got {dim})"
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0909 08:31:02.165000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.argmax.default
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7790, in argmax_argmin_meta
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     check_argmax_argmin("argmax", self, dim)
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7779, in check_argmax_argmin
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dim = maybe_wrap_dim(dim, self.dim())
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 6083, in maybe_wrap_dim
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"Dimension out of range (expected to be in range of [{min}, {max}], but got {dim})"
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0909 08:31:02.185000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.argmax.default
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7790, in argmax_argmin_meta
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     check_argmax_argmin("argmax", self, dim)
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7779, in check_argmax_argmin
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dim = maybe_wrap_dim(dim, self.dim())
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 6083, in maybe_wrap_dim
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"Dimension out of range (expected to be in range of [{min}, {max}], but got {dim})"
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0909 08:31:02.438000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.argmax.default
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7790, in argmax_argmin_meta
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     check_argmax_argmin("argmax", self, dim)
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7779, in check_argmax_argmin
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dim = maybe_wrap_dim(dim, self.dim())
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 6083, in maybe_wrap_dim
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"Dimension out of range (expected to be in range of [{min}, {max}], but got {dim})"
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0909 08:31:02.456000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.argmax.default
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7790, in argmax_argmin_meta
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     check_argmax_argmin("argmax", self, dim)
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 7779, in check_argmax_argmin
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     dim = maybe_wrap_dim(dim, self.dim())
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 6083, in maybe_wrap_dim
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise IndexError(
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"Dimension out of range (expected to be in range of [{min}, {max}], but got {dim})"
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0909 08:31:02.474000 19204 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] IndexError: Dimension out of range (expected to be in range of [-1, 0], but got 1)
+  issue_185481_inductor_argmax_over_comparison_mask_is 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [12.5s]
+    * high   inductor_codegen       -                    237ca7e2b7da
+  issue_193757_inductor_cpu_torch_compile_silently_acce 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [12.1s]
+    * high   inductor_codegen       -                    7138e75dd9d1
+  issue_193811_torch_compile_silently_accepts_int32_inp 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [22.5s]
+    * high   aot_functionalization  -                    4da7f63dcc5c
+  issue_194501_torch_compile_inductor_smooth_l1_loss_wi 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [4.0s]
+    * high   inductor_codegen       -                    4e6221450fb7
+Unhandled exception caught in c10/util/AbortHandler.h
+loaded 13 reproducer(s) from reproducers_gh_rerun, 0 rejected
+
+torch 2.14.0+cpu  device cpu  backend=inductor  reruns=2
+13 program(s) -> reports_gh_rerun
+
+resuming: 7 done, 6 remaining
+  issue_195488_dynamo_autocast_context_manager_is_lower 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [12.3s]
+    * high   inductor_codegen       -                    68b4b8d4ff32
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:43:48.835000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:43:48.866000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:43:48.887000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:43:52.378000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:43:52.404000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:43:52.425000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:43:55.321000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:43:55.341000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:43:55.361000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:00.271000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:00.291000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:00.317000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:03.259000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:03.281000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:03.304000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:05.981000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:06.001000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:06.020000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:08.804000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:08.825000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.mm.default
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_meta_registrations.py", line 2576, in meta_mm
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(a.dim() == 2, lambda: "a must be 2D")
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0909 08:44:08.847000 23596 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: a must be 2D
+  issue_195579_meta_decomps_torch_compile_skips_addmm_s 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [23.7s]
+    * high   inductor_codegen       -                    279d05c1a28a
+  issue_195665_inductor_torch_compile_skips_as_strided 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [5.1s]
+    * high   inductor_codegen       -                    86b5afca9d32
+  issue_195673_torch_compile_accepts_rand_like_on_an_in 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [10.8s]
+    * high   inductor_codegen       -                    3d44087f6f0e
+  issue_195674_torch_compile_evaluates_subtraction_on_a 1 candidate(s), 1 submittable, 1 tests, 3 compiles  [9.2s]
+    * high   inductor_codegen       -                    9499c8c9c436
+  issue_196173_torch_compile_produces_incorrect_results 0 candidate(s), 0 submittable, 0 tests, 0 compiles  [0.0s]
+
+5 candidate(s); summary at reports_gh_rerun\SUMMARY.md
+reports_gh_rerun\CAMPAIGN.md

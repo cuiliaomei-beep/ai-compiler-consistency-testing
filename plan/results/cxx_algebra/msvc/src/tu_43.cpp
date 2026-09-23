@@ -1,0 +1,2404 @@
+#include "common.h"
+static NOINLINE void f0(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_slli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_srli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f2(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_shuffle_epi32(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f3(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_permute4x64_epi64(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f4(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_shuffle_epi32(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f5(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_permute4x64_epi64(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f6(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_shuffle_epi32(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f7(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_permute4x64_epi64(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f8(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_shuffle_epi32(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f9(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_permute4x64_epi64(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f10(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_bslli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f11(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_bsrli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f12(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f13(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi8(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f14(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_abs_epi8(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f15(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_abs_epi16(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f16(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_abs_epi32(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f17(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f18(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f19(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f20(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f21(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f22(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_slli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f23(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_srli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f24(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_srai_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f25(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_slli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f26(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_srli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f27(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_srai_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f28(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_slli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f29(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_srli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f30(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_srai_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f31(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_slli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f32(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_srli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f33(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_srai_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f34(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_slli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f35(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_srli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f36(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_slli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f37(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_srli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f38(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_shuffle_epi32(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f39(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_permute4x64_epi64(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f40(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_shuffle_epi32(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f41(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_permute4x64_epi64(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f42(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_shuffle_epi32(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f43(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_permute4x64_epi64(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f44(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_shuffle_epi32(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f45(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_permute4x64_epi64(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f46(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_bslli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f47(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_bsrli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f48(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f49(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f50(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_abs_epi8(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f51(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_abs_epi16(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f52(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_abs_epi32(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f53(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f54(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f55(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f56(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f57(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f58(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_slli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f59(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_srli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f60(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_srai_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f61(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_slli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f62(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_srli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f63(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_srai_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f64(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_slli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f65(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_srli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f66(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_srai_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f67(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_slli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f68(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_srli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f69(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_srai_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f70(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_slli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f71(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_srli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f72(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_slli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f73(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_srli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f74(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_shuffle_epi32(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f75(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_permute4x64_epi64(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f76(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_shuffle_epi32(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f77(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_permute4x64_epi64(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f78(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_shuffle_epi32(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f79(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_permute4x64_epi64(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f80(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_shuffle_epi32(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f81(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_permute4x64_epi64(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f82(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_bslli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f83(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_bsrli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f84(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f85(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_abs_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f86(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_abs_epi8(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f87(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_abs_epi16(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f88(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_abs_epi32(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f89(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_sub_epi8(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f90(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_sub_epi16(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f91(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_sub_epi32(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f92(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_sub_epi64(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f93(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f94(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f95(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f96(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srai_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f97(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f98(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f99(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srai_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f100(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f101(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f102(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srai_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f103(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f104(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f105(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srai_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f106(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f107(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f108(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f109(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f110(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f111(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f112(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f113(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f114(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f115(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f116(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f117(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f118(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_bslli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f119(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_bsrli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f120(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_cvttps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f121(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi8(_mm256_setzero_si256(), _mm256_cvtps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f122(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_abs_epi8(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f123(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_abs_epi16(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f124(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_abs_epi32(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f125(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_sub_epi8(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f126(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_sub_epi16(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f127(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_sub_epi32(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f128(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_sub_epi64(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f129(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f130(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f131(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f132(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srai_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f133(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f134(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f135(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srai_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f136(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f137(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f138(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srai_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f139(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f140(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f141(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srai_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f142(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f143(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f144(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f145(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f146(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f147(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f148(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f149(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f150(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f151(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f152(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f153(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f154(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_bslli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f155(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_bsrli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f156(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_cvttps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f157(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi16(_mm256_setzero_si256(), _mm256_cvtps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f158(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_abs_epi8(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f159(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_abs_epi16(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f160(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_abs_epi32(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f161(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_sub_epi8(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f162(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_sub_epi16(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f163(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_sub_epi32(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f164(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_sub_epi64(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f165(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f166(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f167(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f168(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srai_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f169(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f170(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f171(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srai_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f172(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f173(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f174(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srai_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f175(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f176(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f177(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srai_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f178(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f179(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f180(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f181(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f182(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f183(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f184(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f185(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f186(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f187(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f188(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f189(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f190(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_bslli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f191(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_bsrli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f192(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_cvttps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f193(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi32(_mm256_setzero_si256(), _mm256_cvtps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f194(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_abs_epi8(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f195(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_abs_epi16(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f196(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_abs_epi32(x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f197(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_sub_epi8(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f198(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_sub_epi16(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f199(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_sub_epi32(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f200(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_sub_epi64(_mm256_setzero_si256(), x)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f201(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f202(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f203(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f204(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srai_epi16(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f205(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f206(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f207(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srai_epi16(x, 15)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f208(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f209(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f210(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srai_epi32(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f211(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f212(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f213(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srai_epi32(x, 31)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f214(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f215(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi64(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f216(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f217(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi64(x, 63)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f218(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f219(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x1b)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f220(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f221(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x39)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f222(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f223(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x93)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f224(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f225(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x4e)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f226(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_bslli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f227(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_bsrli_epi128(x, 1)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f228(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_cvttps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f229(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_sub_epi64(_mm256_setzero_si256(), _mm256_cvtps_epi32(_mm256_cvtepi32_ps(x))); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f230(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_abs_epi8(x), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f231(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_abs_epi16(x), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f232(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_abs_epi32(x), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f233(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_sub_epi8(_mm256_setzero_si256(), x), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f234(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_sub_epi16(_mm256_setzero_si256(), x), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f235(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_sub_epi32(_mm256_setzero_si256(), x), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f236(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_sub_epi64(_mm256_setzero_si256(), x), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f237(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f238(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_slli_epi16(x, 1), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f239(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_srli_epi16(x, 1), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f240(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_srai_epi16(x, 1), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f241(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_slli_epi16(x, 15), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f242(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_srli_epi16(x, 15), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f243(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_srai_epi16(x, 15), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f244(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_slli_epi32(x, 1), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f245(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_srli_epi32(x, 1), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f246(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_srai_epi32(x, 1), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f247(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_slli_epi32(x, 31), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f248(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_srli_epi32(x, 31), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f249(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_srai_epi32(x, 31), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f250(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_slli_epi64(x, 1), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f251(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_srli_epi64(x, 1), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f252(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_slli_epi64(x, 63), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f253(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_srli_epi64(x, 63), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f254(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_shuffle_epi32(x, 0x1b), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f255(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_permute4x64_epi64(x, 0x1b), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f256(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_shuffle_epi32(x, 0x39), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f257(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_permute4x64_epi64(x, 0x39), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f258(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_shuffle_epi32(x, 0x93), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f259(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_permute4x64_epi64(x, 0x93), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f260(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_shuffle_epi32(x, 0x4e), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f261(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_permute4x64_epi64(x, 0x4e), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f262(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_bslli_epi128(x, 1), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f263(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_bsrli_epi128(x, 1), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f264(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f265(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_xor_si256(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), _mm256_set1_epi8((char)0xffu)); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f266(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_abs_epi8(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f267(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_abs_epi16(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f268(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_abs_epi32(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f269(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f270(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f271(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f272(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f273(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f274(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f275(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f276(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srai_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f277(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f278(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f279(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srai_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f280(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f281(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f282(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srai_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f283(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f284(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f285(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srai_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f286(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f287(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f288(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f289(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f290(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f291(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f292(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f293(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f294(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f295(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f296(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f297(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f298(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_bslli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f299(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_bsrli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f300(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f301(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f302(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_abs_epi8(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f303(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_abs_epi16(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f304(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_abs_epi32(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f305(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f306(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f307(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f308(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f309(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f310(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f311(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f312(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srai_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f313(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f314(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f315(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srai_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f316(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f317(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f318(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srai_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f319(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f320(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f321(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srai_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f322(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f323(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f324(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f325(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f326(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f327(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f328(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f329(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f330(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f331(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f332(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f333(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f334(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_bslli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f335(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_bsrli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f336(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f337(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f338(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_abs_epi8(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f339(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_abs_epi16(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f340(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_abs_epi32(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f341(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f342(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f343(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f344(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f345(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f346(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f347(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f348(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srai_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f349(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f350(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f351(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srai_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f352(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f353(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f354(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srai_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f355(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f356(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f357(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srai_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f358(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f359(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f360(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f361(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f362(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f363(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f364(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f365(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f366(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f367(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f368(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f369(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f370(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_bslli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f371(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_bsrli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f372(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f373(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f374(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_abs_epi8(x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f375(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_abs_epi16(x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f376(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_abs_epi32(x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f377(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f378(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f379(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f380(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f381(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f382(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi16(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f383(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi16(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f384(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srai_epi16(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f385(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi16(x, 15), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f386(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi16(x, 15), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f387(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srai_epi16(x, 15), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f388(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi32(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f389(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi32(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f390(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srai_epi32(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f391(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi32(x, 31), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f392(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi32(x, 31), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f393(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srai_epi32(x, 31), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f394(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi64(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f395(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi64(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f396(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_slli_epi64(x, 63), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f397(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_srli_epi64(x, 63), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f398(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x1b), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f399(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x1b), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f400(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x39), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f401(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x39), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f402(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x93), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f403(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x93), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f404(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x4e), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f405(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x4e), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f406(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_bslli_epi128(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f407(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_bsrli_epi128(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f408(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f409(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f410(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_abs_epi8(x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f411(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_abs_epi16(x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f412(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_abs_epi32(x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f413(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f414(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f415(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f416(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f417(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f418(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi16(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f419(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi16(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f420(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srai_epi16(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f421(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi16(x, 15), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f422(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi16(x, 15), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f423(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srai_epi16(x, 15), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f424(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi32(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f425(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi32(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f426(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srai_epi32(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f427(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi32(x, 31), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f428(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi32(x, 31), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f429(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srai_epi32(x, 31), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f430(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi64(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f431(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi64(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f432(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_slli_epi64(x, 63), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f433(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_srli_epi64(x, 63), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f434(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x1b), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f435(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x1b), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f436(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x39), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f437(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x39), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f438(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x93), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f439(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x93), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f440(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x4e), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f441(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x4e), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f442(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_bslli_epi128(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f443(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_bsrli_epi128(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f444(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f445(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f446(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_abs_epi8(x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f447(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_abs_epi16(x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f448(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_abs_epi32(x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f449(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f450(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f451(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f452(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f453(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f454(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi16(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f455(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi16(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f456(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srai_epi16(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f457(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi16(x, 15), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f458(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi16(x, 15), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f459(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srai_epi16(x, 15), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f460(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi32(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f461(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi32(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f462(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srai_epi32(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f463(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi32(x, 31), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f464(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi32(x, 31), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f465(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srai_epi32(x, 31), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f466(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi64(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f467(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi64(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f468(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_slli_epi64(x, 63), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f469(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_srli_epi64(x, 63), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f470(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x1b), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f471(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x1b), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f472(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x39), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f473(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x39), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f474(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x93), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f475(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x93), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f476(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x4e), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f477(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x4e), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f478(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_bslli_epi128(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f479(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_bsrli_epi128(x, 1), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f480(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f481(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 15); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f482(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_abs_epi8(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f483(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_abs_epi16(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f484(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_abs_epi32(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f485(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f486(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f487(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f488(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f489(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f490(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f491(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f492(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srai_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f493(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f494(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f495(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srai_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f496(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f497(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f498(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srai_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f499(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f500(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f501(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srai_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f502(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f503(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f504(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f505(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f506(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f507(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f508(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f509(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f510(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f511(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f512(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f513(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f514(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_bslli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f515(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_bsrli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f516(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f517(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f518(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_abs_epi8(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f519(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_abs_epi16(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f520(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_abs_epi32(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f521(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f522(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f523(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f524(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f525(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f526(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f527(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f528(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srai_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f529(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f530(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f531(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srai_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f532(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f533(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f534(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srai_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f535(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f536(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f537(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srai_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f538(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f539(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f540(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f541(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f542(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f543(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f544(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f545(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f546(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f547(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f548(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f549(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f550(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_bslli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f551(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_bsrli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f552(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f553(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f554(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_abs_epi8(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f555(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_abs_epi16(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f556(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_abs_epi32(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f557(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f558(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f559(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f560(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f561(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f562(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f563(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f564(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srai_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f565(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f566(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f567(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srai_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f568(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f569(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f570(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srai_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f571(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f572(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f573(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srai_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f574(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f575(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f576(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f577(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f578(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f579(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f580(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f581(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f582(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f583(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f584(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f585(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f586(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_bslli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f587(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_bsrli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f588(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f589(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f590(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_abs_epi8(x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f591(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_abs_epi16(x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f592(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_abs_epi32(x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f593(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f594(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f595(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f596(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f597(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f598(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi16(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f599(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi16(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f600(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srai_epi16(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f601(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi16(x, 15), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f602(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi16(x, 15), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f603(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srai_epi16(x, 15), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f604(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi32(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f605(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi32(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f606(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srai_epi32(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f607(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi32(x, 31), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f608(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi32(x, 31), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f609(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srai_epi32(x, 31), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f610(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi64(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f611(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi64(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f612(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_slli_epi64(x, 63), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f613(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_srli_epi64(x, 63), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f614(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x1b), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f615(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x1b), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f616(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x39), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f617(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x39), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f618(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x93), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f619(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x93), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f620(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x4e), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f621(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x4e), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f622(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_bslli_epi128(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f623(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_bsrli_epi128(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f624(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f625(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f626(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_abs_epi8(x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f627(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_abs_epi16(x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f628(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_abs_epi32(x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f629(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f630(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f631(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f632(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f633(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f634(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi16(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f635(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi16(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f636(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srai_epi16(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f637(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi16(x, 15), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f638(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi16(x, 15), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f639(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srai_epi16(x, 15), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f640(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi32(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f641(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi32(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f642(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srai_epi32(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f643(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi32(x, 31), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f644(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi32(x, 31), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f645(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srai_epi32(x, 31), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f646(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi64(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f647(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi64(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f648(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_slli_epi64(x, 63), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f649(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_srli_epi64(x, 63), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f650(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x1b), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f651(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x1b), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f652(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x39), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f653(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x39), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f654(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x93), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f655(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x93), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f656(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x4e), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f657(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x4e), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f658(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_bslli_epi128(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f659(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_bsrli_epi128(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f660(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f661(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f662(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_abs_epi8(x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f663(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_abs_epi16(x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f664(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_abs_epi32(x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f665(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f666(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f667(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f668(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f669(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f670(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi16(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f671(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi16(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f672(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srai_epi16(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f673(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi16(x, 15), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f674(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi16(x, 15), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f675(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srai_epi16(x, 15), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f676(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi32(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f677(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi32(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f678(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srai_epi32(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f679(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi32(x, 31), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f680(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi32(x, 31), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f681(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srai_epi32(x, 31), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f682(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi64(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f683(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi64(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f684(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_slli_epi64(x, 63), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f685(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_srli_epi64(x, 63), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f686(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x1b), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f687(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x1b), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f688(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x39), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f689(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x39), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f690(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x93), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f691(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x93), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f692(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x4e), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f693(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x4e), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f694(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_bslli_epi128(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f695(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_bsrli_epi128(x, 1), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f696(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f697(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srai_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 31); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f698(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_abs_epi8(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f699(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_abs_epi16(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f700(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_abs_epi32(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f701(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f702(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f703(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f704(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f705(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f706(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f707(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f708(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srai_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f709(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f710(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f711(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srai_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f712(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f713(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f714(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srai_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f715(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f716(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f717(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srai_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f718(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f719(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f720(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f721(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f722(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f723(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f724(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f725(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f726(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f727(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f728(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f729(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f730(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_bslli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f731(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_bsrli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f732(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f733(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f734(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_abs_epi8(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f735(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_abs_epi16(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f736(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_abs_epi32(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f737(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f738(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f739(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f740(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f741(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f742(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f743(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f744(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srai_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f745(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f746(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f747(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srai_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f748(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f749(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f750(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srai_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f751(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f752(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f753(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srai_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f754(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f755(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f756(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f757(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f758(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f759(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f760(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f761(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f762(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f763(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f764(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f765(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f766(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_bslli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f767(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_bsrli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f768(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f769(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f770(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_abs_epi8(x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f771(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_abs_epi16(x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f772(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_abs_epi32(x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f773(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f774(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f775(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f776(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f777(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f778(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi16(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f779(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi16(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f780(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srai_epi16(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f781(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi16(x, 15), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f782(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi16(x, 15), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f783(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srai_epi16(x, 15), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f784(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi32(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f785(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi32(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f786(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srai_epi32(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f787(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi32(x, 31), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f788(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi32(x, 31), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f789(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srai_epi32(x, 31), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f790(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi64(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f791(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi64(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f792(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_slli_epi64(x, 63), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f793(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_srli_epi64(x, 63), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f794(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x1b), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f795(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x1b), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f796(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x39), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f797(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x39), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f798(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x93), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f799(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x93), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f800(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x4e), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f801(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x4e), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f802(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_bslli_epi128(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f803(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_bsrli_epi128(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f804(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f805(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_slli_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f806(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_abs_epi8(x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f807(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_abs_epi16(x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f808(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_abs_epi32(x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f809(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f810(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f811(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f812(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f813(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f814(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi16(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f815(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi16(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f816(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srai_epi16(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f817(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi16(x, 15), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f818(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi16(x, 15), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f819(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srai_epi16(x, 15), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f820(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi32(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f821(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi32(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f822(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srai_epi32(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f823(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi32(x, 31), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f824(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi32(x, 31), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f825(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srai_epi32(x, 31), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f826(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi64(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f827(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi64(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f828(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_slli_epi64(x, 63), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f829(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_srli_epi64(x, 63), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f830(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x1b), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f831(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x1b), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f832(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x39), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f833(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x39), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f834(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x93), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f835(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x93), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f836(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x4e), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f837(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x4e), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f838(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_bslli_epi128(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f839(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_bsrli_epi128(x, 1), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f840(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f841(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_srli_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 63); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f842(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi8(x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f843(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi16(x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f844(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi32(x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f845(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f846(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f847(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f848(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f849(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f850(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi16(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f851(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi16(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f852(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi16(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f853(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi16(x, 15), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f854(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi16(x, 15), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f855(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi16(x, 15), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f856(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi32(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f857(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi32(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f858(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi32(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f859(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi32(x, 31), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f860(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi32(x, 31), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f861(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi32(x, 31), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f862(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi64(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f863(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi64(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f864(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi64(x, 63), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f865(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi64(x, 63), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f866(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x1b), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f867(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x1b), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f868(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x39), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f869(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x39), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f870(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x93), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f871(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x93), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f872(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x4e), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f873(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x4e), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f874(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_bslli_epi128(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f875(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_bsrli_epi128(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f876(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f877(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f878(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi8(x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f879(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi16(x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f880(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi32(x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f881(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f882(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f883(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f884(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f885(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f886(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi16(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f887(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi16(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f888(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi16(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f889(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi16(x, 15), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f890(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi16(x, 15), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f891(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi16(x, 15), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f892(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi32(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f893(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi32(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f894(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi32(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f895(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi32(x, 31), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f896(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi32(x, 31), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f897(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi32(x, 31), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f898(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi64(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f899(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi64(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f900(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi64(x, 63), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f901(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi64(x, 63), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f902(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x1b), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f903(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x1b), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f904(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x39), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f905(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x39), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f906(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x93), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f907(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x93), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f908(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x4e), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f909(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x4e), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f910(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_bslli_epi128(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f911(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_bsrli_epi128(x, 1), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f912(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f913(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x1b); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f914(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi8(x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f915(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi16(x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f916(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi32(x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f917(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f918(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f919(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f920(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f921(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f922(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi16(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f923(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi16(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f924(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi16(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f925(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi16(x, 15), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f926(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi16(x, 15), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f927(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi16(x, 15), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f928(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi32(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f929(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi32(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f930(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi32(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f931(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi32(x, 31), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f932(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi32(x, 31), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f933(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi32(x, 31), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f934(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi64(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f935(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi64(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f936(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi64(x, 63), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f937(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi64(x, 63), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f938(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x1b), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f939(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x1b), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f940(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x39), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f941(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x39), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f942(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x93), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f943(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x93), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f944(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x4e), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f945(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x4e), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f946(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_bslli_epi128(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f947(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_bsrli_epi128(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f948(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f949(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f950(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi8(x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f951(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi16(x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f952(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi32(x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f953(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f954(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f955(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f956(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f957(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f958(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi16(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f959(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi16(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f960(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi16(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f961(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi16(x, 15), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f962(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi16(x, 15), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f963(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi16(x, 15), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f964(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi32(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f965(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi32(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f966(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi32(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f967(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi32(x, 31), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f968(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi32(x, 31), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f969(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi32(x, 31), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f970(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi64(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f971(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi64(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f972(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi64(x, 63), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f973(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi64(x, 63), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f974(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x1b), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f975(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x1b), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f976(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x39), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f977(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x39), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f978(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x93), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f979(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x93), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f980(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x4e), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f981(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x4e), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f982(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_bslli_epi128(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f983(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_bsrli_epi128(x, 1), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f984(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f985(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x39); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f986(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi8(x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f987(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi16(x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f988(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi32(x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f989(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f990(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f991(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f992(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f993(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f994(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi16(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f995(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi16(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f996(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi16(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f997(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi16(x, 15), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f998(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi16(x, 15), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f999(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi16(x, 15), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1000(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi32(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1001(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi32(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1002(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi32(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1003(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi32(x, 31), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1004(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi32(x, 31), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1005(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi32(x, 31), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1006(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi64(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1007(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi64(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1008(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi64(x, 63), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1009(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi64(x, 63), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1010(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x1b), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1011(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x1b), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1012(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x39), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1013(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x39), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1014(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x93), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1015(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x93), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1016(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x4e), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1017(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x4e), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1018(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_bslli_epi128(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1019(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_bsrli_epi128(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1020(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1021(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1022(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi8(x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1023(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi16(x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1024(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi32(x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1025(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1026(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1027(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1028(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1029(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1030(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi16(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1031(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi16(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1032(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi16(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1033(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi16(x, 15), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1034(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi16(x, 15), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1035(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi16(x, 15), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1036(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi32(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1037(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi32(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1038(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi32(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1039(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi32(x, 31), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1040(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi32(x, 31), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1041(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi32(x, 31), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1042(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi64(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1043(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi64(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1044(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi64(x, 63), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1045(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi64(x, 63), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1046(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x1b), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1047(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x1b), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1048(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x39), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1049(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x39), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1050(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x93), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1051(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x93), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1052(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x4e), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1053(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x4e), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1054(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_bslli_epi128(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1055(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_bsrli_epi128(x, 1), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1056(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1057(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x93); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1058(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi8(x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1059(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi16(x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1060(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_abs_epi32(x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1061(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1062(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1063(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1064(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1065(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1066(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi16(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1067(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi16(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1068(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi16(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1069(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi16(x, 15), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1070(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi16(x, 15), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1071(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi16(x, 15), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1072(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi32(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1073(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi32(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1074(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi32(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1075(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi32(x, 31), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1076(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi32(x, 31), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1077(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srai_epi32(x, 31), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1078(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi64(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1079(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi64(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1080(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_slli_epi64(x, 63), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1081(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_srli_epi64(x, 63), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1082(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x1b), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1083(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x1b), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1084(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x39), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1085(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x39), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1086(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x93), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1087(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x93), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1088(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x4e), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1089(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x4e), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1090(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_bslli_epi128(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1091(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_bsrli_epi128(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1092(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1093(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_shuffle_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1094(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi8(x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1095(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi16(x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1096(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_abs_epi32(x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1097(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1098(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1099(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1100(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1101(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1102(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi16(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1103(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi16(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1104(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi16(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1105(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi16(x, 15), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1106(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi16(x, 15), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1107(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi16(x, 15), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1108(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi32(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1109(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi32(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1110(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi32(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1111(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi32(x, 31), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1112(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi32(x, 31), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1113(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srai_epi32(x, 31), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1114(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi64(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1115(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi64(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1116(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_slli_epi64(x, 63), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1117(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_srli_epi64(x, 63), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1118(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x1b), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1119(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x1b), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1120(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x39), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1121(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x39), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1122(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x93), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1123(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x93), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1124(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x4e), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1125(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x4e), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1126(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_bslli_epi128(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1127(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_bsrli_epi128(x, 1), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1128(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1129(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_permute4x64_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x4e); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1130(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_abs_epi8(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1131(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_abs_epi16(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1132(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_abs_epi32(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1133(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1134(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1135(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1136(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1137(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1138(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_slli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1139(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_srli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1140(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_srai_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1141(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_slli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1142(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_srli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1143(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_srai_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1144(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_slli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1145(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_srli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1146(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_srai_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1147(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_slli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1148(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_srli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1149(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_srai_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1150(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_slli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1151(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_srli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1152(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_slli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1153(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_srli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1154(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_shuffle_epi32(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1155(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_permute4x64_epi64(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1156(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_shuffle_epi32(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1157(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_permute4x64_epi64(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1158(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_shuffle_epi32(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1159(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_permute4x64_epi64(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1160(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_shuffle_epi32(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1161(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_permute4x64_epi64(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1162(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_bslli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1163(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_bsrli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1164(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1165(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bslli_epi128(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1166(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_abs_epi8(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1167(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_abs_epi16(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1168(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_abs_epi32(x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1169(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1170(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1171(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1172(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1173(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1174(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_slli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1175(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_srli_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1176(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_srai_epi16(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1177(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_slli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1178(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_srli_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1179(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_srai_epi16(x, 15), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1180(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_slli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1181(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_srli_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1182(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_srai_epi32(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1183(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_slli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1184(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_srli_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1185(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_srai_epi32(x, 31), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1186(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_slli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1187(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_srli_epi64(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1188(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_slli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1189(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_srli_epi64(x, 63), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1190(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_shuffle_epi32(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1191(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_permute4x64_epi64(x, 0x1b), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1192(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_shuffle_epi32(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1193(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_permute4x64_epi64(x, 0x39), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1194(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_shuffle_epi32(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1195(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_permute4x64_epi64(x, 0x93), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1196(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_shuffle_epi32(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1197(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_permute4x64_epi64(x, 0x4e), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1198(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_bslli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+static NOINLINE void f1199(const void* px, const void* py, void* po) { const __m256i x = _mm256_loadu_si256((const __m256i*)px); const __m256i y = _mm256_loadu_si256((const __m256i*)py); (void)y; const __m256i r = _mm256_bsrli_epi128(_mm256_bsrli_epi128(x, 1), 1); _mm256_storeu_si256((__m256i*)po, r); }
+extern const Entry table_43[] = {
+  {"256:_mm256_abs_epi8(_mm256_slli_epi64(x, 63))", f0, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_srli_epi64(x, 63))", f1, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_shuffle_epi32(x, 0x1b))", f2, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_permute4x64_epi64(x, 0x1b))", f3, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_shuffle_epi32(x, 0x39))", f4, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_permute4x64_epi64(x, 0x39))", f5, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_shuffle_epi32(x, 0x93))", f6, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_permute4x64_epi64(x, 0x93))", f7, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_shuffle_epi32(x, 0x4e))", f8, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_permute4x64_epi64(x, 0x4e))", f9, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_bslli_epi128(x, 1))", f10, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_bsrli_epi128(x, 1))", f11, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)))", f12, 0, 256},
+  {"256:_mm256_abs_epi8(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)))", f13, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_abs_epi8(x))", f14, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_abs_epi16(x))", f15, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_abs_epi32(x))", f16, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x))", f17, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x))", f18, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x))", f19, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x))", f20, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)))", f21, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_slli_epi16(x, 1))", f22, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_srli_epi16(x, 1))", f23, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_srai_epi16(x, 1))", f24, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_slli_epi16(x, 15))", f25, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_srli_epi16(x, 15))", f26, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_srai_epi16(x, 15))", f27, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_slli_epi32(x, 1))", f28, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_srli_epi32(x, 1))", f29, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_srai_epi32(x, 1))", f30, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_slli_epi32(x, 31))", f31, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_srli_epi32(x, 31))", f32, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_srai_epi32(x, 31))", f33, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_slli_epi64(x, 1))", f34, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_srli_epi64(x, 1))", f35, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_slli_epi64(x, 63))", f36, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_srli_epi64(x, 63))", f37, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_shuffle_epi32(x, 0x1b))", f38, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_permute4x64_epi64(x, 0x1b))", f39, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_shuffle_epi32(x, 0x39))", f40, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_permute4x64_epi64(x, 0x39))", f41, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_shuffle_epi32(x, 0x93))", f42, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_permute4x64_epi64(x, 0x93))", f43, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_shuffle_epi32(x, 0x4e))", f44, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_permute4x64_epi64(x, 0x4e))", f45, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_bslli_epi128(x, 1))", f46, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_bsrli_epi128(x, 1))", f47, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)))", f48, 0, 256},
+  {"256:_mm256_abs_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)))", f49, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_abs_epi8(x))", f50, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_abs_epi16(x))", f51, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_abs_epi32(x))", f52, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x))", f53, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x))", f54, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x))", f55, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x))", f56, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)))", f57, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_slli_epi16(x, 1))", f58, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_srli_epi16(x, 1))", f59, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_srai_epi16(x, 1))", f60, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_slli_epi16(x, 15))", f61, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_srli_epi16(x, 15))", f62, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_srai_epi16(x, 15))", f63, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_slli_epi32(x, 1))", f64, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_srli_epi32(x, 1))", f65, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_srai_epi32(x, 1))", f66, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_slli_epi32(x, 31))", f67, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_srli_epi32(x, 31))", f68, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_srai_epi32(x, 31))", f69, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_slli_epi64(x, 1))", f70, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_srli_epi64(x, 1))", f71, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_slli_epi64(x, 63))", f72, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_srli_epi64(x, 63))", f73, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_shuffle_epi32(x, 0x1b))", f74, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_permute4x64_epi64(x, 0x1b))", f75, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_shuffle_epi32(x, 0x39))", f76, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_permute4x64_epi64(x, 0x39))", f77, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_shuffle_epi32(x, 0x93))", f78, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_permute4x64_epi64(x, 0x93))", f79, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_shuffle_epi32(x, 0x4e))", f80, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_permute4x64_epi64(x, 0x4e))", f81, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_bslli_epi128(x, 1))", f82, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_bsrli_epi128(x, 1))", f83, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)))", f84, 0, 256},
+  {"256:_mm256_abs_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)))", f85, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_abs_epi8(x))", f86, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_abs_epi16(x))", f87, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_abs_epi32(x))", f88, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_sub_epi8(_mm256_setzero_si256(), x))", f89, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_sub_epi16(_mm256_setzero_si256(), x))", f90, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_sub_epi32(_mm256_setzero_si256(), x))", f91, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_sub_epi64(_mm256_setzero_si256(), x))", f92, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)))", f93, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi16(x, 1))", f94, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi16(x, 1))", f95, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srai_epi16(x, 1))", f96, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi16(x, 15))", f97, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi16(x, 15))", f98, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srai_epi16(x, 15))", f99, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi32(x, 1))", f100, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi32(x, 1))", f101, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srai_epi32(x, 1))", f102, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi32(x, 31))", f103, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi32(x, 31))", f104, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srai_epi32(x, 31))", f105, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi64(x, 1))", f106, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi64(x, 1))", f107, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_slli_epi64(x, 63))", f108, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_srli_epi64(x, 63))", f109, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x1b))", f110, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x1b))", f111, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x39))", f112, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x39))", f113, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x93))", f114, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x93))", f115, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x4e))", f116, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x4e))", f117, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_bslli_epi128(x, 1))", f118, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_bsrli_epi128(x, 1))", f119, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)))", f120, 0, 256},
+  {"256:_mm256_sub_epi8(_mm256_setzero_si256(), _mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)))", f121, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_abs_epi8(x))", f122, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_abs_epi16(x))", f123, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_abs_epi32(x))", f124, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_sub_epi8(_mm256_setzero_si256(), x))", f125, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_sub_epi16(_mm256_setzero_si256(), x))", f126, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_sub_epi32(_mm256_setzero_si256(), x))", f127, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_sub_epi64(_mm256_setzero_si256(), x))", f128, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)))", f129, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi16(x, 1))", f130, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi16(x, 1))", f131, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srai_epi16(x, 1))", f132, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi16(x, 15))", f133, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi16(x, 15))", f134, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srai_epi16(x, 15))", f135, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi32(x, 1))", f136, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi32(x, 1))", f137, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srai_epi32(x, 1))", f138, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi32(x, 31))", f139, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi32(x, 31))", f140, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srai_epi32(x, 31))", f141, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi64(x, 1))", f142, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi64(x, 1))", f143, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_slli_epi64(x, 63))", f144, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_srli_epi64(x, 63))", f145, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x1b))", f146, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x1b))", f147, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x39))", f148, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x39))", f149, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x93))", f150, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x93))", f151, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x4e))", f152, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x4e))", f153, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_bslli_epi128(x, 1))", f154, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_bsrli_epi128(x, 1))", f155, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)))", f156, 0, 256},
+  {"256:_mm256_sub_epi16(_mm256_setzero_si256(), _mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)))", f157, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_abs_epi8(x))", f158, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_abs_epi16(x))", f159, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_abs_epi32(x))", f160, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_sub_epi8(_mm256_setzero_si256(), x))", f161, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_sub_epi16(_mm256_setzero_si256(), x))", f162, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_sub_epi32(_mm256_setzero_si256(), x))", f163, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_sub_epi64(_mm256_setzero_si256(), x))", f164, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)))", f165, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi16(x, 1))", f166, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi16(x, 1))", f167, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srai_epi16(x, 1))", f168, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi16(x, 15))", f169, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi16(x, 15))", f170, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srai_epi16(x, 15))", f171, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi32(x, 1))", f172, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi32(x, 1))", f173, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srai_epi32(x, 1))", f174, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi32(x, 31))", f175, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi32(x, 31))", f176, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srai_epi32(x, 31))", f177, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi64(x, 1))", f178, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi64(x, 1))", f179, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_slli_epi64(x, 63))", f180, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_srli_epi64(x, 63))", f181, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x1b))", f182, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x1b))", f183, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x39))", f184, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x39))", f185, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x93))", f186, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x93))", f187, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x4e))", f188, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x4e))", f189, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_bslli_epi128(x, 1))", f190, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_bsrli_epi128(x, 1))", f191, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)))", f192, 0, 256},
+  {"256:_mm256_sub_epi32(_mm256_setzero_si256(), _mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)))", f193, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_abs_epi8(x))", f194, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_abs_epi16(x))", f195, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_abs_epi32(x))", f196, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_sub_epi8(_mm256_setzero_si256(), x))", f197, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_sub_epi16(_mm256_setzero_si256(), x))", f198, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_sub_epi32(_mm256_setzero_si256(), x))", f199, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_sub_epi64(_mm256_setzero_si256(), x))", f200, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)))", f201, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi16(x, 1))", f202, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi16(x, 1))", f203, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srai_epi16(x, 1))", f204, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi16(x, 15))", f205, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi16(x, 15))", f206, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srai_epi16(x, 15))", f207, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi32(x, 1))", f208, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi32(x, 1))", f209, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srai_epi32(x, 1))", f210, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi32(x, 31))", f211, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi32(x, 31))", f212, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srai_epi32(x, 31))", f213, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi64(x, 1))", f214, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi64(x, 1))", f215, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_slli_epi64(x, 63))", f216, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_srli_epi64(x, 63))", f217, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x1b))", f218, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x1b))", f219, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x39))", f220, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x39))", f221, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x93))", f222, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x93))", f223, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_shuffle_epi32(x, 0x4e))", f224, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_permute4x64_epi64(x, 0x4e))", f225, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_bslli_epi128(x, 1))", f226, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_bsrli_epi128(x, 1))", f227, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)))", f228, 0, 256},
+  {"256:_mm256_sub_epi64(_mm256_setzero_si256(), _mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)))", f229, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_abs_epi8(x), _mm256_set1_epi8((char)0xffu))", f230, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_abs_epi16(x), _mm256_set1_epi8((char)0xffu))", f231, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_abs_epi32(x), _mm256_set1_epi8((char)0xffu))", f232, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_sub_epi8(_mm256_setzero_si256(), x), _mm256_set1_epi8((char)0xffu))", f233, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_sub_epi16(_mm256_setzero_si256(), x), _mm256_set1_epi8((char)0xffu))", f234, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_sub_epi32(_mm256_setzero_si256(), x), _mm256_set1_epi8((char)0xffu))", f235, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_sub_epi64(_mm256_setzero_si256(), x), _mm256_set1_epi8((char)0xffu))", f236, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), _mm256_set1_epi8((char)0xffu))", f237, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_slli_epi16(x, 1), _mm256_set1_epi8((char)0xffu))", f238, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_srli_epi16(x, 1), _mm256_set1_epi8((char)0xffu))", f239, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_srai_epi16(x, 1), _mm256_set1_epi8((char)0xffu))", f240, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_slli_epi16(x, 15), _mm256_set1_epi8((char)0xffu))", f241, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_srli_epi16(x, 15), _mm256_set1_epi8((char)0xffu))", f242, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_srai_epi16(x, 15), _mm256_set1_epi8((char)0xffu))", f243, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_slli_epi32(x, 1), _mm256_set1_epi8((char)0xffu))", f244, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_srli_epi32(x, 1), _mm256_set1_epi8((char)0xffu))", f245, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_srai_epi32(x, 1), _mm256_set1_epi8((char)0xffu))", f246, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_slli_epi32(x, 31), _mm256_set1_epi8((char)0xffu))", f247, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_srli_epi32(x, 31), _mm256_set1_epi8((char)0xffu))", f248, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_srai_epi32(x, 31), _mm256_set1_epi8((char)0xffu))", f249, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_slli_epi64(x, 1), _mm256_set1_epi8((char)0xffu))", f250, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_srli_epi64(x, 1), _mm256_set1_epi8((char)0xffu))", f251, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_slli_epi64(x, 63), _mm256_set1_epi8((char)0xffu))", f252, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_srli_epi64(x, 63), _mm256_set1_epi8((char)0xffu))", f253, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_shuffle_epi32(x, 0x1b), _mm256_set1_epi8((char)0xffu))", f254, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_permute4x64_epi64(x, 0x1b), _mm256_set1_epi8((char)0xffu))", f255, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_shuffle_epi32(x, 0x39), _mm256_set1_epi8((char)0xffu))", f256, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_permute4x64_epi64(x, 0x39), _mm256_set1_epi8((char)0xffu))", f257, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_shuffle_epi32(x, 0x93), _mm256_set1_epi8((char)0xffu))", f258, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_permute4x64_epi64(x, 0x93), _mm256_set1_epi8((char)0xffu))", f259, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_shuffle_epi32(x, 0x4e), _mm256_set1_epi8((char)0xffu))", f260, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_permute4x64_epi64(x, 0x4e), _mm256_set1_epi8((char)0xffu))", f261, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_bslli_epi128(x, 1), _mm256_set1_epi8((char)0xffu))", f262, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_bsrli_epi128(x, 1), _mm256_set1_epi8((char)0xffu))", f263, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), _mm256_set1_epi8((char)0xffu))", f264, 0, 256},
+  {"256:_mm256_xor_si256(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), _mm256_set1_epi8((char)0xffu))", f265, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_abs_epi8(x), 1)", f266, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_abs_epi16(x), 1)", f267, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_abs_epi32(x), 1)", f268, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1)", f269, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1)", f270, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1)", f271, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1)", f272, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1)", f273, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi16(x, 1), 1)", f274, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi16(x, 1), 1)", f275, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srai_epi16(x, 1), 1)", f276, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi16(x, 15), 1)", f277, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi16(x, 15), 1)", f278, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srai_epi16(x, 15), 1)", f279, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi32(x, 1), 1)", f280, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi32(x, 1), 1)", f281, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srai_epi32(x, 1), 1)", f282, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi32(x, 31), 1)", f283, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi32(x, 31), 1)", f284, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srai_epi32(x, 31), 1)", f285, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi64(x, 1), 1)", f286, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi64(x, 1), 1)", f287, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi64(x, 63), 1)", f288, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi64(x, 63), 1)", f289, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x1b), 1)", f290, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x1b), 1)", f291, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x39), 1)", f292, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x39), 1)", f293, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x93), 1)", f294, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x93), 1)", f295, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x4e), 1)", f296, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x4e), 1)", f297, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_bslli_epi128(x, 1), 1)", f298, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_bsrli_epi128(x, 1), 1)", f299, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1)", f300, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1)", f301, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_abs_epi8(x), 1)", f302, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_abs_epi16(x), 1)", f303, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_abs_epi32(x), 1)", f304, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1)", f305, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1)", f306, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1)", f307, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1)", f308, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1)", f309, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi16(x, 1), 1)", f310, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi16(x, 1), 1)", f311, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srai_epi16(x, 1), 1)", f312, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi16(x, 15), 1)", f313, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi16(x, 15), 1)", f314, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srai_epi16(x, 15), 1)", f315, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi32(x, 1), 1)", f316, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi32(x, 1), 1)", f317, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srai_epi32(x, 1), 1)", f318, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi32(x, 31), 1)", f319, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi32(x, 31), 1)", f320, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srai_epi32(x, 31), 1)", f321, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi64(x, 1), 1)", f322, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi64(x, 1), 1)", f323, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi64(x, 63), 1)", f324, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi64(x, 63), 1)", f325, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x1b), 1)", f326, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x1b), 1)", f327, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x39), 1)", f328, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x39), 1)", f329, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x93), 1)", f330, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x93), 1)", f331, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x4e), 1)", f332, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x4e), 1)", f333, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_bslli_epi128(x, 1), 1)", f334, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_bsrli_epi128(x, 1), 1)", f335, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1)", f336, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1)", f337, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_abs_epi8(x), 1)", f338, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_abs_epi16(x), 1)", f339, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_abs_epi32(x), 1)", f340, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1)", f341, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1)", f342, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1)", f343, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1)", f344, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1)", f345, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi16(x, 1), 1)", f346, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi16(x, 1), 1)", f347, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srai_epi16(x, 1), 1)", f348, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi16(x, 15), 1)", f349, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi16(x, 15), 1)", f350, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srai_epi16(x, 15), 1)", f351, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi32(x, 1), 1)", f352, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi32(x, 1), 1)", f353, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srai_epi32(x, 1), 1)", f354, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi32(x, 31), 1)", f355, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi32(x, 31), 1)", f356, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srai_epi32(x, 31), 1)", f357, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi64(x, 1), 1)", f358, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi64(x, 1), 1)", f359, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi64(x, 63), 1)", f360, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi64(x, 63), 1)", f361, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x1b), 1)", f362, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x1b), 1)", f363, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x39), 1)", f364, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x39), 1)", f365, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x93), 1)", f366, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x93), 1)", f367, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x4e), 1)", f368, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x4e), 1)", f369, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_bslli_epi128(x, 1), 1)", f370, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_bsrli_epi128(x, 1), 1)", f371, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1)", f372, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1)", f373, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_abs_epi8(x), 15)", f374, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_abs_epi16(x), 15)", f375, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_abs_epi32(x), 15)", f376, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 15)", f377, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 15)", f378, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 15)", f379, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 15)", f380, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 15)", f381, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi16(x, 1), 15)", f382, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi16(x, 1), 15)", f383, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srai_epi16(x, 1), 15)", f384, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi16(x, 15), 15)", f385, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi16(x, 15), 15)", f386, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srai_epi16(x, 15), 15)", f387, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi32(x, 1), 15)", f388, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi32(x, 1), 15)", f389, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srai_epi32(x, 1), 15)", f390, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi32(x, 31), 15)", f391, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi32(x, 31), 15)", f392, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srai_epi32(x, 31), 15)", f393, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi64(x, 1), 15)", f394, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi64(x, 1), 15)", f395, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_slli_epi64(x, 63), 15)", f396, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_srli_epi64(x, 63), 15)", f397, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x1b), 15)", f398, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x1b), 15)", f399, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x39), 15)", f400, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x39), 15)", f401, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x93), 15)", f402, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x93), 15)", f403, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_shuffle_epi32(x, 0x4e), 15)", f404, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_permute4x64_epi64(x, 0x4e), 15)", f405, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_bslli_epi128(x, 1), 15)", f406, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_bsrli_epi128(x, 1), 15)", f407, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 15)", f408, 0, 256},
+  {"256:_mm256_slli_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 15)", f409, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_abs_epi8(x), 15)", f410, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_abs_epi16(x), 15)", f411, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_abs_epi32(x), 15)", f412, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 15)", f413, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 15)", f414, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 15)", f415, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 15)", f416, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 15)", f417, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi16(x, 1), 15)", f418, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi16(x, 1), 15)", f419, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srai_epi16(x, 1), 15)", f420, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi16(x, 15), 15)", f421, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi16(x, 15), 15)", f422, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srai_epi16(x, 15), 15)", f423, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi32(x, 1), 15)", f424, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi32(x, 1), 15)", f425, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srai_epi32(x, 1), 15)", f426, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi32(x, 31), 15)", f427, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi32(x, 31), 15)", f428, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srai_epi32(x, 31), 15)", f429, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi64(x, 1), 15)", f430, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi64(x, 1), 15)", f431, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_slli_epi64(x, 63), 15)", f432, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_srli_epi64(x, 63), 15)", f433, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x1b), 15)", f434, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x1b), 15)", f435, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x39), 15)", f436, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x39), 15)", f437, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x93), 15)", f438, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x93), 15)", f439, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_shuffle_epi32(x, 0x4e), 15)", f440, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_permute4x64_epi64(x, 0x4e), 15)", f441, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_bslli_epi128(x, 1), 15)", f442, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_bsrli_epi128(x, 1), 15)", f443, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 15)", f444, 0, 256},
+  {"256:_mm256_srli_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 15)", f445, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_abs_epi8(x), 15)", f446, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_abs_epi16(x), 15)", f447, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_abs_epi32(x), 15)", f448, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_sub_epi8(_mm256_setzero_si256(), x), 15)", f449, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_sub_epi16(_mm256_setzero_si256(), x), 15)", f450, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_sub_epi32(_mm256_setzero_si256(), x), 15)", f451, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_sub_epi64(_mm256_setzero_si256(), x), 15)", f452, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 15)", f453, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi16(x, 1), 15)", f454, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi16(x, 1), 15)", f455, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srai_epi16(x, 1), 15)", f456, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi16(x, 15), 15)", f457, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi16(x, 15), 15)", f458, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srai_epi16(x, 15), 15)", f459, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi32(x, 1), 15)", f460, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi32(x, 1), 15)", f461, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srai_epi32(x, 1), 15)", f462, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi32(x, 31), 15)", f463, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi32(x, 31), 15)", f464, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srai_epi32(x, 31), 15)", f465, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi64(x, 1), 15)", f466, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi64(x, 1), 15)", f467, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_slli_epi64(x, 63), 15)", f468, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_srli_epi64(x, 63), 15)", f469, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x1b), 15)", f470, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x1b), 15)", f471, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x39), 15)", f472, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x39), 15)", f473, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x93), 15)", f474, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x93), 15)", f475, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_shuffle_epi32(x, 0x4e), 15)", f476, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_permute4x64_epi64(x, 0x4e), 15)", f477, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_bslli_epi128(x, 1), 15)", f478, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_bsrli_epi128(x, 1), 15)", f479, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 15)", f480, 0, 256},
+  {"256:_mm256_srai_epi16(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 15)", f481, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_abs_epi8(x), 1)", f482, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_abs_epi16(x), 1)", f483, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_abs_epi32(x), 1)", f484, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1)", f485, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1)", f486, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1)", f487, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1)", f488, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1)", f489, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi16(x, 1), 1)", f490, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi16(x, 1), 1)", f491, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srai_epi16(x, 1), 1)", f492, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi16(x, 15), 1)", f493, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi16(x, 15), 1)", f494, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srai_epi16(x, 15), 1)", f495, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi32(x, 1), 1)", f496, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi32(x, 1), 1)", f497, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srai_epi32(x, 1), 1)", f498, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi32(x, 31), 1)", f499, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi32(x, 31), 1)", f500, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srai_epi32(x, 31), 1)", f501, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi64(x, 1), 1)", f502, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi64(x, 1), 1)", f503, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi64(x, 63), 1)", f504, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi64(x, 63), 1)", f505, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x1b), 1)", f506, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x1b), 1)", f507, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x39), 1)", f508, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x39), 1)", f509, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x93), 1)", f510, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x93), 1)", f511, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x4e), 1)", f512, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x4e), 1)", f513, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_bslli_epi128(x, 1), 1)", f514, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_bsrli_epi128(x, 1), 1)", f515, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1)", f516, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1)", f517, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_abs_epi8(x), 1)", f518, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_abs_epi16(x), 1)", f519, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_abs_epi32(x), 1)", f520, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1)", f521, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1)", f522, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1)", f523, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1)", f524, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1)", f525, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi16(x, 1), 1)", f526, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi16(x, 1), 1)", f527, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srai_epi16(x, 1), 1)", f528, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi16(x, 15), 1)", f529, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi16(x, 15), 1)", f530, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srai_epi16(x, 15), 1)", f531, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi32(x, 1), 1)", f532, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi32(x, 1), 1)", f533, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srai_epi32(x, 1), 1)", f534, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi32(x, 31), 1)", f535, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi32(x, 31), 1)", f536, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srai_epi32(x, 31), 1)", f537, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi64(x, 1), 1)", f538, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi64(x, 1), 1)", f539, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi64(x, 63), 1)", f540, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi64(x, 63), 1)", f541, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x1b), 1)", f542, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x1b), 1)", f543, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x39), 1)", f544, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x39), 1)", f545, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x93), 1)", f546, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x93), 1)", f547, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x4e), 1)", f548, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x4e), 1)", f549, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_bslli_epi128(x, 1), 1)", f550, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_bsrli_epi128(x, 1), 1)", f551, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1)", f552, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1)", f553, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_abs_epi8(x), 1)", f554, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_abs_epi16(x), 1)", f555, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_abs_epi32(x), 1)", f556, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1)", f557, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1)", f558, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1)", f559, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1)", f560, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1)", f561, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi16(x, 1), 1)", f562, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi16(x, 1), 1)", f563, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srai_epi16(x, 1), 1)", f564, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi16(x, 15), 1)", f565, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi16(x, 15), 1)", f566, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srai_epi16(x, 15), 1)", f567, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi32(x, 1), 1)", f568, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi32(x, 1), 1)", f569, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srai_epi32(x, 1), 1)", f570, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi32(x, 31), 1)", f571, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi32(x, 31), 1)", f572, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srai_epi32(x, 31), 1)", f573, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi64(x, 1), 1)", f574, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi64(x, 1), 1)", f575, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi64(x, 63), 1)", f576, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi64(x, 63), 1)", f577, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x1b), 1)", f578, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x1b), 1)", f579, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x39), 1)", f580, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x39), 1)", f581, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x93), 1)", f582, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x93), 1)", f583, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x4e), 1)", f584, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x4e), 1)", f585, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_bslli_epi128(x, 1), 1)", f586, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_bsrli_epi128(x, 1), 1)", f587, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1)", f588, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1)", f589, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_abs_epi8(x), 31)", f590, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_abs_epi16(x), 31)", f591, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_abs_epi32(x), 31)", f592, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 31)", f593, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 31)", f594, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 31)", f595, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 31)", f596, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 31)", f597, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi16(x, 1), 31)", f598, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi16(x, 1), 31)", f599, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srai_epi16(x, 1), 31)", f600, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi16(x, 15), 31)", f601, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi16(x, 15), 31)", f602, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srai_epi16(x, 15), 31)", f603, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi32(x, 1), 31)", f604, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi32(x, 1), 31)", f605, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srai_epi32(x, 1), 31)", f606, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi32(x, 31), 31)", f607, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi32(x, 31), 31)", f608, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srai_epi32(x, 31), 31)", f609, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi64(x, 1), 31)", f610, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi64(x, 1), 31)", f611, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_slli_epi64(x, 63), 31)", f612, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_srli_epi64(x, 63), 31)", f613, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x1b), 31)", f614, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x1b), 31)", f615, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x39), 31)", f616, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x39), 31)", f617, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x93), 31)", f618, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x93), 31)", f619, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_shuffle_epi32(x, 0x4e), 31)", f620, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_permute4x64_epi64(x, 0x4e), 31)", f621, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_bslli_epi128(x, 1), 31)", f622, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_bsrli_epi128(x, 1), 31)", f623, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 31)", f624, 0, 256},
+  {"256:_mm256_slli_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 31)", f625, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_abs_epi8(x), 31)", f626, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_abs_epi16(x), 31)", f627, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_abs_epi32(x), 31)", f628, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 31)", f629, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 31)", f630, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 31)", f631, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 31)", f632, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 31)", f633, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi16(x, 1), 31)", f634, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi16(x, 1), 31)", f635, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srai_epi16(x, 1), 31)", f636, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi16(x, 15), 31)", f637, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi16(x, 15), 31)", f638, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srai_epi16(x, 15), 31)", f639, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi32(x, 1), 31)", f640, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi32(x, 1), 31)", f641, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srai_epi32(x, 1), 31)", f642, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi32(x, 31), 31)", f643, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi32(x, 31), 31)", f644, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srai_epi32(x, 31), 31)", f645, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi64(x, 1), 31)", f646, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi64(x, 1), 31)", f647, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_slli_epi64(x, 63), 31)", f648, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_srli_epi64(x, 63), 31)", f649, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x1b), 31)", f650, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x1b), 31)", f651, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x39), 31)", f652, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x39), 31)", f653, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x93), 31)", f654, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x93), 31)", f655, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_shuffle_epi32(x, 0x4e), 31)", f656, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_permute4x64_epi64(x, 0x4e), 31)", f657, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_bslli_epi128(x, 1), 31)", f658, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_bsrli_epi128(x, 1), 31)", f659, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 31)", f660, 0, 256},
+  {"256:_mm256_srli_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 31)", f661, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_abs_epi8(x), 31)", f662, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_abs_epi16(x), 31)", f663, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_abs_epi32(x), 31)", f664, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 31)", f665, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 31)", f666, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 31)", f667, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 31)", f668, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 31)", f669, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi16(x, 1), 31)", f670, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi16(x, 1), 31)", f671, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srai_epi16(x, 1), 31)", f672, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi16(x, 15), 31)", f673, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi16(x, 15), 31)", f674, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srai_epi16(x, 15), 31)", f675, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi32(x, 1), 31)", f676, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi32(x, 1), 31)", f677, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srai_epi32(x, 1), 31)", f678, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi32(x, 31), 31)", f679, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi32(x, 31), 31)", f680, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srai_epi32(x, 31), 31)", f681, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi64(x, 1), 31)", f682, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi64(x, 1), 31)", f683, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_slli_epi64(x, 63), 31)", f684, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_srli_epi64(x, 63), 31)", f685, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x1b), 31)", f686, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x1b), 31)", f687, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x39), 31)", f688, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x39), 31)", f689, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x93), 31)", f690, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x93), 31)", f691, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_shuffle_epi32(x, 0x4e), 31)", f692, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_permute4x64_epi64(x, 0x4e), 31)", f693, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_bslli_epi128(x, 1), 31)", f694, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_bsrli_epi128(x, 1), 31)", f695, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 31)", f696, 0, 256},
+  {"256:_mm256_srai_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 31)", f697, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_abs_epi8(x), 1)", f698, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_abs_epi16(x), 1)", f699, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_abs_epi32(x), 1)", f700, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1)", f701, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1)", f702, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1)", f703, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1)", f704, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1)", f705, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi16(x, 1), 1)", f706, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi16(x, 1), 1)", f707, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srai_epi16(x, 1), 1)", f708, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi16(x, 15), 1)", f709, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi16(x, 15), 1)", f710, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srai_epi16(x, 15), 1)", f711, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi32(x, 1), 1)", f712, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi32(x, 1), 1)", f713, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srai_epi32(x, 1), 1)", f714, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi32(x, 31), 1)", f715, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi32(x, 31), 1)", f716, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srai_epi32(x, 31), 1)", f717, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi64(x, 1), 1)", f718, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi64(x, 1), 1)", f719, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi64(x, 63), 1)", f720, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi64(x, 63), 1)", f721, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x1b), 1)", f722, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x1b), 1)", f723, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x39), 1)", f724, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x39), 1)", f725, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x93), 1)", f726, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x93), 1)", f727, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x4e), 1)", f728, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x4e), 1)", f729, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_bslli_epi128(x, 1), 1)", f730, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_bsrli_epi128(x, 1), 1)", f731, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1)", f732, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1)", f733, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_abs_epi8(x), 1)", f734, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_abs_epi16(x), 1)", f735, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_abs_epi32(x), 1)", f736, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1)", f737, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1)", f738, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1)", f739, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1)", f740, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1)", f741, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi16(x, 1), 1)", f742, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi16(x, 1), 1)", f743, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srai_epi16(x, 1), 1)", f744, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi16(x, 15), 1)", f745, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi16(x, 15), 1)", f746, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srai_epi16(x, 15), 1)", f747, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi32(x, 1), 1)", f748, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi32(x, 1), 1)", f749, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srai_epi32(x, 1), 1)", f750, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi32(x, 31), 1)", f751, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi32(x, 31), 1)", f752, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srai_epi32(x, 31), 1)", f753, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi64(x, 1), 1)", f754, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi64(x, 1), 1)", f755, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi64(x, 63), 1)", f756, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi64(x, 63), 1)", f757, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x1b), 1)", f758, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x1b), 1)", f759, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x39), 1)", f760, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x39), 1)", f761, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x93), 1)", f762, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x93), 1)", f763, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x4e), 1)", f764, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x4e), 1)", f765, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_bslli_epi128(x, 1), 1)", f766, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_bsrli_epi128(x, 1), 1)", f767, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1)", f768, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1)", f769, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_abs_epi8(x), 63)", f770, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_abs_epi16(x), 63)", f771, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_abs_epi32(x), 63)", f772, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 63)", f773, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 63)", f774, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 63)", f775, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 63)", f776, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 63)", f777, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi16(x, 1), 63)", f778, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi16(x, 1), 63)", f779, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srai_epi16(x, 1), 63)", f780, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi16(x, 15), 63)", f781, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi16(x, 15), 63)", f782, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srai_epi16(x, 15), 63)", f783, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi32(x, 1), 63)", f784, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi32(x, 1), 63)", f785, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srai_epi32(x, 1), 63)", f786, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi32(x, 31), 63)", f787, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi32(x, 31), 63)", f788, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srai_epi32(x, 31), 63)", f789, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi64(x, 1), 63)", f790, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi64(x, 1), 63)", f791, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_slli_epi64(x, 63), 63)", f792, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_srli_epi64(x, 63), 63)", f793, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x1b), 63)", f794, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x1b), 63)", f795, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x39), 63)", f796, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x39), 63)", f797, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x93), 63)", f798, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x93), 63)", f799, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_shuffle_epi32(x, 0x4e), 63)", f800, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_permute4x64_epi64(x, 0x4e), 63)", f801, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_bslli_epi128(x, 1), 63)", f802, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_bsrli_epi128(x, 1), 63)", f803, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 63)", f804, 0, 256},
+  {"256:_mm256_slli_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 63)", f805, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_abs_epi8(x), 63)", f806, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_abs_epi16(x), 63)", f807, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_abs_epi32(x), 63)", f808, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 63)", f809, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 63)", f810, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 63)", f811, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 63)", f812, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 63)", f813, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi16(x, 1), 63)", f814, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi16(x, 1), 63)", f815, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srai_epi16(x, 1), 63)", f816, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi16(x, 15), 63)", f817, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi16(x, 15), 63)", f818, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srai_epi16(x, 15), 63)", f819, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi32(x, 1), 63)", f820, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi32(x, 1), 63)", f821, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srai_epi32(x, 1), 63)", f822, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi32(x, 31), 63)", f823, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi32(x, 31), 63)", f824, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srai_epi32(x, 31), 63)", f825, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi64(x, 1), 63)", f826, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi64(x, 1), 63)", f827, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_slli_epi64(x, 63), 63)", f828, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_srli_epi64(x, 63), 63)", f829, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x1b), 63)", f830, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x1b), 63)", f831, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x39), 63)", f832, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x39), 63)", f833, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x93), 63)", f834, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x93), 63)", f835, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_shuffle_epi32(x, 0x4e), 63)", f836, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_permute4x64_epi64(x, 0x4e), 63)", f837, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_bslli_epi128(x, 1), 63)", f838, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_bsrli_epi128(x, 1), 63)", f839, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 63)", f840, 0, 256},
+  {"256:_mm256_srli_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 63)", f841, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi8(x), 0x1b)", f842, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi16(x), 0x1b)", f843, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi32(x), 0x1b)", f844, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x1b)", f845, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x1b)", f846, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x1b)", f847, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x1b)", f848, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x1b)", f849, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi16(x, 1), 0x1b)", f850, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi16(x, 1), 0x1b)", f851, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi16(x, 1), 0x1b)", f852, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi16(x, 15), 0x1b)", f853, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi16(x, 15), 0x1b)", f854, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi16(x, 15), 0x1b)", f855, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi32(x, 1), 0x1b)", f856, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi32(x, 1), 0x1b)", f857, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi32(x, 1), 0x1b)", f858, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi32(x, 31), 0x1b)", f859, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi32(x, 31), 0x1b)", f860, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi32(x, 31), 0x1b)", f861, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi64(x, 1), 0x1b)", f862, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi64(x, 1), 0x1b)", f863, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi64(x, 63), 0x1b)", f864, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi64(x, 63), 0x1b)", f865, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x1b), 0x1b)", f866, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x1b), 0x1b)", f867, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x39), 0x1b)", f868, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x39), 0x1b)", f869, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x93), 0x1b)", f870, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x93), 0x1b)", f871, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x4e), 0x1b)", f872, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x4e), 0x1b)", f873, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_bslli_epi128(x, 1), 0x1b)", f874, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_bsrli_epi128(x, 1), 0x1b)", f875, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x1b)", f876, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x1b)", f877, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi8(x), 0x1b)", f878, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi16(x), 0x1b)", f879, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi32(x), 0x1b)", f880, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x1b)", f881, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x1b)", f882, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x1b)", f883, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x1b)", f884, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x1b)", f885, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi16(x, 1), 0x1b)", f886, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi16(x, 1), 0x1b)", f887, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi16(x, 1), 0x1b)", f888, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi16(x, 15), 0x1b)", f889, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi16(x, 15), 0x1b)", f890, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi16(x, 15), 0x1b)", f891, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi32(x, 1), 0x1b)", f892, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi32(x, 1), 0x1b)", f893, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi32(x, 1), 0x1b)", f894, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi32(x, 31), 0x1b)", f895, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi32(x, 31), 0x1b)", f896, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi32(x, 31), 0x1b)", f897, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi64(x, 1), 0x1b)", f898, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi64(x, 1), 0x1b)", f899, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi64(x, 63), 0x1b)", f900, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi64(x, 63), 0x1b)", f901, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x1b), 0x1b)", f902, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x1b), 0x1b)", f903, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x39), 0x1b)", f904, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x39), 0x1b)", f905, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x93), 0x1b)", f906, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x93), 0x1b)", f907, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x4e), 0x1b)", f908, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x4e), 0x1b)", f909, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_bslli_epi128(x, 1), 0x1b)", f910, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_bsrli_epi128(x, 1), 0x1b)", f911, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x1b)", f912, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x1b)", f913, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi8(x), 0x39)", f914, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi16(x), 0x39)", f915, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi32(x), 0x39)", f916, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x39)", f917, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x39)", f918, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x39)", f919, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x39)", f920, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x39)", f921, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi16(x, 1), 0x39)", f922, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi16(x, 1), 0x39)", f923, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi16(x, 1), 0x39)", f924, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi16(x, 15), 0x39)", f925, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi16(x, 15), 0x39)", f926, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi16(x, 15), 0x39)", f927, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi32(x, 1), 0x39)", f928, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi32(x, 1), 0x39)", f929, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi32(x, 1), 0x39)", f930, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi32(x, 31), 0x39)", f931, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi32(x, 31), 0x39)", f932, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi32(x, 31), 0x39)", f933, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi64(x, 1), 0x39)", f934, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi64(x, 1), 0x39)", f935, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi64(x, 63), 0x39)", f936, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi64(x, 63), 0x39)", f937, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x1b), 0x39)", f938, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x1b), 0x39)", f939, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x39), 0x39)", f940, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x39), 0x39)", f941, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x93), 0x39)", f942, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x93), 0x39)", f943, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x4e), 0x39)", f944, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x4e), 0x39)", f945, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_bslli_epi128(x, 1), 0x39)", f946, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_bsrli_epi128(x, 1), 0x39)", f947, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x39)", f948, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x39)", f949, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi8(x), 0x39)", f950, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi16(x), 0x39)", f951, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi32(x), 0x39)", f952, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x39)", f953, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x39)", f954, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x39)", f955, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x39)", f956, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x39)", f957, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi16(x, 1), 0x39)", f958, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi16(x, 1), 0x39)", f959, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi16(x, 1), 0x39)", f960, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi16(x, 15), 0x39)", f961, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi16(x, 15), 0x39)", f962, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi16(x, 15), 0x39)", f963, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi32(x, 1), 0x39)", f964, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi32(x, 1), 0x39)", f965, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi32(x, 1), 0x39)", f966, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi32(x, 31), 0x39)", f967, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi32(x, 31), 0x39)", f968, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi32(x, 31), 0x39)", f969, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi64(x, 1), 0x39)", f970, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi64(x, 1), 0x39)", f971, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi64(x, 63), 0x39)", f972, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi64(x, 63), 0x39)", f973, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x1b), 0x39)", f974, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x1b), 0x39)", f975, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x39), 0x39)", f976, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x39), 0x39)", f977, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x93), 0x39)", f978, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x93), 0x39)", f979, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x4e), 0x39)", f980, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x4e), 0x39)", f981, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_bslli_epi128(x, 1), 0x39)", f982, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_bsrli_epi128(x, 1), 0x39)", f983, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x39)", f984, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x39)", f985, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi8(x), 0x93)", f986, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi16(x), 0x93)", f987, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi32(x), 0x93)", f988, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x93)", f989, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x93)", f990, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x93)", f991, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x93)", f992, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x93)", f993, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi16(x, 1), 0x93)", f994, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi16(x, 1), 0x93)", f995, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi16(x, 1), 0x93)", f996, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi16(x, 15), 0x93)", f997, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi16(x, 15), 0x93)", f998, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi16(x, 15), 0x93)", f999, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi32(x, 1), 0x93)", f1000, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi32(x, 1), 0x93)", f1001, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi32(x, 1), 0x93)", f1002, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi32(x, 31), 0x93)", f1003, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi32(x, 31), 0x93)", f1004, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi32(x, 31), 0x93)", f1005, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi64(x, 1), 0x93)", f1006, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi64(x, 1), 0x93)", f1007, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi64(x, 63), 0x93)", f1008, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi64(x, 63), 0x93)", f1009, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x1b), 0x93)", f1010, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x1b), 0x93)", f1011, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x39), 0x93)", f1012, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x39), 0x93)", f1013, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x93), 0x93)", f1014, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x93), 0x93)", f1015, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x4e), 0x93)", f1016, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x4e), 0x93)", f1017, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_bslli_epi128(x, 1), 0x93)", f1018, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_bsrli_epi128(x, 1), 0x93)", f1019, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x93)", f1020, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x93)", f1021, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi8(x), 0x93)", f1022, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi16(x), 0x93)", f1023, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi32(x), 0x93)", f1024, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x93)", f1025, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x93)", f1026, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x93)", f1027, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x93)", f1028, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x93)", f1029, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi16(x, 1), 0x93)", f1030, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi16(x, 1), 0x93)", f1031, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi16(x, 1), 0x93)", f1032, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi16(x, 15), 0x93)", f1033, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi16(x, 15), 0x93)", f1034, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi16(x, 15), 0x93)", f1035, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi32(x, 1), 0x93)", f1036, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi32(x, 1), 0x93)", f1037, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi32(x, 1), 0x93)", f1038, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi32(x, 31), 0x93)", f1039, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi32(x, 31), 0x93)", f1040, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi32(x, 31), 0x93)", f1041, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi64(x, 1), 0x93)", f1042, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi64(x, 1), 0x93)", f1043, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi64(x, 63), 0x93)", f1044, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi64(x, 63), 0x93)", f1045, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x1b), 0x93)", f1046, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x1b), 0x93)", f1047, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x39), 0x93)", f1048, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x39), 0x93)", f1049, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x93), 0x93)", f1050, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x93), 0x93)", f1051, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x4e), 0x93)", f1052, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x4e), 0x93)", f1053, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_bslli_epi128(x, 1), 0x93)", f1054, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_bsrli_epi128(x, 1), 0x93)", f1055, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x93)", f1056, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x93)", f1057, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi8(x), 0x4e)", f1058, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi16(x), 0x4e)", f1059, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_abs_epi32(x), 0x4e)", f1060, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x4e)", f1061, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x4e)", f1062, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x4e)", f1063, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x4e)", f1064, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x4e)", f1065, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi16(x, 1), 0x4e)", f1066, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi16(x, 1), 0x4e)", f1067, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi16(x, 1), 0x4e)", f1068, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi16(x, 15), 0x4e)", f1069, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi16(x, 15), 0x4e)", f1070, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi16(x, 15), 0x4e)", f1071, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi32(x, 1), 0x4e)", f1072, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi32(x, 1), 0x4e)", f1073, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi32(x, 1), 0x4e)", f1074, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi32(x, 31), 0x4e)", f1075, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi32(x, 31), 0x4e)", f1076, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srai_epi32(x, 31), 0x4e)", f1077, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi64(x, 1), 0x4e)", f1078, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi64(x, 1), 0x4e)", f1079, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_slli_epi64(x, 63), 0x4e)", f1080, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_srli_epi64(x, 63), 0x4e)", f1081, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x1b), 0x4e)", f1082, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x1b), 0x4e)", f1083, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x39), 0x4e)", f1084, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x39), 0x4e)", f1085, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x93), 0x4e)", f1086, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x93), 0x4e)", f1087, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_shuffle_epi32(x, 0x4e), 0x4e)", f1088, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_permute4x64_epi64(x, 0x4e), 0x4e)", f1089, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_bslli_epi128(x, 1), 0x4e)", f1090, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_bsrli_epi128(x, 1), 0x4e)", f1091, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x4e)", f1092, 0, 256},
+  {"256:_mm256_shuffle_epi32(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x4e)", f1093, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi8(x), 0x4e)", f1094, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi16(x), 0x4e)", f1095, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_abs_epi32(x), 0x4e)", f1096, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi8(_mm256_setzero_si256(), x), 0x4e)", f1097, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi16(_mm256_setzero_si256(), x), 0x4e)", f1098, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi32(_mm256_setzero_si256(), x), 0x4e)", f1099, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_sub_epi64(_mm256_setzero_si256(), x), 0x4e)", f1100, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 0x4e)", f1101, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi16(x, 1), 0x4e)", f1102, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi16(x, 1), 0x4e)", f1103, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi16(x, 1), 0x4e)", f1104, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi16(x, 15), 0x4e)", f1105, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi16(x, 15), 0x4e)", f1106, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi16(x, 15), 0x4e)", f1107, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi32(x, 1), 0x4e)", f1108, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi32(x, 1), 0x4e)", f1109, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi32(x, 1), 0x4e)", f1110, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi32(x, 31), 0x4e)", f1111, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi32(x, 31), 0x4e)", f1112, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srai_epi32(x, 31), 0x4e)", f1113, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi64(x, 1), 0x4e)", f1114, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi64(x, 1), 0x4e)", f1115, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_slli_epi64(x, 63), 0x4e)", f1116, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_srli_epi64(x, 63), 0x4e)", f1117, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x1b), 0x4e)", f1118, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x1b), 0x4e)", f1119, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x39), 0x4e)", f1120, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x39), 0x4e)", f1121, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x93), 0x4e)", f1122, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x93), 0x4e)", f1123, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_shuffle_epi32(x, 0x4e), 0x4e)", f1124, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_permute4x64_epi64(x, 0x4e), 0x4e)", f1125, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_bslli_epi128(x, 1), 0x4e)", f1126, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_bsrli_epi128(x, 1), 0x4e)", f1127, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 0x4e)", f1128, 0, 256},
+  {"256:_mm256_permute4x64_epi64(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 0x4e)", f1129, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_abs_epi8(x), 1)", f1130, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_abs_epi16(x), 1)", f1131, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_abs_epi32(x), 1)", f1132, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1)", f1133, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1)", f1134, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1)", f1135, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1)", f1136, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1)", f1137, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_slli_epi16(x, 1), 1)", f1138, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_srli_epi16(x, 1), 1)", f1139, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_srai_epi16(x, 1), 1)", f1140, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_slli_epi16(x, 15), 1)", f1141, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_srli_epi16(x, 15), 1)", f1142, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_srai_epi16(x, 15), 1)", f1143, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_slli_epi32(x, 1), 1)", f1144, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_srli_epi32(x, 1), 1)", f1145, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_srai_epi32(x, 1), 1)", f1146, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_slli_epi32(x, 31), 1)", f1147, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_srli_epi32(x, 31), 1)", f1148, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_srai_epi32(x, 31), 1)", f1149, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_slli_epi64(x, 1), 1)", f1150, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_srli_epi64(x, 1), 1)", f1151, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_slli_epi64(x, 63), 1)", f1152, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_srli_epi64(x, 63), 1)", f1153, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_shuffle_epi32(x, 0x1b), 1)", f1154, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_permute4x64_epi64(x, 0x1b), 1)", f1155, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_shuffle_epi32(x, 0x39), 1)", f1156, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_permute4x64_epi64(x, 0x39), 1)", f1157, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_shuffle_epi32(x, 0x93), 1)", f1158, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_permute4x64_epi64(x, 0x93), 1)", f1159, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_shuffle_epi32(x, 0x4e), 1)", f1160, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_permute4x64_epi64(x, 0x4e), 1)", f1161, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_bslli_epi128(x, 1), 1)", f1162, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_bsrli_epi128(x, 1), 1)", f1163, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_cvttps_epi32(_mm256_cvtepi32_ps(x)), 1)", f1164, 0, 256},
+  {"256:_mm256_bslli_epi128(_mm256_cvtps_epi32(_mm256_cvtepi32_ps(x)), 1)", f1165, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_abs_epi8(x), 1)", f1166, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_abs_epi16(x), 1)", f1167, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_abs_epi32(x), 1)", f1168, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_sub_epi8(_mm256_setzero_si256(), x), 1)", f1169, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_sub_epi16(_mm256_setzero_si256(), x), 1)", f1170, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_sub_epi32(_mm256_setzero_si256(), x), 1)", f1171, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_sub_epi64(_mm256_setzero_si256(), x), 1)", f1172, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_xor_si256(x, _mm256_set1_epi8((char)0xffu)), 1)", f1173, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_slli_epi16(x, 1), 1)", f1174, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_srli_epi16(x, 1), 1)", f1175, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_srai_epi16(x, 1), 1)", f1176, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_slli_epi16(x, 15), 1)", f1177, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_srli_epi16(x, 15), 1)", f1178, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_srai_epi16(x, 15), 1)", f1179, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_slli_epi32(x, 1), 1)", f1180, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_srli_epi32(x, 1), 1)", f1181, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_srai_epi32(x, 1), 1)", f1182, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_slli_epi32(x, 31), 1)", f1183, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_srli_epi32(x, 31), 1)", f1184, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_srai_epi32(x, 31), 1)", f1185, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_slli_epi64(x, 1), 1)", f1186, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_srli_epi64(x, 1), 1)", f1187, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_slli_epi64(x, 63), 1)", f1188, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_srli_epi64(x, 63), 1)", f1189, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_shuffle_epi32(x, 0x1b), 1)", f1190, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_permute4x64_epi64(x, 0x1b), 1)", f1191, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_shuffle_epi32(x, 0x39), 1)", f1192, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_permute4x64_epi64(x, 0x39), 1)", f1193, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_shuffle_epi32(x, 0x93), 1)", f1194, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_permute4x64_epi64(x, 0x93), 1)", f1195, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_shuffle_epi32(x, 0x4e), 1)", f1196, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_permute4x64_epi64(x, 0x4e), 1)", f1197, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_bslli_epi128(x, 1), 1)", f1198, 0, 256},
+  {"256:_mm256_bsrli_epi128(_mm256_bsrli_epi128(x, 1), 1)", f1199, 0, 256},
+};
+extern const int size_43 = 1200;

@@ -1,0 +1,28 @@
+{
+  "signature": "063be0ee1994",
+  "program": "issue_195674_torch_compile_evaluates_subtraction_on_a",
+  "project": "pytorch/pytorch",
+  "stage": "inductor_codegen",
+  "priority": "high",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": true,
+  "duplicates": [
+    {
+      "number": "195674",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/195674",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

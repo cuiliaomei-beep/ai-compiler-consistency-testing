@@ -1,0 +1,28 @@
+{
+  "signature": "9f9f17163842",
+  "program": "issue_188084_bug_inductor_reinplaces_index_put_on_exp",
+  "project": "pytorch/pytorch",
+  "stage": "dynamo_capture",
+  "priority": "low",
+  "kinds": [
+    "exception"
+  ],
+  "factor": "",
+  "probe": "layered",
+  "status": "Duplicate",
+  "reproducibility": "2/2",
+  "fault": null,
+  "backend": "inductor",
+  "torch": "2.10.0+cu128",
+  "minimized": false,
+  "duplicates": [
+    {
+      "number": "188084",
+      "title": "origin issue of this reproducer",
+      "url": "https://github.com/pytorch/pytorch/issues/188084",
+      "state": null,
+      "is_pr": false,
+      "created": ""
+    }
+  ]
+}

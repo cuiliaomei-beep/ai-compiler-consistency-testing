@@ -1,0 +1,32 @@
+  A0    detected  7/19  tests  338  invalid 109  mean-ttd 3.73  analysis 0.0 ms  wall 20.6s  FP 0
+  A1    detected  8/19  tests  350  invalid  71  mean-ttd 3.18  analysis 27.5 ms  wall 19.7s  FP 0
+  A2    detected  8/19  tests  358  invalid  71  mean-ttd 3.18  analysis 26.6 ms  wall 20.1s  FP 0
+  A3    detected 10/19  tests  343  invalid  69  mean-ttd 3.16  analysis 26.1 ms  wall 19.5s  FP 0
+  A4    detected 13/19  tests  262  invalid  69  mean-ttd 2.43  analysis 26.4 ms  wall 16.8s  FP 0
+  A5    detected 13/19  tests  244  invalid  16  mean-ttd 2.52  analysis 23.7 ms  wall 15.2s  FP 0
+  A6    detected 19/19  tests  235  invalid  16  mean-ttd 3.98  analysis 26.8 ms  wall 19.0s  FP 0
+  FULL  detected 19/19  tests  235  invalid  16  mean-ttd 3.98  analysis 29.1 ms  wall 37.2s  FP 0
+
+RQ3 ablation (backend eager, budget 12 tests/program)
+
+| level | bugs found | tests | invalid | mean tests-to-detect | analysis ms | FP(fixed) | wall s |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| A0 | 7/19 | 338 | 109 | 3.73 | 0.0 | 0 | 20.6 |
+| A1 | 8/19 | 350 | 71 | 3.18 | 27.5 | 0 | 19.7 |
+| A2 | 8/19 | 358 | 71 | 3.18 | 26.6 | 0 | 20.1 |
+| A3 | 10/19 | 343 | 69 | 3.16 | 26.1 | 0 | 19.5 |
+| A4 | 13/19 | 262 | 69 | 2.43 | 26.4 | 0 | 16.8 |
+| A5 | 13/19 | 244 | 16 | 2.52 | 23.7 | 0 | 15.2 |
+| A6 | 19/19 | 235 | 16 | 3.98 | 26.8 | 0 | 19.0 |
+| FULL | 19/19 | 235 | 16 | 3.98 | 29.1 | 0 | 37.2 |
+
+  per category:
+  level | alias_mutation | cache          | codegen        | control_flow   | dtype          | shape          | specialization
+  A0    | 0/2            | 0/2            | 3/4            | 1/2            | 1/1            | 2/4            | 0/4           
+  A1    | 0/2            | 0/2            | 3/4            | 1/2            | 1/1            | 3/4            | 0/4           
+  A2    | 0/2            | 0/2            | 3/4            | 1/2            | 1/1            | 3/4            | 0/4           
+  A3    | 0/2            | 0/2            | 3/4            | 2/2            | 1/1            | 4/4            | 0/4           
+  A4    | 2/2            | 0/2            | 4/4            | 2/2            | 1/1            | 4/4            | 0/4           
+  A5    | 2/2            | 0/2            | 4/4            | 2/2            | 1/1            | 4/4            | 0/4           
+  A6    | 2/2            | 2/2            | 4/4            | 2/2            | 1/1            | 4/4            | 4/4           
+  FULL  | 2/2            | 2/2            | 4/4            | 2/2            | 1/1            | 4/4            | 4/4           
