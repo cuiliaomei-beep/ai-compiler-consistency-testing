@@ -1,0 +1,17 @@
+def forward(mlist, v11_0, v3_0, v9_0):
+    v12_0 = torch.min(v3_0, v11_0)
+    v8_0 = torch.zeros(torch.Size([1, 2]), dtype=torch.int32, device='cpu')
+    for i in range(0, 2):
+        v8_0[:, i] = torch.mul(v12_0[:, i], v11_0[:, i])
+    v10_0 = torch.add(v12_0, v9_0)
+    v4_0 = v10_0.to(dtype=torch.int32)
+    v7_0 = v4_0.argmax(2)
+    v1_0 = v4_0.sum(0)
+    backup = v10_0[0, 0, 0, 0].clone()
+    if v10_0.float().mean() >= v11_0.shape[0]:
+        v10_0[0, 0, 0, 0] = 0
+        v5_0 = v1_0.sum(1)
+        v0_0 = torch.Tensor.flatten(v1_0)
+    v2_0 = torch.max(v1_0, v1_0)
+    v6_0 = torch.lt(v2_0, v2_0)
+    return (v8_0, v7_0, v5_0, v0_0, v6_0)

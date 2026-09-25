@@ -1,0 +1,786 @@
+{
+ "rows": [
+  {
+   "seed": 0,
+   "detected": 11,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_noncontig",
+    "codegen_fp16_rounding",
+    "codegen_dynamic_flag",
+    "underspec_dtype",
+    "underspec_scalar",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "tests_executed": 458,
+   "tests_invalid": 109,
+   "invalid_rate": 0.1922,
+   "compiles": 1325,
+   "wall_s": 45.3,
+   "mean_ttf_s": 0.55,
+   "mean_tests_to_detect": 5.0,
+   "unique_failure_clusters": 11,
+   "file": "random_seed0.json"
+  },
+  {
+   "seed": 1,
+   "detected": 12,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_index_last",
+    "codegen_noncontig",
+    "codegen_fp16_rounding",
+    "codegen_dynamic_flag",
+    "capture_swallow_exception",
+    "underspec_dtype",
+    "underspec_scalar",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "tests_executed": 483,
+   "tests_invalid": 108,
+   "invalid_rate": 0.1827,
+   "compiles": 1429,
+   "wall_s": 55.7,
+   "mean_ttf_s": 0.54,
+   "mean_tests_to_detect": 4.83,
+   "unique_failure_clusters": 13,
+   "file": "random_seed1.json"
+  },
+  {
+   "seed": 2,
+   "detected": 11,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_noncontig",
+    "codegen_fp16_rounding",
+    "codegen_dynamic_flag",
+    "capture_swallow_exception",
+    "underspec_dtype",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "tests_executed": 457,
+   "tests_invalid": 120,
+   "invalid_rate": 0.208,
+   "compiles": 1316,
+   "wall_s": 49.4,
+   "mean_ttf_s": 0.43,
+   "mean_tests_to_detect": 4.25,
+   "unique_failure_clusters": 11,
+   "file": "random_seed2.json"
+  },
+  {
+   "seed": 3,
+   "detected": 11,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_index_last",
+    "codegen_noncontig",
+    "codegen_dynamic_flag",
+    "capture_swallow_exception",
+    "underspec_scalar",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "tests_executed": 499,
+   "tests_invalid": 96,
+   "invalid_rate": 0.1613,
+   "compiles": 1489,
+   "wall_s": 51.8,
+   "mean_ttf_s": 0.46,
+   "mean_tests_to_detect": 4.47,
+   "unique_failure_clusters": 11,
+   "file": "random_seed3.json"
+  },
+  {
+   "seed": 4,
+   "detected": 11,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_noncontig",
+    "codegen_dynamic_flag",
+    "capture_swallow_exception",
+    "underspec_dtype",
+    "underspec_scalar",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "tests_executed": 490,
+   "tests_invalid": 114,
+   "invalid_rate": 0.1887,
+   "compiles": 1443,
+   "wall_s": 50.6,
+   "mean_ttf_s": 0.61,
+   "mean_tests_to_detect": 5.58,
+   "unique_failure_clusters": 12,
+   "file": "random_seed4.json"
+  },
+  {
+   "seed": 5,
+   "detected": 11,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_noncontig",
+    "codegen_fp16_rounding",
+    "capture_swallow_exception",
+    "underspec_dtype",
+    "underspec_scalar",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "tests_executed": 494,
+   "tests_invalid": 75,
+   "invalid_rate": 0.1318,
+   "compiles": 1463,
+   "wall_s": 53.6,
+   "mean_ttf_s": 0.8,
+   "mean_tests_to_detect": 5.79,
+   "unique_failure_clusters": 12,
+   "file": "seeds5to9\\random_seed5.json"
+  },
+  {
+   "seed": 6,
+   "detected": 6,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_index_last",
+    "codegen_noncontig",
+    "codegen_dynamic_flag",
+    "underspec_layout"
+   ],
+   "tests_executed": 559,
+   "tests_invalid": 122,
+   "invalid_rate": 0.1791,
+   "compiles": 1689,
+   "wall_s": 79.4,
+   "mean_ttf_s": 1.0,
+   "mean_tests_to_detect": 5.38,
+   "unique_failure_clusters": 6,
+   "file": "seeds5to9\\random_seed6.json"
+  },
+  {
+   "seed": 7,
+   "detected": 10,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_index_last",
+    "codegen_noncontig",
+    "codegen_dynamic_flag",
+    "capture_swallow_exception",
+    "underspec_scalar",
+    "underspec_layout",
+    "cache_result_memo"
+   ],
+   "tests_executed": 488,
+   "tests_invalid": 95,
+   "invalid_rate": 0.163,
+   "compiles": 1449,
+   "wall_s": 47.2,
+   "mean_ttf_s": 0.48,
+   "mean_tests_to_detect": 4.71,
+   "unique_failure_clusters": 10,
+   "file": "seeds5to9\\random_seed7.json"
+  },
+  {
+   "seed": 8,
+   "detected": 11,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_index_last",
+    "codegen_noncontig",
+    "codegen_dynamic_flag",
+    "capture_swallow_exception",
+    "underspec_dtype",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "tests_executed": 513,
+   "tests_invalid": 110,
+   "invalid_rate": 0.1766,
+   "compiles": 1507,
+   "wall_s": 51.8,
+   "mean_ttf_s": 0.66,
+   "mean_tests_to_detect": 6.18,
+   "unique_failure_clusters": 12,
+   "file": "seeds5to9\\random_seed8.json"
+  },
+  {
+   "seed": 9,
+   "detected": 10,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_index_last",
+    "codegen_noncontig",
+    "underspec_dtype",
+    "underspec_scalar",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "tests_executed": 486,
+   "tests_invalid": 126,
+   "invalid_rate": 0.2059,
+   "compiles": 1409,
+   "wall_s": 56.2,
+   "mean_ttf_s": 0.68,
+   "mean_tests_to_detect": 5.58,
+   "unique_failure_clusters": 10,
+   "file": "seeds5to9\\random_seed9.json"
+  }
+ ],
+ "stats": {
+  "n_seeds": 10,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "detected": {
+   "mean": 10.4,
+   "median": 11.0,
+   "min": 6,
+   "max": 12,
+   "stdev": 1.647
+  },
+  "detected_first3_mean": 11.333,
+  "tests_executed": {
+   "mean": 492.7,
+   "median": 489.0,
+   "min": 457,
+   "max": 559,
+   "stdev": 28.86
+  },
+  "tests_invalid": {
+   "mean": 107.5,
+   "median": 109.5,
+   "min": 75,
+   "max": 126,
+   "stdev": 15.292
+  },
+  "invalid_rate": {
+   "mean": 0.179,
+   "median": 0.1809,
+   "min": 0.1318,
+   "max": 0.208,
+   "stdev": 0.023
+  },
+  "wall_s": {
+   "mean": 54.1,
+   "median": 51.8,
+   "min": 45.3,
+   "max": 79.4,
+   "stdev": 9.529
+  },
+  "unique_failure_clusters": {
+   "mean": 10.8,
+   "median": 11.0,
+   "min": 6,
+   "max": 13,
+   "stdev": 1.932
+  },
+  "mean_ttf_s_per_seed": [
+   0.55,
+   0.54,
+   0.43,
+   0.46,
+   0.61,
+   0.8,
+   1.0,
+   0.48,
+   0.66,
+   0.68
+  ]
+ },
+ "per_fault": {
+  "codegen_value": {
+   "category": "codegen",
+   "detected_in_seeds": 10,
+   "of": 10,
+   "programs_that_detected": [
+    "dtype_reduce"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 1,
+    "median": 1.0,
+    "min": 1,
+    "max": 1,
+    "stdev": 0.0
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 1,
+    "median": 1.0,
+    "min": 1,
+    "max": 1,
+    "stdev": 0.0
+   },
+   "ttf_s_cumulative": {
+    "mean": 0.849,
+    "median": 0.71,
+    "min": 0.141,
+    "max": 2.201,
+    "stdev": 0.752
+   }
+  },
+  "codegen_boundary_32": {
+   "category": "shape",
+   "detected_in_seeds": 10,
+   "of": 10,
+   "programs_that_detected": [
+    "shape_boundary"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 1,
+    "median": 1.0,
+    "min": 1,
+    "max": 1,
+    "stdev": 0.0
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 1,
+    "median": 1.0,
+    "min": 1,
+    "max": 1,
+    "stdev": 0.0
+   },
+   "ttf_s_cumulative": {
+    "mean": 0.101,
+    "median": 0.097,
+    "min": 0.083,
+    "max": 0.132,
+    "stdev": 0.017
+   }
+  },
+  "codegen_boundary_31": {
+   "category": "shape",
+   "detected_in_seeds": 0,
+   "of": 10,
+   "programs_that_detected": [],
+   "tests_to_detect_in_program": null,
+   "tests_to_detect_cumulative_over_fault_programs": null,
+   "ttf_s_cumulative": null
+  },
+  "codegen_mod16_tail": {
+   "category": "shape",
+   "detected_in_seeds": 8,
+   "of": 10,
+   "programs_that_detected": [
+    "mod_tiling",
+    "shape_boundary"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 5,
+    "median": 3.5,
+    "min": 2,
+    "max": 11,
+    "stdev": 3.586
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 12.5,
+    "median": 14.0,
+    "min": 2,
+    "max": 23,
+    "stdev": 7.856
+   },
+   "ttf_s_cumulative": {
+    "mean": 1.477,
+    "median": 1.7200000000000002,
+    "min": 0.187,
+    "max": 2.587,
+    "stdev": 0.889
+   }
+  },
+  "codegen_index_last": {
+   "category": "shape",
+   "detected_in_seeds": 6,
+   "of": 10,
+   "programs_that_detected": [
+    "index_chain"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 4.5,
+    "median": 3.5,
+    "min": 2,
+    "max": 11,
+    "stdev": 3.507
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 4.5,
+    "median": 3.5,
+    "min": 2,
+    "max": 11,
+    "stdev": 3.507
+   },
+   "ttf_s_cumulative": {
+    "mean": 0.556,
+    "median": 0.3375,
+    "min": 0.143,
+    "max": 1.676,
+    "stdev": 0.587
+   }
+  },
+  "codegen_noncontig": {
+   "category": "codegen",
+   "detected_in_seeds": 10,
+   "of": 10,
+   "programs_that_detected": [
+    "contiguous_read",
+    "noncontig_copy",
+    "stride_read",
+    "view_inplace"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 6.2,
+    "median": 5.0,
+    "min": 2,
+    "max": 11,
+    "stdev": 3.795
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 21.8,
+    "median": 20.0,
+    "min": 2,
+    "max": 47,
+    "stdev": 13.206
+   },
+   "ttf_s_cumulative": {
+    "mean": 2.556,
+    "median": 1.8295,
+    "min": 0.156,
+    "max": 9.591,
+    "stdev": 2.656
+   }
+  },
+  "codegen_fp16_rounding": {
+   "category": "dtype",
+   "detected_in_seeds": 4,
+   "of": 10,
+   "programs_that_detected": [
+    "dtype_reduce",
+    "python_flag_semantic",
+    "shape_boundary"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 7.25,
+    "median": 8.0,
+    "min": 2,
+    "max": 11,
+    "stdev": 4.5
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 22.25,
+    "median": 21.5,
+    "min": 11,
+    "max": 35,
+    "stdev": 11.587
+   },
+   "ttf_s_cumulative": {
+    "mean": 2.603,
+    "median": 2.835,
+    "min": 1.335,
+    "max": 3.408,
+    "stdev": 0.947
+   }
+  },
+  "codegen_dynamic_flag": {
+   "category": "codegen",
+   "detected_in_seeds": 8,
+   "of": 10,
+   "programs_that_detected": [
+    "dtype_reduce",
+    "python_flag_semantic"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 6.875,
+    "median": 6.5,
+    "min": 2,
+    "max": 11,
+    "stdev": 3.907
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 12.875,
+    "median": 9.5,
+    "min": 2,
+    "max": 35,
+    "stdev": 11.557
+   },
+   "ttf_s_cumulative": {
+    "mean": 2.017,
+    "median": 1.0875,
+    "min": 0.33,
+    "max": 8.176,
+    "stdev": 2.592
+   }
+  },
+  "codegen_scalar_edge": {
+   "category": "control_flow",
+   "detected_in_seeds": 0,
+   "of": 10,
+   "programs_that_detected": [],
+   "tests_to_detect_in_program": null,
+   "tests_to_detect_cumulative_over_fault_programs": null,
+   "ttf_s_cumulative": null
+  },
+  "functionalize_drop_mutation": {
+   "category": "alias_mutation",
+   "detected_in_seeds": 0,
+   "of": 10,
+   "programs_that_detected": [],
+   "tests_to_detect_in_program": null,
+   "tests_to_detect_cumulative_over_fault_programs": null,
+   "ttf_s_cumulative": null
+  },
+  "functionalize_alias_to_copy": {
+   "category": "alias_mutation",
+   "detected_in_seeds": 0,
+   "of": 10,
+   "programs_that_detected": [],
+   "tests_to_detect_in_program": null,
+   "tests_to_detect_cumulative_over_fault_programs": null,
+   "ttf_s_cumulative": null
+  },
+  "capture_swallow_exception": {
+   "category": "control_flow",
+   "detected_in_seeds": 7,
+   "of": 10,
+   "programs_that_detected": [
+    "exception_path"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 5.857,
+    "median": 5,
+    "min": 2,
+    "max": 11,
+    "stdev": 3.761
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 5.857,
+    "median": 5,
+    "min": 2,
+    "max": 11,
+    "stdev": 3.761
+   },
+   "ttf_s_cumulative": {
+    "mean": 0.852,
+    "median": 0.744,
+    "min": 0.347,
+    "max": 1.448,
+    "stdev": 0.353
+   }
+  },
+  "autograd_wrong_gradient": {
+   "category": "codegen",
+   "detected_in_seeds": 0,
+   "of": 10,
+   "programs_that_detected": [],
+   "tests_to_detect_in_program": null,
+   "tests_to_detect_cumulative_over_fault_programs": null,
+   "ttf_s_cumulative": null
+  },
+  "underspec_dtype": {
+   "category": "specialization",
+   "detected_in_seeds": 7,
+   "of": 10,
+   "programs_that_detected": [
+    "dtype_reduce",
+    "shape_boundary"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 5.286,
+    "median": 4,
+    "min": 4,
+    "max": 10,
+    "stdev": 2.36
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 12.143,
+    "median": 16,
+    "min": 4,
+    "max": 22,
+    "stdev": 7.883
+   },
+   "ttf_s_cumulative": {
+    "mean": 1.352,
+    "median": 1.741,
+    "min": 0.404,
+    "max": 2.604,
+    "stdev": 0.895
+   }
+  },
+  "underspec_scalar": {
+   "category": "specialization",
+   "detected_in_seeds": 7,
+   "of": 10,
+   "programs_that_detected": [
+    "scalar_compare",
+    "string_mode"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 7.286,
+    "median": 6,
+    "min": 3,
+    "max": 12,
+    "stdev": 3.817
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 24.429,
+    "median": 24,
+    "min": 15,
+    "max": 36,
+    "stdev": 8.018
+   },
+   "ttf_s_cumulative": {
+    "mean": 2.238,
+    "median": 2.164,
+    "min": 1.334,
+    "max": 3.114,
+    "stdev": 0.74
+   }
+  },
+  "underspec_layout": {
+   "category": "specialization",
+   "detected_in_seeds": 10,
+   "of": 10,
+   "programs_that_detected": [
+    "contiguous_read",
+    "noncontig_copy",
+    "stride_read",
+    "view_inplace"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 7.8,
+    "median": 9.0,
+    "min": 3,
+    "max": 12,
+    "stdev": 4.29
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 27,
+    "median": 27.0,
+    "min": 3,
+    "max": 48,
+    "stdev": 13.416
+   },
+   "ttf_s_cumulative": {
+    "mean": 2.506,
+    "median": 2.574,
+    "min": 0.282,
+    "max": 4.032,
+    "stdev": 1.245
+   }
+  },
+  "underspec_requires_grad": {
+   "category": "specialization",
+   "detected_in_seeds": 0,
+   "of": 10,
+   "programs_that_detected": [],
+   "tests_to_detect_in_program": null,
+   "tests_to_detect_cumulative_over_fault_programs": null,
+   "ttf_s_cumulative": null
+  },
+  "cache_stale_on_return": {
+   "category": "cache",
+   "detected_in_seeds": 8,
+   "of": 10,
+   "programs_that_detected": [
+    "dtype_reduce",
+    "shape_boundary"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 6.375,
+    "median": 4.5,
+    "min": 3,
+    "max": 12,
+    "stdev": 4.069
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 12.375,
+    "median": 13.5,
+    "min": 3,
+    "max": 24,
+    "stdev": 8.551
+   },
+   "ttf_s_cumulative": {
+    "mean": 1.438,
+    "median": 1.6265,
+    "min": 0.355,
+    "max": 2.742,
+    "stdev": 0.938
+   }
+  },
+  "cache_result_memo": {
+   "category": "cache",
+   "detected_in_seeds": 9,
+   "of": 10,
+   "programs_that_detected": [
+    "dtype_reduce",
+    "python_flag_semantic",
+    "shape_boundary"
+   ],
+   "tests_to_detect_in_program": {
+    "mean": 6.333,
+    "median": 3,
+    "min": 3,
+    "max": 12,
+    "stdev": 4.093
+   },
+   "tests_to_detect_cumulative_over_fault_programs": {
+    "mean": 14.333,
+    "median": 15,
+    "min": 3,
+    "max": 33,
+    "stdev": 10.476
+   },
+   "ttf_s_cumulative": {
+    "mean": 1.832,
+    "median": 1.718,
+    "min": 0.354,
+    "max": 3.318,
+    "stdev": 1.177
+   }
+  }
+ }
+}

@@ -1,0 +1,18 @@
+def forward(mlist, v10_0, v9_0):
+    v11_0 = torch.min(v9_0, v10_0)
+    if v9_0[0, 0] >= v11_0.min():
+        v6_0 = torch.nn.functional.softmax(v11_0, dim=0)
+    v5_0 = v11_0.argmax(0)
+    v4_0 = mlist[1](v11_0)
+    v8_0 = mlist[2](v4_0)
+    v3_0 = torch.Tensor.flatten(v8_0)
+    v7_0 = v4_0.to(dtype=torch.int64)
+    v2_0 = v4_0.sum(1)
+    backup = v7_0[0, 0].clone()
+    v7_0[0, 0] = 0
+    v1_0 = torch.zeros(torch.Size([2]), dtype=torch.bool, device='cpu')
+    for i in range(0, 2):
+        v1_0[i] = torch.lt(v2_0[i], v2_0[i])
+    v0_0 = torch.div(v2_0, v4_0)
+    v7_0[0, 0] = backup
+    return (v6_0, v5_0, v3_0, v7_0, v1_0, v0_0)

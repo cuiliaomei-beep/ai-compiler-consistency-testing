@@ -1,0 +1,239 @@
+{
+ "rc": "C41",
+ "members": [
+  "C41"
+ ],
+ "layer": "Dy",
+ "reproducer": "0920issues/40-dynamo-ordereddict-move-to-end-side-effect-dropped.md",
+ "title": "OrderedDict.move_to_end on an input dict is silently dropped",
+ "status": "",
+ "sub": {
+  "name": "lru_eviction",
+  "primary": false,
+  "compile": {
+   "backend": "eager"
+  },
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 1,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:49:44",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [
+       2
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 2,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [
+       2
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 2,
+     "values": [
+      2.0,
+      2.0
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__opaque__": "LRU",
+       "repr": "<oracle_tiers_cases._c41_lru.<locals>.LRU object at 0x0000020215043A10>"
+      },
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 2,
+       "values": [
+        1.0,
+        1.0
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0003,
+    "note": null,
+    "caught_by_handler": null,
+    "state_after": {
+     "__seq__": "list",
+     "items": [
+      "a",
+      "c"
+     ]
+    }
+   }
+  ],
+  "wall_s": 0.014,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 8.16,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [
+       2
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 2,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [
+       2
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 2,
+     "values": [
+      2.0,
+      2.0
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__opaque__": "LRU",
+       "repr": "<oracle_tiers_cases._c41_lru.<locals>.LRU object at 0x0000022A0A95BA10>"
+      },
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 2,
+       "values": [
+        1.0,
+        1.0
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.3914,
+    "note": null,
+    "caught_by_handler": null,
+    "state_after": {
+     "__seq__": "list",
+     "items": [
+      "b",
+      "c"
+     ]
+    }
+   }
+  ],
+  "wall_s": 3.954,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 12.04,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

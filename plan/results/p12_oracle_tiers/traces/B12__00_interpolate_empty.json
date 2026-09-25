@@ -1,0 +1,205 @@
+{
+ "rc": "B12",
+ "members": [
+  "B12"
+ ],
+ "layer": "De",
+ "reproducer": "0913issues/12-inductor-interpolate-zero-size-oob-nan.md",
+ "title": "interpolate on an empty spatial dim returns uninitialised data instead of raising",
+ "status": "confirmed",
+ "sub": {
+  "name": "interpolate_empty",
+  "primary": true,
+  "compile": {},
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 0,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:28:52",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": false,
+    "exception": "RuntimeError",
+    "exception_msg": "Input and output sizes should be greater than 0, but got input (W: 0) and output (W: 3)",
+    "exception_inner": "RuntimeError",
+    "exc_frame": "functional.py:5211:interpolate",
+    "out_struct": "",
+    "out_meta": [],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": null,
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2,
+         3,
+         0
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         3,
+         1,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 0,
+       "values": []
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0043,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 0.018,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 6.97,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [
+       2,
+       3,
+       3
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       9,
+       3,
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [
+       2,
+       3,
+       3
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       9,
+       3,
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 18,
+     "values": [
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2,
+         3,
+         0
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         3,
+         1,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 0,
+       "values": []
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 28.4239,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 32.909,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 40.25,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

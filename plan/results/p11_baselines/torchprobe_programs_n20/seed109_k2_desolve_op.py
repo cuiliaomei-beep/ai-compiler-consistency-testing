@@ -1,0 +1,28 @@
+def forward(mlist, v15_0):
+    v17_0 = mlist[0]()
+    v18_0 = torch.cos(v17_0)
+    v19_0 = mlist[1](v18_0)
+    v16_0 = torch.abs(v15_0)
+    v9_0 = torch.nn.functional.leaky_relu(v16_0)
+    backup = v18_0[30802, 1].clone()
+    v18_0[30802, 1] = 0.5618113
+    v18_0[30802, 1] = backup
+    v14_0 = torch.sub(v18_0, v16_0)
+    v10_0 = torch.nn.functional.gelu(v14_0)
+    v13_0 = v10_0.sum(1)
+    v1_0 = torch.add(v10_0, v10_0)
+    v7_0 = v1_0.to(dtype=torch.float64)
+    v21_0 = v7_0.sum(0)
+    v20_0 = torch.zeros(torch.Size([32768, 2]), dtype=torch.float64, device='cpu')
+    for i in range(0, 32768):
+        v20_0[i, :] = torch.cos(v7_0[i, :])
+    v11_0 = v7_0.sum(1)
+    v6_0 = v1_0.min(0).values
+    v5_0 = torch.nn.functional.softmax(v10_0, dim=0)
+    v12_0 = mlist[4](v5_0)
+    v4_0 = v5_0.to(dtype=torch.bool)
+    v8_0 = mlist[5](v5_0)
+    v2_0 = v5_0[:, -2:2:2]
+    v0_0 = torch.max(v2_0, v5_0)
+    v3_0 = v0_0.reshape(32768, 2, 1)
+    return (v19_0, v9_0, v13_0, v21_0, v20_0, v11_0, v6_0, v12_0, v4_0, v8_0, v3_0)

@@ -1,0 +1,13 @@
+def forward(mlist, v0_0):
+    v7_0 = mlist[0]()
+    v8_0 = torch.add(v0_0, v7_0)
+    v10_0 = torch.sin(v8_0)
+    v6_0 = torch.cos(v8_0)
+    v3_0 = v6_0.to(dtype=torch.int32)
+    v11_0 = v3_0.to(dtype=torch.int64)
+    v9_0 = torch.eq(v3_0, v3_0)
+    v1_0 = torch.max(v6_0, v6_0)
+    v4_0 = torch.sin(v1_0)
+    v5_0 = torch.cos(v4_0)
+    v2_0 = torch.tan(v1_0)
+    return (v10_0, v11_0, v9_0, v5_0, v2_0)

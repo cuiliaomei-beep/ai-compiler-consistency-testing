@@ -1,0 +1,301 @@
+{
+ "rc": "B24",
+ "members": [
+  "B24"
+ ],
+ "layer": "In",
+ "reproducer": "0913issues/24-inductor-var-mean-empty-mean-zero.md",
+ "title": "var_mean / std_mean of an empty tensor: mean is 0 instead of NaN",
+ "status": "fixed",
+ "sub": {
+  "name": "std_mean_empty",
+  "primary": false,
+  "compile": {},
+  "grad": false,
+  "fp64": "auto",
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 1,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:31:06",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "P[T,T]",
+    "out_meta": [
+     {
+      "shape": [],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     {
+      "shape": [],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__seq__": "tuple",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 1,
+       "values": [
+        NaN
+       ]
+      },
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 1,
+       "values": [
+        NaN
+       ]
+      }
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         0
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 0,
+       "values": []
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0006,
+    "note": null,
+    "caught_by_handler": null,
+    "fp64": {
+     "ok": true,
+     "exception": null,
+     "outputs": {
+      "__seq__": "tuple",
+      "items": [
+       {
+        "__tensor__": "tensor",
+        "meta": {
+         "shape": [],
+         "dtype": "torch.float64",
+         "device": "cpu",
+         "stride": [],
+         "contiguous": true,
+         "requires_grad": false,
+         "storage_offset": 0,
+         "is_view": false
+        },
+        "numel": 1,
+        "values": [
+         NaN
+        ]
+       },
+       {
+        "__tensor__": "tensor",
+        "meta": {
+         "shape": [],
+         "dtype": "torch.float64",
+         "device": "cpu",
+         "stride": [],
+         "contiguous": true,
+         "requires_grad": false,
+         "storage_offset": 0,
+         "is_view": false
+        },
+        "numel": 1,
+        "values": [
+         NaN
+        ]
+       }
+      ]
+     },
+     "out_struct": "P[T,T]",
+     "grads": null,
+     "has_grads": false
+    }
+   }
+  ],
+  "wall_s": 0.015,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 6.4,
+  "stdout_tail": "",
+  "stderr_tail": "D:\\wsl\\personal\\dr\\paper\\toxic_compile\\plan\\scripts\\oracle_tiers_real.py:197: UserWarning: std_mean(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\aten\\src\\ATen\\native\\ReduceOps.cpp:1913.)\n  out = fn(*args, **kwargs)\nD:\\wsl\\personal\\dr\\paper\\toxic_compile\\plan\\scripts\\oracle_tiers_real.py:335: UserWarning: std_mean(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\\actions-runner\\_work\\pytorch\\pytorch\\aten\\src\\ATen\\native\\ReduceOps.cpp:1913.)\n  out = case.fn(*args64, **(case.kwargs or {}))\n"
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "P[T,T]",
+    "out_meta": [
+     {
+      "shape": [],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     {
+      "shape": [],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__seq__": "tuple",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 1,
+       "values": [
+        NaN
+       ]
+      },
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 1,
+       "values": [
+        0.0
+       ]
+      }
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         0
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 0,
+       "values": []
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 30.628,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 34.964,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 42.64,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

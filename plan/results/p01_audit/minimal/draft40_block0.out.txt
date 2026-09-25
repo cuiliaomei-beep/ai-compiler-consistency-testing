@@ -1,0 +1,10 @@
+exit=0 wall=4.4s
+--- stdout
+touch  eager    order afterwards: ['b', 'c', 'a']
+touch  compiled order afterwards: ['a', 'b', 'c']
+touch2 eager    order afterwards: ['b', 'c', 'a']
+touch2 compiled order afterwards: ['b', 'c', 'a']
+LRU    eager    after get('a') then put('c'): ['a', 'c']
+LRU    compiled after get('a') then put('c'): ['b', 'c']
+
+--- stderr

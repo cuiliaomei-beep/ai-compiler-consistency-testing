@@ -1,0 +1,53 @@
+{
+ "corpus29": {
+  "programs": 29,
+  "representable": 3,
+  "representable_names": [
+   "alias_returned",
+   "requires_grad_switch",
+   "dtype_reduce"
+  ],
+  "blocker_frequency": {
+   "control_flow": 16,
+   "python_reads_tensor_metadata": 11,
+   "non_static_indexing": 4,
+   "ops_outside_temisu_renderer": 10,
+   "non_tensor_args": 9,
+   "in_place_mutation": 5,
+   "module_globals": 1,
+   "closure_vars": 1,
+   "python_calls": 3
+  },
+  "mutation_candidates_among_representable": {
+   "insert_tcb": 2,
+   "modify_then_recover": 2,
+   "subfunction": 3,
+   "desolve_op": 2
+  },
+  "modules": {
+   "tcc.corpus": 29
+  }
+ },
+ "dynsem185": {
+  "programs": 185,
+  "representable": 0,
+  "representable_names": [],
+  "blocker_frequency": {
+   "control_flow": 117,
+   "python_reads_tensor_metadata": 91,
+   "non_static_indexing": 31,
+   "python_calls": 185,
+   "ops_outside_temisu_renderer": 143,
+   "module_globals": 35,
+   "in_place_mutation": 64,
+   "global_state": 2
+  },
+  "mutation_candidates_among_representable": {},
+  "modules": {
+   "tcc.dynamo_semantics": 77,
+   "tcc.dynamo_semantics_more": 74,
+   "tcc.dynamo_semantics_batch3": 33,
+   "tcc.dynamo_semantics_batch4": 1
+  }
+ }
+}

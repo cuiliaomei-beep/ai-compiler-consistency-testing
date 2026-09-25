@@ -1,0 +1,205 @@
+{
+ "rc": "C37",
+ "members": [
+  "C37",
+  "C30",
+  "C38"
+ ],
+ "layer": "In",
+ "reproducer": "0920issues/36-inductor-runs-ops-on-dtypes-eager-rejects-full-list.md",
+ "title": "operators run under compile on dtypes their eager kernels reject (418 pairs; CUDA family in C38; C30 family)",
+ "status": "",
+ "sub": {
+  "name": "conv2d_bool",
+  "primary": false,
+  "compile": {},
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 3,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:46:40",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": false,
+    "exception": "NotImplementedError",
+    "exception_msg": "\"slow_conv2d_cpu\" not implemented for 'Bool'",
+    "exception_inner": "NotImplementedError",
+    "exc_frame": "oracle_tiers_cases.py:808:<lambda>",
+    "out_struct": "",
+    "out_meta": [],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": null,
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2,
+         3
+        ],
+        "dtype": "torch.bool",
+        "device": "cpu",
+        "stride": [
+         3,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 6,
+       "values": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        true
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0048,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 0.017,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 5.67,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [
+       1,
+       1,
+       1,
+       2
+      ],
+      "dtype": "torch.int64",
+      "device": "cpu",
+      "stride": [
+       2,
+       2,
+       2,
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [
+       1,
+       1,
+       1,
+       2
+      ],
+      "dtype": "torch.int64",
+      "device": "cpu",
+      "stride": [
+       2,
+       2,
+       2,
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 2,
+     "values": [
+      2,
+      3
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2,
+         3
+        ],
+        "dtype": "torch.bool",
+        "device": "cpu",
+        "stride": [
+         3,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 6,
+       "values": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        true
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 26.3522,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 30.307,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 36.92,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

@@ -1,0 +1,314 @@
+{
+ "rc": "B6",
+ "members": [
+  "B6"
+ ],
+ "layer": "In",
+ "reproducer": "0913issues/06-inductor-cpu-std-var-fp32-accumulation.md",
+ "title": "std/var accumulate in float32: inf/NaN and zero gradient at extreme magnitudes",
+ "status": "",
+ "sub": {
+  "name": "std_1e-30_grad",
+  "primary": false,
+  "compile": {},
+  "grad": true,
+  "fp64": "auto",
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 1,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:26:16",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [],
+      "contiguous": true,
+      "requires_grad": true,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 1,
+     "values": [
+      8.186919425793434e-31
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         5
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 5,
+       "values": [
+        -5.663174902176872e-31,
+        3.7311464930975697e-31,
+        -8.919953000988809e-31,
+        -1.5091077349867864e-30,
+        3.703935444568125e-31
+       ]
+      }
+     ]
+    },
+    "has_grads": true,
+    "grads": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         5
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 5,
+       "values": [
+        -0.037112560123205185,
+        0.2497572898864746,
+        -0.13656321167945862,
+        -0.3250078558921814,
+        0.2489263415336609
+       ]
+      }
+     ]
+    },
+    "grad_error": null,
+    "wall_s": 0.0005,
+    "note": null,
+    "caught_by_handler": null,
+    "fp64": {
+     "ok": true,
+     "exception": null,
+     "outputs": {
+      "__tensor__": "tensor",
+      "meta": {
+       "shape": [],
+       "dtype": "torch.float64",
+       "device": "cpu",
+       "stride": [],
+       "contiguous": true,
+       "requires_grad": false,
+       "storage_offset": 0,
+       "is_view": false
+      },
+      "numel": 1,
+      "values": [
+       8.186919412322392e-31
+      ]
+     },
+     "out_struct": "T",
+     "grads": {
+      "__seq__": "list",
+      "items": [
+       {
+        "__tensor__": "tensor",
+        "meta": {
+         "shape": [
+          5
+         ],
+         "dtype": "torch.float64",
+         "device": "cpu",
+         "stride": [
+          1
+         ],
+         "contiguous": true,
+         "requires_grad": false,
+         "storage_offset": 0,
+         "is_view": false
+        },
+        "numel": 5,
+        "values": [
+         -0.03711256267143779,
+         0.2497572879446178,
+         -0.1365632209346075,
+         -0.32500786164985324,
+         0.24892635731128065
+        ]
+       }
+      ]
+     },
+     "has_grads": true
+    }
+   }
+  ],
+  "wall_s": 0.016,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 6.16,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [],
+      "contiguous": true,
+      "requires_grad": true,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 1,
+     "values": [
+      0.0
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         5
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 5,
+       "values": [
+        -5.663174902176872e-31,
+        3.7311464930975697e-31,
+        -8.919953000988809e-31,
+        -1.5091077349867864e-30,
+        3.703935444568125e-31
+       ]
+      }
+     ]
+    },
+    "has_grads": true,
+    "grads": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         5
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 5,
+       "values": [
+        -0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0
+       ]
+      }
+     ]
+    },
+    "grad_error": null,
+    "wall_s": 28.4561,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 38.783,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 46.56,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

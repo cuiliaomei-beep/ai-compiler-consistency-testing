@@ -1,0 +1,319 @@
+{
+ "env": {
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.14.0+cpu",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "cpu_count": 16,
+  "date": "2026-09-25 17:09:37"
+ },
+ "budget": 12,
+ "backend": "eager",
+ "oracle": [
+  "value",
+  "metadata",
+  "exception"
+ ],
+ "rows": [
+  {
+   "seed": 5,
+   "detected": 11,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_noncontig",
+    "codegen_fp16_rounding",
+    "capture_swallow_exception",
+    "underspec_dtype",
+    "underspec_scalar",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "missed_ids": [
+    "codegen_boundary_31",
+    "codegen_index_last",
+    "codegen_dynamic_flag",
+    "codegen_scalar_edge",
+    "functionalize_drop_mutation",
+    "functionalize_alias_to_copy",
+    "autograd_wrong_gradient",
+    "underspec_requires_grad"
+   ],
+   "tests_executed": 494,
+   "tests_invalid": 75,
+   "invalid_rate": 0.1318,
+   "compiles": 1463,
+   "wall_s": 53.6,
+   "wall_s_entries": 53.6,
+   "mean_ttf_s": 0.8,
+   "mean_tests_to_detect": 5.79,
+   "unique_failure_clusters": 12,
+   "false_positives_on_fixed": null
+  },
+  {
+   "seed": 6,
+   "detected": 6,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_index_last",
+    "codegen_noncontig",
+    "codegen_dynamic_flag",
+    "underspec_layout"
+   ],
+   "missed_ids": [
+    "codegen_boundary_31",
+    "codegen_mod16_tail",
+    "codegen_fp16_rounding",
+    "codegen_scalar_edge",
+    "functionalize_drop_mutation",
+    "functionalize_alias_to_copy",
+    "capture_swallow_exception",
+    "autograd_wrong_gradient",
+    "underspec_dtype",
+    "underspec_scalar",
+    "underspec_requires_grad",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "tests_executed": 559,
+   "tests_invalid": 122,
+   "invalid_rate": 0.1791,
+   "compiles": 1689,
+   "wall_s": 79.4,
+   "wall_s_entries": 79.4,
+   "mean_ttf_s": 1.0,
+   "mean_tests_to_detect": 5.38,
+   "unique_failure_clusters": 6,
+   "false_positives_on_fixed": null
+  },
+  {
+   "seed": 7,
+   "detected": 10,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_index_last",
+    "codegen_noncontig",
+    "codegen_dynamic_flag",
+    "capture_swallow_exception",
+    "underspec_scalar",
+    "underspec_layout",
+    "cache_result_memo"
+   ],
+   "missed_ids": [
+    "codegen_boundary_31",
+    "codegen_fp16_rounding",
+    "codegen_scalar_edge",
+    "functionalize_drop_mutation",
+    "functionalize_alias_to_copy",
+    "autograd_wrong_gradient",
+    "underspec_dtype",
+    "underspec_requires_grad",
+    "cache_stale_on_return"
+   ],
+   "tests_executed": 488,
+   "tests_invalid": 95,
+   "invalid_rate": 0.163,
+   "compiles": 1449,
+   "wall_s": 47.2,
+   "wall_s_entries": 47.2,
+   "mean_ttf_s": 0.48,
+   "mean_tests_to_detect": 4.71,
+   "unique_failure_clusters": 10,
+   "false_positives_on_fixed": null
+  },
+  {
+   "seed": 8,
+   "detected": 11,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_index_last",
+    "codegen_noncontig",
+    "codegen_dynamic_flag",
+    "capture_swallow_exception",
+    "underspec_dtype",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "missed_ids": [
+    "codegen_boundary_31",
+    "codegen_fp16_rounding",
+    "codegen_scalar_edge",
+    "functionalize_drop_mutation",
+    "functionalize_alias_to_copy",
+    "autograd_wrong_gradient",
+    "underspec_scalar",
+    "underspec_requires_grad"
+   ],
+   "tests_executed": 513,
+   "tests_invalid": 110,
+   "invalid_rate": 0.1766,
+   "compiles": 1507,
+   "wall_s": 51.8,
+   "wall_s_entries": 51.8,
+   "mean_ttf_s": 0.66,
+   "mean_tests_to_detect": 6.18,
+   "unique_failure_clusters": 12,
+   "false_positives_on_fixed": null
+  },
+  {
+   "seed": 9,
+   "detected": 10,
+   "faults": 19,
+   "detected_ids": [
+    "codegen_value",
+    "codegen_boundary_32",
+    "codegen_mod16_tail",
+    "codegen_index_last",
+    "codegen_noncontig",
+    "underspec_dtype",
+    "underspec_scalar",
+    "underspec_layout",
+    "cache_stale_on_return",
+    "cache_result_memo"
+   ],
+   "missed_ids": [
+    "codegen_boundary_31",
+    "codegen_fp16_rounding",
+    "codegen_dynamic_flag",
+    "codegen_scalar_edge",
+    "functionalize_drop_mutation",
+    "functionalize_alias_to_copy",
+    "capture_swallow_exception",
+    "autograd_wrong_gradient",
+    "underspec_requires_grad"
+   ],
+   "tests_executed": 486,
+   "tests_invalid": 126,
+   "invalid_rate": 0.2059,
+   "compiles": 1409,
+   "wall_s": 56.2,
+   "wall_s_entries": 56.2,
+   "mean_ttf_s": 0.68,
+   "mean_tests_to_detect": 5.58,
+   "unique_failure_clusters": 10,
+   "false_positives_on_fixed": null
+  }
+ ],
+ "stats": {
+  "n_seeds": 5,
+  "mean": 9.6,
+  "median": 10,
+  "min": 6,
+  "max": 11,
+  "stdev": 2.073644135332772,
+  "mean_tests": 508,
+  "mean_invalid": 105.6,
+  "mean_invalid_rate": 0.17128000000000002,
+  "mean_wall_s": 57.64,
+  "mean_first3": 9
+ },
+ "per_fault_frequency": {
+  "codegen_value": {
+   "category": "codegen",
+   "detected_in_seeds": 5,
+   "of": 5
+  },
+  "codegen_boundary_32": {
+   "category": "shape",
+   "detected_in_seeds": 5,
+   "of": 5
+  },
+  "codegen_boundary_31": {
+   "category": "shape",
+   "detected_in_seeds": 0,
+   "of": 5
+  },
+  "codegen_mod16_tail": {
+   "category": "shape",
+   "detected_in_seeds": 4,
+   "of": 5
+  },
+  "codegen_index_last": {
+   "category": "shape",
+   "detected_in_seeds": 4,
+   "of": 5
+  },
+  "codegen_noncontig": {
+   "category": "codegen",
+   "detected_in_seeds": 5,
+   "of": 5
+  },
+  "codegen_fp16_rounding": {
+   "category": "dtype",
+   "detected_in_seeds": 1,
+   "of": 5
+  },
+  "codegen_dynamic_flag": {
+   "category": "codegen",
+   "detected_in_seeds": 3,
+   "of": 5
+  },
+  "codegen_scalar_edge": {
+   "category": "control_flow",
+   "detected_in_seeds": 0,
+   "of": 5
+  },
+  "functionalize_drop_mutation": {
+   "category": "alias_mutation",
+   "detected_in_seeds": 0,
+   "of": 5
+  },
+  "functionalize_alias_to_copy": {
+   "category": "alias_mutation",
+   "detected_in_seeds": 0,
+   "of": 5
+  },
+  "capture_swallow_exception": {
+   "category": "control_flow",
+   "detected_in_seeds": 3,
+   "of": 5
+  },
+  "autograd_wrong_gradient": {
+   "category": "codegen",
+   "detected_in_seeds": 0,
+   "of": 5
+  },
+  "underspec_dtype": {
+   "category": "specialization",
+   "detected_in_seeds": 3,
+   "of": 5
+  },
+  "underspec_scalar": {
+   "category": "specialization",
+   "detected_in_seeds": 3,
+   "of": 5
+  },
+  "underspec_layout": {
+   "category": "specialization",
+   "detected_in_seeds": 5,
+   "of": 5
+  },
+  "underspec_requires_grad": {
+   "category": "specialization",
+   "detected_in_seeds": 0,
+   "of": 5
+  },
+  "cache_stale_on_return": {
+   "category": "cache",
+   "detected_in_seeds": 3,
+   "of": 5
+  },
+  "cache_result_memo": {
+   "category": "cache",
+   "detected_in_seeds": 4,
+   "of": 5
+  }
+ }
+}

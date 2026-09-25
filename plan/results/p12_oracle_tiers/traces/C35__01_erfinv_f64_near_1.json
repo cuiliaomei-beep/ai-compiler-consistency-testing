@@ -1,0 +1,332 @@
+{
+ "rc": "C35",
+ "members": [
+  "C35"
+ ],
+ "layer": "In",
+ "reproducer": "0920issues/34-inductor-cpu-erfinv-loses-accuracy-near-one.md",
+ "title": "erfinv loses accuracy near +-1 on Inductor CPU",
+ "status": "",
+ "sub": {
+  "name": "erfinv_f64_near_1",
+  "primary": false,
+  "compile": {},
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 1,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:45:17",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [
+       20
+      ],
+      "dtype": "torch.float64",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [
+       20
+      ],
+      "dtype": "torch.float64",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 20,
+     "values": [
+      2.3267537655135246,
+      4.320005388105362,
+      5.042031898572696,
+      5.4725525174145355,
+      5.8635847487551676,
+      2.3267537655135246,
+      4.320005388105362,
+      5.042031898572696,
+      5.4725525174145355,
+      5.8635847487551676,
+      2.3267537655135246,
+      4.320005388105362,
+      5.042031898572696,
+      5.4725525174145355,
+      5.8635847487551676,
+      2.3267537655135246,
+      4.320005388105362,
+      5.042031898572696,
+      5.4725525174145355,
+      5.8635847487551676
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         20
+        ],
+        "dtype": "torch.float64",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 20,
+       "values": [
+        0.999,
+        0.999999999,
+        0.999999999999,
+        0.99999999999999,
+        0.9999999999999999,
+        0.999,
+        0.999999999,
+        0.999999999999,
+        0.99999999999999,
+        0.9999999999999999,
+        0.999,
+        0.999999999,
+        0.999999999999,
+        0.99999999999999,
+        0.9999999999999999,
+        0.999,
+        0.999999999,
+        0.999999999999,
+        0.99999999999999,
+        0.9999999999999999
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0019,
+    "note": null,
+    "caught_by_handler": null,
+    "ref_outputs": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         20
+        ],
+        "dtype": "torch.float64",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": true
+       },
+       "numel": 20,
+       "values": [
+        2.3267537655135246,
+        4.320005388105362,
+        5.042031898572696,
+        5.4725525174145355,
+        5.8635847487551676,
+        2.3267537655135246,
+        4.320005388105362,
+        5.042031898572696,
+        5.4725525174145355,
+        5.8635847487551676,
+        2.3267537655135246,
+        4.320005388105362,
+        5.042031898572696,
+        5.4725525174145355,
+        5.8635847487551676,
+        2.3267537655135246,
+        4.320005388105362,
+        5.042031898572696,
+        5.4725525174145355,
+        5.8635847487551676
+       ]
+      }
+     ]
+    }
+   }
+  ],
+  "wall_s": 0.11,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 5.84,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [
+       20
+      ],
+      "dtype": "torch.float64",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [
+       20
+      ],
+      "dtype": "torch.float64",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 20,
+     "values": [
+      2.3267537655135153,
+      4.320005383710254,
+      5.04202912791571,
+      5.472813143267763,
+      5.842688283830888,
+      2.3267537655135153,
+      4.320005383710254,
+      5.04202912791571,
+      5.472813143267763,
+      5.842688283830888,
+      2.3267537655135153,
+      4.320005383710254,
+      5.04202912791571,
+      5.472813143267763,
+      5.842688283830888,
+      2.3267537655135153,
+      4.320005383710254,
+      5.04202912791571,
+      5.472813143267763,
+      5.842688283830888
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         20
+        ],
+        "dtype": "torch.float64",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 20,
+       "values": [
+        0.999,
+        0.999999999,
+        0.999999999999,
+        0.99999999999999,
+        0.9999999999999999,
+        0.999,
+        0.999999999,
+        0.999999999999,
+        0.99999999999999,
+        0.9999999999999999,
+        0.999,
+        0.999999999,
+        0.999999999999,
+        0.99999999999999,
+        0.9999999999999999,
+        0.999,
+        0.999999999,
+        0.999999999999,
+        0.99999999999999,
+        0.9999999999999999
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 22.3314,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 25.87,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 31.98,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

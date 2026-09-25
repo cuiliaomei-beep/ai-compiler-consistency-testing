@@ -1,0 +1,4396 @@
+[
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if",
+   "python_reads_tensor_metadata:shape"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "shape_boundary"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if",
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:x[:pad]"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "cat",
+   "reshape",
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "mod_tiling"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:x[i]"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "corpus29",
+  "program": "index_chain"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if",
+   "python_reads_tensor_metadata:dtype",
+   "ops_outside_temisu_renderer:float,half"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "float",
+   "half",
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "dtype_read"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 2,
+  "non_tensor_args": [
+   1
+  ],
+  "blockers": [
+   "control_flow:if",
+   "non_tensor_args:1"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "python_flag"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 2,
+  "non_tensor_args": [
+   1
+  ],
+  "blockers": [
+   "control_flow:if",
+   "non_tensor_args:1",
+   "ops_outside_temisu_renderer:tanh"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "relu"
+  ],
+  "calls": [
+   "relu",
+   "sum",
+   "tanh"
+  ],
+  "set": "corpus29",
+  "program": "python_flag_semantic"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 2,
+  "non_tensor_args": [
+   1
+  ],
+  "blockers": [
+   "control_flow:if",
+   "non_static_indexing:x[:n]",
+   "non_tensor_args:1"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "scalar_compare"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 2,
+  "non_tensor_args": [
+   1
+  ],
+  "blockers": [
+   "control_flow:if",
+   "non_tensor_args:1"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "corpus29",
+  "program": "none_check"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:view"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "view"
+  ],
+  "set": "corpus29",
+  "program": "view_inplace"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 2,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:copy_"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "copy_"
+  ],
+  "set": "corpus29",
+  "program": "noncontig_copy"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:add_,mul_"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "add_",
+   "mul_"
+  ],
+  "set": "corpus29",
+  "program": "overlapping_views"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [],
+  "representable_as_torchprobe_seed": true,
+  "mutations_with_candidate_site": [
+   "insert_tcb",
+   "modify_then_recover",
+   "subfunction"
+  ],
+  "elementwise_ops": [],
+  "calls": [
+   "transpose"
+  ],
+  "set": "corpus29",
+  "program": "alias_returned"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if",
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:add_"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "add_"
+  ],
+  "set": "corpus29",
+  "program": "conditional_mutation"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:chunk,mul_"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "chunk",
+   "mul_",
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "chunk_inplace"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [],
+  "representable_as_torchprobe_seed": true,
+  "mutations_with_candidate_site": [
+   "insert_tcb",
+   "desolve_op",
+   "modify_then_recover",
+   "subfunction"
+  ],
+  "elementwise_ops": [
+   "relu"
+  ],
+  "calls": [
+   "relu",
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "requires_grad_switch"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "module_globals:SCALE"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "corpus29",
+  "program": "global_state"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "closure_vars:k"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "corpus29",
+  "program": "closure_fn"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 2,
+  "non_tensor_args": [
+   1
+  ],
+  "blockers": [
+   "non_tensor_args:1"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "reshape",
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "reshape_dim"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 2,
+  "non_tensor_args": [
+   1
+  ],
+  "blockers": [
+   "control_flow:for",
+   "non_tensor_args:1",
+   "python_calls:range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "corpus29",
+  "program": "loop_bound"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if,raise",
+   "python_reads_tensor_metadata:shape",
+   "python_calls:ValueError"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "exception_path"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [
+   0
+  ],
+  "blockers": [
+   "control_flow:if",
+   "non_tensor_args:1",
+   "python_calls:len"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "corpus29",
+  "program": "container_len"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 2,
+  "non_tensor_args": [
+   1
+  ],
+  "blockers": [
+   "control_flow:if",
+   "non_tensor_args:1"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "mean",
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "string_mode"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if",
+   "python_reads_tensor_metadata:stride",
+   "ops_outside_temisu_renderer:contiguous,stride,t"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "contiguous",
+   "stride",
+   "sum",
+   "t"
+  ],
+  "set": "corpus29",
+  "program": "stride_read"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "non_static_indexing:x[m]"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "mask_index"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:device,shape",
+   "ops_outside_temisu_renderer:arange,index_select"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "arange",
+   "index_select",
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "gather_shape"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [],
+  "representable_as_torchprobe_seed": true,
+  "mutations_with_candidate_site": [
+   "desolve_op",
+   "subfunction"
+  ],
+  "elementwise_ops": [
+   "abs"
+  ],
+  "calls": [
+   "abs",
+   "mean",
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "dtype_reduce"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if",
+   "python_reads_tensor_metadata:is_contiguous",
+   "ops_outside_temisu_renderer:is_contiguous,view"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "is_contiguous",
+   "reshape",
+   "sum",
+   "view"
+  ],
+  "set": "corpus29",
+  "program": "contiguous_read"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if",
+   "python_reads_tensor_metadata:ndim"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "rank_read"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 2,
+  "non_tensor_args": [
+   1
+  ],
+  "blockers": [
+   "control_flow:if",
+   "python_reads_tensor_metadata:shape",
+   "non_tensor_args:1"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "corpus29",
+  "program": "flag_and_shape"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for,nested_def,yield",
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:t[i]",
+   "python_calls:gen,list,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "gen_list",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:genexpr",
+   "python_calls:prog,sum"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "gen_expr_sum",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def,yield",
+   "ops_outside_temisu_renderer:stack",
+   "python_calls:inner,list,outer,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "stack"
+  ],
+  "set": "dynsem185",
+  "program": "gen_yield_from",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def,try,yield",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:append,close",
+   "python_calls:gen,list,next,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append",
+   "close"
+  ],
+  "set": "dynsem185",
+  "program": "gen_early_close",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if,nested_def,while,yield",
+   "ops_outside_temisu_renderer:send",
+   "python_calls:acc,next,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "send"
+  ],
+  "set": "dynsem185",
+  "program": "gen_send",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:try",
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "module_globals:STATE,__name__",
+   "ops_outside_temisu_renderer:append,ones",
+   "python_calls:list,prog,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append",
+   "ones"
+  ],
+  "set": "dynsem185",
+  "program": "try_except_shape_error",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def,try",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "python_calls:f,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "try_finally_return",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,if,raise",
+   "python_reads_tensor_metadata:shape",
+   "python_calls:MyErr,prog,tuple"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "raise_custom",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:assert",
+   "python_reads_tensor_metadata:shape",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "assert_message",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:try",
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:lst[x.shape[0] + 5]",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "except_index_error",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:raise,try",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:KeyError,len,list,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "nested_exception_reraise",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_calls:iter,next,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "stopiteration_default",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def,with",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:Ctx,list,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "ctx_class",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def,try,with,yield",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "python_calls:cm,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "ctx_contextlib",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,ifexp,nested_def,raise,with",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:Ctx,RuntimeError,list,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "ctx_exception_inside",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:with",
+   "python_reads_tensor_metadata:requires_grad",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone,enable_grad,is_grad_enabled,no_grad,requires_grad_",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "enable_grad",
+   "is_grad_enabled",
+   "no_grad",
+   "requires_grad_"
+  ],
+  "set": "dynsem185",
+  "program": "ctx_no_grad_nested",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 6,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:requires_grad",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone,requires_grad_,set_grad_enabled",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "requires_grad_",
+   "set_grad_enabled"
+  ],
+  "set": "dynsem185",
+  "program": "ctx_set_grad_enabled",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def",
+   "in_place_mutation",
+   "global_state",
+   "python_calls:bump,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "closure_nonlocal_counter",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,lambda",
+   "python_calls:f,g,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "closure_late_binding",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:f,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "closure_mutable_default",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def",
+   "ops_outside_temisu_renderer:partial",
+   "python_calls:p,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "partial"
+  ],
+  "set": "dynsem185",
+  "program": "partial_kwargs",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def",
+   "ops_outside_temisu_renderer:values",
+   "python_calls:inner,outer,prog,sum"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "values"
+  ],
+  "set": "dynsem185",
+  "program": "args_kwargs_forward",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 7,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:items,keys,pop,setdefault",
+   "python_calls:list,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "items",
+   "keys",
+   "pop",
+   "setdefault",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "dict_order_and_ops",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,genexpr",
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:x[i]",
+   "ops_outside_temisu_renderer:popitem,update",
+   "python_calls:prog,range,sorted,str"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "popitem",
+   "sum",
+   "update"
+  ],
+  "set": "dynsem185",
+  "program": "dict_update_merge",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension",
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:discard",
+   "python_calls:int,len,prog,range,sorted"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "add"
+  ],
+  "calls": [
+   "add",
+   "discard"
+  ],
+  "set": "dynsem185",
+  "program": "set_ops",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 6,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension",
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "non_static_indexing:x[i]",
+   "ops_outside_temisu_renderer:amax,insert,pop,reverse",
+   "python_calls:prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "amax",
+   "insert",
+   "mean",
+   "pop",
+   "reverse",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "list_slice_assign",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,lambda",
+   "python_reads_tensor_metadata:item,shape",
+   "non_static_indexing:x[i]",
+   "ops_outside_temisu_renderer:item,sort",
+   "python_calls:prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "item",
+   "sort",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "list_sort_key",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for,if",
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:x[i],x[i]",
+   "ops_outside_temisu_renderer:append,extend,zeros",
+   "python_calls:prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append",
+   "extend",
+   "zeros"
+  ],
+  "set": "dynsem185",
+  "program": "list_extend_in_loop",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 10,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension",
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:Counter,OrderedDict,append,defaultdict,deque,keys,move_to_end",
+   "python_calls:dict,int,list,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "Counter",
+   "OrderedDict",
+   "append",
+   "defaultdict",
+   "deque",
+   "keys",
+   "move_to_end",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "collections_types",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "non_static_indexing:acc[-1]",
+   "ops_outside_temisu_renderer:accumulate,chain,product",
+   "python_calls:list,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "accumulate",
+   "chain",
+   "product"
+  ],
+  "set": "dynsem185",
+  "program": "itertools_mix",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:try",
+   "python_calls:list,prog,zip"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "zip_strict_error",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "python_calls:abs,divmod,int,pow,prog,round"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "int_semantics",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:isnan",
+   "python_calls:float,max,min,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "isnan"
+  ],
+  "set": "dynsem185",
+  "program": "float_nan_semantics",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:s[-1],s[::-1]",
+   "ops_outside_temisu_renderer:Size,count,index,prod",
+   "python_calls:len,list,max,prog,sum,tuple"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "Size",
+   "count",
+   "index",
+   "prod"
+  ],
+  "set": "dynsem185",
+  "program": "shape_arith",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:tensor",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "tensor"
+  ],
+  "set": "dynsem185",
+  "program": "bigint_to_tensor",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:enumerate,list,prog,reversed"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "iterate_rows",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "ops_outside_temisu_renderer:zeros",
+   "python_calls:len,prog,reversed"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "reshape",
+   "zeros"
+  ],
+  "set": "dynsem185",
+  "program": "unpack_and_star",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 7,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:ifexp",
+   "python_reads_tensor_metadata:dim,shape",
+   "in_place_mutation",
+   "non_static_indexing:y[torch.tensor([1, 0])],x[x.sum(-1) > 0]",
+   "ops_outside_temisu_renderer:clone,dim,tensor",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "dim",
+   "sum",
+   "tensor"
+  ],
+  "set": "dynsem185",
+  "program": "fancy_index",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:ifexp",
+   "python_reads_tensor_metadata:dim,item,tolist",
+   "ops_outside_temisu_renderer:dim,item,tolist",
+   "python_calls:int,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "floor"
+  ],
+  "calls": [
+   "dim",
+   "floor",
+   "item",
+   "sum",
+   "tolist"
+  ],
+  "set": "dynsem185",
+  "program": "item_and_python_math",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "bool_tensor_branch",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:numel,shape",
+   "non_static_indexing:x[x > 0]",
+   "ops_outside_temisu_renderer:nonzero,numel",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "nonzero",
+   "numel"
+  ],
+  "set": "dynsem185",
+  "program": "data_dependent_shape",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:dtype,shape",
+   "ops_outside_temisu_renderer:format,split,startswith,upper",
+   "python_calls:prog,repr,str,tuple"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "format",
+   "split",
+   "startswith",
+   "upper"
+  ],
+  "set": "dynsem185",
+  "program": "string_ops",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for",
+   "ops_outside_temisu_renderer:graph_break",
+   "python_calls:prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "graph_break"
+  ],
+  "set": "dynsem185",
+  "program": "graph_break_in_loop",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "python_calls:print,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "print_in_middle",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 7,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:graph_break",
+   "python_calls:len,list,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "graph_break"
+  ],
+  "set": "dynsem185",
+  "program": "many_locals_resume",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:try",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:graph_break",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "graph_break"
+  ],
+  "set": "dynsem185",
+  "program": "break_inside_try",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:with",
+   "python_reads_tensor_metadata:requires_grad",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone,graph_break,no_grad,requires_grad_",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "graph_break",
+   "no_grad",
+   "requires_grad_"
+  ],
+  "set": "dynsem185",
+  "program": "break_inside_with",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:choice,randint,random,seed",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "choice",
+   "randint",
+   "random",
+   "seed"
+  ],
+  "set": "dynsem185",
+  "program": "python_random",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:Random,random,randrange",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "Random",
+   "random",
+   "randrange"
+  ],
+  "set": "dynsem185",
+  "program": "python_random_no_seed_state",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:dtype,shape",
+   "ops_outside_temisu_renderer:float32,from_numpy,numpy",
+   "python_calls:float,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "abs",
+   "sqrt"
+  ],
+  "calls": [
+   "abs",
+   "float32",
+   "from_numpy",
+   "numpy",
+   "sqrt",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "numpy_interop",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "module_globals:__name__",
+   "ops_outside_temisu_renderer:float32,int64",
+   "python_calls:int,prog,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "float32",
+   "int64"
+  ],
+  "set": "dynsem185",
+  "program": "numpy_scalar_types",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "module_globals:STATE",
+   "python_calls:prog,sorted"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "global_state_counter",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,for,nested_def",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:Obj,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "object_attr_mutation",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:__init__,add_,append,register_buffer,setdefault,zeros",
+   "python_calls:M,len,m,prog,super"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "__init__",
+   "add_",
+   "append",
+   "register_buffer",
+   "setdefault",
+   "sum",
+   "zeros"
+  ],
+  "set": "dynsem185",
+  "program": "module_python_state",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 7,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:_asdict,namedtuple",
+   "python_calls:NT,P,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "_asdict",
+   "namedtuple"
+  ],
+  "set": "dynsem185",
+  "program": "dataclass_namedtuple",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,if,nested_def",
+   "module_globals:__name__",
+   "python_calls:f,getattr,hasattr,isinstance,prog,str,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "isinstance_dispatch",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone",
+   "python_calls:hasattr,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone"
+  ],
+  "set": "dynsem185",
+  "program": "tensor_attribute_monkeypatch",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 6,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:add_,clone,mul_,view",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "add_",
+   "clone",
+   "mul_",
+   "sum",
+   "view"
+  ],
+  "set": "dynsem185",
+  "program": "aliasing_view_inplace",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:add_,clone,requires_grad_",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "add_",
+   "clone",
+   "requires_grad_"
+  ],
+  "set": "dynsem185",
+  "program": "inplace_leaf_error",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:data_ptr,requires_grad",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone,data_ptr,detach,requires_grad_",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "data_ptr",
+   "detach",
+   "requires_grad_"
+  ],
+  "set": "dynsem185",
+  "program": "detach_identity",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:grad",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:backward,clone,requires_grad_",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "backward",
+   "clone",
+   "requires_grad_",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "grad_attr",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:append,copy,deepcopy,equal",
+   "python_calls:len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append",
+   "copy",
+   "deepcopy",
+   "equal"
+  ],
+  "set": "dynsem185",
+  "program": "copy_deepcopy",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for,if,while",
+   "in_place_mutation",
+   "python_calls:prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "while_break_continue_else",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if,nested_def",
+   "python_reads_tensor_metadata:shape",
+   "python_calls:prog,rec"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "recursion_depth",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:genexpr,lambda",
+   "ops_outside_temisu_renderer:zeros",
+   "python_calls:all,any,bool,filter,isinstance,len,list,map,prog,sum"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "abs"
+  ],
+  "calls": [
+   "abs",
+   "sum",
+   "zeros"
+  ],
+  "set": "dynsem185",
+  "program": "map_filter_any_all",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:genexpr",
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:x[i]",
+   "ops_outside_temisu_renderer:unsqueeze,zeros_like",
+   "python_calls:list,prog,range,sum"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "cat",
+   "unsqueeze",
+   "zeros_like"
+  ],
+  "set": "dynsem185",
+  "program": "sum_generator_of_tensors",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension",
+   "python_reads_tensor_metadata:shape",
+   "ops_outside_temisu_renderer:unbind",
+   "python_calls:dict,enumerate,prog,range,sorted,zip"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum",
+   "unbind"
+  ],
+  "set": "dynsem185",
+  "program": "dict_zip_enumerate_unbind",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:dim,dtype,is_contiguous,numel,shape",
+   "ops_outside_temisu_renderer:dim,is_contiguous,is_tensor,numel",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "dim",
+   "is_contiguous",
+   "is_tensor",
+   "numel"
+  ],
+  "set": "dynsem185",
+  "program": "chained_bool_tensor_props",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 6,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:ifexp",
+   "python_reads_tensor_metadata:dim",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone,dim",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "dim"
+  ],
+  "set": "dynsem185",
+  "program": "setitem_mask_and_slices",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:lambda",
+   "python_reads_tensor_metadata:grad",
+   "ops_outside_temisu_renderer:clone,grad",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "grad",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "torch_func_inside",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:grad",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone,grad,requires_grad_",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "grad",
+   "requires_grad_",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "autograd_grad_inside",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:equal,manual_seed,rand",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "equal",
+   "manual_seed",
+   "rand"
+  ],
+  "set": "dynsem185",
+  "program": "manual_seed_inside",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 9,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:Dropout,equal,eval,manual_seed,train",
+   "python_calls:m,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "Dropout",
+   "equal",
+   "eval",
+   "manual_seed",
+   "train"
+  ],
+  "set": "dynsem185",
+  "program": "dropout_train_eval",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:try",
+   "module_globals:__name__",
+   "python_calls:prog,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "list_of_tensors_equality",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if,raise",
+   "python_reads_tensor_metadata:item",
+   "ops_outside_temisu_renderer:item",
+   "python_calls:ValueError,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "item",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "exception_message_with_value",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def",
+   "python_reads_tensor_metadata:shape",
+   "python_calls:f,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "nested_function_defaults_from_tensor",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:list(range(n))[::-1],x[idx],x[n - 1]",
+   "ops_outside_temisu_renderer:narrow",
+   "python_calls:list,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "narrow"
+  ],
+  "set": "dynsem185",
+  "program": "torch_size_and_int_mixing",
+  "module": "tcc.dynamo_semantics"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:betavariate,choices,expovariate,seed",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "betavariate",
+   "choices",
+   "expovariate",
+   "seed"
+  ],
+  "set": "dynsem185",
+  "program": "random_choice_weights",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:getrandbits,randbytes,seed,triangular",
+   "python_calls:len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "getrandbits",
+   "randbytes",
+   "seed",
+   "triangular"
+  ],
+  "set": "dynsem185",
+  "program": "random_randbytes_getrandbits",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:Random,randint,random,sample,shuffle",
+   "python_calls:prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "Random",
+   "randint",
+   "random",
+   "sample",
+   "shuffle"
+  ],
+  "set": "dynsem185",
+  "program": "random_instance_methods",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:item,shape",
+   "ops_outside_temisu_renderer:item,manual_seed,rand,randint,randn_like",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "item",
+   "manual_seed",
+   "rand",
+   "randint",
+   "randn_like"
+  ],
+  "set": "dynsem185",
+  "program": "torch_rand_in_fn",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "ops_outside_temisu_renderer:astype,default_rng,from_numpy,random,standard_normal",
+   "python_calls:float,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "astype",
+   "default_rng",
+   "from_numpy",
+   "random",
+   "standard_normal"
+  ],
+  "set": "dynsem185",
+  "program": "np_random_in_fn",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:dtype,shape",
+   "ops_outside_temisu_renderer:allclose,concatenate,copy,from_numpy,numpy",
+   "python_calls:int,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "allclose",
+   "argmax",
+   "concatenate",
+   "copy",
+   "from_numpy",
+   "numpy",
+   "reshape",
+   "sum",
+   "where"
+  ],
+  "set": "dynsem185",
+  "program": "np_array_ops",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:item,shape",
+   "module_globals:__name__",
+   "ops_outside_temisu_renderer:float64,int32,item",
+   "python_calls:int,prog,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "floor"
+  ],
+  "calls": [
+   "float64",
+   "floor",
+   "int32",
+   "item"
+  ],
+  "set": "dynsem185",
+  "program": "np_scalar_math",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:item,shape",
+   "ops_outside_temisu_renderer:item",
+   "python_calls:bin,chr,divmod,hex,list,max,oct,ord,prog,range,round,sorted,sum"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "item",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "builtins_misc",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "python_calls:float,int,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "int_float_conversion",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "python_calls:bool,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "bool_ops_on_python",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:s[::-1]",
+   "ops_outside_temisu_renderer:count,encode,find,join,replace,split,title",
+   "python_calls:prog,reversed,str"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "count",
+   "encode",
+   "find",
+   "join",
+   "replace",
+   "split",
+   "title"
+  ],
+  "set": "dynsem185",
+  "program": "string_methods_more",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:ba[-1]",
+   "ops_outside_temisu_renderer:append,hex",
+   "python_calls:bytearray,bytes,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append",
+   "hex"
+  ],
+  "set": "dynsem185",
+  "program": "bytes_and_bytearray",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "ops_outside_temisu_renderer:count,index",
+   "python_calls:prog,tuple"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "count",
+   "index"
+  ],
+  "set": "dynsem185",
+  "program": "tuple_ops",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension",
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:x[i],x[i]",
+   "python_calls:prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "list_comprehension_conditions",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if",
+   "python_reads_tensor_metadata:shape",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "walrus_and_match",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 8,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "del_and_rebind",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:ifexp",
+   "python_reads_tensor_metadata:dim",
+   "non_static_indexing:x[::-1],x[:, ::-1],x[-2:]",
+   "ops_outside_temisu_renderer:dim",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "dim"
+  ],
+  "set": "dynsem185",
+  "program": "slicing_negative_steps",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:x[Ellipsis, 0]",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "ellipsis_none_indexing",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:raise,try",
+   "ops_outside_temisu_renderer:graph_break",
+   "python_calls:KeyError,prog,str"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "graph_break"
+  ],
+  "set": "dynsem185",
+  "program": "exception_after_graph_break",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:try",
+   "ops_outside_temisu_renderer:zeros",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "cat",
+   "zeros"
+  ],
+  "set": "dynsem185",
+  "program": "exception_from_torch_op_caught",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def,raise,try,yield",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:ValueError,gen,next,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "exception_in_generator",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:raise,try",
+   "module_globals:__name__",
+   "python_calls:TypeError,ValueError,prog,str,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "exception_chaining",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def,try",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "python_calls:f,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "finally_overrides_return",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:raise",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:ExceptionGroup,TypeError,ValueError,list,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "exception_group",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:assert",
+   "python_reads_tensor_metadata:dim,shape",
+   "ops_outside_temisu_renderer:dim",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "dim"
+  ],
+  "set": "dynsem185",
+  "program": "assert_tensor_shape_ok",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:lambda,with",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:ExitStack,append,callback,suppress",
+   "python_calls:list,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "ExitStack",
+   "append",
+   "callback",
+   "suppress"
+  ],
+  "set": "dynsem185",
+  "program": "contextlib_suppress_exitstack",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,comprehension,if,nested_def,raise",
+   "in_place_mutation",
+   "python_calls:Counter,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "generator_stateful_class",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,nested_def,while,yield",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:islice",
+   "python_calls:nat,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "islice",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "generator_infinite_islice",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:genexpr,nested_def",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:all,any,chk,list,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "genexpr_any_short_circuit",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 7,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,lambda",
+   "ops_outside_temisu_renderer:cycle,groupby,islice,pairwise,starmap,takewhile,zip_longest",
+   "python_calls:len,list,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "cycle",
+   "groupby",
+   "islice",
+   "pairwise",
+   "starmap",
+   "takewhile",
+   "zip_longest"
+  ],
+  "set": "dynsem185",
+  "program": "itertools_more",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:lru_cache,reduce",
+   "python_calls:prog,sq"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "lru_cache",
+   "reduce"
+  ],
+  "set": "dynsem185",
+  "program": "functools_reduce_lru",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,if,lambda,nested_def,raise",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:startswith,times_3",
+   "python_calls:AttributeError,Scale,hasattr,int,prog,sc"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "startswith",
+   "times_3"
+  ],
+  "set": "dynsem185",
+  "program": "class_call_getattr",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:make,twice",
+   "python_calls:cls,hasattr,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "make",
+   "twice"
+  ],
+  "set": "dynsem185",
+  "program": "class_slots_property_classmethod",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,comprehension,ifexp,nested_def",
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "non_static_indexing:self.t[i]",
+   "ops_outside_temisu_renderer:equal,unbind",
+   "python_calls:V,bool,hash,isinstance,iter,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "equal",
+   "sum",
+   "unbind"
+  ],
+  "set": "dynsem185",
+  "program": "operator_overloading_python_obj",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,comprehension,nested_def",
+   "module_globals:__name__",
+   "ops_outside_temisu_renderer:f",
+   "python_calls:C,isinstance,issubclass,prog,super"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "f"
+  ],
+  "set": "dynsem185",
+  "program": "inheritance_super_mro",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def",
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:tensor",
+   "python_calls:Bag,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "tensor"
+  ],
+  "set": "dynsem185",
+  "program": "dunder_contains_and_in",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:genexpr",
+   "python_reads_tensor_metadata:numel,shape",
+   "in_place_mutation",
+   "module_globals:STATE,__name__",
+   "ops_outside_temisu_renderer:Linear,ReLU,numel,parameters",
+   "python_calls:len,list,prog,sum,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "Linear",
+   "ReLU",
+   "numel",
+   "parameters"
+  ],
+  "set": "dynsem185",
+  "program": "module_as_python_value",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:device,dtype,numel,shape,size",
+   "ops_outside_temisu_renderer:Size,element_size,finfo,iinfo,numel,size",
+   "python_calls:prog,str"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "Size",
+   "element_size",
+   "finfo",
+   "iinfo",
+   "numel",
+   "size"
+  ],
+  "set": "dynsem185",
+  "program": "size_dtype_device_values",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:ifexp",
+   "python_reads_tensor_metadata:dim,dtype,ndim,numel,shape,storage_offset",
+   "ops_outside_temisu_renderer:dim,is_floating_point,numel,storage_offset",
+   "python_calls:len,list,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "dim",
+   "is_floating_point",
+   "numel",
+   "storage_offset"
+  ],
+  "set": "dynsem185",
+  "program": "tensor_python_protocol",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "non_static_indexing:d[x]",
+   "python_calls:hash,id,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "tensor_hash_id_set",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:lambda",
+   "python_reads_tensor_metadata:item",
+   "ops_outside_temisu_renderer:item,stack,unbind",
+   "python_calls:list,max,prog,sorted"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "abs"
+  ],
+  "calls": [
+   "abs",
+   "item",
+   "stack",
+   "sum",
+   "unbind"
+  ],
+  "set": "dynsem185",
+  "program": "sorted_tensors_key",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:item",
+   "ops_outside_temisu_renderer:item",
+   "python_calls:abs,max,min,prog,round"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "item",
+   "mean",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "min_max_builtin_on_tensors",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:ifexp",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:append,extend",
+   "python_calls:isinstance,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append",
+   "extend",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "mutate_input_list_arg",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:get,setdefault",
+   "python_calls:prog,sorted"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "get",
+   "setdefault",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "mutate_input_dict_nested",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:add_,mul_",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "add_",
+   "mul_",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "inplace_on_input_then_view",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone,set_,view,zeros",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "set_",
+   "view",
+   "zeros"
+  ],
+  "set": "dynsem185",
+  "program": "inplace_resize_and_set",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 6,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:requires_grad",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone,requires_grad_",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "requires_grad_"
+  ],
+  "set": "dynsem185",
+  "program": "requires_grad_toggle_inside",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:add_,clone",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "add_",
+   "clone"
+  ],
+  "set": "dynsem185",
+  "program": "inplace_views_overlap",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "ops_outside_temisu_renderer:empty,empty_like",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "add",
+   "mul"
+  ],
+  "calls": [
+   "add",
+   "empty",
+   "empty_like",
+   "mul"
+  ],
+  "set": "dynsem185",
+  "program": "out_kwarg",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:ifexp",
+   "python_reads_tensor_metadata:dim,is_contiguous,shape",
+   "ops_outside_temisu_renderer:as_strided,contiguous,dim,is_contiguous,unfold",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "as_strided",
+   "contiguous",
+   "dim",
+   "is_contiguous",
+   "unfold"
+  ],
+  "set": "dynsem185",
+  "program": "as_strided_unfold",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for,if",
+   "python_calls:prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "nested_loops_break_labels",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,for,if",
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "non_static_indexing:x[i],d[k]",
+   "ops_outside_temisu_renderer:pop",
+   "python_calls:list,prog,range,sorted"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "pop"
+  ],
+  "set": "dynsem185",
+  "program": "loop_over_dict_mutating_copy",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:while",
+   "python_reads_tensor_metadata:item",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:item",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "abs"
+  ],
+  "calls": [
+   "abs",
+   "item",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "while_with_tensor_condition_item",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:ifexp",
+   "python_reads_tensor_metadata:shape",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "mean",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "ternary_chains_and_or",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for",
+   "ops_outside_temisu_renderer:append,flip",
+   "python_calls:enumerate,prog,range,zip"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append",
+   "flip",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "enumerate_start_zip_three",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def",
+   "in_place_mutation",
+   "python_calls:f,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "default_args_evaluated_once",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for,nested_def",
+   "in_place_mutation",
+   "global_state",
+   "python_calls:add,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "nonlocal_in_loop_closure",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:if,nested_def",
+   "in_place_mutation",
+   "non_static_indexing:memo[n]",
+   "python_calls:fib,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "recursion_with_memo_dict",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,lambda",
+   "non_static_indexing:ops[k]",
+   "ops_outside_temisu_renderer:get",
+   "python_calls:prog,sorted"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "get"
+  ],
+  "set": "dynsem185",
+  "program": "lambda_in_dict_dispatch",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "ops_outside_temisu_renderer:comb,gcd,isclose",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "log2",
+   "sqrt"
+  ],
+  "calls": [
+   "comb",
+   "gcd",
+   "isclose",
+   "log2",
+   "sqrt"
+  ],
+  "set": "dynsem185",
+  "program": "global_constant_folding",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for",
+   "python_reads_tensor_metadata:item",
+   "ops_outside_temisu_renderer:item",
+   "python_calls:print,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "item",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "print_format_side_effect_count",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:genexpr",
+   "python_reads_tensor_metadata:shape,tolist",
+   "ops_outside_temisu_renderer:join,tolist",
+   "python_calls:map,prog,round,str"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "join",
+   "tolist"
+  ],
+  "set": "dynsem185",
+  "program": "string_join_of_tensor_values",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "non_static_indexing:list(d.items())[-1]",
+   "ops_outside_temisu_renderer:items,keys,values",
+   "python_calls:dict,list,prog,reversed,sorted"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "items",
+   "keys",
+   "values"
+  ],
+  "set": "dynsem185",
+  "program": "dict_views_and_iteration_order",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "ops_outside_temisu_renderer:Size",
+   "python_calls:frozenset,len,prog,sorted"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "Size"
+  ],
+  "set": "dynsem185",
+  "program": "set_of_shapes_and_frozenset",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:Linear,deepcopy,equal,fill_",
+   "python_calls:m2,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "abs"
+  ],
+  "calls": [
+   "Linear",
+   "abs",
+   "deepcopy",
+   "equal",
+   "fill_",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "deepcopy_module_state",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def",
+   "python_reads_tensor_metadata:requires_grad",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone,no_grad,requires_grad_",
+   "python_calls:f,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone",
+   "no_grad",
+   "requires_grad_"
+  ],
+  "set": "dynsem185",
+  "program": "torch_no_grad_decorator",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:with",
+   "python_reads_tensor_metadata:dtype",
+   "ops_outside_temisu_renderer:autocast,is_autocast_enabled,linear,randn",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "autocast",
+   "is_autocast_enabled",
+   "linear",
+   "randn"
+  ],
+  "set": "dynsem185",
+  "program": "autocast_inside",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:with",
+   "python_reads_tensor_metadata:requires_grad",
+   "ops_outside_temisu_renderer:inference_mode,is_inference",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "inference_mode",
+   "is_inference"
+  ],
+  "set": "dynsem185",
+  "program": "inference_mode_inside",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,ifexp",
+   "ops_outside_temisu_renderer:any",
+   "python_calls:bool,int,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "any",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "tensor_bool_in_if_after_item",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:dtype,shape",
+   "ops_outside_temisu_renderer:conjugate",
+   "python_calls:abs,complex,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "conjugate",
+   "to"
+  ],
+  "set": "dynsem185",
+  "program": "complex_python_numbers",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:dtype,item,shape",
+   "ops_outside_temisu_renderer:format,item",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "format",
+   "item",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "format_spec_on_shape_and_item",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 8,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,try",
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:F,G,dataclass,field,hash,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "dataclass_frozen_and_field_default",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,comprehension,ifexp",
+   "python_reads_tensor_metadata:shape",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "enum_usage",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def",
+   "module_globals:__name__",
+   "python_calls:f,isinstance,prog,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "typing_and_isinstance_union",
+  "module": "tcc.dynamo_semantics_more"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def,try,yield",
+   "python_calls:g,next,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "gen_return_value_stopiteration",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def,try,yield",
+   "ops_outside_temisu_renderer:throw",
+   "python_calls:ValueError,g,next,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "throw"
+  ],
+  "set": "dynsem185",
+  "program": "gen_throw",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:genexpr",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:len,list,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "gen_expression_lazy_side_effect",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for,genexpr,nested_def,yield",
+   "python_calls:list,outer,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "nested_generator_closure_var",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,comprehension,for,nested_def,yield",
+   "python_reads_tensor_metadata:shape",
+   "in_place_mutation",
+   "non_static_indexing:self.t[i]",
+   "ops_outside_temisu_renderer:flip,unbind",
+   "python_calls:Rows,iter,len,list,prog,range,reversed"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "flip",
+   "sum",
+   "unbind"
+  ],
+  "set": "dynsem185",
+  "program": "iter_protocol_custom_object",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def",
+   "python_reads_tensor_metadata:item",
+   "module_globals:STATE,__name__",
+   "ops_outside_temisu_renderer:__torch_function__,append,as_subclass,item",
+   "python_calls:getattr,len,prog,str,super,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "__torch_function__",
+   "append",
+   "as_subclass",
+   "item",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "tensor_subclass_torch_function",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def,with",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "python_calls:Count,func,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "torch_function_mode",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:requires_grad",
+   "module_globals:__name__",
+   "ops_outside_temisu_renderer:Parameter,clone",
+   "python_calls:isinstance,prog,repr,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "Parameter",
+   "clone"
+  ],
+  "set": "dynsem185",
+  "program": "parameter_subclass_attrs",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 8,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:WeakValueDictionary,ref",
+   "python_calls:Holder,prog,r"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "WeakValueDictionary",
+   "ref",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "weakref_to_object",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:local,setdefault",
+   "python_calls:getattr,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "local",
+   "setdefault"
+  ],
+  "set": "dynsem185",
+  "program": "threading_local_state",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 6,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "ops_outside_temisu_renderer:BytesIO,dumps,equal,load,loads,save,seek",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "BytesIO",
+   "dumps",
+   "equal",
+   "load",
+   "loads",
+   "save",
+   "seek"
+  ],
+  "set": "dynsem185",
+  "program": "pickle_roundtrip_tensor",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:add_,deepcopy,equal",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "add_",
+   "deepcopy",
+   "equal",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "deepcopy_nested_containers_with_tensors",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:with",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:Linear,ReLU,Sequential,clamp_min,deepcopy,equal,no_grad,zero_",
+   "python_calls:m,m2,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [
+   "abs",
+   "max"
+  ],
+  "calls": [
+   "Linear",
+   "ReLU",
+   "Sequential",
+   "abs",
+   "clamp_min",
+   "deepcopy",
+   "equal",
+   "max",
+   "no_grad",
+   "zero_"
+  ],
+  "set": "dynsem185",
+  "program": "deepcopy_module_forward",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def",
+   "in_place_mutation",
+   "python_calls:Lazy,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "descriptor_property_cached",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 6,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def",
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:C,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "class_attr_vs_instance_attr",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def",
+   "module_globals:__name__",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "metaclass_and_init_subclass",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 6,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def",
+   "in_place_mutation",
+   "non_static_indexing:self.d[k]",
+   "ops_outside_temisu_renderer:get",
+   "python_calls:Store,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "get"
+  ],
+  "set": "dynsem185",
+  "program": "dunder_getitem_setitem_delitem",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 12,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "ops_outside_temisu_renderer:clone",
+   "python_calls:len,prog,sorted"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone"
+  ],
+  "set": "dynsem185",
+  "program": "augmented_assign_containers",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:item,shape",
+   "ops_outside_temisu_renderer:item",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "item",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "chained_comparison_tensor_scalar",
+  "module": "tcc.dynamo_semantics_batch4"
+ },
+ {
+  "n_stmts": 5,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:data_ptr,shape",
+   "ops_outside_temisu_renderer:contiguous,data_ptr,view",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "contiguous",
+   "data_ptr",
+   "view"
+  ],
+  "set": "dynsem185",
+  "program": "identity_after_ops",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 1,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:raise,try",
+   "python_reads_tensor_metadata:shape",
+   "ops_outside_temisu_renderer:add_note",
+   "python_calls:ValueError,prog,str"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "add_note"
+  ],
+  "set": "dynsem185",
+  "program": "exception_args_and_notes",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def",
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:x[True .__index__()]",
+   "module_globals:__name__",
+   "ops_outside_temisu_renderer:__index__",
+   "python_calls:MyInt,isinstance,prog,type"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "__index__"
+  ],
+  "set": "dynsem185",
+  "program": "int_bool_subclass_handling",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:for,try",
+   "module_globals:__name__",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:enumerate,list,prog,type,zip"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "zip_enumerate_strict_tensors",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,lambda",
+   "python_reads_tensor_metadata:item,shape",
+   "non_static_indexing:x[i],vals[i],vals[j]",
+   "ops_outside_temisu_renderer:cmp_to_key,item",
+   "python_calls:len,prog,range,sorted"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "cmp_to_key",
+   "item",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "sorted_cmp_to_key",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:ifexp",
+   "python_reads_tensor_metadata:dtype,item,shape",
+   "ops_outside_temisu_renderer:item",
+   "python_calls:prog,str"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "item"
+  ],
+  "set": "dynsem185",
+  "program": "string_format_tensor_repr",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:shape",
+   "ops_outside_temisu_renderer:equal,frombuffer,numpy,tobytes",
+   "python_calls:bytearray,len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "equal",
+   "frombuffer",
+   "numpy",
+   "reshape",
+   "tobytes"
+  ],
+  "set": "dynsem185",
+  "program": "bytes_from_tensor",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 6,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:nested_def,while,yield",
+   "in_place_mutation",
+   "python_calls:next,prog,step"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [],
+  "set": "dynsem185",
+  "program": "nonlocal_generator_state_machine",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 2,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,lambda",
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:table[x.shape[0] % 3],table[::-1]",
+   "ops_outside_temisu_renderer:amax",
+   "python_calls:f,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "amax",
+   "mean",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "list_of_lambdas_dispatch_on_shape",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:try",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "try_except_else_finally_order",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:class_def,nested_def,with",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:append",
+   "python_calls:Ctx,list,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "append"
+  ],
+  "set": "dynsem185",
+  "program": "with_multiple_context_managers",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "python_reads_tensor_metadata:item",
+   "in_place_mutation",
+   "module_globals:STATE",
+   "ops_outside_temisu_renderer:item,setdefault",
+   "python_calls:dict,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "item",
+   "setdefault",
+   "sum"
+  ],
+  "set": "dynsem185",
+  "program": "global_dict_mutation_across_calls",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 6,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "in_place_mutation",
+   "non_static_indexing:d[y]",
+   "ops_outside_temisu_renderer:clone",
+   "python_calls:len,prog"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "clone"
+  ],
+  "set": "dynsem185",
+  "program": "tensor_in_set_and_dict_key_identity",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 4,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,for,if",
+   "python_reads_tensor_metadata:shape",
+   "non_static_indexing:mods[-1]",
+   "ops_outside_temisu_renderer:Linear,ModuleList",
+   "python_calls:enumerate,len,m,prog,range"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "Linear",
+   "ModuleList"
+  ],
+  "set": "dynsem185",
+  "program": "callable_module_list_in_loop",
+  "module": "tcc.dynamo_semantics_batch3"
+ },
+ {
+  "n_stmts": 3,
+  "n_params": 1,
+  "non_tensor_args": [],
+  "blockers": [
+   "control_flow:comprehension,lambda",
+   "python_reads_tensor_metadata:item,shape",
+   "non_static_indexing:x[i]",
+   "ops_outside_temisu_renderer:item,items,values",
+   "python_calls:prog,range,sorted,sum"
+  ],
+  "representable_as_torchprobe_seed": false,
+  "mutations_with_candidate_site": [],
+  "elementwise_ops": [],
+  "calls": [
+   "item",
+   "items",
+   "sum",
+   "values"
+  ],
+  "set": "dynsem185",
+  "program": "dict_comprehension_with_tensor_values_sorted",
+  "module": "tcc.dynamo_semantics_batch3"
+ }
+]

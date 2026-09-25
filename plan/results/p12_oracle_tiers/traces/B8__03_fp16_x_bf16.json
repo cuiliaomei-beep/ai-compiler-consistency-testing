@@ -1,0 +1,335 @@
+{
+ "rc": "B8",
+ "members": [
+  "B8"
+ ],
+ "layer": "In",
+ "reproducer": "0913issues/08-inductor-ldexp-output-dtype.md",
+ "title": "ldexp output dtype wrong in both directions",
+ "status": "fixed",
+ "sub": {
+  "name": "fp16_x_bf16",
+  "primary": false,
+  "compile": {},
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 3,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:27:58",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [
+       3,
+       4
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       4,
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 2,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [
+       3,
+       4
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       4,
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 12,
+     "values": [
+      0.058887481689453125,
+      -2.198089599609375,
+      -3.976409912109375,
+      -1.487548828125,
+      1.7884445190429688,
+      0.01116180419921875,
+      -0.11296319961547852,
+      -0.2470407485961914,
+      3.223297119140625,
+      3.2328643798828125,
+      -0.5337181091308594,
+      -0.493408203125
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float16",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        0.17529296875,
+        -0.931640625,
+        -1.505859375,
+        -0.6611328125,
+        1.3232421875,
+        0.037109375,
+        -0.284912109375,
+        -0.1334228515625,
+        1.892578125,
+        3.111328125,
+        -0.45849609375,
+        -0.3359375
+       ]
+      },
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        -1.5703125,
+        1.234375,
+        1.3984375,
+        1.171875,
+        0.43359375,
+        -1.734375,
+        -1.3359375,
+        0.88671875,
+        0.76953125,
+        0.05712890625,
+        0.2236328125,
+        0.55078125
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0004,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 0.021,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 8.23,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [
+       3,
+       4
+      ],
+      "dtype": "torch.float16",
+      "device": "cpu",
+      "stride": [
+       4,
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 2,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [
+       3,
+       4
+      ],
+      "dtype": "torch.float16",
+      "device": "cpu",
+      "stride": [
+       4,
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 12,
+     "values": [
+      0.05902099609375,
+      -2.19140625,
+      -3.96875,
+      -1.4892578125,
+      1.787109375,
+      0.0111541748046875,
+      -0.11285400390625,
+      -0.2467041015625,
+      3.2265625,
+      3.236328125,
+      -0.53515625,
+      -0.4921875
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float16",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        0.17529296875,
+        -0.931640625,
+        -1.505859375,
+        -0.6611328125,
+        1.3232421875,
+        0.037109375,
+        -0.284912109375,
+        -0.1334228515625,
+        1.892578125,
+        3.111328125,
+        -0.45849609375,
+        -0.3359375
+       ]
+      },
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        -1.5703125,
+        1.234375,
+        1.3984375,
+        1.171875,
+        0.43359375,
+        -1.734375,
+        -1.3359375,
+        0.88671875,
+        0.76953125,
+        0.05712890625,
+        0.2236328125,
+        0.55078125
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 32.5416,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 37.641,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 46.24,
+  "stdout_tail": "",
+  "stderr_tail": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\codegen\\cpp.py:4116: UserWarning: bf16 and fp16 are mixed in the scheduler node.\n  warnings.warn(\"bf16 and fp16 are mixed in the scheduler node.\")\n"
+ }
+}

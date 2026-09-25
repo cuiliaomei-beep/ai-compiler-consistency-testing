@@ -1,0 +1,19 @@
+torch 2.14.0+cpu; autocast torch.float16; shard 1/2: 231 ops to do (0 done)
+[25/231] cosh: ok (1s, total 25s)  [None]
+D:\wsl\personal\dr\paper\toxic_compile\plan\scripts\oracle_tiers_real.py:197: UserWarning: Using torch.cross without specifying the dim arg is deprecated.
+Please either pass the dim explicitly or simply use torch.linalg.cross.
+The default value of dim will change to agree with that of linalg.cross in a future release. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\Cross.cpp:67.)
+  out = fn(*args, **kwargs)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:1251: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:51.)
+  .to_sparse_csr()
+D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\observe.py:97: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  lambda: t.storage().data_ptr(), lambda: t.data_ptr()):
+[50/231] logaddexp2: ok (1s, total 47s)  [None]
+[75/231] nn.functional.conv3d: ok (1s, total 70s)  [None]
+[100/231] dist: ok (1s, total 94s)  [None]
+[125/231] isneginf: ok (1s, total 116s)  [None]
+[150/231] new_full: ok (1s, total 138s)  [None]
+[175/231] log_softmax: ok (1s, total 161s)  [None]
+[200/231] linalg.ldl_factor: ok (1s, total 182s)  [None]
+[225/231] masked.amax: ok (1s, total 202s)  [None]
+AUTOCAST CONTROL DONE

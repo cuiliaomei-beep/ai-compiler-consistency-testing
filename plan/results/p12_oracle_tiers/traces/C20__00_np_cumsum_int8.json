@@ -1,0 +1,211 @@
+{
+ "rc": "C20",
+ "members": [
+  "C20"
+ ],
+ "layer": "Dy",
+ "reproducer": "0920issues/19-dynamo-numpy-dtype-shape-divergences.md",
+ "title": "compiled NumPy code: different dtype / shape rules (cumsum int8 overflow, square->float64, median shape)",
+ "status": "",
+ "sub": {
+  "name": "np_cumsum_int8",
+  "primary": true,
+  "compile": {
+   "backend": "eager"
+  },
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 0,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:40:18",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "ndarray",
+    "out_meta": [
+     null
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__tensor__": "ndarray",
+     "meta": {
+      "shape": [
+       7
+      ],
+      "dtype": "torch.int64",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 7,
+     "values": [
+      -128,
+      -228,
+      -231,
+      -231,
+      -226,
+      -126,
+      1
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "ndarray",
+       "meta": {
+        "shape": [
+         7
+        ],
+        "dtype": "torch.int8",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 7,
+       "values": [
+        -128,
+        -100,
+        -3,
+        0,
+        5,
+        100,
+        127
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0001,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 0.015,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 6.78,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "ndarray",
+    "out_meta": [
+     null
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__tensor__": "ndarray",
+     "meta": {
+      "shape": [
+       7
+      ],
+      "dtype": "torch.int8",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 7,
+     "values": [
+      -128,
+      28,
+      25,
+      25,
+      30,
+      -126,
+      1
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "ndarray",
+       "meta": {
+        "shape": [
+         7
+        ],
+        "dtype": "torch.int8",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 7,
+       "values": [
+        -128,
+        -100,
+        -3,
+        0,
+        5,
+        100,
+        127
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.3203,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 3.154,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 10.3,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

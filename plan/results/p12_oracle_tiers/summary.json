@@ -1,0 +1,1005 @@
+{
+ "n_root_causes": 52,
+ "n_reproducible_detected": 51,
+ "detected_all": {
+  "T1": [
+   "B10",
+   "B11",
+   "B13",
+   "B14",
+   "B17",
+   "B19",
+   "B2",
+   "B20",
+   "B21",
+   "B22",
+   "B23",
+   "B24",
+   "B26",
+   "B27",
+   "B3",
+   "B4",
+   "B6",
+   "B7",
+   "B8",
+   "B9",
+   "C10",
+   "C13",
+   "C14",
+   "C15",
+   "C16",
+   "C17",
+   "C20",
+   "C21",
+   "C25",
+   "C28",
+   "C29",
+   "C3",
+   "C35",
+   "C36",
+   "C42",
+   "C44"
+  ],
+  "T2": [
+   "B10",
+   "B11",
+   "B13",
+   "B14",
+   "B15",
+   "B17",
+   "B19",
+   "B2",
+   "B20",
+   "B21",
+   "B22",
+   "B23",
+   "B24",
+   "B25",
+   "B26",
+   "B27",
+   "B3",
+   "B4",
+   "B6",
+   "B7",
+   "B8",
+   "B9",
+   "C10",
+   "C13",
+   "C14",
+   "C15",
+   "C16",
+   "C17",
+   "C20",
+   "C21",
+   "C25",
+   "C28",
+   "C29",
+   "C3",
+   "C35",
+   "C36",
+   "C42",
+   "C44"
+  ],
+  "T3": [
+   "B10",
+   "B11",
+   "B12",
+   "B13",
+   "B14",
+   "B15",
+   "B17",
+   "B18",
+   "B19",
+   "B2",
+   "B20",
+   "B21",
+   "B22",
+   "B23",
+   "B24",
+   "B25",
+   "B26",
+   "B27",
+   "B3",
+   "B4",
+   "B6",
+   "B7",
+   "B8",
+   "B9",
+   "C1",
+   "C10",
+   "C11",
+   "C13",
+   "C14",
+   "C15",
+   "C16",
+   "C17",
+   "C20",
+   "C21",
+   "C22",
+   "C23",
+   "C25",
+   "C28",
+   "C29",
+   "C3",
+   "C34",
+   "C35",
+   "C36",
+   "C37",
+   "C40",
+   "C41",
+   "C42",
+   "C44",
+   "C46",
+   "C5",
+   "C8"
+  ]
+ },
+ "detected_primary": {
+  "T1": [
+   "B10",
+   "B11",
+   "B13",
+   "B14",
+   "B17",
+   "B19",
+   "B2",
+   "B20",
+   "B21",
+   "B22",
+   "B23",
+   "B24",
+   "B26",
+   "B27",
+   "B3",
+   "B4",
+   "B6",
+   "B7",
+   "B9",
+   "C10",
+   "C13",
+   "C14",
+   "C15",
+   "C16",
+   "C17",
+   "C20",
+   "C21",
+   "C25",
+   "C28",
+   "C3",
+   "C35",
+   "C36",
+   "C42",
+   "C44"
+  ],
+  "T2": [
+   "B10",
+   "B11",
+   "B13",
+   "B14",
+   "B15",
+   "B17",
+   "B19",
+   "B2",
+   "B20",
+   "B21",
+   "B22",
+   "B23",
+   "B24",
+   "B25",
+   "B26",
+   "B27",
+   "B3",
+   "B4",
+   "B6",
+   "B7",
+   "B8",
+   "B9",
+   "C10",
+   "C13",
+   "C14",
+   "C15",
+   "C16",
+   "C17",
+   "C20",
+   "C21",
+   "C25",
+   "C28",
+   "C29",
+   "C3",
+   "C35",
+   "C36",
+   "C42",
+   "C44"
+  ],
+  "T3": [
+   "B10",
+   "B11",
+   "B12",
+   "B13",
+   "B14",
+   "B15",
+   "B17",
+   "B18",
+   "B19",
+   "B2",
+   "B20",
+   "B21",
+   "B22",
+   "B23",
+   "B24",
+   "B25",
+   "B26",
+   "B27",
+   "B3",
+   "B4",
+   "B6",
+   "B7",
+   "B8",
+   "B9",
+   "C1",
+   "C10",
+   "C11",
+   "C13",
+   "C14",
+   "C15",
+   "C16",
+   "C17",
+   "C20",
+   "C21",
+   "C22",
+   "C23",
+   "C25",
+   "C28",
+   "C29",
+   "C3",
+   "C34",
+   "C35",
+   "C36",
+   "C37",
+   "C40",
+   "C41",
+   "C42",
+   "C44",
+   "C46",
+   "C5",
+   "C8"
+  ]
+ },
+ "weakest_hist_all": {
+  "T1": 36,
+  "T3": 13,
+  "T2": 2
+ },
+ "weakest_hist_primary": {
+  "T1": 34,
+  "T2": 4,
+  "T3": 13
+ },
+ "not_reproducible": [
+  [
+   "B5",
+   "needs CUDA (triton.cudagraphs); this machine has no GPU"
+  ]
+ ],
+ "corpus_control": [
+  {
+   "program": "alias_returned",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "chunk_inplace",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "closure_fn",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "conditional_mutation",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "container_len",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "contiguous_read",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "dtype_read",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "dtype_reduce",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "exception_path",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "flag_and_shape",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "gather_shape",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "global_state",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "index_chain",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "loop_bound",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "mask_index",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "mod_tiling",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "noncontig_copy",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "none_check",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "overlapping_views",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "python_flag",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "python_flag_semantic",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "rank_read",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "requires_grad_switch",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "reshape_dim",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "scalar_compare",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "shape_boundary",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "stride_read",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "string_mode",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  },
+  {
+   "program": "view_inplace",
+   "weakest": null,
+   "detected": {
+    "T1": false,
+    "T2": false,
+    "T3": false
+   },
+   "observables": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "t2_lenient_hits": 0,
+   "findings": {
+    "T1": [],
+    "T2": [],
+    "T3": []
+   },
+   "eager_exc": null,
+   "compiled_exc": null
+  }
+ ],
+ "autocast_control_n": 924,
+ "autocast_alarms": [
+  {
+   "op": "nn.functional.bilinear",
+   "acdtype": "bfloat16",
+   "samples": 1,
+   "results": [
+    {
+     "i": 0,
+     "detected": {
+      "T1": true,
+      "T2": true,
+      "T3": true
+     },
+     "weakest": "T1",
+     "observables": {
+      "T1": [
+       "value"
+      ],
+      "T2": [],
+      "T3": []
+     },
+     "findings": {
+      "T1": [
+       {
+        "observable": "value",
+        "detail": " output[0]: |ref-test| = 1.729e-02 exceeds dtype-aware tolerance 7.185e-03 (no fp64 reference)"
+       }
+      ],
+      "T2": [],
+      "T3": []
+     },
+     "t2_lenient_hits": 0,
+     "eager_exc": null,
+     "compiled_exc": null
+    }
+   ],
+   "verdict": "alarm"
+  },
+  {
+   "op": "linalg.polar",
+   "acdtype": "bfloat16",
+   "samples": 1,
+   "results": [
+    {
+     "i": 0,
+     "detected": {
+      "T1": true,
+      "T2": true,
+      "T3": true
+     },
+     "weakest": "T1",
+     "observables": {
+      "T1": [
+       "value"
+      ],
+      "T2": [],
+      "T3": []
+     },
+     "findings": {
+      "T1": [
+       {
+        "observable": "value",
+        "detail": " output[0]: |ref-test| = 1.921e-03 exceeds dtype-aware tolerance 9.398e-04 (no fp64 reference)"
+       },
+       {
+        "observable": "value",
+        "detail": " output[1]: |ref-test| = 7.531e-03 exceeds dtype-aware tolerance 2.928e-03 (no fp64 reference)"
+       }
+      ],
+      "T2": [],
+      "T3": []
+     },
+     "t2_lenient_hits": 0,
+     "eager_exc": null,
+     "compiled_exc": null
+    }
+   ],
+   "verdict": "alarm"
+  }
+ ]
+}

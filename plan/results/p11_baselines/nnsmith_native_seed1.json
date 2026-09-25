@@ -1,0 +1,66 @@
+{
+ "faults": 19,
+ "detected": 6.0,
+ "recall": 0.316,
+ "tests_executed": 152.0,
+ "tests_invalid": 0.0,
+ "valid_rate": 1.0,
+ "mean_ttf_s": 2.27,
+ "unique_failures": 6.0,
+ "false_positives_on_fixed": 0,
+ "per_category": {
+  "codegen": {
+   "total": 4,
+   "detected": 1
+  },
+  "shape": {
+   "total": 4,
+   "detected": 2
+  },
+  "dtype": {
+   "total": 1,
+   "detected": 0
+  },
+  "control_flow": {
+   "total": 2,
+   "detected": 1
+  },
+  "alias_mutation": {
+   "total": 2,
+   "detected": 2
+  },
+  "specialization": {
+   "total": 4,
+   "detected": 0
+  },
+  "cache": {
+   "total": 2,
+   "detected": 0
+  }
+ },
+ "runs": 1,
+ "programs": [
+  "nnsmith_100003",
+  "nnsmith_100004",
+  "nnsmith_100005",
+  "nnsmith_100006",
+  "nnsmith_100007",
+  "nnsmith_100008",
+  "nnsmith_100009",
+  "nnsmith_100010"
+ ],
+ "seed": 1,
+ "generation_wall_s": 0.7,
+ "bench_wall_s": 324.9,
+ "rejected": [],
+ "program_notes": [
+  "NNSmith model seed 100003, 6 ops, inputs [(1, 1)]",
+  "NNSmith model seed 100004, 6 ops, inputs [(), (1,)]",
+  "NNSmith model seed 100005, 6 ops, inputs [(2, 1, 1, 1), (1, 2, 1, 2, 1), (1, 1, 1, 2, 1), (1, 1, 1, 2, 1)]",
+  "NNSmith model seed 100006, 6 ops, inputs [(), (), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1), (1, 1, 1, 1)]",
+  "NNSmith model seed 100007, 6 ops, inputs [(1,), (1,), (1,)]",
+  "NNSmith model seed 100008, 6 ops, inputs [(1, 1, 2, 1, 1), (1, 1, 2, 1, 1), (2,)]",
+  "NNSmith model seed 100009, 6 ops, inputs [(1, 1, 1, 1, 1)]",
+  "NNSmith model seed 100010, 6 ops, inputs [(1,), (1,), (32768, 1, 1, 2)]"
+ ]
+}

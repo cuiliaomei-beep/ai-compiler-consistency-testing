@@ -1,0 +1,431 @@
+{
+ "rc": "B7",
+ "members": [
+  "B7"
+ ],
+ "layer": "Dy",
+ "reproducer": "0913issues/07-dynamo-jvp-make-dual-internal-assert.md",
+ "title": "jvp of quantile / addr: internal assertion on every backend",
+ "status": "",
+ "sub": {
+  "name": "jvp_quantile_aot_eager",
+  "primary": false,
+  "compile": {
+   "backend": "aot_eager"
+  },
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": true,
+  "note": ""
+ },
+ "sub_index": 2,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:46:52",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "P[T,T]",
+    "out_meta": [
+     {
+      "shape": [
+       2,
+       4
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       1,
+       2
+      ],
+      "contiguous": false,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": true
+     },
+     {
+      "shape": [
+       2,
+       4
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       1,
+       2
+      ],
+      "contiguous": false,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 2,
+    "outputs": {
+     "__seq__": "tuple",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1,
+         2
+        ],
+        "contiguous": false,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 8,
+       "values": [
+        -0.901889979839325,
+        -0.9009695053100586,
+        -1.3877123594284058,
+        0.37523388862609863,
+        0.4108692407608032,
+        -0.3483862280845642,
+        -0.09664425253868103,
+        0.7032288312911987
+       ]
+      },
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1,
+         2
+        ],
+        "contiguous": false,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 8,
+       "values": [
+        -0.09796199202537537,
+        0.9148086309432983,
+        -0.06568872928619385,
+        0.448775053024292,
+        -0.24314051866531372,
+        1.2785533666610718,
+        0.02390730381011963,
+        -0.6932032108306885
+       ]
+      }
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        1.5409960746765137,
+        -0.293428897857666,
+        -2.1787893772125244,
+        0.5684312582015991,
+        -1.0845223665237427,
+        -1.3985954523086548,
+        0.40334683656692505,
+        0.8380263447761536,
+        -0.7192575931549072,
+        -0.40334352850914,
+        -0.5966353416442871,
+        0.18203648924827576
+       ]
+      },
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        -0.8566746115684509,
+        1.1006041765213013,
+        -1.0711873769760132,
+        0.1227012425661087,
+        -0.5663174986839294,
+        0.3731146454811096,
+        -0.8919953107833862,
+        -1.5091077089309692,
+        0.3703935444355011,
+        1.4565025568008423,
+        0.9398099184036255,
+        0.7748488187789917
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.002,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 2.354,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 9.96,
+  "stdout_tail": "",
+  "stderr_tail": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\jit\\_script.py:1485: FutureWarning: `torch.jit.script` is not supported in Python 3.14+ and may break. Please switch to `torch.compile` or `torch.export`.\n  warnings.warn(\n"
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "P[T,T]",
+    "out_meta": [
+     {
+      "shape": [
+       2,
+       4
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       1,
+       2
+      ],
+      "contiguous": false,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": true
+     },
+     {
+      "shape": [
+       2,
+       4
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "stride": [
+       1,
+       2
+      ],
+      "contiguous": false,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 2,
+    "outputs": {
+     "__seq__": "tuple",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1,
+         2
+        ],
+        "contiguous": false,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 8,
+       "values": [
+        -0.901889979839325,
+        -0.9009695053100586,
+        -1.3877123594284058,
+        0.37523388862609863,
+        0.4108692407608032,
+        -0.3483862280845642,
+        -0.09664425253868103,
+        0.7032288312911987
+       ]
+      },
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1,
+         2
+        ],
+        "contiguous": false,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 8,
+       "values": [
+        -0.09796199202537537,
+        0.9148086309432983,
+        -0.06568872928619385,
+        0.448775053024292,
+        -0.24314051866531372,
+        1.2785533666610718,
+        0.02390730381011963,
+        -0.6932032108306885
+       ]
+      }
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        1.5409960746765137,
+        -0.293428897857666,
+        -2.1787893772125244,
+        0.5684312582015991,
+        -1.0845223665237427,
+        -1.3985954523086548,
+        0.40334683656692505,
+        0.8380263447761536,
+        -0.7192575931549072,
+        -0.40334352850914,
+        -0.5966353416442871,
+        0.18203648924827576
+       ]
+      },
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        -0.8566746115684509,
+        1.1006041765213013,
+        -1.0711873769760132,
+        0.1227012425661087,
+        -0.5663174986839294,
+        0.3731146454811096,
+        -0.8919953107833862,
+        -1.5091077089309692,
+        0.3703935444355011,
+        1.4565025568008423,
+        0.9398099184036255,
+        0.7748488187789917
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.5401,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 3.854,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 11.43,
+  "stdout_tail": "",
+  "stderr_tail": "s)\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]   File \"C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_tensor_str.py\", line 715, in _str\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]   File \"C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_tensor_str.py\", line 427, in _str_intern\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]   File \"C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\autograd\\forward_ad.py\", line 180, in unpack_dual\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]   File \"C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_functorch\\predispatch.py\", line 218, in _unpack_dual\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)\nE0925 17:46:51.537000 9544 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at \"C:\\\\actions-runner\\\\_work\\\\pytorch\\\\pytorch\\\\aten\\\\src\\\\ATen\\\\native\\\\VariableMethodStubs.cpp\":71, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.\n"
+ }
+}

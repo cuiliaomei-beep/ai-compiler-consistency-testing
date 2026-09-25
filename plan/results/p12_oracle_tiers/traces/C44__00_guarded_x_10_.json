@@ -1,0 +1,181 @@
+{
+ "rc": "C44",
+ "members": [
+  "C44",
+  "C45"
+ ],
+ "layer": "Dy",
+ "reproducer": "0920issues/42-dynamo-indexerror-skips-user-except-handler.md",
+ "title": "IndexError raised by a tensor op skips the user's except handler",
+ "status": "",
+ "sub": {
+  "name": "guarded_x[10]",
+  "primary": true,
+  "compile": {
+   "backend": "eager",
+   "fullgraph": true
+  },
+  "grad": false,
+  "fp64": null,
+  "has_handler": true,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 0,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:50:23",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "str",
+    "out_meta": [
+     null
+    ],
+    "alias_pairs": [],
+    "n_inputs": 2,
+    "outputs": "fallback after IndexError",
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+       ]
+      },
+      {
+       "__opaque__": "function",
+       "repr": "<function _c44.<locals>.make.<locals>.<lambda> at 0x000002AB2514FC10>"
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0004,
+    "note": null,
+    "caught_by_handler": true
+   }
+  ],
+  "wall_s": 0.014,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 7.68,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": false,
+    "exception": "IndexError",
+    "exception_msg": "index 10 is out of bounds for dimension 0 with size 3\n\nfrom user code:\n   File \"D:\\wsl\\personal\\dr\\paper\\toxic_compile\\plan\\scripts\\oracle_tiers_cases.py\", line 962, in guarded\n    return op(x)\n  File \"D:\\wsl\\personal\\dr\\paper\\toxic_compile\\plan\\scripts\\oracle_tiers_cases.py\", line 958, in <lambda>\n    ops = {\"x[10]\": lambda x: x[10], \"x.sum(dim=5)\": lambda x: x.sum(dim=5), \"x.softmax(dim=4)\": lambda x: x.softmax(dim=4)}\n                              ~^^^^\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+    "exception_inner": "IndexError",
+    "exc_frame": "utils.py:4415:run_node",
+    "out_struct": "",
+    "out_meta": [],
+    "alias_pairs": [],
+    "n_inputs": 2,
+    "outputs": null,
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+       ]
+      },
+      {
+       "__opaque__": "function",
+       "repr": "<function _c44.<locals>.make.<locals>.<lambda> at 0x000002A4995CBAB0>"
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.3208,
+    "note": null,
+    "caught_by_handler": false
+   }
+  ],
+  "wall_s": 3.791,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 11.97,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

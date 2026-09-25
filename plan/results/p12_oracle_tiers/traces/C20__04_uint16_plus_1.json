@@ -1,0 +1,177 @@
+{
+ "rc": "C20",
+ "members": [
+  "C20"
+ ],
+ "layer": "Dy",
+ "reproducer": "0920issues/19-dynamo-numpy-dtype-shape-divergences.md",
+ "title": "compiled NumPy code: different dtype / shape rules (cumsum int8 overflow, square->float64, median shape)",
+ "status": "",
+ "sub": {
+  "name": "uint16_plus_1",
+  "primary": false,
+  "compile": {
+   "backend": "eager"
+  },
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 4,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:40:53",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "ndarray",
+    "out_meta": [
+     null
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__tensor__": "ndarray",
+     "meta": {
+      "shape": [
+       5
+      ],
+      "dtype": "torch.uint16",
+      "device": "cpu",
+      "stride": [
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 5,
+     "values": [
+      1,
+      2,
+      4,
+      201,
+      256
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "ndarray",
+       "meta": {
+        "shape": [
+         5
+        ],
+        "dtype": "torch.uint8",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 5,
+       "values": [
+        0,
+        1,
+        3,
+        200,
+        255
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0001,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 0.012,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 7.09,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": false,
+    "exception": "NotImplementedError",
+    "exception_msg": "\"add_stub\" not implemented for 'UInt16'",
+    "exception_inner": "NotImplementedError",
+    "exc_frame": "_ufuncs.py:105:wrapped",
+    "out_struct": "",
+    "out_meta": [],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": null,
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "ndarray",
+       "meta": {
+        "shape": [
+         5
+        ],
+        "dtype": "torch.uint8",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 5,
+       "values": [
+        0,
+        1,
+        3,
+        200,
+        255
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.2995,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 3.142,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 10.63,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

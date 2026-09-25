@@ -1,0 +1,148 @@
+{
+ "rc": "B11",
+ "members": [
+  "B11"
+ ],
+ "layer": "In",
+ "reproducer": "0913issues/11-inductor-compiled-sgd-foreach-complex.md",
+ "title": "compiled SGD.step with foreach=True and complex parameters: lowering assertion",
+ "status": "confirmed",
+ "sub": {
+  "name": "sgd_foreach_complex",
+  "primary": true,
+  "compile": {},
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": true,
+  "note": ""
+ },
+ "sub_index": 0,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:28:22",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [
+       3,
+       2
+      ],
+      "dtype": "torch.complex64",
+      "device": "cpu",
+      "stride": [
+       2,
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 0,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [
+       3,
+       2
+      ],
+      "dtype": "torch.complex64",
+      "device": "cpu",
+      "stride": [
+       2,
+       1
+      ],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "complex": true,
+     "numel": 6,
+     "values": [
+      1.4409960508346558,
+      0.40334683656692505,
+      -0.39342889189720154,
+      0.8380263447761536,
+      -2.2787892818450928,
+      -0.7192575931549072,
+      0.4684312641620636,
+      -0.40334352850914,
+      -1.1845223903656006,
+      -0.5966353416442871,
+      -1.4985954761505127,
+      0.18203648924827576
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": []
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0013,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 2.128,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 9.41,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": false,
+    "exception": "InductorError",
+    "exception_msg": "AssertionError: <built-in function getitem> is not an OpOverload\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+    "exception_inner": "AssertionError",
+    "exc_frame": "graph.py:1418:call_function",
+    "out_struct": "",
+    "out_meta": [],
+    "alias_pairs": [],
+    "n_inputs": 0,
+    "outputs": null,
+    "inputs_after": {
+     "__seq__": "list",
+     "items": []
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 4.1961,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 6.341,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 14.08,
+  "stdout_tail": "",
+  "stderr_tail": "W0925 17:28:19.091000 8632 site-packages\\torch\\_logging\\_internal.py:1394] [0/0] Profiler record function <class 'torch.autograd.profiler.record_function'> will be ignored\nC:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_inductor\\lowering.py:2774: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.\n  warnings.warn(\n"
+ }
+}

@@ -19,6 +19,11 @@ ROOT = os.path.dirname(PLAN)
 rows = json.load(open(os.path.join(PLAN, "results", "issue_status", "raw.json"), encoding="utf-8"))
 
 VERDICT = {   # issue number -> (verdict, evidence)
+    198155: ("REPRODUCED", "shyamsharmas124 opened draft PR #198316 covering 6 of the 134 operators (2026-09-23); contributor eellison argues compile need not mirror the eager restriction (re-checked 2026-09-25)"),
+    198190: ("REPRODUCED", "JEWEL169 analysed `LocalGeneratorObjectVariable` and argued it is a defect rather than a documented limitation (2026-09-22); no PR yet (re-checked 2026-09-25)"),
+    198081: ("REPRODUCED", "vikrambal located the cause in Inductor's `reduce_any` lowering, which bypasses `_refs.any` (2026-09-22); no PR yet (re-checked 2026-09-25)"),
+    197106: ("REPRODUCED", "contributor TANGBUDU reproduced it on f28a8c4796 with CPU vectorization and proposed a lowering fix using `any` for boolean sums (2026-09-22); no PR yet (re-checked 2026-09-25)"),
+    198189: ("REPRODUCED", "vikrambal root-caused it to `OrderedDictVariable.move_to_end` (2026-09-22); fix PR #198518 open (“Fixes”, re-checked 2026-09-25); frgossen applied `triaged` / `low priority`"),
     197101: ("FIXED", "PR #197221 “Fixes #197101” landed as c8e4ab54e0 (2026-09-17); human-triaged by williamwen42 (`triaged`, `dynamo-triaged`)"),
     197104: ("FIXED", "PR #197128 by maintainer yushangdi landed as bc77d149b7 (2026-09-16); issue was assigned to yushangdi"),
     197085: ("CONFIRMED", "human-triaged by williamwen42, who also added `module: correctness (silent)`; fix PR #197768 open (“Fixes”)"),
@@ -29,7 +34,7 @@ VERDICT = {   # issue number -> (verdict, evidence)
     197091: ("REPRODUCED", "fix PR #197162 open (“Fixes”), no maintainer comment yet"),
     197093: ("REPRODUCED", "tsho reproduced it on 2.14.0 and a source build and located the cause (`LazySymNodeFormatString.__repr__`); waits for the `actionable` label before sending a PR"),
     197097: ("REPRODUCED", "fix PR #197231 open (“Fixes”)"),
-    197099: ("REPRODUCED", "fix PR #197152 open (“Fixes”)"),
+    197099: ("REPRODUCED", "chinmayirm root-caused the backward (2026-09-21); fix PR #197152 (“Fixes”) was closed unmerged on 2026-09-24 (re-checked 2026-09-25)"),
     197105: ("REPRODUCED", "contributor N0AHZACH took it; fix PR #197193 open"),
     197107: ("REPRODUCED", "two volunteers; fix PR #197214 open"),
     197108: ("REPRODUCED", "contributor he-yufeng root-caused it to the Welford lowering path; fix PR #197165 open"),
@@ -41,7 +46,7 @@ VERDICT = {   # issue number -> (verdict, evidence)
     197888: ("CONFIRMED", "eellison added `high priority` and the issue was assigned to mlazos within a day; a volunteer offered a fix"),
     197896: ("CONFIRMED", "ezyang (core maintainer) added `actionable`; syerva-g posted a root-cause analysis and opened fix PR #198055 (“Fixes”; closed and reopened, open as of 2026-09-23)"),
     197887: ("REPRODUCED", "fix PR #198035 “[aot_autograd] Restore version checks for saved input views” open (“Fixes”); chinmayirm confirmed the `_reinterpret_tensor` / version-counter analysis"),
-    197893: ("REPRODUCED", "chinmayirm confirmed the root cause in `joint_graph.remove_no_ops` and volunteered; no maintainer comment yet"),
+    197893: ("REPRODUCED", "chinmayirm confirmed the root cause in `joint_graph.remove_no_ops` (2026-09-21); wwoosshh reproduced a scatter variant on CUDA; fix PR #198446 “Preserve user-visible output aliasing” open (“Fixes”, re-checked 2026-09-25)"),
     197894: ("REPRODUCED", "fix PR #198053 “Fix FX codegen precedence for negative pow bases” open (“Fixes”, by buyan-kh); a second volunteer asked to be assigned"),
     197895: ("REPRODUCED", "chinmayirm confirmed the `floor(div_rn(a, b))` analysis and volunteered"),
     40840: ("CONFIRMED", "JAX maintainer jakevdp self-assigned, thanked for the report and noted the same bug in NumPy (< 2.4.0 for gcd, still present for lcm in 2.5.3); fix PR #40842 open with a regression test"),

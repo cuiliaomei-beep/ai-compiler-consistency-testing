@@ -1,0 +1,738 @@
+torch 2.14.0+cpu; frozen corpus 185 = {'tcc.dynamo_semantics': 77, 'tcc.dynamo_semantics_more': 74, 'tcc.dynamo_semantics_batch3': 34}; backend eager
+[  1/185] gen_list                                 static=1   hit=1   frames base=1 gb=3  ..
+[  2/185] gen_expr_sum                             static=0   hit=0   frames base=1 gb=1  ..
+[  3/185] gen_yield_from                           static=2   hit=2   frames base=1 gb=4  ..
+[  4/185] gen_early_close                          static=4   hit=2   frames base=2 gb=2  ..
+[  5/185] gen_send                                 static=4   hit=3   frames base=1 gb=4  NN
+[  6/185] try_except_shape_error                   static=1   hit=2   frames base=2 gb=3  ..
+[  7/185] try_finally_return                       static=1   hit=1   frames base=2 gb=4  ..
+[  8/185] raise_custom                             static=2   hit=2   frames base=3 gb=5  ..
+[  9/185] assert_message                           static=1   hit=0   frames base=1 gb=1  ..
+[ 10/185] except_index_error                       static=2   hit=2   frames base=1 gb=3  ..
+[ 11/185] nested_exception_reraise                 static=1   hit=2   frames base=2 gb=4  ..
+[ 12/185] stopiteration_default                    static=2   hit=2   frames base=1 gb=3  ..
+[ 13/185] ctx_class                                static=2   hit=4   frames base=4 gb=7  ..
+[ 14/185] ctx_contextlib                           static=2   hit=3   frames base=2 gb=5  ..
+[ 15/185] ctx_exception_inside                     static=2   hit=4   frames base=5 gb=7  ..
+[ 16/185] ctx_no_grad_nested                       static=2   hit=3   frames base=1 gb=4  ..
+[ 17/185] ctx_set_grad_enabled                     static=5   hit=6   frames base=1 gb=7  ..
+[ 18/185] closure_nonlocal_counter                 static=3   hit=3   frames base=1 gb=4  ..
+[ 19/185] closure_late_binding                     static=2   hit=1   frames base=1 gb=5  ..
+[ 20/185] closure_mutable_default                  static=1   hit=1   frames base=1 gb=3  ..
+[ 21/185] partial_kwargs                           static=2   hit=2   frames base=1 gb=3  ..
+[ 22/185] args_kwargs_forward                      static=2   hit=2   frames base=1 gb=4  ..
+[ 23/185] dict_order_and_ops                       static=6   hit=6   frames base=1 gb=7  ..
+[ 24/185] dict_update_merge                        static=4   hit=4   frames base=1 gb=6  ..
+[ 25/185] set_ops                                  static=4   hit=4   frames base=1 gb=5  ..
+[ 26/185] list_slice_assign                        static=5   hit=5   frames base=1 gb=6  ..
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] or:
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] to include these operations in the captured graph.
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] 
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] Graph break: from user code at:
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]   File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics.py", line 318, in _
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]     lst = [(i, x[i].sum().item()) for i in range(x.shape[0])]
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0]                ~~~~~~~~~~~~~~~^^
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] 
+W0925 17:03:25.301000 22920 site-packages\torch\_dynamo\variables\tensor.py:1841] [0/0] 
+[ 27/185] list_sort_key                            static=2   hit=2   frames base=3 gb=4  ..
+[ 28/185] list_extend_in_loop                      static=2   hit=2   frames base=1 gb=3  ..
+[ 29/185] collections_types                        static=9   hit=9   frames base=1 gb=10  NN
+[ 30/185] itertools_mix                            static=3   hit=3   frames base=1 gb=4  ..
+[ 31/185] zip_strict_error                         static=1   hit=0   frames base=1 gb=1  ..
+[ 32/185] int_semantics                            static=1   hit=1   frames base=1 gb=2  ..
+[ 33/185] float_nan_semantics                      static=1   hit=1   frames base=1 gb=2  ..
+[ 34/185] shape_arith                              static=1   hit=1   frames base=1 gb=2  ..
+[ 35/185] bigint_to_tensor                         static=0   hit=0   frames base=1 gb=1  ..
+[ 36/185] iterate_rows                             static=3   hit=3   frames base=1 gb=4  ..
+[ 37/185] unpack_and_star                          static=2   hit=2   frames base=1 gb=3  ..
+[ 38/185] fancy_index                              static=6   hit=6   frames base=2 gb=8  ..
+[ 39/185] item_and_python_math                     static=2   hit=2   frames base=4 gb=6  ..
+[ 40/185] bool_tensor_branch                       static=1   hit=1   frames base=2 gb=3  ..
+[ 41/185] data_dependent_shape                     static=1   hit=1   frames base=3 gb=4  ..
+[ 42/185] string_ops                               static=3   hit=3   frames base=1 gb=4  ..
+[ 43/185] graph_break_in_loop                      static=3   hit=1   frames base=1 gb=2  ..
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+mid torch.Size([3, 4])
+[ 44/185] print_in_middle                          static=4   hit=5   frames base=3 gb=7  ..
+[ 45/185] many_locals_resume                       static=8   hit=8   frames base=3 gb=9  ..
+[ 46/185] break_inside_try                         static=2   hit=0   frames base=1 gb=1  ..
+[ 47/185] break_inside_with                        static=3   hit=4   frames base=2 gb=5  ..
+[ 48/185] python_random                            static=4   hit=4   frames base=3 gb=6  GG
+[ 49/185] python_random_no_seed_state              static=1   hit=1   frames base=1 gb=2  ..
+[ 50/185] numpy_interop                            static=2   hit=2   frames base=2 gb=4  ..
+[ 51/185] numpy_scalar_types                       static=2   hit=2   frames base=2 gb=3  SS
+[ 52/185] global_state_counter                     static=2   hit=4   frames base=2 gb=5  ..
+[ 53/185] object_attr_mutation                     static=3   hit=6   frames base=4 gb=9  ..
+[ 54/185] module_python_state                      static=2   hit=4   frames base=4 gb=8  ..
+[ 55/185] dataclass_namedtuple                     static=6   hit=9   frames base=75 gb=84  ..
+[ 56/185] isinstance_dispatch                      static=1   hit=1   frames base=1 gb=2  ..
+[ 57/185] tensor_attribute_monkeypatch             static=2   hit=2   frames base=1 gb=3  ..
+[ 58/185] aliasing_view_inplace                    static=5   hit=5   frames base=1 gb=6  ..
+[ 59/185] inplace_leaf_error                       static=2   hit=2   frames base=2 gb=4  SS
+[ 60/185] detach_identity                          static=2   hit=3   frames base=1 gb=5  ..
+[ 61/185] grad_attr                                static=3   hit=4   frames base=4 gb=7  ..
+[ 62/185] copy_deepcopy                            static=4   hit=4   frames base=4 gb=8  ..
+[ 63/185] while_break_continue_else                static=3   hit=3   frames base=1 gb=4  ..
+[ 64/185] recursion_depth                          static=1   hit=1   frames base=1 gb=2  ..
+[ 65/185] map_filter_any_all                       static=3   hit=3   frames base=5 gb=8  ..
+[ 66/185] sum_generator_of_tensors                 static=0   hit=0   frames base=1 gb=1  ..
+[ 67/185] dict_zip_enumerate_unbind                static=2   hit=2   frames base=1 gb=3  ..
+[ 68/185] chained_bool_tensor_props                static=1   hit=1   frames base=1 gb=2  ..
+[ 69/185] setitem_mask_and_slices                  static=5   hit=5   frames base=1 gb=6  ..
+[ 70/185] torch_func_inside                        static=1   hit=1   frames base=1 gb=2  ..
+[ 71/185] autograd_grad_inside                     static=2   hit=3   frames base=4 gb=6  ..
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0] failed while attempting to run meta for aten.add.Tensor
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0] Traceback (most recent call last):
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     r = func(*args, **kwargs)
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     return self._op(*args, **kwargs)
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     result = fn(*args, **kwargs)
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_compile.py", line 54, in inner
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     return disable_fn(*args, **kwargs)
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     return fn(*args, **kwargs)
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 151, in _fn
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     result = fn(**bound.arguments)
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 1238, in add
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     a, b = _maybe_broadcast(a, b)
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]            ~~~~~~~~~~~~~~~~^^^^^^
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 479, in _maybe_broadcast
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     common_shape = _broadcast_shapes(
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]         *(t.shape if isinstance(t, TensorLike) else None for t in args)
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     )
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 467, in _broadcast_shapes
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     torch._check(
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     ~~~~~~~~~~~~^
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]         common_shape[idx] == shape[idx],
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     ...<2 lines>...
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]         f"should be broadcastable to {common_shape}",
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     )
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     ^
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     _check_with(RuntimeError, cond, message)
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0]     raise error_type(message_evaluated)
+E0925 17:03:37.101000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/0] RuntimeError: Attempting to broadcast a dimension of length 2 at -1! Mismatching argument at index 1 had torch.Size([2]); but expected shape should be broadcastable to [3, 4]
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1] failed while attempting to run meta for aten.add.Tensor
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1] Traceback (most recent call last):
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     r = func(*args, **kwargs)
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     return self._op(*args, **kwargs)
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     result = fn(*args, **kwargs)
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_compile.py", line 54, in inner
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     return disable_fn(*args, **kwargs)
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     return fn(*args, **kwargs)
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 151, in _fn
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     result = fn(**bound.arguments)
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 1238, in add
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     a, b = _maybe_broadcast(a, b)
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]            ~~~~~~~~~~~~~~~~^^^^^^
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 479, in _maybe_broadcast
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     common_shape = _broadcast_shapes(
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]         *(t.shape if isinstance(t, TensorLike) else None for t in args)
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     )
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 467, in _broadcast_shapes
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     torch._check(
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     ~~~~~~~~~~~~^
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]         common_shape[idx] == shape[idx],
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     ...<2 lines>...
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]         f"should be broadcastable to {common_shape}",
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     )
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     ^
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     _check_with(RuntimeError, cond, message)
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1]     raise error_type(message_evaluated)
+E0925 17:03:37.175000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [3/1] RuntimeError: Attempting to broadcast a dimension of length 2 at -1! Mismatching argument at index 1 had torch.Size([2]); but expected shape should be broadcastable to [3, 4]
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0] failed while attempting to run meta for aten.add.Tensor
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0] Traceback (most recent call last):
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     r = func(*args, **kwargs)
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     return self._op(*args, **kwargs)
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     result = fn(*args, **kwargs)
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_compile.py", line 54, in inner
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     return disable_fn(*args, **kwargs)
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     return fn(*args, **kwargs)
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 151, in _fn
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     result = fn(**bound.arguments)
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 1238, in add
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     a, b = _maybe_broadcast(a, b)
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]            ~~~~~~~~~~~~~~~~^^^^^^
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 479, in _maybe_broadcast
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     common_shape = _broadcast_shapes(
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]         *(t.shape if isinstance(t, TensorLike) else None for t in args)
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     )
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 467, in _broadcast_shapes
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     torch._check(
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     ~~~~~~~~~~~~^
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]         common_shape[idx] == shape[idx],
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     ...<2 lines>...
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]         f"should be broadcastable to {common_shape}",
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     )
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     ^
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     _check_with(RuntimeError, cond, message)
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0]     raise error_type(message_evaluated)
+E0925 17:03:37.406000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/0] RuntimeError: Attempting to broadcast a dimension of length 2 at -1! Mismatching argument at index 1 had torch.Size([2]); but expected shape should be broadcastable to [3, 4]
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1] failed while attempting to run meta for aten.add.Tensor
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1] Traceback (most recent call last):
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     r = func(*args, **kwargs)
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     return self._op(*args, **kwargs)
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     result = fn(*args, **kwargs)
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_compile.py", line 54, in inner
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     return disable_fn(*args, **kwargs)
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     return fn(*args, **kwargs)
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 151, in _fn
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     result = fn(**bound.arguments)
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 1238, in add
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     a, b = _maybe_broadcast(a, b)
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]            ~~~~~~~~~~~~~~~~^^^^^^
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 479, in _maybe_broadcast
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     common_shape = _broadcast_shapes(
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]         *(t.shape if isinstance(t, TensorLike) else None for t in args)
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     )
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 467, in _broadcast_shapes
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     torch._check(
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     ~~~~~~~~~~~~^
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]         common_shape[idx] == shape[idx],
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     ...<2 lines>...
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]         f"should be broadcastable to {common_shape}",
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     )
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     ^
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     _check_with(RuntimeError, cond, message)
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1]     raise error_type(message_evaluated)
+E0925 17:03:37.421000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [7/1] RuntimeError: Attempting to broadcast a dimension of length 2 at -1! Mismatching argument at index 1 had torch.Size([2]); but expected shape should be broadcastable to [3, 4]
+[ 72/185] manual_seed_inside                       static=4   hit=4   frames base=5 gb=9  SS
+[ 73/185] dropout_train_eval                       static=8   hit=8   frames base=4 gb=12  ..
+[ 74/185] list_of_tensors_equality                 static=1   hit=0   frames base=1 gb=1  ..
+[ 75/185] exception_message_with_value             static=2   hit=1   frames base=2 gb=3  ..
+[ 76/185] nested_function_defaults_from_tensor     static=1   hit=1   frames base=1 gb=3  ..
+[ 77/185] torch_size_and_int_mixing                static=2   hit=2   frames base=1 gb=3  ..
+[ 78/185] random_choice_weights                    static=1   hit=1   frames base=2 gb=5  ..
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `<unknown module>.Random.getrandbits.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+[ 79/185] random_randbytes_getrandbits             static=1   hit=1   frames base=2 gb=5  ..
+[ 80/185] random_instance_methods                  static=3   hit=3   frames base=2 gb=5  ..
+[ 81/185] torch_rand_in_fn                         static=4   hit=4   frames base=3 gb=7  ..
+[ 82/185] np_random_in_fn                          static=1   hit=1   frames base=5 gb=6  ..
+[ 83/185] np_array_ops                             static=4   hit=4   frames base=2 gb=6  ..
+[ 84/185] np_scalar_math                           static=1   hit=1   frames base=2 gb=3  SS
+[ 85/185] builtins_misc                            static=1   hit=1   frames base=2 gb=3  ..
+[ 86/185] int_float_conversion                     static=1   hit=1   frames base=1 gb=2  ..
+[ 87/185] bool_ops_on_python                       static=1   hit=1   frames base=1 gb=2  ..
+[ 88/185] string_methods_more                      static=2   hit=2   frames base=1 gb=3  ..
+[ 89/185] bytes_and_bytearray                      static=3   hit=3   frames base=4 gb=11  ..
+[ 90/185] tuple_ops                                static=1   hit=1   frames base=1 gb=2  ..
+[ 91/185] list_comprehension_conditions            static=0   hit=0   frames base=1 gb=1  ..
+[ 92/185] walrus_and_match                         static=3   hit=3   frames base=1 gb=4  ..
+[ 93/185] del_and_rebind                           static=7   hit=7   frames base=1 gb=8  ..
+[ 94/185] slicing_negative_steps                   static=0   hit=0   frames base=2 gb=2  SS
+[ 95/185] ellipsis_none_indexing                   static=0   hit=0   frames base=1 gb=1  ..
+[ 96/185] exception_after_graph_break              static=4   hit=3   frames base=2 gb=4  SS
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.cat.default
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_compile.py", line 54, in inner
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return disable_fn(*args, **kwargs)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return fn(*args, **kwargs)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 151, in _fn
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(**bound.arguments)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 3027, in cat
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return prims.cat(filtered, dim).clone(memory_format=memory_format)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~^^^^^^^^^^^^^^^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\fake_impl.py", line 123, in meta_kernel
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return fake_impl_holder.kernel(*args, **kwargs)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\utils.py", line 23, in __call__
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self.func(*args, **kwargs)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\library.py", line 1651, in inner
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return func(*args, **kwargs)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\custom_ops.py", line 785, in fake_impl
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._abstract_fn(*args, **kwargs)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims\__init__.py", line 1879, in _cat_meta
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         length == common_length,
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ...<2 lines>...
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"{tensor_idx} in the list",
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0925 17:03:41.934000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: Sizes of tensors must match except in dimension 0. Expected 4 in dimension 1 but got 3 for tensor number 1 in the list
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] failed while attempting to run meta for aten.cat.default
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] Traceback (most recent call last):
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     r = func(*args, **kwargs)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(*args, **kwargs)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_compile.py", line 54, in inner
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return disable_fn(*args, **kwargs)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return fn(*args, **kwargs)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 151, in _fn
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     result = fn(**bound.arguments)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 3027, in cat
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return prims.cat(filtered, dim).clone(memory_format=memory_format)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~^^^^^^^^^^^^^^^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._op(*args, **kwargs)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\fake_impl.py", line 123, in meta_kernel
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return fake_impl_holder.kernel(*args, **kwargs)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\utils.py", line 23, in __call__
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self.func(*args, **kwargs)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\library.py", line 1651, in inner
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return func(*args, **kwargs)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\custom_ops.py", line 785, in fake_impl
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     return self._abstract_fn(*args, **kwargs)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims\__init__.py", line 1879, in _cat_meta
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     torch._check(
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~~^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         length == common_length,
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ...<2 lines>...
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         f"{tensor_idx} in the list",
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     )
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     _check_with(RuntimeError, cond, message)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0]     raise error_type(message_evaluated)
+E0925 17:03:42.020000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0] RuntimeError: Sizes of tensors must match except in dimension 0. Expected 4 in dimension 1 but got 3 for tensor number 1 in the list
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1] failed while attempting to run meta for aten.cat.default
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1] Traceback (most recent call last):
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_subclasses\fake_tensor.py", line 3208, in _dispatch_impl
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     r = func(*args, **kwargs)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     return self._op(*args, **kwargs)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 313, in _fn
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     result = fn(*args, **kwargs)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_compile.py", line 54, in inner
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     return disable_fn(*args, **kwargs)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     return fn(*args, **kwargs)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims_common\wrappers.py", line 151, in _fn
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     result = fn(**bound.arguments)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_refs\__init__.py", line 3027, in cat
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     return prims.cat(filtered, dim).clone(memory_format=memory_format)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]            ~~~~~~~~~^^^^^^^^^^^^^^^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_ops.py", line 916, in __call__
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     return self._op(*args, **kwargs)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]            ~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\fake_impl.py", line 123, in meta_kernel
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     return fake_impl_holder.kernel(*args, **kwargs)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\utils.py", line 23, in __call__
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     return self.func(*args, **kwargs)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]            ~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\library.py", line 1651, in inner
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     return func(*args, **kwargs)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_library\custom_ops.py", line 785, in fake_impl
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     return self._abstract_fn(*args, **kwargs)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_prims\__init__.py", line 1879, in _cat_meta
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     torch._check(
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     ~~~~~~~~~~~~^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]         length == common_length,
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]         ^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     ...<2 lines>...
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]         f"{tensor_idx} in the list",
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     )
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     ^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2140, in _check
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     _check_with(RuntimeError, cond, message)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]   File "C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\__init__.py", line 2118, in _check_with
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1]     raise error_type(message_evaluated)
+E0925 17:03:42.034000 22920 site-packages\torch\_subclasses\fake_tensor.py:3212] [0/0_1] RuntimeError: Sizes of tensors must match except in dimension 0. Expected 4 in dimension 1 but got 3 for tensor number 1 in the list
+[ 97/185] exception_from_torch_op_caught           static=1   hit=1   frames base=1 gb=2  ..
+[ 98/185] exception_in_generator                   static=4   hit=2   frames base=1 gb=3  ..
+[ 99/185] exception_chaining                       static=1   hit=0   frames base=1 gb=1  ..
+[100/185] finally_overrides_return                 static=1   hit=1   frames base=2 gb=4  ..
+[101/185] exception_group                          static=1   hit=0   frames base=1 gb=1  ..
+[102/185] assert_tensor_shape_ok                   static=2   hit=2   frames base=1 gb=3  ..
+[103/185] contextlib_suppress_exitstack            static=2   hit=3   frames base=2 gb=4  ..
+[104/185] generator_stateful_class                 static=2   hit=4   frames base=4 gb=8  ..
+[105/185] generator_infinite_islice                static=1   hit=1   frames base=1 gb=3  ..
+[106/185] genexpr_any_short_circuit                static=2   hit=2   frames base=4 gb=6  ..
+[107/185] itertools_more                           static=6   hit=6   frames base=1 gb=7  ..
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'dynamo_semantics_more.py:312'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_more.py", line 312, in torch_dynamo_resume_in___at_308
+    return total, sq(3) + sq(3) + sq(4), STATE["count"]
+                  ~~^^^
+
+  torch._dynamo.utils.warn_once(msg)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'dynamo_semantics_more.py:312'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_more.py", line 312, in torch_dynamo_resume_in___at_308
+    return total, sq(3) + sq(3) + sq(4), STATE["count"]
+                          ~~^^^
+
+  torch._dynamo.utils.warn_once(msg)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'dynamo_semantics_more.py:312'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\dynamo_semantics_more.py", line 312, in torch_dynamo_resume_in___at_308
+    return total, sq(3) + sq(3) + sq(4), STATE["count"]
+                                  ~~^^^
+
+  torch._dynamo.utils.warn_once(msg)
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2762: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '<rw:_>:8'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "<rw:_>", line 8, in torch_dynamo_resume_in__rw_at_1
+
+  torch._dynamo.utils.warn_once(msg)
+[108/185] functools_reduce_lru                     static=2   hit=2   frames base=6 gb=7  ..
+[109/185] class_call_getattr                       static=2   hit=4   frames base=4 gb=8  ..
+[110/185] class_slots_property_classmethod         static=3   hit=6   frames base=4 gb=10  ..
+[111/185] operator_overloading_python_obj          static=3   hit=6   frames base=9 gb=15  ..
+[112/185] inheritance_super_mro                    static=3   hit=6   frames base=10 gb=16  ..
+[113/185] dunder_contains_and_in                   static=2   hit=4   frames base=5 gb=8  ..
+[114/185] module_as_python_value                   static=3   hit=4   frames base=3 gb=7  ..
+[115/185] size_dtype_device_values                 static=0   hit=0   frames base=1 gb=1  ..
+[116/185] tensor_python_protocol                   static=0   hit=0   frames base=2 gb=2  ..
+[117/185] tensor_hash_id_set                       static=3   hit=3   frames base=2 gb=4  ..
+[118/185] sorted_tensors_key                       static=3   hit=3   frames base=5 gb=8  ..
+[119/185] min_max_builtin_on_tensors               static=0   hit=0   frames base=2 gb=2  ..
+[120/185] mutate_input_list_arg                    static=4   hit=8   frames base=2 gb=9  ..
+[121/185] mutate_input_dict_nested                 static=4   hit=7   frames base=2 gb=8  ..
+[122/185] inplace_on_input_then_view               static=3   hit=3   frames base=1 gb=4  ..
+[123/185] inplace_resize_and_set                   static=4   hit=4   frames base=1 gb=6  ..
+[124/185] requires_grad_toggle_inside              static=5   hit=5   frames base=1 gb=8  ..
+[125/185] inplace_views_overlap                    static=4   hit=4   frames base=1 gb=5  ..
+[126/185] out_kwarg                                static=4   hit=4   frames base=2 gb=6  ..
+[127/185] as_strided_unfold                        static=3   hit=3   frames base=1 gb=4  ..
+[128/185] nested_loops_break_labels                static=3   hit=3   frames base=1 gb=4  ..
+[129/185] loop_over_dict_mutating_copy             static=2   hit=2   frames base=1 gb=3  ..
+[130/185] while_with_tensor_condition_item         static=3   hit=2   frames base=1 gb=3  ..
+[131/185] ternary_chains_and_or                    static=4   hit=4   frames base=2 gb=6  ..
+[132/185] enumerate_start_zip_three                static=2   hit=2   frames base=1 gb=3  ..
+[133/185] default_args_evaluated_once              static=1   hit=1   frames base=1 gb=3  ..
+[134/185] nonlocal_in_loop_closure                 static=4   hit=4   frames base=1 gb=5  ..
+[135/185] recursion_with_memo_dict                 static=2   hit=2   frames base=1 gb=3  ..
+[136/185] lambda_in_dict_dispatch                  static=1   hit=1   frames base=1 gb=3  ..
+[137/185] global_constant_folding                  static=0   hit=0   frames base=1 gb=1  ..
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+step 0: -3.14
+step 1: -3.14
+[138/185] print_format_side_effect_count           static=1   hit=0   frames base=1 gb=1  ..
+[139/185] string_join_of_tensor_values             static=0   hit=0   frames base=4 gb=4  ..
+[140/185] dict_views_and_iteration_order           static=3   hit=3   frames base=1 gb=4  ..
+[141/185] set_of_shapes_and_frozenset              static=2   hit=2   frames base=1 gb=3  ..
+[142/185] deepcopy_module_state                    static=4   hit=4   frames base=6 gb=10  S.
+[143/185] torch_no_grad_decorator                  static=2   hit=3   frames base=1 gb=15  ..
+[144/185] autocast_inside                          static=1   hit=1   frames base=1 gb=2  ..
+[145/185] inference_mode_inside                    static=1   hit=1   frames base=2 gb=3  ..
+[146/185] tensor_bool_in_if_after_item             static=2   hit=2   frames base=3 gb=5  ..
+[147/185] complex_python_numbers                   static=1   hit=1   frames base=1 gb=2  ..
+[148/185] format_spec_on_shape_and_item            static=2   hit=2   frames base=2 gb=4  ..
+[149/185] dataclass_frozen_and_field_default       static=7   hit=13  frames base=89 gb=106  ..
+[150/185] enum_usage                               static=4   hit=7   frames base=29 gb=35  ..
+[151/185] typing_and_isinstance_union              static=1   hit=1   frames base=2 gb=3  ..
+[152/185] gen_return_value_stopiteration           static=4   hit=4   frames base=1 gb=5  NN
+[153/185] gen_throw                                static=3   hit=3   frames base=1 gb=4  NN
+[154/185] gen_expression_lazy_side_effect          static=4   hit=1   frames base=1 gb=3  ..
+[155/185] nested_generator_closure_var             static=2   hit=1   frames base=1 gb=4  ..
+[156/185] iter_protocol_custom_object              static=2   hit=4   frames base=4 gb=8  ..
+[157/185] tensor_subclass_torch_function           static=3   hit=4   frames base=8 gb=12  CC
+[158/185] torch_function_mode                      static=3   hit=5   frames base=4 gb=8  ..
+[159/185] parameter_subclass_attrs                 static=1   hit=1   frames base=2 gb=3  ..
+[160/185] weakref_to_object                        static=7   hit=12  frames base=9 gb=21  ..
+[161/185] threading_local_state                    static=2   hit=4   frames base=4 gb=7  CC
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `_pickle.dumps.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\_dynamo\variables\functions.py:2604: UserWarning: Dynamo does not know how to trace the builtin `_pickle.loads.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+[162/185] pickle_roundtrip_tensor                  static=5   hit=5   frames base=14 gb=19  ..
+[163/185] deepcopy_nested_containers_with_tensors  static=3   hit=3   frames base=3 gb=6  ..
+[164/185] deepcopy_module_forward                  static=3   hit=3   frames base=8 gb=11  ..
+[165/185] descriptor_property_cached               static=4   hit=8   frames base=6 gb=14  ..
+[166/185] class_attr_vs_instance_attr              static=5   hit=10  frames base=4 gb=14  ..
+[167/185] metaclass_and_init_subclass              static=4   hit=7   frames base=11 gb=18  ..
+[168/185] dunder_getitem_setitem_delitem           static=5   hit=10  frames base=4 gb=14  ..
+[169/185] augmented_assign_containers              static=11  hit=11  frames base=1 gb=12  ..
+[170/185] chained_comparison_tensor_scalar         static=1   hit=1   frames base=4 gb=5  ..
+[171/185] identity_after_ops                       static=4   hit=4   frames base=3 gb=7  ..
+[172/185] exception_args_and_notes                 static=1   hit=0   frames base=1 gb=1  ..
+[173/185] int_bool_subclass_handling               static=2   hit=4   frames base=4 gb=8  ..
+[174/185] zip_enumerate_strict_tensors             static=3   hit=3   frames base=1 gb=4  ..
+[175/185] sorted_cmp_to_key                        static=2   hit=2   frames base=2 gb=4  ..
+[176/185] string_format_tensor_repr                static=1   hit=1   frames base=7 gb=8  ..
+[177/185] bytes_from_tensor                        static=2   hit=2   frames base=5 gb=7  ..
+[178/185] nonlocal_generator_state_machine         static=5   hit=1   frames base=1 gb=3  ..
+[179/185] list_of_lambdas_dispatch_on_shape        static=1   hit=1   frames base=1 gb=3  ..
+[180/185] try_except_else_finally_order            static=2   hit=2   frames base=1 gb=3  ..
+[181/185] with_multiple_context_managers           static=2   hit=4   frames base=4 gb=7  ..
+[182/185] global_dict_mutation_across_calls        static=3   hit=6   frames base=3 gb=8  ..
+[183/185] tensor_in_set_and_dict_key_identity      static=5   hit=6   frames base=1 gb=7  ..
+[184/185] callable_module_list_in_loop             static=3   hit=3   frames base=2 gb=5  ..
+[185/185] dict_comprehension_with_tensor_values_sorted static=2   hit=2   frames base=3 gb=5  ..
+{
+ "torch": "2.14.0+cpu",
+ "backend": "eager",
+ "date": "2026-09-25 17:04",
+ "programs": 185,
+ "programs_per_module": {
+  "tcc.dynamo_semantics": 77,
+  "tcc.dynamo_semantics_more": 74,
+  "tcc.dynamo_semantics_batch3": 34
+ },
+ "programs_rewritten": 185,
+ "calls_per_arm": 370,
+ "arms": 3,
+ "executions_total": 1110,
+ "static_insertion_positions": 477,
+ "programs_with_zero_static_positions": [
+  "gen_expr_sum",
+  "bigint_to_tensor",
+  "sum_generator_of_tensors",
+  "list_comprehension_conditions",
+  "slicing_negative_steps",
+  "ellipsis_none_indexing",
+  "size_dtype_device_values",
+  "tensor_python_protocol",
+  "min_max_builtin_on_tensors",
+  "global_constant_folding",
+  "string_join_of_tensor_values"
+ ],
+ "user_breaks_actually_hit_total": 544,
+ "programs_where_all_static_breaks_hit": 155,
+ "programs_where_fewer_breaks_hit": [
+  [
+   "gen_early_close",
+   4,
+   2
+  ],
+  [
+   "gen_send",
+   4,
+   3
+  ],
+  [
+   "assert_message",
+   1,
+   0
+  ],
+  [
+   "closure_late_binding",
+   2,
+   1
+  ],
+  [
+   "zip_strict_error",
+   1,
+   0
+  ],
+  [
+   "graph_break_in_loop",
+   3,
+   1
+  ],
+  [
+   "break_inside_try",
+   2,
+   0
+  ],
+  [
+   "list_of_tensors_equality",
+   1,
+   0
+  ],
+  [
+   "exception_message_with_value",
+   2,
+   1
+  ],
+  [
+   "exception_after_graph_break",
+   4,
+   3
+  ],
+  [
+   "exception_in_generator",
+   4,
+   2
+  ],
+  [
+   "exception_chaining",
+   1,
+   0
+  ],
+  [
+   "exception_group",
+   1,
+   0
+  ],
+  [
+   "while_with_tensor_condition_item",
+   3,
+   2
+  ],
+  [
+   "print_format_side_effect_count",
+   1,
+   0
+  ],
+  [
+   "gen_expression_lazy_side_effect",
+   4,
+   1
+  ],
+  [
+   "nested_generator_closure_var",
+   2,
+   1
+  ],
+  [
+   "exception_args_and_notes",
+   1,
+   0
+  ],
+  [
+   "nonlocal_generator_state_machine",
+   5,
+   1
+  ]
+ ],
+ "frames_total_baseline": 614,
+ "frames_total_break": 1175,
+ "baseline_divergent_calls": 19,
+ "break_divergent_calls": 25,
+ "intersection_calls": 17,
+ "pairs": {
+  "same": 343,
+  "new": 8,
+  "gone": 2,
+  "same-divergence": 13,
+  "changed": 4
+ },
+ "pair_members": {
+  "new": [
+   "gen_send#0",
+   "gen_send#1",
+   "collections_types#0",
+   "collections_types#1",
+   "gen_return_value_stopiteration#0",
+   "gen_return_value_stopiteration#1",
+   "gen_throw#0",
+   "gen_throw#1"
+  ],
+  "gone": [
+   "python_random#0",
+   "python_random#1"
+  ],
+  "same-divergence": [
+   "numpy_scalar_types#0",
+   "numpy_scalar_types#1",
+   "inplace_leaf_error#0",
+   "inplace_leaf_error#1",
+   "manual_seed_inside#0",
+   "manual_seed_inside#1",
+   "np_scalar_math#0",
+   "np_scalar_math#1",
+   "slicing_negative_steps#0",
+   "slicing_negative_steps#1",
+   "exception_after_graph_break#0",
+   "exception_after_graph_break#1",
+   "deepcopy_module_state#0"
+  ],
+  "changed": [
+   "tensor_subclass_torch_function#0",
+   "tensor_subclass_torch_function#1",
+   "threading_local_state#0",
+   "threading_local_state#1"
+  ]
+ },
+ "wall_s_total": 48.7,
+ "wall_s_per_arm_sum": {
+  "eager": 0.44,
+  "baseline": 14.37,
+  "break": 32.72
+ }
+}
+DONE

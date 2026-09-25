@@ -1,0 +1,36 @@
+def forward(mlist, v25_0, v3_0, v0_0):
+    v26_0 = v25_0.max(1).values
+    v23_0 = mlist[0]()
+    v7_0 = mlist[1]()
+    v24_0 = torch.matmul(v7_0, v23_0)
+    v21_0 = mlist[2]()
+
+    def subfunc(v0_0, v21_0, v3_0, v26_0):
+        if v21_0[0, 0, 0] >= v25_0.mean():
+            v5_0 = mlist[3]()
+            v22_0 = torch.add(v5_0, v21_0)
+            v19_0 = mlist[4]()
+            v20_0 = torch.max(v26_0, v19_0)
+            v16_0 = torch.Tensor.flatten(v3_0)
+            v15_0 = torch.sigmoid(v16_0)
+        v10_0 = torch.matmul(v15_0, v24_0)
+        v27_0 = torch.zeros(torch.Size([2]), dtype=torch.float32, device='cpu')
+        for i in range(0, 2):
+            v27_0[i] = torch.cos(v10_0[i])
+        v12_0 = v0_0.to(dtype=torch.float64)
+        v8_0 = torch.lt(v0_0, v22_0)
+        v6_0 = torch.where(v8_0, v10_0, v20_0)
+        v2_0 = torch.abs(v6_0)
+        return (v16_0, v6_0, v8_0, v2_0, v15_0, v5_0, v10_0, v12_0, v19_0, v27_0, v22_0, v20_0)
+    v16_0, v6_0, v8_0, v2_0, v15_0, v5_0, v10_0, v12_0, v19_0, v27_0, v22_0, v20_0 = subfunc(v0_0, v21_0, v3_0, v26_0)
+    v9_0 = v2_0.to(dtype=torch.bool)
+    v18_0 = torch.logical_xor(v9_0, v9_0)
+    v17_0 = torch.nn.functional.pad(v2_0, (0, 0, 0, 0), 'replicate')
+    v4_0 = v2_0.transpose(3, 1)
+    v13_0 = v4_0.reshape(2, 150)
+    v1_0 = v6_0.to(dtype=torch.float64)
+    backup = v22_0[0, 0, 0].clone()
+    v22_0[0, 0, 0] = 0
+    v14_0 = torch.nn.functional.max_pool2d(v1_0, kernel_size=(2, 4), stride=1, padding=1)
+    v11_0 = torch.Tensor.flatten(v1_0)
+    return (v27_0, v12_0, v18_0, v17_0, v13_0, v14_0, v11_0)

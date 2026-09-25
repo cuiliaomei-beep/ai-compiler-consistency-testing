@@ -1,0 +1,18 @@
+seed 0: detected 11/19 tests 458 invalid 109 wall 45.3s  missed: codegen_boundary_31, codegen_index_last, codegen_scalar_edge, functionalize_drop_mutation, functionalize_alias_to_copy, capture_swallow_exception, autograd_wrong_gradient, underspec_requires_grad
+seed 1: detected 12/19 tests 483 invalid 108 wall 55.7s  missed: codegen_boundary_31, codegen_mod16_tail, codegen_scalar_edge, functionalize_drop_mutation, functionalize_alias_to_copy, autograd_wrong_gradient, underspec_requires_grad
+seed 2: detected 11/19 tests 457 invalid 120 wall 49.4s  missed: codegen_boundary_31, codegen_index_last, codegen_scalar_edge, functionalize_drop_mutation, functionalize_alias_to_copy, autograd_wrong_gradient, underspec_scalar, underspec_requires_grad
+seed 3: detected 11/19 tests 499 invalid 96 wall 51.8s  missed: codegen_boundary_31, codegen_fp16_rounding, codegen_scalar_edge, functionalize_drop_mutation, functionalize_alias_to_copy, autograd_wrong_gradient, underspec_dtype, underspec_requires_grad
+seed 4: detected 11/19 tests 490 invalid 114 wall 50.6s  missed: codegen_boundary_31, codegen_index_last, codegen_fp16_rounding, codegen_scalar_edge, functionalize_drop_mutation, functionalize_alias_to_copy, autograd_wrong_gradient, underspec_requires_grad
+{
+ "n_seeds": 5,
+ "mean": 11.2,
+ "median": 11,
+ "min": 11,
+ "max": 12,
+ "stdev": 0.4472135954999579,
+ "mean_tests": 477.4,
+ "mean_invalid": 109.4,
+ "mean_invalid_rate": 0.18658,
+ "mean_wall_s": 50.56,
+ "mean_first3": 11.333333333333334
+}

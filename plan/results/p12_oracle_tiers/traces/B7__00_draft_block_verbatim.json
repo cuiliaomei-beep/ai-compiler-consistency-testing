@@ -1,0 +1,106 @@
+{
+ "rc": "B7",
+ "members": [
+  "B7"
+ ],
+ "layer": "Dy",
+ "reproducer": "0913issues/07-dynamo-jvp-make-dual-internal-assert.md",
+ "title": "jvp of quantile / addr: internal assertion on every backend",
+ "status": "",
+ "sub": {
+  "name": "draft_block_verbatim",
+  "primary": true,
+  "compile": {},
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": true,
+  "note": "compiled side = the draft's whole first code block (its own torch.compile calls); eager side = the block's eager prefix"
+ },
+ "sub_index": 0,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:46:53",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "P[int,int]",
+    "out_meta": [
+     null,
+     null
+    ],
+    "alias_pairs": [],
+    "n_inputs": 0,
+    "outputs": {
+     "__seq__": "tuple",
+     "items": [
+      2,
+      4
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": []
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 2.3532,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 2.366,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 10.04,
+  "stdout_tail": "torch.Size([2, 4])\n",
+  "stderr_tail": "C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\jit\\_script.py:1485: FutureWarning: `torch.jit.script` is not supported in Python 3.14+ and may break. Please switch to `torch.compile` or `torch.export`.\n  warnings.warn(\n"
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": false,
+    "exception": "RuntimeError",
+    "exception_msg": "InferenceMode::is_enabled() && primal.is_inference() && tangent.is_inference() INTERNAL ASSERT FAILED at \"C:\\\\actions-runner\\\\_work\\\\pytorch\\\\pytorch\\\\aten\\\\src\\\\ATen\\\\native\\\\AutogradComposite.cpp\":28, please report a bug to PyTorch. Expected this function to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this function directly as native::_make_dual. Please use the dispatcher, i.e., at::_make_dual. Please file an issue if you come across this error otherwise.",
+    "exception_inner": "RuntimeError",
+    "exc_frame": "predispatch.py:199:_make_dual",
+    "out_struct": "",
+    "out_meta": [],
+    "alias_pairs": [],
+    "n_inputs": 0,
+    "outputs": null,
+    "inputs_after": {
+     "__seq__": "list",
+     "items": []
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 4.1253,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 4.139,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 11.79,
+  "stdout_tail": "torch.Size([2, 4])\n",
+  "stderr_tail": "46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]   File \"C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_tensor_str.py\", line 715, in _str\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]     return _str_intern(self, tensor_contents=tensor_contents)\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]   File \"C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_tensor_str.py\", line 427, in _str_intern\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]     self, tangent = torch.autograd.forward_ad.unpack_dual(inp)\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]   File \"C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\autograd\\forward_ad.py\", line 180, in unpack_dual\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]     primal, dual = _predispatch_unpack_dual(tensor, level=level)\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]   File \"C:\\Users\\clm\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\torch\\_functorch\\predispatch.py\", line 218, in _unpack_dual\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0]     return _unpack_dual_impl(tensor, level=level)\nE0925 17:46:52.082000 29024 site-packages\\torch\\_subclasses\\fake_tensor.py:3212] [0/0] RuntimeError: InferenceMode::is_enabled() && self.is_inference() INTERNAL ASSERT FAILED at \"C:\\\\actions-runner\\\\_work\\\\pytorch\\\\pytorch\\\\aten\\\\src\\\\ATen\\\\native\\\\VariableMethodStubs.cpp\":71, please report a bug to PyTorch. Expected this method to only be reached in inference mode and when all the inputs are inference tensors. You should NOT call this method directly as native::_fw_primal. Please use the dispatcher, i.e., at::_fw_primal. Please file an issue if you come across this error otherwise.\n"
+ }
+}

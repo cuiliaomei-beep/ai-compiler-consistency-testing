@@ -1,0 +1,170 @@
+{
+ "rc": "B18",
+ "members": [
+  "B18"
+ ],
+ "layer": "Dy",
+ "reproducer": "0913issues/18-dynamo-dynamic-namedtuple-eq-recursion-py314.md",
+ "title": "namedtuple == with tensor fields overflows the stack (Python 3.14 + dynamic)",
+ "status": "",
+ "sub": {
+  "name": "namedtuple_eq",
+  "primary": true,
+  "compile": {
+   "backend": "eager",
+   "dynamic": true
+  },
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 0,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:29:10",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": false,
+    "exception": "RuntimeError",
+    "exception_msg": "Boolean value of Tensor with more than one value is ambiguous",
+    "exception_inner": "RuntimeError",
+    "exc_frame": "oracle_tiers_cases.py:330:<lambda>",
+    "out_struct": "",
+    "out_meta": [],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": null,
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        1.5409960746765137,
+        -0.293428897857666,
+        -2.1787893772125244,
+        0.5684312582015991,
+        -1.0845223665237427,
+        -1.3985954523086548,
+        0.40334683656692505,
+        0.8380263447761536,
+        -0.7192575931549072,
+        -0.40334352850914,
+        -0.5966353416442871,
+        0.18203648924827576
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0008,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 0.015,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 6.87,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": false,
+    "exception": "RecursionError",
+    "exception_msg": "Stack overflow (used 2912 kB)",
+    "exception_inner": "RecursionError",
+    "exc_frame": "utils.py:5939:record_pregraph_bytecode_enter",
+    "out_struct": "",
+    "out_meta": [],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": null,
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        1.5409960746765137,
+        -0.293428897857666,
+        -2.1787893772125244,
+        0.5684312582015991,
+        -1.0845223665237427,
+        -1.3985954523086548,
+        0.40334683656692505,
+        0.8380263447761536,
+        -0.7192575931549072,
+        -0.40334352850914,
+        -0.5966353416442871,
+        0.18203648924827576
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.6814,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 3.957,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 11.22,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

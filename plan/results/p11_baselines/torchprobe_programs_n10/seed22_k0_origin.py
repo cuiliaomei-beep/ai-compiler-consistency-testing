@@ -1,0 +1,12 @@
+def forward(mlist, v10_0, v9_0):
+    v11_0 = torch.min(v9_0, v10_0)
+    v6_0 = torch.nn.functional.softmax(v11_0, dim=0)
+    v5_0 = v11_0.argmax(0)
+    v4_0 = mlist[1](v11_0)
+    v8_0 = mlist[2](v4_0)
+    v3_0 = torch.Tensor.flatten(v8_0)
+    v7_0 = v4_0.to(dtype=torch.int64)
+    v2_0 = v4_0.sum(1)
+    v1_0 = torch.lt(v2_0, v2_0)
+    v0_0 = torch.div(v2_0, v4_0)
+    return (v6_0, v5_0, v3_0, v7_0, v1_0, v0_0)

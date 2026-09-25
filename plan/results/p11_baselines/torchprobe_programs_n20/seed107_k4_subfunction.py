@@ -1,0 +1,28 @@
+def forward(mlist, v20_0):
+    v21_0 = mlist[0]()
+    v22_0 = torch.sub(v20_0, v21_0)
+    v9_0 = torch.tan(v22_0)
+
+    def subfunc():
+        v18_0 = torch.atan(v22_0)
+        return v18_0
+    v18_0 = subfunc()
+    if v21_0.mean() >= v18_0.shape[0]:
+        v14_0 = v18_0.to(dtype=torch.float64)
+        v19_0 = v14_0.tril(0)
+        v13_0 = torch.nn.functional.softmax(v14_0, dim=0)
+        v10_0 = v13_0.sum(1)
+        v4_0 = torch.clip(v10_0, -1.5, 1.5)
+        v1_0 = v10_0.mean(0)
+        v2_0 = torch.min(v1_0, v1_0)
+        v3_0 = torch.sub(v10_0, v2_0)
+        v12_0 = torch.gt(v3_0, v1_0)
+        v16_0 = torch.logical_or(v12_0, v12_0)
+        v5_0 = v3_0.to(dtype=torch.int64)
+        v6_0 = v5_0.to(dtype=torch.float32)
+        v15_0 = torch.nn.functional.softmax(v6_0, dim=0)
+        v7_0 = torch.Tensor.flatten(v6_0)
+        v0_0 = torch.relu(v7_0)
+        v8_0 = v7_0.argmin(0)
+        v11_0 = torch.neg(v8_0)
+    return (v9_0, v19_0, v4_0, v16_0, v15_0, v0_0, v11_0)

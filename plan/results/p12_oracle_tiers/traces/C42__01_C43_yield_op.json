@@ -1,0 +1,168 @@
+{
+ "rc": "C42",
+ "members": [
+  "C42",
+  "C43"
+ ],
+ "layer": "Dy",
+ "reproducer": "0920issues/41-dynamo-generator-reconstructed-as-exhausted-tuple-iterator.md",
+ "title": "a generator that escapes the compiled region comes back as an exhausted tuple_iterator",
+ "status": "",
+ "sub": {
+  "name": "C43_yield_op",
+  "primary": false,
+  "compile": {
+   "backend": "eager"
+  },
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 1,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:50:04",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "L[str,float,str]",
+    "out_meta": [
+     null,
+     null,
+     null
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__seq__": "list",
+     "items": [
+      "generator",
+      2.0,
+      "StopIteration.value=7"
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 2,
+       "values": [
+        1.0,
+        1.0
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0008,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 0.019,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 7.69,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "L[str,float,str]",
+    "out_meta": [
+     null,
+     null,
+     null
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__seq__": "list",
+     "items": [
+      "tuple_iterator",
+      2.0,
+      "StopIteration.value=None"
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         2
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 2,
+       "values": [
+        1.0,
+        1.0
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.1552,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 3.592,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 11.65,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ }
+}

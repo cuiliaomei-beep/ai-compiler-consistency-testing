@@ -1,0 +1,162 @@
+root_cause_id,subcase,primary,weakest,T1,T2,T3,observables,eager_exc,compiled_exc,compiled_exit,compiled_phase,first_finding
+B2,shuffle,1,T1,1,1,1,value,,,0x0,exit,call1 output[0]: |ref-test| = 2.000e+00 exceeds dtype-aware tolerance 3.100e-03 (no fp64 reference)
+B2,sample,0,T1,1,1,1,value,,,0x0,exit,call1 output[0]: |ref-test| = 9.000e+00 exceeds dtype-aware tolerance 5.010e-02 (no fp64 reference)
+B3,jvp_ldexp,1,T1,1,1,1,crash,,,0xc0000005,start,"process died during the compiled call (exit 0xc0000005, timed_out=False); eager completed 1 call(s)"
+B4,argmin_dynamic,1,T1,1,1,1,exception,,InductorError,0x0,exit," compiled raised InductorError (CppCompileError: C++ compile error
+
+Command:
+cl /I C:/Users/clm/AppData/Local/Python/pythoncore-3.14-64/Include /I C:/Us), eager returned"
+B6,std_1e30,1,T1,1,1,1,value,,,0x0,exit, output[0]: NaN/Inf present on one side only
+B6,std_1e-30_grad,0,T3,0,0,1,gradient;reference,,,0x0,exit, grad[0]: compiled err vs fp64 = 3.250e-01 exceeds 8.0x eager err 1.578e-08
+B7,draft_block_verbatim,1,T1,1,1,1,exception,,RuntimeError,0x0,exit," compiled raised RuntimeError (InferenceMode::is_enabled() && primal.is_inference() && tangent.is_inference() INTERNAL ASSERT FAILED at ""C:\\actions-ru), eager returned"
+B7,jvp_quantile_eager_backend,0,none,0,0,0,,,,0x0,exit,
+B7,jvp_quantile_aot_eager,0,none,0,0,0,,,,0x0,exit,
+B8,bool_x_fp16,1,T2,0,1,1,metadata,,,0x0,exit, output[0].dtype: torch.float16 vs torch.float32
+B8,int64_x_bf16,0,T2,0,1,1,metadata,,,0x0,exit, output[0].dtype: torch.bfloat16 vs torch.float32
+B8,fp16_x_fp32,0,T2,0,1,1,metadata,,,0x0,exit, output[0].dtype: torch.float32 vs torch.float16
+B8,fp16_x_bf16,0,T1,1,1,1,value,,,0x0,exit, output[0]: |ref-test| = 7.660e-03 exceeds dtype-aware tolerance 4.076e-03 (no fp64 reference)
+B8,bf16_x_fp64,0,T1,1,1,1,value,,,0x0,exit, output[0]: |ref-test| = 3.437e-03 exceeds dtype-aware tolerance 1.736e-03 (no fp64 reference)
+B9,compiled_autograd_interpolate,1,T1,1,1,1,exception,,TorchRuntimeError,0x0,exit," compiled raised TorchRuntimeError (RuntimeError when making fake tensor call
+  Explanation: Dynamo failed to run FX node with fake tensors: call_function t), eager returned"
+B10,fstring_d,1,T1,1,1,1,exception,,InternalTorchDynamoError,0x0,exit," compiled raised InternalTorchDynamoError (ValueError: Unknown format code 'd' for object of type 'str'
+
+from user code:
+   File ""D:\wsl\personal\dr\paper\toxic_co), eager returned"
+B11,sgd_foreach_complex,1,T1,1,1,1,exception,,InductorError,0x0,exit," compiled raised InductorError (AssertionError: <built-in function getitem> is not an OpOverload
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace), eager returned"
+B12,interpolate_empty,1,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (Input and output sizes should be greater than 0, but got input (W: 0) and output (W: 3)), compiled returned"
+B13,aoti_lifted_constant_mutation,1,T1,1,1,1,exception,,RuntimeError,0x0,exit," compiled raised RuntimeError (false INTERNAL ASSERT FAILED at ""C:\\actions-runner\\_work\\pytorch\\pytorch\\build\\aten\\src\\ATen\\RegisterFunctional), eager returned"
+B14,vector_norm_inf_empty,1,T1,1,1,1,exception,,TorchRuntimeError,0x0,exit," compiled raised TorchRuntimeError (RuntimeError when making fake tensor call
+  Explanation: Dynamo failed to run FX node with fake tensors: call_function <), eager returned"
+B15,bce_weight_fp32,1,T2,0,1,1,metadata,,,0x0,exit, output[0].dtype: torch.bfloat16 vs torch.float32
+B17,seed_inside,1,T1,1,1,1,value,,,0x0,exit,call0 output[0]: |ref-test| = 5.869e-02 exceeds dtype-aware tolerance 9.444e-04 (no fp64 reference)
+B18,namedtuple_eq,1,T3,0,0,1,exception-type,RuntimeError,RecursionError,0x0,exit, exception type differs: eager RuntimeError/RuntimeError vs compiled RecursionError/RecursionError
+B19,bmm_max_autotune,1,T1,1,1,1,exception,,InductorError,0x0,exit," compiled raised InductorError (LoweringException: AttributeError: function 'cpp_CppMicroGemmFP32Vec' not found
+  target: aten.bmm.default
+  args[0]: Te), eager returned"
+B20,aoti_return_types_max,1,T1,1,1,1,exception,,NotImplementedError,0x0,exit," compiled raised NotImplementedError (No registered serialization name for <class 'torch.return_types.max'> found. Please update your _register_pytree_node ca), eager returned"
+B21,lerp_bool,1,T1,1,1,1,exception,,BackendCompilerFailed,0x0,exit," compiled raised BackendCompilerFailed (backend='inductor' raised:
+NotImplementedError: Subtraction, the `-` operator, with two bool tensors is not supported. U), eager returned"
+B22,sum_half_dtype_bool,1,T1,1,1,1,exception,,InductorError,0x0,exit," compiled raised InductorError (CppCompileError: C++ compile error
+
+Command:
+cl /I C:/Users/clm/AppData/Local/Python/pythoncore-3.14-64/Include /I C:/Us), eager returned"
+B22,prod_dtype_bool,0,T1,1,1,1,exception,,InductorError,0x0,exit," compiled raised InductorError (AssertionError: expected reduction_type in (""min"", ""max"", ""any"", ""sum"")
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stac), eager returned"
+B23,addmm_0d_bias,1,T1,1,1,1,exception,,InductorError,0x0,exit," compiled raised InductorError (LoweringException: IndexError: list index out of range
+  target: aten.addmm.default
+  args[0]: TensorBox(StorageBox(
+   ), eager returned"
+B24,var_mean_empty,1,T1,1,1,1,value,,,0x0,exit, output[1]: NaN/Inf present on one side only
+B24,std_mean_empty,0,T1,1,1,1,value,,,0x0,exit, output[1]: NaN/Inf present on one side only
+B25,channel_shuffle_chlast,1,T2,0,1,1,metadata,,,0x0,exit," output[0].stride: (384, 1, 48, 6) vs (384, 64, 8, 1)"
+B26,keyerror_str,1,T1,1,1,1,value,,,0x0,exit, output[1]: non-float values differ exactly
+B27,abs_complex_out_f64,1,T1,1,1,1,exception,,TorchRuntimeError,0x0,exit," compiled raised TorchRuntimeError (RuntimeError when making fake tensor call
+  Explanation: Dynamo failed to run FX node with fake tensors: call_function <), eager returned"
+C1,saved_view_mutated_before_backward,1,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (one of the variables needed for gradient computation has been modified by an inplace operation: [tor), compiled returned"
+C3,rms_norm_eps,1,T1,1,1,1,value,,,0x0,exit,call2 output[0]: |ref-test| = 2.175e-01 exceeds dtype-aware tolerance 1.005e-03 (no fp64 reference)
+C3,huber_delta,0,T1,1,1,1,value,,,0x0,exit,call2 output[0]: |ref-test| = 1.196e-01 exceeds dtype-aware tolerance 3.511e-04 (no fp64 reference)
+C3,interpolate_scale,0,T1,1,1,1,value,,,0x0,exit,call2 output[0]: values differ (not numerically comparable)
+C3,C26_cumsum_dim_from_float,0,T1,1,1,1,value,,,0x0,exit,call2 output[0]: |ref-test| = 1.794e+00 exceeds dtype-aware tolerance 1.285e-03 (no fp64 reference)
+C3,C26_round_decimals_from_float,0,T1,1,1,1,value,,,0x0,exit,call2 output[0]: |ref-test| = 5.000e-02 exceeds dtype-aware tolerance 1.000e-03 (no fp64 reference)
+C5,index_add_shape_mismatch,1,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (source tensor shape must match self tensor shape, excluding the specified dimension. Got self.shape ), compiled returned"
+C5,index_copy_negative_index,0,T3,0,0,1,exception-routing,IndexError,,0x0,exit," eager raised IndexError (index_copy_(): index -1 is out of bounds for dimension 0 with size 4), compiled returned"
+C5,bce_input_gt_1,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (all elements of input should be between 0 and 1), compiled returned"
+C5,repeat_interleave_wrong_output_size,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (allocated size does not match required size), compiled returned"
+C5,softmax_int64,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""softmax_lastdim_kernel_impl"" not implemented for 'Long'), compiled returned"
+C5,layer_norm_f64_weight,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (mixed dtype (CPU): expect parameter to have scalar type of Float), compiled returned"
+C5,one_hot_float,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (one_hot is only applicable to index tensor of type LongTensor.), compiled returned"
+C5,int64_mul__float,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (result type Float can't be cast to the desired output type Long), compiled returned"
+C5,float_add__1j,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (result type ComplexFloat can't be cast to the desired output type Float), compiled returned"
+C5,take_out_overlapping,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (unsupported operation: some elements of the input tensor and the written-to tensor refer to a single), compiled returned"
+C8,logits_div_1.0,1,T3,0,0,1,alias,,,0x0,exit," storage-sharing relation changed: gained [(0, 2)] (indices < 2 are inputs, >= 2 outputs)"
+C8,buf_mul_1.0,0,T3,0,0,1,alias,,,0x0,exit," storage-sharing relation changed: gained [(0, 2)] (indices < 2 are inputs, >= 2 outputs)"
+C8,x_add_0,0,T3,0,0,1,alias,,,0x0,exit," storage-sharing relation changed: gained [(0, 2)] (indices < 2 are inputs, >= 2 outputs)"
+C10,f32_floordiv,1,T1,1,1,1,value,,,0x0,exit, output[0]: |ref-test| = 1.000e+00 exceeds dtype-aware tolerance 2.910e-02 (no fp64 reference)
+C10,f64_div_floor,0,T1,1,1,1,value,,,0x0,exit, output[0]: |ref-test| = 1.000e+00 exceeds dtype-aware tolerance 2.910e-02 (no fp64 reference)
+C11,dict_+=,1,T3,0,0,1,state,,,0x0,exit,"call0 state[""n""]: 1 vs 0"
+C11,dict_setitem,0,T3,0,0,1,state,,,0x0,exit,"call0 state.keys: [""\""n\"""", ""\""k\""""] vs [""\""n\""""]"
+C11,list_append,0,T3,0,0,1,state,,,0x0,exit,call0 state.len: 1 vs 0
+C11,list_+=,0,T3,0,0,1,state,,,0x0,exit,call0 state.len: 1 vs 0
+C13,np_fix,1,T1,1,1,1,value,,,0x0,exit, output[0]: |eager-compiled| = 1.000e+00 exceeds dtype-aware tolerance 8.100e-03 at a finite position (eager 1 vs compiled 2; NaN-aware check)
+C13,np_cbrt,0,T1,1,1,1,value,,,0x0,exit, output[0]: NaN/Inf pattern differs position-wise (first at flat index 1: eager -1.1447142362594604 vs compiled nan)
+C13,np_sign,0,T1,1,1,1,value,,,0x0,exit, output[0]: NaN/Inf present on one side only
+C13,np_heaviside,0,T1,1,1,1,value,,,0x0,exit, output[0]: NaN/Inf present on one side only
+C13,np_clip_int8,0,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C13,np_clip_uint8,0,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C14,remainder_n8,1,T1,1,1,1,value,,,0x0,exit, output[0]: NaN/Inf present on one side only
+C15,uint8_argmin,1,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C15,uint8_min,0,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C15,int8_neg_max,0,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C15,int8_neg_argmax,0,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C16,round_shape_neg1,1,T1,1,1,1,value,,,0x0,exit,call0 output[0]: non-float values differ exactly
+C16,x_times_round,0,T1,1,1,1,value,,,0x0,exit,call1 output[0]: |ref-test| = 5.000e+00 exceeds dtype-aware tolerance 8.010e-02 (no fp64 reference)
+C17,nan_self_compare,1,T1,1,1,1,value,,,0x0,exit, output[0]: NaN/Inf present on one side only
+C17,inf_minus_inf_item,0,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C20,np_cumsum_int8,1,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C20,np_square_int8,0,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C20,np_median_f32,0,T2,0,1,1,structure,,,0x0,exit, output structure differs: float32 vs ndarray
+C20,np_any_uint8,0,T2,0,1,1,structure,,,0x0,exit, output structure differs: bool vs ndarray
+C20,uint16_plus_1,0,T1,1,1,1,exception,,NotImplementedError,0x0,exit," compiled raised NotImplementedError (""add_stub"" not implemented for 'UInt16'), eager returned"
+C21,half_float_roundtrip,1,T1,1,1,1,value,,,0x0,exit, output[0]: NaN/Inf present on one side only
+C21,bf16_float_roundtrip,0,T1,1,1,1,value,,,0x0,exit, output[0]: |ref-test| = 1.440e+02 exceeds dtype-aware tolerance 7.014e+01 (no fp64 reference)
+C22,clamp_int8_wide,1,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (value cannot be converted to type int8_t without overflow), compiled returned"
+C22,clamp_int8_max300,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (value cannot be converted to type int8_t without overflow), compiled returned"
+C22,C31_pad_uint8_value_-1,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (value cannot be converted to type uint8_t without overflow), compiled returned"
+C22,C31_pad_int8_value_300,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (value cannot be converted to type int8_t without overflow), compiled returned"
+C23,inplace_on_inference_tensor,1,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (Inplace update to inference tensor outside InferenceMode is not allowed.You can make a clone to get ), compiled returned"
+C23,deterministic_put__duplicate,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (put_ does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(T), compiled returned"
+C23,pad_crops_more_than_input,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (narrow(): length must be non-negative.), compiled returned"
+C25,empty_like_randn,1,T1,1,1,1,value,,,0x0,exit, output[0]: NaN/Inf present on one side only
+C25,empty_int32,0,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C28,fp16_chain,1,T1,1,1,1,value,,,0x0,exit, output[1]: NaN/Inf present on one side only
+C29,any_uint8,1,T2,0,1,1,metadata,,,0x0,exit, output[0].dtype: torch.uint8 vs torch.bool
+C29,any_uint8_dim0,0,T2,0,1,1,metadata,,,0x0,exit, output[0].dtype: torch.uint8 vs torch.bool
+C29,any_times_200_plus_100,0,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C34,avg_pool1d_ceil_grad,1,T3,0,0,1,gradient,,,0x0,exit, grad[0]: compiled err vs fp64 = 1.667e-01 exceeds 8.0x eager err 3.974e-08
+C34,avg_pool2d_ceil_grad,0,T3,0,0,1,gradient,,,0x0,exit, grad[0]: compiled err vs fp64 = 2.500e-01 exceeds 8.0x eager err 3.311e-08
+C35,erfinv_f32_near_1,1,T1,1,1,1,value,,,0x0,exit, output[0]: |ref-test| = 2.892e-02 exceeds dtype-aware tolerance 3.933e-03 (no fp64 reference)
+C35,erfinv_f64_near_1,0,T1,1,1,1,value,,,0x0,exit, output[0]: |ref-test| = 2.090e-02 exceeds dtype-aware tolerance 5.964e-03 (no fp64 reference)
+C36,acosh_f64_1e200_n8,1,T1,1,1,1,value,,,0x0,exit, output[0]: NaN/Inf present on one side only
+C36,acosh_f64_1.35e154_n16,0,T1,1,1,1,value,,,0x0,exit, output[0]: NaN/Inf present on one side only
+C37,softmax_int64,1,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""softmax_lastdim_kernel_impl"" not implemented for 'Long'), compiled returned"
+C37,avg_pool2d_int8,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""avg_pool2d"" not implemented for 'Char'), compiled returned"
+C37,bitwise_not_f32,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""bitwise_not_cpu"" not implemented for 'Float'), compiled returned"
+C37,conv2d_bool,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""slow_conv2d_cpu"" not implemented for 'Bool'), compiled returned"
+C37,argmax_bool,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (argmax(): does not support bool input), compiled returned"
+C37,one_hot_f32,0,T3,0,0,1,exception-routing,RuntimeError,,0x0,exit," eager raised RuntimeError (one_hot is only applicable to index tensor of type LongTensor.), compiled returned"
+C37,bessel_j0_f16,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""bessel_j0_cpu"" not implemented for 'Half'), compiled returned"
+C37,batch_norm_c64,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""batch_norm"" not implemented for 'ComplexFloat'), compiled returned"
+C37,mse_loss_c64,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""mse_cpu"" not implemented for 'ComplexFloat'), compiled returned"
+C37,C30_round_int8_decimals-1,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""round_cpu"" not implemented for 'Char'), compiled returned"
+C37,C30_round_uint8_decimals1,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""round_cpu"" not implemented for 'Byte'), compiled returned"
+C37,C30_ceil_bool,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""ceil_vml_cpu"" not implemented for 'Bool'), compiled returned"
+C37,C30_glu_int8,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""glu_cpu"" not implemented for 'Char'), compiled returned"
+C37,C30_adaptive_max_pool2d_int8,0,T3,0,0,1,exception-routing,NotImplementedError,,0x0,exit," eager raised NotImplementedError (""adaptive_max_pool2d"" not implemented for 'Char'), compiled returned"
+C40,erf_f32_near_0_n64,1,T3,0,0,1,reference,,,0x0,exit, float64 reference[0]: compiled rel err 1.00e+00 vs eager 6.77e-09 against the reference (64 of 64 elements)
+C40,atanh_f32_eps,0,T3,0,0,1,reference,,,0x0,exit, float64 reference[0]: compiled rel err 1.00e+00 vs eager 2.22e-16 against the reference (16 of 64 elements)
+C41,move_to_end_input_dict,1,T3,0,0,1,state,,,0x0,exit," input[0].keys: [""\""b\"""", ""\""c\"""", ""\""a\""""] vs [""\""a\"""", ""\""b\"""", ""\""c\""""]"
+C41,lru_eviction,0,T3,0,0,1,state,,,0x0,exit," state[0]: ""a"" vs ""b"""
+C42,generator_returned,1,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C42,C43_yield_op,0,T1,1,1,1,value,,,0x0,exit, output[0]: non-float values differ exactly
+C42,C43_started_no_op,0,none,0,0,0,,,,0x0,exit,
+C44,guarded_x[10],1,T1,1,1,1,exception,,IndexError,0x0,exit," compiled raised IndexError (index 10 is out of bounds for dimension 0 with size 3
+
+from user code:
+   File ""D:\wsl\personal\dr\paper\toxic_compile\p), eager returned"
+C44,guarded_sum_dim5,0,T1,1,1,1,exception,,IndexError,0x0,exit," compiled raised IndexError (Dimension out of range (expected to be in range of [-2, 1], but got 5)
+
+from user code:
+   File ""D:\wsl\personal\dr\pape), eager returned"
+C44,C45_except_Exception,0,T1,1,1,1,exception,,IndexError,0x0,exit," compiled raised IndexError (index 10 is out of bounds for dimension 0 with size 3
+
+from user code:
+   File ""D:\wsl\personal\dr\paper\toxic_compile\p), eager returned"
+C44,C45_contextlib_suppress,0,T1,1,1,1,exception,,IndexError,0x0,exit," compiled raised IndexError (Dimension out of range (expected to be in range of [-2, 1], but got 5)
+
+from user code:
+   File ""D:\wsl\personal\dr\pape), eager returned"
+C44,C45_NotImplementedError,0,T1,1,1,1,exception,,NotImplementedError,0x0,exit," compiled raised NotImplementedError (""bitwise_and_cpu"" not implemented for 'Float'), eager returned"
+C46,aoti_runner_destroyed_n4096,1,T3,0,0,1,process,,,0xc0000005,calls_done,compiled process did not exit cleanly after the call(s): phase=calls_done exit=0xc0000005 timed_out=False

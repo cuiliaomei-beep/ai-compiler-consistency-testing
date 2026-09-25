@@ -1,0 +1,29 @@
+def forward(mlist, v8_0, v9_0, v13_0, v16_0, v7_0):
+    v22_0 = v8_0.sum(1)
+    v21_0 = v9_0.triu(0)
+    v20_0 = v21_0.triu(0)
+    v19_0 = torch.relu(v13_0)
+    v18_0 = v20_0.max(1).values
+    v17_0 = v16_0.to(dtype=torch.float64)
+    v14_0 = torch.max(v17_0, v18_0)
+    v12_0 = torch.atan(v14_0)
+    v5_0 = torch.where(v7_0, v16_0, v17_0)
+    v15_0 = torch.logical_and(v7_0, v7_0)
+    v10_0 = torch.where(v7_0, v19_0, v12_0)
+    v6_0 = torch.mul(v10_0, v22_0)
+    v3_0 = torch.tan(v6_0)
+    if v7_0 < v21_0.min():
+        v0_0 = torch.min(v3_0, v6_0)
+        backup = v10_0[0].clone()
+    v10_0[0] = 0.26269054412841797
+    v1_0 = v3_0.to(dtype=torch.float32)
+    v24_0 = torch.tan(v1_0)
+    v2_0 = torch.matmul(v1_0, v1_0)
+    v4_0 = torch.where(v7_0, v2_0, v2_0)
+
+    def subfunc(v1_0):
+        v23_0 = torch.where(v7_0, v4_0, v1_0)
+        v11_0 = v4_0.to(dtype=torch.int64)
+        return (v11_0, v23_0)
+    v11_0, v23_0 = subfunc(v1_0)
+    return (v5_0, v15_0, v0_0, v24_0, v23_0, v11_0)

@@ -1,0 +1,17 @@
+torch 2.14.0+cpu; autocast torch.float16; shard 0/2: 231 ops to do (0 done)
+[25/231] cos: ok (1s, total 26s)  [None]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:1267: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\SparseCsrTensorImpl.cpp:51.)
+  .to_sparse_csr()
+D:\wsl\personal\dr\paper\toxic_compile\plan\tcc\observe.py:97: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  lambda: t.storage().data_ptr(), lambda: t.data_ptr()):
+[50/231] logaddexp: ok (1s, total 48s)  [None]
+[75/231] nn.functional.conv2d: ok (1s, total 71s)  [None]
+[100/231] neg: ok (1s, total 95s)  [None]
+[125/231] isposinf: ok (1s, total 118s)  [None]
+C:\Users\clm\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\torch\testing\_internal\common_methods_invocations.py:19760: UserWarning: ComplexHalf support is experimental and many operators don't support it yet. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\EmptyTensor.cpp:55.)
+  op=lambda x, *args, **kwargs: x.chalf(*args, **kwargs),
+[150/231] scalar_tensor: ok (1s, total 140s)  [None]
+[175/231] lgamma: ok (1s, total 163s)  [None]
+[200/231] linalg.householder_product: ok (1s, total 184s)  [None]
+[225/231] masked.cumprod: ok (1s, total 204s)  [None]
+AUTOCAST CONTROL DONE

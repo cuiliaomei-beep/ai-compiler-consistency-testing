@@ -1,0 +1,53 @@
+root_cause_id,member_items,layer,reproducer_path,reproducible_here,reason,status,title,n_subcases,n_subcases_run
+B2,B2,Dy,0913issues/02-dynamo-random-shuffle-sample-frozen.md,yes,,fixed,random.shuffle / sample return the same permutation on every call,2,2
+B3,B3,AOT,0913issues/03-aot-autograd-jvp-ldexp-process-crash.md,yes,,,jvp over ldexp terminates the interpreter under aot_eager,1,1
+B4,B4,In,0913issues/04-inductor-cpu-argmin-dynamic-pow-in-cpp.md,yes,,confirmed,argmin/argmax under dynamic=True emit Python ** into C++,1,1
+B5,B5,In,0913issues/05-inductor-cudagraphs-new-zeros-cpu-device.md,no,needs CUDA (triton.cudagraphs); this machine has no GPU,confirmed,new_zeros(device=cpu) returns a CUDA tensor under cudagraphs,1,0
+B6,B6,In,0913issues/06-inductor-cpu-std-var-fp32-accumulation.md,yes,,,std/var accumulate in float32: inf/NaN and zero gradient at extreme magnitudes,2,2
+B7,B7,Dy,0913issues/07-dynamo-jvp-make-dual-internal-assert.md,yes,,,jvp of quantile / addr: internal assertion on every backend,3,3
+B8,B8,In,0913issues/08-inductor-ldexp-output-dtype.md,yes,,fixed,ldexp output dtype wrong in both directions,5,5
+B9,B9,AOT,0913issues/09-compiled-autograd-interpolate-isintlist-assert.md,yes,,,compiled autograd: interpolate backward hits an internal assertion,1,1
+B10,B10,Dy,0913issues/10-dynamo-dynamic-fstring-format-spec.md,yes,,confirmed,f-string format spec on a symbolic size: internal Dynamo error,1,1
+B11,B11,In,0913issues/11-inductor-compiled-sgd-foreach-complex.md,yes,,confirmed,compiled SGD.step with foreach=True and complex parameters: lowering assertion,1,1
+B12,B12,De,0913issues/12-inductor-interpolate-zero-size-oob-nan.md,yes,,confirmed,interpolate on an empty spatial dim returns uninitialised data instead of raising,1,1
+B13,B13,Ex,0913issues/13-export-aoti-lifted-constant-mutation.md,yes,,rejected,mutated captured tensor: export accepts and AOTInductor asserts,1,1
+B14,B14,De,0913issues/14-refs-vector-norm-negative-dim-empty-batch.md,yes,,fixed,vector_norm(ord=inf) on an empty batch fails for negative dim,1,1
+B15,B15,In,0913issues/15-inductor-bce-huber-loss-mixed-dtype.md,yes,,,binary_cross_entropy / huber_loss return float32 for half-precision inputs,1,1
+B17,B17,Dy,0913issues/17-dynamo-random-seed-first-call.md,yes,,fixed,random.seed inside the function is ignored on the first call,1,1
+B18,B18,Dy,0913issues/18-dynamo-dynamic-namedtuple-eq-recursion-py314.md,yes,,,namedtuple == with tensor fields overflows the stack (Python 3.14 + dynamic),1,1
+B19,B19,In,0913issues/19-inductor-windows-bmm-max-autotune-export.md,yes,,,bmm under max_autotune: missing symbol export in a C++ template (Windows),1,1
+B20,B20,Ex,0913issues/20-aoti-return-types-namedtuple-packaging.md,yes,,fixed,AOTInductor cannot package models returning torch.return_types.*,1,1
+B21,B21,De,0913issues/21-inductor-lerp-bool-scalar-weight.md,yes,,fixed,lerp of Boolean tensors with a 0-d weight fails to compile,1,1
+B22,B22,In,0913issues/22-inductor-cpu-sum-prod-dtype-bool.md,yes,,,sum / prod with dtype=torch.bool: C++ error / assertion,2,2
+B23,B23,In,0913issues/23-inductor-addmm-scalar-bias-max-autotune.md,yes,,fixed,addmm with a 0-d bias under max_autotune: IndexError in lowering,1,1
+B24,B24,In,0913issues/24-inductor-var-mean-empty-mean-zero.md,yes,,fixed,var_mean / std_mean of an empty tensor: mean is 0 instead of NaN,2,2
+B25,B25,In,0913issues/25-inductor-channel-shuffle-channels-last.md,yes,,confirmed,channel_shuffle loses the channels_last layout,1,1
+B26,B26,Dy,0913issues/26-dynamo-keyerror-str-quotes.md,yes,,fixed,str(KeyError(k)) loses the quotes CPython adds,1,1
+B27,B27,De,0913issues/27-meta-abs-complex-out-dtype.md,yes,,confirmed,abs(complex out=float64) rejected by the meta kernel,1,1
+C1,C1,AOT,0920issues/01-inductor-saved-view-version-check-lost-wrong-gradient.md,yes,,fixed,autograd's in-place-modification check lost when a view of an input is saved for backward,1,1
+C3,C3;C26,Dy,0920issues/02b-stale-python-float-baked-into-cached-graph-norm-eps-interpolate-losses.md,yes,,,changing Python float argument (and integers derived from it) baked into the cached graph,5,5
+C5,C5,De,0920issues/04-comment-on-197554-validation-lost-sweep.md,yes,,,ten members of the maintainers' 'validation lost' umbrella (eager error inputs accepted by the compiled path),10,10
+C8,C8,In,0920issues/07-inductor-noop-elimination-returns-input-itself.md,yes,,confirmed,x*1 / x+0 / x/1.0 as a graph output return the input tensor itself,3,3
+C10,C10,In,0920issues/09-inductor-float-floor-divide-off-by-one.md,yes,,confirmed,floating-point floor division off by one under compile,2,2
+C11,C11,Dy,0920issues/10-dynamo-closure-mutation-lost-in-method-of-object-created-in-graph.md,yes,,fixed,Dynamo silently drops closure mutations made in methods of locally defined classes,4,4
+C13,C13,Dy,0920issues/12-dynamo-numpy-wrong-values-fix-cbrt-clip-sign.md,yes,,,compiled NumPy code returns wrong values (np.fix / cbrt / clip / sign),6,6
+C14,C14,In,0920issues/13-inductor-cpu-vectorized-remainder-nan-and-length-dependent.md,yes,,,vectorized remainder: NaN for infinite divisor and 0 for large quotients,1,1
+C15,C15,In,0920issues/14-comment-on-191499-int8-minmax-argmin-x86.md,yes,,,int8/uint8 min/max/argmin/argmax wrong for >=16 elements on x86,4,4
+C16,C16,Dy,0920issues/15-symint-round-negative-ndigits-is-identity.md,yes,,,round(SymInt -1) is the identity; round disappears from the graph,2,2
+C17,C17,Dy,0920issues/16-symfloat-nan-self-comparison-folded.md,yes,,,NaN self-comparison of an .item() value folded to a constant under capture_scalar_outputs,2,2
+C20,C20,Dy,0920issues/19-dynamo-numpy-dtype-shape-divergences.md,yes,,,"compiled NumPy code: different dtype / shape rules (cumsum int8 overflow, square->float64, median shape)",5,5
+C21,C21,In,0920issues/20-comment-on-185337-explicit-half-cast-roundtrip-still-elided.md,yes,,,explicit half().float() round trip removed by Inductor,2,2
+C22,C22;C31,In,0920issues/21-inductor-clamp-out-of-range-python-bounds-wrap.md,yes,,,clamp / pad Python bounds and fill values wrapped into the integer dtype,4,4
+C23,C23,In,0920issues/22-comment-on-197554-inference-tensor-and-deterministic-mode-checks-lost.md,yes,,,"three protections lost under Inductor (inference tensor in-place, deterministic put_, F.pad over-cropping)",3,3
+C25,C25,In,0920issues/24-comment-on-174386-deterministic-empty-still-unfilled-on-cpu.md,yes,,,deterministic mode: empty* not filled with NaN / max on Inductor CPU,2,2
+C28,C28,In,0920issues/27-comment-on-183607-fp16-fused-chain-y-inf-but-isinf-false.md,yes,,,float16 fused chains: intermediates not rounded to float16; isinf(y) False while y is inf,1,1
+C29,C29,In,0920issues/28-inductor-any-uint8-returns-bool.md,yes,,,torch.any(uint8) returns bool instead of uint8 under Inductor,3,3
+C34,C34,In,0920issues/33-inductor-avg-pool-backward-ceil-mode-wrong-divisor.md,yes,,,avg_pool backward with ceil_mode uses the full kernel size as divisor for the last window,2,2
+C35,C35,In,0920issues/34-inductor-cpu-erfinv-loses-accuracy-near-one.md,yes,,,erfinv loses accuracy near +-1 on Inductor CPU,2,2
+C36,C36,In,0920issues/35-inductor-cpu-vector-acosh-float64-overflow.md,yes,,,vectorized float64 acosh overflows for x > 1.34e154,2,2
+C37,C37;C30;C38,In,0920issues/36-inductor-runs-ops-on-dtypes-eager-rejects-full-list.md,yes,,,operators run under compile on dtypes their eager kernels reject (418 pairs; CUDA family in C38; C30 family),14,14
+C40,C40,In,0920issues/39-inductor-cpu-vector-erf-atanh-lose-accuracy-near-zero.md,yes,,,vectorized float32 erf loses all relative accuracy near 0; vector atanh returns 0 below eps,2,2
+C41,C41,Dy,0920issues/40-dynamo-ordereddict-move-to-end-side-effect-dropped.md,yes,,,OrderedDict.move_to_end on an input dict is silently dropped,2,2
+C42,C42;C43,Dy,0920issues/41-dynamo-generator-reconstructed-as-exhausted-tuple-iterator.md,yes,,,a generator that escapes the compiled region comes back as an exhausted tuple_iterator,3,3
+C44,C44;C45,Dy,0920issues/42-dynamo-indexerror-skips-user-except-handler.md,yes,,,IndexError raised by a tensor op skips the user's except handler,5,5
+C46,C46,Ex,0920issues/43-aoti-windows-runner-destroyed-openmp-access-violation.md,yes,,,destroying an AOTI runner right after a run crashes the process on Windows (OpenMP workers still spinning),1,1

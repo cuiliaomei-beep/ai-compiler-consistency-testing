@@ -1,0 +1,194 @@
+{
+ "rc": "B22",
+ "members": [
+  "B22"
+ ],
+ "layer": "In",
+ "reproducer": "0913issues/22-inductor-cpu-sum-prod-dtype-bool.md",
+ "title": "sum / prod with dtype=torch.bool: C++ error / assertion",
+ "status": "",
+ "sub": {
+  "name": "prod_dtype_bool",
+  "primary": false,
+  "compile": {},
+  "grad": false,
+  "fp64": null,
+  "has_handler": false,
+  "inductor_config": {},
+  "dynamo_config": {},
+  "custom": false,
+  "note": ""
+ },
+ "sub_index": 1,
+ "torch": "2.14.0+cpu",
+ "python": "3.14.7",
+ "platform": "win32",
+ "when": "2026-09-25 17:30:19",
+ "eager": {
+  "side": "eager",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": true,
+    "exception": null,
+    "exception_msg": null,
+    "exception_inner": null,
+    "exc_frame": null,
+    "out_struct": "T",
+    "out_meta": [
+     {
+      "shape": [],
+      "dtype": "torch.bool",
+      "device": "cpu",
+      "stride": [],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     }
+    ],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": {
+     "__tensor__": "tensor",
+     "meta": {
+      "shape": [],
+      "dtype": "torch.bool",
+      "device": "cpu",
+      "stride": [],
+      "contiguous": true,
+      "requires_grad": false,
+      "storage_offset": 0,
+      "is_view": false
+     },
+     "numel": 1,
+     "values": [
+      true
+     ]
+    },
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        1.5409960746765137,
+        -0.293428897857666,
+        -2.1787893772125244,
+        0.5684312582015991,
+        -1.0845223665237427,
+        -1.3985954523086548,
+        0.40334683656692505,
+        0.8380263447761536,
+        -0.7192575931549072,
+        -0.40334352850914,
+        -0.5966353416442871,
+        0.18203648924827576
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 0.0005,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 0.015,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 7.08,
+  "stdout_tail": "",
+  "stderr_tail": ""
+ },
+ "compiled": {
+  "side": "compiled",
+  "phase": "exit",
+  "calls": [
+   {
+    "ok": false,
+    "exception": "InductorError",
+    "exception_msg": "AssertionError: expected reduction_type in (\"min\", \"max\", \"any\", \"sum\")\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n",
+    "exception_inner": "AssertionError",
+    "exc_frame": "cpp.py:3640:reduction_acc_type_vec",
+    "out_struct": "",
+    "out_meta": [],
+    "alias_pairs": [],
+    "n_inputs": 1,
+    "outputs": null,
+    "inputs_after": {
+     "__seq__": "list",
+     "items": [
+      {
+       "__tensor__": "tensor",
+       "meta": {
+        "shape": [
+         3,
+         4
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu",
+        "stride": [
+         4,
+         1
+        ],
+        "contiguous": true,
+        "requires_grad": false,
+        "storage_offset": 0,
+        "is_view": false
+       },
+       "numel": 12,
+       "values": [
+        1.5409960746765137,
+        -0.293428897857666,
+        -2.1787893772125244,
+        0.5684312582015991,
+        -1.0845223665237427,
+        -1.3985954523086548,
+        0.40334683656692505,
+        0.8380263447761536,
+        -0.7192575931549072,
+        -0.40334352850914,
+        -0.5966353416442871,
+        0.18203648924827576
+       ]
+      }
+     ]
+    },
+    "has_grads": false,
+    "grads": null,
+    "grad_error": null,
+    "wall_s": 21.7865,
+    "note": null,
+    "caught_by_handler": null
+   }
+  ],
+  "wall_s": 25.831,
+  "exit_code": 0,
+  "exit_code_hex": "0x0",
+  "timed_out": false,
+  "wall_s_parent": 33.5,
+  "stdout_tail": "",
+  "stderr_tail": "cpu', torch.bool, size=[], stride=[]), data=Reduction(\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   'cpu',\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   torch.bool,\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   def inner_fn(index, rindex):\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]       r0_0, r0_1 = rindex\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]       tmp0 = ops.load(arg0_1, r0_1 + 4 * r0_0)\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]       tmp1 = ops.to_dtype(tmp0, torch.bool, src_dtype=torch.float32, use_compute_types=True)\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]       return tmp1\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   ,\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   ranges=[],\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   reduction_ranges=[3, 4],\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   reduction_type=prod,\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   origin_node=prod,\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   origins=OrderedSet([prod]),\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   stack_traces = {,\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]     File \"D:\\wsl\\personal\\dr\\paper\\toxic_compile\\plan\\scripts\\oracle_tiers_cases.py\", line 387, in <lambda>,\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]       sub(r, \"prod_dtype_bool\", lambda: Case(lambda a: torch.prod(a, dtype=torch.bool), (torch.randn(3, 4),)), fp64=None),\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]                                                        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^,\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   ,\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0]   }\nC0925 17:30:18.059000 3708 site-packages\\torch\\_inductor\\scheduler.py:2608] [0/0] ), _split_size=None, _original_inner_fn=None, _original_ranges=None, _original_reduction_ranges=None)\n"
+ }
+}

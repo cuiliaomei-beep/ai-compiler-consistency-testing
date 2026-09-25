@@ -1,0 +1,8 @@
+exit=0 wall=5.0s
+--- stdout
+eager   : ['generator', 2.0, 4.0, "StopIteration.value='done'"]
+compiled: ['tuple_iterator', 2.0, 4.0, 'StopIteration.value=None']
+eager   : [[2.0, 2.0], [4.0, 4.0]]
+compiled: AttributeError 'tuple_iterator' object has no attribute 'send'
+
+--- stderr
