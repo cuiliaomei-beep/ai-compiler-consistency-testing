@@ -6,7 +6,7 @@ interpreter on the machine, `py -0`), torch 2.14.0+cpu, nnsmith 0.1.0, numpy 2.5
 `D:\wsl\personal\dr\paper\toxic_compile\plan`. Temporary files, the TorchProbe clone and the generated programs
 with their tensors live in
 `C:\Users\clm\AppData\Local\Temp\claude\d--wsl-personal-dr-paper\712b330c-4254-4beb-b7b3-ad57d91dc2ee\scratchpad\p11\`
-(`temisu/` clone, `run_temisu.py` driver, `tp_out/`, `tp_out20/`, `verbatim_run.log`, `torchprobe.pdf/.txt`).
+(`temisu/` clone, `run_temisu.py` driver, `tp_out/`, `tp_out20/` (programs with their `.pt` tensors), `verbatim_run.log`, `torchprobe.pdf/.txt`, and the diagnosis scripts/logs `repro_exc.py`, `repro_dyn23.py`, `repro_fault_exc.py`, `diag_record.py`, `diag_order.py`, `diag_batch.py`..`diag_batch5.py` with their `.log`s).
 Nothing under `tcc/`, `paper_tcc/` or the issue drafts was modified; no tracker was written to.
 
 ## Files

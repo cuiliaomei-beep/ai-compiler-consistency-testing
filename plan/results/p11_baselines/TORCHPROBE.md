@@ -227,7 +227,15 @@ detection (kind `exception`). Here none of these is the injected fault being obs
    has `return obj.items()` (line 3152); main has the `list(...)` snapshot. Not in our ledgers before today (no hit for
    191281 / 190612 / CleanupHook / the message in `TO_SUBMIT.md`, `findings.csv`, the drafts); one earlier occurrence of the same
    message sits unremarked in `kaggle_out/gpucuda/plan/gpu_results_binding/binding.jsonl`. Fixed upstream before we saw it, so
-   it is recorded here and not proposed as an issue.
+   it is recorded here and not proposed as an issue. Confirmed with `TORCHDYNAMO_VERBOSE=1`
+   (`scratchpad/p11/diag_batch5.py`, log `diag_batch5.log`, first occurrence after 304 `run_program` calls, 133-143 s into the
+   batch in three replays): the crash is raised while Dynamo inlines the nested `subfunc` and meets `LOAD_GLOBAL torch` --
+   `symbolic_convert.py::_load_global -> get_globals_source_and_value -> VariableBuilder._wrap` (`builder.py:1220`, `dict(...)` over
+   `enumerate_items_with_dict_position(value)`) `-> utils.py:3174` iterating the live `.items()` view of the program's globals dict, which
+   `get_items_from_dict` (line 3152 in v2.14.0) returns unsnapshotted. In the same process, right after the crash, the same program
+   compiled cleanly on one retry and crashed again on the next (race with garbage collection); in a fresh process it never crashes.
+   The `origin` programs (no nested function, no `LOAD_GLOBAL` inside an inlined frame) never hit it, which is why the
+   `origin` leg has only the `codegen_scalar_edge` artifact.
 
 **Honest Setting B count.** Excluding both artifacts, TorchProbe's programs let our harness find **5 of 19** faults unmutated
 (codegen_index_last, codegen_mod16_tail, codegen_value, functionalize_alias_to_copy, functionalize_drop_mutation) and **6 of 19** after all four mutations (capture_swallow_exception, codegen_index_last, codegen_mod16_tail, codegen_value, functionalize_alias_to_copy, functionalize_drop_mutation); the mutation that adds a detection is the
